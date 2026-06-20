@@ -1,0 +1,128 @@
+.home-page {
+    min-height: 100vh;
+    padding: 48px 24px;
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    max-width: 560px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 24px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.primary-button,
+.secondary-button {
+    border: none;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.primary-button {
+    background-color: #2dab69;
+    color: white;
+}
+
+.primary-button:hover{
+    background-color: #238653;
+}
+
+.secondary-button {
+    background-color: #e5e5e5;
+    color: #333;
+}
+
+.secondary-button:hover{
+    background-color: #ffffff;
+}
+
+.hero-card {
+    width: 320px;
+    padding: 24px;
+    border: 2px solid #e5e5e5;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 8px 0 #d4d4d4;
+    color: #131f24;
+}
+
+.streak-box {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 16px;
+    background-color: #fff4d6;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.streak-number {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.features-section {
+    max-width: 1100px;
+    margin: 80px auto 0;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+
+    color: #131f24;
+}
+
+.feature-card {
+    border: 2px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 20px;
+    background-color: white;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-card {
+        width: 100%;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}

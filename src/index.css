@@ -1,0 +1,22 @@
+@import url('https://googleapis.com');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --font-duo-body: 'Nunito', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-duo-body), serif;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    color: #f7f7f7;
+    background: #131f24;
+}
+
+button {
+    font-family: inherit;
+}
