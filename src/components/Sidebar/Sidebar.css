@@ -1,0 +1,35 @@
+.sidebar {
+    width: 16rem;
+    height: 100vh;
+    background-color: #131f24;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 1.2rem;
+}
+
+.sidebar-header {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.bar-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    margin-left: 1rem;
+
+}
+
+.bar-links li a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+
+}
+
+.bar-links li a:hover {
+    background-color: #34495e;
+}

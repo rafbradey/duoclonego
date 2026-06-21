@@ -23,7 +23,7 @@ function Navbar(){
 
                 <Link to="/learn" className="links">Learn</Link>
                 <Link to="/practice">Practice</Link>
-                <Link to="/quests">Quests</Link>
+                <Link to="/quests">Leaderboards</Link>
                 <Link to="/profile">Profile</Link>
 
             </div>
