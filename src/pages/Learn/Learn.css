@@ -1,0 +1,18 @@
+.page-wrapper{
+    display: flex;
+}
+
+.app-layout {
+
+}
+
+.learn-page-content{
+    width: 60%;
+    height: 100vh;
+    background: #131f24;
+}
+
+.right-info-bar-learn{
+    width: 40%;
+}
+
