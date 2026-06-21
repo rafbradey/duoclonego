@@ -1,12 +1,12 @@
 import "./Home.css";
 import Mascot from "../../components/Mascot/Mascot.jsx";
+import Navbar from "../../components/Navbar/Navbar.jsx";
 
 function Home() {
     return (
 
         <main className="home-page">
-
-
+            <Navbar />
             <section className="hero-section">
 
                 <div className="duoclongo-mascot">

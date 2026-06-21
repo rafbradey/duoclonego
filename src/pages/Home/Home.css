@@ -16,11 +16,11 @@
     text-align: center;
     max-width: 55rem;
     gap: 5rem;
-    margin-top: 8rem;
+
 
 }.features-section{
      width: 100%;
-     margin-bottom: 4.3rem;
+
  }
 
 
@@ -32,6 +32,7 @@
 }
 
 .hero-title {
+    padding-bottom: 1.2rem;
 
 }
 
@@ -39,7 +40,7 @@
 .hero-actions {
     display: flex;
     flex-direction: column;
-    max-width: 20rem;
+    width: 75%;
 
 }
 
@@ -54,8 +55,7 @@
 
 .primary-button,
 .secondary-button {
-    margin-top: 2rem;
-    border: none;
+    margin-top: 1rem;
     border-radius: 12px;
     padding: 14px 20px;
     font-size: 16px;
@@ -67,6 +67,7 @@
     background-color: #2dab69;
     color: white;
     box-shadow: 0 4px #1e7048;
+    border: 1px solid #1e7048;
 }
 
 .primary-button:hover{
@@ -77,10 +78,12 @@
     background-color: #f1f1f1;
     color: #49c0f8;
     box-shadow: 0 4px #868686;
+    border: 1px solid #868686;
 }
 
 .secondary-button:hover{
     background-color: #e7e6e6;
+    box-shadow: 0 4px #868686;
 }
 
 .features-section{
@@ -92,9 +95,6 @@
     border: 2px solid #e1e1e1;
 
 }
-
-
-
 
 
 
