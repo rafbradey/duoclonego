@@ -1,8 +1,11 @@
-.home-page {
-    min-height: 100vh;
-    padding: 48px 24px;
-}
 
+.home-page {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 
@@ -11,29 +14,42 @@
     display: flex;
     align-items: center;
     text-align: center;
-    max-width: 1100px;
-    margin: 0 auto;
+    max-width: 55rem;
+    gap: 5rem;
+    margin-top: 8rem;
 
+}.features-section{
+     width: 100%;
+     margin-bottom: 4.3rem;
+ }
+
+
+.hero-title-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
 .hero-title {
-    margin-left: 2rem;
-    width: 50%;
+
+}
+
+
+.hero-actions {
+    display: flex;
+    flex-direction: column;
+    max-width: 20rem;
+
 }
 
 .duoclongo-mascot{
     display: flex;
     justify-content: center;
-    width: 50%;
-
 
 }
 
-.hero-actions {
-    display: flex;
-    flex-direction: column;
-}
+
 
 
 .primary-button,
@@ -58,26 +74,29 @@
 }
 
 .secondary-button {
-    background-color: #e5e5e5;
-    color: #333;
+    background-color: #f1f1f1;
+    color: #49c0f8;
     box-shadow: 0 4px #868686;
 }
 
 .secondary-button:hover{
-    background-color: #f3f3f3;
+    background-color: #e7e6e6;
 }
 
-.streak-number {
-    font-size: 28px;
-    font-weight: 800;
+.features-section{
+    display: flex;
+    justify-content: center;
+    gap: 1.1rem;
+    align-items: center;
+    padding: 0.5rem;
+    border: 2px solid #e1e1e1;
+
 }
 
 
 
-.features-section {
-    max-width: 1100px;
-    margin: 80px auto 0;
-}
+
+
 
 
 

@@ -53,6 +53,10 @@
     animation: mascotSleepy 3.5s ease-in-out infinite;
 }
 
+.mascot-dance{
+    animation: mascotDance 10.5s ease-in-out infinite;
+}
+
 /* Bounce animation */
 @keyframes mascotBounce {
     0% {
@@ -165,4 +169,31 @@
     100% {
         transform: translateY(0) rotate(0deg);
     }
+}
+
+    @keyframes mascotDance{
+        0% {
+            transform: rotate(0deg);
+        }
+
+        20% {
+            transform: rotate(-4deg);
+        }
+
+        40% {
+            transform: rotate(4deg) scaleX(-1);
+        }
+
+        60% {
+            transform: rotate(-3deg) scaleX(-1);
+        }
+
+        80% {
+            transform: rotate(3deg) scaleX(-1);
+        }
+
+        100% {
+            transform: rotate(0deg) scaleX(1);
+        }
+
 }

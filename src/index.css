@@ -1,22 +1,81 @@
-@import url('https://googleapis.com');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap');
 
 * {
     box-sizing: border-box;
 }
 
 :root {
-    --font-duo-body: 'Nunito', sans-serif;
+    --font-body: 'Nunito', sans-serif;
+    --font-heading: 'Nunito', sans-serif;
+
+    --text-dark: #3c3c3c;
+    --text-muted: #777777;
 }
 
 body {
     margin: 0;
-    font-family: var(--font-duo-body), serif;
+    font-family: var(--font-body), serif;
     font-weight: 500;
+    color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
-    color: #f7f7f7;
-    background: #131f24;
 }
 
 button {
     font-family: inherit;
+}
+
+/* Duolingo-like big heading */
+.heading-xl {
+    font-family: var(--font-heading), serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    text-transform: lowercase;
+    margin: 0;
+}
+
+/* Section heading */
+.heading-lg {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-transform: lowercase;
+    margin: 0;
+}
+
+/* Subheading */
+.heading-md {
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+/* Body text */
+.body-text {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    color: var(--text-muted);
+}
+
+.body-text-dark{
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+/* Buttons / links */
+.duo-button {
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
 }

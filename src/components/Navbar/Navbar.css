@@ -2,30 +2,29 @@
 
 
 .navbar-main{
-
     display: flex;
-    height: 5.5vh;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background: #131f24;
+    gap: 40rem;
     margin-top: 1rem;
-    border-bottom: 1px solid #131f24;;
+
 }
 
 .navbar-title-icon{
     display: flex;
     align-items: center;
-    margin-left: 1.5rem;
+}
 
-
+.navbar-language{
+    font-size: 1rem;
+    color: #afafaf;
+    font-weight: 800;
 }
 
 
-
 .navbar-logo{
-    font-size: 2rem;
-    font-family: var(--font-duo-body), serif;
-    font-weight: 800;
+    font-size: 1.7rem;
+    font-weight: 600;
     letter-spacing: -0.02em;
     color: #2dab69;
     margin-left: 0.5rem;

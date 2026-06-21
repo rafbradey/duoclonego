@@ -1,5 +1,6 @@
-import mascotImage from "../../assets/duoclongo_mascot_noborder.png";
+import mascotImage from "../../assets/duoclongo_mascot_normal.png";
 import mascotImageMaracas from "../../assets/duoclongo_mascot_maracas.png";
+import mascotShadow from "../../assets/duolcongo_mascot_shadow.png";
 import "./Mascot.css";
 
 
@@ -8,14 +9,14 @@ function Mascot({
                     size = 260,
                     flipped = false,
                     mascotType = "default",
-                    mascotColor = null,
                     animationType = "bounce",
                     className = "",
                 }) {
 
     const mascotMap = {
         default: mascotImage,
-        maracas: mascotImageMaracas
+        maracas: mascotImageMaracas,
+        shadow: mascotShadow
     }
 
     const mascotSrc = mascotMap[mascotType] || mascotMap.default;
