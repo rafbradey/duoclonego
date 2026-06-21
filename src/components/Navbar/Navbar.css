@@ -2,13 +2,25 @@
 
 
 .navbar-main{
+
     display: flex;
     height: 5.5vh;
     justify-content: space-between;
     align-items: center;
     background: #131f24;
-    border-bottom: 1px solid #131f24;
+    margin-top: 1rem;
+    border-bottom: 1px solid #131f24;;
 }
+
+.navbar-title-icon{
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+
+
+}
+
+
 
 .navbar-logo{
     font-size: 2rem;
@@ -16,7 +28,7 @@
     font-weight: 800;
     letter-spacing: -0.02em;
     color: #2dab69;
-    margin-left: 1.5rem;
+    margin-left: 0.5rem;
 }
 
 a{

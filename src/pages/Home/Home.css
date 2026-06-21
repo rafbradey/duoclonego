@@ -50,7 +50,7 @@
 }
 
 .primary-button:hover{
-    background-color: #238653;
+    background-color: #2dab69;
 }
 
 .secondary-button {
@@ -59,27 +59,7 @@
 }
 
 .secondary-button:hover{
-    background-color: #ffffff;
-}
-
-.hero-card {
-    width: 320px;
-    padding: 24px;
-    border: 2px solid #e5e5e5;
-    border-radius: 20px;
-    background-color: white;
-    box-shadow: 0 8px 0 #d4d4d4;
-    color: #131f24;
-}
-
-.streak-box {
-    margin-top: 20px;
-    padding: 16px;
-    border-radius: 16px;
-    background-color: #fff4d6;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    background-color: #f3f3f3;
 }
 
 .streak-number {
@@ -107,6 +87,8 @@
     padding: 20px;
     background-color: white;
 }
+
+
 
 @media (max-width: 768px) {
     .hero-section {

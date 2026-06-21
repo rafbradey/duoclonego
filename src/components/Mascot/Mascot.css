@@ -1,0 +1,168 @@
+.mascot-wrapper {
+    display: inline-block;
+}
+
+.mascot-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+.mascot-flipped {
+    transform: scaleX(-1);
+}
+
+/* Hover effect when not flipped */
+.mascot-wrapper:hover .mascot-image {
+    transform: rotate(-5deg) scale(1.08);
+}
+
+/* Hover effect when flipped */
+.mascot-wrapper:hover .mascot-image.mascot-flipped {
+    transform: scaleX(-1) rotate(-5deg) scale(1.08);
+}
+
+/* Animation type: bounce */
+.mascot-bounce {
+    animation: mascotBounce 2.8s ease-in-out infinite;
+}
+
+/* Animation type: float */
+.mascot-float {
+    animation: mascotFloat 3s ease-in-out infinite;
+}
+
+/* Animation type: wiggle */
+.mascot-wiggle {
+    animation: mascotWiggle 1.8s ease-in-out infinite;
+}
+
+/* Animation type: pulse */
+.mascot-pulse {
+    animation: mascotPulse 2s ease-in-out infinite;
+}
+
+/* Animation type: pop */
+.mascot-pop {
+    animation: mascotPop 1.6s ease-in-out infinite;
+}
+
+/* Animation type: sleepy */
+.mascot-sleepy {
+    animation: mascotSleepy 3.5s ease-in-out infinite;
+}
+
+/* Bounce animation */
+@keyframes mascotBounce {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-10px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    75% {
+        transform: translateY(-6px) rotate(2deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* Smooth floating animation */
+@keyframes mascotFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Small playful shaking animation */
+@keyframes mascotWiggle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(-4deg);
+    }
+
+    40% {
+        transform: rotate(4deg);
+    }
+
+    60% {
+        transform: rotate(-3deg);
+    }
+
+    80% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Breathing/pulsing animation */
+@keyframes mascotPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Pop animation, good for success screens */
+@keyframes mascotPop {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.12);
+    }
+
+    60% {
+        transform: scale(0.96);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Slow sleepy movement */
+@keyframes mascotSleepy {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(6px) rotate(1deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
