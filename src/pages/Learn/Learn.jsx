@@ -42,12 +42,13 @@ function Learn(){
                             </div>
 
 
-                            
+
                             <div className="unit-guidebook body-text-light-sm"><NotebookText size={24}/>GUIDEBOOK</div>
                         </div>
 
-
-                        <p>----END OF LESSON----- ?</p>
+                        <div className="unit-divider">
+                        <span className="body-text-dark-md">{unit.unit_message}</span>
+                        </div>
                     </div>
 
 

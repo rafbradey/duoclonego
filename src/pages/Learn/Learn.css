@@ -54,8 +54,36 @@
 }
 
 
-
 .right-info-bar-learn{
     width: 40%;
 }
+
+.unit-divider{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 0.5rem;
+}
+
+.unit-divider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #5f6874;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.unit-divider span{
+    color: rgb(224 235 241 / 0.29);
+}
+.unit-divider::before,
+.unit-divider::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: rgb(224 235 241 / 0.29);
+}
+
 
