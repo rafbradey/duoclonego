@@ -24,7 +24,9 @@ button {
     font-family: inherit;
 }
 
-
+.default-bg{
+    background: #131f24;
+}
 
 
 /* Duolingo-like big heading */
@@ -81,6 +83,33 @@ button {
     letter-spacing: -0.02em;
     margin: 0;
 }
+
+.body-text-light-md{
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0;
+
+}
+.body-text-light-bold-lg{
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: white;
+}
+
+.body-text-light-sm{
+    font-size: 0.9rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    margin: 0;
+    color: white;
+}
+
 
 /* Buttons / links */
 .duo-button {

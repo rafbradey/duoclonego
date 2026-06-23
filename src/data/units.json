@@ -1,0 +1,23 @@
+[
+  {
+    "id": "unit_001",
+    "title": "SECTION 1, UNIT 1",
+    "description": "Learn basic words!",
+    "color": "",
+    "lessons": [
+      {
+        "id": "lesson_001",
+        "lesson_title": "The Basics",
+        "type": "Multiple Choice",
+        "questions": 5,
+        "timer": "None",
+        "xp": 10,
+        "coins": 100,
+        "unlocked": true
+      }
+    ]
+  }
+
+
+
+]

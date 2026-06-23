@@ -1,16 +1,59 @@
 .page-wrapper{
     display: flex;
-}
-
-.app-layout {
 
 }
+
+.app-layout {}
 
 .learn-page-content{
     width: 60%;
-    height: 100vh;
+
     background: #131f24;
+
 }
+
+
+
+.learn-page-unit-container{
+    margin: 2.5rem 6rem;
+}
+
+.learn-page-inner-unit-container{
+    width: 100%;
+    box-shadow: 1px 1px #23804f;
+    border-radius: 12px;
+    background-color: #2dab69;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.learn-title-unit-container{}
+
+.unit-guidebook{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.8rem;
+    border: 2px solid #23804f;
+    border-radius: 12px;
+    box-shadow: 0 2px #23804f;
+}
+
+.unit-header-txt{
+    display: flex;
+    align-items: center;
+    color: rgb(231 231 231 / 0.62);
+}
+
+.unit-subheader-txt{
+    margin-left: 0.5rem;
+
+}
+
+
 
 .right-info-bar-learn{
     width: 40%;

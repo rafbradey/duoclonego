@@ -1,0 +1,20 @@
+[
+  {
+    "id": "lesson_1",
+    "unit_id": "unit_1",
+    "title": "SECTION 1, UNIT 1",
+    "description": "Learn basic words!",
+    "xp_reward": 10,
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What is the meaning of Hello?",
+        "choices": ["Goodbye", "Hello", "Sorry"],
+        "answer": "Hello"
+      }
+    ]
+  }
+
+
+
+]

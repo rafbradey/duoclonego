@@ -1,10 +1,31 @@
 .right-info-main{
-    display: flex;
-    height: 100vh;
-
     background: #131f24;
+    height: 100vh;
     border-left: 2px solid #868686;
 
+}
+
+.user-brief-info{
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid red;
+}
+
+.user-brief-profile{
+    display: flex;
+    align-items: center;
+}
+
+.user-brief-profile p{
+    margin-left: 0.8rem;
+}
 
 
+.user-brief-info-container{
+    display: flex;
+    border: 1px solid white;
+}
+
+.test{
+    display: flex;
 }
