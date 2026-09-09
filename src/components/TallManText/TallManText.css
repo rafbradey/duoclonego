@@ -1,0 +1,12 @@
+.tallman-text {
+    display: inline;
+    letter-spacing: 0.02em;
+}
+
+.tallman-highlight {
+    color: var(--color-secondary);
+    font-weight: 900;
+    text-decoration: underline;
+    text-decoration-color: rgba(73, 192, 248, 0.4);
+    text-underline-offset: 3px;
+}

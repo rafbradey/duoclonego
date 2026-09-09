@@ -2,12 +2,12 @@
   {
     "id": "unit_001",
     "title": "SECTION 1, UNIT 1",
-    "description": "Learn basic words!",
+    "description": "Introductory LASA Pairs",
     "color": "",
     "lessons": [
       {
         "id": "lesson_001",
-        "lesson_title": "5 basic words",
+        "lesson_title": "LASA Pair Recognition",
         "type": "Multiple Choice",
         "questions": 5,
         "timer": "None",
@@ -17,7 +17,7 @@
       },
       {
         "id": "lesson_002",
-        "lesson_title": "10 basic words",
+        "lesson_title": "Tall Man Lettering Basics",
         "type": "Multiple Choice",
         "questions": 5,
         "timer": "None",
@@ -26,6 +26,6 @@
         "unlocked": false
       }
     ],
-    "unit_message": "Learn the top 10 Most Common LASA Drugs"
+    "unit_message": "ISMP 2023 Confused Drug Names Reference"
   }
 ]

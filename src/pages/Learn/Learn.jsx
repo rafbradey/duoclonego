@@ -3,11 +3,17 @@ import { Link } from "react-router";
 import { ArrowLeft, BookOpen, CheckCircle, Lock, Sparkles } from "lucide-react";
 import { getUnits } from "../../services/unitService.js";
 import RightInfoBar from "../../components/RightInfoBar/RightInfoBar.jsx";
+import GuidebookModal from "../../components/GuidebookModal/GuidebookModal.jsx";
 import "./Learn.css";
 
 function Learn() {
     const [units, setUnits] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [guidebookState, setGuidebookState] = useState({
+        isOpen: false,
+        levelId: 1,
+        levelTitle: "Level 1"
+    });
 
     useEffect(() => {
         let isMounted = true;
@@ -50,7 +56,11 @@ function Learn() {
                                     <button
                                         type="button"
                                         className="unit-guidebook-btn"
-                                        onClick={() => alert("Guidebook feature will be available in Phase 1.")}
+                                        onClick={() => setGuidebookState({
+                                            isOpen: true,
+                                            levelId: 1,
+                                            levelTitle: unit.title
+                                        })}
                                         aria-label="View Guidebook"
                                     >
                                         <BookOpen size={20} />
@@ -111,6 +121,13 @@ function Learn() {
             <div className="learn-rail-column">
                 <RightInfoBar />
             </div>
+
+            <GuidebookModal
+                isOpen={guidebookState.isOpen}
+                onClose={() => setGuidebookState((prev) => ({ ...prev, isOpen: false }))}
+                levelId={guidebookState.levelId}
+                levelTitle={guidebookState.levelTitle}
+            />
         </div>
     );
 }

@@ -1,0 +1,204 @@
+{
+  "source": {
+    "name": "Institute for Safe Medication Practices (ISMP)",
+    "document": "ISMP List of Confused Drug Names (2023)",
+    "url": "https://www.ismp.org",
+    "citation": "Institute for Safe Medication Practices (ISMP). List of Confused Drug Names. Horsham, PA: ISMP; 2023.",
+    "notes": "Development dataset for prototype testing. Levels represent educational progression containers, not clinical severity rankings."
+  },
+  "levels": [
+    {
+      "id": 1,
+      "levelNumber": 1,
+      "title": "Level 1: Introductory LASA Pairs",
+      "description": "Initial set of look-alike and sound-alike drug pairs from ISMP 2023 list.",
+      "lasaIds": ["lasa-001", "lasa-002", "lasa-003", "lasa-004", "lasa-005"]
+    },
+    {
+      "id": 2,
+      "levelNumber": 2,
+      "title": "Level 2: Formulations and Distinct Lettering",
+      "description": "Pairs with similar prefixes, shared stems, or related formulation differences.",
+      "lasaIds": ["lasa-006", "lasa-007", "lasa-008", "lasa-009", "lasa-010"]
+    },
+    {
+      "id": 3,
+      "levelNumber": 3,
+      "title": "Level 3: Brand & Suffix Differentiation",
+      "description": "Similar brand names and formulation suffixes requiring careful visual recognition.",
+      "lasaIds": ["lasa-011", "lasa-012", "lasa-013", "lasa-014", "lasa-015"]
+    },
+    {
+      "id": 4,
+      "levelNumber": 4,
+      "title": "Level 4: Release Mechanisms & Suffix Variants",
+      "description": "Medications sharing base names with modified release formulations or overlapping indications.",
+      "lasaIds": ["lasa-016", "lasa-017", "lasa-018", "lasa-019", "lasa-020"]
+    },
+    {
+      "id": 5,
+      "levelNumber": 5,
+      "title": "Level 5: Advanced & Tall Man Combinations",
+      "description": "Look-alike and sound-alike pairs featuring ISMP recommended Tall Man lettering.",
+      "lasaIds": ["lasa-021", "lasa-022", "lasa-023", "lasa-024", "lasa-025", "lasa-026"]
+    }
+  ],
+  "entries": [
+    {
+      "id": "lasa-001",
+      "drugName": "Abelcet",
+      "confusedDrugName": "amphotericin B",
+      "level": 1
+    },
+    {
+      "id": "lasa-002",
+      "drugName": "Accupril",
+      "confusedDrugName": "Aciphex",
+      "level": 1
+    },
+    {
+      "id": "lasa-003",
+      "drugName": "acetaminophen",
+      "confusedDrugName": "acetaZOLAMIDE",
+      "level": 1
+    },
+    {
+      "id": "lasa-004",
+      "drugName": "acetaZOLAMIDE",
+      "confusedDrugName": "acetaminophen",
+      "level": 1
+    },
+    {
+      "id": "lasa-005",
+      "drugName": "acetaZOLAMIDE",
+      "confusedDrugName": "acetoHEXAMIDE",
+      "level": 1
+    },
+    {
+      "id": "lasa-006",
+      "drugName": "acetic acid for irrigation",
+      "confusedDrugName": "glacial acetic acid",
+      "level": 2
+    },
+    {
+      "id": "lasa-007",
+      "drugName": "acetoHEXAMIDE",
+      "confusedDrugName": "acetaZOLAMIDE",
+      "level": 2
+    },
+    {
+      "id": "lasa-008",
+      "drugName": "Aciphex",
+      "confusedDrugName": "Accupril",
+      "level": 2
+    },
+    {
+      "id": "lasa-009",
+      "drugName": "Aciphex",
+      "confusedDrugName": "Aricept",
+      "level": 2
+    },
+    {
+      "id": "lasa-010",
+      "drugName": "Activase",
+      "confusedDrugName": "Cathflo Activase",
+      "level": 2
+    },
+    {
+      "id": "lasa-011",
+      "drugName": "Activase",
+      "confusedDrugName": "TNKase",
+      "level": 3
+    },
+    {
+      "id": "lasa-012",
+      "drugName": "Actonel",
+      "confusedDrugName": "Actos",
+      "level": 3
+    },
+    {
+      "id": "lasa-013",
+      "drugName": "Actos",
+      "confusedDrugName": "Actonel",
+      "level": 3
+    },
+    {
+      "id": "lasa-014",
+      "drugName": "Adacel (Tdap)",
+      "confusedDrugName": "Daptacel (DTaP)",
+      "level": 3
+    },
+    {
+      "id": "lasa-015",
+      "drugName": "Adderall",
+      "confusedDrugName": "Adderall XR",
+      "level": 3
+    },
+    {
+      "id": "lasa-016",
+      "drugName": "Adderall",
+      "confusedDrugName": "Inderal",
+      "level": 4
+    },
+    {
+      "id": "lasa-017",
+      "drugName": "Adderall XR",
+      "confusedDrugName": "Adderall",
+      "level": 4
+    },
+    {
+      "id": "lasa-018",
+      "drugName": "ado-trastuzumab emtansine",
+      "confusedDrugName": "trastuzumab",
+      "level": 4
+    },
+    {
+      "id": "lasa-019",
+      "drugName": "Advair",
+      "confusedDrugName": "Advicor",
+      "level": 4
+    },
+    {
+      "id": "lasa-020",
+      "drugName": "Advicor",
+      "confusedDrugName": "Advair",
+      "level": 4
+    },
+    {
+      "id": "lasa-021",
+      "drugName": "Advicor",
+      "confusedDrugName": "Altocor",
+      "level": 5
+    },
+    {
+      "id": "lasa-022",
+      "drugName": "Afrin (oxymetazoline)",
+      "confusedDrugName": "Afrin (saline)",
+      "level": 5
+    },
+    {
+      "id": "lasa-023",
+      "drugName": "Afrin (saline)",
+      "confusedDrugName": "Afrin (oxymetazoline)",
+      "level": 5
+    },
+    {
+      "id": "lasa-024",
+      "drugName": "Aggrastat",
+      "confusedDrugName": "argatroban",
+      "level": 5
+    },
+    {
+      "id": "lasa-025",
+      "drugName": "Aldara",
+      "confusedDrugName": "Alora",
+      "level": 5
+    },
+    {
+      "id": "lasa-026",
+      "drugName": "ALfentanil*",
+      "confusedDrugName": "fentaNYL*",
+      "level": 5
+    }
+  ]
+}
