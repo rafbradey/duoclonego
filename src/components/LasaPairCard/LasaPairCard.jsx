@@ -5,10 +5,13 @@ import "./LasaPairCard.css";
 function LasaPairCard({ pair, className = "" }) {
     if (!pair) return null;
 
+    const pairNumber = pair.id ? pair.id.replace(/^lasa-0*/i, "") : "";
+    const displayLabel = pairNumber ? `Pair #${pairNumber}` : "Medication Pair";
+
     return (
         <div className={`lasa-pair-card duo-card ${className}`}>
             <div className="lasa-card-header">
-                <span className="lasa-id-badge">{pair.id}</span>
+                <span className="lasa-id-badge">{displayLabel}</span>
                 <span className="lasa-level-tag">Level {pair.level}</span>
             </div>
 
