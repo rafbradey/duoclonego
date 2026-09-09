@@ -7,31 +7,70 @@
   "description": "Formulations & Suffix Variants",
   "unitMessage": "ISMP 2023 Formulations & Similar Stems",
   "color": "#49c0f8",
-  "lessons": [
+  "levels": [
     {
-      "id": "lesson_003",
-      "unitId": "unit_002",
-      "title": "Formulation Safety Differences",
-      "description": "Distinguish between topical, systemic, and modified release products.",
-      "type": "Multiple Choice",
+      "id": "level_201",
+      "levelNumber": 1,
+      "title": "Concentration & Form Recognition",
+      "description": "Recognize the critical differences between concentrated and dilute formulation names.",
+      "learningObjective": "Identify safety risks when standard drug names share identical chemical roots but differing concentrations.",
+      "xpReward": 10,
+      "unlocked": false,
+      "lasaRefIds": ["lasa-006"],
+      "activities": [
+        {
+          "id": "act_201",
+          "activityType": "recognition",
+          "questions": [
+            {
+              "id": "q301",
+              "type": "multiple_choice",
+              "lasaId": "lasa-006",
+              "prompt": "Which product is dangerously confused with glacial acetic acid when concentration is overlooked?",
+              "choices": [
+                "acetic acid for irrigation",
+                "ascorbic acid solution",
+                "acetylcysteine inhalation",
+                "amino acid injection"
+              ],
+              "correctAnswer": "acetic acid for irrigation",
+              "explanation": "Glacial acetic acid is concentrated and corrosive. Inadvertent substitution for dilute acetic acid for irrigation has caused severe tissue burns.",
+              "relatedDrug": "acetic acid for irrigation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "level_202",
+      "levelNumber": 2,
+      "title": "Release Mechanism Discrimination",
+      "description": "Differentiate modified-release suffixes and distinct dosage delivery kinetics.",
+      "learningObjective": "Distinguish immediate-release from extended-release formulations to prevent overdosage.",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-006", "lasa-008", "lasa-009", "lasa-010"],
-      "questions": [
+      "lasaRefIds": ["lasa-015"],
+      "activities": [
         {
-          "id": "q301",
-          "type": "multiple_choice",
-          "lasaId": "lasa-006",
-          "prompt": "Which product is dangerously confused with glacial acetic acid when concentration is overlooked?",
-          "choices": [
-            "acetic acid for irrigation",
-            "ascorbic acid solution",
-            "acetylcysteine inhalation",
-            "amino acid injection"
-          ],
-          "correctAnswer": "acetic acid for irrigation",
-          "explanation": "Glacial acetic acid is concentrated and corrosive. Inadvertent substitution for dilute acetic acid for irrigation has caused severe tissue burns.",
-          "relatedDrug": "acetic acid for irrigation"
+          "id": "act_202",
+          "activityType": "discrimination",
+          "questions": [
+            {
+              "id": "q302",
+              "type": "multiple_choice",
+              "lasaId": "lasa-015",
+              "prompt": "Adderall is commonly confused with Adderall XR when release mechanisms are overlooked. What is the primary clinical difference?",
+              "choices": [
+                "Adderall is immediate-release while Adderall XR is extended-release",
+                "Adderall is an antibiotic while Adderall XR is an antifungal",
+                "Adderall is an intravenous infusion while Adderall XR is a topical cream",
+                "They are manufactured by different companies but are chemically identical"
+              ],
+              "correctAnswer": "Adderall is immediate-release while Adderall XR is extended-release",
+              "explanation": "Adderall (immediate-release) and Adderall XR (extended-release) have different dosing frequencies and pharmacokinetics. Inadvertent substitution can lead to adverse toxicity or subtherapeutic treatment.",
+              "relatedDrug": "Adderall XR"
+            }
+          ]
         }
       ]
     }

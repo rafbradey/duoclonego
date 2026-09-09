@@ -7,144 +7,174 @@
   "description": "Introductory LASA Pairs",
   "unitMessage": "ISMP 2023 Confused Drug Names Reference",
   "color": "#2dab69",
-  "lessons": [
+  "levels": [
     {
-      "id": "lesson_001",
-      "unitId": "unit_001",
-      "title": "LASA Pair Recognition",
-      "description": "Identify common confused pairs from the ISMP 2023 list.",
-      "type": "Multiple Choice",
-      "xpReward": 15,
+      "id": "level_001",
+      "levelNumber": 1,
+      "title": "LASA Pair Familiarization",
+      "description": "Recognize common look-alike and sound-alike brand/generic pairs from visual prompts.",
+      "learningObjective": "Identify documented LASA counterparts and recognize why similar orthography leads to dispensing confusion.",
+      "xpReward": 10,
       "unlocked": true,
-      "lasaRefIds": ["lasa-001", "lasa-002", "lasa-003", "lasa-004", "lasa-005"],
-      "questions": [
+      "lasaRefIds": ["lasa-001", "lasa-002"],
+      "activities": [
         {
-          "id": "q101",
-          "type": "multiple_choice",
-          "lasaId": "lasa-001",
-          "prompt": "Which medication is a documented Look-Alike / Sound-Alike counterpart to Abelcet?",
-          "choices": [
-            "amphotericin B",
-            "amoxicillin",
-            "ampicillin",
-            "atenolol"
-          ],
-          "correctAnswer": "amphotericin B",
-          "explanation": "Abelcet (amphotericin B lipid complex) is frequently confused with conventional amphotericin B. Mix-ups between formulations can cause severe dosing and toxicity errors.",
-          "relatedDrug": "Abelcet"
-        },
-        {
-          "id": "q102",
-          "type": "multiple_choice",
-          "lasaId": "lasa-002",
-          "prompt": "Accupril (quinapril) is commonly confused with which medication due to phonetic and orthographic similarity?",
-          "choices": [
-            "Aciphex",
-            "Actos",
-            "Afrin",
-            "Aricept"
-          ],
-          "correctAnswer": "Aciphex",
-          "explanation": "Accupril (an ACE inhibitor for hypertension) and Aciphex (rabeprazole, a PPI for acid reflux) look and sound similar, despite having completely different therapeutic indications.",
-          "relatedDrug": "Accupril"
-        },
-        {
-          "id": "q103",
-          "type": "multiple_choice",
-          "lasaId": "lasa-003",
-          "prompt": "Which of the following represents a documented LASA hazard between an analgesic and a glaucoma agent?",
-          "choices": [
-            "acetaminophen / acetaZOLAMIDE",
-            "acetaminophen / aspirin",
-            "ibuprofen / naproxen",
-            "acetaZOLAMIDE / acetazolamide SR"
-          ],
-          "correctAnswer": "acetaminophen / acetaZOLAMIDE",
-          "explanation": "acetaminophen and acetaZOLAMIDE share overlapping prefix letters. Confusion between an over-the-counter analgesic and a prescription carbonic anhydrase inhibitor can lead to treatment failure.",
-          "relatedDrug": "acetaZOLAMIDE"
-        },
-        {
-          "id": "q104",
-          "type": "true_false",
-          "lasaId": "lasa-005",
-          "prompt": "acetaZOLAMIDE and acetoHEXAMIDE are recognized by ISMP as a Look-Alike, Sound-Alike pair.",
-          "choices": [
-            "True",
-            "False"
-          ],
-          "correctAnswer": "True",
-          "explanation": "True. acetaZOLAMIDE (carbonic anhydrase inhibitor) and acetoHEXAMIDE (sulfonylurea antidiabetic) are a classic LASA pair that utilize Tall Man lettering to prevent dangerous confusion.",
-          "relatedDrug": "acetaZOLAMIDE"
-        },
-        {
-          "id": "q105",
-          "type": "multiple_choice",
-          "lasaId": "lasa-002",
-          "prompt": "In the LASA pair Accupril and Aciphex, what is the primary risk factor for medication errors?",
-          "choices": [
-            "Phonetic sound-alike and visual look-alike brand names",
-            "Identical tablet color and shape",
-            "Identical active chemical entities",
-            "Same therapeutic class and indications"
-          ],
-          "correctAnswer": "Phonetic sound-alike and visual look-alike brand names",
-          "explanation": "Accupril and Aciphex belong to completely different drug classes (ACE inhibitor vs PPI), but verbal orders and similar written spelling frequently lead to selection errors.",
-          "relatedDrug": "Accupril"
+          "id": "act_101",
+          "activityType": "recognition",
+          "questions": [
+            {
+              "id": "q101",
+              "type": "multiple_choice",
+              "lasaId": "lasa-001",
+              "prompt": "Which medication is a documented Look-Alike / Sound-Alike counterpart to Abelcet?",
+              "choices": [
+                "amphotericin B",
+                "amoxicillin",
+                "ampicillin",
+                "atenolol"
+              ],
+              "correctAnswer": "amphotericin B",
+              "explanation": "Abelcet (amphotericin B lipid complex) is frequently confused with conventional amphotericin B. Mix-ups between formulations can cause severe dosing and toxicity errors.",
+              "relatedDrug": "Abelcet"
+            },
+            {
+              "id": "q102",
+              "type": "multiple_choice",
+              "lasaId": "lasa-002",
+              "prompt": "Accupril (quinapril) is commonly confused with which medication due to phonetic and orthographic similarity?",
+              "choices": [
+                "Aciphex",
+                "Actos",
+                "Afrin",
+                "Aricept"
+              ],
+              "correctAnswer": "Aciphex",
+              "explanation": "Accupril (an ACE inhibitor for hypertension) and Aciphex (rabeprazole, a PPI for acid reflux) look and sound similar, despite having completely different therapeutic indications.",
+              "relatedDrug": "Accupril"
+            }
+          ]
         }
       ]
     },
     {
-      "id": "lesson_002",
-      "unitId": "unit_001",
-      "title": "Tall Man Lettering Basics",
-      "description": "Practice distinguishing medication pairs using uppercase Tall Man formatting.",
-      "type": "Multiple Choice",
+      "id": "level_002",
+      "levelNumber": 2,
+      "title": "Tall Man Lettering Discrimination",
+      "description": "Differentiate look-alike generic medications using capitalized Tall Man letter patterns.",
+      "learningObjective": "Recognize and interpret ISMP/FDA Tall Man lettering to disrupt orthographic confusion between look-alike names.",
       "xpReward": 15,
       "unlocked": false,
       "lasaRefIds": ["lasa-004", "lasa-005"],
-      "questions": [
+      "activities": [
         {
-          "id": "q201",
-          "type": "multiple_choice",
-          "lasaId": "lasa-005",
-          "prompt": "Which drug uses Tall Man lettering to distinguish it from the antidiabetic acetoHEXAMIDE?",
-          "choices": [
-            "acetaZOLAMIDE",
-            "acetaminophen",
-            "acetazolamide",
-            "acetohexamide"
-          ],
-          "correctAnswer": "acetaZOLAMIDE",
-          "explanation": "acetaZOLAMIDE capitalizes ZOLAMIDE to emphasize the difference from acetoHEXAMIDE, which capitalizes HEXAMIDE.",
-          "relatedDrug": "acetaZOLAMIDE"
-        },
+          "id": "act_102",
+          "activityType": "discrimination",
+          "questions": [
+            {
+              "id": "q201",
+              "type": "multiple_choice",
+              "lasaId": "lasa-005",
+              "prompt": "Which drug uses Tall Man lettering to distinguish it from the antidiabetic acetoHEXAMIDE?",
+              "choices": [
+                "acetaZOLAMIDE",
+                "acetaminophen",
+                "acetazolamide",
+                "acetohexamide"
+              ],
+              "correctAnswer": "acetaZOLAMIDE",
+              "explanation": "acetaZOLAMIDE capitalizes ZOLAMIDE to emphasize the difference from acetoHEXAMIDE, which capitalizes HEXAMIDE.",
+              "relatedDrug": "acetaZOLAMIDE"
+            },
+            {
+              "id": "q202",
+              "type": "multiple_choice",
+              "lasaId": "lasa-005",
+              "prompt": "Why is Tall Man lettering used on medication packaging and electronic health records?",
+              "choices": [
+                "To draw visual attention to differing letters in look-alike names",
+                "To indicate the strength and dosage of the pill",
+                "To show that the drug is an over-the-counter medication",
+                "To represent the manufacturer's trademark styling"
+              ],
+              "correctAnswer": "To draw visual attention to differing letters in look-alike names",
+              "explanation": "Tall Man lettering is a medication safety technique recommended by ISMP and the FDA that capitalizes unique letter sequences to disrupt visual confusion.",
+              "relatedDrug": "Tall Man Lettering"
+            },
+            {
+              "id": "q203",
+              "type": "true_false",
+              "lasaId": "lasa-005",
+              "prompt": "Tall Man lettering was created purely for aesthetic design rather than medication error prevention.",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "correctAnswer": "False",
+              "explanation": "False. Tall Man lettering is an evidence-based clinical safety standard specifically designed to reduce adverse drug events caused by look-alike medication names.",
+              "relatedDrug": "Tall Man Safety"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "level_003",
+      "levelNumber": 3,
+      "title": "Clinical Hazard Discrimination & Retrieval",
+      "description": "Apply retrieval practice to identify clinical risks and distinguish distinct therapeutic classes.",
+      "learningObjective": "Retrieve safety distinctions between analgesic and glaucoma agents and identify core risk factors in verbal orders.",
+      "xpReward": 15,
+      "unlocked": false,
+      "lasaRefIds": ["lasa-002", "lasa-003", "lasa-005"],
+      "activities": [
         {
-          "id": "q202",
-          "type": "multiple_choice",
-          "lasaId": "lasa-005",
-          "prompt": "Why is Tall Man lettering used on medication packaging and electronic health records?",
-          "choices": [
-            "To draw visual attention to differing letters in look-alike names",
-            "To indicate the strength and dosage of the pill",
-            "To show that the drug is an over-the-counter medication",
-            "To represent the manufacturer's trademark styling"
-          ],
-          "correctAnswer": "To draw visual attention to differing letters in look-alike names",
-          "explanation": "Tall Man lettering is a medication safety technique recommended by ISMP and the FDA that capitalizes unique letter sequences to disrupt visual confusion.",
-          "relatedDrug": "Tall Man Lettering"
-        },
-        {
-          "id": "q203",
-          "type": "true_false",
-          "lasaId": "lasa-005",
-          "prompt": "Tall Man lettering was created purely for aesthetic design rather than medication error prevention.",
-          "choices": [
-            "True",
-            "False"
-          ],
-          "correctAnswer": "False",
-          "explanation": "False. Tall Man lettering is an evidence-based clinical safety standard specifically designed to reduce adverse drug events caused by look-alike medication names.",
-          "relatedDrug": "Tall Man Safety"
+          "id": "act_103",
+          "activityType": "retrieval",
+          "questions": [
+            {
+              "id": "q103",
+              "type": "multiple_choice",
+              "lasaId": "lasa-003",
+              "prompt": "Which of the following represents a documented LASA hazard between an analgesic and a glaucoma agent?",
+              "choices": [
+                "acetaminophen / acetaZOLAMIDE",
+                "acetaminophen / aspirin",
+                "ibuprofen / naproxen",
+                "acetaZOLAMIDE / acetazolamide SR"
+              ],
+              "correctAnswer": "acetaminophen / acetaZOLAMIDE",
+              "explanation": "acetaminophen and acetaZOLAMIDE share overlapping prefix letters. Confusion between an over-the-counter analgesic and a prescription carbonic anhydrase inhibitor can lead to treatment failure.",
+              "relatedDrug": "acetaZOLAMIDE"
+            },
+            {
+              "id": "q104",
+              "type": "true_false",
+              "lasaId": "lasa-005",
+              "prompt": "acetaZOLAMIDE and acetoHEXAMIDE are recognized by ISMP as a Look-Alike, Sound-Alike pair.",
+              "choices": [
+                "True",
+                "False"
+              ],
+              "correctAnswer": "True",
+              "explanation": "True. acetaZOLAMIDE (carbonic anhydrase inhibitor) and acetoHEXAMIDE (sulfonylurea antidiabetic) are a classic LASA pair that utilize Tall Man lettering to prevent dangerous confusion.",
+              "relatedDrug": "acetaZOLAMIDE"
+            },
+            {
+              "id": "q105",
+              "type": "multiple_choice",
+              "lasaId": "lasa-002",
+              "prompt": "In the LASA pair Accupril and Aciphex, what is the primary risk factor for medication errors?",
+              "choices": [
+                "Phonetic sound-alike and visual look-alike brand names",
+                "Identical tablet color and shape",
+                "Identical active chemical entities",
+                "Same therapeutic class and indications"
+              ],
+              "correctAnswer": "Phonetic sound-alike and visual look-alike brand names",
+              "explanation": "Accupril and Aciphex belong to completely different drug classes (ACE inhibitor vs PPI), but verbal orders and similar written spelling frequently lead to selection errors.",
+              "relatedDrug": "Accupril"
+            }
+          ]
         }
       ]
     }

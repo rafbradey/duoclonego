@@ -74,38 +74,40 @@ function Learn() {
                                 </div>
 
                                 <div className="lesson-tree-container">
-                                    {unit.lessons.map((lesson, idx) => {
-                                        const isUnlocked = lesson.unlocked;
+                                    {(unit.levels || unit.lessons || []).map((level, idx, arr) => {
+                                        const isUnlocked = level.unlocked;
 
                                         return (
-                                            <div key={lesson.id} className="lesson-node-wrapper">
+                                            <div key={level.id} className="lesson-node-wrapper">
                                                 {isUnlocked ? (
                                                     <Link
-                                                        to={`/lesson/${lesson.id}`}
+                                                        to={`/lesson/${level.id}`}
                                                         className="lesson-node-btn lesson-node-active"
-                                                        aria-label={`Start ${lesson.lesson_title}`}
+                                                        aria-label={`Start Level ${level.levelNumber || idx + 1}: ${level.title}`}
+                                                        title={level.learningObjective || level.title}
                                                     >
                                                         <div className="lesson-node-icon-wrapper">
                                                             <CheckCircle size={28} />
                                                         </div>
-                                                        <span className="lesson-node-title">{lesson.lesson_title}</span>
-                                                        <span className="lesson-node-xp">+{lesson.xp} XP</span>
+                                                        <span className="lesson-node-title">{level.title}</span>
+                                                        <span className="lesson-node-xp">+{level.xp} XP</span>
                                                     </Link>
                                                 ) : (
                                                     <button
                                                         type="button"
                                                         className="lesson-node-btn lesson-node-locked"
                                                         disabled
-                                                        aria-label={`${lesson.lesson_title} is locked`}
+                                                        aria-label={`Level ${level.levelNumber || idx + 1}: ${level.title} is locked`}
+                                                        title={level.learningObjective || level.title}
                                                     >
                                                         <div className="lesson-node-icon-wrapper">
                                                             <Lock size={26} />
                                                         </div>
-                                                        <span className="lesson-node-title">{lesson.lesson_title}</span>
+                                                        <span className="lesson-node-title">{level.title}</span>
                                                         <span className="lesson-node-badge">LOCKED</span>
                                                     </button>
                                                 )}
-                                                {idx < unit.lessons.length - 1 && (
+                                                {idx < arr.length - 1 && (
                                                     <div className="lesson-path-connector" />
                                                 )}
                                             </div>

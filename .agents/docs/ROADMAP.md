@@ -571,6 +571,205 @@ Turn Duoclongo from a visual application into an actual learning application.
 
 ---
 
+## Unit → Level Structure & Learning Science
+
+### 28. UNIT → LEVEL STRUCTURE
+
+Each **Unit** contains a configurable number of **Levels**:
+
+```text
+Section
+  ↓
+Unit
+  ├── Level 1
+  ├── Level 2
+  ├── Level 3
+  ├── ...
+  └── Level X
+```
+
+Where:
+> **X is determined by the optimal learning progression for the material, not by an arbitrary fixed number.**
+
+Do NOT assume that every Unit must have exactly 3, 5, 10, or any other fixed number of levels.
+
+The number of levels depends on:
+* amount of material being introduced
+* learning objectives
+* complexity of the concepts
+* difficulty progression
+* opportunities for retrieval practice
+* opportunities for review
+* opportunities to distinguish similar concepts
+* learner workload
+* meaningful progression between levels
+
+The architecture supports `unit.levels[]` rather than assuming a fixed number of levels.
+
+---
+
+### 29. WHY LEVELS EXIST
+
+Levels represent **learning progression**, not merely additional content.
+Each level has a meaningful educational purpose.
+
+Example progression:
+```text
+Level 1: Introduction / Recognition
+Level 2: Guided Identification
+Level 3: Discrimination / Comparison
+Level 4: Retrieval Practice
+Level 5: Application / More Difficult Retrieval
+```
+
+Each level introduces a meaningful change in learning demand, not simply repeated questions with different wording.
+
+---
+
+### 30. LEARNING SCIENCE BASIS
+
+The level structure is informed by established learning principles:
+* **Retrieval Practice**: Actively retrieving previously learned information produces superior long-term retention compared to passive recognition.
+* **Spacing**: Distributed practice over time yields higher retention than massed practice.
+* **Interleaving**: Mixing related, confusable concepts fosters discrimination between similar items.
+* **Feedback**: Immediate explanatory feedback clarifies knowledge gaps and strengthens metacognition.
+
+For Duoclongo, this is vital because LASA learning requires distinguishing similar medication names rather than memorizing isolated drug names.
+
+---
+
+### 31. LEVEL DIFFICULTY PROGRESSION
+
+Levels progress from initial familiarization toward demanding retrieval and discrimination:
+`Familiarization` $\rightarrow$ `Recognition` $\rightarrow$ `Discrimination` $\rightarrow$ `Retrieval` $\rightarrow$ `Application / Mixed Retrieval`.
+
+---
+
+### 32. LASA-SPECIFIC LEARNING PROGRESSION
+
+* **Early level**: Familiarization with names and distinguishing features of a verified pair (recognizing Tall Man lettering, visual prompt identification).
+* **Intermediate level**: Distinguishing between similar names (matching indication/dosage form, comparative discrimination).
+* **Later level**: Retrieval and discrimination (identifying correct medication from memory, distinguishing amongst multiple similar names, applying distinction in new clinical contexts).
+
+---
+
+### 33. DO NOT CONFUSE LEVELS WITH QUESTIONS
+
+A Level is not a fixed question count:
+```text
+Level
+  ↓
+Learning objective
+  ↓
+Activities
+  ↓
+Questions
+```
+The number of activities and questions per level is configurable.
+
+---
+
+### 34. LEVELS SHOULD SUPPORT SPACING
+
+Completing a level does not mean the learner never encounters the material again. The architecture allows completed LASA content to resurface in spaced review.
+
+---
+
+### 35. LEVELS SHOULD SUPPORT INCREASING DIFFICULTY
+
+Difficulty increases through qualitative cognitive demand shifts (`recognition` $\rightarrow$ `discrimination` $\rightarrow$ `retrieval` $\rightarrow$ `application`).
+
+---
+
+### 36. LEVEL DATA MODEL
+
+```json
+{
+  "id": "unit_001",
+  "name": "LASA Recognition",
+  "levels": [
+    {
+      "id": "level_001",
+      "name": "Recognize Similar Names",
+      "order": 1,
+      "learningObjective": "...",
+      "activities": []
+    }
+  ]
+}
+```
+
+---
+
+### 37. IMPORTANT — X MUST REMAIN FLEXIBLE
+
+Never hardcode `const LEVELS_PER_UNIT = 5;`. The application derives available levels dynamically from `unit.levels.length`. The UI supports 2, 3, 5, or 7 levels without code changes.
+
+---
+
+### 38. LEVEL COMPLETION
+
+Levels possess independent completion states (`locked`, `available`, `in_progress`, `completed`).
+
+---
+
+### 39. CURRICULUM DECISION RULE
+
+Determine $X$ by pedagogical necessity:
+`What does the learner need to learn?` $\rightarrow$ `Learning objectives` $\rightarrow$ `Required stages (introduction, recognition, discrimination, retrieval, application)` $\rightarrow$ `Choose X`.
+
+---
+
+### 40. RESEARCH SOURCES TO USE
+
+* Dunlosky et al. (2013), *Improving Students' Learning With Effective Learning Techniques*.
+* American Psychological Association, *Powerful Teaching* (retrieval practice, spacing, interleaving, feedback).
+* Duolingo published learning research (bite-sized lessons, progressive difficulty, retrieval, spaced review).
+
+---
+
+### 41. IMPORTANT RESEARCH CONCLUSION
+
+Units contain as many levels as are pedagogically justified by their learning objectives and difficulty progression, keeping each level focused, manageable, and meaningful.
+
+---
+
+### 42. PHASE 2 BOUNDARY
+
+Implement:
+`Unit -> Levels -> Activities -> Questions -> Answer -> Evaluation -> Completion`.
+Prepare for spacing, interleaving, and retrieval review without premature algorithmic overengineering.
+
+---
+
+### 43. FINAL ARCHITECTURAL PRINCIPLE
+
+```text
+SECTION
+  │
+  ├── UNIT
+  │     │
+  │     ├── LEVEL 1
+  │     │     ├── Activity
+  │     │     │     └── Questions
+  │     │     └── Activity
+  │     │
+  │     ├── LEVEL 2
+  │     │     ├── Activity
+  │     │     └── Activity
+  │     │
+  │     ├── LEVEL 3
+  │     │     └── ...
+  │     │
+  │     └── LEVEL X
+  │           └── ...
+  │
+  └── NEXT UNIT
+```
+$X$ is not a hard-coded number. $X$ is the number of meaningful learning stages required for that Unit.
+
+---
+
 # 2.1 Lesson Model
 
 Create a lesson structure.

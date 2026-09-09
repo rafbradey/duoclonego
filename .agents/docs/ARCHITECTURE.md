@@ -196,9 +196,11 @@ User
 ↓
 Progress
 ↓
+Section
+↓
 Unit
 ↓
-Lesson
+Levels (1..X, where X is pedagogical and dynamic)
 ↓
 Activity
 ↓
@@ -214,23 +216,26 @@ Learning Content
 ↓
 Question
 
-Do not implement a database schema based solely on this document.
-
-Verify actual requirements before implementation.
-
 ### Level & Unit Data Organization
 
 Curriculum levels and units are organized hierarchically:
 
 ```text
 src/data/levels/
+├── index.js                     <-- Aggregates sections, units, and levels
 └── section-{N}/
     ├── unit-1.json
     ├── unit-2.json
     └── ...
 ```
 
-Each unit independently defines its metadata, contained lessons, and question activities, preventing monolithic file bottlenecks while allowing individual unit editing.
+Each unit independently defines its metadata and a configurable array of `levels[]` ($X \ge 1$), where each level defines:
+- `levelNumber` & `title`
+- `learningObjective`
+- `xpReward` & `unlocked` status
+- `activities[]` containing questions (decoupled from direct LASA data via `lasaId`).
+
+The application derives available levels dynamically from `unit.levels.length`. Never assume a fixed number of levels per unit.
 
 ---
 
@@ -258,11 +263,13 @@ State should be separated by responsibility.
 
 ---
 
-# 11. LESSON ENGINE ARCHITECTURE
+# 11. LESSON & LEVEL ENGINE ARCHITECTURE
 
-The future lesson engine should follow:
+The learning engine follows a multi-level progression:
 
-Lesson
+Unit
+↓
+Level (1..X)
 ↓
 Lesson Session
 ↓
@@ -276,7 +283,7 @@ Evaluation
 ↓
 Feedback
 ↓
-Next Question
+Next Question / Level Completion
 
 The lesson engine should not depend on specific UI components.
 
