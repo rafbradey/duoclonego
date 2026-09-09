@@ -1,35 +1,29 @@
-import {Link} from "react-router";
-import "./Navbar.css"
-import Mascot from "../Mascot/Mascot.jsx"
+import { Link } from "react-router";
+import "./Navbar.css";
+import Mascot from "../Mascot/Mascot.jsx";
 
-function Navbar(){
-    return(
-        <nav className="navbar-main">
-            <div className="navbar-title-icon">
-            <div className="navbar-icon">
-                <Mascot mascotType="shadow" size={48} flipped={false} animationType="none" />
-            </div>
-            <div className="navbar-title">
-            <Link to="/" className="navbar-logo heading-md">duoclongo
-        </Link>
-            </div>
-            </div>
+function Navbar() {
+    return (
+        <header className="navbar-header">
+            <div className="navbar-container">
+                <Link to="/" className="navbar-brand" aria-label="Duoclongo Home">
+                    <div className="navbar-logo-icon">
+                        <Mascot mascotType="shadow" size={40} flipped={false} animationType="none" />
+                    </div>
+                    <span className="navbar-logo-text">duoclongo</span>
+                </Link>
 
-            <div className="navbar-language">
-                SITE LANGUAGE: English
+                <div className="navbar-right">
+                    <span className="navbar-badge">
+                        SITE LANGUAGE: <strong className="navbar-lang-highlight">ENGLISH</strong>
+                    </span>
+                    <Link to="/learn" className="duo-button duo-button-primary navbar-cta">
+                        LEARN
+                    </Link>
+                </div>
             </div>
-            {/*
-            <div className="navbar-links">
-
-                <Link to="/learn" className="links">Learn</Link>
-                <Link to="/practice">Practice</Link>
-                <Link to="/quests">Leaderboards</Link>
-                <Link to="/profile">Profile</Link>
-
-            </div>
-        */}
-        </nav>
-    )
+        </header>
+    );
 }
 
-export default Navbar
+export default Navbar;

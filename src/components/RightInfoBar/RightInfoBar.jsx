@@ -1,64 +1,68 @@
 import "./RightInfoBar.css";
-import {useEffect, useState} from "react";
-import {getUserInfo} from "../../services/userService.js";
+import { useEffect, useState } from "react";
+import { Link } from "react-router";
+import { getUserInfo } from "../../services/userService.js";
 
 import userAvatar from "../../assets/avatars/default_avatar_male.png";
 import streakIcon from "../../assets/items/fire_streak.png";
 import heartIcon from "../../assets/items/heart.png";
 import diamondIcon from "../../assets/items/diamond.png";
 
+function RightInfoBar() {
+    const [user, setUser] = useState(null);
 
-
-function RightInfoBar(){
-
-    const [users, setUserInfo] = useState([]);
     useEffect(() => {
-            async function loadUserInfo(){
+        let isMounted = true;
+        async function loadUserInfo() {
+            try {
                 const data = await getUserInfo();
-                setUserInfo(data);
+                if (isMounted && data && data.length > 0) {
+                    setUser(data[0]);
+                }
+            } catch (err) {
+                console.error("Failed to load user info:", err);
             }
-            loadUserInfo();
-        },
-        []);
+        }
+        loadUserInfo();
+        return () => { isMounted = false; };
+    }, []);
 
-    return(
-        <>
-            <div className="right-info-main default-bg">
-              <div className="user-brief-info-container">
-                  {users.map((user) =>(
-                      <div key={user.id}>
+    if (!user) {
+        return (
+            <aside className="right-info-main" aria-label="User Statistics">
+                <div className="right-info-loading body-text-muted">Loading profile...</div>
+            </aside>
+        );
+    }
 
-                          <div className="user-brief-inner-info-container">
-                          <div className="user-brief-profile">
-                          <img src={userAvatar} alt="user_avatar"/>
-                              <p className="body-text-light-sm">{user.display_name}</p>
-                          </div>
-                          <div className="user-brief-info">
-                              <div className="user-stat">
-                                  <img src={streakIcon} alt="" className="user-stat-icon" />
-                                  <span className="body-text-light-sm">{user.streak}</span>
-                              </div>
+    return (
+        <aside className="right-info-main" aria-label="User Statistics">
+            <div className="user-stats-bar">
+                <div className="user-stat" title="Current Day Streak">
+                    <img src={streakIcon} alt="Streak" className="user-stat-icon" />
+                    <span className="user-stat-value">{user.streak}</span>
+                </div>
 
-                              <div className="user-stat">
-                                  <img src={heartIcon} alt="" className="user-stat-icon" />
-                                  <span className="body-text-light-sm">{user.hearts}</span>
-                              </div>
+                <div className="user-stat" title="Hearts Remaining">
+                    <img src={heartIcon} alt="Hearts" className="user-stat-icon" />
+                    <span className="user-stat-value">{user.hearts}</span>
+                </div>
 
-                              <div className="user-stat">
-                                  <img src={diamondIcon} alt="" className="user-stat-icon" />
-                                  <span className="body-text-light-sm">{user.diamonds}</span>
-                              </div>
-                          </div>
-                      </div>
-                      </div>
-                  ))}
-
-              </div>
-
-
+                <div className="user-stat" title="Gems / Diamonds">
+                    <img src={diamondIcon} alt="Diamonds" className="user-stat-icon" />
+                    <span className="user-stat-value">{user.diamonds}</span>
+                </div>
             </div>
-        </>
-    )
+
+            <Link to="/profile" className="user-profile-card" title="View Profile">
+                <img src={userAvatar} alt={`${user.display_name}'s avatar`} className="user-profile-avatar" />
+                <div className="user-profile-details">
+                    <span className="user-profile-name">{user.display_name}</span>
+                    <span className="user-profile-username">@{user.username}</span>
+                </div>
+            </Link>
+        </aside>
+    );
 }
 
 export default RightInfoBar;

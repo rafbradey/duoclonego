@@ -1,0 +1,95 @@
+.lesson-session-root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-page);
+    color: var(--text-white);
+}
+
+.lesson-session-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.25rem 2rem;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.lesson-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.lesson-back-btn:hover {
+    color: var(--text-white);
+}
+
+.lesson-session-progress-bar {
+    flex: 1;
+    height: 16px;
+    background-color: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.lesson-session-progress-fill {
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: 8px;
+    transition: width 0.3s ease;
+}
+
+.lesson-session-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+}
+
+.lesson-placeholder-card {
+    max-width: 520px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+}
+
+.lesson-placeholder-mascot {
+    display: flex;
+    justify-content: center;
+}
+
+.lesson-placeholder-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: var(--bg-page);
+    border: 1px solid var(--color-secondary);
+    color: var(--color-secondary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+}
+
+.lesson-placeholder-actions {
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+.lesson-placeholder-actions .duo-button {
+    width: 100%;
+}

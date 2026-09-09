@@ -1,89 +1,266 @@
-.page-wrapper{
+.learn-layout {
     display: flex;
-
-}
-
-.app-layout {}
-
-.learn-page-content{
-    width: 60%;
-
-    background: #131f24;
-
-}
-
-
-
-.learn-page-unit-container{
-    margin: 2.5rem 6rem;
-}
-
-.learn-page-inner-unit-container{
+    justify-content: center;
+    gap: 2rem;
     width: 100%;
-    box-shadow: 1px 1px #23804f;
-    border-radius: 12px;
-    background-color: #2dab69;
-    padding: 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.learn-content-column {
+    flex: 1;
+    max-width: 620px;
+    width: 100%;
+}
+
+.learn-rail-column {
+    width: 340px;
+    flex-shrink: 0;
+}
+
+.learn-loading {
+    padding: 3rem;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.learn-units-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.unit-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.unit-banner {
+    width: 100%;
+    background-color: var(--color-primary);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    gap: 1rem;
+    box-shadow: 0 4px var(--color-primary-shadow);
+    color: var(--text-white);
 }
 
-.learn-title-unit-container{}
+.unit-banner-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
 
-.unit-guidebook{
+.unit-header-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.85;
+}
+
+.unit-back-icon {
+    flex-shrink: 0;
+}
+
+.unit-title {
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.unit-description {
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.unit-guidebook-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.2rem;
-    padding: 0.8rem;
-    border: 2px solid #23804f;
-    border-radius: 12px;
-    box-shadow: 0 2px #23804f;
-}
-
-.unit-header-txt{
-    display: flex;
-    align-items: center;
-    color: rgb(231 231 231 / 0.62);
-}
-
-.unit-subheader-txt{
-    margin-left: 0.5rem;
-
-}
-
-
-.right-info-bar-learn{
-    width: 40%;
-}
-
-.unit-divider{
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
     gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 12px;
+    border: 2px solid var(--color-primary-shadow);
+    background-color: transparent;
+    color: var(--text-white);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    box-shadow: 0 2px var(--color-primary-shadow);
+    transition: background-color 0.15s ease, transform 0.1s ease;
+    flex-shrink: 0;
+}
+
+.unit-guidebook-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.unit-guidebook-btn:active {
+    transform: translateY(2px);
+    box-shadow: none;
 }
 
 .unit-divider {
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
     width: 100%;
-    color: #5f6874;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 2rem;
+    margin: 2rem 0 2.5rem 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: center;
 }
 
-.unit-divider span{
-    color: rgb(224 235 241 / 0.29);
-}
 .unit-divider::before,
 .unit-divider::after {
     content: "";
     flex: 1;
     height: 2px;
-    background-color: rgb(224 235 241 / 0.29);
+    background-color: var(--border-color);
 }
 
+.unit-divider-icon {
+    color: var(--color-accent);
+    flex-shrink: 0;
+}
 
+.lesson-tree-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.lesson-node-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lesson-node-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.1s ease, filter 0.15s ease, box-shadow 0.1s ease;
+    position: relative;
+    user-select: none;
+}
+
+.lesson-node-active {
+    background-color: var(--color-primary);
+    color: var(--text-white);
+    border: 3px solid var(--color-primary-shadow);
+    box-shadow: 0 8px var(--color-primary-shadow);
+}
+
+.lesson-node-active:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px var(--color-primary-shadow);
+}
+
+.lesson-node-active:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px var(--color-primary-shadow);
+}
+
+.lesson-node-locked {
+    background-color: var(--bg-surface);
+    color: var(--text-muted);
+    border: 3px solid var(--border-color);
+    box-shadow: 0 8px var(--border-color);
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.lesson-node-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lesson-node-title {
+    position: absolute;
+    bottom: -28px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    white-space: nowrap;
+    color: var(--text-white);
+}
+
+.lesson-node-xp {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background-color: var(--color-accent);
+    color: var(--text-dark);
+    font-size: 0.75rem;
+    font-weight: 900;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px var(--color-accent-shadow);
+}
+
+.lesson-node-badge {
+    position: absolute;
+    bottom: -28px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+.lesson-path-connector {
+    width: 6px;
+    height: 48px;
+    background-color: var(--border-color);
+    border-radius: 3px;
+    margin: 32px 0 16px 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+    .learn-layout {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .learn-rail-column {
+        width: 100%;
+        max-width: 620px;
+    }
+}
+
+@media (max-width: 640px) {
+    .unit-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .unit-guidebook-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .unit-description {
+        font-size: 1.15rem;
+    }
+}

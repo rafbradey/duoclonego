@@ -1,0 +1,20 @@
+.app-layout-root {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--bg-page);
+}
+
+.app-main-viewport {
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .app-main-viewport {
+        padding-bottom: calc(var(--mobile-nav-height) + 1rem);
+    }
+}

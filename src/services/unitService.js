@@ -1,5 +1,5 @@
-import lessons from "../data/units.json"
+import units from "../data/units.json"
 
-export async function getLessons(){
-    return lessons;
+export async function getUnits(){
+    return units;
 }

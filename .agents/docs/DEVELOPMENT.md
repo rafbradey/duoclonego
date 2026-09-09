@@ -1,0 +1,664 @@
+# DUOCLONGO — DEVELOPMENT RULES
+
+## 1. GENERAL RULE
+
+The existing repository is the source of truth.
+
+Never assume that the project matches a previous description.
+
+Inspect the actual code before making significant changes.
+
+---
+
+# 2. BEFORE CODING
+
+Before modifying a feature:
+
+1. Find the relevant files.
+2. Read the existing implementation.
+3. Identify dependencies.
+4. Identify related components.
+5. Identify related services.
+6. Check routing.
+7. Check existing data structures.
+8. Determine whether an existing solution can be reused.
+9. Plan the smallest reasonable change.
+
+Do not immediately rewrite files.
+
+---
+# Git Workflow
+
+The AI agent is responsible for preparing and committing changes, but the user is responsible for pushing them to the remote repository.
+
+## Allowed Git Operations
+
+The agent may:
+
+- inspect Git status/history
+- stage changes with `git add`
+- create commits with `git commit`
+- create clear commit messages
+
+The agent must NOT:
+
+- run `git push`
+- force push
+- modify remote branches
+- reset or discard user work without explicit permission
+- use destructive Git commands such as:
+  - `git reset --hard`
+  - `git clean -fd`
+  - `git checkout -- .`
+  - equivalent destructive commands
+
+## Commit Workflow
+
+After completing a coherent piece of work:
+
+1. Inspect the changes.
+2. Run relevant validation.
+3. Review `git diff`.
+4. Stage the intended changes.
+5. Create a commit.
+
+Use clear, conventional commit messages where appropriate, for example:
+
+```text
+feat: add LASA drug data model
+feat: implement lesson question engine
+fix: correct profile route
+refactor: create shared app layout
+style: improve mobile lesson layout
+chore: remove unused dependencies
+docs: update development roadmap
+
+# 3. MINIMAL CHANGES
+
+Prefer targeted changes.
+
+If a feature can be implemented by modifying three files, do not rewrite twenty files.
+
+Do not refactor unrelated code while implementing a feature unless the refactor is necessary.
+
+If a larger refactor is genuinely required, explain why before performing it.
+
+---
+
+# 4. DO NOT DUPLICATE
+
+Before creating:
+
+- component
+- hook
+- service
+- utility
+- data model
+- CSS pattern
+
+search the repository for an existing implementation.
+
+Reuse or extend existing functionality when appropriate.
+
+---
+
+# 5. DO NOT OVER-ENGINEER
+
+Do not add a dependency just because it could solve a problem.
+
+Before adding a library, determine:
+
+- whether the existing stack can solve the problem
+- whether the dependency is actually necessary
+- whether it introduces unnecessary complexity
+
+Keep the project understandable.
+
+---
+
+# 6. CODE QUALITY
+
+Prefer code that is:
+
+- readable
+- explicit
+- maintainable
+- consistent
+- easy to debug
+
+Avoid clever abstractions when simple code works.
+
+Use meaningful names.
+
+Keep components reasonably focused.
+
+Keep business logic out of presentation when practical.
+
+---
+
+# 7. REACT RULES
+
+Follow the existing React conventions in the repository.
+
+Avoid:
+
+- unnecessary state
+- unnecessary effects
+- duplicated state
+- deeply nested component logic
+- large monolithic components
+
+When a component becomes difficult to understand, consider separating a meaningful piece of functionality.
+
+Do not split components merely to create more files.
+
+---
+
+# 8. DATA RULES
+
+Do not hardcode application data inside UI components when the data belongs in the data layer.
+
+Examples:
+
+Bad:
+
+A React component containing a large list of LASA drugs.
+
+Better:
+
+Structured data accessed through the appropriate service.
+
+Do not invent medical information.
+
+---
+
+# 9. LASA CONTENT RULE
+
+LASA content is educational content.
+
+Do not casually generate or modify drug information without considering accuracy.
+
+When authoritative medical information is required, use an appropriate verified source.
+
+Keep educational data separate from presentation code.
+
+---
+
+# 10. UI RULES
+
+Maintain a consistent visual language.
+
+Reuse:
+
+- buttons
+- cards
+- spacing patterns
+- typography
+- icons
+- feedback patterns
+
+Avoid creating multiple visual implementations of the same UI concept.
+
+UI should prioritize usability over visual imitation.
+
+---
+
+# 11. MOBILE RULE
+
+Every new UI feature must consider mobile.
+
+Check:
+
+- screen width
+- text wrapping
+- button size
+- touch targets
+- spacing
+- overflow
+- fixed elements
+- navigation
+- modal behavior
+
+Do not knowingly introduce desktop-only layouts.
+
+---
+
+# 12. ACCESSIBILITY
+
+Interactive elements should be usable with:
+
+- keyboard
+- readable text
+- sufficient contrast
+- appropriate semantic elements
+- meaningful labels
+
+Do not use clickable `<div>` elements when a button or link is appropriate.
+
+---
+
+# 13. ERROR HANDLING
+
+Features should account for:
+
+- loading
+- success
+- empty state
+- error state
+
+Do not assume data always loads successfully.
+
+User-facing errors should be understandable.
+
+---
+
+# 14. TESTING
+
+A feature is not complete merely because the project compiles.
+
+After implementing a feature:
+
+1. Run lint.
+2. Run the build.
+3. Test the relevant user flow.
+4. Check desktop behavior.
+5. Check mobile behavior when UI is affected.
+6. Check for console errors.
+
+If tests are unavailable, perform reasonable manual verification.
+
+Never claim something was tested if it was not.
+
+---
+
+# Data Folder and Future Supabase Migration
+
+The existing project contains a `src/data/` directory with JSON files.
+
+The AI agent MUST inspect the entire data directory before changing the data architecture.
+
+Example:
+
+```text
+src/data/
+├── user.json
+├── units.json
+├── lessons.json
+└── ...
+```
+
+These JSON files are part of the existing Duoclongo prototype and may contain useful development data, educational content, examples, or seed data.
+
+Do not assume they represent the final database schema.
+
+---
+
+## Existing JSON Data
+
+For every JSON data source, determine:
+
+* what it contains
+* where it is used
+* which components/services consume it
+* whether it is actually active
+* whether it should be preserved
+* whether it needs restructuring
+* whether it should eventually become persistent database data
+* whether it is temporary/mock data
+
+Classify existing data appropriately:
+
+```text
+KEEP
+RESTRUCTURE
+MIGRATE LATER
+MOCK / TEMPORARY
+REMOVE
+```
+
+Do not delete or overwrite existing JSON data simply because it is part of the old architecture.
+
+Useful existing data may eventually become seed data for the production database.
+
+---
+
+# Future Supabase Backend
+
+The long-term backend for Duoclongo will use **Supabase**.
+
+The current foundation rebuild does NOT require implementing the complete Supabase backend unless explicitly instructed.
+
+However, the application should be structured so that the eventual migration from local JSON data to Supabase does not require rewriting the UI or core learning engine.
+
+The intended evolution is:
+
+```text
+CURRENT
+
+React
+  ↓
+Services
+  ↓
+Local JSON Data
+```
+
+Eventually:
+
+```text
+FUTURE
+
+React
+  ↓
+Services
+  ↓
+Supabase
+  ↓
+PostgreSQL
+```
+
+The data source should therefore remain replaceable.
+
+---
+
+# Data Access
+
+Avoid tightly coupling UI components directly to JSON files throughout the application.
+
+Avoid patterns such as:
+
+```js
+import lessons from "../data/lessons.json";
+```
+
+being repeated across many components.
+
+Prefer an appropriate service/data-access layer where practical:
+
+```text
+Lesson UI
+    ↓
+lessonService
+    ↓
+Local JSON data
+```
+
+Later:
+
+```text
+Lesson UI
+    ↓
+lessonService
+    ↓
+Supabase
+```
+
+This allows the UI and learning engine to remain mostly independent of where the data is stored.
+
+Do not create a large abstraction framework solely for this purpose.
+
+Keep the implementation simple and understandable.
+
+---
+
+# Local Data During Development
+
+Local JSON data is acceptable during the early development phases.
+
+Use it when it makes development:
+
+* simple
+* fast
+* deterministic
+* easy to test
+* easy to understand
+
+Do not introduce Supabase prematurely simply because it is planned for the future.
+
+The priority is to establish a clean application and learning architecture first.
+
+---
+
+# Future Supabase Entities
+
+When designing new domain models, consider how they could eventually map to Supabase.
+
+Potential future entities include:
+
+```text
+users
+drugs
+lasa_pairs
+units
+lessons
+lesson_activities
+questions
+answers
+user_progress
+lesson_attempts
+achievements
+quests
+streaks
+```
+
+These are conceptual future entities only.
+
+They are NOT instructions to create all of these tables immediately.
+
+Create database structures only when the relevant roadmap phase requires them.
+
+---
+
+# Data Migration Mindset
+
+When working with existing or new data, think in this order:
+
+```text
+What data currently exists?
+        ↓
+What data is actually being used?
+        ↓
+What data is useful?
+        ↓
+What data needs restructuring?
+        ↓
+What data should eventually become persistent?
+        ↓
+What should eventually migrate to Supabase?
+```
+
+Preserve useful educational and application data while improving the architecture around it.
+
+---
+
+# LASA Data
+
+LASA-related educational data requires additional care.
+
+Before creating or modifying LASA data, read:
+
+```text
+.agents/LASA-RESEARCH.md
+```
+
+Do not invent:
+
+* LASA pairs
+* Tall Man lettering
+* drug classifications
+* medication facts
+* indications
+* medication safety recommendations
+
+Verified educational content should remain distinguishable from application-generated or mock development data.
+
+---
+
+# Important Rule
+
+**Supabase is the planned future backend, not the current requirement.**
+
+Do not rebuild the entire application around Supabase during the foundation phase.
+
+Instead, create a clean architecture that allows:
+
+```text
+JSON → Supabase
+```
+
+to happen later with minimal disruption.
+
+The goal is:
+
+```text
+Stable UI
++
+Stable Learning Engine
++
+Stable Domain Models
++
+Replaceable Data Source
+```
+
+
+
+# 15. GIT
+
+Keep changes logically grouped.
+
+Do not modify unrelated files.
+
+Do not commit generated files unless the project requires them.
+
+Before committing, review:
+
+- changed files
+- added files
+- removed files
+- unintended modifications
+
+Commit messages should describe the actual change.
+
+---
+
+# 16. SECURITY
+
+Never commit:
+
+- passwords
+- API keys
+- tokens
+- secrets
+- private credentials
+
+Use environment variables for secrets.
+
+Do not expose server-only credentials in client-side code.
+
+Validate user-provided data when necessary.
+
+---
+
+# 17. PERFORMANCE
+
+Do not prematurely optimize.
+
+However, avoid obvious problems such as:
+
+- unnecessarily huge assets
+- repeated expensive calculations
+- unnecessary API requests
+- unnecessary re-renders
+- loading large resources when they are not needed
+
+Measure or identify a real problem before introducing complicated optimization.
+
+---
+
+# 18. FEATURE IMPLEMENTATION
+
+When asked to implement a feature:
+
+First determine:
+
+What already exists?
+What needs to change?
+What data is required?
+What UI is required?
+What logic is required?
+What routes are affected?
+What mobile behavior is required?
+How will it be tested?
+
+Then implement.
+
+---
+
+# 19. PHASED DEVELOPMENT
+
+Duoclongo should be developed in phases.
+
+The preferred high-level order is:
+
+Foundation
+↓
+LASA Data
+↓
+Learning Engine
+↓
+Progression
+↓
+Backend / Persistence
+↓
+Gamification
+↓
+Mobile Polish
+↓
+Production
+
+Do not skip directly to advanced gamification while the learning engine is incomplete unless explicitly requested.
+
+---
+
+# 20. AGENT REPORTING
+
+After completing a task, report:
+
+### Changed
+
+What files/features were changed.
+
+### Why
+
+Why the changes were necessary.
+
+### Tested
+
+What commands and user flows were tested.
+
+### Issues
+
+Anything that remains broken or incomplete.
+
+### Next
+
+Any logical next step.
+
+Do not claim unrelated features were completed.
+
+---
+
+# 21. IMPORTANT
+
+When in doubt:
+
+Inspect first.
+
+Prefer the existing architecture.
+
+Make the smallest reasonable change.
+
+Keep the code understandable.
+
+Protect the core learning experience.
+
+Do not turn a small feature request into an unnecessary rewrite.

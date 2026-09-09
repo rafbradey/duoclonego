@@ -1,66 +1,118 @@
-import "./Learn.css";
-import Sidebar from "../../components/Sidebar/Sidebar.jsx";
+import { useEffect, useState } from "react";
+import { Link } from "react-router";
+import { ArrowLeft, BookOpen, CheckCircle, Lock, Sparkles } from "lucide-react";
+import { getUnits } from "../../services/unitService.js";
 import RightInfoBar from "../../components/RightInfoBar/RightInfoBar.jsx";
-import {ArrowLeft, NotebookText} from "lucide-react";
+import "./Learn.css";
 
-import {useEffect, useState} from "react";
-import {getLessons} from "../../services/unitService.js";
+function Learn() {
+    const [units, setUnits] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-
-function Learn(){
-
-    const [units,setLessons] = useState([]);
-
-    useEffect( () => {
-            async function loadLessons() {
-                const data = await getLessons();
-                setLessons(data);
+    useEffect(() => {
+        let isMounted = true;
+        async function loadUnits() {
+            try {
+                const data = await getUnits();
+                if (isMounted) {
+                    setUnits(data);
+                    setLoading(false);
+                }
+            } catch (err) {
+                console.error("Failed to load units:", err);
+                if (isMounted) setLoading(false);
             }
-            loadLessons();
-        },[]);
+        }
+        loadUnits();
+        return () => { isMounted = false; };
+    }, []);
 
-    return(
-        <div className="page-wrapper">
-            <div className="app-layout">
-            <Sidebar/>
-            </div>
+    return (
+        <div className="learn-layout">
+            <div className="learn-content-column">
+                {loading ? (
+                    <div className="learn-loading body-text-muted">Loading learning path...</div>
+                ) : (
+                    <div className="learn-units-container">
+                        {units.map((unit) => (
+                            <section key={unit.id} className="unit-section" aria-labelledby={`unit-${unit.id}-title`}>
+                                <div className="unit-banner">
+                                    <div className="unit-banner-info">
+                                        <div className="unit-header-meta">
+                                            <ArrowLeft size={20} className="unit-back-icon" />
+                                            <h2 id={`unit-${unit.id}-title`} className="unit-title heading-md">
+                                                {unit.title}
+                                            </h2>
+                                        </div>
+                                        <p className="unit-description">{unit.description}</p>
+                                    </div>
 
-            <div className="learn-page-content">
-                <div className="learn-page-unit-container">
-                {units.map((unit) =>(
-                    <div key={unit.id}>
+                                    <button
+                                        type="button"
+                                        className="unit-guidebook-btn"
+                                        onClick={() => alert("Guidebook feature will be available in Phase 1.")}
+                                        aria-label="View Guidebook"
+                                    >
+                                        <BookOpen size={20} />
+                                        <span>GUIDEBOOK</span>
+                                    </button>
+                                </div>
 
-                        <div className="learn-page-inner-unit-container">
-                            <div className="learn-title-unit-container">
-                            <div className="unit-header-txt">
-                        <div><ArrowLeft size={24}/></div>
-                        <h2 className="body-text-light-md">{unit.title}</h2>
-                            </div>
-                            <div className="unit-subheader-txt">
-                        <p className="body-text-light-bold-lg">{unit.description}</p>
-                            </div>
-                            </div>
+                                <div className="unit-divider">
+                                    <Sparkles size={16} className="unit-divider-icon" />
+                                    <span>{unit.unit_message}</span>
+                                </div>
 
+                                <div className="lesson-tree-container">
+                                    {unit.lessons.map((lesson, idx) => {
+                                        const isUnlocked = lesson.unlocked;
 
-
-                            <div className="unit-guidebook body-text-light-sm"><NotebookText size={24}/>GUIDEBOOK</div>
-                        </div>
-
-                        <div className="unit-divider">
-                        <span className="body-text-dark-md">{unit.unit_message}</span>
-                        </div>
+                                        return (
+                                            <div key={lesson.id} className="lesson-node-wrapper">
+                                                {isUnlocked ? (
+                                                    <Link
+                                                        to={`/lesson/${lesson.id}`}
+                                                        className="lesson-node-btn lesson-node-active"
+                                                        aria-label={`Start ${lesson.lesson_title}`}
+                                                    >
+                                                        <div className="lesson-node-icon-wrapper">
+                                                            <CheckCircle size={28} />
+                                                        </div>
+                                                        <span className="lesson-node-title">{lesson.lesson_title}</span>
+                                                        <span className="lesson-node-xp">+{lesson.xp} XP</span>
+                                                    </Link>
+                                                ) : (
+                                                    <button
+                                                        type="button"
+                                                        className="lesson-node-btn lesson-node-locked"
+                                                        disabled
+                                                        aria-label={`${lesson.lesson_title} is locked`}
+                                                    >
+                                                        <div className="lesson-node-icon-wrapper">
+                                                            <Lock size={26} />
+                                                        </div>
+                                                        <span className="lesson-node-title">{lesson.lesson_title}</span>
+                                                        <span className="lesson-node-badge">LOCKED</span>
+                                                    </button>
+                                                )}
+                                                {idx < unit.lessons.length - 1 && (
+                                                    <div className="lesson-path-connector" />
+                                                )}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </section>
+                        ))}
                     </div>
-
-
-
-                ))}
+                )}
             </div>
-            </div>
-            <div className="right-info-bar-learn">
-                <RightInfoBar/>
+
+            <div className="learn-rail-column">
+                <RightInfoBar />
             </div>
         </div>
-    )
+    );
 }
 
 export default Learn;

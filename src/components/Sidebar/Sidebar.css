@@ -1,38 +1,49 @@
 .sidebar {
-    width: 16rem;
+    width: var(--sidebar-width);
     height: 100vh;
-
-    background-color: #131f24;
-    color: white;
+    background-color: var(--bg-page);
+    color: var(--text-white);
+    position: sticky;
     top: 0;
     left: 0;
-    padding-top: 1.2rem;
-    border-right: solid 2px #37464f;
-
-
+    padding: 1.5rem 1rem;
+    border-right: 2px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
 }
 
 .sidebar-header {
-    margin-left: 2rem;
-    margin-bottom: 1rem;
+    padding: 0 0.5rem 1.5rem 0.5rem;
 }
 
-.bar-links {
+.sidebar-logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.sidebar-logo-text {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    letter-spacing: -0.03em;
+}
+
+.sidebar-nav {
+    flex: 1;
+}
+
+.sidebar-links-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 0;
-    margin-left: 1rem;
-
+    gap: 0.4rem;
 }
 
-.bar-links li a {
-    display: block;
-    padding: 0.8rem 1.5rem;
-
-}
-
-.bar-links li a:hover {
-    background-color: #34495e;
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
 }

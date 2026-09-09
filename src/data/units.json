@@ -7,13 +7,23 @@
     "lessons": [
       {
         "id": "lesson_001",
-        "lesson_title": "The Basics",
+        "lesson_title": "5 basic words",
         "type": "Multiple Choice",
         "questions": 5,
         "timer": "None",
         "xp": 10,
         "coins": 100,
         "unlocked": true
+      },
+      {
+        "id": "lesson_002",
+        "lesson_title": "10 basic words",
+        "type": "Multiple Choice",
+        "questions": 5,
+        "timer": "None",
+        "xp": 10,
+        "coins": 100,
+        "unlocked": false
       }
     ],
     "unit_message": "Learn the top 10 Most Common LASA Drugs"
