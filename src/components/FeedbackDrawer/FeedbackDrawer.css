@@ -1,0 +1,120 @@
+.feedback-drawer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+    z-index: 150;
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.4);
+    animation: drawerSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes drawerSlideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.feedback-correct {
+    background-color: #173327;
+    border-top: 3px solid var(--color-primary);
+}
+
+.feedback-incorrect {
+    background-color: #3b181e;
+    border-top: 3px solid var(--color-danger);
+}
+
+.feedback-drawer-container {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.feedback-message-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    flex: 1;
+}
+
+.feedback-icon-wrapper {
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+}
+
+.feedback-icon-correct {
+    color: var(--color-primary);
+}
+
+.feedback-icon-incorrect {
+    color: var(--color-danger);
+}
+
+.feedback-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.feedback-correct .feedback-heading {
+    color: var(--color-primary);
+}
+
+.feedback-incorrect .feedback-heading {
+    color: var(--color-danger);
+}
+
+.feedback-solution {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--text-white);
+}
+
+.feedback-explanation {
+    color: var(--text-light);
+    line-height: 1.45;
+    max-width: 580px;
+}
+
+.feedback-action-block {
+    flex-shrink: 0;
+}
+
+.feedback-continue-btn-danger {
+    background-color: var(--color-danger);
+    color: var(--text-white);
+    border: 1px solid var(--color-danger-shadow);
+    box-shadow: 0 4px var(--color-danger-shadow);
+}
+
+.feedback-continue-btn-danger:hover {
+    filter: brightness(1.1);
+}
+
+.feedback-continue-btn-danger:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px var(--color-danger-shadow);
+}
+
+@media (max-width: 680px) {
+    .feedback-drawer {
+        padding: 1.25rem 1rem;
+    }
+
+    .feedback-drawer-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.25rem;
+    }
+
+    .feedback-action-block .duo-button {
+        width: 100%;
+    }
+}

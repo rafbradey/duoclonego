@@ -1,4 +1,4 @@
-.lesson-session-root {
+.lesson-runner-root {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -6,7 +6,30 @@
     color: var(--text-white);
 }
 
-.lesson-session-header {
+.session-status-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+}
+
+.session-error-card {
+    max-width: 440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 2.5rem 1.5rem;
+}
+
+.session-error-icon {
+    color: var(--color-danger);
+}
+
+.lesson-runner-header {
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -16,23 +39,22 @@
     margin: 0 auto;
 }
 
-.lesson-back-btn {
+.lesson-runner-close-btn {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
     color: var(--text-muted);
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    transition: color 0.15s ease;
+    padding: 0.4rem;
+    border-radius: 10px;
+    transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.lesson-back-btn:hover {
+.lesson-runner-close-btn:hover {
+    background-color: var(--bg-surface-hover);
     color: var(--text-white);
 }
 
-.lesson-session-progress-bar {
+.lesson-runner-progress-track {
     flex: 1;
     height: 16px;
     background-color: var(--bg-surface);
@@ -41,55 +63,78 @@
     overflow: hidden;
 }
 
-.lesson-session-progress-fill {
+.lesson-runner-progress-bar {
     height: 100%;
     background-color: var(--color-primary);
     border-radius: 8px;
-    transition: width 0.3s ease;
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.lesson-session-main {
+.lesson-runner-counter {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+}
+
+.lesson-runner-content {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 1.5rem 8rem 1.5rem;
 }
 
-.lesson-placeholder-card {
-    max-width: 520px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.25rem;
-}
-
-.lesson-placeholder-mascot {
-    display: flex;
-    justify-content: center;
-}
-
-.lesson-placeholder-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+.lesson-runner-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.25rem 2rem;
     background-color: var(--bg-page);
-    border: 1px solid var(--color-secondary);
-    color: var(--color-secondary);
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
+    border-top: 2px solid var(--border-color);
+    z-index: 100;
 }
 
-.lesson-placeholder-actions {
-    margin-top: 0.5rem;
-    width: 100%;
+.lesson-runner-footer-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.lesson-placeholder-actions .duo-button {
-    width: 100%;
+.lesson-check-btn {
+    min-width: 160px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+}
+
+.lesson-check-btn:disabled {
+    background-color: var(--bg-surface);
+    color: var(--text-muted);
+    border: 2px solid var(--border-color);
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+    transform: none;
+}
+
+@media (max-width: 680px) {
+    .lesson-runner-header {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+
+    .lesson-runner-content {
+        padding: 1.5rem 1rem 7rem 1rem;
+    }
+
+    .lesson-runner-footer {
+        padding: 1rem;
+    }
+
+    .lesson-check-btn {
+        width: 100%;
+    }
 }

@@ -1,47 +1,185 @@
-import { useParams, Link } from "react-router";
-import { ArrowLeft, BookOpen, Sparkles } from "lucide-react";
-import Mascot from "../../components/Mascot/Mascot.jsx";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate, Link } from "react-router";
+import { X, BookOpen, AlertCircle } from "lucide-react";
+import { getLessonById } from "../../services/lessonService.js";
+import { createSession, recordSessionAnswer } from "../../services/lessonEngine.js";
+import MultipleChoiceQuestion from "../../components/QuestionCard/MultipleChoiceQuestion.jsx";
+import FeedbackDrawer from "../../components/FeedbackDrawer/FeedbackDrawer.jsx";
+import LessonCompletion from "../../components/LessonCompletion/LessonCompletion.jsx";
 import "./LessonSession.css";
 
 function LessonSession() {
     const { lessonId } = useParams();
+    const navigate = useNavigate();
+
+    const [lesson, setLesson] = useState(null);
+    const [session, setSession] = useState(null);
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [currentEvaluation, setCurrentEvaluation] = useState(null);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        let isMounted = true;
+        async function loadLesson() {
+            setLoading(true);
+            try {
+                const data = await getLessonById(lessonId);
+                if (isMounted) {
+                    if (data) {
+                        setLesson(data);
+                        setSession(createSession(data));
+                    }
+                    setLoading(false);
+                }
+            } catch (err) {
+                console.error("Failed to load lesson:", err);
+                if (isMounted) setLoading(false);
+            }
+        }
+        loadLesson();
+        return () => { isMounted = false; };
+    }, [lessonId]);
+
+    const handleExit = () => {
+        if (!session?.isCompleted && session?.currentIndex > 0) {
+            const confirmExit = window.confirm(
+                "Are you sure you want to quit? Your current session progress will not be saved."
+            );
+            if (!confirmExit) return;
+        }
+        navigate("/learn");
+    };
+
+    const handleCheckAnswer = () => {
+        if (!selectedAnswer || isSubmitted || !lesson || !session) return;
+
+        const currentQuestion = lesson.questions[session.currentIndex];
+        const { nextSession, evaluation } = recordSessionAnswer(
+            session,
+            currentQuestion,
+            selectedAnswer
+        );
+
+        setSession(nextSession);
+        setCurrentEvaluation(evaluation);
+        setIsSubmitted(true);
+    };
+
+    const handleContinue = () => {
+        if (!session) return;
+
+        // If completed, keep session state and clear evaluation drawer so completion screen renders
+        if (session.isCompleted) {
+            setCurrentEvaluation(null);
+            setIsSubmitted(false);
+            return;
+        }
+
+        // Advance to next question
+        setSession((prev) => ({
+            ...prev,
+            currentIndex: prev.currentIndex + 1
+        }));
+        setSelectedAnswer(null);
+        setCurrentEvaluation(null);
+        setIsSubmitted(false);
+    };
+
+    if (loading) {
+        return (
+            <div className="session-status-screen">
+                <div className="body-text-muted">Loading lesson session...</div>
+            </div>
+        );
+    }
+
+    if (!lesson || !session) {
+        return (
+            <div className="session-status-screen">
+                <div className="session-error-card duo-card">
+                    <AlertCircle size={36} className="session-error-icon" />
+                    <h1 className="heading-md">Lesson Not Found</h1>
+                    <p className="body-text-muted">
+                        We couldn&apos;t find lesson &quot;{lessonId}&quot; in the learning curriculum.
+                    </p>
+                    <Link to="/learn" className="duo-button duo-button-primary">
+                        <BookOpen size={18} />
+                        <span>RETURN TO LEARN</span>
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+
+    // Render completion celebration when all questions have been answered
+    if (session.isCompleted && !currentEvaluation) {
+        return <LessonCompletion session={session} lesson={lesson} />;
+    }
+
+    const currentQuestion = lesson.questions[session.currentIndex];
+    const progressPercent = session.totalQuestions > 0
+        ? Math.round(((session.currentIndex + (isSubmitted ? 1 : 0)) / session.totalQuestions) * 100)
+        : 0;
 
     return (
-        <div className="lesson-session-root">
-            <header className="lesson-session-header">
-                <Link to="/learn" className="lesson-back-btn" aria-label="Exit lesson and return to learn">
-                    <ArrowLeft size={24} />
-                    <span>EXIT</span>
-                </Link>
-                <div className="lesson-session-progress-bar">
-                    <div className="lesson-session-progress-fill" style={{ width: "20%" }} />
+        <div className="lesson-runner-root">
+            <header className="lesson-runner-header">
+                <button
+                    type="button"
+                    onClick={handleExit}
+                    className="lesson-runner-close-btn"
+                    aria-label="Exit Lesson"
+                >
+                    <X size={26} />
+                </button>
+
+                <div className="lesson-runner-progress-track">
+                    <div
+                        className="lesson-runner-progress-bar"
+                        style={{ width: `${progressPercent}%` }}
+                        role="progressbar"
+                        aria-valuenow={progressPercent}
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                    />
                 </div>
+
+                <span className="lesson-runner-counter">
+                    {session.currentIndex + 1} / {session.totalQuestions}
+                </span>
             </header>
 
-            <main className="lesson-session-main">
-                <div className="lesson-placeholder-card duo-card">
-                    <div className="lesson-placeholder-mascot">
-                        <Mascot mascotType="default" size={140} animationType="bounce" />
-                    </div>
-
-                    <div className="lesson-placeholder-badge">
-                        <Sparkles size={16} />
-                        <span>PHASE 2 FOUNDATION READY</span>
-                    </div>
-
-                    <h1 className="heading-lg">Lesson: {lessonId}</h1>
-                    <p className="body-text-muted">
-                        You have successfully reached the lesson session runner. The interactive LASA question engine, multiple-choice evaluator, and feedback drawers will be populated in <strong>Phase 2</strong> according to the master roadmap.
-                    </p>
-
-                    <div className="lesson-placeholder-actions">
-                        <Link to="/learn" className="duo-button duo-button-primary">
-                            <BookOpen size={18} />
-                            RETURN TO DASHBOARD
-                        </Link>
-                    </div>
-                </div>
+            <main className="lesson-runner-content">
+                <MultipleChoiceQuestion
+                    question={currentQuestion}
+                    selectedAnswer={selectedAnswer}
+                    onSelect={setSelectedAnswer}
+                    isSubmitted={isSubmitted}
+                />
             </main>
+
+            {!currentEvaluation && (
+                <footer className="lesson-runner-footer">
+                    <div className="lesson-runner-footer-inner">
+                        <button
+                            type="button"
+                            disabled={!selectedAnswer}
+                            onClick={handleCheckAnswer}
+                            className="duo-button duo-button-primary lesson-check-btn"
+                        >
+                            CHECK
+                        </button>
+                    </div>
+                </footer>
+            )}
+
+            {currentEvaluation && (
+                <FeedbackDrawer
+                    evaluation={currentEvaluation}
+                    onContinue={handleContinue}
+                />
+            )}
         </div>
     );
 }

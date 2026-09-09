@@ -1,0 +1,85 @@
+.mc-question-container {
+    width: 100%;
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+.mc-question-prompt {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    line-height: 1.35;
+    color: var(--text-white);
+    text-align: left;
+}
+
+.mc-choices-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    width: 100%;
+}
+
+.mc-choice-btn {
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.25rem;
+    background-color: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 4px var(--border-color);
+    color: var(--text-white);
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease, box-shadow 0.1s ease;
+    user-select: none;
+}
+
+.mc-choice-btn:hover:not(:disabled) {
+    background-color: var(--bg-surface-hover);
+    border-color: rgba(73, 192, 248, 0.4);
+}
+
+.mc-choice-btn:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 2px var(--border-color);
+}
+
+.mc-choice-btn.selected {
+    background-color: rgba(73, 192, 248, 0.12);
+    border-color: var(--color-secondary);
+    box-shadow: 0 4px var(--color-secondary-shadow);
+    color: var(--color-secondary);
+}
+
+.mc-choice-index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background-color: var(--bg-page);
+    border: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.mc-choice-btn.selected .mc-choice-index {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--bg-page);
+}
+
+.mc-choice-text {
+    flex: 1;
+    word-break: break-word;
+}
