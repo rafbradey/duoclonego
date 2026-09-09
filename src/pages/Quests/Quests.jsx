@@ -1,6 +1,5 @@
 import { Trophy, Sparkles } from "lucide-react";
 import Mascot from "../../components/Mascot/Mascot.jsx";
-import "../Practice/Practice.css";
 
 function Quests() {
     return (

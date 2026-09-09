@@ -190,3 +190,61 @@ a {
     border-radius: 16px;
     padding: 1.5rem;
 }
+
+/* Shared Subpage Layout Utilities */
+.subpage-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.subpage-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.subpage-title-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.subpage-badge-icon {
+    color: var(--color-secondary);
+}
+
+.subpage-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.subpage-feature-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 2.5rem 1.5rem;
+}
+
+.phase-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: var(--bg-page);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+}

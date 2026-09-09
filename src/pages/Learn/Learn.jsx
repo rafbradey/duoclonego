@@ -58,7 +58,7 @@ function Learn() {
                                         className="unit-guidebook-btn"
                                         onClick={() => setGuidebookState({
                                             isOpen: true,
-                                            levelId: 1,
+                                            levelId: unit.unit_number || 1,
                                             levelTitle: unit.title
                                         })}
                                         aria-label="View Guidebook"

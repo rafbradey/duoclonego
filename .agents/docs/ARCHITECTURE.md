@@ -154,26 +154,19 @@ The same learning logic should be usable regardless of whether the UI is desktop
 
 Services should isolate data access.
 
-For example:
+Core service layer implementations:
+- `userService`: Provides `getCurrentUser()`, `getUserById(id)`, and `updateUserProgress()`. Decouples UI from underlying user arrays or databases.
+- `drugService`: Queries verified LASA data (`getAllLasaEntries()`, `getLasaById()`, `getLevels()`, `getLevelById()`, `searchLasaEntries()`, `getSourceMetadata()`).
+- `unitService`: Loads units and curriculum metadata (`getUnits()`, `getUnitById()`).
+- `lessonService`: Fetches lessons and question structures across sections (`getLessons()`, `getLessonById()`, `getLessonsByUnit()`).
+- `lessonEngine`: Evaluates answers and calculates XP rewards without React dependencies (`evaluateAnswer()`, `calculateLessonXP()`, `createSession()`, `recordSessionAnswer()`).
 
-userService
-lessonService
-drugService
-progressService
+Services provide a stable interface to the rest of the application.
 
-Services should provide a stable interface to the rest of the application.
+The implementation behind a service will evolve later:
+`Static JSON` $\longrightarrow$ `API` $\longrightarrow$ `Supabase / PostgreSQL`
 
-The implementation behind a service may change later.
-
-For example:
-
-Static JSON
-→
-API
-→
-Database
-
-The UI should not need to be completely rewritten when the data source changes.
+The UI should not need to be rewritten when the data source changes.
 
 ---
 
@@ -295,10 +288,7 @@ This allows the learning logic to be tested independently.
 
 # 12. QUESTION ARCHITECTURE
 
-Questions should eventually support multiple types.
-
-Potential types:
-
+Questions support multiple types:
 - multiple choice
 - true/false
 - drug identification
@@ -307,9 +297,9 @@ Potential types:
 - scenario-based
 - review
 
-Question data should define what the question needs.
+Question data defines what the question needs.
 
-The UI should render the question based on its type.
+The UI renders the question based on its type using the `<QuestionRenderer />` dispatcher component (`src/components/QuestionCard/QuestionRenderer.jsx`), ensuring `LessonSession.jsx` remains decoupled from concrete question card implementations.
 
 Avoid creating a completely separate lesson implementation for every question type.
 

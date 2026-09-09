@@ -1,16 +1,37 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import "./Home.css";
 import Mascot from "../../components/Mascot/Mascot.jsx";
 import Navbar from "../../components/Navbar/Navbar.jsx";
+import TallManText from "../../components/TallManText/TallManText.jsx";
+import { getAllLasaEntries } from "../../services/drugService.js";
 
-const SAMPLE_LASA_PAIRS = [
-    { drug1: "DOPamine", drug2: "DOBUTamine" },
-    { drug1: "hydrOXYzine", drug2: "hydrALAZINE" },
-    { drug1: "predniSONE", drug2: "prednisoLONE" },
-    { drug1: "vinBLAStine", drug2: "vinCRIStine" }
+const DEFAULT_FEATURED_PAIRS = [
+    { drugName: "DOPamine", confusedDrugName: "DOBUTamine" },
+    { drugName: "hydrOXYzine", confusedDrugName: "hydrALAZINE" },
+    { drugName: "predniSONE", confusedDrugName: "prednisoLONE" },
+    { drugName: "vinBLAStine", confusedDrugName: "vinCRIStine" }
 ];
 
 function Home() {
+    const [featuredPairs, setFeaturedPairs] = useState(DEFAULT_FEATURED_PAIRS);
+
+    useEffect(() => {
+        let isMounted = true;
+        async function loadFeatured() {
+            try {
+                const entries = await getAllLasaEntries();
+                if (isMounted && entries && entries.length > 0) {
+                    setFeaturedPairs(entries.slice(0, 5));
+                }
+            } catch {
+                // Keep default pairs on error
+            }
+        }
+        loadFeatured();
+        return () => { isMounted = false; };
+    }, []);
+
     return (
         <div className="home-page">
             <Navbar />
@@ -42,9 +63,9 @@ function Home() {
             <footer className="features-section">
                 <span className="features-label">COMMON LASA PAIRS:</span>
                 <div className="features-ticker">
-                    {SAMPLE_LASA_PAIRS.map((pair, index) => (
-                        <span key={index} className="lasa-ticker-pill">
-                            <strong>{pair.drug1}</strong> / <strong>{pair.drug2}</strong>
+                    {featuredPairs.map((pair, index) => (
+                        <span key={pair.id || index} className="lasa-ticker-pill">
+                            <TallManText name={pair.drugName} /> / <TallManText name={pair.confusedDrugName} />
                         </span>
                     ))}
                 </div>

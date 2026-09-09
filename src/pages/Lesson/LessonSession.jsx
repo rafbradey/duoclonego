@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from "react-router";
 import { X, BookOpen, AlertCircle } from "lucide-react";
 import { getLessonById } from "../../services/lessonService.js";
 import { createSession, recordSessionAnswer } from "../../services/lessonEngine.js";
-import MultipleChoiceQuestion from "../../components/QuestionCard/MultipleChoiceQuestion.jsx";
+import QuestionRenderer from "../../components/QuestionCard/QuestionRenderer.jsx";
 import FeedbackDrawer from "../../components/FeedbackDrawer/FeedbackDrawer.jsx";
 import LessonCompletion from "../../components/LessonCompletion/LessonCompletion.jsx";
 import "./LessonSession.css";
@@ -151,7 +151,7 @@ function LessonSession() {
             </header>
 
             <main className="lesson-runner-content">
-                <MultipleChoiceQuestion
+                <QuestionRenderer
                     question={currentQuestion}
                     selectedAnswer={selectedAnswer}
                     onSelect={setSelectedAnswer}

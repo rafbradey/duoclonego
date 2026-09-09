@@ -1,6 +1,5 @@
 import { Dumbbell, Sparkles } from "lucide-react";
 import Mascot from "../../components/Mascot/Mascot.jsx";
-import "./Practice.css";
 
 function Practice() {
     return (

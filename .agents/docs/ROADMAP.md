@@ -546,6 +546,21 @@ Goals:
 
 ---
 
+### Architecture Review & Future-Proofing Pass
+
+Comprehensive codebase architecture audit to resolve coupling bottlenecks before adding multi-activity features.
+
+**Status: COMPLETED (Prerequisite for Phase 2/3)**
+
+Accomplishments:
+- Decoupled question rendering in `LessonSession.jsx` through a strategy-based `<QuestionRenderer />` dispatcher component.
+- Normalized user service layer (`userService.js`) with `getCurrentUser()`, `getUserById()`, and `updateUserProgress()`, eliminating raw array indexing in `RightInfoBar` and `Profile`.
+- Dynamically linked Guidebook modal context to the active unit's progression level in `Learn.jsx`.
+- Connected the Home landing page ticker to `drugService` with safe fallback.
+- Consolidated shared subpage layout utilities (`.subpage-*`, `.phase-pill`) into `src/index.css` and purged empty/redundant CSS stubs (`Practice.css`, `Quests.css`, `Leaderboards.css`, `Shop.css`).
+
+---
+
 # PHASE 2 — CORE LEARNING / LESSON ENGINE
 
 ## Objective

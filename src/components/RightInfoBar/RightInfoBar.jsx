@@ -1,7 +1,7 @@
 import "./RightInfoBar.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { getUserInfo } from "../../services/userService.js";
+import { getCurrentUser } from "../../services/userService.js";
 
 import userAvatar from "../../assets/avatars/default_avatar_male.png";
 import streakIcon from "../../assets/items/fire_streak.png";
@@ -15,9 +15,9 @@ function RightInfoBar() {
         let isMounted = true;
         async function loadUserInfo() {
             try {
-                const data = await getUserInfo();
-                if (isMounted && data && data.length > 0) {
-                    setUser(data[0]);
+                const data = await getCurrentUser();
+                if (isMounted && data) {
+                    setUser(data);
                 }
             } catch (err) {
                 console.error("Failed to load user info:", err);
