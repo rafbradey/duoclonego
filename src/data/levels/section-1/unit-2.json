@@ -1,0 +1,39 @@
+{
+  "sectionId": "section-1",
+  "sectionTitle": "Section 1: Foundations",
+  "id": "unit_002",
+  "unitNumber": 2,
+  "title": "SECTION 1, UNIT 2",
+  "description": "Formulations & Suffix Variants",
+  "unitMessage": "ISMP 2023 Formulations & Similar Stems",
+  "color": "#49c0f8",
+  "lessons": [
+    {
+      "id": "lesson_003",
+      "unitId": "unit_002",
+      "title": "Formulation Safety Differences",
+      "description": "Distinguish between topical, systemic, and modified release products.",
+      "type": "Multiple Choice",
+      "xpReward": 15,
+      "unlocked": false,
+      "lasaRefIds": ["lasa-006", "lasa-008", "lasa-009", "lasa-010"],
+      "questions": [
+        {
+          "id": "q301",
+          "type": "multiple_choice",
+          "lasaId": "lasa-006",
+          "prompt": "Which product is dangerously confused with glacial acetic acid when concentration is overlooked?",
+          "choices": [
+            "acetic acid for irrigation",
+            "ascorbic acid solution",
+            "acetylcysteine inhalation",
+            "amino acid injection"
+          ],
+          "correctAnswer": "acetic acid for irrigation",
+          "explanation": "Glacial acetic acid is concentrated and corrosive. Inadvertent substitution for dilute acetic acid for irrigation has caused severe tissue burns.",
+          "relatedDrug": "acetic acid for irrigation"
+        }
+      ]
+    }
+  ]
+}

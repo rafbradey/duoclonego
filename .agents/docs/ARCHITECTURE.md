@@ -225,6 +225,20 @@ Do not implement a database schema based solely on this document.
 
 Verify actual requirements before implementation.
 
+### Level & Unit Data Organization
+
+Curriculum levels and units are organized hierarchically:
+
+```text
+src/data/levels/
+└── section-{N}/
+    ├── unit-1.json
+    ├── unit-2.json
+    └── ...
+```
+
+Each unit independently defines its metadata, contained lessons, and question activities, preventing monolithic file bottlenecks while allowing individual unit editing.
+
 ---
 
 # 10. STATE MANAGEMENT

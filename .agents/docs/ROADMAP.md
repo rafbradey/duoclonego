@@ -514,7 +514,7 @@ It should complement it.
 
 ---
 
-# 1.9 Phase 1 Completion Criteria
+## 1.9 Phase 1 Completion Criteria
 
 Phase 1 is complete when:
 
@@ -526,6 +526,23 @@ Phase 1 is complete when:
 * UI can display drug information
 * static content is separated from UI
 * the application no longer relies on generic placeholder lesson data
+
+---
+
+### Data Architecture Cleanup — Level / Unit / Lesson Structure
+
+Before continuing with later learning-engine phases, refactor the legacy
+lesson data into an editable Section → Unit → Lesson structure.
+
+**Status: COMPLETED (Prerequisite for Phase 2)**
+
+Goals:
+- Separate level/unit organization from question data
+- Make Section and Unit data independently editable (`src/data/levels/section-{N}/unit-{M}.json`)
+- Prevent one large `lessons.json` from becoming a bottleneck
+- Keep LASA relationships (`src/data/lasaData.json`) separate from generated questions (reference `lasaId`)
+- Prepare the data structure for multiple activities and question types
+- Keep the structure compatible with future backend migration
 
 ---
 

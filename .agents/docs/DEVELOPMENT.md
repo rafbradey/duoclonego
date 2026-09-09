@@ -281,13 +281,17 @@ Example:
 
 ```text
 src/data/
+├── levels/
+│   ├── section-1/
+│   │   ├── unit-1.json
+│   │   └── unit-2.json
+│   └── index.js
+├── lasaData.json
 ├── user.json
-├── units.json
-├── lessons.json
 └── ...
 ```
 
-These JSON files are part of the existing Duoclongo prototype and may contain useful development data, educational content, examples, or seed data.
+These JSON files are part of the existing Duoclongo prototype and contain verified LASA educational content, level definitions, and user state.
 
 Do not assume they represent the final database schema.
 
