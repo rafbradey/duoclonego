@@ -104,7 +104,6 @@ function Learn() {
                                                             <Lock size={26} />
                                                         </div>
                                                         <span className="lesson-node-title">{level.title}</span>
-                                                        <span className="lesson-node-badge">LOCKED</span>
                                                     </button>
                                                 )}
                                                 {idx < arr.length - 1 && (
