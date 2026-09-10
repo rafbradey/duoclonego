@@ -1,16 +1,32 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 import { Award, Target, CheckCircle, XCircle, Sparkles, BookOpen } from "lucide-react";
 import Mascot from "../Mascot/Mascot.jsx";
 import { calculateLessonXP } from "../../services/lessonEngine.js";
+import { updateUserProgress } from "../../services/userService.js";
 import "./LessonCompletion.css";
 
 function LessonCompletion({ session, lesson }) {
-    if (!session || !lesson) return null;
+    const hasAwarded = useRef(false);
 
-    const totalQuestions = session.totalQuestions || 1;
-    const correctCount = session.correctCount || 0;
+    const totalQuestions = session?.totalQuestions || 1;
+    const correctCount = session?.correctCount || 0;
     const accuracy = Math.round((correctCount / totalQuestions) * 100);
-    const xpEarned = calculateLessonXP(lesson, correctCount, totalQuestions);
+    const xpEarned = lesson ? calculateLessonXP(lesson, correctCount, totalQuestions) : 0;
+
+    useEffect(() => {
+        if (!hasAwarded.current && session && lesson) {
+            hasAwarded.current = true;
+            updateUserProgress({
+                xpToAdd: xpEarned,
+                completedLessonId: lesson.id
+            }).catch((err) => {
+                console.error("Failed to update user progress on completion:", err);
+            });
+        }
+    }, [session, lesson, xpEarned]);
+
+    if (!session || !lesson) return null;
 
     const mascotType = accuracy >= 80 ? "maracas" : "default";
     const mascotAnimation = accuracy >= 80 ? "dance" : "bounce";
@@ -42,7 +58,7 @@ function LessonCompletion({ session, lesson }) {
                         </div>
                         <div className="completion-stat-text">
                             <span className="completion-stat-num">+{xpEarned} XP</span>
-                            <span className="completion-stat-label">Total XP</span>
+                            <span className="completion-stat-label">XP Earned</span>
                         </div>
                     </div>
 

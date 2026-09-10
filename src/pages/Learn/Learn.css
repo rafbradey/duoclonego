@@ -161,22 +161,51 @@
     user-select: none;
 }
 
+@keyframes pulse-node {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
 .lesson-node-active {
     background-color: var(--color-primary);
     color: var(--text-white);
     border: 3px solid var(--color-primary-shadow);
     box-shadow: 0 8px var(--color-primary-shadow);
+    animation: pulse-node 2.5s infinite ease-in-out;
 }
 
 .lesson-node-active:hover {
     background-color: var(--color-primary-hover);
     transform: translateY(-2px);
     box-shadow: 0 10px var(--color-primary-shadow);
+    animation: none;
 }
 
 .lesson-node-active:active {
     transform: translateY(4px);
     box-shadow: 0 2px var(--color-primary-shadow);
+}
+
+.lesson-node-completed {
+    background-color: var(--color-accent);
+    color: var(--text-dark);
+    border: 3px solid var(--color-accent-shadow);
+    box-shadow: 0 8px var(--color-accent-shadow);
+}
+
+.lesson-node-completed:hover {
+    background-color: #ffd933;
+    transform: translateY(-2px);
+    box-shadow: 0 10px var(--color-accent-shadow);
+}
+
+.lesson-node-completed:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px var(--color-accent-shadow);
 }
 
 .lesson-node-locked {
@@ -216,12 +245,23 @@
     box-shadow: 0 2px var(--color-accent-shadow);
 }
 
+.lesson-node-xp.xp-completed {
+    background-color: #1cb0f6;
+    color: #ffffff;
+    box-shadow: 0 2px #1899d6;
+}
+
 .lesson-path-connector {
     width: 6px;
     height: 48px;
     background-color: var(--border-color);
     border-radius: 3px;
     margin: 32px 0 16px 0;
+    transition: background-color 0.2s ease;
+}
+
+.lesson-path-connector.completed {
+    background-color: var(--color-primary);
 }
 
 /* Responsive Breakpoints */

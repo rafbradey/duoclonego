@@ -3,9 +3,11 @@ import { useParams, useNavigate, Link } from "react-router";
 import { X, BookOpen, AlertCircle } from "lucide-react";
 import { getLessonById } from "../../services/lessonService.js";
 import { createSession, recordSessionAnswer } from "../../services/lessonEngine.js";
+import { getCurrentUser } from "../../services/userService.js";
 import QuestionRenderer from "../../components/QuestionCard/QuestionRenderer.jsx";
 import FeedbackDrawer from "../../components/FeedbackDrawer/FeedbackDrawer.jsx";
 import LessonCompletion from "../../components/LessonCompletion/LessonCompletion.jsx";
+import heartIcon from "../../assets/items/heart.png";
 import "./LessonSession.css";
 
 function LessonSession() {
@@ -17,18 +19,25 @@ function LessonSession() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [currentEvaluation, setCurrentEvaluation] = useState(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [hearts, setHearts] = useState(5);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         let isMounted = true;
-        async function loadLesson() {
+        async function loadData() {
             setLoading(true);
             try {
-                const data = await getLessonById(lessonId);
+                const [lessonData, userData] = await Promise.all([
+                    getLessonById(lessonId),
+                    getCurrentUser()
+                ]);
                 if (isMounted) {
-                    if (data) {
-                        setLesson(data);
-                        setSession(createSession(data));
+                    if (lessonData) {
+                        setLesson(lessonData);
+                        setSession(createSession(lessonData));
+                    }
+                    if (userData && userData.hearts !== undefined) {
+                        setHearts(userData.hearts);
                     }
                     setLoading(false);
                 }
@@ -37,7 +46,7 @@ function LessonSession() {
                 if (isMounted) setLoading(false);
             }
         }
-        loadLesson();
+        loadData();
         return () => { isMounted = false; };
     }, [lessonId]);
 
@@ -145,9 +154,12 @@ function LessonSession() {
                     />
                 </div>
 
-                <span className="lesson-runner-counter">
-                    {session.currentIndex + 1} / {session.totalQuestions}
-                </span>
+                <div className="lesson-runner-header-right">
+                    <div className="lesson-runner-hearts" title="Hearts Remaining">
+                        <img src={heartIcon} alt="Hearts" className="lesson-runner-heart-icon" />
+                        <span className="lesson-runner-heart-count">{hearts}</span>
+                    </div>
+                </div>
             </header>
 
             <main className="lesson-runner-content">

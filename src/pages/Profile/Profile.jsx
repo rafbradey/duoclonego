@@ -20,7 +20,19 @@ function Profile() {
             }
         }
         loadUserInfo();
-        return () => { isMounted = false; };
+
+        const handleUserUpdated = (e) => {
+            if (e.detail?.user) {
+                setUser(e.detail.user);
+            }
+        };
+
+        window.addEventListener("duoclongo:user-updated", handleUserUpdated);
+
+        return () => {
+            isMounted = false;
+            window.removeEventListener("duoclongo:user-updated", handleUserUpdated);
+        };
     }, []);
 
     if (!user) {
