@@ -264,6 +264,194 @@
     background-color: var(--color-primary);
 }
 
+/* ==========================================================================
+   Unit Mastery Level Presentation (4th Level)
+   ========================================================================== */
+
+.unit-mastery-wrapper {
+    width: 100%;
+    max-width: 440px;
+    margin: 8px 0 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.unit-mastery-header-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #ffc700;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 199, 0, 0.1);
+    border: 1px solid rgba(255, 199, 0, 0.25);
+    border-radius: 20px;
+}
+
+.unit-mastery-label-icon {
+    color: #ffc700;
+}
+
+.unit-mastery-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.unit-mastery-card.unit-mastery-active {
+    background: linear-gradient(135deg, rgba(255, 199, 0, 0.12) 0%, rgba(255, 150, 0, 0.06) 100%);
+    border: 2px solid #ffc700;
+    box-shadow: 0 4px 0 #cc9a00, 0 8px 24px rgba(255, 199, 0, 0.18);
+    cursor: pointer;
+}
+
+.unit-mastery-card.unit-mastery-active:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #cc9a00, 0 12px 28px rgba(255, 199, 0, 0.28);
+    background: linear-gradient(135deg, rgba(255, 199, 0, 0.18) 0%, rgba(255, 150, 0, 0.1) 100%);
+}
+
+.unit-mastery-card.unit-mastery-active:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #cc9a00;
+}
+
+.unit-mastery-card.unit-mastery-completed {
+    background: linear-gradient(135deg, rgba(45, 171, 105, 0.12) 0%, rgba(28, 176, 246, 0.06) 100%);
+    border: 2px solid #2dab69;
+    box-shadow: 0 4px 0 #207a4b, 0 8px 20px rgba(45, 171, 105, 0.15);
+    cursor: pointer;
+}
+
+.unit-mastery-card.unit-mastery-completed:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #207a4b, 0 12px 24px rgba(45, 171, 105, 0.22);
+}
+
+.unit-mastery-card.unit-mastery-completed:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #207a4b;
+}
+
+.unit-mastery-card.unit-mastery-locked {
+    background: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    box-shadow: 0 4px 0 var(--border-color);
+    opacity: 0.65;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.unit-mastery-icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.unit-mastery-active .unit-mastery-icon-box {
+    background: linear-gradient(135deg, #ffc700 0%, #ff9600 100%);
+    color: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(255, 199, 0, 0.35);
+}
+
+.unit-mastery-card.unit-mastery-active:hover .unit-mastery-icon-box {
+    transform: scale(1.08) rotate(-4deg);
+}
+
+.unit-mastery-completed .unit-mastery-icon-box {
+    background: linear-gradient(135deg, #2dab69 0%, #1cb0f6 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(45, 171, 105, 0.35);
+}
+
+.unit-mastery-locked .unit-mastery-icon-box {
+    background: var(--bg-surface-hover);
+    color: var(--text-muted);
+}
+
+.unit-mastery-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.unit-mastery-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.unit-mastery-tag {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.unit-mastery-badge {
+    font-size: 0.72rem;
+    font-weight: 900;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+}
+
+.unit-mastery-badge.badge-xp {
+    background: #ffc700;
+    color: #1a1a1a;
+    box-shadow: 0 2px #cc9a00;
+}
+
+.unit-mastery-badge.badge-done {
+    background: #2dab69;
+    color: #ffffff;
+    box-shadow: 0 2px #207a4b;
+}
+
+.unit-mastery-badge.badge-locked {
+    background: var(--bg-surface-hover);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+}
+
+.unit-mastery-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-white);
+    margin: 0;
+    line-height: 1.25;
+}
+
+.unit-mastery-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.35;
+    white-space: normal;
+}
+
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
     .learn-layout {
@@ -293,5 +481,20 @@
 
     .unit-description {
         font-size: 1.15rem;
+    }
+
+    .unit-mastery-card {
+        padding: 1rem 1.15rem;
+        gap: 0.85rem;
+    }
+
+    .unit-mastery-icon-box {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+    }
+
+    .unit-mastery-name {
+        font-size: 1.05rem;
     }
 }

@@ -11,6 +11,7 @@
     {
       "id": "level_001",
       "levelNumber": 1,
+      "type": "level",
       "title": "LASA Pair Familiarization",
       "description": "Recognize common look-alike and sound-alike brand/generic pairs from visual prompts.",
       "learningObjective": "Identify documented LASA counterparts and recognize why similar orthography leads to dispensing confusion.",
@@ -60,6 +61,7 @@
     {
       "id": "level_002",
       "levelNumber": 2,
+      "type": "level",
       "title": "Tall Man Lettering Discrimination",
       "description": "Differentiate look-alike generic medications using capitalized Tall Man letter patterns.",
       "learningObjective": "Recognize and interpret ISMP/FDA Tall Man lettering to disrupt orthographic confusion between look-alike names.",
@@ -119,6 +121,7 @@
     {
       "id": "level_003",
       "levelNumber": 3,
+      "type": "level",
       "title": "LASA Distinction & Situational Recognition",
       "description": "Distinguish easily confused medication names and apply recognition in dispensing scenarios.",
       "learningObjective": "Distinguish between confusable LASA pairs and recognize target medications in realistic prescription contexts.",
@@ -166,9 +169,45 @@
               "relatedDrug": "Accupril"
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "unit_001_mastery",
+      "levelNumber": 4,
+      "type": "unit_mastery",
+      "title": "Unit 1 Mastery",
+      "description": "Comprehensive review and unassisted Tall Man lettering mastery for Unit 1.",
+      "learningObjective": "Demonstrate complete unit mastery of LASA distinction and unassisted Tall Man lettering without prompts or scaffolding.",
+      "xpReward": 25,
+      "unlocked": false,
+      "lasaRefIds": ["lasa-001", "lasa-002", "lasa-004", "lasa-005"],
+      "activities": [
+        {
+          "id": "act_104_mastery_review",
+          "activityType": "distinction",
+          "activityRole": "unit_mastery",
+          "learningObjective": "Review distinguishing differences between high-risk look-alike oral agents before unassisted recall.",
+          "questions": [
+            {
+              "id": "q104_mastery_rev",
+              "type": "multiple_choice",
+              "lasaId": "lasa-005",
+              "prompt": "Which medication name correctly applies ISMP Tall Man lettering to prevent confusion between acetohexamide and acetazolamide?",
+              "choices": [
+                "acetoHEXAMIDE",
+                "acetohexamide",
+                "ACETOHEXAMIDE",
+                "acetohexAMIDE"
+              ],
+              "correctAnswer": "acetoHEXAMIDE",
+              "explanation": "acetoHEXAMIDE capitalizes HEXAMIDE to distinguish this sulfonylurea antidiabetic from the carbonic anhydrase inhibitor acetaZOLAMIDE.",
+              "relatedDrug": "acetoHEXAMIDE"
+            }
+          ]
         },
         {
-          "id": "act_104_mastery",
+          "id": "act_104_mastery_capstone",
           "activityType": "construction",
           "activityRole": "unit_mastery",
           "isFinalTask": true,
@@ -181,7 +220,7 @@
               "isFinalTask": true,
               "scaffold": false,
               "lasaId": "lasa-005",
-              "prompt": "FINAL UNIT MASTERY TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
+              "prompt": "UNIT MASTERY CAPSTONE TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
               "standardName": "prednisone",
               "tallManName": "predniSONE",
               "prefix": "",

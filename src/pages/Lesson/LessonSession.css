@@ -92,6 +92,21 @@
     text-transform: uppercase;
 }
 
+.lesson-runner-mastery-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.65rem;
+    background: rgba(255, 199, 0, 0.15);
+    color: #ffc700;
+    border: 1px solid rgba(255, 199, 0, 0.4);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
 .lesson-runner-hearts {
     display: flex;
     align-items: center;

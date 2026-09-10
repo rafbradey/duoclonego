@@ -17,8 +17,9 @@ function App() {
             {/* Public landing page */}
             <Route path="/" element={<Home />} />
 
-            {/* Focused lesson session route (no sidebar) */}
+            {/* Focused lesson session & Unit Mastery routes (no sidebar) */}
             <Route path="/lesson/:lessonId" element={<LessonSession />} />
+            <Route path="/unit/:unitId/mastery" element={<LessonSession />} />
 
             {/* Application routes wrapped in global AppLayout (Sidebar + MobileNav) */}
             <Route element={<AppLayout />}>

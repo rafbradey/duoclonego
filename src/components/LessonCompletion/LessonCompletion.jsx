@@ -10,6 +10,7 @@ function LessonCompletion({ session, lesson }) {
     const hasAwarded = useRef(false);
 
     const isPractice = Boolean(lesson?.isPractice);
+    const isMastery = Boolean(lesson?.type === "unit_mastery" || lesson?.isMasteryLevel);
     const totalQuestions = session?.totalQuestions || 1;
     const correctCount = session?.correctCount || 0;
     const accuracy = Math.round((correctCount / totalQuestions) * 100);
@@ -40,19 +41,23 @@ function LessonCompletion({ session, lesson }) {
                     <Mascot mascotType={mascotType} size={150} animationType={mascotAnimation} />
                 </div>
 
-                <div className="completion-badge">
+                <div className={`completion-badge ${isMastery ? "completion-badge-mastery" : ""}`}>
                     <Sparkles size={16} />
-                    <span>{isPractice ? "PRACTICE COMPLETE" : "LESSON COMPLETE"}</span>
+                    <span>{isPractice ? "PRACTICE COMPLETE" : isMastery ? "🏆 UNIT MASTERED!" : "LESSON COMPLETE"}</span>
                 </div>
 
                 <h1 className="heading-xl completion-title">
-                    {accuracy === 100 ? "Perfect Recall!" : "Great Practice!"}
+                    {isMastery
+                        ? (accuracy === 100 ? "Unit Mastered!" : "Mastery Challenge Complete!")
+                        : (accuracy === 100 ? "Perfect Recall!" : "Great Practice!")}
                 </h1>
 
                 <p className="body-text-muted completion-subtitle">
                     {isPractice
                         ? `You completed a targeted retrieval review in ${lesson.title}.`
-                        : `You practiced critical LASA medication recognition in ${lesson.title}.`}
+                        : isMastery
+                            ? `Outstanding! You conquered the unassisted review and Tall Man capstone for ${lesson.title}.`
+                            : `You practiced critical LASA medication recognition in ${lesson.title}.`}
                 </p>
 
                 <div className="completion-stats-grid">

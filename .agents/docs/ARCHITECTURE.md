@@ -237,9 +237,24 @@ Each unit independently defines its metadata and a configurable array of `levels
 - `levelNumber` & `title`
 - `learningObjective`
 - `xpReward` & `unlocked` status
-- `lessons[]` or `activities[]` (normalized by `src/data/levels/index.js` into the 6-tier structure `Section → Unit → Level → Lesson → Activity → Question`).
+- `lessons[]` or `activities[]` (normalized by `src/data/levels/index.js` into the explicit structure `Section → Unit → Level → Lesson → Activity → Question`).
 
-The application derives available levels dynamically from `unit.levels.length`. Never assume a fixed number of levels per unit.
+### Standardized 4-Level Unit Structure
+Every Unit in the application implements a dedicated 4th level:
+
+```text
+UNIT
+├── Level 1: Identification & Familiarization (type: "level")
+├── Level 2: Tall Man Discrimination (type: "level")
+├── Level 3: Situational Recognition & Verification (type: "level")
+└── Unit Mastery: Unit-Wide Review & Unassisted Tall Man Capstone (type: "unit_mastery")
+```
+
+- **Normal Levels (`type: "level"`):** Progressive instructional steps through guided learning activities.
+- **Unit Mastery (`type: "unit_mastery"`):** Synthesizes cumulative pair distinctions across the entire Unit, concluding with the unassisted, no-hint Tall Man Lettering task.
+- **Progression Rule:** Level 1 unlocks if the unit is active (or previous unit's mastery is completed); Levels 2 & 3 unlock sequentially; Unit Mastery unlocks only when Level 3 is completed. Completing Unit Mastery unlocks the subsequent Unit.
+- **Visual Distinction:** Normal levels appear as circular nodes along the curriculum path; Unit Mastery renders as a prominent, golden/amber card with a trophy badge (🏆).
+- **Direct Routing:** Directly navigable via `/unit/:unitId/mastery`.
 
 ---
 
@@ -335,11 +350,13 @@ The intended application structure is approximately:
 /
 ├── /learn
 ├── /lesson/:lessonId
+├── /unit/:unitId/mastery
 ├── /practice
 ├── /quests
 ├── /leaderboards
 ├── /shop
 ├── /profile
+├── /documentation
 └── /settings
 
 Routes should use shared layouts where appropriate.

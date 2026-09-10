@@ -817,10 +817,39 @@ Corrective Feedback Drawer (FeedbackDrawer.jsx)
 7. **Documentation:**
    - Update in-app documentation at `src/pages/Documentation/Documentation.jsx` (Section 4 taxonomy, Section 6 JSON schema, Section 10 boundaries).
 
-### 22.1 Unit Final Mastery Tasks (Independent Tall Man Lettering)
-Every Unit must culminate in an independent, unassisted Tall Man Lettering mastery milestone:
-- **Placement:** The concluding task (`isFinalTask: true`) of the unit's final level.
-- **Activity & Task Metadata:**
+### 22.1 Dedicated Unit Mastery Levels & Capstone Tasks
+Every Unit in Duoclongo implements a dedicated 4th level called **Unit Mastery**:
+- **Unit Hierarchy:**
+  ```text
+  UNIT
+  ├── Level 1 (type: "level")
+  ├── Level 2 (type: "level")
+  ├── Level 3 (type: "level")
+  └── Unit Mastery (type: "unit_mastery")
+  ```
+- **Level Schema:**
+  ```json
+  {
+    "id": "unit_001_mastery",
+    "levelNumber": 4,
+    "type": "unit_mastery",
+    "title": "Unit 1 Mastery",
+    "description": "Comprehensive review and unassisted Tall Man lettering mastery for Unit 1.",
+    "learningObjective": "Demonstrate complete unit mastery of LASA distinction and unassisted Tall Man lettering without scaffolding.",
+    "xpReward": 25,
+    "unlocked": false,
+    "activities": [...]
+  }
+  ```
+- **Routing:**
+  - Accessible directly at `/unit/:unitId/mastery` (e.g. `/unit/1/mastery`, `/unit/2/mastery`).
+  - Refresh-safe and directly navigable via React Router.
+- **Progression Rules:**
+  - Unit Mastery unlocks only when Levels 1, 2, and 3 are completed.
+  - Conquering Unit Mastery marks the unit mastered and unlocks Level 1 of the next Unit.
+- **Visual Presentation:**
+  - Rendered on the Learn page as a prominent golden/amber card with a trophy badge (🏆), clearly separated from the 3 normal level circles.
+- **Capstone Task Metadata:**
   ```json
   {
     "id": "qXXX_mastery",
@@ -835,14 +864,13 @@ Every Unit must culminate in an independent, unassisted Tall Man Lettering maste
     "suffix": ""
   }
   ```
-- **Pedagogical Requirement:**
+- **Pedagogical & Evaluation Requirements:**
   - Strip away prefix/suffix frames and live dynamic reconstruction preview.
   - Render an unassisted full-name input field (`.tm-full-input`) with an amber mastery badge.
-- **Strict Evaluation:**
   - Enforce strict case-sensitive match (`inputTrimmed === targetTallMan`).
   - Reject all-lowercase (`drugname`) or all-uppercase (`DRUGNAME`).
 - **Developer Override:**
-  - Verify `handleDeveloperOverride` injects `currentQuestion.tallManName` for correct and `currentQuestion.standardName` for incorrect.
+  - Works identically inside Unit Mastery sessions (`[ ANSWER CORRECTLY ]` / `[ ANSWER INCORRECTLY ]`). No second override system is created.
 
 ### 22.2 Situational LASA Recognition Activities
 Situational activities simulate realistic medication dispensing verification without introducing premature clinical decision-making:

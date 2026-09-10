@@ -71,8 +71,16 @@ function normalizeLevel(level, unit) {
     const activities = lessons.flatMap((lsn) => lsn.activities || []);
     const questions = activities.flatMap((act) => act.questions || []);
 
+    const isMastery = Boolean(
+        level.type === "unit_mastery" ||
+        level.id?.includes("mastery")
+    );
+    const levelType = isMastery ? "unit_mastery" : (level.type || "level");
+
     const normalized = {
         ...level,
+        type: levelType,
+        isMasteryLevel: isMastery,
         unitId: level.unitId || unit.id,
         unit_id: level.unitId || unit.id,
         sectionId: unit.sectionId || "section-1",
@@ -80,9 +88,9 @@ function normalizeLevel(level, unit) {
         title: level.title || level.name,
         lesson_title: level.title || level.name,
         lessonTitle: level.title || level.name,
-        xp: level.xpReward || level.xp || 15,
-        xpReward: level.xpReward || level.xp || 15,
-        xp_reward: level.xpReward || level.xp || 15,
+        xp: level.xpReward || level.xp || (isMastery ? 25 : 15),
+        xpReward: level.xpReward || level.xp || (isMastery ? 25 : 15),
+        xp_reward: level.xpReward || level.xp || (isMastery ? 25 : 15),
         unlocked: Boolean(level.unlocked),
         learningObjective: level.learningObjective || "",
         lessons,
@@ -109,13 +117,17 @@ function normalizeUnit(unit) {
 
     // Lessons alias pointing to normalized levels for seamless backward compatibility
     const lessons = levels;
+    const normalLevels = levels.filter((lvl) => lvl.type === "level");
+    const masteryLevel = levels.find((lvl) => lvl.type === "unit_mastery") || null;
 
     return {
         ...unit,
         unit_message: unit.unitMessage || unit.unit_message || "",
         unitMessage: unit.unitMessage || unit.unit_message || "",
         levels,
-        lessons
+        lessons,
+        normalLevels,
+        masteryLevel
     };
 }
 

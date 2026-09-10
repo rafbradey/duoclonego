@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link, useSearchParams } from "react-router";
 import { X, BookOpen, AlertCircle, Sparkles, Wrench, Check } from "lucide-react";
 import { getLessonById } from "../../services/lessonService.js";
+import { getMasteryLevelByUnitId } from "../../services/unitService.js";
 import { createSession, recordSessionAnswer } from "../../services/lessonEngine.js";
 import { getCurrentUser } from "../../services/userService.js";
 import { generatePracticeSession, recordPracticeOutcome } from "../../services/practiceService.js";
@@ -12,7 +13,7 @@ import heartIcon from "../../assets/items/heart.png";
 import "./LessonSession.css";
 
 function LessonSession() {
-    const { lessonId } = useParams();
+    const { lessonId, unitId } = useParams();
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
 
@@ -31,7 +32,22 @@ function LessonSession() {
         async function loadData() {
             setLoading(true);
             try {
-                if (lessonId === "practice") {
+                if (unitId) {
+                    const [masteryData, userData] = await Promise.all([
+                        getMasteryLevelByUnitId(unitId),
+                        getCurrentUser()
+                    ]);
+                    if (isMounted) {
+                        if (masteryData) {
+                            setLesson(masteryData);
+                            setSession(createSession(masteryData));
+                        }
+                        if (userData && userData.hearts !== undefined) {
+                            setHearts(userData.hearts);
+                        }
+                        setLoading(false);
+                    }
+                } else if (lessonId === "practice") {
                     const practiceMode = searchParams.get("mode") || "quick";
                     const [practiceData, userData] = await Promise.all([
                         generatePracticeSession({ mode: practiceMode }),
@@ -70,7 +86,7 @@ function LessonSession() {
         }
         loadData();
         return () => { isMounted = false; };
-    }, [lessonId, searchParams]);
+    }, [lessonId, unitId, searchParams]);
 
     const handleExit = () => {
         if (!session?.isCompleted && session?.currentIndex > 0) {
@@ -205,9 +221,11 @@ function LessonSession() {
             <div className="session-status-screen">
                 <div className="session-error-card duo-card">
                     <AlertCircle size={36} className="session-error-icon" />
-                    <h1 className="heading-md">Lesson Not Found</h1>
+                    <h1 className="heading-md">
+                        {unitId ? "Unit Mastery Not Found" : "Lesson Not Found"}
+                    </h1>
                     <p className="body-text-muted">
-                        We couldn&apos;t find {isPracticeMode ? "practice questions" : `lesson "${lessonId}"`} in the learning curriculum.
+                        We couldn&apos;t find {isPracticeMode ? "practice questions" : unitId ? `mastery challenge for unit "${unitId}"` : `lesson "${lessonId}"`} in the learning curriculum.
                     </p>
                     <Link to={isPracticeMode ? "/practice" : "/learn"} className="duo-button duo-button-primary">
                         <BookOpen size={18} />
@@ -252,12 +270,17 @@ function LessonSession() {
                 </div>
 
                 <div className="lesson-runner-header-right">
-                    {isPracticeMode && (
+                    {isPracticeMode ? (
                         <span className="lesson-runner-practice-tag">
                             <Sparkles size={13} />
                             <span>PRACTICE</span>
                         </span>
-                    )}
+                    ) : lesson.isMasteryLevel ? (
+                        <span className="lesson-runner-mastery-tag">
+                            <Sparkles size={13} />
+                            <span>UNIT MASTERY</span>
+                        </span>
+                    ) : null}
                     <div
                         className="lesson-runner-hearts"
                         title={isPracticeMode ? "Practice Mode: Hearts are protected (no hearts lost)" : "Hearts Remaining"}

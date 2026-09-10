@@ -11,6 +11,7 @@
     {
       "id": "level_201",
       "levelNumber": 1,
+      "type": "level",
       "title": "Concentration & Form Recognition",
       "description": "Recognize the critical differences between concentrated and dilute formulation names in dispensing scenarios.",
       "learningObjective": "Identify safety risks when standard drug names share identical chemical roots but differing concentrations.",
@@ -44,6 +45,7 @@
     {
       "id": "level_202",
       "levelNumber": 2,
+      "type": "level",
       "title": "Release Mechanism Discrimination",
       "description": "Differentiate modified-release suffixes and distinct dosage delivery kinetics.",
       "learningObjective": "Distinguish immediate-release from extended-release formulations in prescription verification.",
@@ -77,12 +79,13 @@
     {
       "id": "level_203",
       "levelNumber": 3,
-      "title": "Formulation & Suffix Tall Man Retrieval",
-      "description": "Differentiate antidiabetic and carbonic anhydrase look-alikes using unassisted Tall Man construction.",
-      "learningObjective": "Independently construct acetoHEXAMIDE to prevent dangerous hypoglycemic mix-ups.",
+      "type": "level",
+      "title": "Formulation & Suffix Distinction",
+      "description": "Differentiate antidiabetic and release mechanism look-alikes in dispensing contexts.",
+      "learningObjective": "Accurately differentiate confusable formulation pairs and sulfonylurea look-alikes.",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-005", "lasa-007"],
+      "lasaRefIds": ["lasa-007", "lasa-015"],
       "activities": [
         {
           "id": "act_203_01",
@@ -103,11 +106,61 @@
               "correctAnswer": "acetoHEXAMIDE",
               "explanation": "acetoHEXAMIDE is the antidiabetic sulfonylurea, distinguished by HEXAMIDE from acetaZOLAMIDE.",
               "relatedDrug": "acetoHEXAMIDE"
+            },
+            {
+              "id": "q303_dist",
+              "type": "multiple_choice",
+              "lasaId": "lasa-015",
+              "prompt": "When distinguishing Adderall formulations, which naming modifier specifically designates the extended-release product?",
+              "choices": [
+                "Adderall XR",
+                "Adderall IR",
+                "Adderall XL",
+                "Adderall CR"
+              ],
+              "correctAnswer": "Adderall XR",
+              "explanation": "Adderall XR uses the 'XR' (Extended Release) designation. Dispensing it in place of standard Adderall can cause dangerous dosing intervals.",
+              "relatedDrug": "Adderall XR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit_002_mastery",
+      "levelNumber": 4,
+      "type": "unit_mastery",
+      "title": "Unit 2 Mastery",
+      "description": "Comprehensive review and unassisted Tall Man lettering mastery for Unit 2.",
+      "learningObjective": "Demonstrate complete unit mastery of formulation discrimination and unassisted Tall Man lettering without prompts or scaffolding.",
+      "xpReward": 25,
+      "unlocked": false,
+      "lasaRefIds": ["lasa-005", "lasa-006", "lasa-007", "lasa-015"],
+      "activities": [
+        {
+          "id": "act_204_mastery_review",
+          "activityType": "situational",
+          "activityRole": "unit_mastery",
+          "learningObjective": "Verify look-alike formulation safety under unit review conditions.",
+          "questions": [
+            {
+              "id": "q305_review",
+              "type": "multiple_choice",
+              "lasaId": "lasa-006",
+              "scenario": "A hospital order arrives for sterile wound cleansing. The medication room contains concentrated glacial acetic acid and dilute acetic acid for irrigation.",
+              "prompt": "Which preparation is safe for direct patient wound irrigation?",
+              "choices": [
+                "acetic acid for irrigation",
+                "glacial acetic acid"
+              ],
+              "correctAnswer": "acetic acid for irrigation",
+              "explanation": "Only dilute acetic acid for irrigation is safe for topical patient use; glacial acetic acid causes severe caustic burns.",
+              "relatedDrug": "acetic acid for irrigation"
             }
           ]
         },
         {
-          "id": "act_203_mastery",
+          "id": "act_204_mastery_capstone",
           "activityType": "construction",
           "activityRole": "unit_mastery",
           "isFinalTask": true,
@@ -120,7 +173,7 @@
               "isFinalTask": true,
               "scaffold": false,
               "lasaId": "lasa-007",
-              "prompt": "FINAL UNIT MASTERY TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
+              "prompt": "UNIT MASTERY CAPSTONE TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
               "standardName": "acetohexamide",
               "tallManName": "acetoHEXAMIDE",
               "prefix": "",

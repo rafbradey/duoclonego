@@ -23,7 +23,7 @@ import {
 import "./Documentation.css";
 
 const LAST_UPDATED = "September 10, 2026";
-const APP_VERSION = "v0.6.0 (Activity System Overhaul & Situational Recognition)";
+const APP_VERSION = "v0.7.0 (Dedicated Unit Mastery Level & 4-Level Architecture)";
 
 // Status pill component helper
 function StatusBadge({ status }) {
@@ -375,9 +375,10 @@ function Documentation() {
                                     The primary educational hub. Renders Unit cards containing visual progression paths. Each level node resolves its status dynamically:
                                 </p>
                                 <ul className="doc-bullet-list">
-                                    <li><strong>Completed:</strong> Golden accent ring, checkmark icon, and <code className="doc-inline-code">✓ DONE</code> badge. Users can freely replay completed levels for practice.</li>
-                                    <li><strong>Active:</strong> Primary green background with a <code className="doc-inline-code">Star</code> icon and subtle pulse animation inviting interaction. Clicking navigates directly to <code className="doc-inline-code">/lesson/:levelId</code>.</li>
-                                    <li><strong>Locked:</strong> Grayed surface with padlock icon; disabled until the preceding prerequisite level is completed.</li>
+                                    <li><strong>Completed Level:</strong> Golden accent ring, checkmark icon, and <code className="doc-inline-code">✓ DONE</code> badge. Users can freely replay completed levels for practice.</li>
+                                    <li><strong>Active Level:</strong> Primary green background with a <code className="doc-inline-code">Star</code> icon and subtle pulse animation inviting interaction. Clicking navigates directly to <code className="doc-inline-code">/lesson/:levelId</code>.</li>
+                                    <li><strong>Locked Level:</strong> Grayed surface with padlock icon; disabled until the preceding prerequisite level is completed.</li>
+                                    <li><strong>Dedicated Unit Mastery (4th Level):</strong> Distinct gold/amber capstone card positioned after Level 3 with a prominent trophy badge (🏆), dedicated route <code className="doc-inline-code">/unit/:unitId/mastery</code>, and +25 XP capstone reward. Locked until Levels 1–3 are completed; conquering Unit Mastery unlocks the subsequent Unit.</li>
                                     <li><strong>Path Connectors:</strong> Visual lines connecting nodes dynamically turn green when the preceding step is achieved.</li>
                                     <li><strong>Unit Guidebook:</strong> Each unit header provides a &quot;GUIDEBOOK&quot; button launching a modal reference of confused pairs.</li>
                                 </ul>
@@ -473,7 +474,7 @@ function Documentation() {
                                 <span className="doc-h-arrow">&rarr;</span>
                                 <span className="doc-h-node">Unit</span>
                                 <span className="doc-h-arrow">&rarr;</span>
-                                <span className="doc-h-node">Level (1..X)</span>
+                                <span className="doc-h-node">Levels 1..3 + Unit Mastery</span>
                                 <span className="doc-h-arrow">&rarr;</span>
                                 <span className="doc-h-node">Lesson</span>
                                 <span className="doc-h-arrow">&rarr;</span>
@@ -494,13 +495,21 @@ function Documentation() {
                                 <strong>Intentional Scope Correction:</strong> Theoretical and clinical questions (such as ISMP classification theory, drug indications, mechanisms of action, pharmacokinetics, dosage calculations, and clinical reasoning) are <strong>not part of active learner lessons</strong>. All previous prototype theoretical items have been migrated out of active levels into a dedicated preservation archive (<code className="doc-inline-code">src/data/curriculum/deferredTheoreticalQuestions.json</code>) and reserved for future research-backed phases.
                             </p>
 
-                            <h3 className="heading-sm doc-subsection-title">The Dynamic X Rule</h3>
+                            <h3 className="heading-sm doc-subsection-title">Standardized Unit Structure: 3 Normal Levels + Unit Mastery</h3>
                             <p className="doc-paragraph">
-                                Unlike systems that enforce arbitrary fixed level counts (e.g. exactly 5 lessons per unit), Duoclongo strictly derives level counts from pedagogical demand:
-                                <br />
-                                <em>&quot;X is determined by the optimal learning progression for the material, not by an arbitrary constant.&quot;</em>
-                                <br />
-                                For instance, Unit 1 provides <strong>X = 3</strong> levels (Familiarization &rarr; Tall Man Discrimination &rarr; LASA Distinction &amp; Situational Recognition), Unit 2 provides <strong>X = 3</strong> levels (Concentration Recognition &rarr; Release Mechanism Distinction &rarr; Suffix Tall Man Retrieval), Unit 3 provides <strong>X = 3</strong> levels (Brand Differentiation &rarr; Interactive Matching &rarr; Situational Conjugate Recognition), and Section 2 introduces Unit 4 with <strong>X = 1</strong> level (Potent Opioid Differentiation).
+                                Every Unit across all Sections adheres strictly to a 4-level pedagogical structure:
+                            </p>
+                            <div className="doc-code-preview">
+                                <code>
+                                    UNIT<br />
+                                    ├── Level 1: Identification &amp; Familiarization (type: &quot;level&quot;)<br />
+                                    ├── Level 2: Tall Man Discrimination (type: &quot;level&quot;)<br />
+                                    ├── Level 3: Situational Recognition &amp; Verification (type: &quot;level&quot;)<br />
+                                    └── Unit Mastery: Comprehensive Review &amp; Unassisted Tall Man Capstone (type: &quot;unit_mastery&quot;)
+                                </code>
+                            </div>
+                            <p className="doc-paragraph">
+                                Currently implemented uniformly across <strong>Unit 1</strong> (Oral Antidiabetics), <strong>Unit 2</strong> (Formulation &amp; Suffix Variants), <strong>Unit 3</strong> (Brand &amp; Conjugate Differentiation), and <strong>Unit 4</strong> (High-Alert Synthetic Opioids).
                             </p>
 
                             <h3 className="heading-sm doc-subsection-title">Cognitive Science Principles Applied</h3>
@@ -566,14 +575,16 @@ function Documentation() {
                                 </table>
                             </div>
 
-                            <h3 className="heading-sm doc-subsection-title">4.3 Unit Final Mastery Milestone</h3>
+                            <h3 className="heading-sm doc-subsection-title">4.3 Dedicated Unit Mastery Milestone</h3>
                             <p className="doc-paragraph">
-                                Grounded in the thesis requirement for unassisted competency verification, the <strong>final task of every Unit</strong> is an independent, no-hint Tall Man Lettering mastery task (<code className="doc-inline-code">activityRole: &quot;unit_mastery&quot;</code>, <code className="doc-inline-code">isFinalTask: true</code>, <code className="doc-inline-code">scaffold: false</code>).
+                                Grounded in the thesis requirement for unassisted competency verification, the <strong>Unit Mastery</strong> level (<code className="doc-inline-code">type: &quot;unit_mastery&quot;</code>, <code className="doc-inline-code">isMasteryLevel: true</code>) is a dedicated fourth level associated with the entire Unit:
                             </p>
                             <ul className="doc-bullet-list">
-                                <li><strong>No Assisted Scaffolding:</strong> All prefix/suffix affix boxes and dynamic reconstruction previews are removed.</li>
-                                <li><strong>Independent Full-Name Generation:</strong> The learner is presented with a clean input field and must type the complete orthographic name from memory (e.g. <code className="doc-inline-code">predniSONE</code>, <code className="doc-inline-code">acetoHEXAMIDE</code>, <code className="doc-inline-code">acetaZOLAMIDE</code>, <code className="doc-inline-code">fentaNYL</code>).</li>
-                                <li><strong>Strict Case-Sensitive Evaluation:</strong> Evaluation strictly enforces case sensitivity. All-lowercase (<code className="doc-inline-code">prednisone</code>) or all-uppercase (<code className="doc-inline-code">PREDNISONE</code>) submissions are rejected, verifying true mastery of the exact capitalized segments.</li>
+                                <li><strong>Unit-Wide Synthesis:</strong> Reviews medication distinctions across all preceding levels in the Unit before administering the final unassisted challenge.</li>
+                                <li><strong>Capstone Tall Man Task:</strong> Concludes with an independent, no-hint Tall Man Lettering challenge (<code className="doc-inline-code">activityRole: &quot;unit_mastery&quot;</code>, <code className="doc-inline-code">isFinalTask: true</code>, <code className="doc-inline-code">scaffold: false</code>). The learner must produce the entire capitalized drug name from memory without affix hints.</li>
+                                <li><strong>Direct Routing:</strong> Accessible via <code className="doc-inline-code">/unit/:unitId/mastery</code> (e.g. <code className="doc-inline-code">/unit/1/mastery</code>). Refresh-safe and directly navigable.</li>
+                                <li><strong>Progression Gating:</strong> Unit Mastery unlocks only after Levels 1, 2, and 3 are successfully completed. Completing Unit Mastery marks the Unit mastered and unlocks Level 1 of the subsequent Unit.</li>
+                                <li><strong>Visual Treatment:</strong> Rendered on <code className="doc-inline-code">/learn</code> as a prominent gold/amber card with a trophy icon (🏆), visually separated from standard level circles.</li>
                             </ul>
                         </section>
                     )}
@@ -745,6 +756,13 @@ function Documentation() {
                                             <td><strong>Level</strong></td>
                                             <td><code className="doc-inline-code">level_&#123;NNN&#125;</code></td>
                                             <td><code className="doc-inline-code">level_001</code></td>
+                                            <td>Global</td>
+                                            <td><strong>YES</strong> (<code className="doc-inline-code">completed_lessons</code>)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Unit Mastery</strong></td>
+                                            <td><code className="doc-inline-code">unit_&#123;NNN&#125;_mastery</code></td>
+                                            <td><code className="doc-inline-code">unit_001_mastery</code></td>
                                             <td>Global</td>
                                             <td><strong>YES</strong> (<code className="doc-inline-code">completed_lessons</code>)</td>
                                         </tr>
