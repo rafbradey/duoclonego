@@ -22,7 +22,7 @@ import {
 import "./Documentation.css";
 
 const LAST_UPDATED = "September 10, 2026";
-const APP_VERSION = "v0.3.0 (Phase 3 Practice Hub Implemented)";
+const APP_VERSION = "v0.3.1 (Unit 3 & Matching Format Added)";
 
 // Status pill component helper
 function StatusBadge({ status }) {
@@ -694,7 +694,8 @@ function Documentation() {
     ├── index.js                     <- Central normalization & unit registry
     └── section-1/
         ├── unit-1.json              <- Unit 1: Introductory LASA Pairs (X = 3 levels)
-        └── unit-2.json              <- Unit 2: Formulations & Suffixes (X = 2 levels)`}
+        ├── unit-2.json              <- Unit 2: Formulations & Suffixes (X = 2 levels)
+        └── unit-3.json              <- Unit 3: Brand & Suffix Differentiation (X = 3 levels)`}
                             </pre>
 
                             {/* Unit JSON Schema & Example */}
@@ -803,14 +804,36 @@ function Documentation() {
                             />
                             <ul className="doc-field-desc-list">
                                 <li><code className="doc-inline-code">id</code>: Unique question identifier (e.g. <code className="doc-inline-code">q101</code>).</li>
-                                <li><code className="doc-inline-code">type</code>: Question format. Currently supported: <code className="doc-inline-code">multiple_choice</code>, <code className="doc-inline-code">true_false</code>.</li>
+                                <li><code className="doc-inline-code">type</code>: Question format. Currently supported: <code className="doc-inline-code">multiple_choice</code>, <code className="doc-inline-code">true_false</code>, <code className="doc-inline-code">matching</code>.</li>
                                 <li><code className="doc-inline-code">lasaId</code>: Reference to the underlying LASA pair in <code className="doc-inline-code">lasaData.json</code>.</li>
                                 <li><code className="doc-inline-code">prompt</code>: The question prompt displayed to the learner.</li>
-                                <li><code className="doc-inline-code">choices</code>: Array of selectable text options.</li>
-                                <li><code className="doc-inline-code">correctAnswer</code>: Exact string match for the correct choice.</li>
+                                <li><code className="doc-inline-code">choices</code>: Array of selectable text options (for choice questions).</li>
+                                <li><code className="doc-inline-code">pairs</code>: Array of <code className="doc-inline-code">{`{ left, right }`}</code> objects (for <code className="doc-inline-code">matching</code> questions).</li>
+                                <li><code className="doc-inline-code">correctAnswer</code>: Exact string match for choice questions.</li>
                                 <li><code className="doc-inline-code">explanation</code>: Detailed clinical rationale displayed in the feedback drawer.</li>
                                 <li><code className="doc-inline-code">relatedDrug</code>: Highlighted drug name shown in the feedback banner.</li>
                             </ul>
+
+                            <h3 className="heading-sm doc-subsection-title">6.5 Matching Question Schema</h3>
+                            <p className="doc-paragraph">
+                                Tap-to-match questions challenge learners to link pairs dynamically:
+                            </p>
+                            <JsonSnippet
+                                label="matching-question-example.json"
+                                code={`{
+  "id": "q403",
+  "type": "matching",
+  "prompt": "Match each medication with its documented confusable counterpart:",
+  "pairs": [
+    { "left": "Activase", "right": "TNKase" },
+    { "left": "Actonel", "right": "Actos" },
+    { "left": "Adacel (Tdap)", "right": "Daptacel (DTaP)" },
+    { "left": "ado-trastuzumab", "right": "trastuzumab" }
+  ],
+  "explanation": "Activase and TNKase are both thrombolytics with distinct dosing protocols...",
+  "relatedDrug": "Activase"
+}`}
+                            />
                         </section>
                     )}
 
@@ -1013,8 +1036,8 @@ function Documentation() {
                                         </tr>
                                         <tr>
                                             <td><strong>Question Formats</strong></td>
-                                            <td>Limited to <code className="doc-inline-code">multiple_choice</code> and <code className="doc-inline-code">true_false</code>. Drag-and-drop matching, syllable tapping, and free-text entry are not yet implemented.</td>
-                                            <td>Phase 2+ / 3</td>
+                                            <td>Supports <code className="doc-inline-code">multiple_choice</code>, <code className="doc-inline-code">true_false</code>, and interactive tap-to-match <code className="doc-inline-code">matching</code> pairs with <code className="doc-inline-code">TallManText</code>. Syllable tapping, drag-and-drop sort, and free-text entry remain future formats.</td>
+                                            <td>Active (Multiple + Matching)</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Quests & Leaderboards</strong></td>

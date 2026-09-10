@@ -1,0 +1,139 @@
+{
+  "sectionId": "section-1",
+  "sectionTitle": "Section 1: Foundations",
+  "id": "unit_003",
+  "unitNumber": 3,
+  "title": "SECTION 1, UNIT 3",
+  "description": "Brand & Suffix Differentiation",
+  "unitMessage": "ISMP 2023 Brand Similarities & Matching Challenges",
+  "color": "#ce82ff",
+  "levels": [
+    {
+      "id": "level_301",
+      "levelNumber": 1,
+      "title": "High-Alert Brand Recognition",
+      "description": "Differentiate deceptive brand names that look and sound nearly identical.",
+      "learningObjective": "Identify critical clinical indication differences between deceptive brand names like Actonel and Actos.",
+      "xpReward": 10,
+      "unlocked": false,
+      "lasaRefIds": ["lasa-012", "lasa-014"],
+      "activities": [
+        {
+          "id": "act_301",
+          "activityType": "recognition",
+          "questions": [
+            {
+              "id": "q401",
+              "type": "multiple_choice",
+              "lasaId": "lasa-012",
+              "prompt": "Actonel (risedronate) is dangerously confused with Actos (pioglitazone). What is the primary indication of Actonel?",
+              "choices": [
+                "Osteoporosis (bisphosphonate)",
+                "Type 2 diabetes (thiazolidinedione)",
+                "Severe hypertension (ACE inhibitor)",
+                "Major depression (SSRI)"
+              ],
+              "correctAnswer": "Osteoporosis (bisphosphonate)",
+              "explanation": "Actonel is a bisphosphonate for osteoporosis requiring upright positioning, whereas Actos is an oral antidiabetic agent. Dispensing errors can cause untreated diabetes or severe esophageal irritation.",
+              "relatedDrug": "Actonel"
+            },
+            {
+              "id": "q402",
+              "type": "multiple_choice",
+              "lasaId": "lasa-014",
+              "prompt": "Which population is Adacel (Tdap) specifically formulated for, compared to pediatric Daptacel (DTaP)?",
+              "choices": [
+                "Adolescents and adults (booster with reduced toxoid)",
+                "Infants under 6 weeks of age",
+                "Strictly immunocompromised chemotherapy patients",
+                "Neonates in neonatal intensive care"
+              ],
+              "correctAnswer": "Adolescents and adults (booster with reduced toxoid)",
+              "explanation": "Adacel (Tdap) is formulated with reduced diphtheria toxoid for adolescents and adults. Daptacel (DTaP) contains full-strength toxoid and is exclusively indicated for infants and young children.",
+              "relatedDrug": "Adacel (Tdap)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "level_302",
+      "levelNumber": 2,
+      "title": "Interactive Pair Matching",
+      "description": "Rapidly connect look-alike and sound-alike counterparts through tactile retrieval matching.",
+      "learningObjective": "Reinforce cognitive associations between confusable pairs under active retrieval conditions.",
+      "xpReward": 15,
+      "unlocked": false,
+      "lasaRefIds": ["lasa-011", "lasa-012", "lasa-014", "lasa-018"],
+      "activities": [
+        {
+          "id": "act_302",
+          "activityType": "discrimination",
+          "questions": [
+            {
+              "id": "q403",
+              "type": "matching",
+              "prompt": "Match each medication with its documented confusable counterpart:",
+              "pairs": [
+                { "left": "Activase", "right": "TNKase" },
+                { "left": "Actonel", "right": "Actos" },
+                { "left": "Adacel (Tdap)", "right": "Daptacel (DTaP)" },
+                { "left": "ado-trastuzumab", "right": "trastuzumab" }
+              ],
+              "explanation": "Activase and TNKase are both thrombolytics with distinct dosing protocols. Actonel treats osteoporosis while Actos treats diabetes. Adacel is for adolescents/adults (Tdap) whereas Daptacel (DTaP) is for children. Ado-trastuzumab is an antibody-drug conjugate carrying lethal toxicity if substituted for conventional trastuzumab.",
+              "relatedDrug": "Activase"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "level_303",
+      "levelNumber": 3,
+      "title": "Conjugate & Formulation Safety",
+      "description": "Discriminate complex prefix additions and recombinant antibody-drug conjugates.",
+      "learningObjective": "Prevent catastrophic oncology substitution errors between ado-trastuzumab emtansine and trastuzumab.",
+      "xpReward": 15,
+      "unlocked": false,
+      "lasaRefIds": ["lasa-018", "lasa-019"],
+      "activities": [
+        {
+          "id": "act_303",
+          "activityType": "discrimination",
+          "questions": [
+            {
+              "id": "q404",
+              "type": "multiple_choice",
+              "lasaId": "lasa-018",
+              "prompt": "Why did the FDA and ISMP require the 'ado-' prefix for ado-trastuzumab emtansine (Kadcyla)?",
+              "choices": [
+                "To prevent fatal dosing mix-ups with conventional trastuzumab (Herceptin)",
+                "To denote that it is an oral liquid formulation",
+                "Because it was manufactured in an Asian pharmaceutical facility",
+                "To signal that it is an over-the-counter biosimilar"
+              ],
+              "correctAnswer": "To prevent fatal dosing mix-ups with conventional trastuzumab (Herceptin)",
+              "explanation": "Ado-trastuzumab emtansine is an antibody-drug conjugate with cytotoxic payload. Substituting it at conventional trastuzumab doses has caused fatal overdoses, leading ISMP to require distinct prefix differentiation.",
+              "relatedDrug": "ado-trastuzumab emtansine"
+            },
+            {
+              "id": "q405",
+              "type": "multiple_choice",
+              "lasaId": "lasa-019",
+              "prompt": "Advair (fluticasone/salmeterol) is an inhaler for asthma. What is Advicor (niacin/lovastatin) indicated for?",
+              "choices": [
+                "Lipid and cholesterol management",
+                "Bacterial respiratory infection",
+                "Gastroesophageal reflux disease",
+                "Allergic rhinitis nasal congestion"
+              ],
+              "correctAnswer": "Lipid and cholesterol management",
+              "explanation": "Advair is an oral inhaler for asthma and COPD, whereas Advicor is an oral tablet for dyslipidemia. Phonetic prescription call-in errors have led to improper dispensing.",
+              "relatedDrug": "Advair"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

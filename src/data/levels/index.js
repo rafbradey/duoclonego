@@ -1,5 +1,6 @@
 import unit1 from "./section-1/unit-1.json" with { type: "json" };
 import unit2 from "./section-1/unit-2.json" with { type: "json" };
+import unit3 from "./section-1/unit-3.json" with { type: "json" };
 
 /**
  * Normalizes a level object and flattens activity questions for evaluation.
@@ -52,7 +53,7 @@ function normalizeUnit(unit) {
 }
 
 // Registry of all units across sections
-export const rawUnits = [unit1, unit2];
+export const rawUnits = [unit1, unit2, unit3];
 export const allUnits = rawUnits.map(normalizeUnit);
 
 // Flattened registry of all individual levels across units

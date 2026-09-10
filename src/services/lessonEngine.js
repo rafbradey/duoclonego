@@ -20,6 +20,46 @@ export function evaluateAnswer(question, selectedAnswer) {
         };
     }
 
+    // Special handling for tap-to-match pair questions
+    if (question.type === "matching" && Array.isArray(question.pairs)) {
+        let parsedMatches = selectedAnswer;
+        if (typeof selectedAnswer === "string") {
+            try {
+                parsedMatches = JSON.parse(selectedAnswer);
+            } catch {
+                parsedMatches = null;
+            }
+        }
+
+        let isCorrect = false;
+        if (parsedMatches && typeof parsedMatches === "object") {
+            isCorrect = question.pairs.every((pair) => {
+                const leftNorm = String(pair.left).trim().toLowerCase();
+                const rightNorm = String(pair.right).trim().toLowerCase();
+
+                if (Array.isArray(parsedMatches)) {
+                    return parsedMatches.some(
+                        (m) => String(m.left).trim().toLowerCase() === leftNorm &&
+                               String(m.right).trim().toLowerCase() === rightNorm
+                    );
+                } else {
+                    const matchedVal = parsedMatches[pair.left] ?? parsedMatches[leftNorm];
+                    return matchedVal && String(matchedVal).trim().toLowerCase() === rightNorm;
+                }
+            });
+        }
+
+        const formattedCorrect = question.pairs.map((p) => `${p.left} ↔ ${p.right}`).join(" | ");
+
+        return {
+            isCorrect,
+            selectedAnswer,
+            correctAnswer: formattedCorrect,
+            explanation: question.explanation || "",
+            relatedDrug: question.relatedDrug || ""
+        };
+    }
+
     const cleanSelected = String(selectedAnswer).trim().toLowerCase();
     const cleanCorrect = String(question.correctAnswer).trim().toLowerCase();
     const isCorrect = cleanSelected === cleanCorrect;

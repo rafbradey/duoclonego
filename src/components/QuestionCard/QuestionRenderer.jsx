@@ -1,4 +1,5 @@
 import MultipleChoiceQuestion from "./MultipleChoiceQuestion.jsx";
+import MatchingQuestion from "./MatchingQuestion.jsx";
 
 /**
  * QuestionRenderer acts as a strategy dispatcher for rendering questions
@@ -7,7 +8,8 @@ import MultipleChoiceQuestion from "./MultipleChoiceQuestion.jsx";
  * Supported types:
  * - "multiple_choice": Standard multi-option choice grid
  * - "true_false": Binary choice evaluation (uses choice grid)
- * - Future: "matching", "recognition", "comparison"
+ * - "matching": Interactive tap-to-match pair tiles
+ * - Future: "recognition", "comparison"
  *
  * @param {Object} props
  * @param {Object} props.question - Question definition object
@@ -24,6 +26,16 @@ function QuestionRenderer({
     if (!question) return null;
 
     switch (question.type) {
+        case "matching":
+            return (
+                <MatchingQuestion
+                    key={question.id}
+                    question={question}
+                    onSelect={onSelect}
+                    isSubmitted={isSubmitted}
+                />
+            );
+
         case "multiple_choice":
         case "true_false":
             return (
