@@ -19,6 +19,12 @@
     align-items: center;
 }
 
+.lasa-card-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .lasa-id-badge {
     font-size: 0.75rem;
     font-weight: 800;
@@ -34,6 +40,33 @@
     padding: 0.2rem 0.6rem;
     border-radius: 12px;
     border: 1px solid var(--border-color);
+}
+
+.lasa-srs-tag {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 10px;
+}
+
+.lasa-srs-tag.srs-mastered {
+    background-color: rgba(45, 171, 105, 0.15);
+    color: #2dab69;
+    border: 1px solid rgba(45, 171, 105, 0.35);
+}
+
+.lasa-srs-tag.srs-due {
+    background-color: rgba(255, 150, 0, 0.15);
+    color: #ff9600;
+    border: 1px solid rgba(255, 150, 0, 0.35);
+}
+
+.lasa-srs-tag.srs-learning {
+    background-color: rgba(73, 192, 248, 0.15);
+    color: #49c0f8;
+    border: 1px solid rgba(73, 192, 248, 0.35);
 }
 
 .lasa-comparison-row {

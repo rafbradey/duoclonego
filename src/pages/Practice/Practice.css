@@ -73,14 +73,29 @@
     flex-shrink: 0;
 }
 
+.practice-stat-card.stat-highlight-due {
+    border-color: rgba(255, 150, 0, 0.5);
+    background: linear-gradient(135deg, var(--bg-surface) 0%, rgba(255, 150, 0, 0.05) 100%);
+}
+
 .practice-stat-icon-wrapper.xp {
     background: rgba(255, 200, 0, 0.15);
     color: var(--color-warning);
 }
 
+.practice-stat-icon-wrapper.due {
+    background: rgba(255, 150, 0, 0.15);
+    color: #ff9600;
+}
+
 .practice-stat-icon-wrapper.mistakes {
     background: rgba(255, 75, 75, 0.15);
     color: var(--color-danger);
+}
+
+.practice-stat-icon-wrapper.mastered {
+    background: rgba(45, 171, 105, 0.15);
+    color: #2dab69;
 }
 
 .practice-stat-icon-wrapper.safe {
@@ -126,7 +141,7 @@
 
 .practice-modes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
 }
 
@@ -144,14 +159,29 @@
     transform: translateY(-4px);
 }
 
+.practice-mode-card.due-mode {
+    border-color: rgba(255, 150, 0, 0.4);
+    box-shadow: 0 4px 0 rgba(255, 150, 0, 0.25);
+}
+
+.practice-mode-card.due-mode.mode-recommended {
+    border-color: #ff9600;
+    box-shadow: 0 4px 0 rgba(255, 150, 0, 0.4), 0 0 20px rgba(255, 150, 0, 0.12);
+}
+
+.practice-mode-card.due-mode:hover {
+    border-color: #ff9600;
+    box-shadow: 0 6px 0 rgba(255, 150, 0, 0.45);
+}
+
 .practice-mode-card.quick-mode {
-    border-color: rgba(88, 204, 2, 0.4);
-    box-shadow: 0 4px 0 rgba(88, 204, 2, 0.25);
+    border-color: rgba(73, 192, 248, 0.4);
+    box-shadow: 0 4px 0 rgba(73, 192, 248, 0.25);
 }
 
 .practice-mode-card.quick-mode:hover {
-    border-color: var(--color-primary);
-    box-shadow: 0 6px 0 rgba(88, 204, 2, 0.35);
+    border-color: #49c0f8;
+    box-shadow: 0 6px 0 rgba(73, 192, 248, 0.35);
 }
 
 .practice-mode-card.mistakes-mode {
@@ -186,9 +216,14 @@
     border-radius: 14px;
 }
 
+.due-mode .practice-mode-icon-pill {
+    background: rgba(255, 150, 0, 0.15);
+    color: #ff9600;
+}
+
 .quick-mode .practice-mode-icon-pill {
-    background: rgba(88, 204, 2, 0.15);
-    color: var(--color-primary);
+    background: rgba(73, 192, 248, 0.15);
+    color: #49c0f8;
 }
 
 .mistakes-mode .practice-mode-icon-pill {
@@ -205,10 +240,22 @@
     text-transform: uppercase;
 }
 
+.due-mode .practice-mode-badge {
+    background: rgba(255, 150, 0, 0.12);
+    color: #ff9600;
+    border: 1px solid rgba(255, 150, 0, 0.35);
+}
+
+.due-mode .practice-mode-badge.badge-clean {
+    background: rgba(45, 171, 105, 0.12);
+    color: #2dab69;
+    border: 1px solid rgba(45, 171, 105, 0.35);
+}
+
 .quick-mode .practice-mode-badge {
-    background: rgba(88, 204, 2, 0.12);
-    color: var(--color-primary);
-    border: 1px solid rgba(88, 204, 2, 0.3);
+    background: rgba(73, 192, 248, 0.12);
+    color: #49c0f8;
+    border: 1px solid rgba(73, 192, 248, 0.3);
 }
 
 .mistakes-mode .practice-mode-badge {
@@ -218,9 +265,9 @@
 }
 
 .mistakes-mode .practice-mode-badge.badge-clean {
-    background: rgba(88, 204, 2, 0.12);
-    color: var(--color-primary);
-    border: 1px solid rgba(88, 204, 2, 0.3);
+    background: rgba(45, 171, 105, 0.12);
+    color: #2dab69;
+    border: 1px solid rgba(45, 171, 105, 0.35);
 }
 
 .practice-mode-info {

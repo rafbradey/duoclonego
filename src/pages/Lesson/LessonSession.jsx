@@ -5,7 +5,7 @@ import { getLessonById } from "../../services/lessonService.js";
 import { getMasteryLevelByUnitId } from "../../services/unitService.js";
 import { createSession, recordSessionAnswer, prepareSessionLesson } from "../../services/lessonEngine.js";
 import { getCurrentUser } from "../../services/userService.js";
-import { generatePracticeSession, recordPracticeOutcome } from "../../services/practiceService.js";
+import { generatePracticeSession, recordQuestionOutcome } from "../../services/practiceService.js";
 import { playCorrectSound, playIncorrectSound } from "../../services/audioService.js";
 import QuestionRenderer from "../../components/QuestionCard/QuestionRenderer.jsx";
 import FeedbackDrawer from "../../components/FeedbackDrawer/FeedbackDrawer.jsx";
@@ -122,9 +122,14 @@ function LessonSession() {
             playIncorrectSound();
         }
 
-        if (isPracticeMode && currentQuestion?.id) {
-            recordPracticeOutcome(currentQuestion.id, evaluation.isCorrect).catch((err) => {
-                console.error("Failed to record practice outcome:", err);
+        if (currentQuestion?.id || currentQuestion?.lasaId) {
+            recordQuestionOutcome({
+                questionId: currentQuestion?.id,
+                lasaId: currentQuestion?.lasaId,
+                isCorrect: evaluation.isCorrect,
+                isPractice: isPracticeMode
+            }).catch((err) => {
+                console.error("Failed to record question outcome:", err);
             });
         }
 
@@ -192,9 +197,14 @@ function LessonSession() {
             playIncorrectSound();
         }
 
-        if (isPracticeMode && currentQuestion?.id) {
-            recordPracticeOutcome(currentQuestion.id, evaluation.isCorrect).catch((err) => {
-                console.error("Failed to record practice outcome:", err);
+        if (currentQuestion?.id || currentQuestion?.lasaId) {
+            recordQuestionOutcome({
+                questionId: currentQuestion?.id,
+                lasaId: currentQuestion?.lasaId,
+                isCorrect: evaluation.isCorrect,
+                isPractice: isPracticeMode
+            }).catch((err) => {
+                console.error("Failed to record question outcome:", err);
             });
         }
 

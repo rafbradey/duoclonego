@@ -8,11 +8,12 @@ import {
     ShieldCheck,
     Award,
     BookOpen,
-    ArrowRight
+    ArrowRight,
+    Calendar
 } from "lucide-react";
 import Mascot from "../../components/Mascot/Mascot.jsx";
 import LasaPairCard from "../../components/LasaPairCard/LasaPairCard.jsx";
-import { getCurrentUser } from "../../services/userService.js";
+import { getCurrentUser, getDueSrsPairs, getMasteredPairsCount } from "../../services/userService.js";
 import { getAllLasaEntries } from "../../services/drugService.js";
 import "./Practice.css";
 
@@ -45,6 +46,10 @@ function Practice() {
         return () => { isMounted = false; };
     }, []);
 
+    const duePairs = getDueSrsPairs(user);
+    const dueLasaIds = new Set(duePairs.map((p) => p.lasaId));
+    const dueCount = duePairs.length;
+    const masteredCount = getMasteredPairsCount(user);
     const mistakesCount = user?.mistakes_queue?.length || 0;
     const practiceCompletedCount = user?.practice_sessions_completed || 0;
 
@@ -72,7 +77,7 @@ function Practice() {
                         <h1 className="heading-lg">Practice Hub</h1>
                     </div>
                     <p className="body-text-muted">
-                        Strengthen clinical recognition of high-risk Look-Alike, Sound-Alike medications through active retrieval practice without losing hearts.
+                        Strengthen clinical recognition of high-risk Look-Alike, Sound-Alike medications through active retrieval practice and spaced repetition without losing hearts.
                     </p>
                 </div>
 
@@ -93,6 +98,16 @@ function Practice() {
                     </div>
                 </div>
 
+                <div className={`practice-stat-card ${dueCount > 0 ? "stat-highlight-due" : ""}`}>
+                    <div className="practice-stat-icon-wrapper due">
+                        <Calendar size={24} />
+                    </div>
+                    <div className="practice-stat-info">
+                        <span className="practice-stat-value">{dueCount}</span>
+                        <span className="practice-stat-label">Due for Review</span>
+                    </div>
+                </div>
+
                 <div className="practice-stat-card">
                     <div className="practice-stat-icon-wrapper mistakes">
                         <RotateCcw size={24} />
@@ -104,12 +119,12 @@ function Practice() {
                 </div>
 
                 <div className="practice-stat-card">
-                    <div className="practice-stat-icon-wrapper safe">
+                    <div className="practice-stat-icon-wrapper mastered">
                         <ShieldCheck size={24} />
                     </div>
                     <div className="practice-stat-info">
-                        <span className="practice-stat-value">Safe Mode</span>
-                        <span className="practice-stat-label">Zero Hearts Depleted</span>
+                        <span className="practice-stat-value">{masteredCount}</span>
+                        <span className="practice-stat-label">Mastered Pairs</span>
                     </div>
                 </div>
             </section>
@@ -122,28 +137,32 @@ function Practice() {
                 </h2>
 
                 <div className="practice-modes-grid">
-                    {/* Quick Practice Mode Card */}
-                    <div className="practice-mode-card quick-mode duo-card">
+                    {/* Daily Spaced Review Mode Card */}
+                    <div className={`practice-mode-card due-mode duo-card ${dueCount > 0 ? "mode-recommended" : ""}`}>
                         <div className="practice-card-top">
                             <div className="practice-card-header-row">
                                 <div className="practice-mode-icon-pill">
-                                    <Sparkles size={24} />
+                                    <Calendar size={24} />
                                 </div>
-                                <span className="practice-mode-badge">+10 XP · 5 Questions</span>
+                                <span className={`practice-mode-badge ${dueCount > 0 ? "badge-due" : "badge-clean"}`}>
+                                    {dueCount > 0 ? `${dueCount} Due Today` : "Up to Date"}
+                                </span>
                             </div>
                             <div className="practice-mode-info">
-                                <h3 className="practice-mode-title">Quick Practice</h3>
+                                <h3 className="practice-mode-title">Daily Spaced Review</h3>
                                 <p className="practice-mode-desc">
-                                    Randomized retrieval questions drawn from your unlocked curriculum levels. Fast, bite-sized recall exercises designed to build rapid recognition.
+                                    {dueCount > 0
+                                        ? `You have ${dueCount} LASA pair${dueCount === 1 ? "" : "s"} scheduled for spaced review today. Review them at optimal cognitive intervals to seal long-term memory.`
+                                        : "All of your encountered LASA pairs are up to date! Great job keeping your spaced retrieval schedule current."}
                                 </p>
                             </div>
                         </div>
 
                         <Link
-                            to="/lesson/practice?mode=quick"
+                            to="/lesson/practice?mode=due"
                             className="duo-button duo-button-primary practice-mode-action-btn"
                         >
-                            <span>START QUICK PRACTICE</span>
+                            <span>START DAILY REVIEW</span>
                             <ArrowRight size={18} />
                         </Link>
                     </div>
@@ -155,7 +174,7 @@ function Practice() {
                                 <div className="practice-mode-icon-pill">
                                     <RotateCcw size={24} />
                                 </div>
-                                <span className={`practice-mode-badge ${mistakesCount === 0 ? "badge-clean" : ""}`}>
+                                <span className={`practice-mode-badge ${mistakesCount === 0 ? "badge-clean" : "badge-mistake"}`}>
                                     {mistakesCount > 0 ? `${mistakesCount} Flagged` : "Queue Clean"}
                                 </span>
                             </div>
@@ -174,6 +193,32 @@ function Practice() {
                             className="duo-button duo-button-secondary practice-mode-action-btn"
                         >
                             <span>{mistakesCount > 0 ? "REVIEW MISTAKES" : "PRACTICE ANYWAY"}</span>
+                            <ArrowRight size={18} />
+                        </Link>
+                    </div>
+
+                    {/* Quick Practice Mode Card */}
+                    <div className="practice-mode-card quick-mode duo-card">
+                        <div className="practice-card-top">
+                            <div className="practice-card-header-row">
+                                <div className="practice-mode-icon-pill">
+                                    <Sparkles size={24} />
+                                </div>
+                                <span className="practice-mode-badge">+10 XP · 5 Questions</span>
+                            </div>
+                            <div className="practice-mode-info">
+                                <h3 className="practice-mode-title">Quick Practice</h3>
+                                <p className="practice-mode-desc">
+                                    Randomized retrieval questions drawn across your unlocked curriculum levels. Fast, bite-sized recall exercises designed to build rapid recognition.
+                                </p>
+                            </div>
+                        </div>
+
+                        <Link
+                            to="/lesson/practice?mode=quick"
+                            className="duo-button duo-button-secondary practice-mode-action-btn"
+                        >
+                            <span>START QUICK PRACTICE</span>
                             <ArrowRight size={18} />
                         </Link>
                     </div>
@@ -205,9 +250,14 @@ function Practice() {
                 </div>
 
                 <div className="practice-pairs-grid">
-                    {filteredPairs.map((pair) => (
-                        <LasaPairCard key={pair.id} pair={pair} />
-                    ))}
+                    {filteredPairs.map((pair) => {
+                        const normalizedId = String(pair.id).replace("-", "_");
+                        const srsRecord = user?.srs_records?.[normalizedId] || user?.srs_records?.[pair.id] || null;
+                        const isDue = srsRecord ? dueLasaIds.has(srsRecord.lasaId) : false;
+                        return (
+                            <LasaPairCard key={pair.id} pair={pair} srsRecord={srsRecord} isDue={isDue} />
+                        );
+                    })}
                 </div>
             </section>
         </div>

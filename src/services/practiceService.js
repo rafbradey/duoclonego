@@ -1,5 +1,5 @@
 import { allLevels } from "../data/levels/index.js";
-import { getCurrentUser, updateUserProgress } from "./userService.js";
+import { getCurrentUser, recordSrsOutcome, getDueSrsPairs } from "./userService.js";
 
 /**
  * Shuffles an array using the modern Fisher-Yates algorithm.
@@ -20,8 +20,13 @@ function shuffleArray(array) {
  * Pulls questions from completed and unlocked levels so learners only
  * review concepts they have encountered.
  *
+ * Supported modes:
+ * - "due": Spaced Repetition review prioritizing pairs due for retrieval
+ * - "mistakes": Targeted remediation for flagged mistakes
+ * - "quick": Broad randomized retrieval across unlocked curriculum
+ *
  * @param {Object} options
- * @param {"quick"|"mistakes"} [options.mode="quick"] - Practice mode
+ * @param {"quick"|"mistakes"|"due"} [options.mode="quick"] - Practice mode
  * @param {number} [options.count=5] - Number of questions for the session
  * @returns {Promise<Object>} Synthetic lesson object ready for LessonSession
  */
@@ -57,28 +62,60 @@ export async function generatePracticeSession({ mode = "quick", count = 5 } = {}
             uniqueMap.set(q.id, q);
         }
     });
-    let candidates = Array.from(uniqueMap.values());
+    const allCandidates = Array.from(uniqueMap.values());
+    let selectedQuestions = [];
 
-    // If "mistakes" mode is requested, prioritize or filter by questions in mistakesQueue
-    if (mode === "mistakes") {
-        const mistakeCandidates = candidates.filter((q) => mistakesQueue.includes(q.id));
-        if (mistakeCandidates.length > 0) {
-            candidates = mistakeCandidates;
+    if (mode === "due") {
+        // Spaced Repetition Mode: Find questions for pairs whose nextReviewDue <= now
+        const duePairs = getDueSrsPairs(user);
+        const dueLasaIds = new Set(duePairs.map((p) => p.lasaId));
+
+        const dueCandidates = allCandidates.filter((q) => q.lasaId && dueLasaIds.has(q.lasaId));
+        const shuffledDue = shuffleArray(dueCandidates);
+
+        selectedQuestions = shuffledDue.slice(0, count);
+
+        // If fewer due questions than requested count, backfill with non-due candidates
+        if (selectedQuestions.length < count) {
+            const remaining = allCandidates.filter((q) => !selectedQuestions.some((s) => s.id === q.id));
+            const backfill = shuffleArray(remaining).slice(0, count - selectedQuestions.length);
+            selectedQuestions.push(...backfill);
         }
+    } else if (mode === "mistakes") {
+        // Mistakes Mode: Filter questions currently in the user's mistake queue
+        const mistakeCandidates = allCandidates.filter((q) => mistakesQueue.includes(q.id));
+        const shuffledMistakes = shuffleArray(mistakeCandidates);
+
+        selectedQuestions = shuffledMistakes.slice(0, count);
+
+        // If fewer mistake candidates than requested, backfill with general candidates
+        if (selectedQuestions.length < count) {
+            const remaining = allCandidates.filter((q) => !selectedQuestions.some((s) => s.id === q.id));
+            const backfill = shuffleArray(remaining).slice(0, count - selectedQuestions.length);
+            selectedQuestions.push(...backfill);
+        }
+    } else {
+        // Quick Practice Mode: Broad random sample
+        const shuffled = shuffleArray(allCandidates);
+        selectedQuestions = shuffled.slice(0, Math.min(count, shuffled.length));
     }
 
-    // Shuffle and pick the requested count
-    const shuffled = shuffleArray(candidates);
-    const selectedQuestions = shuffled.slice(0, Math.min(count, shuffled.length));
+    let title = "Quick Practice";
+    let description = "Quick retrieval practice drawn from your completed LASA curriculum.";
 
-    const isMistakesMode = mode === "mistakes";
+    if (mode === "due") {
+        title = "Daily Spaced Review";
+        description = "Target Look-Alike / Sound-Alike pairs scheduled for optimal long-term memory retention.";
+    } else if (mode === "mistakes") {
+        title = "Targeted Mistakes Review";
+        description = "Target and correct confusable pairs missed in previous sessions to clear them from your queue.";
+    }
+
     return {
         id: "practice",
         practiceMode: mode,
-        title: isMistakesMode ? "Mistakes Review" : "Quick Practice",
-        description: isMistakesMode
-            ? "Target and correct confusable pairs missed in previous sessions."
-            : "Quick retrieval practice drawn from your completed LASA curriculum.",
+        title,
+        description,
         isPractice: true,
         xpReward: 10,
         questions: selectedQuestions
@@ -86,18 +123,33 @@ export async function generatePracticeSession({ mode = "quick", count = 5 } = {}
 }
 
 /**
- * Evaluates answer outcomes during practice to maintain the user's mistakes queue.
+ * Evaluates answer outcomes during practice to maintain the user's mistakes queue and SRS intervals.
  * @param {string} questionId - ID of the question
  * @param {boolean} isCorrect - Whether the question was answered correctly
+ * @param {string} [lasaId] - Optional LASA pair ID
  */
-export async function recordPracticeOutcome(questionId, isCorrect) {
-    if (!questionId) return;
+export async function recordPracticeOutcome(questionId, isCorrect, lasaId = null) {
+    if (!questionId && !lasaId) return;
+    await recordSrsOutcome({
+        questionId,
+        lasaId,
+        isCorrect
+    });
+}
 
-    if (isCorrect) {
-        // If answered correctly, remove from mistakes queue if it was present
-        await updateUserProgress({ mistakeToRemove: questionId });
-    } else {
-        // If incorrect, add to mistakes queue for future targeted review
-        await updateUserProgress({ mistakeToAdd: questionId });
-    }
+/**
+ * Unified answer outcome recorder callable from both normal curriculum lessons and practice sessions.
+ * @param {Object} params
+ * @param {string} params.questionId
+ * @param {string} [params.lasaId]
+ * @param {boolean} params.isCorrect
+ * @param {boolean} [params.isPractice=false]
+ */
+export async function recordQuestionOutcome({ questionId, lasaId, isCorrect } = {}) {
+    if (!questionId && !lasaId) return;
+    await recordSrsOutcome({
+        questionId,
+        lasaId,
+        isCorrect
+    });
 }

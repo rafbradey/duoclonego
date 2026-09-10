@@ -2,8 +2,23 @@ import usersData from "../data/user.json" with { type: "json" };
 
 const STORAGE_KEY = "duoclongo_user_progress";
 
+export const SRS_INTERVALS = {
+    0: 0,                           // Stage 0: Due immediately (learning / unredeemed mistake)
+    1: 24 * 60 * 60 * 1000,         // Stage 1: 24 hours (1 day)
+    2: 72 * 60 * 60 * 1000,         // Stage 2: 72 hours (3 days)
+    3: 7 * 24 * 60 * 60 * 1000     // Stage 3: 7 days (Mastered)
+};
+
 function loadPersistedUser() {
-    const defaultUser = usersData && usersData.length > 0 ? { ...usersData[0] } : null;
+    const rawDefault = usersData && usersData.length > 0 ? { ...usersData[0] } : null;
+    const defaultUser = rawDefault ? {
+        ...rawDefault,
+        completed_lessons: rawDefault.completed_lessons || [],
+        mistakes_queue: rawDefault.mistakes_queue || [],
+        practice_sessions_completed: rawDefault.practice_sessions_completed || 0,
+        srs_records: rawDefault.srs_records || {}
+    } : null;
+
     if (typeof window === "undefined" || !window.localStorage) {
         return defaultUser;
     }
@@ -23,7 +38,10 @@ function loadPersistedUser() {
                     : [],
                 practice_sessions_completed: typeof parsed.practice_sessions_completed === "number"
                     ? parsed.practice_sessions_completed
-                    : 0
+                    : 0,
+                srs_records: parsed.srs_records && typeof parsed.srs_records === "object"
+                    ? parsed.srs_records
+                    : {}
             };
         }
     } catch (e) {
@@ -152,6 +170,104 @@ export async function updateUserProgress({
 }
 
 /**
+ * Records an answer outcome for a specific LASA pair in the Leitner SRS engine.
+ * Automatically manages intervals, stage promotions/demotions, and the mistakes queue.
+ *
+ * @param {Object} params
+ * @param {string} params.lasaId - Unique identifier of the LASA pair (e.g., 'lasa_001')
+ * @param {boolean} params.isCorrect - Whether the question was answered correctly
+ * @param {string} [params.questionId] - Optional question ID to remove/add from mistakes queue
+ * @returns {Promise<Object|null>} Updated user object
+ */
+export async function recordSrsOutcome({ lasaId, isCorrect, questionId } = {}) {
+    if (!currentUser) return null;
+    const now = Date.now();
+
+    const srsRecords = { ...(currentUser.srs_records || {}) };
+    let mistakesQueue = Array.isArray(currentUser.mistakes_queue)
+        ? [...currentUser.mistakes_queue]
+        : [];
+
+    if (lasaId) {
+        const currentRecord = srsRecords[lasaId] || {
+            lasaId,
+            stage: 0,
+            consecutiveCorrect: 0,
+            lastReviewed: 0,
+            nextReviewDue: 0,
+            mistakeCount: 0,
+            successCount: 0
+        };
+
+        if (isCorrect) {
+            const nextStage = Math.min(3, currentRecord.stage + 1);
+            const interval = SRS_INTERVALS[nextStage] || SRS_INTERVALS[3];
+            srsRecords[lasaId] = {
+                ...currentRecord,
+                stage: nextStage,
+                consecutiveCorrect: (currentRecord.consecutiveCorrect || 0) + 1,
+                lastReviewed: now,
+                nextReviewDue: now + interval,
+                successCount: (currentRecord.successCount || 0) + 1
+            };
+        } else {
+            srsRecords[lasaId] = {
+                ...currentRecord,
+                stage: 0,
+                consecutiveCorrect: 0,
+                lastReviewed: now,
+                nextReviewDue: now, // Due immediately
+                mistakeCount: (currentRecord.mistakeCount || 0) + 1
+            };
+        }
+    }
+
+    if (questionId) {
+        if (isCorrect) {
+            mistakesQueue = mistakesQueue.filter((id) => id !== questionId);
+        } else {
+            if (!mistakesQueue.includes(questionId)) {
+                mistakesQueue.push(questionId);
+            }
+        }
+    }
+
+    currentUser = {
+        ...currentUser,
+        srs_records: srsRecords,
+        mistakes_queue: mistakesQueue
+    };
+
+    savePersistedUser(currentUser);
+    notifyUserUpdated(currentUser);
+
+    return { ...currentUser };
+}
+
+/**
+ * Returns all LASA pairs currently due for Spaced Repetition review.
+ * @param {Object} user - User object
+ * @returns {Array} Array of due SRS records
+ */
+export function getDueSrsPairs(user) {
+    if (!user || !user.srs_records) return [];
+    const now = Date.now();
+    return Object.values(user.srs_records).filter(
+        (rec) => rec && typeof rec.nextReviewDue === "number" && rec.nextReviewDue <= now
+    );
+}
+
+/**
+ * Returns the count of fully mastered LASA pairs (Stage 3).
+ * @param {Object} user - User object
+ * @returns {number} Mastered pairs count
+ */
+export function getMasteredPairsCount(user) {
+    if (!user || !user.srs_records) return 0;
+    return Object.values(user.srs_records).filter((rec) => rec && rec.stage >= 3).length;
+}
+
+/**
  * Resets user progress back to defaults. Useful for testing and demo flows.
  * @returns {Promise<Object|null>} Reset user object
  */
@@ -159,7 +275,14 @@ export async function resetUserProgress() {
     if (typeof window !== "undefined" && window.localStorage) {
         window.localStorage.removeItem(STORAGE_KEY);
     }
-    currentUser = usersData && usersData.length > 0 ? { ...usersData[0] } : null;
+    const rawDefault = usersData && usersData.length > 0 ? { ...usersData[0] } : null;
+    currentUser = rawDefault ? {
+        ...rawDefault,
+        completed_lessons: rawDefault.completed_lessons || [],
+        mistakes_queue: rawDefault.mistakes_queue || [],
+        practice_sessions_completed: rawDefault.practice_sessions_completed || 0,
+        srs_records: rawDefault.srs_records || {}
+    } : null;
     notifyUserUpdated(currentUser);
     return currentUser ? { ...currentUser } : null;
 }

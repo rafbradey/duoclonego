@@ -2,17 +2,31 @@ import TallManText from "../TallManText/TallManText.jsx";
 import { AlertCircle, ArrowLeftRight } from "lucide-react";
 import "./LasaPairCard.css";
 
-function LasaPairCard({ pair, className = "" }) {
+function LasaPairCard({ pair, srsRecord = null, isDue = false, className = "" }) {
     if (!pair) return null;
 
-    const pairNumber = pair.id ? pair.id.replace(/^lasa-0*/i, "") : "";
+    const pairNumber = pair.id ? pair.id.replace(/^lasa[-_]0*/i, "") : "";
     const displayLabel = pairNumber ? `Pair #${pairNumber}` : "Medication Pair";
+
+    let srsBadge = null;
+    if (srsRecord) {
+        if (srsRecord.stage >= 3) {
+            srsBadge = <span className="lasa-srs-tag srs-mastered">Mastered</span>;
+        } else if (isDue || srsRecord.stage === 0) {
+            srsBadge = <span className="lasa-srs-tag srs-due">Due</span>;
+        } else if (srsRecord.stage > 0) {
+            srsBadge = <span className="lasa-srs-tag srs-learning">Stage {srsRecord.stage}</span>;
+        }
+    }
 
     return (
         <div className={`lasa-pair-card duo-card ${className}`}>
             <div className="lasa-card-header">
-                <span className="lasa-id-badge">{displayLabel}</span>
-                <span className="lasa-level-tag">Level {pair.level}</span>
+                <div className="lasa-card-header-left">
+                    <span className="lasa-id-badge">{displayLabel}</span>
+                    <span className="lasa-level-tag">Level {pair.level}</span>
+                </div>
+                {srsBadge}
             </div>
 
             <div className="lasa-comparison-row">
