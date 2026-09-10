@@ -331,104 +331,104 @@
       "levelNumber": 4,
       "type": "unit_mastery",
       "title": "Unit 4 Mastery",
-      "description": "Comprehensive review of Section 2 opioid pairs followed by an unassisted Tall Man capstone task.",
-      "learningObjective": "Demonstrate complete unit mastery of high-alert opioid recognition and unassisted Tall Man lettering.",
+      "description": "Demonstrate complete unassisted recall by typing the exact Tall Man lettering for Unit 4 opioid medications.",
+      "learningObjective": "Demonstrate complete unit mastery of high-alert opioid distinctions through unassisted Tall Man lettering recall without scaffolding.",
       "xpReward": 25,
       "unlocked": false,
       "lasaPairIds": ["lasa_020", "lasa_021", "lasa_022", "lasa_023", "lasa_024"],
       "activities": [
         {
-          "id": "act_404_mastery_review",
-          "activityType": "distinction",
-          "activityRole": "unit_mastery",
-          "learningObjective": "Review opioid distinctions across Unit 4.",
-          "sessionQuestionCount": 4,
-          "questions": [
-            {
-              "id": "q404_rev1",
-              "type": "multiple_choice",
-              "lasaId": "lasa_023",
-              "prompt": "Which drug is the confusable look-alike counterpart to HYDROmorphone?",
-              "choices": [
-                "morphine",
-                "methadone",
-                "codeine",
-                "oxycodone"
-              ],
-              "correctAnswer": "morphine",
-              "explanation": "morphine and HYDROmorphone are critical look-alike counterparts on the ISMP high-alert list.",
-              "relatedDrug": "HYDROmorphone"
-            },
-            {
-              "id": "q404_rev2",
-              "type": "multiple_choice",
-              "lasaId": "lasa_020",
-              "prompt": "Which medication is paired with fentaNYL on the ISMP list of confused drug names?",
-              "choices": [
-                "ALfentanil",
-                "morphine",
-                "meperidine",
-                "methadone"
-              ],
-              "correctAnswer": "ALfentanil",
-              "explanation": "fentaNYL and ALfentanil are paired on the ISMP list due to confusable generic roots.",
-              "relatedDrug": "fentaNYL"
-            },
-            {
-              "id": "q404_rev3",
-              "type": "multiple_choice",
-              "lasaId": "lasa_021",
-              "prompt": "Which opioid pairs with ALfentanil on the ISMP list?",
-              "choices": [
-                "SUFentanil",
-                "fentaNYL",
-                "morphine",
-                "methadone"
-              ],
-              "correctAnswer": "SUFentanil",
-              "explanation": "ALfentanil and SUFentanil share roots.",
-              "relatedDrug": "ALfentanil"
-            },
-            {
-              "id": "q404_rev4",
-              "type": "multiple_choice",
-              "lasaId": "lasa_024",
-              "prompt": "Which opioid pairs with HYDROmorphone differing in the MOR/HYDRO syllables?",
-              "choices": [
-                "oxyMORphone",
-                "morphine",
-                "oxazepam",
-                "codeine"
-              ],
-              "correctAnswer": "oxyMORphone",
-              "explanation": "oxyMORphone and HYDROmorphone are confusable opioid names.",
-              "relatedDrug": "HYDROmorphone"
-            }
-          ]
-        },
-        {
-          "id": "act_404_mastery_capstone",
+          "id": "act_404_mastery_tallman",
           "activityType": "construction",
           "activityRole": "unit_mastery",
           "isFinalTask": true,
-          "learningObjective": "Independently construct the exact Tall Man lettering for hydromorphone without scaffolding.",
-          "sessionQuestionCount": 1,
+          "learningObjective": "Independently construct the exact Tall Man lettering for Unit 4 medications without scaffolding.",
+          "sessionQuestionCount": 5,
           "questions": [
             {
-              "id": "q404_capstone_hydromorphone",
+              "id": "q404_mastery_fentanyl",
+              "type": "tall_man",
+              "activityRole": "unit_mastery",
+              "isFinalTask": true,
+              "scaffold": false,
+              "lasaId": "lasa_020",
+              "prompt": "UNIT MASTERY: Type the complete medication name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
+              "standardName": "fentanyl",
+              "tallManName": "fentaNYL",
+              "correctAnswer": "fentaNYL",
+              "prefix": "",
+              "expectedSegment": "fentaNYL",
+              "suffix": "",
+              "explanation": "fentaNYL capitalizes NYL to distinguish from ALfentanil and SUFentanil.",
+              "relatedDrug": "fentaNYL"
+            },
+            {
+              "id": "q404_mastery_alfentanil",
+              "type": "tall_man",
+              "activityRole": "unit_mastery",
+              "isFinalTask": true,
+              "scaffold": false,
+              "lasaId": "lasa_020",
+              "prompt": "UNIT MASTERY: Type the complete medication name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
+              "standardName": "alfentanil",
+              "tallManName": "ALfentanil",
+              "correctAnswer": "ALfentanil",
+              "prefix": "",
+              "expectedSegment": "ALfentanil",
+              "suffix": "",
+              "explanation": "ALfentanil capitalizes AL to prevent confusion with fentaNYL and SUFentanil.",
+              "relatedDrug": "ALfentanil"
+            },
+            {
+              "id": "q404_mastery_sufentanil",
+              "type": "tall_man",
+              "activityRole": "unit_mastery",
+              "isFinalTask": true,
+              "scaffold": false,
+              "lasaId": "lasa_021",
+              "prompt": "UNIT MASTERY: Type the complete medication name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
+              "standardName": "sufentanil",
+              "tallManName": "SUFentanil",
+              "correctAnswer": "SUFentanil",
+              "prefix": "",
+              "expectedSegment": "SUFentanil",
+              "suffix": "",
+              "explanation": "SUFentanil capitalizes SUF to differentiate from ALfentanil and fentaNYL.",
+              "relatedDrug": "SUFentanil"
+            },
+            {
+              "id": "q404_mastery_hydromorphone",
               "type": "tall_man",
               "activityRole": "unit_mastery",
               "isFinalTask": true,
               "scaffold": false,
               "lasaId": "lasa_023",
-              "prompt": "UNIT MASTERY CAPSTONE TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
+              "prompt": "UNIT MASTERY: Type the complete medication name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
               "standardName": "hydromorphone",
               "tallManName": "HYDROmorphone",
+              "correctAnswer": "HYDROmorphone",
               "prefix": "",
               "expectedSegment": "HYDROmorphone",
               "suffix": "",
               "explanation": "HYDROmorphone capitalizes HYDRO to prevent fatal mix-ups with morphine.",
               "relatedDrug": "HYDROmorphone"
+            },
+            {
+              "id": "q404_mastery_oxymorphone",
+              "type": "tall_man",
+              "activityRole": "unit_mastery",
+              "isFinalTask": true,
+              "scaffold": false,
+              "lasaId": "lasa_024",
+              "prompt": "UNIT MASTERY: Type the complete medication name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
+              "standardName": "oxymorphone",
+              "tallManName": "oxyMORphone",
+              "correctAnswer": "oxyMORphone",
+              "prefix": "",
+              "expectedSegment": "oxyMORphone",
+              "suffix": "",
+              "explanation": "oxyMORphone capitalizes MOR to distinguish from HYDROmorphone.",
+              "relatedDrug": "oxyMORphone"
             }
           ]
         }

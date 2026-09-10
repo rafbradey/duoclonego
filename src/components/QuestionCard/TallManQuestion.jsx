@@ -116,7 +116,7 @@ function TallManQuestion({
                                 onChange={handleInputChange}
                                 onKeyDown={handleKeyDown}
                                 disabled={isSubmitted}
-                                placeholder="e.g. predniSONE"
+                                placeholder=""
                                 aria-label="Complete medication name with Tall Man capitalization"
                                 className="tm-segment-input tm-full-input"
                                 autoComplete="off"
@@ -144,7 +144,7 @@ function TallManQuestion({
                                     onChange={handleInputChange}
                                     onKeyDown={handleKeyDown}
                                     disabled={isSubmitted}
-                                    placeholder={expectedSegment ? expectedSegment.toUpperCase() : "CAPITALS"}
+                                    placeholder=""
                                     aria-label="Tall Man capitalized letters"
                                     className="tm-segment-input"
                                     autoComplete="off"

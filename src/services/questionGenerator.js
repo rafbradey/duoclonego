@@ -248,36 +248,38 @@ export function generateLevelContent(level, pairRecords) {
         };
     }
 
-    // 4. Level 4: Unit Mastery (Review of all 5+ pairs + 1 Unassisted Capstone Task)
-    const reviewQuestions = pairRecords.map((pair, idx) =>
-        generateLasaPairRecognitionQuestion(pair, { promptSide: idx % 2 === 0 ? "A" : "B", idSuffix: `mastery_rev_${idx}` })
-    );
+    // 4. Level 4: Unit Mastery (100% Tall Man Lettering Challenges - Fill In The Blank - 5 items)
+    const tallManQuestions = [];
+    pairRecords.forEach((pair, idx) => {
+        if (pair.drugA?.tallManName) {
+            tallManQuestions.push(generateTallManMasteryQuestion(pair, { drugSide: "A", idSuffix: `${level.id}_${idx}a` }));
+        }
+        if (pair.drugB?.tallManName) {
+            tallManQuestions.push(generateTallManMasteryQuestion(pair, { drugSide: "B", idSuffix: `${level.id}_${idx}b` }));
+        }
+    });
 
-    const capstoneTargetPair = pairRecords.find((p) => p.drugA?.tallManName && p.drugA.tallManName !== p.drugA.genericName) || pairRecords[0];
-    const capstoneQuestion = generateTallManMasteryQuestion(capstoneTargetPair, { drugSide: "A", idSuffix: "capstone" });
+    // Ensure we have at least 5 questions in the pool
+    if (tallManQuestions.length < 5) {
+        pairRecords.forEach((pair, idx) => {
+            tallManQuestions.push(generateTallManMasteryQuestion(pair, { drugSide: "A", idSuffix: `extra_${idx}a` }));
+            tallManQuestions.push(generateTallManMasteryQuestion(pair, { drugSide: "B", idSuffix: `extra_${idx}b` }));
+        });
+    }
 
-    const masteryReviewActivity = {
-        id: `act_${level.id}_review`,
-        activityType: "distinction",
-        activityRole: "unit_mastery",
-        learningObjective: "Comprehensive review of all unit LASA pairs.",
-        sessionQuestionCount: 4,
-        questions: reviewQuestions
-    };
-
-    const capstoneActivity = {
-        id: `act_${level.id}_capstone`,
+    const masteryActivity = {
+        id: `act_${level.id}_tall_man_mastery`,
         activityType: "construction",
         activityRole: "unit_mastery",
         isFinalTask: true,
-        learningObjective: `Independently construct the exact Tall Man lettering for ${capstoneTargetPair.drugA?.genericName || "target medication"} without scaffolding.`,
-        sessionQuestionCount: 1,
-        questions: [capstoneQuestion]
+        learningObjective: "Demonstrate complete unassisted mastery by constructing exact Tall Man lettering for unit medications without scaffolding.",
+        sessionQuestionCount: 5,
+        questions: tallManQuestions
     };
 
     return {
-        activities: [masteryReviewActivity, capstoneActivity],
-        questions: [...reviewQuestions, capstoneQuestion]
+        activities: [masteryActivity],
+        questions: tallManQuestions
     };
 }
 

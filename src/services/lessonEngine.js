@@ -189,15 +189,10 @@ export function prepareSessionLesson(level, { shuffleOptions = true } = {}) {
             continue;
         }
 
-        const isMasteryCapstone = Boolean(
-            activity.isFinalTask ||
-            (activity.activityRole === "unit_mastery" && candidateQuestions.some((q) => q.isFinalTask))
-        );
-
-        // Target count for this activity (minimum 5 questions per session)
-        const targetCount = isMasteryCapstone
-            ? 1
-            : (activity.sessionQuestionCount || Math.min(candidateQuestions.length, 5));
+        // Target count for this activity (prioritizes explicit sessionQuestionCount)
+        const targetCount = activity.sessionQuestionCount
+            ? activity.sessionQuestionCount
+            : (activity.isFinalTask && candidateQuestions.length === 1 ? 1 : Math.min(candidateQuestions.length, 5));
 
         // Group candidate questions: those whose lasaId hasn't been used vs those that have
         const unusedCandidates = candidateQuestions.filter((q) => !q.lasaId || !usedLasaIds.has(q.lasaId));
