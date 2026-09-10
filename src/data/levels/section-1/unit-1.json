@@ -172,6 +172,29 @@
               "relatedDrug": "Accupril"
             }
           ]
+        },
+        {
+          "id": "act_104_mastery",
+          "activityType": "construction",
+          "activityRole": "unit_mastery",
+          "isFinalTask": true,
+          "learningObjective": "Independently construct the exact Tall Man lettering for prednisone without scaffolding.",
+          "questions": [
+            {
+              "id": "q106_mastery",
+              "type": "tall_man",
+              "activityRole": "unit_mastery",
+              "isFinalTask": true,
+              "scaffold": false,
+              "lasaId": "lasa-005",
+              "prompt": "Enter the complete medication name using exact Tall Man lettering to distinguish it from prednisoLONE:",
+              "standardName": "prednisone",
+              "tallManName": "predniSONE",
+              "expectedSegment": "SONE",
+              "explanation": "predniSONE capitalizes SONE to prevent mix-ups with the look-alike corticosteroid prednisoLONE.",
+              "relatedDrug": "predniSONE"
+            }
+          ]
         }
       ]
     }

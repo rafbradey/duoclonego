@@ -200,11 +200,13 @@ Section
 ↓
 Unit
 ↓
-Levels (1..X, where X is pedagogical and dynamic)
+Level (1..X, where X is pedagogical and dynamic)
+↓
+Lesson
 ↓
 Activity
 ↓
-Question
+Question / Task
 
 And:
 
@@ -222,18 +224,20 @@ Curriculum levels and units are organized hierarchically:
 
 ```text
 src/data/levels/
-├── index.js                     <-- Aggregates sections, units, and levels
-└── section-{N}/
-    ├── unit-1.json
-    ├── unit-2.json
-    └── ...
+├── index.js                     <-- Aggregates sections, units, levels, lessons, activities, and questions
+├── section-1/
+│   ├── unit-1.json              <-- Unit 1: Introductory LASA Pairs (X = 3 levels)
+│   ├── unit-2.json              <-- Unit 2: Formulations & Suffixes (X = 3 levels)
+│   └── unit-3.json              <-- Unit 3: Brand & Suffix Differentiation (X = 3 levels)
+└── section-2/
+    └── unit-1.json              <-- Unit 4: High-Alert Opioids & Potency Differentiation (X = 1 level)
 ```
 
 Each unit independently defines its metadata and a configurable array of `levels[]` ($X \ge 1$), where each level defines:
 - `levelNumber` & `title`
 - `learningObjective`
 - `xpReward` & `unlocked` status
-- `activities[]` containing questions (decoupled from direct LASA data via `lasaId`).
+- `lessons[]` or `activities[]` (normalized by `src/data/levels/index.js` into the 6-tier structure `Section → Unit → Level → Lesson → Activity → Question`).
 
 The application derives available levels dynamically from `unit.levels.length`. Never assume a fixed number of levels per unit.
 
@@ -302,8 +306,9 @@ The lesson engine (`src/services/lessonEngine.js`) evaluates answers independent
 
 Questions represent the concrete interaction mechanism dispatched by `activityType` and `question.type`:
 
-### Supported Interaction Types:
-- `tall_man`: Constructed-response fill-in-the-blank where the user enters the capitalized segment. Real-time name reconstruction dynamically renders `<TallManText />` as the learner types. Evaluated with tolerant whitespace and casing normalization.
+- `tall_man`: Constructed-response fill-in-the-blank. Operates in two distinct pedagogical modes:
+  1. *Guided Practice Mode* (`scaffold: true`): User enters the capitalized segment within prefix/suffix frames with live dynamic name reconstruction (<TallManText />) and tolerant casing normalization.
+  2. *Unit Mastery Mode* (`activityRole: "unit_mastery"`, `isFinalTask: true`, `scaffold: false`): Unassisted independent retrieval requiring the learner to type the complete drug name with strict case-sensitive validation (e.g. `predniSONE`) without affix frames or live previews.
 - `matching`: Interactive tile selection requiring learners to link left and right counterpart pairs.
 - `multiple_choice`: Multi-option choice grid for recognition tasks.
 - `true_false`: Binary choice evaluation for clinical distinction challenges.

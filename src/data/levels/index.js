@@ -1,24 +1,82 @@
 import unit1 from "./section-1/unit-1.json" with { type: "json" };
 import unit2 from "./section-1/unit-2.json" with { type: "json" };
 import unit3 from "./section-1/unit-3.json" with { type: "json" };
+import unit4 from "./section-2/unit-1.json" with { type: "json" };
 
 /**
- * Normalizes a level object and flattens activity questions for evaluation.
+ * Normalizes a level object supporting the explicit hierarchy:
+ * Section -> Unit -> Level -> Lesson -> Activity -> Question
  */
 function normalizeLevel(level, unit) {
-    const questions = (level.activities || []).flatMap((act) =>
-        (act.questions || []).map((q) => ({
-            ...q,
-            activityId: act.id,
-            activityType: act.activityType || act.type || "recognition",
-            activityObjective: act.learningObjective || level.learningObjective || ""
-        }))
-    );
+    // If level specifies explicit lessons, extract activities from each lesson;
+    // otherwise fallback to level.activities and synthesize a default lesson container
+    const rawLessons = Array.isArray(level.lessons)
+        ? level.lessons
+        : Array.isArray(level.activities)
+            ? [{
+                id: `${level.id}_lesson_01`,
+                title: level.title || level.name,
+                learningObjective: level.learningObjective || "",
+                activities: level.activities
+              }]
+            : [];
+
+    const lessons = rawLessons.map((lsn) => ({
+        ...lsn,
+        levelId: level.id,
+        unitId: level.unitId || unit.id,
+        sectionId: unit.sectionId || "section-1",
+        sectionTitle: unit.sectionTitle || "Section 1: Foundations",
+        activities: (lsn.activities || []).map((act) => {
+            const isFinalActivity = Boolean(act.isFinalTask || act.activityRole === "unit_mastery");
+            const activityRole = act.activityRole || (isFinalActivity ? "unit_mastery" : "guided_practice");
+
+            const normalizedQuestions = (act.questions || []).map((q) => {
+                const isFinal = Boolean(
+                    q.isFinalTask ||
+                    isFinalActivity ||
+                    q.activityRole === "unit_mastery" ||
+                    activityRole === "unit_mastery"
+                );
+                const role = q.activityRole || activityRole;
+
+                return {
+                    ...q,
+                    activityId: act.id,
+                    activityType: act.activityType || act.type || "recognition",
+                    activityRole: role,
+                    isFinalTask: isFinal,
+                    activityObjective: act.learningObjective || level.learningObjective || "",
+                    sectionId: unit.sectionId || "section-1",
+                    sectionTitle: unit.sectionTitle || "Section 1: Foundations",
+                    unitId: level.unitId || unit.id,
+                    levelId: level.id,
+                    lessonId: lsn.id
+                };
+            });
+
+            return {
+                ...act,
+                lessonId: lsn.id,
+                levelId: level.id,
+                unitId: level.unitId || unit.id,
+                sectionId: unit.sectionId || "section-1",
+                activityRole,
+                isFinalTask: isFinalActivity,
+                questions: normalizedQuestions
+            };
+        })
+    }));
+
+    const activities = lessons.flatMap((lsn) => lsn.activities || []);
+    const questions = activities.flatMap((act) => act.questions || []);
 
     const normalized = {
         ...level,
         unitId: level.unitId || unit.id,
         unit_id: level.unitId || unit.id,
+        sectionId: unit.sectionId || "section-1",
+        sectionTitle: unit.sectionTitle || "Section 1: Foundations",
         title: level.title || level.name,
         lesson_title: level.title || level.name,
         lessonTitle: level.title || level.name,
@@ -27,6 +85,8 @@ function normalizeLevel(level, unit) {
         xp_reward: level.xpReward || level.xp || 15,
         unlocked: Boolean(level.unlocked),
         learningObjective: level.learningObjective || "",
+        lessons,
+        activities,
         questions
     };
 
@@ -60,7 +120,7 @@ function normalizeUnit(unit) {
 }
 
 // Registry of all units across sections
-export const rawUnits = [unit1, unit2, unit3];
+export const rawUnits = [unit1, unit2, unit3, unit4];
 export const allUnits = rawUnits.map(normalizeUnit);
 
 // Flattened registry of all individual levels across units

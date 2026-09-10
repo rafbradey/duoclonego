@@ -816,3 +816,30 @@ Corrective Feedback Drawer (FeedbackDrawer.jsx)
    - In `src/pages/Lesson/LessonSession.jsx`, update `handleDeveloperOverride()` so developers can force correct/incorrect outcomes without failing data contracts.
 7. **Documentation:**
    - Update in-app documentation at `src/pages/Documentation/Documentation.jsx` (Section 4 taxonomy, Section 6 JSON schema, Section 10 boundaries).
+
+### 22.1 Unit Final Mastery Tasks (Independent Tall Man Lettering)
+Every Unit must culminate in an independent, unassisted Tall Man Lettering mastery milestone:
+- **Placement:** The concluding task (`isFinalTask: true`) of the unit's final level.
+- **Activity & Task Metadata:**
+  ```json
+  {
+    "id": "qXXX_mastery",
+    "type": "tall_man",
+    "activityRole": "unit_mastery",
+    "isFinalTask": true,
+    "scaffold": false,
+    "standardName": "drugname",
+    "tallManName": "drugNAME",
+    "prefix": "",
+    "expectedSegment": "drugNAME",
+    "suffix": ""
+  }
+  ```
+- **Pedagogical Requirement:**
+  - Strip away prefix/suffix frames and live dynamic reconstruction preview.
+  - Render an unassisted full-name input field (`.tm-full-input`) with an amber mastery badge.
+- **Strict Evaluation:**
+  - Enforce strict case-sensitive match (`inputTrimmed === targetTallMan`).
+  - Reject all-lowercase (`drugname`) or all-uppercase (`DRUGNAME`).
+- **Developer Override:**
+  - Verify `handleDeveloperOverride` injects `currentQuestion.tallManName` for correct and `currentQuestion.standardName` for incorrect.

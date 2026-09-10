@@ -137,9 +137,9 @@ function LessonSession() {
                 devAnswer = JSON.stringify(matchMap);
             } else if (currentQuestion.type === "tall_man") {
                 if (forcedOutcome === "correct") {
-                    devAnswer = currentQuestion.expectedSegment || currentQuestion.tallManName || "CORRECT";
+                    devAnswer = currentQuestion.tallManName || currentQuestion.expectedSegment || "CORRECT";
                 } else {
-                    devAnswer = "WRONG";
+                    devAnswer = currentQuestion.standardName || "WRONG";
                 }
             } else {
                 if (forcedOutcome === "correct") {

@@ -132,6 +132,29 @@
               "relatedDrug": "Advair"
             }
           ]
+        },
+        {
+          "id": "act_304_mastery",
+          "activityType": "construction",
+          "activityRole": "unit_mastery",
+          "isFinalTask": true,
+          "learningObjective": "Independently construct the exact Tall Man lettering for acetazolamide without scaffolding.",
+          "questions": [
+            {
+              "id": "q406_mastery",
+              "type": "tall_man",
+              "activityRole": "unit_mastery",
+              "isFinalTask": true,
+              "scaffold": false,
+              "lasaId": "lasa-004",
+              "prompt": "Enter the complete medication name using exact Tall Man lettering to distinguish it from acetoHEXAMIDE and acetaminophen:",
+              "standardName": "acetazolamide",
+              "tallManName": "acetaZOLAMIDE",
+              "expectedSegment": "ZOLAMIDE",
+              "explanation": "acetaZOLAMIDE capitalizes ZOLAMIDE to differentiate this carbonic anhydrase inhibitor from acetoHEXAMIDE and acetaminophen.",
+              "relatedDrug": "acetaZOLAMIDE"
+            }
+          ]
         }
       ]
     }

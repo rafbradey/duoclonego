@@ -23,7 +23,7 @@ import {
 import "./Documentation.css";
 
 const LAST_UPDATED = "September 10, 2026";
-const APP_VERSION = "v0.4.0 (Tall Man Constructed Response & Activity Overhaul)";
+const APP_VERSION = "v0.5.0 (Level Progression & Final No-Hint Tall Man Mastery)";
 
 // Status pill component helper
 function StatusBadge({ status }) {
@@ -475,9 +475,11 @@ function Documentation() {
                                 <span className="doc-h-arrow">&rarr;</span>
                                 <span className="doc-h-node">Level (1..X)</span>
                                 <span className="doc-h-arrow">&rarr;</span>
+                                <span className="doc-h-node">Lesson</span>
+                                <span className="doc-h-arrow">&rarr;</span>
                                 <span className="doc-h-node">Activity</span>
                                 <span className="doc-h-arrow">&rarr;</span>
-                                <span className="doc-h-node">Question</span>
+                                <span className="doc-h-node">Question / Task</span>
                             </div>
 
                             <h3 className="heading-sm doc-subsection-title">The Dynamic X Rule</h3>
@@ -486,7 +488,7 @@ function Documentation() {
                                 <br />
                                 <em>&quot;X is determined by the optimal learning progression for the material, not by an arbitrary constant.&quot;</em>
                                 <br />
-                                For instance, Unit 1 provides <strong>X = 3</strong> levels (Familiarization &rarr; Tall Man Discrimination &rarr; Clinical Retrieval), whereas Unit 2 currently provides <strong>X = 2</strong> levels (Form Recognition &rarr; Release Kinetics).
+                                For instance, Unit 1 provides <strong>X = 3</strong> levels (Familiarization &rarr; Tall Man Discrimination &rarr; Clinical Retrieval), Unit 2 provides <strong>X = 3</strong> levels (Form Recognition &rarr; Release Kinetics &rarr; Formulation &amp; Suffix Tall Man Retrieval), Unit 3 provides <strong>X = 3</strong> levels (Brand Differentiation &rarr; Oncology &rarr; Endocrine Suffix Retrieval), and Section 2 introduces Unit 4 with <strong>X = 1</strong> level (Potent Opioid Differentiation).
                             </p>
 
                             <h3 className="heading-sm doc-subsection-title">Cognitive Science Principles Applied</h3>
@@ -494,7 +496,7 @@ function Documentation() {
                                 <li><strong>Retrieval Practice:</strong> Learners must actively distinguish between confusable options rather than passively reading drug monographs.</li>
                                 <li><strong>Interleaving:</strong> Look-alike and sound-alike counterparts are tested in direct proximity to develop distinct mental representations.</li>
                                 <li><strong>Immediate Explanatory Feedback:</strong> Errors trigger immediate explanations detailing the exact pharmacological differences rather than generic failure prompts.</li>
-                                <li><strong>Qualitative Progression:</strong> Cognitive demand shifts qualitatively across levels (<code className="doc-inline-code">Familiarization &rarr; Recognition &rarr; Discrimination &rarr; Retrieval</code>).</li>
+                                <li><strong>Qualitative Progression:</strong> Cognitive demand shifts qualitatively across levels (<code className="doc-inline-code">Familiarization &rarr; Recognition &rarr; Discrimination &rarr; Retrieval &rarr; Independent Mastery</code>).</li>
                             </ul>
 
                             <h3 className="heading-sm doc-subsection-title">4.2 Purpose-Driven Activity Taxonomy</h3>
@@ -515,7 +517,7 @@ function Documentation() {
                                         <tr>
                                             <td><code className="doc-inline-code">construction</code></td>
                                             <td>Active production and spelling of critical orthographic distinctions (e.g. Tall Man capitalization) without visual guessing cues.</td>
-                                            <td>Constructed Response / Fill-in-the-Blank (<code className="doc-inline-code">tall_man</code>) with live name reconstruction</td>
+                                            <td>Constructed Response / Fill-in-the-Blank (<code className="doc-inline-code">tall_man</code>) with live name reconstruction or unassisted mastery input</td>
                                             <td><StatusBadge status="Implemented" /></td>
                                         </tr>
                                         <tr>
@@ -551,6 +553,16 @@ function Documentation() {
                                     </tbody>
                                 </table>
                             </div>
+
+                            <h3 className="heading-sm doc-subsection-title">4.3 Unit Final Mastery Milestone</h3>
+                            <p className="doc-paragraph">
+                                Grounded in the thesis requirement for unassisted competency verification, the <strong>final task of every Unit</strong> is an independent, no-hint Tall Man Lettering mastery task (<code className="doc-inline-code">activityRole: &quot;unit_mastery&quot;</code>, <code className="doc-inline-code">isFinalTask: true</code>, <code className="doc-inline-code">scaffold: false</code>).
+                            </p>
+                            <ul className="doc-bullet-list">
+                                <li><strong>No Assisted Scaffolding:</strong> All prefix/suffix affix boxes and dynamic reconstruction previews are removed.</li>
+                                <li><strong>Independent Full-Name Generation:</strong> The learner is presented with a clean input field and must type the complete orthographic name from memory (e.g. <code className="doc-inline-code">predniSONE</code>, <code className="doc-inline-code">acetoHEXAMIDE</code>, <code className="doc-inline-code">acetaZOLAMIDE</code>, <code className="doc-inline-code">fentaNYL</code>).</li>
+                                <li><strong>Strict Case-Sensitive Evaluation:</strong> Evaluation strictly enforces case sensitivity. All-lowercase (<code className="doc-inline-code">prednisone</code>) or all-uppercase (<code className="doc-inline-code">PREDNISONE</code>) submissions are rejected, verifying true mastery of the exact capitalized segments.</li>
+                            </ul>
                         </section>
                     )}
 
@@ -644,14 +656,30 @@ function Documentation() {
                                     <span>Adding a New Section</span>
                                 </h3>
                                 <p className="doc-paragraph">
-                                    <strong>Current Implementation Status:</strong> Section definitions are currently grouped inside unit metadata via <code className="doc-inline-code">sectionId</code> and <code className="doc-inline-code">sectionTitle</code>.
-                                    To introduce Section 2:
+                                    <strong>Current Implementation Status:</strong> Section 1 (<code className="doc-inline-code">section-1</code>) and Section 2 (<code className="doc-inline-code">section-2</code>: &quot;High-Alert Medications&quot;) are active in the curriculum. To add subsequent sections (e.g. Section 3):
                                 </p>
                                 <ul className="doc-bullet-list">
-                                    <li>Create directory <code className="doc-inline-code">src/data/levels/section-2/</code>.</li>
-                                    <li>Create <code className="doc-inline-code">unit-1.json</code> with <code className="doc-inline-code">&quot;sectionId&quot;: &quot;section-2&quot;</code>, <code className="doc-inline-code">&quot;sectionTitle&quot;: &quot;Section 2: High-Alert Medications&quot;</code>.</li>
-                                    <li>Import and register in <code className="doc-inline-code">src/data/levels/index.js</code>.</li>
+                                    <li>Create directory <code className="doc-inline-code">src/data/levels/section-3/</code>.</li>
+                                    <li>Create <code className="doc-inline-code">unit-1.json</code> with <code className="doc-inline-code">&quot;sectionId&quot;: &quot;section-3&quot;</code>, <code className="doc-inline-code">&quot;sectionTitle&quot;: &quot;Section 3: Specialized Pharmacotherapy&quot;</code>.</li>
+                                    <li>Import and register the unit in <code className="doc-inline-code">src/data/levels/index.js</code>.</li>
                                 </ul>
+                            </div>
+
+                            {/* Authoring a Final Unit Mastery Task */}
+                            <div className="doc-guide-card">
+                                <h3 className="heading-sm doc-guide-title">
+                                    <ShieldAlert size={18} />
+                                    <span>5.3 Authoring an Unassisted Unit Mastery Task</span>
+                                </h3>
+                                <p className="doc-paragraph">
+                                    Every unit must conclude with an independent Tall Man Lettering mastery task to verify unassisted retrieval:
+                                </p>
+                                <ol className="doc-step-list">
+                                    <li><strong>Target the Final Level &amp; Question:</strong> Place the question as the last question of the final level in the unit.</li>
+                                    <li><strong>Set Mastery Metadata:</strong> Set <code className="doc-inline-code">&quot;activityRole&quot;: &quot;unit_mastery&quot;</code>, <code className="doc-inline-code">&quot;isFinalTask&quot;: true</code>, and <code className="doc-inline-code">&quot;scaffold&quot;: false</code>.</li>
+                                    <li><strong>Define Drug Parameters:</strong> Specify <code className="doc-inline-code">&quot;type&quot;: &quot;tall_man&quot;</code>, <code className="doc-inline-code">standardName</code>, <code className="doc-inline-code">tallManName</code>, and <code className="doc-inline-code">&quot;prefix&quot;: &quot;&quot;, &quot;suffix&quot;: &quot;&quot;</code>.</li>
+                                    <li><strong>Strict Case Matching:</strong> The engine automatically switches to strict case-sensitive validation (<code className="doc-inline-code">inputTrimmed === targetTallMan</code>) without partial affix hints or live reconstruction preview.</li>
+                                </ol>
                             </div>
 
                             {/* Temporary Developer Testing Override Tool */}
@@ -659,7 +687,7 @@ function Documentation() {
                                 <div className="doc-subfeature-title-bar">
                                     <h3 className="heading-sm doc-guide-title">
                                         <Wrench size={18} />
-                                        <span>5.3 Temporary Developer Answer Overrides</span>
+                                        <span>5.4 Temporary Developer Answer Overrides</span>
                                     </h3>
                                     <StatusBadge status="Temporary Developer Tool" />
                                 </div>
@@ -769,10 +797,12 @@ function Documentation() {
 ├── user.json                        <- Prototype user profile and baseline stats
 └── levels/                          <- Modular curriculum data
     ├── index.js                     <- Central normalization & unit registry
-    └── section-1/
-        ├── unit-1.json              <- Unit 1: Introductory LASA Pairs (X = 3 levels)
-        ├── unit-2.json              <- Unit 2: Formulations & Suffixes (X = 2 levels)
-        └── unit-3.json              <- Unit 3: Brand & Suffix Differentiation (X = 3 levels)`}
+    ├── section-1/
+    │   ├── unit-1.json              <- Unit 1: Introductory LASA Pairs (X = 3 levels)
+    │   ├── unit-2.json              <- Unit 2: Formulations & Suffixes (X = 3 levels)
+    │   └── unit-3.json              <- Unit 3: Brand & Suffix Differentiation (X = 3 levels)
+    └── section-2/
+        └── unit-1.json              <- Unit 4: High-Alert Opioids & Potency (X = 1 level)`}
                             </pre>
 
                             {/* Unit JSON Schema & Example */}
@@ -809,7 +839,7 @@ function Documentation() {
                             {/* Level JSON Schema & Example */}
                             <h3 className="heading-sm doc-subsection-title">6.2 Level Schema</h3>
                             <p className="doc-paragraph">
-                                Each object inside <code className="doc-inline-code">unit.levels[]</code> represents a single node on the learning tree:
+                                Each object inside <code className="doc-inline-code">unit.levels[]</code> represents a single node on the learning tree. Levels can contain a structured <code className="doc-inline-code">lessons[]</code> array (the full 6-tier hierarchy) or direct <code className="doc-inline-code">activities[]</code>:
                             </p>
                             <JsonSnippet
                                 label="level-example.json"
@@ -822,7 +852,14 @@ function Documentation() {
   "xpReward": 10,
   "unlocked": true,
   "lasaRefIds": ["lasa-001", "lasa-002"],
-  "activities": [ ... ]
+  "lessons": [
+    {
+      "id": "lesson_101",
+      "lessonNumber": 1,
+      "title": "Abelcet vs Amphotericin B",
+      "activities": [ ... ]
+    }
+  ]
 }`}
                             />
                             <ul className="doc-field-desc-list">
@@ -834,25 +871,27 @@ function Documentation() {
                                 <li><code className="doc-inline-code">xpReward</code>: Baseline experience points awarded upon completion.</li>
                                 <li><code className="doc-inline-code">unlocked</code>: Default lock state for fresh accounts. Set <code className="doc-inline-code">true</code> for Level 1 of Unit 1; <code className="doc-inline-code">false</code> for subsequent levels.</li>
                                 <li><code className="doc-inline-code">lasaRefIds</code>: Array of LASA ID references taught in this level.</li>
-                                <li><code className="doc-inline-code">activities</code>: Array of Activity objects.</li>
+                                <li><code className="doc-inline-code">lessons</code>: Array of Lesson objects (<code className="doc-inline-code">Section &rarr; Unit &rarr; Level &rarr; Lesson &rarr; Activity &rarr; Question</code>).</li>
                             </ul>
 
                             {/* Activity Schema */}
                             <h3 className="heading-sm doc-subsection-title">6.3 Activity Schema</h3>
                             <p className="doc-paragraph">
-                                Activities organize the instructional mode inside a level:
+                                Activities organize the instructional mode inside a lesson or level:
                             </p>
                             <JsonSnippet
                                 label="activity-example.json"
                                 code={`{
   "id": "act_101",
   "activityType": "recognition",
+  "activityRole": "practice",
   "questions": [ ... ]
 }`}
                             />
                             <ul className="doc-field-desc-list">
                                 <li><code className="doc-inline-code">id</code>: Unique activity identifier (e.g. <code className="doc-inline-code">act_101</code>).</li>
-                                <li><code className="doc-inline-code">activityType</code>: Pedagogical mode (<code className="doc-inline-code">recognition</code>, <code className="doc-inline-code">discrimination</code>, <code className="doc-inline-code">retrieval</code>).</li>
+                                <li><code className="doc-inline-code">activityType</code>: Pedagogical mode (<code className="doc-inline-code">recognition</code>, <code className="doc-inline-code">discrimination</code>, <code className="doc-inline-code">retrieval</code>, <code className="doc-inline-code">construction</code>).</li>
+                                <li><code className="doc-inline-code">activityRole</code>: Functional role (<code className="doc-inline-code">&quot;practice&quot;</code> or <code className="doc-inline-code">&quot;unit_mastery&quot;</code>).</li>
                                 <li><code className="doc-inline-code">questions</code>: Array of Question objects.</li>
                             </ul>
 
@@ -914,10 +953,14 @@ function Documentation() {
 
                             <h3 className="heading-sm doc-subsection-title">6.6 Tall Man Lettering Question Schema (<code className="doc-inline-code">tall_man</code>)</h3>
                             <p className="doc-paragraph">
-                                A dedicated constructed-response activity requiring learners to actively generate the capitalized Tall Man segments for verified drug names, replacing passive multiple-choice guessing:
+                                A dedicated constructed-response activity requiring learners to actively generate the capitalized Tall Man segments for verified drug names, replacing passive multiple-choice guessing. Tall Man questions operate in two distinct pedagogical modes:
                             </p>
+                            <ol className="doc-step-list">
+                                <li><strong>Guided Practice Mode (<code className="doc-inline-code">scaffold: true</code>):</strong> Provides prefix/suffix frames and a live interactive reconstructed drug name preview.</li>
+                                <li><strong>Unit Final Mastery Mode (<code className="doc-inline-code">scaffold: false</code>, <code className="doc-inline-code">activityRole: &quot;unit_mastery&quot;</code>):</strong> Removes all affix frames and live preview; requires unassisted input of the complete orthographic name with strict case-sensitive validation.</li>
+                            </ol>
                             <JsonSnippet
-                                label="tall-man-question-example.json"
+                                label="tall-man-guided-example.json"
                                 code={`{
   "id": "q201",
   "type": "tall_man",
@@ -932,14 +975,34 @@ function Documentation() {
   "relatedDrug": "acetaZOLAMIDE"
 }`}
                             />
+                            <JsonSnippet
+                                label="tall-man-mastery-example.json"
+                                code={`{
+  "id": "q106_mastery",
+  "type": "tall_man",
+  "activityRole": "unit_mastery",
+  "isFinalTask": true,
+  "scaffold": false,
+  "lasaId": "lasa-020",
+  "prompt": "FINAL UNIT MASTERY TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
+  "standardName": "prednisone",
+  "tallManName": "predniSONE",
+  "prefix": "",
+  "expectedSegment": "predniSONE",
+  "suffix": "",
+  "explanation": "ISMP recommends predniSONE to emphasize the SONE ending, distinguishing it from prednisoLONE.",
+  "relatedDrug": "predniSONE"
+}`}
+                            />
                             <ul className="doc-field-desc-list">
                                 <li><code className="doc-inline-code">standardName</code>: Un-capitalized generic drug name displayed in the reference card.</li>
                                 <li><code className="doc-inline-code">tallManName</code>: Authoritative ISMP 2023 Tall Man representation.</li>
-                                <li><code className="doc-inline-code">prefix</code>: Leading uncapitalized letters displayed in the construction frame (e.g. <code className="doc-inline-code">&quot;aceta&quot;</code>).</li>
-                                <li><code className="doc-inline-code">expectedSegment</code>: Exact uppercase segment required from the learner (e.g. <code className="doc-inline-code">&quot;ZOLAMIDE&quot;</code>).</li>
+                                <li><code className="doc-inline-code">prefix</code>: Leading uncapitalized letters displayed in guided construction frame (empty in mastery tasks).</li>
+                                <li><code className="doc-inline-code">expectedSegment</code>: Uppercase segment required in guided mode, or full Tall Man name in mastery mode.</li>
                                 <li><code className="doc-inline-code">suffix</code>: Trailing uncapitalized letters displayed after the input field (if applicable).</li>
-                                <li><code className="doc-inline-code">Live Name Reconstruction</code>: As the learner types into the input box, a live preview card dynamically renders the complete reconstructed drug name (<code className="doc-inline-code">&lt;TallManText /&gt;</code>) in real time.</li>
-                                <li><code className="doc-inline-code">Tolerant Normalization</code>: The evaluation engine normalizes leading/trailing whitespace and automatically compares uppercase strings, evaluating letter knowledge rather than capslock state.</li>
+                                <li><code className="doc-inline-code">scaffold</code>: Boolean flag. Set <code className="doc-inline-code">false</code> for unassisted mastery tasks; omitted or <code className="doc-inline-code">true</code> for guided practice.</li>
+                                <li><code className="doc-inline-code">activityRole / isFinalTask</code>: Flags the question as the concluding unit evaluation milestone.</li>
+                                <li><code className="doc-inline-code">Evaluation Logic</code>: In guided mode, input is case-insensitive for the target segment. In mastery mode, strict case-sensitive match (<code className="doc-inline-code">inputTrimmed === targetTallMan</code>) is enforced.</li>
                                 <li><code className="doc-inline-code">Feedback Behavior</code>: On submission, both correct and incorrect outcomes display the verified Tall Man representation in the feedback drawer along with educational clinical rationale.</li>
                             </ul>
                         </section>
@@ -1144,8 +1207,8 @@ function Documentation() {
                                         </tr>
                                         <tr>
                                             <td><strong>Question Formats</strong></td>
-                                            <td>Supports constructed-response Tall Man lettering (<code className="doc-inline-code">tall_man</code>) with live name reconstruction, interactive tap-to-match pairs (<code className="doc-inline-code">matching</code>), <code className="doc-inline-code">multiple_choice</code>, and <code className="doc-inline-code">true_false</code>. Full dispensing simulation scenarios and crosswords remain future thesis phases.</td>
-                                            <td>Active (Tall Man + Matching + Choice)</td>
+                                            <td>Supports constructed-response Tall Man lettering (<code className="doc-inline-code">tall_man</code>) in both guided scaffolding (affix frames + preview) and unassisted Unit Mastery mode (strict case-sensitive recall), interactive tap-to-match pairs (<code className="doc-inline-code">matching</code>), <code className="doc-inline-code">multiple_choice</code>, and <code className="doc-inline-code">true_false</code>. Full dispensing simulation scenarios and crosswords remain future thesis phases.</td>
+                                            <td>Active (Tall Man Mastery + Guided + Matching + Choice)</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Quests & Leaderboards</strong></td>

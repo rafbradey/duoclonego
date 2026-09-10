@@ -1,0 +1,90 @@
+{
+  "sectionId": "section-2",
+  "sectionTitle": "Section 2: High-Alert Medications",
+  "id": "unit_004",
+  "unitNumber": 1,
+  "title": "SECTION 2, UNIT 1",
+  "description": "High-Alert Opioids & Potency Differentiation",
+  "unitMessage": "ISMP 2023 High-Alert Medication Pairs",
+  "color": "#ff9600",
+  "levels": [
+    {
+      "id": "level_401",
+      "levelNumber": 1,
+      "title": "Potent Opioid Differentiation",
+      "description": "Differentiate high-potency synthetic opioids carrying catastrophic overdose risks.",
+      "learningObjective": "Differentiate fentaNYL and ALfentanil to prevent fatal opioid dosing errors.",
+      "xpReward": 15,
+      "unlocked": false,
+      "lasaRefIds": ["lasa-026"],
+      "lessons": [
+        {
+          "id": "lsn_401_01",
+          "title": "Opioid Suffix & Prefix Recognition",
+          "learningObjective": "Identify orthographic hazards between fentaNYL and ALfentanil.",
+          "activities": [
+            {
+              "id": "act_401_01",
+              "activityType": "recognition",
+              "activityRole": "guided_practice",
+              "learningObjective": "Identify clinical hazards between high-potency synthetic opioids.",
+              "questions": [
+                {
+                  "id": "q501",
+                  "type": "multiple_choice",
+                  "lasaId": "lasa-026",
+                  "prompt": "Why are fentaNYL and ALfentanil designated as high-alert LASA medications by ISMP?",
+                  "choices": [
+                    "They have dramatically different potencies and rapid onset, where dosing confusion causes fatal respiratory depression",
+                    "They are manufactured by the same pharmaceutical vendor with identical packaging",
+                    "One is an over-the-counter cough syrup while the other is a topical patch",
+                    "They share identical chemical structures with no clinical differences"
+                  ],
+                  "correctAnswer": "They have dramatically different potencies and rapid onset, where dosing confusion causes fatal respiratory depression",
+                  "explanation": "fentaNYL is an extremely potent opioid. Mix-ups with ALfentanil due to verbal orders or sound-alike names have caused catastrophic respiratory arrest.",
+                  "relatedDrug": "fentaNYL"
+                },
+                {
+                  "id": "q502",
+                  "type": "true_false",
+                  "lasaId": "lasa-026",
+                  "prompt": "In the ISMP Tall Man lettering standard, fentaNYL capitalizes the suffix NYL while ALfentanil capitalizes the prefix AL.",
+                  "choices": [
+                    "True",
+                    "False"
+                  ],
+                  "correctAnswer": "True",
+                  "explanation": "True. ISMP recommends fentaNYL (capitalizing NYL) and ALfentanil (capitalizing AL) to emphasize their distinct phonetic and orthographic ends.",
+                  "relatedDrug": "fentaNYL"
+                }
+              ]
+            },
+            {
+              "id": "act_401_mastery",
+              "activityType": "construction",
+              "activityRole": "unit_mastery",
+              "isFinalTask": true,
+              "learningObjective": "Independently construct the exact Tall Man lettering for high-potency fentanyl without scaffolding.",
+              "questions": [
+                {
+                  "id": "q503_mastery",
+                  "type": "tall_man",
+                  "activityRole": "unit_mastery",
+                  "isFinalTask": true,
+                  "scaffold": false,
+                  "lasaId": "lasa-026",
+                  "prompt": "Enter the complete medication name using exact Tall Man lettering to distinguish it from ALfentanil:",
+                  "standardName": "fentanyl",
+                  "tallManName": "fentaNYL",
+                  "expectedSegment": "NYL",
+                  "explanation": "fentaNYL capitalizes NYL to distinguish it from ALfentanil, which capitalizes AL.",
+                  "relatedDrug": "fentaNYL"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -62,12 +62,35 @@ export function evaluateAnswer(question, selectedAnswer) {
 
     // Special handling for constructed-response Tall Man lettering questions
     if (question.type === "tall_man") {
-        const expectedSegment = String(question.expectedSegment || "").trim().toUpperCase();
-        const inputTrimmed = String(selectedAnswer).trim();
-        const inputUpper = inputTrimmed.toUpperCase();
+        const isMastery = Boolean(
+            question.isFinalTask ||
+            question.activityRole === "unit_mastery" ||
+            question.scaffold === false
+        );
 
-        const fullReconstructed = `${question.prefix || ""}${inputTrimmed}${question.suffix || ""}`;
+        const inputTrimmed = String(selectedAnswer).trim();
         const targetTallMan = String(question.tallManName || "").trim();
+
+        if (isMastery) {
+            // Unit Mastery Mode: Learner must independently produce the full Tall Man name.
+            // Capitalization is strictly evaluated (case-sensitive) to test orthographic retrieval.
+            const isCorrect = inputTrimmed === targetTallMan;
+
+            return {
+                isCorrect,
+                selectedAnswer: inputTrimmed,
+                correctAnswer: targetTallMan,
+                tallManName: targetTallMan,
+                isMastery: true,
+                explanation: question.explanation || "",
+                relatedDrug: targetTallMan || question.relatedDrug || ""
+            };
+        }
+
+        // Guided Mode: Scaffolding allows segment input with case/whitespace tolerance
+        const expectedSegment = String(question.expectedSegment || "").trim().toUpperCase();
+        const inputUpper = inputTrimmed.toUpperCase();
+        const fullReconstructed = `${question.prefix || ""}${inputTrimmed}${question.suffix || ""}`;
         const targetTallManUpper = targetTallMan.toUpperCase();
 
         const isCorrect = Boolean(
@@ -81,6 +104,7 @@ export function evaluateAnswer(question, selectedAnswer) {
             selectedAnswer: inputTrimmed,
             correctAnswer: question.tallManName || expectedSegment,
             tallManName: question.tallManName || "",
+            isMastery: false,
             explanation: question.explanation || "",
             relatedDrug: question.tallManName || question.relatedDrug || ""
         };

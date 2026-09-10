@@ -220,3 +220,50 @@
         font-size: 1.25rem;
     }
 }
+
+/* ==========================================================================
+   Unit Mastery Mode Styles (No-Hint Independent Retrieval)
+   ========================================================================== */
+
+.tm-mastery-badge {
+    background: rgba(255, 179, 0, 0.14);
+    border-color: rgba(255, 179, 0, 0.35);
+    color: #ffb300;
+}
+
+.tm-mastery-badge .tm-badge-icon {
+    color: #ffb300;
+}
+
+.tm-mastery-frame {
+    border: 2px solid rgba(255, 179, 0, 0.3);
+    background: rgba(255, 179, 0, 0.04);
+}
+
+.tm-mastery-input-group,
+.tm-mastery-input-wrapper {
+    width: 100%;
+    max-width: 460px;
+}
+
+.tm-full-input {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    text-transform: none; /* Preserve user-typed case in mastery mode */
+    font-size: 1.35rem;
+    border-color: #ffb300;
+    box-shadow: 0 0 0 3px rgba(255, 179, 0, 0.18);
+}
+
+.tm-full-input:focus {
+    border-color: #ffca28;
+    box-shadow: 0 0 0 4px rgba(255, 202, 40, 0.3);
+}
+
+.tm-mastery-hint {
+    color: var(--text-secondary, #d1d1d6);
+    font-weight: 500;
+    max-width: 460px;
+}
+
