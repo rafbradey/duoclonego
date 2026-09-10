@@ -1,8 +1,10 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import {
     BookOpen,
     Compass,
     GraduationCap,
+    PlusCircle,
+    FileJson,
     Pill,
     UserCheck,
     Cpu,
@@ -11,7 +13,11 @@ import {
     CheckCircle2,
     Clock,
     Sparkles,
-    ShieldAlert
+    ShieldAlert,
+    Copy,
+    Check,
+    Layers,
+    ArrowRight
 } from "lucide-react";
 import "./Documentation.css";
 
@@ -42,20 +48,88 @@ function StatusBadge({ status }) {
     );
 }
 
+// Copyable JSON snippet helper
+function JsonSnippet({ code, label }) {
+    const [copied, setCopied] = useState(false);
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(code);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
+    return (
+        <div className="doc-json-snippet-box">
+            <div className="doc-snippet-header">
+                <span className="doc-snippet-label">{label}</span>
+                <button
+                    type="button"
+                    className="doc-copy-btn"
+                    onClick={handleCopy}
+                    aria-label={`Copy ${label} JSON`}
+                >
+                    {copied ? (
+                        <>
+                            <Check size={14} className="copy-check-icon" />
+                            <span>COPIED</span>
+                        </>
+                    ) : (
+                        <>
+                            <Copy size={14} />
+                            <span>COPY JSON</span>
+                        </>
+                    )}
+                </button>
+            </div>
+            <pre className="doc-json-pre">
+                <code>{code}</code>
+            </pre>
+        </div>
+    );
+}
+
 function Documentation() {
     const [searchQuery, setSearchQuery] = useState("");
     const [activeSection, setActiveSection] = useState("overview");
 
     const sections = [
-        { id: "overview", label: "Overview", icon: BookOpen },
-        { id: "getting-around", label: "Getting Around & Routes", icon: Compass },
-        { id: "current-features", label: "Current Features", icon: Sparkles },
-        { id: "learning-system", label: "Learning System & Pedagogy", icon: GraduationCap },
-        { id: "lasa-system", label: "LASA Knowledge & Data", icon: Pill },
-        { id: "user-progress", label: "User State & Persistence", icon: UserCheck },
-        { id: "architecture", label: "Architecture & Data Flow", icon: Cpu },
-        { id: "limitations", label: "Current Limitations", icon: AlertTriangle }
+        { id: "overview", label: "1. Overview", icon: BookOpen },
+        { id: "getting-around", label: "2. Getting Around", icon: Compass },
+        { id: "current-features", label: "3. Current Features", icon: Sparkles },
+        { id: "learning-system", label: "4. Learning System", icon: GraduationCap },
+        { id: "adding-content", label: "5. Adding Content (Dev Guide)", icon: PlusCircle },
+        { id: "data-schema", label: "6. Data & JSON Schema", icon: FileJson },
+        { id: "lasa-system", label: "7. LASA Knowledge & Data", icon: Pill },
+        { id: "user-progress", label: "8. User State & Persistence", icon: UserCheck },
+        { id: "architecture", label: "9. Architecture & Data Flow", icon: Cpu },
+        { id: "limitations", label: "10. Current Limitations", icon: AlertTriangle }
     ];
+
+    // Scroll-following Table of Contents using IntersectionObserver
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: "-20% 0px -70% 0px",
+            threshold: 0
+        };
+
+        const handleIntersect = (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(handleIntersect, observerOptions);
+        const sectionElements = document.querySelectorAll("main.doc-content-stream > section[id]");
+        sectionElements.forEach((el) => observer.observe(el));
+
+        return () => {
+            sectionElements.forEach((el) => observer.unobserve(el));
+            observer.disconnect();
+        };
+    }, [searchQuery]);
 
     const handleNavClick = (id) => {
         setActiveSection(id);
@@ -84,7 +158,7 @@ function Documentation() {
                     </div>
                     <h1 className="heading-xl doc-main-title">Duoclongo System Reference</h1>
                     <p className="body-text-muted doc-tagline">
-                        Real-time reference of implemented functionality, learning science architecture, LASA pharmacology models, and active system boundaries.
+                        Real-time reference of implemented functionality, learning science architecture, curriculum content guide, and active system boundaries.
                     </p>
                 </div>
 
@@ -106,7 +180,7 @@ function Documentation() {
                 <input
                     type="search"
                     className="doc-search-input"
-                    placeholder="Search documentation sections, routes, components, or services..."
+                    placeholder="Search documentation (e.g., 'adding a level', 'json schema', 'XP', 'localStorage', 'tall man')..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     aria-label="Filter documentation"
@@ -124,7 +198,7 @@ function Documentation() {
 
             {/* Layout Body: Sticky Navigation Rail + Main Content */}
             <div className="doc-layout-grid">
-                {/* Navigation TOC Rail */}
+                {/* Navigation TOC Rail (Follow-the-user) */}
                 <aside className="doc-toc-rail" aria-label="Documentation Navigation">
                     <div className="doc-toc-card duo-card">
                         <h2 className="doc-toc-heading">Table of Contents</h2>
@@ -139,7 +213,7 @@ function Documentation() {
                                         onClick={() => handleNavClick(sec.id)}
                                         className={`doc-toc-item ${isActive ? "active" : ""}`}
                                     >
-                                        <Icon size={17} className="doc-toc-icon" />
+                                        <Icon size={16} className="doc-toc-icon" />
                                         <span>{sec.label}</span>
                                     </button>
                                 );
@@ -151,7 +225,7 @@ function Documentation() {
                 {/* Main Documentation Articles */}
                 <main className="doc-content-stream">
                     {/* SECTION 1: OVERVIEW */}
-                    {isMatch("overview purpose goal north star medical pharmacology") && (
+                    {isMatch("overview purpose goal north star medical pharmacology audience") && (
                         <section id="overview" className="doc-section-card duo-card">
                             <div className="doc-section-header">
                                 <div className="doc-section-title-wrap">
@@ -201,75 +275,68 @@ function Documentation() {
                                         <tr>
                                             <th>Route Path</th>
                                             <th>Page / Component</th>
-                                            <th>Layout</th>
+                                            <th>Layout Shell</th>
                                             <th>Current Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td><code className="doc-inline-code">/</code></td>
-                                            <td>Landing Page (Home)</td>
-                                            <td>Independent (Navbar)</td>
+                                            <td>Landing Page (<code className="doc-inline-code">Home.jsx</code>)</td>
+                                            <td>Independent Header (<code className="doc-inline-code">Navbar.jsx</code>)</td>
                                             <td><StatusBadge status="Implemented" /></td>
                                         </tr>
                                         <tr>
                                             <td><code className="doc-inline-code">/learn</code></td>
-                                            <td>Curriculum Dashboard (Learn)</td>
-                                            <td>AppLayout (Sidebar + Right Bar)</td>
+                                            <td>Curriculum Dashboard (<code className="doc-inline-code">Learn.jsx</code>)</td>
+                                            <td><code className="doc-inline-code">AppLayout</code> (Sidebar + Rail)</td>
                                             <td><StatusBadge status="Implemented" /></td>
                                         </tr>
                                         <tr>
                                             <td><code className="doc-inline-code">/lesson/:lessonId</code></td>
-                                            <td>Interactive Lesson Runner</td>
-                                            <td>Focused Session (No Sidebar)</td>
+                                            <td>Interactive Lesson Runner (<code className="doc-inline-code">LessonSession.jsx</code>)</td>
+                                            <td>Distraction-Free (No Sidebar)</td>
                                             <td><StatusBadge status="Implemented" /></td>
                                         </tr>
                                         <tr>
                                             <td><code className="doc-inline-code">/practice</code></td>
-                                            <td>Targeted Practice Hub</td>
-                                            <td>AppLayout</td>
+                                            <td>Targeted Practice Hub (<code className="doc-inline-code">Practice.jsx</code>)</td>
+                                            <td><code className="doc-inline-code">AppLayout</code></td>
                                             <td><StatusBadge status="Placeholder" /></td>
                                         </tr>
                                         <tr>
                                             <td><code className="doc-inline-code">/quests</code></td>
-                                            <td>Daily Quests & Badges</td>
-                                            <td>AppLayout</td>
+                                            <td>Daily Quests & Badges (<code className="doc-inline-code">Quests.jsx</code>)</td>
+                                            <td><code className="doc-inline-code">AppLayout</code></td>
                                             <td><StatusBadge status="Placeholder" /></td>
                                         </tr>
                                         <tr>
                                             <td><code className="doc-inline-code">/leaderboards</code></td>
-                                            <td>Weekly League Ranks</td>
-                                            <td>AppLayout</td>
+                                            <td>Weekly League Ranks (<code className="doc-inline-code">Leaderboards.jsx</code>)</td>
+                                            <td><code className="doc-inline-code">AppLayout</code></td>
                                             <td><StatusBadge status="Placeholder" /></td>
                                         </tr>
                                         <tr>
                                             <td><code className="doc-inline-code">/shop</code></td>
-                                            <td>Mascot Item & Boost Shop</td>
-                                            <td>AppLayout</td>
+                                            <td>Mascot Item & Boost Shop (<code className="doc-inline-code">Shop.jsx</code>)</td>
+                                            <td><code className="doc-inline-code">AppLayout</code></td>
                                             <td><StatusBadge status="Placeholder" /></td>
                                         </tr>
                                         <tr>
                                             <td><code className="doc-inline-code">/profile</code></td>
-                                            <td>Learner Profile & History</td>
-                                            <td>AppLayout</td>
+                                            <td>Learner Profile & History (<code className="doc-inline-code">Profile.jsx</code>)</td>
+                                            <td><code className="doc-inline-code">AppLayout</code></td>
                                             <td><StatusBadge status="Partially Implemented" /></td>
                                         </tr>
                                         <tr>
                                             <td><code className="doc-inline-code">/documentation</code></td>
-                                            <td>Living System Documentation</td>
-                                            <td>AppLayout</td>
+                                            <td>Living System Reference (<code className="doc-inline-code">Documentation.jsx</code>)</td>
+                                            <td><code className="doc-inline-code">AppLayout</code></td>
                                             <td><StatusBadge status="Implemented" /></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-
-                            <h3 className="heading-sm doc-subsection-title">Layout Chrome</h3>
-                            <ul className="doc-bullet-list">
-                                <li><strong>Sidebar (<code className="doc-inline-code">Sidebar.jsx</code>):</strong> Sticky desktop sidebar on viewports &gt; 768px with <code className="doc-inline-code">100dvh</code> dynamic height and custom scrollbars.</li>
-                                <li><strong>Mobile Navigation (<code className="doc-inline-code">MobileNav.jsx</code>):</strong> Fixed bottom navigation bar on viewports &le; 768px with 48&times;48px touch targets.</li>
-                                <li><strong>Right Info Rail (<code className="doc-inline-code">RightInfoBar.jsx</code>):</strong> Desktop side rail displaying real-time day streak, remaining hearts, gem count, and profile link.</li>
-                            </ul>
                         </section>
                     )}
 
@@ -291,7 +358,7 @@ function Documentation() {
                                     <StatusBadge status="Implemented" />
                                 </div>
                                 <p className="doc-paragraph">
-                                    Presents the value proposition with Duoclongo mascot animation, call-to-action buttons navigating into <code className="doc-inline-code">/learn</code>, and a dynamic bottom ticker displaying common LASA pairs formatted with Tall Man lettering directly loaded from <code className="doc-inline-code">drugService.getAllLasaEntries()</code>.
+                                    Presents value proposition with animated mascot, quick navigation into <code className="doc-inline-code">/learn</code>, and a live ticker showcasing common LASA pairs formatted with Tall Man lettering directly loaded from <code className="doc-inline-code">drugService.getAllLasaEntries()</code>.
                                 </p>
                             </div>
 
@@ -302,7 +369,7 @@ function Documentation() {
                                     <StatusBadge status="Implemented" />
                                 </div>
                                 <p className="doc-paragraph">
-                                    The primary educational hub. Renders sequential Unit cards containing visual progression paths. Each level node resolves its status dynamically:
+                                    The primary educational hub. Renders Unit cards containing visual progression paths. Each level node resolves its status dynamically:
                                 </p>
                                 <ul className="doc-bullet-list">
                                     <li><strong>Completed:</strong> Golden accent ring, checkmark icon, and <code className="doc-inline-code">✓ DONE</code> badge. Users can freely replay completed levels for practice.</li>
@@ -348,11 +415,11 @@ function Documentation() {
                                     <StatusBadge status="Partially Implemented" />
                                 </div>
                                 <p className="doc-paragraph">
-                                    Displays user avatar, display name, username handle, join date, current streak, gem balance, mastery level, and total accumulated XP. Stats synchronize in real time via <code className="doc-inline-code">duoclongo:user-updated</code> events. Currently operates on a local client user profile without multi-user authentication.
+                                    Displays user avatar, display name, username handle, join date, current streak, gem balance, mastery level, and total accumulated XP. Stats synchronize in real time via <code className="doc-inline-code">duoclongo:user-updated</code> events. Operates on local prototype storage.
                                 </p>
                             </div>
 
-                            {/* Stubs / Placeholders */}
+                            {/* Placeholders */}
                             <div className="doc-subfeature-block">
                                 <div className="doc-subfeature-title-bar">
                                     <h3 className="heading-sm">3.6 Gamification & Secondary Hubs</h3>
@@ -398,7 +465,7 @@ function Documentation() {
                                 <br />
                                 <em>&quot;X is determined by the optimal learning progression for the material, not by an arbitrary constant.&quot;</em>
                                 <br />
-                                For instance, Unit 1 provides <strong>X = 3</strong> levels (Familiarization &rarr; Tall Man Discrimination &rarr; Clinical Retrieval), whereas Unit 2 currently provides <strong>X = 2</strong> levels (Form Recognition &rarr; Release Mechanism Kinetics).
+                                For instance, Unit 1 provides <strong>X = 3</strong> levels (Familiarization &rarr; Tall Man Discrimination &rarr; Clinical Retrieval), whereas Unit 2 currently provides <strong>X = 2</strong> levels (Form Recognition &rarr; Release Kinetics).
                             </p>
 
                             <h3 className="heading-sm doc-subsection-title">Cognitive Science Principles Applied</h3>
@@ -408,26 +475,334 @@ function Documentation() {
                                 <li><strong>Immediate Explanatory Feedback:</strong> Errors trigger immediate explanations detailing the exact pharmacological differences rather than generic failure prompts.</li>
                                 <li><strong>Qualitative Progression:</strong> Cognitive demand shifts qualitatively across levels (<code className="doc-inline-code">Familiarization &rarr; Recognition &rarr; Discrimination &rarr; Retrieval</code>).</li>
                             </ul>
+                        </section>
+                    )}
 
-                            <h3 className="heading-sm doc-subsection-title">Answer Evaluation & Scoring Engine</h3>
+                    {/* SECTION 5: ADDING LEARNING CONTENT (DEVELOPER GUIDE) */}
+                    {isMatch("adding learning content developer guide how to add level unit section activity question") && (
+                        <section id="adding-content" className="doc-section-card duo-card">
+                            <div className="doc-section-header">
+                                <div className="doc-section-title-wrap">
+                                    <PlusCircle size={22} className="doc-section-icon" />
+                                    <h2 className="heading-lg">5. Adding Learning Content: Developer Guide</h2>
+                                </div>
+                                <StatusBadge status="Developer Guide" />
+                            </div>
+
                             <p className="doc-paragraph">
-                                Implemented in pure domain logic (<code className="doc-inline-code">src/services/lessonEngine.js</code>) decoupled from React components:
+                                This practical guide explains how a future developer or content author can expand the Duoclongo curriculum safely without breaking existing progress or requiring engine rewrites.
                             </p>
-                            <ul className="doc-bullet-list">
-                                <li><code className="doc-inline-code">evaluateAnswer(question, selectedAnswer)</code>: Normalizes and verifies user selections, returning correctness and educational context.</li>
-                                <li><code className="doc-inline-code">calculateLessonXP(lesson, correctCount, totalQuestions)</code>: Awards baseline XP scaled by session accuracy, with a +5 XP bonus for 100% perfect scores. Minimum reward is 5 XP.</li>
-                                <li><code className="doc-inline-code">recordSessionAnswer(session, question, answer)</code>: Immutable progression tracker advancing session state.</li>
+
+                            {/* Step-by-Step: Adding a New Level */}
+                            <div className="doc-guide-card">
+                                <h3 className="heading-sm doc-guide-title">
+                                    <Layers size={18} />
+                                    <span>How to Add Another Level to an Existing Unit</span>
+                                </h3>
+                                <p className="doc-paragraph">
+                                    To expand Unit 1 from 3 levels to 4 levels:
+                                </p>
+                                <ol className="doc-step-list">
+                                    <li>
+                                        <strong>Open the Unit JSON file:</strong> Navigate to <code className="doc-inline-code">src/data/levels/section-1/unit-1.json</code>.
+                                    </li>
+                                    <li>
+                                        <strong>Append a new level object to <code className="doc-inline-code">levels[]</code>:</strong> Ensure the <code className="doc-inline-code">id</code> is unique across the entire application (e.g. <code className="doc-inline-code">&quot;level_004&quot;</code>).
+                                    </li>
+                                    <li>
+                                        <strong>Set required level fields:</strong> Provide <code className="doc-inline-code">levelNumber</code>, <code className="doc-inline-code">title</code>, <code className="doc-inline-code">description</code>, <code className="doc-inline-code">learningObjective</code>, and <code className="doc-inline-code">xpReward</code>.
+                                    </li>
+                                    <li>
+                                        <strong>Set initial lock state:</strong> Set <code className="doc-inline-code">&quot;unlocked&quot;: false</code>. The application&apos;s dynamic unlocking engine will automatically unlock it as soon as the learner finishes <code className="doc-inline-code">level_003</code>!
+                                    </li>
+                                    <li>
+                                        <strong>Add Activities & Questions:</strong> Populate <code className="doc-inline-code">activities[]</code> with at least one activity containing valid questions.
+                                    </li>
+                                    <li>
+                                        <strong>Zero Code Changes Required:</strong> The Learn page tree, level engine, and session runner derive level counts dynamically from <code className="doc-inline-code">unit.levels.length</code>.
+                                    </li>
+                                </ol>
+                            </div>
+
+                            {/* Step-by-Step: Adding a New Unit */}
+                            <div className="doc-guide-card">
+                                <h3 className="heading-sm doc-guide-title">
+                                    <PlusCircle size={18} />
+                                    <span>How to Add a New Unit (e.g. Unit 3)</span>
+                                </h3>
+                                <p className="doc-paragraph">
+                                    To introduce a brand new unit to Section 1:
+                                </p>
+                                <ol className="doc-step-list">
+                                    <li>
+                                        <strong>Create the new Unit file:</strong> Create <code className="doc-inline-code">src/data/levels/section-1/unit-3.json</code> following the standard unit schema.
+                                    </li>
+                                    <li>
+                                        <strong>Assign Unit Metadata:</strong>
+                                        <ul className="doc-bullet-list">
+                                            <li><code className="doc-inline-code">&quot;id&quot;: &quot;unit_003&quot;</code></li>
+                                            <li><code className="doc-inline-code">&quot;unitNumber&quot;: 3</code></li>
+                                            <li><code className="doc-inline-code">&quot;title&quot;: &quot;SECTION 1, UNIT 3&quot;</code></li>
+                                            <li><code className="doc-inline-code">&quot;color&quot;: &quot;#2dab69&quot;</code> (or custom hex accent)</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Register in Aggregation Index:</strong> Open <code className="doc-inline-code">src/data/levels/index.js</code> and add two lines:
+                                        <div className="doc-code-preview">
+                                            <code>
+                                                import unit3 from &quot;./section-1/unit-3.json&quot; with &#123; type: &quot;json&quot; &#125;;<br />
+                                                export const rawUnits = [unit1, unit2, unit3];
+                                            </code>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <strong>Automatic Discovery:</strong> <code className="doc-inline-code">allUnits</code> and <code className="doc-inline-code">allLevels</code> will immediately expose the new unit across <code className="doc-inline-code">/learn</code>, the Guidebook modal, and lesson sessions.
+                                    </li>
+                                </ol>
+                            </div>
+
+                            {/* Adding a Section */}
+                            <div className="doc-guide-card">
+                                <h3 className="heading-sm doc-guide-title">
+                                    <Compass size={18} />
+                                    <span>Adding a New Section</span>
+                                </h3>
+                                <p className="doc-paragraph">
+                                    <strong>Current Implementation Status:</strong> Section definitions are currently grouped inside unit metadata via <code className="doc-inline-code">sectionId</code> and <code className="doc-inline-code">sectionTitle</code>.
+                                    To introduce Section 2:
+                                </p>
+                                <ul className="doc-bullet-list">
+                                    <li>Create directory <code className="doc-inline-code">src/data/levels/section-2/</code>.</li>
+                                    <li>Create <code className="doc-inline-code">unit-1.json</code> with <code className="doc-inline-code">&quot;sectionId&quot;: &quot;section-2&quot;</code>, <code className="doc-inline-code">&quot;sectionTitle&quot;: &quot;Section 2: High-Alert Medications&quot;</code>.</li>
+                                    <li>Import and register in <code className="doc-inline-code">src/data/levels/index.js</code>.</li>
+                                </ul>
+                            </div>
+
+                            {/* ID Conventions */}
+                            <h3 className="heading-sm doc-subsection-title">Identifier Naming Conventions</h3>
+                            <div className="doc-table-wrapper">
+                                <table className="doc-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Entity</th>
+                                            <th>ID Convention</th>
+                                            <th>Example</th>
+                                            <th>Uniqueness Scope</th>
+                                            <th>Referenced In Progress?</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Section</strong></td>
+                                            <td><code className="doc-inline-code">section-&#123;N&#125;</code></td>
+                                            <td><code className="doc-inline-code">section-1</code></td>
+                                            <td>Global</td>
+                                            <td>No</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Unit</strong></td>
+                                            <td><code className="doc-inline-code">unit_&#123;NNN&#125;</code></td>
+                                            <td><code className="doc-inline-code">unit_001</code></td>
+                                            <td>Global</td>
+                                            <td>No</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Level</strong></td>
+                                            <td><code className="doc-inline-code">level_&#123;NNN&#125;</code></td>
+                                            <td><code className="doc-inline-code">level_001</code></td>
+                                            <td>Global</td>
+                                            <td><strong>YES</strong> (<code className="doc-inline-code">completed_lessons</code>)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Activity</strong></td>
+                                            <td><code className="doc-inline-code">act_&#123;NNN&#125;</code></td>
+                                            <td><code className="doc-inline-code">act_101</code></td>
+                                            <td>Level-scoped</td>
+                                            <td>No</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Question</strong></td>
+                                            <td><code className="doc-inline-code">q&#123;NNN&#125;</code></td>
+                                            <td><code className="doc-inline-code">q101</code></td>
+                                            <td>Global</td>
+                                            <td>Session Answer Log</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>LASA Pair</strong></td>
+                                            <td><code className="doc-inline-code">lasa-&#123;NNN&#125;</code></td>
+                                            <td><code className="doc-inline-code">lasa-001</code></td>
+                                            <td>Global (<code className="doc-inline-code">lasaData.json</code>)</td>
+                                            <td>Guidebook & Question Refs</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div className="doc-callout warning">
+                                <strong>Important ID Rule:</strong> Level IDs (<code className="doc-inline-code">level_001</code>, <code className="doc-inline-code">level_002</code>) are stored directly in user progress records (<code className="doc-inline-code">user.completed_lessons</code>). Never rename an existing level ID in production, or existing learners will lose their unlocked progression for that level!
+                            </div>
+                        </section>
+                    )}
+
+                    {/* SECTION 6: UNDERSTANDING THE DATA & JSON SCHEMA */}
+                    {isMatch("understanding data json schema unit level activity question copyable examples") && (
+                        <section id="data-schema" className="doc-section-card duo-card">
+                            <div className="doc-section-header">
+                                <div className="doc-section-title-wrap">
+                                    <FileJson size={22} className="doc-section-icon" />
+                                    <h2 className="heading-lg">6. Data & JSON Schema Dissection</h2>
+                                </div>
+                                <StatusBadge status="Implemented Schema" />
+                            </div>
+
+                            <p className="doc-paragraph">
+                                The Duoclongo data architecture deliberately isolates curriculum structure from medical relationship definitions.
+                            </p>
+
+                            <div className="doc-callout info">
+                                <strong>Conceptual Distinction:</strong>
+                                <br />
+                                <code className="doc-inline-code">LASA Relationship &ne; Lesson &ne; Activity &ne; Question</code>
+                                <br />
+                                A LASA relationship (e.g. <code className="doc-inline-code">DOPamine / DOBUTamine</code>) is an authoritative pharmacological fact. A Level is a pedagogical progression stage. An Activity organizes instructional steps. A Question is an interactive evaluation challenge referencing that relationship.
+                            </div>
+
+                            <h3 className="heading-sm doc-subsection-title">Data Folder Organization</h3>
+                            <pre className="doc-folder-tree">
+{`src/data/
+├── lasaData.json                    <- 26 verified ISMP 2023 LASA medication pairs
+├── user.json                        <- Prototype user profile and baseline stats
+└── levels/                          <- Modular curriculum data
+    ├── index.js                     <- Central normalization & unit registry
+    └── section-1/
+        ├── unit-1.json              <- Unit 1: Introductory LASA Pairs (X = 3 levels)
+        └── unit-2.json              <- Unit 2: Formulations & Suffixes (X = 2 levels)`}
+                            </pre>
+
+                            {/* Unit JSON Schema & Example */}
+                            <h3 className="heading-sm doc-subsection-title">6.1 Unit Schema</h3>
+                            <p className="doc-paragraph">
+                                Each file in <code className="doc-inline-code">src/data/levels/section-N/unit-M.json</code> defines a single Unit:
+                            </p>
+                            <JsonSnippet
+                                label="unit-example.json"
+                                code={`{
+  "sectionId": "section-1",
+  "sectionTitle": "Section 1: Foundations",
+  "id": "unit_001",
+  "unitNumber": 1,
+  "title": "SECTION 1, UNIT 1",
+  "description": "Introductory LASA Pairs",
+  "unitMessage": "ISMP 2023 Confused Drug Names Reference",
+  "color": "#2dab69",
+  "levels": [ ... ]
+}`}
+                            />
+                            <ul className="doc-field-desc-list">
+                                <li><code className="doc-inline-code">sectionId</code>: Unique identifier for the parent section container.</li>
+                                <li><code className="doc-inline-code">sectionTitle</code>: Human-readable section heading displayed in banners.</li>
+                                <li><code className="doc-inline-code">id</code>: Unique unit identifier (e.g. <code className="doc-inline-code">unit_001</code>).</li>
+                                <li><code className="doc-inline-code">unitNumber</code>: Ordinal integer for sorting and display.</li>
+                                <li><code className="doc-inline-code">title</code>: Uppercase banner headline on the Learn dashboard.</li>
+                                <li><code className="doc-inline-code">description</code>: Secondary subtitle explaining unit focus.</li>
+                                <li><code className="doc-inline-code">unitMessage</code>: Sub-banner message displayed beside sparkles divider.</li>
+                                <li><code className="doc-inline-code">color</code>: Brand theme color for the unit card.</li>
+                                <li><code className="doc-inline-code">levels</code>: Array of Level objects ($1 \dots X$).</li>
+                            </ul>
+
+                            {/* Level JSON Schema & Example */}
+                            <h3 className="heading-sm doc-subsection-title">6.2 Level Schema</h3>
+                            <p className="doc-paragraph">
+                                Each object inside <code className="doc-inline-code">unit.levels[]</code> represents a single node on the learning tree:
+                            </p>
+                            <JsonSnippet
+                                label="level-example.json"
+                                code={`{
+  "id": "level_001",
+  "levelNumber": 1,
+  "title": "LASA Pair Familiarization",
+  "description": "Recognize common look-alike and sound-alike brand/generic pairs.",
+  "learningObjective": "Identify documented LASA counterparts and recognize dispensing risks.",
+  "xpReward": 10,
+  "unlocked": true,
+  "lasaRefIds": ["lasa-001", "lasa-002"],
+  "activities": [ ... ]
+}`}
+                            />
+                            <ul className="doc-field-desc-list">
+                                <li><code className="doc-inline-code">id</code>: Unique level identifier (e.g. <code className="doc-inline-code">level_001</code>). Used in routing (<code className="doc-inline-code">/lesson/level_001</code>) and user progress storage.</li>
+                                <li><code className="doc-inline-code">levelNumber</code>: Ordinal number within the unit.</li>
+                                <li><code className="doc-inline-code">title</code>: Label rendered under the tree node.</li>
+                                <li><code className="doc-inline-code">description</code>: Brief explanation of the level focus.</li>
+                                <li><code className="doc-inline-code">learningObjective</code>: Pedagogical goal passed to accessibility labels and tooltips.</li>
+                                <li><code className="doc-inline-code">xpReward</code>: Baseline experience points awarded upon completion.</li>
+                                <li><code className="doc-inline-code">unlocked</code>: Default lock state for fresh accounts. Set <code className="doc-inline-code">true</code> for Level 1 of Unit 1; <code className="doc-inline-code">false</code> for subsequent levels.</li>
+                                <li><code className="doc-inline-code">lasaRefIds</code>: Array of LASA ID references taught in this level.</li>
+                                <li><code className="doc-inline-code">activities</code>: Array of Activity objects.</li>
+                            </ul>
+
+                            {/* Activity Schema */}
+                            <h3 className="heading-sm doc-subsection-title">6.3 Activity Schema</h3>
+                            <p className="doc-paragraph">
+                                Activities organize the instructional mode inside a level:
+                            </p>
+                            <JsonSnippet
+                                label="activity-example.json"
+                                code={`{
+  "id": "act_101",
+  "activityType": "recognition",
+  "questions": [ ... ]
+}`}
+                            />
+                            <ul className="doc-field-desc-list">
+                                <li><code className="doc-inline-code">id</code>: Unique activity identifier (e.g. <code className="doc-inline-code">act_101</code>).</li>
+                                <li><code className="doc-inline-code">activityType</code>: Pedagogical mode (<code className="doc-inline-code">recognition</code>, <code className="doc-inline-code">discrimination</code>, <code className="doc-inline-code">retrieval</code>).</li>
+                                <li><code className="doc-inline-code">questions</code>: Array of Question objects.</li>
+                            </ul>
+
+                            {/* Question Schema */}
+                            <h3 className="heading-sm doc-subsection-title">6.4 Question Schema</h3>
+                            <p className="doc-paragraph">
+                                Questions are evaluated by <code className="doc-inline-code">QuestionRenderer.jsx</code> and <code className="doc-inline-code">lessonEngine.js</code>:
+                            </p>
+                            <JsonSnippet
+                                label="question-example.json"
+                                code={`{
+  "id": "q101",
+  "type": "multiple_choice",
+  "lasaId": "lasa-001",
+  "prompt": "Which medication is a documented Look-Alike / Sound-Alike counterpart to Abelcet?",
+  "choices": [
+    "amphotericin B",
+    "amoxicillin",
+    "ampicillin",
+    "atenolol"
+  ],
+  "correctAnswer": "amphotericin B",
+  "explanation": "Abelcet (amphotericin B lipid complex) is frequently confused with conventional amphotericin B. Mix-ups between formulations can cause severe dosing and toxicity errors.",
+  "relatedDrug": "Abelcet"
+}`}
+                            />
+                            <ul className="doc-field-desc-list">
+                                <li><code className="doc-inline-code">id</code>: Unique question identifier (e.g. <code className="doc-inline-code">q101</code>).</li>
+                                <li><code className="doc-inline-code">type</code>: Question format. Currently supported: <code className="doc-inline-code">multiple_choice</code>, <code className="doc-inline-code">true_false</code>.</li>
+                                <li><code className="doc-inline-code">lasaId</code>: Reference to the underlying LASA pair in <code className="doc-inline-code">lasaData.json</code>.</li>
+                                <li><code className="doc-inline-code">prompt</code>: The question prompt displayed to the learner.</li>
+                                <li><code className="doc-inline-code">choices</code>: Array of selectable text options.</li>
+                                <li><code className="doc-inline-code">correctAnswer</code>: Exact string match for the correct choice.</li>
+                                <li><code className="doc-inline-code">explanation</code>: Detailed clinical rationale displayed in the feedback drawer.</li>
+                                <li><code className="doc-inline-code">relatedDrug</code>: Highlighted drug name shown in the feedback banner.</li>
                             </ul>
                         </section>
                     )}
 
-                    {/* SECTION 5: LASA SYSTEM */}
+                    {/* SECTION 7: LASA SYSTEM */}
                     {isMatch("lasa system tall man data ismp drugs generic brand pair") && (
                         <section id="lasa-system" className="doc-section-card duo-card">
                             <div className="doc-section-header">
                                 <div className="doc-section-title-wrap">
                                     <Pill size={22} className="doc-section-icon" />
-                                    <h2 className="heading-lg">5. LASA Knowledge & Data</h2>
+                                    <h2 className="heading-lg">7. LASA Knowledge & Data</h2>
                                 </div>
                                 <StatusBadge status="Implemented" />
                             </div>
@@ -451,38 +826,78 @@ function Documentation() {
                         </section>
                     )}
 
-                    {/* SECTION 6: USER PROGRESS & STATE */}
-                    {isMatch("user progress state localstorage xp streak hearts events sync") && (
+                    {/* SECTION 8: USER PROGRESS & PERSISTENCE */}
+                    {isMatch("user progress state localstorage xp streak hearts events sync temporary prototype database") && (
                         <section id="user-progress" className="doc-section-card duo-card">
                             <div className="doc-section-header">
                                 <div className="doc-section-title-wrap">
                                     <UserCheck size={22} className="doc-section-icon" />
-                                    <h2 className="heading-lg">6. User State & Persistence</h2>
+                                    <h2 className="heading-lg">8. User State & Persistence (Temporary Prototype)</h2>
                                 </div>
-                                <StatusBadge status="Implemented" />
+                                <StatusBadge status="Prototype Persistence" />
                             </div>
 
-                            <p className="doc-paragraph">
-                                User progression is persisted in the client environment via <code className="doc-inline-code">localStorage</code> and synchronized across components using browser custom events.
-                            </p>
+                            <div className="doc-callout warning">
+                                <ShieldAlert size={20} />
+                                <div>
+                                    <strong>Architectural Notice — Temporary Prototype Storage:</strong>
+                                    <br />
+                                    The current implementation uses browser <code className="doc-inline-code">localStorage</code> solely as <strong>temporary prototype storage</strong> so user XP, streaks, and level progression survive page reloads during early UX development.
+                                    This is <strong>NOT</strong> the final persistence architecture.
+                                </div>
+                            </div>
 
-                            <h3 className="heading-sm doc-subsection-title">User Service Architecture (<code className="doc-inline-code">src/services/userService.js</code>)</h3>
+                            <h3 className="heading-sm doc-subsection-title">Current vs. Future Architecture</h3>
+                            <div className="doc-architecture-compare-grid">
+                                <div className="doc-arch-box current">
+                                    <span className="doc-arch-tag">Current Prototype (Phase 2)</span>
+                                    <div className="doc-arch-flow">
+                                        <span>UI Components</span>
+                                        <ArrowRight size={14} />
+                                        <span>Async Services (<code className="doc-inline-code">userService.js</code>)</span>
+                                        <ArrowRight size={14} />
+                                        <span>Browser <code className="doc-inline-code">localStorage</code></span>
+                                        <ArrowRight size={14} />
+                                        <span>Single-User Simulation</span>
+                                    </div>
+                                    <p className="doc-arch-note">
+                                        Data is stored locally under key <code className="doc-inline-code">duoclongo_user_progress</code>. No network requests, authentication tokens, or cross-device sync exist yet.
+                                    </p>
+                                </div>
+
+                                <div className="doc-arch-box future">
+                                    <span className="doc-arch-tag future-tag">Future Production (Phase 4)</span>
+                                    <div className="doc-arch-flow">
+                                        <span>UI Components</span>
+                                        <ArrowRight size={14} />
+                                        <span>Domain Services</span>
+                                        <ArrowRight size={14} />
+                                        <span>Authenticated Backend</span>
+                                        <ArrowRight size={14} />
+                                        <span>Supabase / PostgreSQL</span>
+                                    </div>
+                                    <p className="doc-arch-note">
+                                        Learner progress will transition to normalized relational tables (<code className="doc-inline-code">users</code>, <code className="doc-inline-code">user_progress</code>, <code className="doc-inline-code">level_attempts</code>) secured by authenticated JWT sessions.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <h3 className="heading-sm doc-subsection-title">Why the Current Service Layer is Migration-Friendly</h3>
                             <ul className="doc-bullet-list">
-                                <li><strong>Storage Key:</strong> <code className="doc-inline-code">duoclongo_user_progress</code>. Automatically restores saved XP, hearts, streak, and completed lessons on app launch, falling back to <code className="doc-inline-code">src/data/user.json</code> if clean.</li>
-                                <li><strong>Reactive Synchronization:</strong> Updates trigger a <code className="doc-inline-code">duoclongo:user-updated</code> event on <code className="doc-inline-code">window</code>. Subscribed components (<code className="doc-inline-code">Learn</code>, <code className="doc-inline-code">RightInfoBar</code>, <code className="doc-inline-code">Profile</code>) update their state immediately.</li>
-                                <li><strong>Level Completion Handshake:</strong> <code className="doc-inline-code">updateUserProgress({`{ xpToAdd, completedLessonId }`})</code> records completed level IDs and appends XP safely, guarded against duplicate submissions.</li>
-                                <li><strong>Reset Utility:</strong> <code className="doc-inline-code">resetUserProgress()</code> clears local storage and resets state back to factory defaults for testing.</li>
+                                <li><strong>Zero Direct UI Coupling:</strong> No React component directly accesses <code className="doc-inline-code">localStorage</code>. All reads and writes pass through <code className="doc-inline-code">getCurrentUser()</code>, <code className="doc-inline-code">getUserById()</code>, and <code className="doc-inline-code">updateUserProgress()</code> in <code className="doc-inline-code">src/services/userService.js</code>.</li>
+                                <li><strong>Async Service Signatures:</strong> All user service methods are asynchronous and return Promises. Replacing <code className="doc-inline-code">localStorage</code> with API calls will not require changes to UI component call sites.</li>
+                                <li><strong>Event Synchronization:</strong> Dispatches <code className="doc-inline-code">duoclongo:user-updated</code> events on <code className="doc-inline-code">window</code>, allowing open components to update stats in real time.</li>
                             </ul>
                         </section>
                     )}
 
-                    {/* SECTION 7: ARCHITECTURE & DATA FLOW */}
+                    {/* SECTION 9: ARCHITECTURE & DATA FLOW */}
                     {isMatch("architecture tech stack client vite react router css modular files") && (
                         <section id="architecture" className="doc-section-card duo-card">
                             <div className="doc-section-header">
                                 <div className="doc-section-title-wrap">
                                     <Cpu size={22} className="doc-section-icon" />
-                                    <h2 className="heading-lg">7. Architecture & Data Flow</h2>
+                                    <h2 className="heading-lg">9. Architecture & Data Flow</h2>
                                 </div>
                                 <StatusBadge status="Implemented" />
                             </div>
@@ -528,7 +943,7 @@ function Documentation() {
                                         </tr>
                                         <tr>
                                             <td><strong>Domain Services</strong></td>
-                                            <td><code className="doc-inline-code">drugService</code>, <code className="doc-inline-code">lessonService</code>, <code className="doc-inline-code">userService</code></td>
+                                            <td><code className="doc-inline-code">drugService</code>, <code className="doc-inline-code">lessonService</code>, <code className="doc-inline-code">userService</code>, <code className="doc-inline-code">unitService</code></td>
                                             <td>Decoupled async service facades abstracting data access</td>
                                         </tr>
                                     </tbody>
@@ -537,13 +952,13 @@ function Documentation() {
                         </section>
                     )}
 
-                    {/* SECTION 8: CURRENT LIMITATIONS */}
+                    {/* SECTION 10: CURRENT LIMITATIONS */}
                     {isMatch("limitations missing incomplete mock boundaries backend auth") && (
                         <section id="limitations" className="doc-section-card duo-card">
                             <div className="doc-section-header">
                                 <div className="doc-section-title-wrap">
                                     <AlertTriangle size={22} className="doc-section-icon" />
-                                    <h2 className="heading-lg">8. Current Limitations & Roadmap Boundaries</h2>
+                                    <h2 className="heading-lg">10. Current Limitations & Roadmap Boundaries</h2>
                                 </div>
                                 <StatusBadge status="Prototype / Boundaries" />
                             </div>
