@@ -8,7 +8,8 @@ import {
     Trophy,
     ShoppingBag,
     Medal,
-    User
+    User,
+    FileText
 } from "lucide-react";
 
 function Sidebar() {
@@ -29,6 +30,7 @@ function Sidebar() {
                     <SidebarNav icon={Medal} iconSize={24} link="/leaderboards" text="LEADERBOARDS" />
                     <SidebarNav icon={ShoppingBag} iconSize={24} link="/shop" text="SHOP" />
                     <SidebarNav icon={User} iconSize={24} link="/profile" text="PROFILE" />
+                    <SidebarNav icon={FileText} iconSize={24} link="/documentation" text="DOCS" />
                 </ul>
             </nav>
         </aside>

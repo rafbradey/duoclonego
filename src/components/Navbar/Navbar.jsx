@@ -17,6 +17,9 @@ function Navbar() {
                     <span className="navbar-badge">
                         SITE LANGUAGE: <strong className="navbar-lang-highlight">ENGLISH</strong>
                     </span>
+                    <Link to="/documentation" className="duo-button duo-button-secondary navbar-cta">
+                        DOCS
+                    </Link>
                     <Link to="/learn" className="duo-button duo-button-primary navbar-cta">
                         LEARN
                     </Link>

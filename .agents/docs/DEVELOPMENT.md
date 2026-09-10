@@ -1,5 +1,113 @@
 # DUOCLONGO — DEVELOPMENT RULES
 
+## 0. DOCUMENTATION
+
+## Living In-App Documentation
+
+Duoclongo has an in-app documentation page available at:
+
+`/documentation`
+
+This is the living reference for the **currently implemented application**.
+
+### Documentation Rule
+
+Whenever a development task:
+
+* adds a new user-facing feature
+* removes a feature
+* changes existing feature behavior
+* changes a user workflow
+* adds or changes a route
+* changes the learning system
+* changes question types or answer behavior
+* changes LASA data behavior
+* changes progression behavior
+* significantly changes the UI/UX
+
+the developer/AI agent MUST check whether `/documentation` needs to be updated.
+
+If the change affects something documented there, update the documentation as part of the same task.
+
+### Feature Development Workflow
+
+Use:
+
+READ → INSPECT → PLAN → IMPLEMENT → TEST → DOCUMENT → VERIFY → COMMIT
+
+Documentation is part of the feature's Definition of Done when the implementation changes documented behavior.
+
+### Do Not Document Everything
+
+Internal implementation changes that do not affect application behavior generally do not require an update.
+
+Examples:
+
+* internal variable renaming
+* code formatting
+* minor refactoring
+* internal performance improvements with no behavior change
+* fixing an implementation detail without changing the user-visible behavior
+
+Use judgment.
+
+### Accuracy Rule
+
+The `/documentation` page must describe what **currently exists**, not what is planned.
+
+Do NOT document:
+
+* future roadmap features as implemented
+* ideas that have not been built
+* TODO items as existing functionality
+* architectural intentions as current behavior
+* unsupported medical claims
+* unsupported research claims
+
+When something is incomplete, clearly identify it as:
+
+* Implemented
+* Partially Implemented
+* Prototype
+* Static Data
+* Placeholder
+* Not Implemented
+
+### Developer Documentation vs In-App Documentation
+
+Keep these purposes separate.
+
+`.agents/` and `docs/` are primarily for:
+
+* development instructions
+* architecture
+* research guidance
+* roadmap
+* technical documentation
+* project planning
+
+`/documentation` is primarily for:
+
+* current application features
+* current user workflows
+* current system behavior
+* current learning functionality
+* current limitations
+* information useful to developers and research paper writers
+
+### Documentation Consistency
+
+Before completing a feature, ask:
+
+> "Did this change anything that someone reading `/documentation` would need to know?"
+
+If yes, update it before committing.
+
+The application code remains the source of truth for what is actually implemented.
+
+Never allow `/documentation` to describe behavior that no longer exists.
+
+
 ## 1. GENERAL RULE
 
 The existing repository is the source of truth.

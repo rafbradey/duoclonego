@@ -5,7 +5,8 @@ import {
     Dumbbell,
     Trophy,
     Medal,
-    User
+    User,
+    FileText
 } from "lucide-react";
 
 function MobileNav() {
@@ -64,6 +65,17 @@ function MobileNav() {
             >
                 <User size={24} />
                 <span className="mobile-nav-label">Profile</span>
+            </NavLink>
+
+            <NavLink
+                to="/documentation"
+                className={({ isActive }) =>
+                    `mobile-nav-item ${isActive ? "active" : ""}`
+                }
+                aria-label="Documentation"
+            >
+                <FileText size={24} />
+                <span className="mobile-nav-label">Docs</span>
             </NavLink>
         </nav>
     );

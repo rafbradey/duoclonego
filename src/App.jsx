@@ -8,6 +8,7 @@ import Leaderboards from "./pages/Leaderboards/Leaderboards.jsx";
 import Shop from "./pages/Shop/Shop.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import LessonSession from "./pages/Lesson/LessonSession.jsx";
+import Documentation from "./pages/Documentation/Documentation.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                 <Route path="/leaderboards" element={<Leaderboards />} />
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/documentation" element={<Documentation />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>
