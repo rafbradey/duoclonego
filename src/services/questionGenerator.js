@@ -1,3 +1,5 @@
+import lasaPairsData from "../data/lasaPairs.json" with { type: "json" };
+
 /**
  * Question Generator Service.
  * Generates the 3 core Duoclongo question types from reusable, authoritative LASA pair records:
@@ -119,3 +121,163 @@ export function generateTallManMasteryQuestion(lasaRecord, { drugSide = "A", idS
         relatedDrug: targetDrug.tallManName
     };
 }
+
+const pairIndex = new Map(lasaPairsData.pairs.map((p) => [p.id, p]));
+
+/**
+ * Retrieves a verified LASA pair by its ID (e.g., 'lasa_001').
+ * @param {string} id
+ * @returns {Object|null}
+ */
+export function getLasaPairById(id) {
+    return pairIndex.get(id) || null;
+}
+
+/**
+ * Retrieves multiple LASA pairs by their IDs.
+ * @param {string[]} ids
+ * @returns {Object[]}
+ */
+export function getLasaPairsByIds(ids) {
+    if (!Array.isArray(ids)) return [];
+    return ids.map((id) => pairIndex.get(id)).filter(Boolean);
+}
+
+/**
+ * Generates a comprehensive activity and question set for a level based on its assigned LASA pairs.
+ * @param {Object} level - Level object containing id, levelNumber, type, etc.
+ * @param {Object[]} pairRecords - Array of >= 5 authoritative LASA pairs
+ * @returns {{ activities: Object[], questions: Object[] }}
+ */
+export function generateLevelContent(level, pairRecords) {
+    if (!Array.isArray(pairRecords) || pairRecords.length === 0) {
+        return { activities: [], questions: [] };
+    }
+
+    const isMastery = Boolean(level.type === "unit_mastery" || level.id?.includes("mastery"));
+    const lvlNum = level.levelNumber || 1;
+
+    // 1. Level 1: Pair Recognition (Type B questions for all pairs)
+    if (lvlNum === 1 && !isMastery) {
+        const questions = [];
+        pairRecords.forEach((pair, idx) => {
+            questions.push(generateLasaPairRecognitionQuestion(pair, { promptSide: "A", idSuffix: `${level.id}_${idx}` }));
+            if (pair.drugB) {
+                questions.push(generateLasaPairRecognitionQuestion(pair, { promptSide: "B", idSuffix: `${level.id}_${idx}` }));
+            }
+        });
+
+        const activity = {
+            id: `act_${level.id}_recognition`,
+            activityType: "identification",
+            activityRole: "guided_practice",
+            learningObjective: "Recognize documented Look-Alike / Sound-Alike medication counterparts from verified ISMP pairs.",
+            sessionQuestionCount: Math.min(questions.length, 5),
+            questions
+        };
+
+        return {
+            activities: [activity],
+            questions
+        };
+    }
+
+    // 2. Level 2: Tall Man Lettering (Type A questions for all pairs)
+    if (lvlNum === 2 && !isMastery) {
+        const questions = [];
+        pairRecords.forEach((pair, idx) => {
+            if (pair.drugA?.tallManName && pair.drugA.tallManName !== pair.drugA.genericName) {
+                questions.push(generateTallManRecognitionQuestion(pair, { drugSide: "A", idSuffix: `${level.id}_${idx}` }));
+            }
+            if (pair.drugB?.tallManName && pair.drugB.tallManName !== pair.drugB.genericName) {
+                questions.push(generateTallManRecognitionQuestion(pair, { drugSide: "B", idSuffix: `${level.id}_${idx}` }));
+            }
+        });
+
+        // If fewer than 5 tall man specific names, supplement with pair recognition
+        if (questions.length < 5) {
+            pairRecords.forEach((pair, idx) => {
+                questions.push(generateLasaPairRecognitionQuestion(pair, { promptSide: "A", idSuffix: `supp_${idx}` }));
+            });
+        }
+
+        const activity = {
+            id: `act_${level.id}_tall_man`,
+            activityType: "construction",
+            activityRole: "guided_practice",
+            learningObjective: "Identify and construct correct Tall Man capitalization to differentiate high-risk look-alike drug names.",
+            sessionQuestionCount: Math.min(questions.length, 5),
+            questions
+        };
+
+        return {
+            activities: [activity],
+            questions
+        };
+    }
+
+    // 3. Level 3: Memorization & Discrimination (Mixed Type B + Type C Matching)
+    if (lvlNum === 3 && !isMastery) {
+        const mcQuestions = pairRecords.map((pair, idx) =>
+            generateLasaPairRecognitionQuestion(pair, { promptSide: idx % 2 === 0 ? "A" : "B", idSuffix: `disc_${idx}` })
+        );
+
+        const matchQuestion = generateMatchingQuestion(pairRecords, { id: `q_match_${level.id}` });
+
+        const reviewActivity = {
+            id: `act_${level.id}_discrimination`,
+            activityType: "distinction",
+            activityRole: "guided_practice",
+            learningObjective: "Differentiate subtle orthographic differences and recall confusable medication pairs from memory.",
+            sessionQuestionCount: 4,
+            questions: mcQuestions
+        };
+
+        const matchingActivity = {
+            id: `act_${level.id}_matching`,
+            activityType: "distinction",
+            activityRole: "guided_practice",
+            learningObjective: "Match each medication with its documented confusable counterpart.",
+            sessionQuestionCount: 1,
+            questions: [matchQuestion]
+        };
+
+        return {
+            activities: [reviewActivity, matchingActivity],
+            questions: [...mcQuestions, matchQuestion]
+        };
+    }
+
+    // 4. Level 4: Unit Mastery (Review of all 5+ pairs + 1 Unassisted Capstone Task)
+    const reviewQuestions = pairRecords.map((pair, idx) =>
+        generateLasaPairRecognitionQuestion(pair, { promptSide: idx % 2 === 0 ? "A" : "B", idSuffix: `mastery_rev_${idx}` })
+    );
+
+    const capstoneTargetPair = pairRecords.find((p) => p.drugA?.tallManName && p.drugA.tallManName !== p.drugA.genericName) || pairRecords[0];
+    const capstoneQuestion = generateTallManMasteryQuestion(capstoneTargetPair, { drugSide: "A", idSuffix: "capstone" });
+
+    const masteryReviewActivity = {
+        id: `act_${level.id}_review`,
+        activityType: "distinction",
+        activityRole: "unit_mastery",
+        learningObjective: "Comprehensive review of all unit LASA pairs.",
+        sessionQuestionCount: 4,
+        questions: reviewQuestions
+    };
+
+    const capstoneActivity = {
+        id: `act_${level.id}_capstone`,
+        activityType: "construction",
+        activityRole: "unit_mastery",
+        isFinalTask: true,
+        learningObjective: `Independently construct the exact Tall Man lettering for ${capstoneTargetPair.drugA?.genericName || "target medication"} without scaffolding.`,
+        sessionQuestionCount: 1,
+        questions: [capstoneQuestion]
+    };
+
+    return {
+        activities: [masteryReviewActivity, capstoneActivity],
+        questions: [...reviewQuestions, capstoneQuestion]
+    };
+}
+

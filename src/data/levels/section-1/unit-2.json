@@ -56,18 +56,18 @@
       "learningObjective": "Identify documented ISMP brand-name look-alike and sound-alike counterparts.",
       "xpReward": 10,
       "unlocked": false,
-      "lasaRefIds": ["lasa-008", "lasa-009", "lasa-010"],
+      "lasaPairIds": ["lasa_007", "lasa_008", "lasa_009", "lasa_010", "lasa_011", "lasa_012"],
       "activities": [
         {
           "id": "act_201",
           "activityType": "identification",
           "learningObjective": "Identify documented Look-Alike / Sound-Alike brand counterparts.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 5,
           "questions": [
             {
               "id": "q201_accupril",
               "type": "multiple_choice",
-              "lasaId": "lasa-008",
+              "lasaId": "lasa_007",
               "prompt": "Which medication is a documented Look-Alike / Sound-Alike counterpart to Accupril?",
               "choices": [
                 "Aciphex",
@@ -82,7 +82,7 @@
             {
               "id": "q201_aciphex",
               "type": "multiple_choice",
-              "lasaId": "lasa-008",
+              "lasaId": "lasa_008",
               "prompt": "Which medication is an ISMP-documented sound-alike counterpart to Aciphex?",
               "choices": [
                 "Aricept",
@@ -97,7 +97,7 @@
             {
               "id": "q201_activase",
               "type": "multiple_choice",
-              "lasaId": "lasa-010",
+              "lasaId": "lasa_010",
               "prompt": "Which thrombolytic medication is a documented look-alike / sound-alike counterpart to Activase?",
               "choices": [
                 "TNKase",
@@ -112,7 +112,7 @@
             {
               "id": "q201_adacel",
               "type": "multiple_choice",
-              "lasaId": "lasa-011",
+              "lasaId": "lasa_011",
               "prompt": "Which vaccine formulation is the sound-alike and look-alike counterpart to Adacel (Tdap)?",
               "choices": [
                 "Daptacel (DTaP)",
@@ -123,6 +123,36 @@
               "correctAnswer": "Daptacel (DTaP)",
               "explanation": "Adacel (Tdap booster) and Daptacel (DTaP pediatric) share similar sounds and acronyms with different patient age indications.",
               "relatedDrug": "Adacel (Tdap)"
+            },
+            {
+              "id": "q201_aldara",
+              "type": "multiple_choice",
+              "lasaId": "lasa_012",
+              "prompt": "Which transdermal product is an ISMP look-alike / sound-alike counterpart to the topical cream Aldara?",
+              "choices": [
+                "Alora",
+                "Allegra",
+                "Aldactone",
+                "Advicor"
+              ],
+              "correctAnswer": "Alora",
+              "explanation": "Aldara and Alora differ by only one interior letter (-d- vs -o-).",
+              "relatedDrug": "Aldara"
+            },
+            {
+              "id": "q201_cathflo",
+              "type": "multiple_choice",
+              "lasaId": "lasa_009",
+              "prompt": "Which brand product modifier distinguishes the 2 mg catheter clearance formulation of alteplase from standard systemic Activase?",
+              "choices": [
+                "Cathflo Activase",
+                "TNKase",
+                "Cardio Activase",
+                "Activase Rapid"
+              ],
+              "correctAnswer": "Cathflo Activase",
+              "explanation": "Cathflo Activase is formulated specifically as a 2 mg dose for restoring catheter patency.",
+              "relatedDrug": "Cathflo Activase"
             }
           ]
         }
@@ -134,21 +164,21 @@
       "type": "level",
       "title": "Brand Formulation Discrimination",
       "description": "Differentiate product modifiers and sound-alike brand pairs on the ISMP list.",
-      "learningObjective": "Differentiate brand modifiers (Cathflo) and look-alike brand names (Aldara/Alora).",
+      "learningObjective": "Differentiate brand modifiers (Cathflo) and look-alike brand names across Unit 2 pairs.",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-009", "lasa-012"],
+      "lasaPairIds": ["lasa_007", "lasa_008", "lasa_009", "lasa_010", "lasa_011", "lasa_012"],
       "activities": [
         {
           "id": "act_202",
           "activityType": "distinction",
           "learningObjective": "Distinguish specific brand qualifiers and look-alike pairs.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 5,
           "questions": [
             {
               "id": "q202_cathflo",
               "type": "multiple_choice",
-              "lasaId": "lasa-009",
+              "lasaId": "lasa_009",
               "prompt": "Which brand product modifier distinguishes the 2 mg catheter clearance formulation of alteplase from standard systemic Activase?",
               "choices": [
                 "Cathflo Activase",
@@ -163,7 +193,7 @@
             {
               "id": "q202_aldara",
               "type": "multiple_choice",
-              "lasaId": "lasa-012",
+              "lasaId": "lasa_012",
               "prompt": "Which transdermal product is an ISMP look-alike / sound-alike counterpart to the topical cream Aldara?",
               "choices": [
                 "Alora",
@@ -178,7 +208,7 @@
             {
               "id": "q202_aricept",
               "type": "multiple_choice",
-              "lasaId": "lasa-008",
+              "lasaId": "lasa_008",
               "prompt": "Which medication is a documented sound-alike counterpart to Aricept on the ISMP list?",
               "choices": [
                 "Aciphex",
@@ -189,6 +219,51 @@
               "correctAnswer": "Aciphex",
               "explanation": "Aciphex and Aricept are documented sound-alike counterparts on the ISMP list.",
               "relatedDrug": "Aricept"
+            },
+            {
+              "id": "q202_accupril",
+              "type": "multiple_choice",
+              "lasaId": "lasa_007",
+              "prompt": "Which medication pairs with Accupril to form an ISMP look-alike / sound-alike pair?",
+              "choices": [
+                "Aciphex",
+                "Aricept",
+                "Actos",
+                "Advicor"
+              ],
+              "correctAnswer": "Aciphex",
+              "explanation": "Accupril and Aciphex share confusable syllables.",
+              "relatedDrug": "Accupril"
+            },
+            {
+              "id": "q202_tnkase",
+              "type": "multiple_choice",
+              "lasaId": "lasa_010",
+              "prompt": "Which thrombolytic medication pairs with TNKase on the ISMP list of confused drug names?",
+              "choices": [
+                "Activase",
+                "Toradol",
+                "Tenormin",
+                "Trental"
+              ],
+              "correctAnswer": "Activase",
+              "explanation": "TNKase and Activase share thrombolytic nomenclature and are frequently confused.",
+              "relatedDrug": "TNKase"
+            },
+            {
+              "id": "q202_daptacel",
+              "type": "multiple_choice",
+              "lasaId": "lasa_011",
+              "prompt": "Which vaccine is the confusable counterpart to Daptacel (DTaP)?",
+              "choices": [
+                "Adacel (Tdap)",
+                "Actonel",
+                "Advair",
+                "Alora"
+              ],
+              "correctAnswer": "Adacel (Tdap)",
+              "explanation": "Daptacel and Adacel are documented confusable counterparts.",
+              "relatedDrug": "Daptacel (DTaP)"
             }
           ]
         }
@@ -203,18 +278,18 @@
       "learningObjective": "Accurately recall and discriminate confusable brand medication counterparts from memory.",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-008", "lasa-010", "lasa-011", "lasa-012"],
+      "lasaPairIds": ["lasa_007", "lasa_008", "lasa_009", "lasa_010", "lasa_011", "lasa_012"],
       "activities": [
         {
-          "id": "act_203",
+          "id": "act_203_distinction",
           "activityType": "distinction",
           "learningObjective": "Discriminate brand pairs and identify exact counterpart designations.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 4,
           "questions": [
             {
               "id": "q203_tnkase",
               "type": "multiple_choice",
-              "lasaId": "lasa-010",
+              "lasaId": "lasa_010",
               "prompt": "Which thrombolytic medication pairs with TNKase on the ISMP list of confused drug names?",
               "choices": [
                 "Activase",
@@ -229,7 +304,7 @@
             {
               "id": "q203_daptacel",
               "type": "multiple_choice",
-              "lasaId": "lasa-011",
+              "lasaId": "lasa_011",
               "prompt": "Which vaccine is the confusable look-alike / sound-alike counterpart to Daptacel (DTaP)?",
               "choices": [
                 "Adacel (Tdap)",
@@ -244,7 +319,7 @@
             {
               "id": "q203_alora",
               "type": "multiple_choice",
-              "lasaId": "lasa-012",
+              "lasaId": "lasa_012",
               "prompt": "Which topical product is the look-alike counterpart to Alora?",
               "choices": [
                 "Aldara",
@@ -255,6 +330,57 @@
               "correctAnswer": "Aldara",
               "explanation": "Alora and Aldara are look-alike counterparts differing by only a single interior letter.",
               "relatedDrug": "Alora"
+            },
+            {
+              "id": "q203_accupril_dist",
+              "type": "multiple_choice",
+              "lasaId": "lasa_007",
+              "prompt": "Which medication pairs with Accupril on the ISMP list?",
+              "choices": [
+                "Aciphex",
+                "Actos",
+                "Aricept",
+                "Advicor"
+              ],
+              "correctAnswer": "Aciphex",
+              "explanation": "Accupril and Aciphex are documented confusable brand names.",
+              "relatedDrug": "Accupril"
+            },
+            {
+              "id": "q203_aricept_dist",
+              "type": "multiple_choice",
+              "lasaId": "lasa_008",
+              "prompt": "Which drug is a sound-alike counterpart to Aricept?",
+              "choices": [
+                "Aciphex",
+                "Actonel",
+                "Aldara",
+                "Alora"
+              ],
+              "correctAnswer": "Aciphex",
+              "explanation": "Aciphex and Aricept share acoustic cadence.",
+              "relatedDrug": "Aricept"
+            }
+          ]
+        },
+        {
+          "id": "act_203_matching",
+          "activityType": "distinction",
+          "learningObjective": "Match brand names with their documented confusable counterparts.",
+          "sessionQuestionCount": 1,
+          "questions": [
+            {
+              "id": "q203_match",
+              "type": "matching",
+              "prompt": "Match each brand medication with its documented ISMP counterpart:",
+              "pairs": [
+                { "left": "Accupril", "right": "Aciphex" },
+                { "left": "Aciphex", "right": "Aricept" },
+                { "left": "Activase", "right": "TNKase" },
+                { "left": "Aldara", "right": "Alora" }
+              ],
+              "explanation": "Accupril/Aciphex, Aciphex/Aricept, Activase/TNKase, and Aldara/Alora are documented ISMP pairs.",
+              "relatedDrug": "Accupril"
             }
           ]
         }
@@ -269,19 +395,19 @@
       "learningObjective": "Demonstrate complete unit mastery of brand-name LASA pairs and accurate counterpart identification.",
       "xpReward": 25,
       "unlocked": false,
-      "lasaRefIds": ["lasa-008", "lasa-009", "lasa-010", "lasa-011", "lasa-012"],
+      "lasaPairIds": ["lasa_007", "lasa_008", "lasa_009", "lasa_010", "lasa_011", "lasa_012"],
       "activities": [
         {
           "id": "act_204_mastery_review",
           "activityType": "distinction",
           "activityRole": "unit_mastery",
           "learningObjective": "Review brand-name LASA relationships across Unit 2.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 4,
           "questions": [
             {
               "id": "q204_rev1",
               "type": "multiple_choice",
-              "lasaId": "lasa-008",
+              "lasaId": "lasa_007",
               "prompt": "Which medication is paired with Accupril on the ISMP list of confused drug names?",
               "choices": [
                 "Aciphex",
@@ -296,7 +422,7 @@
             {
               "id": "q204_rev2",
               "type": "multiple_choice",
-              "lasaId": "lasa-010",
+              "lasaId": "lasa_010",
               "prompt": "Which drug pairs with Activase on the ISMP list of confused drug names?",
               "choices": [
                 "TNKase",
@@ -307,6 +433,36 @@
               "correctAnswer": "TNKase",
               "explanation": "Activase and TNKase are documented look-alike thrombolytic counterparts.",
               "relatedDrug": "Activase"
+            },
+            {
+              "id": "q204_rev3",
+              "type": "multiple_choice",
+              "lasaId": "lasa_011",
+              "prompt": "Which vaccine pairs with Adacel (Tdap)?",
+              "choices": [
+                "Daptacel (DTaP)",
+                "Actonel",
+                "Alora",
+                "Advair"
+              ],
+              "correctAnswer": "Daptacel (DTaP)",
+              "explanation": "Adacel (Tdap) and Daptacel (DTaP) form a documented confusable pair.",
+              "relatedDrug": "Adacel (Tdap)"
+            },
+            {
+              "id": "q204_rev4",
+              "type": "multiple_choice",
+              "lasaId": "lasa_009",
+              "prompt": "Which product name designates the 2 mg catheter clearance form of Activase?",
+              "choices": [
+                "Cathflo Activase",
+                "TNKase",
+                "Cardio Activase",
+                "Activase Rapid"
+              ],
+              "correctAnswer": "Cathflo Activase",
+              "explanation": "Cathflo Activase is the 2 mg catheter form.",
+              "relatedDrug": "Cathflo Activase"
             }
           ]
         },
@@ -324,7 +480,7 @@
               "activityRole": "unit_mastery",
               "isFinalTask": true,
               "scaffold": false,
-              "lasaId": "lasa-012",
+              "lasaId": "lasa_012",
               "prompt": "UNIT MASTERY CAPSTONE TASK: Which medication is the documented ISMP look-alike / sound-alike counterpart to Aldara?",
               "choices": [
                 "Alora",

@@ -194,10 +194,10 @@ export function prepareSessionLesson(level, { shuffleOptions = true } = {}) {
             (activity.activityRole === "unit_mastery" && candidateQuestions.some((q) => q.isFinalTask))
         );
 
-        // Target count for this activity
+        // Target count for this activity (minimum 5 questions per session)
         const targetCount = isMasteryCapstone
             ? 1
-            : (activity.sessionQuestionCount || Math.min(candidateQuestions.length, 2));
+            : (activity.sessionQuestionCount || Math.min(candidateQuestions.length, 5));
 
         // Group candidate questions: those whose lasaId hasn't been used vs those that have
         const unusedCandidates = candidateQuestions.filter((q) => !q.lasaId || !usedLasaIds.has(q.lasaId));

@@ -62,18 +62,18 @@
       "learningObjective": "Identify look-alike and sound-alike counterparts differing by suffixes and delivery modifiers.",
       "xpReward": 10,
       "unlocked": false,
-      "lasaRefIds": ["lasa-013", "lasa-014", "lasa-015", "lasa-016"],
+      "lasaPairIds": ["lasa_013", "lasa_014", "lasa_015", "lasa_016", "lasa_017", "lasa_018", "lasa_019"],
       "activities": [
         {
           "id": "act_301",
           "activityType": "identification",
           "learningObjective": "Distinguish look-alike suffixes and release modifiers from verified ISMP pairs.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 5,
           "questions": [
             {
               "id": "q301_actonel",
               "type": "multiple_choice",
-              "lasaId": "lasa-013",
+              "lasaId": "lasa_013",
               "prompt": "Which medication is the documented Look-Alike / Sound-Alike counterpart to Actonel?",
               "choices": [
                 "Actos",
@@ -88,7 +88,7 @@
             {
               "id": "q301_adderall_xr",
               "type": "multiple_choice",
-              "lasaId": "lasa-014",
+              "lasaId": "lasa_014",
               "prompt": "Which formulation suffix designates the extended-release counterpart to immediate-release Adderall?",
               "choices": [
                 "Adderall XR",
@@ -103,7 +103,7 @@
             {
               "id": "q301_inderal",
               "type": "multiple_choice",
-              "lasaId": "lasa-015",
+              "lasaId": "lasa_015",
               "prompt": "Which cardiovascular beta-blocker is an ISMP sound-alike counterpart to the stimulant Adderall?",
               "choices": [
                 "Inderal",
@@ -118,7 +118,7 @@
             {
               "id": "q301_trastuzumab",
               "type": "multiple_choice",
-              "lasaId": "lasa-016",
+              "lasaId": "lasa_016",
               "prompt": "Which antibody-drug conjugate is the high-alert look-alike counterpart to conventional trastuzumab?",
               "choices": [
                 "ado-trastuzumab emtansine",
@@ -129,6 +129,36 @@
               "correctAnswer": "ado-trastuzumab emtansine",
               "explanation": "ado-trastuzumab emtansine has the prefix 'ado-' and contains a cytotoxic conjugate, making confusion with conventional trastuzumab potentially fatal.",
               "relatedDrug": "trastuzumab"
+            },
+            {
+              "id": "q301_advair",
+              "type": "multiple_choice",
+              "lasaId": "lasa_017",
+              "prompt": "Which medication is the sound-alike counterpart to Advair?",
+              "choices": [
+                "Advicor",
+                "Altocor",
+                "Actos",
+                "Allegra"
+              ],
+              "correctAnswer": "Advicor",
+              "explanation": "Advair and Advicor share look-alike prefixes and sound-alike syllables.",
+              "relatedDrug": "Advair"
+            },
+            {
+              "id": "q301_altocor",
+              "type": "multiple_choice",
+              "lasaId": "lasa_018",
+              "prompt": "Which cholesterol drug pairs with Advicor on the ISMP list?",
+              "choices": [
+                "Altocor",
+                "Advair",
+                "Actonel",
+                "Aldara"
+              ],
+              "correctAnswer": "Altocor",
+              "explanation": "Advicor and Altocor differ only in middle letters (-dvi- vs -lto-).",
+              "relatedDrug": "Advicor"
             }
           ]
         }
@@ -143,8 +173,76 @@
       "learningObjective": "Reinforce memory links between confusable pairs through tactile matching practice.",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-013", "lasa-014", "lasa-015", "lasa-016", "lasa-017"],
+      "lasaPairIds": ["lasa_013", "lasa_014", "lasa_015", "lasa_016", "lasa_017", "lasa_018", "lasa_019"],
       "activities": [
+        {
+          "id": "act_302_recon",
+          "activityType": "identification",
+          "learningObjective": "Identify documented counterpart relationships before matching.",
+          "sessionQuestionCount": 4,
+          "questions": [
+            {
+              "id": "q302_recon_actonel",
+              "type": "multiple_choice",
+              "lasaId": "lasa_013",
+              "prompt": "Which medication is the sound-alike counterpart to Actonel?",
+              "choices": [
+                "Actos",
+                "Activase",
+                "Advair",
+                "Altocor"
+              ],
+              "correctAnswer": "Actos",
+              "explanation": "Actonel and Actos look and sound similar.",
+              "relatedDrug": "Actonel"
+            },
+            {
+              "id": "q302_recon_adderall",
+              "type": "multiple_choice",
+              "lasaId": "lasa_014",
+              "prompt": "Which suffix designates the extended-release counterpart to Adderall?",
+              "choices": [
+                "Adderall XR",
+                "Adderall ER",
+                "Adderall CR",
+                "Adderall XL"
+              ],
+              "correctAnswer": "Adderall XR",
+              "explanation": "Adderall XR designates extended-release.",
+              "relatedDrug": "Adderall"
+            },
+            {
+              "id": "q302_recon_inderal",
+              "type": "multiple_choice",
+              "lasaId": "lasa_015",
+              "prompt": "Which drug is a sound-alike counterpart to Adderall?",
+              "choices": [
+                "Inderal",
+                "Isordil",
+                "Imdur",
+                "Intropin"
+              ],
+              "correctAnswer": "Inderal",
+              "explanation": "Adderall and Inderal share acoustic cadence.",
+              "relatedDrug": "Adderall"
+            },
+            {
+              "id": "q302_recon_trastuzumab",
+              "type": "multiple_choice",
+              "lasaId": "lasa_016",
+              "prompt": "Which conjugate drug pairs with conventional trastuzumab?",
+              "choices": [
+                "ado-trastuzumab emtansine",
+                "rituximab",
+                "bevacizumab",
+                "cetuximab"
+              ],
+              "correctAnswer": "ado-trastuzumab emtansine",
+              "explanation": "ado-trastuzumab emtansine carries a cytotoxic conjugate.",
+              "relatedDrug": "trastuzumab"
+            }
+          ]
+        },
         {
           "id": "act_302",
           "activityType": "distinction",
@@ -163,6 +261,19 @@
               ],
               "explanation": "Actonel/Actos, Adderall/Adderall XR, ado-trastuzumab/trastuzumab, and Advair/Advicor are verified ISMP 2023 confusable pairs.",
               "relatedDrug": "Actonel"
+            },
+            {
+              "id": "q302_matching_alt",
+              "type": "matching",
+              "prompt": "Match each medication with its confusable suffix or extension counterpart:",
+              "pairs": [
+                { "left": "Adderall", "right": "Inderal" },
+                { "left": "Advicor", "right": "Altocor" },
+                { "left": "Afrin (oxymetazoline)", "right": "Afrin (saline)" },
+                { "left": "Actonel", "right": "Actos" }
+              ],
+              "explanation": "Adderall/Inderal, Advicor/Altocor, and Afrin active/saline are documented ISMP pairs.",
+              "relatedDrug": "Adderall"
             }
           ]
         }
@@ -177,18 +288,18 @@
       "learningObjective": "Differentiate brand name suffixes (Advair vs Advicor) and brand line extensions (Afrin formulations).",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-017", "lasa-018", "lasa-019"],
+      "lasaPairIds": ["lasa_013", "lasa_014", "lasa_015", "lasa_016", "lasa_017", "lasa_018", "lasa_019"],
       "activities": [
         {
           "id": "act_303",
           "activityType": "distinction",
           "learningObjective": "Differentiate brand extension qualifiers and multi-ingredient suffixes.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 5,
           "questions": [
             {
               "id": "q303_advair",
               "type": "multiple_choice",
-              "lasaId": "lasa-017",
+              "lasaId": "lasa_017",
               "prompt": "Which lipid-regulating medication name is an ISMP look-alike / sound-alike counterpart to the inhaler Advair?",
               "choices": [
                 "Advicor",
@@ -203,7 +314,7 @@
             {
               "id": "q303_advicor_altocor",
               "type": "multiple_choice",
-              "lasaId": "lasa-018",
+              "lasaId": "lasa_018",
               "prompt": "Which cholesterol medication name pairs with Advicor on the ISMP list of confused drug names?",
               "choices": [
                 "Altocor",
@@ -218,7 +329,7 @@
             {
               "id": "q303_afrin",
               "type": "multiple_choice",
-              "lasaId": "lasa-019",
+              "lasaId": "lasa_019",
               "prompt": "Which ingredient distinction separates the decongestant Afrin from its non-medicated counterpart on the ISMP list?",
               "choices": [
                 "Afrin (oxymetazoline) vs Afrin (saline)",
@@ -229,6 +340,36 @@
               "correctAnswer": "Afrin (oxymetazoline) vs Afrin (saline)",
               "explanation": "Brand extension confusion occurs when Afrin containing active oxymetazoline is confused with plain Afrin saline nasal mist.",
               "relatedDrug": "Afrin (oxymetazoline)"
+            },
+            {
+              "id": "q303_actonel_dist",
+              "type": "multiple_choice",
+              "lasaId": "lasa_013",
+              "prompt": "Which drug is the sound-alike counterpart to Actonel?",
+              "choices": [
+                "Actos",
+                "Activase",
+                "Advicor",
+                "Altocor"
+              ],
+              "correctAnswer": "Actos",
+              "explanation": "Actonel and Actos sound alike.",
+              "relatedDrug": "Actonel"
+            },
+            {
+              "id": "q303_trastuzumab_dist",
+              "type": "multiple_choice",
+              "lasaId": "lasa_016",
+              "prompt": "Which conjugate drug pairs with conventional trastuzumab?",
+              "choices": [
+                "ado-trastuzumab emtansine",
+                "rituximab",
+                "cetuximab",
+                "bevacizumab"
+              ],
+              "correctAnswer": "ado-trastuzumab emtansine",
+              "explanation": "ado-trastuzumab emtansine carries a cytotoxic conjugate.",
+              "relatedDrug": "trastuzumab"
             }
           ]
         }
@@ -243,19 +384,19 @@
       "learningObjective": "Demonstrate complete unit mastery of suffix variants, conjugate prefixes, and unassisted counterpart identification.",
       "xpReward": 25,
       "unlocked": false,
-      "lasaRefIds": ["lasa-013", "lasa-014", "lasa-015", "lasa-016", "lasa-017", "lasa-018", "lasa-019"],
+      "lasaPairIds": ["lasa_013", "lasa_014", "lasa_015", "lasa_016", "lasa_017", "lasa_018", "lasa_019"],
       "activities": [
         {
           "id": "act_304_mastery_review",
           "activityType": "distinction",
           "activityRole": "unit_mastery",
           "learningObjective": "Review suffix and release distinctions across Unit 3.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 4,
           "questions": [
             {
               "id": "q304_rev1",
               "type": "multiple_choice",
-              "lasaId": "lasa-013",
+              "lasaId": "lasa_013",
               "prompt": "Which medication is paired with Actonel on the ISMP list of confused drug names?",
               "choices": [
                 "Actos",
@@ -270,7 +411,7 @@
             {
               "id": "q304_rev2",
               "type": "multiple_choice",
-              "lasaId": "lasa-016",
+              "lasaId": "lasa_016",
               "prompt": "Which prefix distinguishes the antibody-drug conjugate from conventional trastuzumab?",
               "choices": [
                 "ado-",
@@ -281,6 +422,36 @@
               "correctAnswer": "ado-",
               "explanation": "The 'ado-' prefix indicates the emtansine conjugate (ado-trastuzumab emtansine).",
               "relatedDrug": "trastuzumab"
+            },
+            {
+              "id": "q304_rev3",
+              "type": "multiple_choice",
+              "lasaId": "lasa_014",
+              "prompt": "Which formulation suffix designates extended-release Adderall?",
+              "choices": [
+                "Adderall XR",
+                "Adderall ER",
+                "Adderall XL",
+                "Adderall CR"
+              ],
+              "correctAnswer": "Adderall XR",
+              "explanation": "Adderall XR designates extended-release.",
+              "relatedDrug": "Adderall"
+            },
+            {
+              "id": "q304_rev4",
+              "type": "multiple_choice",
+              "lasaId": "lasa_015",
+              "prompt": "Which beta-blocker is a sound-alike counterpart to Adderall?",
+              "choices": [
+                "Inderal",
+                "Isordil",
+                "Imdur",
+                "Intropin"
+              ],
+              "correctAnswer": "Inderal",
+              "explanation": "Adderall and Inderal share acoustic cadence.",
+              "relatedDrug": "Adderall"
             }
           ]
         },
@@ -298,7 +469,7 @@
               "activityRole": "unit_mastery",
               "isFinalTask": true,
               "scaffold": false,
-              "lasaId": "lasa-017",
+              "lasaId": "lasa_017",
               "prompt": "UNIT MASTERY CAPSTONE TASK: Which medication is the documented ISMP look-alike / sound-alike counterpart to Advair?",
               "choices": [
                 "Advicor",

@@ -50,18 +50,18 @@
       "learningObjective": "Identify documented ISMP confusable opioid counterparts.",
       "xpReward": 10,
       "unlocked": false,
-      "lasaRefIds": ["lasa-020", "lasa-021", "lasa-023"],
+      "lasaPairIds": ["lasa_020", "lasa_021", "lasa_022", "lasa_023", "lasa_024"],
       "activities": [
         {
           "id": "act_401",
           "activityType": "identification",
           "learningObjective": "Identify documented high-alert opioid counterparts.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 5,
           "questions": [
             {
               "id": "q401_fentanyl",
               "type": "multiple_choice",
-              "lasaId": "lasa-020",
+              "lasaId": "lasa_020",
               "prompt": "Which synthetic opioid is an ISMP-documented look-alike / sound-alike counterpart to fentanyl?",
               "choices": [
                 "ALfentanil",
@@ -76,7 +76,7 @@
             {
               "id": "q401_hydromorphone",
               "type": "multiple_choice",
-              "lasaId": "lasa-023",
+              "lasaId": "lasa_023",
               "prompt": "Which natural opiate is frequently confused with HYDROmorphone due to shared root names?",
               "choices": [
                 "morphine",
@@ -91,7 +91,7 @@
             {
               "id": "q401_sufentanil",
               "type": "multiple_choice",
-              "lasaId": "lasa-021",
+              "lasaId": "lasa_021",
               "prompt": "Which opioid pairs with ALfentanil on the ISMP list of confused drug names?",
               "choices": [
                 "SUFentanil",
@@ -102,6 +102,36 @@
               "correctAnswer": "SUFentanil",
               "explanation": "ALfentanil and SUFentanil are potent synthetic opioids that look and sound alike.",
               "relatedDrug": "ALfentanil"
+            },
+            {
+              "id": "q401_fentanyl_sufentanil",
+              "type": "multiple_choice",
+              "lasaId": "lasa_022",
+              "prompt": "Which synthetic opioid pairs with fentaNYL to form an ISMP look-alike pair differing in prefix and suffix capitalization?",
+              "choices": [
+                "SUFentanil",
+                "morphine",
+                "codeine",
+                "methadone"
+              ],
+              "correctAnswer": "SUFentanil",
+              "explanation": "fentaNYL and SUFentanil differ by prefix SUF- vs suffix -NYL.",
+              "relatedDrug": "fentaNYL"
+            },
+            {
+              "id": "q401_oxymorphone",
+              "type": "multiple_choice",
+              "lasaId": "lasa_024",
+              "prompt": "Which opioid is a documented look-alike counterpart to HYDROmorphone?",
+              "choices": [
+                "oxyMORphone",
+                "oxazepam",
+                "oxcarbazepine",
+                "oxybutynin"
+              ],
+              "correctAnswer": "oxyMORphone",
+              "explanation": "HYDROmorphone and oxyMORphone differ in their middle syllable and prefix.",
+              "relatedDrug": "HYDROmorphone"
             }
           ]
         }
@@ -116,19 +146,19 @@
       "learningObjective": "Differentiate fentaNYL, ALfentanil, and HYDROmorphone using correct capitalization.",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-020", "lasa-023", "lasa-024"],
+      "lasaPairIds": ["lasa_020", "lasa_021", "lasa_022", "lasa_023", "lasa_024"],
       "activities": [
         {
           "id": "act_402",
           "activityType": "construction",
           "activityRole": "guided_practice",
           "learningObjective": "Construct and identify correct Tall Man lettering for high-alert opioids.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 5,
           "questions": [
             {
               "id": "q402_fentanyl_tall",
               "type": "tall_man",
-              "lasaId": "lasa-020",
+              "lasaId": "lasa_020",
               "prompt": "Convert this opioid name to Tall Man lettering by entering the letters that should be capitalized:",
               "standardName": "fentanyl",
               "tallManName": "fentaNYL",
@@ -141,7 +171,7 @@
             {
               "id": "q402_alfentanil_tall",
               "type": "tall_man",
-              "lasaId": "lasa-020",
+              "lasaId": "lasa_020",
               "prompt": "Convert this opioid name to Tall Man lettering by entering the letters that should be capitalized:",
               "standardName": "alfentanil",
               "tallManName": "ALfentanil",
@@ -154,7 +184,7 @@
             {
               "id": "q402_hydromorphone_tall",
               "type": "tall_man",
-              "lasaId": "lasa-023",
+              "lasaId": "lasa_023",
               "prompt": "Convert this opioid name to Tall Man lettering by entering the letters that should be capitalized:",
               "standardName": "hydromorphone",
               "tallManName": "HYDROmorphone",
@@ -163,6 +193,32 @@
               "suffix": "morphone",
               "explanation": "HYDROmorphone capitalizes HYDRO to prevent confusion with morphine.",
               "relatedDrug": "HYDROmorphone"
+            },
+            {
+              "id": "q402_sufentanil_tall",
+              "type": "tall_man",
+              "lasaId": "lasa_021",
+              "prompt": "Convert this opioid name to Tall Man lettering by entering the letters that should be capitalized:",
+              "standardName": "sufentanil",
+              "tallManName": "SUFentanil",
+              "prefix": "",
+              "expectedSegment": "SUF",
+              "suffix": "entanil",
+              "explanation": "SUFentanil capitalizes SUF to distinguish it from ALfentanil.",
+              "relatedDrug": "SUFentanil"
+            },
+            {
+              "id": "q402_oxymorphone_tall",
+              "type": "tall_man",
+              "lasaId": "lasa_024",
+              "prompt": "Convert this opioid name to Tall Man lettering by entering the letters that should be capitalized:",
+              "standardName": "oxymorphone",
+              "tallManName": "oxyMORphone",
+              "prefix": "oxy",
+              "expectedSegment": "MOR",
+              "suffix": "phone",
+              "explanation": "oxyMORphone capitalizes MOR to distinguish it from HYDROmorphone.",
+              "relatedDrug": "oxyMORphone"
             }
           ]
         }
@@ -177,18 +233,18 @@
       "learningObjective": "Accurately recall and discriminate look-alike opioid pairs and Tall Man distinctions.",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-020", "lasa-021", "lasa-022", "lasa-023", "lasa-024"],
+      "lasaPairIds": ["lasa_020", "lasa_021", "lasa_022", "lasa_023", "lasa_024"],
       "activities": [
         {
-          "id": "act_403",
+          "id": "act_403_distinction",
           "activityType": "distinction",
           "learningObjective": "Discriminate look-alike opioid names and Tall Man letter representations.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 4,
           "questions": [
             {
               "id": "q403_oxymorphone",
               "type": "multiple_choice",
-              "lasaId": "lasa-024",
+              "lasaId": "lasa_024",
               "prompt": "Which drug is the look-alike counterpart to HYDROmorphone differing in the MOR/HYDRO syllables?",
               "choices": [
                 "oxyMORphone",
@@ -203,7 +259,7 @@
             {
               "id": "q403_fentanyl_choice",
               "type": "multiple_choice",
-              "lasaId": "lasa-020",
+              "lasaId": "lasa_020",
               "prompt": "Which representation correctly applies ISMP Tall Man lettering to fentanyl?",
               "choices": [
                 "fentaNYL",
@@ -218,7 +274,7 @@
             {
               "id": "q403_sufentanil_choice",
               "type": "multiple_choice",
-              "lasaId": "lasa-021",
+              "lasaId": "lasa_021",
               "prompt": "Which representation correctly applies ISMP Tall Man lettering to sufentanil?",
               "choices": [
                 "SUFentanil",
@@ -229,6 +285,42 @@
               "correctAnswer": "SUFentanil",
               "explanation": "SUFentanil capitalizes SUF to distinguish it from ALfentanil and fentaNYL.",
               "relatedDrug": "SUFentanil"
+            },
+            {
+              "id": "q403_hydromorphone_choice",
+              "type": "multiple_choice",
+              "lasaId": "lasa_023",
+              "prompt": "Which representation correctly applies ISMP Tall Man lettering to hydromorphone?",
+              "choices": [
+                "HYDROmorphone",
+                "hydromorphone",
+                "HYDROMORPHONE",
+                "hydroMORPHONE"
+              ],
+              "correctAnswer": "HYDROmorphone",
+              "explanation": "HYDROmorphone capitalizes HYDRO to prevent mix-ups with morphine.",
+              "relatedDrug": "HYDROmorphone"
+            }
+          ]
+        },
+        {
+          "id": "act_403_matching",
+          "activityType": "distinction",
+          "learningObjective": "Match each high-alert opioid with its confusable counterpart.",
+          "sessionQuestionCount": 1,
+          "questions": [
+            {
+              "id": "q403_matching",
+              "type": "matching",
+              "prompt": "Match each high-alert opioid with its documented confusable counterpart:",
+              "pairs": [
+                { "left": "fentaNYL", "right": "ALfentanil" },
+                { "left": "ALfentanil", "right": "SUFentanil" },
+                { "left": "HYDROmorphone", "right": "morphine" },
+                { "left": "HYDROmorphone", "right": "oxyMORphone" }
+              ],
+              "explanation": "fentaNYL/ALfentanil, ALfentanil/SUFentanil, and HYDROmorphone with morphine and oxyMORphone are documented ISMP high-alert pairs.",
+              "relatedDrug": "fentaNYL"
             }
           ]
         }
@@ -243,19 +335,19 @@
       "learningObjective": "Demonstrate complete unit mastery of high-alert opioid recognition and unassisted Tall Man lettering.",
       "xpReward": 25,
       "unlocked": false,
-      "lasaRefIds": ["lasa-020", "lasa-021", "lasa-022", "lasa-023", "lasa-024"],
+      "lasaPairIds": ["lasa_020", "lasa_021", "lasa_022", "lasa_023", "lasa_024"],
       "activities": [
         {
           "id": "act_404_mastery_review",
           "activityType": "distinction",
           "activityRole": "unit_mastery",
           "learningObjective": "Review opioid distinctions across Unit 4.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 4,
           "questions": [
             {
               "id": "q404_rev1",
               "type": "multiple_choice",
-              "lasaId": "lasa-023",
+              "lasaId": "lasa_023",
               "prompt": "Which drug is the confusable look-alike counterpart to HYDROmorphone?",
               "choices": [
                 "morphine",
@@ -270,7 +362,7 @@
             {
               "id": "q404_rev2",
               "type": "multiple_choice",
-              "lasaId": "lasa-020",
+              "lasaId": "lasa_020",
               "prompt": "Which medication is paired with fentaNYL on the ISMP list of confused drug names?",
               "choices": [
                 "ALfentanil",
@@ -281,6 +373,36 @@
               "correctAnswer": "ALfentanil",
               "explanation": "fentaNYL and ALfentanil are paired on the ISMP list due to confusable generic roots.",
               "relatedDrug": "fentaNYL"
+            },
+            {
+              "id": "q404_rev3",
+              "type": "multiple_choice",
+              "lasaId": "lasa_021",
+              "prompt": "Which opioid pairs with ALfentanil on the ISMP list?",
+              "choices": [
+                "SUFentanil",
+                "fentaNYL",
+                "morphine",
+                "methadone"
+              ],
+              "correctAnswer": "SUFentanil",
+              "explanation": "ALfentanil and SUFentanil share roots.",
+              "relatedDrug": "ALfentanil"
+            },
+            {
+              "id": "q404_rev4",
+              "type": "multiple_choice",
+              "lasaId": "lasa_024",
+              "prompt": "Which opioid pairs with HYDROmorphone differing in the MOR/HYDRO syllables?",
+              "choices": [
+                "oxyMORphone",
+                "morphine",
+                "oxazepam",
+                "codeine"
+              ],
+              "correctAnswer": "oxyMORphone",
+              "explanation": "oxyMORphone and HYDROmorphone are confusable opioid names.",
+              "relatedDrug": "HYDROmorphone"
             }
           ]
         },
@@ -298,7 +420,7 @@
               "activityRole": "unit_mastery",
               "isFinalTask": true,
               "scaffold": false,
-              "lasaId": "lasa-023",
+              "lasaId": "lasa_023",
               "prompt": "UNIT MASTERY CAPSTONE TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
               "standardName": "hydromorphone",
               "tallManName": "HYDROmorphone",

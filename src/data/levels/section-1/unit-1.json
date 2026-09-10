@@ -13,42 +13,36 @@
       "id": "lasa_001",
       "primary": "acetaZOLAMIDE",
       "counterpart": "acetoHEXAMIDE",
-      "lasaRefIds": ["lasa-004", "lasa-005"],
       "feature": "Prefix aceta- vs aceto-; suffix -ZOLAMIDE vs -HEXAMIDE"
     },
     {
       "id": "lasa_002",
       "primary": "acetaminophen",
       "counterpart": "acetaZOLAMIDE",
-      "lasaRefIds": ["lasa-003", "lasa-004"],
       "feature": "Shared prefix aceta-; distinct suffix -aminophen vs -ZOLAMIDE"
     },
     {
       "id": "lasa_003",
       "primary": "Abelcet",
       "counterpart": "amphotericin B",
-      "lasaRefIds": ["lasa-001"],
       "feature": "Lipid formulation Abelcet vs conventional amphotericin B"
     },
     {
       "id": "lasa_004",
       "primary": "acetic acid for irrigation",
       "counterpart": "glacial acetic acid",
-      "lasaRefIds": ["lasa-006"],
       "feature": "Modifier 'for irrigation' vs concentrated 'glacial' acid"
     },
     {
       "id": "lasa_005",
       "primary": "Aggrastat",
       "counterpart": "argatroban",
-      "lasaRefIds": ["lasa-007"],
       "feature": "Starting letters Aggr- vs arga-"
     },
     {
       "id": "lasa_006",
       "primary": "predniSONE",
       "counterpart": "prednisoLONE",
-      "lasaRefIds": ["lasa-020"],
       "feature": "Suffix -SONE vs -LONE"
     }
   ],
@@ -62,18 +56,18 @@
       "learningObjective": "Recognize documented ISMP LASA counterparts sharing orthographic stems.",
       "xpReward": 10,
       "unlocked": true,
-      "lasaRefIds": ["lasa-001", "lasa-003", "lasa-004", "lasa-006", "lasa-007"],
+      "lasaPairIds": ["lasa_001", "lasa_002", "lasa_003", "lasa_004", "lasa_005", "lasa_006"],
       "activities": [
         {
           "id": "act_101",
           "activityType": "identification",
           "learningObjective": "Identify documented Look-Alike / Sound-Alike medication counterparts from verified ISMP pairs.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 5,
           "questions": [
             {
               "id": "q101_abelcet",
               "type": "multiple_choice",
-              "lasaId": "lasa-001",
+              "lasaId": "lasa_003",
               "prompt": "Which medication is a documented Look-Alike / Sound-Alike counterpart to Abelcet?",
               "choices": [
                 "amphotericin B",
@@ -88,7 +82,7 @@
             {
               "id": "q101_aggrastat",
               "type": "multiple_choice",
-              "lasaId": "lasa-007",
+              "lasaId": "lasa_005",
               "prompt": "Which medication is commonly confused with Aggrastat due to orthographic similarity?",
               "choices": [
                 "argatroban",
@@ -103,7 +97,7 @@
             {
               "id": "q101_acetaminophen",
               "type": "multiple_choice",
-              "lasaId": "lasa-003",
+              "lasaId": "lasa_002",
               "prompt": "Which medication is an ISMP-documented look-alike counterpart to acetaminophen?",
               "choices": [
                 "acetaZOLAMIDE",
@@ -118,7 +112,7 @@
             {
               "id": "q101_acetic_acid",
               "type": "multiple_choice",
-              "lasaId": "lasa-006",
+              "lasaId": "lasa_004",
               "prompt": "Which chemical formulation is a dangerous look-alike counterpart to 'acetic acid for irrigation'?",
               "choices": [
                 "glacial acetic acid",
@@ -129,6 +123,36 @@
               "correctAnswer": "glacial acetic acid",
               "explanation": "Glacial acetic acid is concentrated and easily confused with dilute acetic acid for irrigation.",
               "relatedDrug": "acetic acid for irrigation"
+            },
+            {
+              "id": "q101_acetazolamide",
+              "type": "multiple_choice",
+              "lasaId": "lasa_001",
+              "prompt": "Which medication is an ISMP-documented look-alike counterpart to acetaZOLAMIDE?",
+              "choices": [
+                "acetoHEXAMIDE",
+                "acyclovir",
+                "atenolol",
+                "aspirin"
+              ],
+              "correctAnswer": "acetoHEXAMIDE",
+              "explanation": "acetaZOLAMIDE and acetoHEXAMIDE differ only in minor vowel stems (aceta- vs aceto-) and suffixes.",
+              "relatedDrug": "acetaZOLAMIDE"
+            },
+            {
+              "id": "q101_prednisone",
+              "type": "multiple_choice",
+              "lasaId": "lasa_006",
+              "prompt": "Which corticosteroid is a documented look-alike counterpart to predniSONE?",
+              "choices": [
+                "prednisoLONE",
+                "primidone",
+                "promethazine",
+                "pindolol"
+              ],
+              "correctAnswer": "prednisoLONE",
+              "explanation": "predniSONE and prednisoLONE differ by only one syllable and are frequently confused.",
+              "relatedDrug": "predniSONE"
             }
           ]
         }
@@ -143,19 +167,19 @@
       "learningObjective": "Recognize and construct verified Tall Man capitalization to differentiate high-risk look-alike drug names.",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-004", "lasa-005", "lasa-020"],
+      "lasaPairIds": ["lasa_001", "lasa_002", "lasa_003", "lasa_004", "lasa_005", "lasa_006"],
       "activities": [
         {
           "id": "act_102",
           "activityType": "construction",
           "activityRole": "guided_practice",
           "learningObjective": "Identify and construct correct Tall Man capitalization for look-alike stems.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 5,
           "questions": [
             {
               "id": "q201_acetazolamide",
               "type": "tall_man",
-              "lasaId": "lasa-004",
+              "lasaId": "lasa_001",
               "prompt": "Convert this drug name to Tall Man lettering by entering the letters that should be capitalized:",
               "standardName": "acetazolamide",
               "tallManName": "acetaZOLAMIDE",
@@ -168,7 +192,7 @@
             {
               "id": "q202_acetohexamide",
               "type": "tall_man",
-              "lasaId": "lasa-005",
+              "lasaId": "lasa_001",
               "prompt": "Convert this drug name to Tall Man lettering by entering the letters that should be capitalized:",
               "standardName": "acetohexamide",
               "tallManName": "acetoHEXAMIDE",
@@ -181,7 +205,7 @@
             {
               "id": "q203_prednisone",
               "type": "tall_man",
-              "lasaId": "lasa-020",
+              "lasaId": "lasa_006",
               "prompt": "Convert this drug name to Tall Man lettering by entering the letters that should be capitalized:",
               "standardName": "prednisone",
               "tallManName": "predniSONE",
@@ -194,7 +218,7 @@
             {
               "id": "q204_prednisolone",
               "type": "tall_man",
-              "lasaId": "lasa-020",
+              "lasaId": "lasa_006",
               "prompt": "Convert this drug name to Tall Man lettering by entering the letters that should be capitalized:",
               "standardName": "prednisolone",
               "tallManName": "prednisoLONE",
@@ -203,6 +227,36 @@
               "suffix": "",
               "explanation": "prednisoLONE capitalizes LONE to prevent confusion with predniSONE.",
               "relatedDrug": "prednisoLONE"
+            },
+            {
+              "id": "q205_aggrastat_choice",
+              "type": "multiple_choice",
+              "lasaId": "lasa_005",
+              "prompt": "Which medication pairs with argatroban to form a confusable ISMP look-alike pair?",
+              "choices": [
+                "Aggrastat",
+                "Activase",
+                "Advicor",
+                "Aricept"
+              ],
+              "correctAnswer": "Aggrastat",
+              "explanation": "Aggrastat and argatroban share look-alike roots (Aggr- vs arga-).",
+              "relatedDrug": "Aggrastat"
+            },
+            {
+              "id": "q206_abelcet_choice",
+              "type": "multiple_choice",
+              "lasaId": "lasa_003",
+              "prompt": "Which medication pairs with conventional amphotericin B on the ISMP list?",
+              "choices": [
+                "Abelcet",
+                "Amoxicillin",
+                "Ampicillin",
+                "Atenolol"
+              ],
+              "correctAnswer": "Abelcet",
+              "explanation": "Abelcet is the lipid complex formulation easily confused with amphotericin B.",
+              "relatedDrug": "Abelcet"
             }
           ]
         }
@@ -217,18 +271,18 @@
       "learningObjective": "Differentiate subtle orthographic differences and recall confusable medication pairs from memory.",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-001", "lasa-004", "lasa-005", "lasa-007"],
+      "lasaPairIds": ["lasa_001", "lasa_002", "lasa_003", "lasa_004", "lasa_005", "lasa_006"],
       "activities": [
         {
           "id": "act_103_distinction",
           "activityType": "distinction",
           "learningObjective": "Differentiate orthographic Tall Man patterns and pair relationships.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 4,
           "questions": [
             {
               "id": "q301_dist_stem",
               "type": "multiple_choice",
-              "lasaId": "lasa-004",
+              "lasaId": "lasa_001",
               "prompt": "Which of these representations correctly applies ISMP Tall Man lettering to acetazolamide?",
               "choices": [
                 "acetaZOLAMIDE",
@@ -243,7 +297,7 @@
             {
               "id": "q302_dist_anticoag",
               "type": "multiple_choice",
-              "lasaId": "lasa-007",
+              "lasaId": "lasa_005",
               "prompt": "Which medication is paired with Aggrastat on the ISMP list of confused drug names?",
               "choices": [
                 "argatroban",
@@ -258,7 +312,7 @@
             {
               "id": "q303_dist_prednisone",
               "type": "multiple_choice",
-              "lasaId": "lasa-020",
+              "lasaId": "lasa_006",
               "prompt": "Which drug is the look-alike counterpart to predniSONE?",
               "choices": [
                 "prednisoLONE",
@@ -269,6 +323,57 @@
               "correctAnswer": "prednisoLONE",
               "explanation": "predniSONE and prednisoLONE share the 'predni-' stem and are frequently confused.",
               "relatedDrug": "predniSONE"
+            },
+            {
+              "id": "q304_dist_acetic",
+              "type": "multiple_choice",
+              "lasaId": "lasa_004",
+              "prompt": "Which formulation is the confusable counterpart to acetic acid for irrigation?",
+              "choices": [
+                "glacial acetic acid",
+                "ascorbic acid",
+                "salicylic acid",
+                "boric acid"
+              ],
+              "correctAnswer": "glacial acetic acid",
+              "explanation": "Glacial acetic acid is concentrated and must not be confused with dilute irrigation acid.",
+              "relatedDrug": "acetic acid for irrigation"
+            },
+            {
+              "id": "q305_dist_acetaminophen",
+              "type": "multiple_choice",
+              "lasaId": "lasa_002",
+              "prompt": "Which drug is an ISMP look-alike counterpart to acetaminophen?",
+              "choices": [
+                "acetaZOLAMIDE",
+                "acyclovir",
+                "atenolol",
+                "allopurinol"
+              ],
+              "correctAnswer": "acetaZOLAMIDE",
+              "explanation": "acetaminophen and acetaZOLAMIDE share the confusable initial stem 'aceta-'.",
+              "relatedDrug": "acetaminophen"
+            }
+          ]
+        },
+        {
+          "id": "act_103_matching",
+          "activityType": "distinction",
+          "learningObjective": "Match each medication with its confusable counterpart.",
+          "sessionQuestionCount": 1,
+          "questions": [
+            {
+              "id": "q306_matching",
+              "type": "matching",
+              "prompt": "Match each medication with its documented ISMP confusable counterpart:",
+              "pairs": [
+                { "left": "acetaZOLAMIDE", "right": "acetoHEXAMIDE" },
+                { "left": "predniSONE", "right": "prednisoLONE" },
+                { "left": "Abelcet", "right": "amphotericin B" },
+                { "left": "Aggrastat", "right": "argatroban" }
+              ],
+              "explanation": "acetaZOLAMIDE/acetoHEXAMIDE, predniSONE/prednisoLONE, Abelcet/amphotericin B, and Aggrastat/argatroban are verified ISMP pairs.",
+              "relatedDrug": "acetaZOLAMIDE"
             }
           ]
         }
@@ -283,19 +388,19 @@
       "learningObjective": "Demonstrate complete unit mastery of Look-Alike Stems and unassisted Tall Man lettering without prompts or scaffolding.",
       "xpReward": 25,
       "unlocked": false,
-      "lasaRefIds": ["lasa-001", "lasa-003", "lasa-004", "lasa-005", "lasa-006", "lasa-007", "lasa-020"],
+      "lasaPairIds": ["lasa_001", "lasa_002", "lasa_003", "lasa_004", "lasa_005", "lasa_006"],
       "activities": [
         {
           "id": "act_104_mastery_review",
           "activityType": "distinction",
           "activityRole": "unit_mastery",
           "learningObjective": "Review distinguishing characteristics across Unit 1 look-alike pairs before unassisted recall.",
-          "sessionQuestionCount": 2,
+          "sessionQuestionCount": 4,
           "questions": [
             {
               "id": "q104_mastery_rev1",
               "type": "multiple_choice",
-              "lasaId": "lasa-005",
+              "lasaId": "lasa_001",
               "prompt": "Which medication name correctly applies ISMP Tall Man lettering to acetohexamide?",
               "choices": [
                 "acetoHEXAMIDE",
@@ -310,7 +415,7 @@
             {
               "id": "q104_mastery_rev2",
               "type": "multiple_choice",
-              "lasaId": "lasa-001",
+              "lasaId": "lasa_003",
               "prompt": "Which medication is the documented look-alike counterpart to Abelcet?",
               "choices": [
                 "amphotericin B",
@@ -325,7 +430,7 @@
             {
               "id": "q104_mastery_rev3",
               "type": "multiple_choice",
-              "lasaId": "lasa-007",
+              "lasaId": "lasa_005",
               "prompt": "Which medication pairs with argatroban on the ISMP list of confused drug names?",
               "choices": [
                 "Aggrastat",
@@ -336,6 +441,21 @@
               "correctAnswer": "Aggrastat",
               "explanation": "Aggrastat and argatroban share look-alike orthography (Aggr- vs arga-).",
               "relatedDrug": "Aggrastat"
+            },
+            {
+              "id": "q104_mastery_rev4",
+              "type": "multiple_choice",
+              "lasaId": "lasa_004",
+              "prompt": "Which medication pairs with acetic acid for irrigation on the ISMP list?",
+              "choices": [
+                "glacial acetic acid",
+                "ascorbic acid",
+                "salicylic acid",
+                "boric acid"
+              ],
+              "correctAnswer": "glacial acetic acid",
+              "explanation": "Glacial acetic acid is the concentrated counterpart to dilute irrigation solution.",
+              "relatedDrug": "acetic acid for irrigation"
             }
           ]
         },
@@ -353,7 +473,7 @@
               "activityRole": "unit_mastery",
               "isFinalTask": true,
               "scaffold": false,
-              "lasaId": "lasa-020",
+              "lasaId": "lasa_006",
               "prompt": "UNIT MASTERY CAPSTONE TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
               "standardName": "prednisone",
               "tallManName": "predniSONE",

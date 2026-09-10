@@ -2,6 +2,7 @@ import unit1 from "./section-1/unit-1.json" with { type: "json" };
 import unit2 from "./section-1/unit-2.json" with { type: "json" };
 import unit3 from "./section-1/unit-3.json" with { type: "json" };
 import unit4 from "./section-2/unit-1.json" with { type: "json" };
+import { getLasaPairsByIds } from "../../services/questionGenerator.js";
 
 /**
  * Normalizes a level object supporting the explicit hierarchy:
@@ -76,6 +77,11 @@ function normalizeLevel(level, unit) {
     );
     const levelType = isMastery ? "unit_mastery" : (level.type || "level");
 
+    const lasaPairIds = Array.isArray(level.lasaPairIds) && level.lasaPairIds.length > 0
+        ? level.lasaPairIds
+        : (Array.isArray(unit.lasaPairs) ? unit.lasaPairs.map((p) => p.id) : []);
+    const lasaPairs = getLasaPairsByIds(lasaPairIds);
+
     const normalized = {
         ...level,
         type: levelType,
@@ -92,6 +98,8 @@ function normalizeLevel(level, unit) {
         xp_reward: level.xpReward || level.xp || (isMastery ? 25 : 15),
         unlocked: Boolean(level.unlocked),
         learningObjective: level.learningObjective || "",
+        lasaPairIds,
+        lasaPairs,
         lessons,
         activities,
         questions
