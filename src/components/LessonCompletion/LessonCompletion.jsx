@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router";
-import { Award, Target, CheckCircle, XCircle, Sparkles, BookOpen } from "lucide-react";
+import { Award, Target, CheckCircle, XCircle, Sparkles, BookOpen, Dumbbell } from "lucide-react";
 import Mascot from "../Mascot/Mascot.jsx";
 import { calculateLessonXP } from "../../services/lessonEngine.js";
 import { updateUserProgress } from "../../services/userService.js";
@@ -9,6 +9,7 @@ import "./LessonCompletion.css";
 function LessonCompletion({ session, lesson }) {
     const hasAwarded = useRef(false);
 
+    const isPractice = Boolean(lesson?.isPractice);
     const totalQuestions = session?.totalQuestions || 1;
     const correctCount = session?.correctCount || 0;
     const accuracy = Math.round((correctCount / totalQuestions) * 100);
@@ -19,12 +20,13 @@ function LessonCompletion({ session, lesson }) {
             hasAwarded.current = true;
             updateUserProgress({
                 xpToAdd: xpEarned,
-                completedLessonId: lesson.id
+                completedLessonId: isPractice ? null : lesson.id,
+                practiceSessionCompleted: isPractice
             }).catch((err) => {
                 console.error("Failed to update user progress on completion:", err);
             });
         }
-    }, [session, lesson, xpEarned]);
+    }, [session, lesson, xpEarned, isPractice]);
 
     if (!session || !lesson) return null;
 
@@ -40,15 +42,17 @@ function LessonCompletion({ session, lesson }) {
 
                 <div className="completion-badge">
                     <Sparkles size={16} />
-                    <span>LESSON COMPLETE</span>
+                    <span>{isPractice ? "PRACTICE COMPLETE" : "LESSON COMPLETE"}</span>
                 </div>
 
                 <h1 className="heading-xl completion-title">
-                    {accuracy === 100 ? "Perfect Score!" : "Great Practice!"}
+                    {accuracy === 100 ? "Perfect Recall!" : "Great Practice!"}
                 </h1>
 
                 <p className="body-text-muted completion-subtitle">
-                    You practiced critical LASA medication recognition in <strong>{lesson.title}</strong>.
+                    {isPractice
+                        ? `You completed a targeted retrieval review in ${lesson.title}.`
+                        : `You practiced critical LASA medication recognition in ${lesson.title}.`}
                 </p>
 
                 <div className="completion-stats-grid">
@@ -92,10 +96,17 @@ function LessonCompletion({ session, lesson }) {
                 </div>
 
                 <div className="completion-actions">
-                    <Link to="/learn" className="duo-button duo-button-primary completion-btn">
-                        <BookOpen size={18} />
-                        <span>CONTINUE TO DASHBOARD</span>
-                    </Link>
+                    {isPractice ? (
+                        <Link to="/practice" className="duo-button duo-button-primary completion-btn">
+                            <Dumbbell size={18} />
+                            <span>RETURN TO PRACTICE HUB</span>
+                        </Link>
+                    ) : (
+                        <Link to="/learn" className="duo-button duo-button-primary completion-btn">
+                            <BookOpen size={18} />
+                            <span>CONTINUE TO DASHBOARD</span>
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>

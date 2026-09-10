@@ -17,7 +17,13 @@ function loadPersistedUser() {
                 // Ensure arrays and critical values are preserved
                 completed_lessons: Array.isArray(parsed.completed_lessons)
                     ? parsed.completed_lessons
-                    : defaultUser?.completed_lessons || []
+                    : defaultUser?.completed_lessons || [],
+                mistakes_queue: Array.isArray(parsed.mistakes_queue)
+                    ? parsed.mistakes_queue
+                    : [],
+                practice_sessions_completed: typeof parsed.practice_sessions_completed === "number"
+                    ? parsed.practice_sessions_completed
+                    : 0
             };
         }
     } catch (e) {
@@ -86,15 +92,25 @@ export async function getUserInfo() {
 }
 
 /**
- * Updates current user progression stats (XP, streaks, hearts, completed lessons).
+ * Updates current user progression stats (XP, streaks, hearts, completed lessons, mistakes).
  * Persists changes to localStorage and emits an update event.
  * @param {Object} updates
  * @param {number} [updates.xpToAdd] - Amount of XP to increment
  * @param {number} [updates.heartsChange] - Delta for hearts count
  * @param {string} [updates.completedLessonId] - Lesson or Level ID to append to completed list
+ * @param {string} [updates.mistakeToAdd] - Question ID to add to mistakes queue
+ * @param {string} [updates.mistakeToRemove] - Question ID to remove from mistakes queue
+ * @param {boolean} [updates.practiceSessionCompleted] - Whether a practice review was completed
  * @returns {Promise<Object|null>} Updated user object
  */
-export async function updateUserProgress({ xpToAdd = 0, heartsChange = 0, completedLessonId = null } = {}) {
+export async function updateUserProgress({
+    xpToAdd = 0,
+    heartsChange = 0,
+    completedLessonId = null,
+    mistakeToAdd = null,
+    mistakeToRemove = null,
+    practiceSessionCompleted = false
+} = {}) {
     if (!currentUser) return null;
 
     const completedLessons = Array.isArray(currentUser.completed_lessons)
@@ -105,11 +121,28 @@ export async function updateUserProgress({ xpToAdd = 0, heartsChange = 0, comple
         completedLessons.push(completedLessonId);
     }
 
+    let mistakesQueue = Array.isArray(currentUser.mistakes_queue)
+        ? [...currentUser.mistakes_queue]
+        : [];
+
+    if (mistakeToAdd && !mistakesQueue.includes(mistakeToAdd)) {
+        mistakesQueue.push(mistakeToAdd);
+    }
+
+    if (mistakeToRemove) {
+        mistakesQueue = mistakesQueue.filter((id) => id !== mistakeToRemove);
+    }
+
+    const practiceCount = (currentUser.practice_sessions_completed || 0) +
+        (practiceSessionCompleted ? 1 : 0);
+
     currentUser = {
         ...currentUser,
         xp: Math.max(0, (currentUser.xp || 0) + xpToAdd),
         hearts: Math.max(0, (currentUser.hearts || 5) + heartsChange),
-        completed_lessons: completedLessons
+        completed_lessons: completedLessons,
+        mistakes_queue: mistakesQueue,
+        practice_sessions_completed: practiceCount
     };
 
     savePersistedUser(currentUser);

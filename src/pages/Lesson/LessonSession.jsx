@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router";
-import { X, BookOpen, AlertCircle } from "lucide-react";
+import { useParams, useNavigate, Link, useSearchParams } from "react-router";
+import { X, BookOpen, AlertCircle, Sparkles } from "lucide-react";
 import { getLessonById } from "../../services/lessonService.js";
 import { createSession, recordSessionAnswer } from "../../services/lessonEngine.js";
 import { getCurrentUser } from "../../services/userService.js";
+import { generatePracticeSession, recordPracticeOutcome } from "../../services/practiceService.js";
 import QuestionRenderer from "../../components/QuestionCard/QuestionRenderer.jsx";
 import FeedbackDrawer from "../../components/FeedbackDrawer/FeedbackDrawer.jsx";
 import LessonCompletion from "../../components/LessonCompletion/LessonCompletion.jsx";
@@ -12,6 +13,7 @@ import "./LessonSession.css";
 
 function LessonSession() {
     const { lessonId } = useParams();
+    const [searchParams] = useSearchParams();
     const navigate = useNavigate();
 
     const [lesson, setLesson] = useState(null);
@@ -22,24 +24,44 @@ function LessonSession() {
     const [hearts, setHearts] = useState(5);
     const [loading, setLoading] = useState(true);
 
+    const isPracticeMode = lessonId === "practice" || Boolean(lesson?.isPractice);
+
     useEffect(() => {
         let isMounted = true;
         async function loadData() {
             setLoading(true);
             try {
-                const [lessonData, userData] = await Promise.all([
-                    getLessonById(lessonId),
-                    getCurrentUser()
-                ]);
-                if (isMounted) {
-                    if (lessonData) {
-                        setLesson(lessonData);
-                        setSession(createSession(lessonData));
+                if (lessonId === "practice") {
+                    const practiceMode = searchParams.get("mode") || "quick";
+                    const [practiceData, userData] = await Promise.all([
+                        generatePracticeSession({ mode: practiceMode }),
+                        getCurrentUser()
+                    ]);
+                    if (isMounted) {
+                        if (practiceData) {
+                            setLesson(practiceData);
+                            setSession(createSession(practiceData));
+                        }
+                        if (userData && userData.hearts !== undefined) {
+                            setHearts(userData.hearts);
+                        }
+                        setLoading(false);
                     }
-                    if (userData && userData.hearts !== undefined) {
-                        setHearts(userData.hearts);
+                } else {
+                    const [lessonData, userData] = await Promise.all([
+                        getLessonById(lessonId),
+                        getCurrentUser()
+                    ]);
+                    if (isMounted) {
+                        if (lessonData) {
+                            setLesson(lessonData);
+                            setSession(createSession(lessonData));
+                        }
+                        if (userData && userData.hearts !== undefined) {
+                            setHearts(userData.hearts);
+                        }
+                        setLoading(false);
                     }
-                    setLoading(false);
                 }
             } catch (err) {
                 console.error("Failed to load lesson:", err);
@@ -48,7 +70,7 @@ function LessonSession() {
         }
         loadData();
         return () => { isMounted = false; };
-    }, [lessonId]);
+    }, [lessonId, searchParams]);
 
     const handleExit = () => {
         if (!session?.isCompleted && session?.currentIndex > 0) {
@@ -57,7 +79,11 @@ function LessonSession() {
             );
             if (!confirmExit) return;
         }
-        navigate("/learn");
+        if (isPracticeMode) {
+            navigate("/practice");
+        } else {
+            navigate("/learn");
+        }
     };
 
     const handleCheckAnswer = () => {
@@ -69,6 +95,12 @@ function LessonSession() {
             currentQuestion,
             selectedAnswer
         );
+
+        if (isPracticeMode && currentQuestion?.id) {
+            recordPracticeOutcome(currentQuestion.id, evaluation.isCorrect).catch((err) => {
+                console.error("Failed to record practice outcome:", err);
+            });
+        }
 
         setSession(nextSession);
         setCurrentEvaluation(evaluation);
@@ -110,11 +142,11 @@ function LessonSession() {
                     <AlertCircle size={36} className="session-error-icon" />
                     <h1 className="heading-md">Lesson Not Found</h1>
                     <p className="body-text-muted">
-                        We couldn&apos;t find lesson &quot;{lessonId}&quot; in the learning curriculum.
+                        We couldn&apos;t find {isPracticeMode ? "practice questions" : `lesson "${lessonId}"`} in the learning curriculum.
                     </p>
-                    <Link to="/learn" className="duo-button duo-button-primary">
+                    <Link to={isPracticeMode ? "/practice" : "/learn"} className="duo-button duo-button-primary">
                         <BookOpen size={18} />
-                        <span>RETURN TO LEARN</span>
+                        <span>{isPracticeMode ? "RETURN TO PRACTICE" : "RETURN TO LEARN"}</span>
                     </Link>
                 </div>
             </div>
@@ -155,7 +187,16 @@ function LessonSession() {
                 </div>
 
                 <div className="lesson-runner-header-right">
-                    <div className="lesson-runner-hearts" title="Hearts Remaining">
+                    {isPracticeMode && (
+                        <span className="lesson-runner-practice-tag">
+                            <Sparkles size={13} />
+                            <span>PRACTICE</span>
+                        </span>
+                    )}
+                    <div
+                        className="lesson-runner-hearts"
+                        title={isPracticeMode ? "Practice Mode: Hearts are protected (no hearts lost)" : "Hearts Remaining"}
+                    >
                         <img src={heartIcon} alt="Hearts" className="lesson-runner-heart-icon" />
                         <span className="lesson-runner-heart-count">{hearts}</span>
                     </div>

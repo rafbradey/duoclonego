@@ -22,7 +22,7 @@ import {
 import "./Documentation.css";
 
 const LAST_UPDATED = "September 10, 2026";
-const APP_VERSION = "v0.2.0 (Phase 2 Complete)";
+const APP_VERSION = "v0.3.0 (Phase 3 Practice Hub Implemented)";
 
 // Status pill component helper
 function StatusBadge({ status }) {
@@ -302,7 +302,7 @@ function Documentation() {
                                             <td><code className="doc-inline-code">/practice</code></td>
                                             <td>Targeted Practice Hub (<code className="doc-inline-code">Practice.jsx</code>)</td>
                                             <td><code className="doc-inline-code">AppLayout</code></td>
-                                            <td><StatusBadge status="Placeholder" /></td>
+                                            <td><StatusBadge status="Implemented" /></td>
                                         </tr>
                                         <tr>
                                             <td><code className="doc-inline-code">/quests</code></td>
@@ -419,14 +419,32 @@ function Documentation() {
                                 </p>
                             </div>
 
-                            {/* Placeholders */}
+                            {/* Practice Hub */}
                             <div className="doc-subfeature-block">
                                 <div className="doc-subfeature-title-bar">
-                                    <h3 className="heading-sm">3.6 Gamification & Secondary Hubs</h3>
+                                    <h3 className="heading-sm">3.6 Targeted Practice Hub (<code className="doc-inline-code">/practice</code>)</h3>
+                                    <StatusBadge status="Implemented" />
+                                </div>
+                                <p className="doc-paragraph">
+                                    A functional retrieval practice center dedicated to reinforcing high-risk LASA medication pairs:
+                                </p>
+                                <ul className="doc-bullet-list">
+                                    <li><strong>Dynamic Question Generation:</strong> Powered by <code className="doc-inline-code">practiceService.generatePracticeSession()</code>, aggregating questions from all completed and unlocked curriculum levels to prevent encountering unlearned pairs prematurely.</li>
+                                    <li><strong>Quick Retrieval Practice:</strong> Generates 5 randomized recall challenges rewarding +10 review XP.</li>
+                                    <li><strong>Targeted Mistakes Queue:</strong> Automatically flags questions missed during standard curriculum lessons into <code className="doc-inline-code">user.mistakes_queue</code>. Answering correctly during practice clears them from the queue.</li>
+                                    <li><strong>Protected Hearts (Safe Mode):</strong> Practice sessions protect the learner&apos;s hearts (zero hearts depleted on incorrect answers) to encourage low-anxiety retrieval practice.</li>
+                                    <li><strong>LASA Pair Flashcard Reference:</strong> Interactive browser of verified ISMP drug pairs with level filtering tabs and <code className="doc-inline-code">TallManText</code> highlighting.</li>
+                                </ul>
+                            </div>
+
+                            {/* Secondary Gamification Hubs */}
+                            <div className="doc-subfeature-block">
+                                <div className="doc-subfeature-title-bar">
+                                    <h3 className="heading-sm">3.7 Secondary Gamification Hubs</h3>
                                     <StatusBadge status="Placeholder" />
                                 </div>
                                 <p className="doc-paragraph">
-                                    <code className="doc-inline-code">/practice</code>, <code className="doc-inline-code">/quests</code>, <code className="doc-inline-code">/leaderboards</code>, and <code className="doc-inline-code">/shop</code> are structured visual placeholders communicating their scheduled roadmap phases (Phases 3 and 5) while preventing broken navigation links.
+                                    <code className="doc-inline-code">/quests</code>, <code className="doc-inline-code">/leaderboards</code>, and <code className="doc-inline-code">/shop</code> are structured visual placeholders communicating their scheduled roadmap phase (Phase 5) while preventing broken navigation links.
                                 </p>
                             </div>
                         </section>
@@ -886,6 +904,7 @@ function Documentation() {
                             <ul className="doc-bullet-list">
                                 <li><strong>Zero Direct UI Coupling:</strong> No React component directly accesses <code className="doc-inline-code">localStorage</code>. All reads and writes pass through <code className="doc-inline-code">getCurrentUser()</code>, <code className="doc-inline-code">getUserById()</code>, and <code className="doc-inline-code">updateUserProgress()</code> in <code className="doc-inline-code">src/services/userService.js</code>.</li>
                                 <li><strong>Async Service Signatures:</strong> All user service methods are asynchronous and return Promises. Replacing <code className="doc-inline-code">localStorage</code> with API calls will not require changes to UI component call sites.</li>
+                                <li><strong>Mistakes & Practice Tracking:</strong> Tracks <code className="doc-inline-code">mistakes_queue</code> (array of question IDs needing redemption) and <code className="doc-inline-code">practice_sessions_completed</code> alongside XP and completed lessons.</li>
                                 <li><strong>Event Synchronization:</strong> Dispatches <code className="doc-inline-code">duoclongo:user-updated</code> events on <code className="doc-inline-code">window</code>, allowing open components to update stats in real time.</li>
                             </ul>
                         </section>
@@ -943,7 +962,7 @@ function Documentation() {
                                         </tr>
                                         <tr>
                                             <td><strong>Domain Services</strong></td>
-                                            <td><code className="doc-inline-code">drugService</code>, <code className="doc-inline-code">lessonService</code>, <code className="doc-inline-code">userService</code>, <code className="doc-inline-code">unitService</code></td>
+                                            <td><code className="doc-inline-code">drugService</code>, <code className="doc-inline-code">lessonService</code>, <code className="doc-inline-code">practiceService</code>, <code className="doc-inline-code">userService</code>, <code className="doc-inline-code">unitService</code></td>
                                             <td>Decoupled async service facades abstracting data access</td>
                                         </tr>
                                     </tbody>
@@ -989,8 +1008,8 @@ function Documentation() {
                                         </tr>
                                         <tr>
                                             <td><strong>Practice Mode</strong></td>
-                                            <td>Visual placeholder screen. Spaced repetition algorithm (SuperMemo/Leitner) and mistake review queues are not yet active.</td>
-                                            <td>Phase 3</td>
+                                            <td>Implemented (Phase 3). Supports Quick Retrieval Practice, Mistakes Queue Tracking, Protected Hearts (safe mode), and review XP (+10 XP). Advanced spaced repetition scheduling (e.g. SM-2) remains for future enhancements.</td>
+                                            <td>Phase 3 (Active)</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Question Formats</strong></td>
