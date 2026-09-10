@@ -23,7 +23,7 @@ import {
 import "./Documentation.css";
 
 const LAST_UPDATED = "September 10, 2026";
-const APP_VERSION = "v0.7.0 (Dedicated Unit Mastery Level & 4-Level Architecture)";
+const APP_VERSION = "v0.8.0 (Realigned Core LASA Recognition MVP & Web Audio Feedback)";
 
 // Status pill component helper
 function StatusBadge({ status }) {
@@ -395,7 +395,9 @@ function Documentation() {
                                 </p>
                                 <ul className="doc-bullet-list">
                                     <li><strong>Header Controls:</strong> Exit button with discard confirmation dialog, animated progress bar tracking completion percentage, and active hearts indicator.</li>
-                                    <li><strong>Question Dispatcher:</strong> Evaluates questions through <code className="doc-inline-code">&lt;QuestionRenderer /&gt;</code> supporting multiple choice and true/false variations.</li>
+                                    <li><strong>Dynamic Session Sampling & Option Shuffling:</strong> Powered by <code className="doc-inline-code">prepareSessionLesson()</code> to ensure high question diversity while preserving 100% accurate answer evaluation.</li>
+                                    <li><strong>Instant Web Audio Feedback:</strong> Real-time synthesized audio via the browser Web Audio API (<code className="doc-inline-code">audioService.js</code>). Correct answers trigger an affirmative rising chime; mistakes trigger a distinctive descending error buzzer.</li>
+                                    <li><strong>Pure Cognitive LASA Prompts:</strong> Zero narrative dispensing scenarios or treatment questions. Directly challenges learners on Tall Man capitalization and confusable counterpart recognition.</li>
                                     <li><strong>Immediate Explanatory Feedback:</strong> Bottom feedback drawer (<code className="doc-inline-code">&lt;FeedbackDrawer /&gt;</code>) triggers on answer submission, highlighting the correct distinction, clinical safety rationale, and related medication.</li>
                                     <li><strong>Completion Celebration:</strong> Upon answering all questions, renders <code className="doc-inline-code">&lt;LessonCompletion /&gt;</code> displaying accuracy percentage, mascot reaction, session question breakdown, and newly awarded XP.</li>
                                 </ul>

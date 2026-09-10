@@ -109,6 +109,9 @@ function Learn() {
                                                 </h2>
                                             </div>
                                             <p className="unit-description">{unit.description}</p>
+                                            {unit.subtitle && (
+                                                <p className="unit-subtitle">{unit.subtitle}</p>
+                                            )}
                                         </div>
 
                                         <button

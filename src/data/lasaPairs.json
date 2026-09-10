@@ -1,0 +1,517 @@
+{
+  "source": {
+    "name": "Institute for Safe Medication Practices (ISMP)",
+    "document": "ISMP List of Confused Drug Names (2023)",
+    "url": "https://www.ismp.org",
+    "citation": "Institute for Safe Medication Practices (ISMP). List of Confused Drug Names. Horsham, PA: ISMP; 2023.",
+    "scope": "Core Look-Alike / Sound-Alike (LASA) Recognition & Tall Man Lettering MVP"
+  },
+  "pairs": [
+    {
+      "id": "lasa_001",
+      "drugA": {
+        "genericName": "acetazolamide",
+        "tallManName": "acetaZOLAMIDE",
+        "isBrand": false
+      },
+      "drugB": {
+        "genericName": "acetohexamide",
+        "tallManName": "acetoHEXAMIDE",
+        "isBrand": false
+      },
+      "category": "Look-Alike Generic Stems",
+      "confusionType": "orthographic_stem",
+      "distinguishingFeature": "Prefix aceta- vs aceto-; suffix -ZOLAMIDE vs -HEXAMIDE",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["acetaminophen", "acyclovir", "allopurinol", "atenolol"],
+      "tallManDistractorsA": ["acetazolamide", "ACETAZOLAMIDE", "acetaZOLamide"],
+      "tallManDistractorsB": ["acetohexamide", "ACETOHEXAMIDE", "acetoHEXamide"]
+    },
+    {
+      "id": "lasa_002",
+      "drugA": {
+        "genericName": "acetaminophen",
+        "tallManName": "acetaminophen",
+        "isBrand": false
+      },
+      "drugB": {
+        "genericName": "acetazolamide",
+        "tallManName": "acetaZOLAMIDE",
+        "isBrand": false
+      },
+      "category": "Look-Alike Generic Stems",
+      "confusionType": "orthographic_stem",
+      "distinguishingFeature": "Shared prefix aceta-; distinct suffix -aminophen vs -ZOLAMIDE",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["acetoHEXAMIDE", "acyclovir", "aspirin", "atenolol"],
+      "tallManDistractorsA": ["ACETAMINOPHEN", "acetaMINOPHEN", "acetaminoPHEN"],
+      "tallManDistractorsB": ["acetazolamide", "ACETAZOLAMIDE", "acetaZOLamide"]
+    },
+    {
+      "id": "lasa_003",
+      "drugA": {
+        "genericName": "amphotericin B lipid complex",
+        "brandName": "Abelcet",
+        "tallManName": "Abelcet",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "amphotericin B",
+        "tallManName": "amphotericin B",
+        "isBrand": false
+      },
+      "category": "Look-Alike Generic Stems",
+      "confusionType": "orthographic_formulation",
+      "distinguishingFeature": "Brand lipid complex Abelcet vs conventional generic amphotericin B",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["amoxicillin", "ampicillin", "atenolol", "acyclovir"],
+      "tallManDistractorsA": ["abelcet", "ABELCET", "AbelCet"],
+      "tallManDistractorsB": ["AMPHOTERICIN B", "amphotericin b", "Amphotericin B"]
+    },
+    {
+      "id": "lasa_004",
+      "drugA": {
+        "genericName": "acetic acid for irrigation",
+        "tallManName": "acetic acid for irrigation",
+        "isBrand": false
+      },
+      "drugB": {
+        "genericName": "glacial acetic acid",
+        "tallManName": "glacial acetic acid",
+        "isBrand": false
+      },
+      "category": "Look-Alike Generic Stems",
+      "confusionType": "orthographic_concentration",
+      "distinguishingFeature": "Modifier 'for irrigation' vs 'glacial' (concentrated caustic form)",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["ascorbic acid", "salicylic acid", "sterile water", "boric acid"],
+      "tallManDistractorsA": ["ACETIC ACID FOR IRRIGATION", "Acetic Acid For Irrigation"],
+      "tallManDistractorsB": ["GLACIAL ACETIC ACID", "Glacial Acetic Acid"]
+    },
+    {
+      "id": "lasa_005",
+      "drugA": {
+        "genericName": "tirofiban",
+        "brandName": "Aggrastat",
+        "tallManName": "Aggrastat",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "argatroban",
+        "tallManName": "argatroban",
+        "isBrand": false
+      },
+      "category": "Look-Alike Generic Stems",
+      "confusionType": "orthographic_start",
+      "distinguishingFeature": "Starting letters Aggr- vs arga-",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["alteplase", "apixaban", "amiodarone", "aspirin"],
+      "tallManDistractorsA": ["aggrastat", "AGGRASTAT", "AggraStat"],
+      "tallManDistractorsB": ["ARGATROBAN", "Argatroban", "argaTROBAN"]
+    },
+    {
+      "id": "lasa_006",
+      "drugA": {
+        "genericName": "prednisone",
+        "tallManName": "predniSONE",
+        "isBrand": false
+      },
+      "drugB": {
+        "genericName": "prednisolone",
+        "tallManName": "prednisoLONE",
+        "isBrand": false
+      },
+      "category": "Look-Alike Generic Stems",
+      "confusionType": "orthographic_stem",
+      "distinguishingFeature": "Suffix -SONE vs -LONE",
+      "sourceCitation": "ISMP 2023 p. 9",
+      "distractors": ["primidone", "promethazine", "propranolol", "pindolol"],
+      "tallManDistractorsA": ["prednisone", "PREDNISONE", "prednISONE"],
+      "tallManDistractorsB": ["prednisolone", "PREDNISOLONE", "predniSOLONE"]
+    },
+    {
+      "id": "lasa_007",
+      "drugA": {
+        "genericName": "quinapril",
+        "brandName": "Accupril",
+        "tallManName": "Accupril",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "rabeprazole",
+        "brandName": "Aciphex",
+        "tallManName": "Aciphex",
+        "isBrand": true
+      },
+      "category": "Phonetic & Brand Counterparts",
+      "confusionType": "acoustic_brand",
+      "distinguishingFeature": "Middle syllable -cupril vs -ciphex",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["Actos", "Aricept", "Afrin", "Altocor"],
+      "tallManDistractorsA": ["accupril", "ACCUPRIL", "AccuPril"],
+      "tallManDistractorsB": ["aciphex", "ACIPHEX", "AciPhex"]
+    },
+    {
+      "id": "lasa_008",
+      "drugA": {
+        "genericName": "rabeprazole",
+        "brandName": "Aciphex",
+        "tallManName": "Aciphex",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "donepezil",
+        "brandName": "Aricept",
+        "tallManName": "Aricept",
+        "isBrand": true
+      },
+      "category": "Phonetic & Brand Counterparts",
+      "confusionType": "acoustic_brand",
+      "distinguishingFeature": "Shared initial A- and ending -t/-x sound cadence",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["Accupril", "Ativan", "Ambien", "Abilify"],
+      "tallManDistractorsA": ["aciphex", "ACIPHEX", "AciPhex"],
+      "tallManDistractorsB": ["aricept", "ARICEPT", "AriCept"]
+    },
+    {
+      "id": "lasa_009",
+      "drugA": {
+        "genericName": "alteplase",
+        "brandName": "Activase",
+        "tallManName": "Activase",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "alteplase (catheter clearance)",
+        "brandName": "Cathflo Activase",
+        "tallManName": "Cathflo Activase",
+        "isBrand": true
+      },
+      "category": "Phonetic & Brand Counterparts",
+      "confusionType": "brand_modifier",
+      "distinguishingFeature": "Cathflo prefix for low-dose 2mg catheter clearance",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["TNKase", "Tenormin", "Toradol", "Trental"],
+      "tallManDistractorsA": ["activase", "ACTIVASE", "ActiVase"],
+      "tallManDistractorsB": ["cathflo activase", "CATHFLO ACTIVASE"]
+    },
+    {
+      "id": "lasa_010",
+      "drugA": {
+        "genericName": "alteplase",
+        "brandName": "Activase",
+        "tallManName": "Activase",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "tenecteplase",
+        "brandName": "TNKase",
+        "tallManName": "TNKase",
+        "isBrand": true
+      },
+      "category": "Phonetic & Brand Counterparts",
+      "confusionType": "acoustic_brand",
+      "distinguishingFeature": "Suffix -ase with distinct roots Activ- vs TNK-",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["Cathflo Activase", "Toradol", "Trental", "Tenormin"],
+      "tallManDistractorsA": ["activase", "ACTIVASE", "ActiVase"],
+      "tallManDistractorsB": ["tnkase", "TNKASE", "tnKase"]
+    },
+    {
+      "id": "lasa_011",
+      "drugA": {
+        "genericName": "tetanus, diphtheria, acellular pertussis vaccine",
+        "brandName": "Adacel (Tdap)",
+        "tallManName": "Adacel (Tdap)",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "diphtheria, tetanus, acellular pertussis vaccine",
+        "brandName": "Daptacel (DTaP)",
+        "tallManName": "Daptacel (DTaP)",
+        "isBrand": true
+      },
+      "category": "Phonetic & Brand Counterparts",
+      "confusionType": "brand_acronym",
+      "distinguishingFeature": "Adacel (Tdap booster) vs Daptacel (DTaP pediatric primary)",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["Actonel", "Activase", "Advair", "Alora"],
+      "tallManDistractorsA": ["adacel (tdap)", "ADACEL (TDAP)", "Adacel (TDAP)"],
+      "tallManDistractorsB": ["daptacel (dtap)", "DAPTACEL (DTAP)", "Daptacel (dtap)"]
+    },
+    {
+      "id": "lasa_012",
+      "drugA": {
+        "genericName": "imiquimod",
+        "brandName": "Aldara",
+        "tallManName": "Aldara",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "estradiol",
+        "brandName": "Alora",
+        "tallManName": "Alora",
+        "isBrand": true
+      },
+      "category": "Phonetic & Brand Counterparts",
+      "confusionType": "acoustic_brand",
+      "distinguishingFeature": "Interior letters -d- vs -o- (Aldara vs Alora)",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["Allegra", "Albuterol", "Aldactone", "Advicor"],
+      "tallManDistractorsA": ["aldara", "ALDARA", "AlDara"],
+      "tallManDistractorsB": ["alora", "ALORA", "AlOra"]
+    },
+    {
+      "id": "lasa_013",
+      "drugA": {
+        "genericName": "risedronate",
+        "brandName": "Actonel",
+        "tallManName": "Actonel",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "pioglitazone",
+        "brandName": "Actos",
+        "tallManName": "Actos",
+        "isBrand": true
+      },
+      "category": "Suffix Variants & Release Kinetics",
+      "confusionType": "acoustic_brand",
+      "distinguishingFeature": "Ending -onel vs -os",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["Activase", "Advicor", "Altocor", "Accupril"],
+      "tallManDistractorsA": ["actonel", "ACTONEL", "ActoNel"],
+      "tallManDistractorsB": ["actos", "ACTOS", "AcTos"]
+    },
+    {
+      "id": "lasa_014",
+      "drugA": {
+        "genericName": "dextroamphetamine/amphetamine",
+        "brandName": "Adderall",
+        "tallManName": "Adderall",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "dextroamphetamine/amphetamine extended-release",
+        "brandName": "Adderall XR",
+        "tallManName": "Adderall XR",
+        "isBrand": true
+      },
+      "category": "Suffix Variants & Release Kinetics",
+      "confusionType": "release_modifier",
+      "distinguishingFeature": "Release modifier suffix 'XR'",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["Inderal", "Actonel", "Advicor", "Ativan"],
+      "tallManDistractorsA": ["adderall", "ADDERALL", "AdderAll"],
+      "tallManDistractorsB": ["adderall xr", "ADDERALL XR", "Adderall xr"]
+    },
+    {
+      "id": "lasa_015",
+      "drugA": {
+        "genericName": "dextroamphetamine/amphetamine",
+        "brandName": "Adderall",
+        "tallManName": "Adderall",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "propranolol",
+        "brandName": "Inderal",
+        "tallManName": "Inderal",
+        "isBrand": true
+      },
+      "category": "Suffix Variants & Release Kinetics",
+      "confusionType": "acoustic_brand",
+      "distinguishingFeature": "Initial Ad- vs In- with identical -deral cadence",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["Isordil", "Imdur", "Intropin", "Actonel"],
+      "tallManDistractorsA": ["adderall", "ADDERALL", "AdderAll"],
+      "tallManDistractorsB": ["inderal", "INDERAL", "InDeral"]
+    },
+    {
+      "id": "lasa_016",
+      "drugA": {
+        "genericName": "ado-trastuzumab emtansine",
+        "tallManName": "ado-trastuzumab emtansine",
+        "isBrand": false
+      },
+      "drugB": {
+        "genericName": "trastuzumab",
+        "tallManName": "trastuzumab",
+        "isBrand": false
+      },
+      "category": "Suffix Variants & Release Kinetics",
+      "confusionType": "prefix_conjugate",
+      "distinguishingFeature": "Prefix 'ado-' and modifier 'emtansine'",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["rituximab", "bevacizumab", "cetuximab", "alemtuzumab"],
+      "tallManDistractorsA": ["ADO-TRASTUZUMAB EMTANSINE", "Ado-Trastuzumab Emtansine"],
+      "tallManDistractorsB": ["TRASTUZUMAB", "Trastuzumab", "trastuzUMAB"]
+    },
+    {
+      "id": "lasa_017",
+      "drugA": {
+        "genericName": "fluticasone/salmeterol",
+        "brandName": "Advair",
+        "tallManName": "Advair",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "niacin/lovastatin",
+        "brandName": "Advicor",
+        "tallManName": "Advicor",
+        "isBrand": true
+      },
+      "category": "Suffix Variants & Release Kinetics",
+      "confusionType": "acoustic_brand",
+      "distinguishingFeature": "Suffix -air vs -icor",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["Altocor", "Actos", "Allegra", "Avandia"],
+      "tallManDistractorsA": ["advair", "ADVAIR", "AdVair"],
+      "tallManDistractorsB": ["advicor", "ADVICOR", "AdViCor"]
+    },
+    {
+      "id": "lasa_018",
+      "drugA": {
+        "genericName": "niacin/lovastatin",
+        "brandName": "Advicor",
+        "tallManName": "Advicor",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "lovastatin extended-release",
+        "brandName": "Altocor",
+        "tallManName": "Altocor",
+        "isBrand": true
+      },
+      "category": "Suffix Variants & Release Kinetics",
+      "confusionType": "acoustic_brand",
+      "distinguishingFeature": "Middle letters -dvi- vs -lto-",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["Advair", "Actonel", "Aldara", "Afrin"],
+      "tallManDistractorsA": ["advicor", "ADVICOR", "AdViCor"],
+      "tallManDistractorsB": ["altocor", "ALTOCOR", "AlToCor"]
+    },
+    {
+      "id": "lasa_019",
+      "drugA": {
+        "genericName": "oxymetazoline",
+        "brandName": "Afrin (oxymetazoline)",
+        "tallManName": "Afrin (oxymetazoline)",
+        "isBrand": true
+      },
+      "drugB": {
+        "genericName": "saline nasal spray",
+        "brandName": "Afrin (saline)",
+        "tallManName": "Afrin (saline)",
+        "isBrand": true
+      },
+      "category": "Suffix Variants & Release Kinetics",
+      "confusionType": "brand_extension",
+      "distinguishingFeature": "Active ingredient qualifier (oxymetazoline) vs (saline)",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["Actonel", "Advicor", "Adacel", "Accupril"],
+      "tallManDistractorsA": ["afrin (oxymetazoline)", "AFRIN (OXYMETAZOLINE)"],
+      "tallManDistractorsB": ["afrin (saline)", "AFRIN (SALINE)"]
+    },
+    {
+      "id": "lasa_020",
+      "drugA": {
+        "genericName": "alfentanil",
+        "tallManName": "ALfentanil",
+        "isBrand": false
+      },
+      "drugB": {
+        "genericName": "fentanyl",
+        "tallManName": "fentaNYL",
+        "isBrand": false
+      },
+      "category": "High-Alert Synthetic Opioids",
+      "confusionType": "high_alert_opioid",
+      "distinguishingFeature": "Capitalized prefix AL- vs capitalized suffix -NYL",
+      "sourceCitation": "ISMP 2023 p. 1",
+      "distractors": ["morphine", "methadone", "meperidine", "remifentanil"],
+      "tallManDistractorsA": ["alfentanil", "ALFENTANIL", "alFENTANIL"],
+      "tallManDistractorsB": ["fentanyl", "FENTANYL", "fenTANYL"]
+    },
+    {
+      "id": "lasa_021",
+      "drugA": {
+        "genericName": "alfentanil",
+        "tallManName": "ALfentanil",
+        "isBrand": false
+      },
+      "drugB": {
+        "genericName": "sufentanil",
+        "tallManName": "SUFentanil",
+        "isBrand": false
+      },
+      "category": "High-Alert Synthetic Opioids",
+      "confusionType": "high_alert_opioid",
+      "distinguishingFeature": "Prefix AL- vs SUF-",
+      "sourceCitation": "ISMP 2023 pp. 1, 11",
+      "distractors": ["fentaNYL", "morphine", "methadone", "HYDROmorphone"],
+      "tallManDistractorsA": ["alfentanil", "ALFENTANIL", "alFENTANIL"],
+      "tallManDistractorsB": ["sufentanil", "SUFENTANIL", "suFENTANIL"]
+    },
+    {
+      "id": "lasa_022",
+      "drugA": {
+        "genericName": "fentanyl",
+        "tallManName": "fentaNYL",
+        "isBrand": false
+      },
+      "drugB": {
+        "genericName": "sufentanil",
+        "tallManName": "SUFentanil",
+        "isBrand": false
+      },
+      "category": "High-Alert Synthetic Opioids",
+      "confusionType": "high_alert_opioid",
+      "distinguishingFeature": "Suffix -NYL vs prefix SUF-",
+      "sourceCitation": "ISMP 2023 pp. 5, 11",
+      "distractors": ["ALfentanil", "morphine", "remifentanil", "meperidine"],
+      "tallManDistractorsA": ["fentanyl", "FENTANYL", "fenTANYL"],
+      "tallManDistractorsB": ["sufentanil", "SUFENTANIL", "suFENTANIL"]
+    },
+    {
+      "id": "lasa_023",
+      "drugA": {
+        "genericName": "hydromorphone",
+        "tallManName": "HYDROmorphone",
+        "isBrand": false
+      },
+      "drugB": {
+        "genericName": "morphine",
+        "tallManName": "morphine",
+        "isBrand": false
+      },
+      "category": "High-Alert Synthetic Opioids",
+      "confusionType": "high_alert_opioid",
+      "distinguishingFeature": "Prefix HYDRO- capitalized to differentiate from uncapitalized morphine",
+      "sourceCitation": "ISMP 2023 pp. 6, 8",
+      "distractors": ["fentaNYL", "methadone", "codeine", "oxycodone"],
+      "tallManDistractorsA": ["hydromorphone", "HYDROMORPHONE", "hydroMORPHONE"],
+      "tallManDistractorsB": ["MORPHINE", "Morphine", "morPHINE"]
+    },
+    {
+      "id": "lasa_024",
+      "drugA": {
+        "genericName": "hydromorphone",
+        "tallManName": "HYDROmorphone",
+        "isBrand": false
+      },
+      "drugB": {
+        "genericName": "oxymorphone",
+        "tallManName": "oxyMORphone",
+        "isBrand": false
+      },
+      "category": "High-Alert Synthetic Opioids",
+      "confusionType": "high_alert_opioid",
+      "distinguishingFeature": "Prefix HYDRO- vs middle syllable -MOR-",
+      "sourceCitation": "ISMP 2023 pp. 6, 8",
+      "distractors": ["morphine", "oxycodone", "oxazepam", "oxcarbazepine"],
+      "tallManDistractorsA": ["hydromorphone", "HYDROMORPHONE", "hydroMORPHONE"],
+      "tallManDistractorsB": ["oxymorphone", "OXYMORPHONE", "OXYmorphone"]
+    }
+  ]
+}

@@ -144,6 +144,115 @@ export function calculateLessonXP(lesson, correctCount, totalQuestions) {
 }
 
 /**
+ * Fisher-Yates array shuffle.
+ */
+function shuffleArray(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+/**
+ * Dynamically prepares a lesson/level for a practice or learning session.
+ * Samples questions from each activity's authored question pool respecting learning objectives,
+ * prevents immediate duplicate LASA pairs across the session, and randomizes multiple-choice options.
+ *
+ * @param {Object} level - Normalized level or lesson definition
+ * @param {Object} [options]
+ * @param {boolean} [options.shuffleOptions=true] - Whether to shuffle multiple choice options
+ * @returns {Object} Prepared session lesson instance with selected questions
+ */
+export function prepareSessionLesson(level, { shuffleOptions = true } = {}) {
+    if (!level) return null;
+    if (level.isPractice || level.isSessionPrepared) {
+        return level;
+    }
+
+    const rawActivities = Array.isArray(level.activities) ? level.activities : [];
+    if (rawActivities.length === 0) {
+        return {
+            ...level,
+            isSessionPrepared: true
+        };
+    }
+
+    const usedLasaIds = new Set();
+    const sessionActivities = [];
+
+    for (const activity of rawActivities) {
+        const candidateQuestions = Array.isArray(activity.questions) ? activity.questions : [];
+        if (candidateQuestions.length === 0) {
+            sessionActivities.push({ ...activity, questions: [] });
+            continue;
+        }
+
+        const isMasteryCapstone = Boolean(
+            activity.isFinalTask ||
+            (activity.activityRole === "unit_mastery" && candidateQuestions.some((q) => q.isFinalTask))
+        );
+
+        // Target count for this activity
+        const targetCount = isMasteryCapstone
+            ? 1
+            : (activity.sessionQuestionCount || Math.min(candidateQuestions.length, 2));
+
+        // Group candidate questions: those whose lasaId hasn't been used vs those that have
+        const unusedCandidates = candidateQuestions.filter((q) => !q.lasaId || !usedLasaIds.has(q.lasaId));
+
+        let selectedQuestions = [];
+        if (unusedCandidates.length >= targetCount) {
+            selectedQuestions = shuffleArray(unusedCandidates).slice(0, targetCount);
+        } else {
+            // Take all unused first, then sample remainder from the rest
+            selectedQuestions = [...unusedCandidates];
+            const remainingPool = candidateQuestions.filter((q) => !selectedQuestions.includes(q));
+            const needed = targetCount - selectedQuestions.length;
+            if (needed > 0 && remainingPool.length > 0) {
+                selectedQuestions.push(...shuffleArray(remainingPool).slice(0, needed));
+            }
+        }
+
+        // Record used lasaIds to avoid consecutive or redundant pair repetition in subsequent activities
+        selectedQuestions.forEach((q) => {
+            if (q.lasaId) usedLasaIds.add(q.lasaId);
+        });
+
+        // Process options/choices for each selected question
+        const preparedQuestions = selectedQuestions.map((q) => {
+            const questionCopy = { ...q };
+
+            // Handle multiple-choice options shuffling
+            if (shuffleOptions && Array.isArray(questionCopy.choices) && questionCopy.choices.length > 1) {
+                questionCopy.choices = shuffleArray(questionCopy.choices);
+                if (Array.isArray(questionCopy.options)) {
+                    questionCopy.options = [...questionCopy.choices];
+                }
+            }
+
+            return questionCopy;
+        });
+
+        sessionActivities.push({
+            ...activity,
+            questions: preparedQuestions
+        });
+    }
+
+    const flattenedQuestions = sessionActivities.flatMap((a) => a.questions);
+
+    return {
+        ...level,
+        isSessionPrepared: true,
+        activities: sessionActivities,
+        questions: flattenedQuestions,
+        totalQuestions: flattenedQuestions.length
+    };
+}
+
+/**
  * Initializes a new lesson session.
  * @param {Object} lesson - Lesson object containing questions
  * @returns {Object} Initialized session state

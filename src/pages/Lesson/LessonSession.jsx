@@ -3,9 +3,10 @@ import { useParams, useNavigate, Link, useSearchParams } from "react-router";
 import { X, BookOpen, AlertCircle, Sparkles, Wrench, Check } from "lucide-react";
 import { getLessonById } from "../../services/lessonService.js";
 import { getMasteryLevelByUnitId } from "../../services/unitService.js";
-import { createSession, recordSessionAnswer } from "../../services/lessonEngine.js";
+import { createSession, recordSessionAnswer, prepareSessionLesson } from "../../services/lessonEngine.js";
 import { getCurrentUser } from "../../services/userService.js";
 import { generatePracticeSession, recordPracticeOutcome } from "../../services/practiceService.js";
+import { playCorrectSound, playIncorrectSound } from "../../services/audioService.js";
 import QuestionRenderer from "../../components/QuestionCard/QuestionRenderer.jsx";
 import FeedbackDrawer from "../../components/FeedbackDrawer/FeedbackDrawer.jsx";
 import LessonCompletion from "../../components/LessonCompletion/LessonCompletion.jsx";
@@ -39,8 +40,9 @@ function LessonSession() {
                     ]);
                     if (isMounted) {
                         if (masteryData) {
-                            setLesson(masteryData);
-                            setSession(createSession(masteryData));
+                            const prepared = prepareSessionLesson(masteryData);
+                            setLesson(prepared);
+                            setSession(createSession(prepared));
                         }
                         if (userData && userData.hearts !== undefined) {
                             setHearts(userData.hearts);
@@ -55,8 +57,9 @@ function LessonSession() {
                     ]);
                     if (isMounted) {
                         if (practiceData) {
-                            setLesson(practiceData);
-                            setSession(createSession(practiceData));
+                            const prepared = prepareSessionLesson(practiceData);
+                            setLesson(prepared);
+                            setSession(createSession(prepared));
                         }
                         if (userData && userData.hearts !== undefined) {
                             setHearts(userData.hearts);
@@ -70,8 +73,9 @@ function LessonSession() {
                     ]);
                     if (isMounted) {
                         if (lessonData) {
-                            setLesson(lessonData);
-                            setSession(createSession(lessonData));
+                            const prepared = prepareSessionLesson(lessonData);
+                            setLesson(prepared);
+                            setSession(createSession(prepared));
                         }
                         if (userData && userData.hearts !== undefined) {
                             setHearts(userData.hearts);
@@ -111,6 +115,12 @@ function LessonSession() {
             currentQuestion,
             selectedAnswer
         );
+
+        if (evaluation.isCorrect) {
+            playCorrectSound();
+        } else {
+            playIncorrectSound();
+        }
 
         if (isPracticeMode && currentQuestion?.id) {
             recordPracticeOutcome(currentQuestion.id, evaluation.isCorrect).catch((err) => {
@@ -175,6 +185,12 @@ function LessonSession() {
             devAnswer,
             { forcedOutcome }
         );
+
+        if (evaluation.isCorrect) {
+            playCorrectSound();
+        } else {
+            playIncorrectSound();
+        }
 
         if (isPracticeMode && currentQuestion?.id) {
             recordPracticeOutcome(currentQuestion.id, evaluation.isCorrect).catch((err) => {

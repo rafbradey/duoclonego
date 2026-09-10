@@ -28,15 +28,14 @@ function normalizeLevel(level, unit) {
         sectionId: unit.sectionId || "section-1",
         sectionTitle: unit.sectionTitle || "Section 1: Foundations",
         activities: (lsn.activities || []).map((act) => {
-            const isFinalActivity = Boolean(act.isFinalTask || act.activityRole === "unit_mastery");
+            const isFinalActivity = Boolean(act.isFinalTask || act.id?.includes("capstone"));
             const activityRole = act.activityRole || (isFinalActivity ? "unit_mastery" : "guided_practice");
 
             const normalizedQuestions = (act.questions || []).map((q) => {
                 const isFinal = Boolean(
                     q.isFinalTask ||
                     isFinalActivity ||
-                    q.activityRole === "unit_mastery" ||
-                    activityRole === "unit_mastery"
+                    q.id?.includes("capstone")
                 );
                 const role = q.activityRole || activityRole;
 
@@ -124,6 +123,8 @@ function normalizeUnit(unit) {
         ...unit,
         unit_message: unit.unitMessage || unit.unit_message || "",
         unitMessage: unit.unitMessage || unit.unit_message || "",
+        subtitle: unit.subtitle || "",
+        lasaPairs: unit.lasaPairs || [],
         levels,
         lessons,
         normalLevels,

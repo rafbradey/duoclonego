@@ -4,39 +4,125 @@
   "id": "unit_002",
   "unitNumber": 2,
   "title": "SECTION 1, UNIT 2",
-  "description": "Formulations & Suffix Variants",
-  "unitMessage": "ISMP 2023 Formulations & Similar Stems",
+  "description": "Brand-Name Orthographic & Sound-Alikes",
+  "subtitle": "Identify phonetic and orthographic look-alike/sound-alike brand medication counterparts (Accupril/Aciphex, Activase/TNKase) from ISMP.",
+  "unitMessage": "ISMP 2023 Brand-Name & Phonetic Counterparts",
   "color": "#49c0f8",
+  "lasaPairs": [
+    {
+      "id": "lasa_007",
+      "primary": "Accupril",
+      "counterpart": "Aciphex",
+      "feature": "Shared initial Ac- and syllable cadence; middle -cupril vs -ciphex"
+    },
+    {
+      "id": "lasa_008",
+      "primary": "Aciphex",
+      "counterpart": "Aricept",
+      "feature": "Shared initial A- and ending -t/-x sound cadence"
+    },
+    {
+      "id": "lasa_009",
+      "primary": "Activase",
+      "counterpart": "Cathflo Activase",
+      "feature": "Cathflo prefix modifier for low-dose 2mg catheter clearance"
+    },
+    {
+      "id": "lasa_010",
+      "primary": "Activase",
+      "counterpart": "TNKase",
+      "feature": "Shared suffix -ase with distinct roots Activ- vs TNK-"
+    },
+    {
+      "id": "lasa_011",
+      "primary": "Adacel (Tdap)",
+      "counterpart": "Daptacel (DTaP)",
+      "feature": "Adacel (Tdap booster) vs Daptacel (DTaP pediatric primary)"
+    },
+    {
+      "id": "lasa_012",
+      "primary": "Aldara",
+      "counterpart": "Alora",
+      "feature": "Interior letters -d- vs -o- (Aldara vs Alora)"
+    }
+  ],
   "levels": [
     {
       "id": "level_201",
       "levelNumber": 1,
       "type": "level",
-      "title": "Concentration & Form Recognition",
-      "description": "Recognize the critical differences between concentrated and dilute formulation names in dispensing scenarios.",
-      "learningObjective": "Identify safety risks when standard drug names share identical chemical roots but differing concentrations.",
+      "title": "Brand LASA Pair Recognition",
+      "description": "Recognize confusable brand medication counterparts sharing phonetics and syllable structures.",
+      "learningObjective": "Identify documented ISMP brand-name look-alike and sound-alike counterparts.",
       "xpReward": 10,
       "unlocked": false,
-      "lasaRefIds": ["lasa-006"],
+      "lasaRefIds": ["lasa-008", "lasa-009", "lasa-010"],
       "activities": [
         {
           "id": "act_201",
-          "activityType": "situational",
-          "learningObjective": "Recognize the correct product label in a surgical irrigation context to avoid dangerous concentrated glacial acid exposure.",
+          "activityType": "identification",
+          "learningObjective": "Identify documented Look-Alike / Sound-Alike brand counterparts.",
+          "sessionQuestionCount": 2,
           "questions": [
             {
-              "id": "q301",
+              "id": "q201_accupril",
               "type": "multiple_choice",
-              "lasaId": "lasa-006",
-              "scenario": "A surgical order arrives requesting dilute acetic acid for sterile surgical irrigation. The pharmacy compounding area also stores concentrated glacial acetic acid.",
-              "prompt": "Which medication label matches the surgical irrigation order and avoids dispensing dangerous concentrated glacial acetic acid?",
+              "lasaId": "lasa-008",
+              "prompt": "Which medication is a documented Look-Alike / Sound-Alike counterpart to Accupril?",
               "choices": [
-                "acetic acid for irrigation",
-                "glacial acetic acid"
+                "Aciphex",
+                "Actos",
+                "Aricept",
+                "Altocor"
               ],
-              "correctAnswer": "acetic acid for irrigation",
-              "explanation": "Acetic acid for irrigation is a dilute, non-corrosive solution. It must never be confused with glacial acetic acid, which is concentrated and causes severe chemical burns.",
-              "relatedDrug": "acetic acid for irrigation"
+              "correctAnswer": "Aciphex",
+              "explanation": "Accupril (quinapril) and Aciphex (rabeprazole) share sound-alike brand names and can be easily confused in verbal orders.",
+              "relatedDrug": "Accupril"
+            },
+            {
+              "id": "q201_aciphex",
+              "type": "multiple_choice",
+              "lasaId": "lasa-008",
+              "prompt": "Which medication is an ISMP-documented sound-alike counterpart to Aciphex?",
+              "choices": [
+                "Aricept",
+                "Ativan",
+                "Ambien",
+                "Abilify"
+              ],
+              "correctAnswer": "Aricept",
+              "explanation": "Aciphex (rabeprazole) and Aricept (donepezil) share acoustic cadence and initial letter A-.",
+              "relatedDrug": "Aciphex"
+            },
+            {
+              "id": "q201_activase",
+              "type": "multiple_choice",
+              "lasaId": "lasa-010",
+              "prompt": "Which thrombolytic medication is a documented look-alike / sound-alike counterpart to Activase?",
+              "choices": [
+                "TNKase",
+                "Toradol",
+                "Trental",
+                "Tenormin"
+              ],
+              "correctAnswer": "TNKase",
+              "explanation": "Activase (alteplase) and TNKase (tenecteplase) are both thrombolytics sharing the '-ase' suffix and confusable dosing.",
+              "relatedDrug": "Activase"
+            },
+            {
+              "id": "q201_adacel",
+              "type": "multiple_choice",
+              "lasaId": "lasa-011",
+              "prompt": "Which vaccine formulation is the sound-alike and look-alike counterpart to Adacel (Tdap)?",
+              "choices": [
+                "Daptacel (DTaP)",
+                "Actonel",
+                "Advair",
+                "Alora"
+              ],
+              "correctAnswer": "Daptacel (DTaP)",
+              "explanation": "Adacel (Tdap booster) and Daptacel (DTaP pediatric) share similar sounds and acronyms with different patient age indications.",
+              "relatedDrug": "Adacel (Tdap)"
             }
           ]
         }
@@ -46,31 +132,63 @@
       "id": "level_202",
       "levelNumber": 2,
       "type": "level",
-      "title": "Release Mechanism Discrimination",
-      "description": "Differentiate modified-release suffixes and distinct dosage delivery kinetics.",
-      "learningObjective": "Distinguish immediate-release from extended-release formulations in prescription verification.",
+      "title": "Brand Formulation Discrimination",
+      "description": "Differentiate product modifiers and sound-alike brand pairs on the ISMP list.",
+      "learningObjective": "Differentiate brand modifiers (Cathflo) and look-alike brand names (Aldara/Alora).",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-015"],
+      "lasaRefIds": ["lasa-009", "lasa-012"],
       "activities": [
         {
           "id": "act_202",
-          "activityType": "situational",
-          "learningObjective": "Differentiate immediate-release and extended-release product names during prescription verification.",
+          "activityType": "distinction",
+          "learningObjective": "Distinguish specific brand qualifiers and look-alike pairs.",
+          "sessionQuestionCount": 2,
           "questions": [
             {
-              "id": "q302",
+              "id": "q202_cathflo",
               "type": "multiple_choice",
-              "lasaId": "lasa-015",
-              "scenario": "An outpatient prescription specifies immediate-release Adderall tablets. On the dispensary shelf, bottles for both immediate-release and extended-release formulations are stored side by side.",
-              "prompt": "Which product name matches the requested immediate-release prescription?",
+              "lasaId": "lasa-009",
+              "prompt": "Which brand product modifier distinguishes the 2 mg catheter clearance formulation of alteplase from standard systemic Activase?",
               "choices": [
-                "Adderall",
-                "Adderall XR"
+                "Cathflo Activase",
+                "TNKase",
+                "Cardio Activase",
+                "Activase Rapid"
               ],
-              "correctAnswer": "Adderall",
-              "explanation": "Adderall designates the immediate-release formulation, whereas Adderall XR designates the extended-release formulation. Verifying the suffix prevents dosing frequency errors.",
-              "relatedDrug": "Adderall"
+              "correctAnswer": "Cathflo Activase",
+              "explanation": "Cathflo Activase is specifically formulated as a 2 mg dose for restoring catheter patency, distinct from systemic Activase vials.",
+              "relatedDrug": "Cathflo Activase"
+            },
+            {
+              "id": "q202_aldara",
+              "type": "multiple_choice",
+              "lasaId": "lasa-012",
+              "prompt": "Which transdermal product is an ISMP look-alike / sound-alike counterpart to the topical cream Aldara?",
+              "choices": [
+                "Alora",
+                "Allegra",
+                "Aldactone",
+                "Advicor"
+              ],
+              "correctAnswer": "Alora",
+              "explanation": "Aldara (imiquimod cream) and Alora (estradiol patch) differ by only one interior letter (-d- vs -o-) and have completely distinct clinical indications.",
+              "relatedDrug": "Aldara"
+            },
+            {
+              "id": "q202_aricept",
+              "type": "multiple_choice",
+              "lasaId": "lasa-008",
+              "prompt": "Which medication is a documented sound-alike counterpart to Aricept on the ISMP list?",
+              "choices": [
+                "Aciphex",
+                "Accupril",
+                "Actos",
+                "Afrin"
+              ],
+              "correctAnswer": "Aciphex",
+              "explanation": "Aciphex and Aricept are documented sound-alike counterparts on the ISMP list.",
+              "relatedDrug": "Aricept"
             }
           ]
         }
@@ -80,47 +198,63 @@
       "id": "level_203",
       "levelNumber": 3,
       "type": "level",
-      "title": "Formulation & Suffix Distinction",
-      "description": "Differentiate antidiabetic and release mechanism look-alikes in dispensing contexts.",
-      "learningObjective": "Accurately differentiate confusable formulation pairs and sulfonylurea look-alikes.",
+      "title": "Brand Pair Memorization & Discrimination",
+      "description": "Reinforce memory recall and distinction across all Unit 2 brand-name LASA pairs.",
+      "learningObjective": "Accurately recall and discriminate confusable brand medication counterparts from memory.",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-007", "lasa-015"],
+      "lasaRefIds": ["lasa-008", "lasa-010", "lasa-011", "lasa-012"],
       "activities": [
         {
-          "id": "act_203_01",
-          "activityType": "situational",
-          "activityRole": "guided_practice",
-          "learningObjective": "Identify the requested antidiabetic drug name when presented with look-alike sulfonylurea and carbonic anhydrase pairs.",
+          "id": "act_203",
+          "activityType": "distinction",
+          "learningObjective": "Discriminate brand pairs and identify exact counterpart designations.",
+          "sessionQuestionCount": 2,
           "questions": [
             {
-              "id": "q303",
+              "id": "q203_tnkase",
               "type": "multiple_choice",
-              "lasaId": "lasa-007",
-              "scenario": "A patient requests a prescription refill for their oral diabetes medication, acetohexamide. Two easily confused look-alike names appear in the pharmacy computer inventory.",
-              "prompt": "Which medication name matches the patient's request and properly identifies the target medication?",
+              "lasaId": "lasa-010",
+              "prompt": "Which thrombolytic medication pairs with TNKase on the ISMP list of confused drug names?",
               "choices": [
-                "acetoHEXAMIDE",
-                "acetaZOLAMIDE"
+                "Activase",
+                "Toradol",
+                "Tenormin",
+                "Trental"
               ],
-              "correctAnswer": "acetoHEXAMIDE",
-              "explanation": "acetoHEXAMIDE is the antidiabetic sulfonylurea, distinguished by HEXAMIDE from acetaZOLAMIDE.",
-              "relatedDrug": "acetoHEXAMIDE"
+              "correctAnswer": "Activase",
+              "explanation": "TNKase (tenecteplase) and Activase (alteplase) are direct look-alike / sound-alike counterparts on the ISMP list.",
+              "relatedDrug": "TNKase"
             },
             {
-              "id": "q303_dist",
+              "id": "q203_daptacel",
               "type": "multiple_choice",
-              "lasaId": "lasa-015",
-              "prompt": "When distinguishing Adderall formulations, which naming modifier specifically designates the extended-release product?",
+              "lasaId": "lasa-011",
+              "prompt": "Which vaccine is the confusable look-alike / sound-alike counterpart to Daptacel (DTaP)?",
               "choices": [
-                "Adderall XR",
-                "Adderall IR",
-                "Adderall XL",
-                "Adderall CR"
+                "Adacel (Tdap)",
+                "Actonel",
+                "Advair",
+                "Alora"
               ],
-              "correctAnswer": "Adderall XR",
-              "explanation": "Adderall XR uses the 'XR' (Extended Release) designation. Dispensing it in place of standard Adderall can cause dangerous dosing intervals.",
-              "relatedDrug": "Adderall XR"
+              "correctAnswer": "Adacel (Tdap)",
+              "explanation": "Daptacel (DTaP) and Adacel (Tdap) are documented ISMP confusable pairs.",
+              "relatedDrug": "Daptacel (DTaP)"
+            },
+            {
+              "id": "q203_alora",
+              "type": "multiple_choice",
+              "lasaId": "lasa-012",
+              "prompt": "Which topical product is the look-alike counterpart to Alora?",
+              "choices": [
+                "Aldara",
+                "Albuterol",
+                "Aldactone",
+                "Altocor"
+              ],
+              "correctAnswer": "Aldara",
+              "explanation": "Alora and Aldara are look-alike counterparts differing by only a single interior letter.",
+              "relatedDrug": "Alora"
             }
           ]
         }
@@ -131,31 +265,48 @@
       "levelNumber": 4,
       "type": "unit_mastery",
       "title": "Unit 2 Mastery",
-      "description": "Comprehensive review and unassisted Tall Man lettering mastery for Unit 2.",
-      "learningObjective": "Demonstrate complete unit mastery of formulation discrimination and unassisted Tall Man lettering without prompts or scaffolding.",
+      "description": "Comprehensive review of Unit 2 brand-name LASA pairs followed by an unassisted brand recognition capstone task.",
+      "learningObjective": "Demonstrate complete unit mastery of brand-name LASA pairs and accurate counterpart identification.",
       "xpReward": 25,
       "unlocked": false,
-      "lasaRefIds": ["lasa-005", "lasa-006", "lasa-007", "lasa-015"],
+      "lasaRefIds": ["lasa-008", "lasa-009", "lasa-010", "lasa-011", "lasa-012"],
       "activities": [
         {
           "id": "act_204_mastery_review",
-          "activityType": "situational",
+          "activityType": "distinction",
           "activityRole": "unit_mastery",
-          "learningObjective": "Verify look-alike formulation safety under unit review conditions.",
+          "learningObjective": "Review brand-name LASA relationships across Unit 2.",
+          "sessionQuestionCount": 2,
           "questions": [
             {
-              "id": "q305_review",
+              "id": "q204_rev1",
               "type": "multiple_choice",
-              "lasaId": "lasa-006",
-              "scenario": "A hospital order arrives for sterile wound cleansing. The medication room contains concentrated glacial acetic acid and dilute acetic acid for irrigation.",
-              "prompt": "Which preparation is safe for direct patient wound irrigation?",
+              "lasaId": "lasa-008",
+              "prompt": "Which medication is paired with Accupril on the ISMP list of confused drug names?",
               "choices": [
-                "acetic acid for irrigation",
-                "glacial acetic acid"
+                "Aciphex",
+                "Actos",
+                "Advicor",
+                "Aricept"
               ],
-              "correctAnswer": "acetic acid for irrigation",
-              "explanation": "Only dilute acetic acid for irrigation is safe for topical patient use; glacial acetic acid causes severe caustic burns.",
-              "relatedDrug": "acetic acid for irrigation"
+              "correctAnswer": "Aciphex",
+              "explanation": "Accupril and Aciphex are sound-alike brand counterparts on the ISMP list.",
+              "relatedDrug": "Accupril"
+            },
+            {
+              "id": "q204_rev2",
+              "type": "multiple_choice",
+              "lasaId": "lasa-010",
+              "prompt": "Which drug pairs with Activase on the ISMP list of confused drug names?",
+              "choices": [
+                "TNKase",
+                "Tenormin",
+                "Toradol",
+                "Trental"
+              ],
+              "correctAnswer": "TNKase",
+              "explanation": "Activase and TNKase are documented look-alike thrombolytic counterparts.",
+              "relatedDrug": "Activase"
             }
           ]
         },
@@ -164,23 +315,26 @@
           "activityType": "construction",
           "activityRole": "unit_mastery",
           "isFinalTask": true,
-          "learningObjective": "Independently produce the exact Tall Man lettering for acetohexamide without scaffolding.",
+          "learningObjective": "Independently identify the exact look-alike counterpart to Aldara without scaffolding.",
+          "sessionQuestionCount": 1,
           "questions": [
             {
-              "id": "q304_mastery",
-              "type": "tall_man",
+              "id": "q204_capstone_alora",
+              "type": "multiple_choice",
               "activityRole": "unit_mastery",
               "isFinalTask": true,
               "scaffold": false,
-              "lasaId": "lasa-007",
-              "prompt": "UNIT MASTERY CAPSTONE TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
-              "standardName": "acetohexamide",
-              "tallManName": "acetoHEXAMIDE",
-              "prefix": "",
-              "expectedSegment": "acetoHEXAMIDE",
-              "suffix": "",
-              "explanation": "acetoHEXAMIDE capitalizes HEXAMIDE to emphasize the difference from acetaZOLAMIDE, which capitalizes ZOLAMIDE.",
-              "relatedDrug": "acetoHEXAMIDE"
+              "lasaId": "lasa-012",
+              "prompt": "UNIT MASTERY CAPSTONE TASK: Which medication is the documented ISMP look-alike / sound-alike counterpart to Aldara?",
+              "choices": [
+                "Alora",
+                "Allegra",
+                "Aldactone",
+                "Advicor"
+              ],
+              "correctAnswer": "Alora",
+              "explanation": "Alora and Aldara form a high-risk look-alike pair differing only in interior orthography.",
+              "relatedDrug": "Aldara"
             }
           ]
         }

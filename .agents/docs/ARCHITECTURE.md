@@ -159,7 +159,9 @@ Core service layer implementations:
 - `drugService`: Queries verified LASA data (`getAllLasaEntries()`, `getLasaById()`, `getLevels()`, `getLevelById()`, `searchLasaEntries()`, `getSourceMetadata()`).
 - `unitService`: Loads units and curriculum metadata (`getUnits()`, `getUnitById()`).
 - `lessonService`: Fetches lessons and question structures across sections (`getLessons()`, `getLessonById()`, `getLessonsByUnit()`).
-- `lessonEngine`: Evaluates answers and calculates XP rewards without React dependencies (`evaluateAnswer()`, `calculateLessonXP()`, `createSession()`, `recordSessionAnswer()`).
+- `lessonEngine`: Evaluates answers, samples diverse questions, shuffles options, and calculates XP rewards (`evaluateAnswer()`, `prepareSessionLesson()`, `createSession()`, `recordSessionAnswer()`).
+- `audioService`: Synthesizes instant Web Audio API chimes and buzzers (`playCorrectSound()`, `playIncorrectSound()`) with zero asset lag.
+- `questionGenerator`: Generates domain questions (Type A Tall Man, Type B Pair Recognition, Type C Matching, Type D Capstone) grounded in `src/data/lasaPairs.json`.
 
 Services provide a stable interface to the rest of the application.
 

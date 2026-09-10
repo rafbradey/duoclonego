@@ -116,6 +116,23 @@ Never assume that the project matches a previous description.
 
 Inspect the actual code before making significant changes.
 
+## 1.1 CORE LEARNING SCOPE & BOUNDARIES (MANDATORY)
+
+Duoclongo is strictly focused on ONE core educational objective:
+**Helping pharmacy learners recognize and distinguish Look-Alike / Sound-Alike (LASA) medication names.**
+
+Every activity, question, and lesson MUST fall into one of three categories:
+1. **Tall Man Lettering Recognition**: Identifying and constructing correct uppercase letter distinctions (e.g., `acetaZOLAMIDE` vs `acetoHEXAMIDE`, `fentaNYL` vs `ALfentanil`).
+2. **LASA Pair Recognition**: Identifying which medication forms a confusable counterpart with a target drug based on ISMP 2023 documentation.
+3. **LASA Pair Memorization**: Reinforcing mental discrimination through repeated interactive retrieval, multiple-choice discrimination, and tactile counterpart matching.
+
+### Scope Boundaries (Strictly Enforced)
+- **ZERO Dispensing Scenarios / Hospital Narratives**: Never generate questions with scenario stories (e.g., "A surgical order arrives requesting...", "A patient drops off a prescription for..."). All questions must be direct cognitive recognition prompts.
+- **ZERO Clinical Treatment or Dosage Calculations**: Do not ask about indications, side effects, mechanisms of action, or dosing math.
+- **ZERO Fabricated Pairs / Capitalization**: Every medication pair and Tall Man convention must be sourced from official ISMP 2023 documentation (`src/data/lasaPairs.json`).
+- **Minimum 5 Unique Pairs Per Unit**: Every unit must contain at least 5 distinct, non-reciprocal ISMP pairs.
+- **Audio Feedback Standard**: Correct answer must trigger an affirmative accomplishment chime; incorrect answer MUST trigger an error buzz (never an ascending victory sound).
+
 ---
 
 # 2. BEFORE CODING

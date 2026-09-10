@@ -4,31 +4,77 @@
   "id": "unit_003",
   "unitNumber": 3,
   "title": "SECTION 1, UNIT 3",
-  "description": "Brand & Suffix Differentiation",
-  "unitMessage": "ISMP 2023 Brand Similarities & Matching Challenges",
+  "description": "Suffix Variants & Release Kinetics",
+  "subtitle": "Distinguish release mechanisms, prefix conjugates, and sound-alike suffixes (Adderall XR, ado-trastuzumab, Advair/Advicor).",
+  "unitMessage": "ISMP 2023 Suffix Variants & Release Distinctions",
   "color": "#ce82ff",
+  "lasaPairs": [
+    {
+      "id": "lasa_013",
+      "primary": "Actonel",
+      "counterpart": "Actos",
+      "feature": "Ending -onel vs -os"
+    },
+    {
+      "id": "lasa_014",
+      "primary": "Adderall",
+      "counterpart": "Adderall XR",
+      "feature": "Release modifier suffix 'XR'"
+    },
+    {
+      "id": "lasa_015",
+      "primary": "Adderall",
+      "counterpart": "Inderal",
+      "feature": "Initial Ad- vs In- with identical -deral cadence"
+    },
+    {
+      "id": "lasa_016",
+      "primary": "ado-trastuzumab emtansine",
+      "counterpart": "trastuzumab",
+      "feature": "Prefix 'ado-' and modifier 'emtansine'"
+    },
+    {
+      "id": "lasa_017",
+      "primary": "Advair",
+      "counterpart": "Advicor",
+      "feature": "Suffix -air vs -icor"
+    },
+    {
+      "id": "lasa_018",
+      "primary": "Advicor",
+      "counterpart": "Altocor",
+      "feature": "Middle letters -dvi- vs -lto-"
+    },
+    {
+      "id": "lasa_019",
+      "primary": "Afrin (oxymetazoline)",
+      "counterpart": "Afrin (saline)",
+      "feature": "Active ingredient qualifier (oxymetazoline) vs (saline)"
+    }
+  ],
   "levels": [
     {
       "id": "level_301",
       "levelNumber": 1,
       "type": "level",
-      "title": "High-Alert Brand Recognition",
-      "description": "Differentiate deceptive brand names that look and sound nearly identical.",
-      "learningObjective": "Distinguish between deceptive brand names like Actonel and Actos.",
+      "title": "Release & Suffix LASA Recognition",
+      "description": "Differentiate modified-release modifiers, prefix conjugates, and deceptive brand suffixes.",
+      "learningObjective": "Identify look-alike and sound-alike counterparts differing by suffixes and delivery modifiers.",
       "xpReward": 10,
       "unlocked": false,
-      "lasaRefIds": ["lasa-012", "lasa-014"],
+      "lasaRefIds": ["lasa-013", "lasa-014", "lasa-015", "lasa-016"],
       "activities": [
         {
           "id": "act_301",
-          "activityType": "distinction",
-          "learningObjective": "Distinguish look-alike and sound-alike brand names from verified ISMP pairs.",
+          "activityType": "identification",
+          "learningObjective": "Distinguish look-alike suffixes and release modifiers from verified ISMP pairs.",
+          "sessionQuestionCount": 2,
           "questions": [
             {
-              "id": "q401",
+              "id": "q301_actonel",
               "type": "multiple_choice",
-              "lasaId": "lasa-012",
-              "prompt": "Which medication name is the documented Look-Alike / Sound-Alike counterpart that is dangerously confused with Actonel?",
+              "lasaId": "lasa-013",
+              "prompt": "Which medication is the documented Look-Alike / Sound-Alike counterpart to Actonel?",
               "choices": [
                 "Actos",
                 "Activase",
@@ -36,23 +82,53 @@
                 "Altocor"
               ],
               "correctAnswer": "Actos",
-              "explanation": "Actonel and Actos look and sound remarkably similar. Distinguishing their spellings prevents serious brand name mix-ups.",
+              "explanation": "Actonel (risedronate) and Actos (pioglitazone) share deceptive initial letters and syllable cadence.",
               "relatedDrug": "Actonel"
             },
             {
-              "id": "q402",
+              "id": "q301_adderall_xr",
               "type": "multiple_choice",
               "lasaId": "lasa-014",
-              "prompt": "Which vaccine product name is a documented look-alike and sound-alike counterpart to Adacel (Tdap)?",
+              "prompt": "Which formulation suffix designates the extended-release counterpart to immediate-release Adderall?",
               "choices": [
-                "Daptacel (DTaP)",
-                "Actonel",
-                "Activase",
-                "Advair"
+                "Adderall XR",
+                "Adderall ER",
+                "Adderall CR",
+                "Adderall XL"
               ],
-              "correctAnswer": "Daptacel (DTaP)",
-              "explanation": "Adacel (Tdap) and Daptacel (DTaP) have nearly identical name components and are frequently confused.",
-              "relatedDrug": "Adacel (Tdap)"
+              "correctAnswer": "Adderall XR",
+              "explanation": "Adderall XR designates the extended-release formulation, whereas Adderall alone indicates immediate-release.",
+              "relatedDrug": "Adderall"
+            },
+            {
+              "id": "q301_inderal",
+              "type": "multiple_choice",
+              "lasaId": "lasa-015",
+              "prompt": "Which cardiovascular beta-blocker is an ISMP sound-alike counterpart to the stimulant Adderall?",
+              "choices": [
+                "Inderal",
+                "Isordil",
+                "Imdur",
+                "Intropin"
+              ],
+              "correctAnswer": "Inderal",
+              "explanation": "Adderall and Inderal share the identical '-deral' acoustic cadence and are easily confused in verbal communications.",
+              "relatedDrug": "Adderall"
+            },
+            {
+              "id": "q301_trastuzumab",
+              "type": "multiple_choice",
+              "lasaId": "lasa-016",
+              "prompt": "Which antibody-drug conjugate is the high-alert look-alike counterpart to conventional trastuzumab?",
+              "choices": [
+                "ado-trastuzumab emtansine",
+                "fam-trastuzumab deruxtecan",
+                "rituximab",
+                "bevacizumab"
+              ],
+              "correctAnswer": "ado-trastuzumab emtansine",
+              "explanation": "ado-trastuzumab emtansine has the prefix 'ado-' and contains a cytotoxic conjugate, making confusion with conventional trastuzumab potentially fatal.",
+              "relatedDrug": "trastuzumab"
             }
           ]
         }
@@ -63,29 +139,30 @@
       "levelNumber": 2,
       "type": "level",
       "title": "Interactive Pair Matching",
-      "description": "Rapidly connect look-alike and sound-alike counterparts through tactile retrieval matching.",
-      "learningObjective": "Reinforce cognitive associations between confusable pairs under active retrieval conditions.",
+      "description": "Connect look-alike and sound-alike counterparts through interactive active-retrieval matching.",
+      "learningObjective": "Reinforce memory links between confusable pairs through tactile matching practice.",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-011", "lasa-012", "lasa-014", "lasa-018"],
+      "lasaRefIds": ["lasa-013", "lasa-014", "lasa-015", "lasa-016", "lasa-017"],
       "activities": [
         {
           "id": "act_302",
           "activityType": "distinction",
           "learningObjective": "Match each medication with its documented confusable counterpart.",
+          "sessionQuestionCount": 1,
           "questions": [
             {
-              "id": "q403",
+              "id": "q302_matching",
               "type": "matching",
-              "prompt": "Match each medication with its documented confusable counterpart:",
+              "prompt": "Match each medication with its documented ISMP confusable counterpart:",
               "pairs": [
-                { "left": "Activase", "right": "TNKase" },
                 { "left": "Actonel", "right": "Actos" },
-                { "left": "Adacel (Tdap)", "right": "Daptacel (DTaP)" },
-                { "left": "ado-trastuzumab", "right": "trastuzumab" }
+                { "left": "Adderall", "right": "Adderall XR" },
+                { "left": "ado-trastuzumab", "right": "trastuzumab" },
+                { "left": "Advair", "right": "Advicor" }
               ],
-              "explanation": "Activase and TNKase are confusable thrombolytic names. Actonel and Actos look and sound similar. Adacel and Daptacel are confusable vaccines. Ado-trastuzumab and trastuzumab differ by the critical 'ado-' prefix.",
-              "relatedDrug": "Activase"
+              "explanation": "Actonel/Actos, Adderall/Adderall XR, ado-trastuzumab/trastuzumab, and Advair/Advicor are verified ISMP 2023 confusable pairs.",
+              "relatedDrug": "Actonel"
             }
           ]
         }
@@ -95,45 +172,63 @@
       "id": "level_303",
       "levelNumber": 3,
       "type": "level",
-      "title": "Situational Brand & Conjugate Recognition",
-      "description": "Discriminate complex prefix additions and sound-alike brand names in dispensing scenarios.",
-      "learningObjective": "Recognize target medication names in realistic pharmacy verification scenarios.",
+      "title": "Brand Extension & Suffix Discrimination",
+      "description": "Discriminate deceptive brand line extensions and confusable respiratory/lipid suffixes.",
+      "learningObjective": "Differentiate brand name suffixes (Advair vs Advicor) and brand line extensions (Afrin formulations).",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-018", "lasa-019"],
+      "lasaRefIds": ["lasa-017", "lasa-018", "lasa-019"],
       "activities": [
         {
           "id": "act_303",
-          "activityType": "situational",
-          "learningObjective": "Recognize the correct medication name in realistic dispensing review scenarios.",
+          "activityType": "distinction",
+          "learningObjective": "Differentiate brand extension qualifiers and multi-ingredient suffixes.",
+          "sessionQuestionCount": 2,
           "questions": [
             {
-              "id": "q404",
+              "id": "q303_advair",
               "type": "multiple_choice",
-              "lasaId": "lasa-018",
-              "scenario": "A hospital oncology order requests conventional trastuzumab. When reviewing inventory, the automated dispensing cabinet also stocks the antibody-drug conjugate ado-trastuzumab emtansine.",
-              "prompt": "Which product name matches the requested order for conventional trastuzumab?",
+              "lasaId": "lasa-017",
+              "prompt": "Which lipid-regulating medication name is an ISMP look-alike / sound-alike counterpart to the inhaler Advair?",
               "choices": [
-                "trastuzumab",
-                "ado-trastuzumab emtansine"
+                "Advicor",
+                "Altocor",
+                "Actos",
+                "Allegra"
               ],
-              "correctAnswer": "trastuzumab",
-              "explanation": "Trastuzumab and ado-trastuzumab emtansine are distinct formulations. Verifying the 'ado-' prefix prevents fatal dosing confusion.",
-              "relatedDrug": "trastuzumab"
+              "correctAnswer": "Advicor",
+              "explanation": "Advair (fluticasone/salmeterol) and Advicor (niacin/lovastatin) share deceptive prefix and syllable flow.",
+              "relatedDrug": "Advair"
             },
             {
-              "id": "q405",
+              "id": "q303_advicor_altocor",
+              "type": "multiple_choice",
+              "lasaId": "lasa-018",
+              "prompt": "Which cholesterol medication name pairs with Advicor on the ISMP list of confused drug names?",
+              "choices": [
+                "Altocor",
+                "Advair",
+                "Actonel",
+                "Aldara"
+              ],
+              "correctAnswer": "Altocor",
+              "explanation": "Advicor and Altocor differ only in middle letters (-dvi- vs -lto-) and both involve lovastatin.",
+              "relatedDrug": "Advicor"
+            },
+            {
+              "id": "q303_afrin",
               "type": "multiple_choice",
               "lasaId": "lasa-019",
-              "scenario": "A patient drops off a written prescription order for Advair. The pharmacy shelf also contains bottles of Advicor.",
-              "prompt": "Which medication product matches the prescription order for Advair?",
+              "prompt": "Which ingredient distinction separates the decongestant Afrin from its non-medicated counterpart on the ISMP list?",
               "choices": [
-                "Advair",
-                "Advicor"
+                "Afrin (oxymetazoline) vs Afrin (saline)",
+                "Afrin (phenylephrine) vs Afrin (saline)",
+                "Afrin (pseudoephedrine) vs Afrin (saline)",
+                "Afrin (xylometazoline) vs Afrin (saline)"
               ],
-              "correctAnswer": "Advair",
-              "explanation": "Advair and Advicor sound and look similar. Verifying the suffix ensures the intended medication is selected.",
-              "relatedDrug": "Advair"
+              "correctAnswer": "Afrin (oxymetazoline) vs Afrin (saline)",
+              "explanation": "Brand extension confusion occurs when Afrin containing active oxymetazoline is confused with plain Afrin saline nasal mist.",
+              "relatedDrug": "Afrin (oxymetazoline)"
             }
           ]
         }
@@ -144,32 +239,48 @@
       "levelNumber": 4,
       "type": "unit_mastery",
       "title": "Unit 3 Mastery",
-      "description": "Comprehensive review and unassisted Tall Man lettering mastery for Unit 3.",
-      "learningObjective": "Demonstrate complete unit mastery of brand/conjugate discrimination and unassisted Tall Man lettering without prompts or scaffolding.",
+      "description": "Comprehensive review of Unit 3 suffix and release variants followed by an unassisted pair recognition capstone task.",
+      "learningObjective": "Demonstrate complete unit mastery of suffix variants, conjugate prefixes, and unassisted counterpart identification.",
       "xpReward": 25,
       "unlocked": false,
-      "lasaRefIds": ["lasa-004", "lasa-011", "lasa-012", "lasa-014", "lasa-018", "lasa-019"],
+      "lasaRefIds": ["lasa-013", "lasa-014", "lasa-015", "lasa-016", "lasa-017", "lasa-018", "lasa-019"],
       "activities": [
         {
           "id": "act_304_mastery_review",
           "activityType": "distinction",
           "activityRole": "unit_mastery",
-          "learningObjective": "Review deceptive look-alike brand pairings under mastery evaluation.",
+          "learningObjective": "Review suffix and release distinctions across Unit 3.",
+          "sessionQuestionCount": 2,
           "questions": [
             {
-              "id": "q407_review",
+              "id": "q304_rev1",
               "type": "multiple_choice",
-              "lasaId": "lasa-011",
-              "prompt": "Which medication is the high-alert thrombolytic counterpart confusable with Activase?",
+              "lasaId": "lasa-013",
+              "prompt": "Which medication is paired with Actonel on the ISMP list of confused drug names?",
               "choices": [
-                "TNKase",
                 "Actos",
+                "Activase",
                 "Advair",
                 "Adacel"
               ],
-              "correctAnswer": "TNKase",
-              "explanation": "Activase (alteplase) and TNKase (tenecteplase) are easily confused thrombolytic agents with different dosing guidelines.",
-              "relatedDrug": "Activase"
+              "correctAnswer": "Actos",
+              "explanation": "Actonel and Actos are documented sound-alike counterparts on the ISMP list.",
+              "relatedDrug": "Actonel"
+            },
+            {
+              "id": "q304_rev2",
+              "type": "multiple_choice",
+              "lasaId": "lasa-016",
+              "prompt": "Which prefix distinguishes the antibody-drug conjugate from conventional trastuzumab?",
+              "choices": [
+                "ado-",
+                "fam-",
+                "pan-",
+                "mono-"
+              ],
+              "correctAnswer": "ado-",
+              "explanation": "The 'ado-' prefix indicates the emtansine conjugate (ado-trastuzumab emtansine).",
+              "relatedDrug": "trastuzumab"
             }
           ]
         },
@@ -178,23 +289,26 @@
           "activityType": "construction",
           "activityRole": "unit_mastery",
           "isFinalTask": true,
-          "learningObjective": "Independently construct the exact Tall Man lettering for acetazolamide without scaffolding.",
+          "learningObjective": "Independently identify the exact look-alike counterpart to Advair without scaffolding.",
+          "sessionQuestionCount": 1,
           "questions": [
             {
-              "id": "q406_mastery",
-              "type": "tall_man",
+              "id": "q304_capstone_advicor",
+              "type": "multiple_choice",
               "activityRole": "unit_mastery",
               "isFinalTask": true,
               "scaffold": false,
-              "lasaId": "lasa-004",
-              "prompt": "UNIT MASTERY CAPSTONE TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
-              "standardName": "acetazolamide",
-              "tallManName": "acetaZOLAMIDE",
-              "prefix": "",
-              "expectedSegment": "acetaZOLAMIDE",
-              "suffix": "",
-              "explanation": "acetaZOLAMIDE capitalizes ZOLAMIDE to differentiate this carbonic anhydrase inhibitor from acetoHEXAMIDE and acetaminophen.",
-              "relatedDrug": "acetaZOLAMIDE"
+              "lasaId": "lasa-017",
+              "prompt": "UNIT MASTERY CAPSTONE TASK: Which medication is the documented ISMP look-alike / sound-alike counterpart to Advair?",
+              "choices": [
+                "Advicor",
+                "Altocor",
+                "Actos",
+                "Allegra"
+              ],
+              "correctAnswer": "Advicor",
+              "explanation": "Advicor and Advair form a deceptive sound-alike pair documented on the ISMP list.",
+              "relatedDrug": "Advair"
             }
           ]
         }
