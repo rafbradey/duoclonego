@@ -23,7 +23,7 @@ import {
 import "./Documentation.css";
 
 const LAST_UPDATED = "September 10, 2026";
-const APP_VERSION = "v0.5.0 (Level Progression & Final No-Hint Tall Man Mastery)";
+const APP_VERSION = "v0.6.0 (Activity System Overhaul & Situational Recognition)";
 
 // Status pill component helper
 function StatusBadge({ status }) {
@@ -482,21 +482,33 @@ function Documentation() {
                                 <span className="doc-h-node">Question / Task</span>
                             </div>
 
+                            <h3 className="heading-sm doc-subsection-title">4.1 Core Learning Scope &amp; Boundary Delineation</h3>
+                            <div className="doc-callout info">
+                                <strong>Active Curriculum Focus:</strong>
+                                <br />
+                                The current Duoclongo implementation strictly tests the learner&apos;s ability to <strong>recognize, distinguish, and correctly construct Look-Alike / Sound-Alike medication names</strong>.
+                                <br />
+                                <em>&quot;Can I recognize these medication names and distinguish easily confused look-alikes?&quot;</em>
+                            </div>
+                            <p className="doc-paragraph">
+                                <strong>Intentional Scope Correction:</strong> Theoretical and clinical questions (such as ISMP classification theory, drug indications, mechanisms of action, pharmacokinetics, dosage calculations, and clinical reasoning) are <strong>not part of active learner lessons</strong>. All previous prototype theoretical items have been migrated out of active levels into a dedicated preservation archive (<code className="doc-inline-code">src/data/curriculum/deferredTheoreticalQuestions.json</code>) and reserved for future research-backed phases.
+                            </p>
+
                             <h3 className="heading-sm doc-subsection-title">The Dynamic X Rule</h3>
                             <p className="doc-paragraph">
                                 Unlike systems that enforce arbitrary fixed level counts (e.g. exactly 5 lessons per unit), Duoclongo strictly derives level counts from pedagogical demand:
                                 <br />
                                 <em>&quot;X is determined by the optimal learning progression for the material, not by an arbitrary constant.&quot;</em>
                                 <br />
-                                For instance, Unit 1 provides <strong>X = 3</strong> levels (Familiarization &rarr; Tall Man Discrimination &rarr; Clinical Retrieval), Unit 2 provides <strong>X = 3</strong> levels (Form Recognition &rarr; Release Kinetics &rarr; Formulation &amp; Suffix Tall Man Retrieval), Unit 3 provides <strong>X = 3</strong> levels (Brand Differentiation &rarr; Oncology &rarr; Endocrine Suffix Retrieval), and Section 2 introduces Unit 4 with <strong>X = 1</strong> level (Potent Opioid Differentiation).
+                                For instance, Unit 1 provides <strong>X = 3</strong> levels (Familiarization &rarr; Tall Man Discrimination &rarr; LASA Distinction &amp; Situational Recognition), Unit 2 provides <strong>X = 3</strong> levels (Concentration Recognition &rarr; Release Mechanism Distinction &rarr; Suffix Tall Man Retrieval), Unit 3 provides <strong>X = 3</strong> levels (Brand Differentiation &rarr; Interactive Matching &rarr; Situational Conjugate Recognition), and Section 2 introduces Unit 4 with <strong>X = 1</strong> level (Potent Opioid Differentiation).
                             </p>
 
                             <h3 className="heading-sm doc-subsection-title">Cognitive Science Principles Applied</h3>
                             <ul className="doc-bullet-list">
                                 <li><strong>Retrieval Practice:</strong> Learners must actively distinguish between confusable options rather than passively reading drug monographs.</li>
                                 <li><strong>Interleaving:</strong> Look-alike and sound-alike counterparts are tested in direct proximity to develop distinct mental representations.</li>
-                                <li><strong>Immediate Explanatory Feedback:</strong> Errors trigger immediate explanations detailing the exact pharmacological differences rather than generic failure prompts.</li>
-                                <li><strong>Qualitative Progression:</strong> Cognitive demand shifts qualitatively across levels (<code className="doc-inline-code">Familiarization &rarr; Recognition &rarr; Discrimination &rarr; Retrieval &rarr; Independent Mastery</code>).</li>
+                                <li><strong>Immediate Explanatory Feedback:</strong> Errors trigger immediate explanations detailing the exact orthographic differences rather than generic failure prompts.</li>
+                                <li><strong>Qualitative Progression:</strong> Cognitive demand shifts qualitatively across levels (<code className="doc-inline-code">Identification &rarr; Guided Construction &rarr; Distinction &rarr; Situational Recognition &rarr; Independent Mastery</code>).</li>
                             </ul>
 
                             <h3 className="heading-sm doc-subsection-title">4.2 Purpose-Driven Activity Taxonomy</h3>
@@ -521,21 +533,21 @@ function Documentation() {
                                             <td><StatusBadge status="Implemented" /></td>
                                         </tr>
                                         <tr>
-                                            <td><code className="doc-inline-code">matching</code></td>
-                                            <td>Associate related brand-generic pairs or confusable counterpart names.</td>
-                                            <td>Interactive Tap-to-Match tiles (<code className="doc-inline-code">matching</code>)</td>
-                                            <td><StatusBadge status="Implemented" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td><code className="doc-inline-code">recognition</code></td>
-                                            <td>Identify documented LASA counterparts and familiarize learners with high-risk drug names.</td>
+                                            <td><code className="doc-inline-code">identification</code></td>
+                                            <td>Identify documented LASA counterparts and familiarize learners with high-risk drug pairs.</td>
                                             <td>Discrete Choice (<code className="doc-inline-code">multiple_choice</code>)</td>
                                             <td><StatusBadge status="Implemented" /></td>
                                         </tr>
                                         <tr>
-                                            <td><code className="doc-inline-code">discrimination</code></td>
-                                            <td>Differentiate subtle orthographic or phonetic differences between look-alike/sound-alike pairs.</td>
-                                            <td>Targeted Choice / Binary True-False (<code className="doc-inline-code">true_false</code>)</td>
+                                            <td><code className="doc-inline-code">distinction</code></td>
+                                            <td>Differentiate subtle orthographic, phonetic, or Tall Man distinctions between look-alike/sound-alike pairs.</td>
+                                            <td>Targeted Choice (<code className="doc-inline-code">multiple_choice</code>) / Interactive Tap-to-Match tiles (<code className="doc-inline-code">matching</code>)</td>
+                                            <td><StatusBadge status="Implemented" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><code className="doc-inline-code">situational</code></td>
+                                            <td>Recognize and distinguish confusable medication names within realistic dispensary/prescription verification contexts (strictly testing name distinction, not clinical decision-making).</td>
+                                            <td>Contextual Scenario Card + Choice Selection (<code className="doc-inline-code">multiple_choice</code> with <code className="doc-inline-code">scenario</code>)</td>
                                             <td><StatusBadge status="Implemented" /></td>
                                         </tr>
                                         <tr>
@@ -546,7 +558,7 @@ function Documentation() {
                                         </tr>
                                         <tr>
                                             <td><code className="doc-inline-code">simulation</code></td>
-                                            <td>Apply multi-checkpoint dispensing verification (drug name, strength, dosage form, expiration date) in realistic clinical scenarios.</td>
+                                            <td>Apply multi-checkpoint dispensing verification (drug name, strength, dosage form, expiration date) in full clinical scenarios.</td>
                                             <td>Simulated Prescription Dispensing Runner</td>
                                             <td><StatusBadge status="Future Thesis Roadmap" /></td>
                                         </tr>
@@ -1005,6 +1017,34 @@ function Documentation() {
                                 <li><code className="doc-inline-code">Evaluation Logic</code>: In guided mode, input is case-insensitive for the target segment. In mastery mode, strict case-sensitive match (<code className="doc-inline-code">inputTrimmed === targetTallMan</code>) is enforced.</li>
                                 <li><code className="doc-inline-code">Feedback Behavior</code>: On submission, both correct and incorrect outcomes display the verified Tall Man representation in the feedback drawer along with educational clinical rationale.</li>
                             </ul>
+
+                            <h3 className="heading-sm doc-subsection-title">6.7 Situational LASA Question Schema</h3>
+                            <p className="doc-paragraph">
+                                Situational questions test the learner&apos;s ability to recognize and distinguish verified LASA medication names within realistic dispensing and prescription verification contexts, strictly without testing clinical pharmacology, dosage, or treatment decisions:
+                            </p>
+                            <JsonSnippet
+                                label="situational-question-example.json"
+                                code={`{
+  "id": "q105_sit",
+  "type": "multiple_choice",
+  "lasaId": "lasa-002",
+  "scenario": "A patient presents a written prescription order for Accupril. The dispensary shelf stores multiple medications with similar phonemic and visual names.",
+  "prompt": "Which medication name matches the prescription order and avoids a look-alike mix-up with Aciphex?",
+  "choices": [
+    "Accupril",
+    "Aciphex"
+  ],
+  "correctAnswer": "Accupril",
+  "explanation": "Accupril must be distinguished from Aciphex to prevent dispensing confusion.",
+  "relatedDrug": "Accupril"
+}`}
+                            />
+                            <ul className="doc-field-desc-list">
+                                <li><code className="doc-inline-code">scenario</code>: Concrete situational narrative providing dispensing context (rendered in a distinctive green scenario card with a &quot;DISPENSING SCENARIO&quot; badge).</li>
+                                <li><code className="doc-inline-code">prompt</code>: Direct LASA recognition or distinction prompt testing medication name selection.</li>
+                                <li><code className="doc-inline-code">choices</code>: Confusable LASA options derived strictly from verified ISMP pairs.</li>
+                                <li><code className="doc-inline-code">correctAnswer</code>: Target medication matching the order.</li>
+                            </ul>
                         </section>
                     )}
 
@@ -1207,8 +1247,13 @@ function Documentation() {
                                         </tr>
                                         <tr>
                                             <td><strong>Question Formats</strong></td>
-                                            <td>Supports constructed-response Tall Man lettering (<code className="doc-inline-code">tall_man</code>) in both guided scaffolding (affix frames + preview) and unassisted Unit Mastery mode (strict case-sensitive recall), interactive tap-to-match pairs (<code className="doc-inline-code">matching</code>), <code className="doc-inline-code">multiple_choice</code>, and <code className="doc-inline-code">true_false</code>. Full dispensing simulation scenarios and crosswords remain future thesis phases.</td>
-                                            <td>Active (Tall Man Mastery + Guided + Matching + Choice)</td>
+                                            <td>Supports constructed-response Tall Man lettering (<code className="doc-inline-code">tall_man</code>) in both guided scaffolding (affix frames + preview) and unassisted Unit Mastery mode (strict case-sensitive recall), situational recognition (<code className="doc-inline-code">multiple_choice</code> with dispensing <code className="doc-inline-code">scenario</code>), interactive tap-to-match pairs (<code className="doc-inline-code">matching</code>), and binary distinction choice (<code className="doc-inline-code">multiple_choice</code>). Full clinical dispensing simulation scenarios and crosswords remain future thesis phases.</td>
+                                            <td>Active (Tall Man Mastery + Situational + Guided + Matching + Choice)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Theoretical &amp; Clinical Questions</strong></td>
+                                            <td>Intentionally removed from active curriculum and safely archived in <code className="doc-inline-code">src/data/curriculum/deferredTheoreticalQuestions.json</code>. The active beta strictly focuses on orthographic name recognition, distinction, and Tall Man construction. Questions on ISMP regulatory theory, drug mechanisms, disease pathology, indications, and clinical decision-making are reserved for future research phases.</td>
+                                            <td>Deferred to Future Research / Clinical Phase</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Quests & Leaderboards</strong></td>

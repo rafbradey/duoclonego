@@ -3,8 +3,45 @@
     max-width: 620px;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     margin: 0 auto;
+}
+
+.mc-scenario-card {
+    background-color: var(--bg-surface);
+    border: 2px solid rgba(88, 204, 2, 0.35);
+    border-radius: 16px;
+    padding: 1.15rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    box-shadow: 0 4px rgba(88, 204, 2, 0.12);
+}
+
+.mc-scenario-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.mc-scenario-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 8px var(--color-primary);
+}
+
+.mc-scenario-text {
+    font-size: 0.98rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 0;
 }
 
 .mc-question-prompt {

@@ -13,6 +13,16 @@ function MultipleChoiceQuestion({
 
     return (
         <div className="mc-question-container">
+            {question.scenario && (
+                <div className="mc-scenario-card duo-card">
+                    <div className="mc-scenario-badge">
+                        <span className="mc-scenario-dot" />
+                        <span>DISPENSING SCENARIO</span>
+                    </div>
+                    <p className="mc-scenario-text">{question.scenario}</p>
+                </div>
+            )}
+
             <h2 className="mc-question-prompt heading-md">
                 {question.prompt}
             </h2>

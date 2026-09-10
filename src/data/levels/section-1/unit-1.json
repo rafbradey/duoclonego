@@ -20,7 +20,8 @@
       "activities": [
         {
           "id": "act_101",
-          "activityType": "recognition",
+          "activityType": "identification",
+          "learningObjective": "Identify documented Look-Alike / Sound-Alike medication counterparts from verified ISMP pairs.",
           "questions": [
             {
               "id": "q101",
@@ -69,6 +70,7 @@
         {
           "id": "act_102",
           "activityType": "construction",
+          "activityRole": "guided_practice",
           "learningObjective": "Construct verified Tall Man capitalization to distinguish high-risk look-alike medication pairs.",
           "questions": [
             {
@@ -117,58 +119,50 @@
     {
       "id": "level_003",
       "levelNumber": 3,
-      "title": "Clinical Hazard Discrimination & Retrieval",
-      "description": "Apply retrieval practice to identify clinical risks and distinguish distinct therapeutic classes.",
-      "learningObjective": "Retrieve safety distinctions between analgesic and glaucoma agents and identify core risk factors in verbal orders.",
+      "title": "LASA Distinction & Situational Recognition",
+      "description": "Distinguish easily confused medication names and apply recognition in dispensing scenarios.",
+      "learningObjective": "Distinguish between confusable LASA pairs and recognize target medications in realistic prescription contexts.",
       "xpReward": 15,
       "unlocked": false,
-      "lasaRefIds": ["lasa-002", "lasa-003", "lasa-005"],
+      "lasaRefIds": ["lasa-002", "lasa-004", "lasa-005"],
       "activities": [
         {
-          "id": "act_103",
-          "activityType": "retrieval",
+          "id": "act_103_distinction",
+          "activityType": "distinction",
+          "learningObjective": "Differentiate subtle orthographic and phonemic differences between look-alike drug names.",
           "questions": [
             {
-              "id": "q103",
+              "id": "q103_dist",
               "type": "multiple_choice",
-              "lasaId": "lasa-003",
-              "prompt": "Which of the following represents a documented LASA hazard between an analgesic and a glaucoma agent?",
+              "lasaId": "lasa-004",
+              "prompt": "A prescription is requested for acetazolamide. Which of these look-alike medications is the correct Tall Man representation to prevent mix-ups?",
               "choices": [
-                "acetaminophen / acetaZOLAMIDE",
-                "acetaminophen / aspirin",
-                "ibuprofen / naproxen",
-                "acetaZOLAMIDE / acetazolamide SR"
+                "acetaZOLAMIDE",
+                "acetoHEXAMIDE"
               ],
-              "correctAnswer": "acetaminophen / acetaZOLAMIDE",
-              "explanation": "acetaminophen and acetaZOLAMIDE share overlapping prefix letters. Confusion between an over-the-counter analgesic and a prescription carbonic anhydrase inhibitor can lead to treatment failure.",
+              "correctAnswer": "acetaZOLAMIDE",
+              "explanation": "acetaZOLAMIDE capitalizes ZOLAMIDE to clearly distinguish it from acetoHEXAMIDE.",
               "relatedDrug": "acetaZOLAMIDE"
-            },
+            }
+          ]
+        },
+        {
+          "id": "act_103_situational",
+          "activityType": "situational",
+          "learningObjective": "Recognize the correct medication name in a realistic dispensing verification context.",
+          "questions": [
             {
-              "id": "q104",
-              "type": "true_false",
-              "lasaId": "lasa-005",
-              "prompt": "acetaZOLAMIDE and acetoHEXAMIDE are recognized by ISMP as a Look-Alike, Sound-Alike pair.",
-              "choices": [
-                "True",
-                "False"
-              ],
-              "correctAnswer": "True",
-              "explanation": "True. acetaZOLAMIDE (carbonic anhydrase inhibitor) and acetoHEXAMIDE (sulfonylurea antidiabetic) are a classic LASA pair that utilize Tall Man lettering to prevent dangerous confusion.",
-              "relatedDrug": "acetaZOLAMIDE"
-            },
-            {
-              "id": "q105",
+              "id": "q105_sit",
               "type": "multiple_choice",
               "lasaId": "lasa-002",
-              "prompt": "In the LASA pair Accupril and Aciphex, what is the primary risk factor for medication errors?",
+              "scenario": "A patient presents a written prescription order for Accupril. The dispensary shelf stores multiple medications with similar phonemic and visual names.",
+              "prompt": "Which medication name matches the prescription order and avoids a look-alike mix-up with Aciphex?",
               "choices": [
-                "Phonetic sound-alike and visual look-alike brand names",
-                "Identical tablet color and shape",
-                "Identical active chemical entities",
-                "Same therapeutic class and indications"
+                "Accupril",
+                "Aciphex"
               ],
-              "correctAnswer": "Phonetic sound-alike and visual look-alike brand names",
-              "explanation": "Accupril and Aciphex belong to completely different drug classes (ACE inhibitor vs PPI), but verbal orders and similar written spelling frequently lead to selection errors.",
+              "correctAnswer": "Accupril",
+              "explanation": "Accupril must be distinguished from Aciphex to prevent dispensing confusion.",
               "relatedDrug": "Accupril"
             }
           ]
@@ -187,10 +181,12 @@
               "isFinalTask": true,
               "scaffold": false,
               "lasaId": "lasa-005",
-              "prompt": "Enter the complete medication name using exact Tall Man lettering to distinguish it from prednisoLONE:",
+              "prompt": "FINAL UNIT MASTERY TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
               "standardName": "prednisone",
               "tallManName": "predniSONE",
-              "expectedSegment": "SONE",
+              "prefix": "",
+              "expectedSegment": "predniSONE",
+              "suffix": "",
               "explanation": "predniSONE capitalizes SONE to prevent mix-ups with the look-alike corticosteroid prednisoLONE.",
               "relatedDrug": "predniSONE"
             }

@@ -843,3 +843,23 @@ Every Unit must culminate in an independent, unassisted Tall Man Lettering maste
   - Reject all-lowercase (`drugname`) or all-uppercase (`DRUGNAME`).
 - **Developer Override:**
   - Verify `handleDeveloperOverride` injects `currentQuestion.tallManName` for correct and `currentQuestion.standardName` for incorrect.
+
+### 22.2 Situational LASA Recognition Activities
+Situational activities simulate realistic medication dispensing verification without introducing premature clinical decision-making:
+- **Activity & Question Schema:**
+  ```json
+  {
+    "id": "qXXX_sit",
+    "type": "multiple_choice",
+    "activityType": "situational",
+    "lasaId": "lasa-XXX",
+    "scenario": "A patient presents a written prescription order for [DRUG A]. The dispensary shelf stores multiple medications with similar phonemic and visual names.",
+    "prompt": "Which medication name matches the prescription order and avoids a look-alike mix-up with [DRUG B]?",
+    "choices": ["[DRUG A]", "[DRUG B]"],
+    "correctAnswer": "[DRUG A]"
+  }
+  ```
+- **Strict Scope Boundaries:**
+  - Tests **name recognition and distinction only**.
+  - **DO NOT** test dosages, therapeutic calculations, administration routes, drug mechanisms, or diagnostic indications.
+  - The UI automatically renders the `scenario` within a formatted `.mc-scenario-card` with a green `DISPENSING SCENARIO` badge.

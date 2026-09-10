@@ -292,11 +292,16 @@ Session Progress & XP / Mastery Recording
 ### Purpose-Driven Activity Taxonomy
 Activities represent *what the learner is actually practicing*, distinct from the mechanical question UI:
 - `construction`: Active production and reconstruction of critical letters (e.g., Tall Man lettering) without multiple-choice guessing cues.
-- `matching`: Association of related brand-generic pairs or look-alike/sound-alike counterparts via interactive tiles.
-- `recognition`: Identifying documented LASA counterparts from visual prompts.
-- `discrimination`: Differentiating subtle phonemic, orthographic, or therapeutic variations between high-risk pairs.
+- `identification`: Identifying documented LASA counterparts from verified ISMP pairs.
+- `distinction`: Differentiating subtle phonemic, orthographic, or Tall Man distinctions between look-alike/sound-alike pairs.
+- `situational`: Realistic dispensing/prescription verification contexts testing name distinction (strictly without clinical decision-making or pharmacology theory).
 - `retrieval`: Memory retrieval of previously learned pairs (e.g. `/practice` hub and Mistakes Queue).
-- `simulation`: Future applied dispensing scenarios enforcing the 4 clinical checkpoints (Name, Strength/Dosage, Route, Expiration).
+- `unit_mastery`: Concluding unassisted no-hint Tall Man retrieval milestone for each unit.
+- `simulation`: Future applied dispensing scenarios enforcing multi-checkpoint clinical verification (reserved for future thesis phases).
+
+### Scope Boundary Delineation
+- **Active Current Scope:** Core learning objectives, Tall Man construction (guided and unassisted), LASA identification, LASA distinction, and situational LASA recognition.
+- **Deferred Future Scope:** Questions regarding ISMP regulatory theory, drug indications, mechanisms of action, dosage calculations, and clinical reasoning are **intentionally excluded from active learning content** and safely preserved in `src/data/curriculum/deferredTheoreticalQuestions.json`.
 
 The lesson engine (`src/services/lessonEngine.js`) evaluates answers independently of React components, allowing automated unit testing and headless validation.
 
@@ -309,9 +314,9 @@ Questions represent the concrete interaction mechanism dispatched by `activityTy
 - `tall_man`: Constructed-response fill-in-the-blank. Operates in two distinct pedagogical modes:
   1. *Guided Practice Mode* (`scaffold: true`): User enters the capitalized segment within prefix/suffix frames with live dynamic name reconstruction (<TallManText />) and tolerant casing normalization.
   2. *Unit Mastery Mode* (`activityRole: "unit_mastery"`, `isFinalTask: true`, `scaffold: false`): Unassisted independent retrieval requiring the learner to type the complete drug name with strict case-sensitive validation (e.g. `predniSONE`) without affix frames or live previews.
+- `multiple_choice`: Multi-option choice grid for identification and distinction. When `question.scenario` is provided, renders a contextual "DISPENSING SCENARIO" card above the prompt.
 - `matching`: Interactive tile selection requiring learners to link left and right counterpart pairs.
-- `multiple_choice`: Multi-option choice grid for recognition tasks.
-- `true_false`: Binary choice evaluation for clinical distinction challenges.
+- `true_false`: Binary choice evaluation for distinction challenges.
 
 Question definition objects provide the data required for rendering and evaluation:
 - `QuestionRenderer.jsx` acts as a strategy dispatcher mapping `question.type` to `<TallManQuestion />`, `<MatchingQuestion />`, or `<MultipleChoiceQuestion />`.

@@ -12,7 +12,7 @@
       "id": "level_201",
       "levelNumber": 1,
       "title": "Concentration & Form Recognition",
-      "description": "Recognize the critical differences between concentrated and dilute formulation names.",
+      "description": "Recognize the critical differences between concentrated and dilute formulation names in dispensing scenarios.",
       "learningObjective": "Identify safety risks when standard drug names share identical chemical roots but differing concentrations.",
       "xpReward": 10,
       "unlocked": false,
@@ -20,21 +20,21 @@
       "activities": [
         {
           "id": "act_201",
-          "activityType": "recognition",
+          "activityType": "situational",
+          "learningObjective": "Recognize the correct product label in a surgical irrigation context to avoid dangerous concentrated glacial acid exposure.",
           "questions": [
             {
               "id": "q301",
               "type": "multiple_choice",
               "lasaId": "lasa-006",
-              "prompt": "Which product is dangerously confused with glacial acetic acid when concentration is overlooked?",
+              "scenario": "A surgical order arrives requesting dilute acetic acid for sterile surgical irrigation. The pharmacy compounding area also stores concentrated glacial acetic acid.",
+              "prompt": "Which medication label matches the surgical irrigation order and avoids dispensing dangerous concentrated glacial acetic acid?",
               "choices": [
                 "acetic acid for irrigation",
-                "ascorbic acid solution",
-                "acetylcysteine inhalation",
-                "amino acid injection"
+                "glacial acetic acid"
               ],
               "correctAnswer": "acetic acid for irrigation",
-              "explanation": "Glacial acetic acid is concentrated and corrosive. Inadvertent substitution for dilute acetic acid for irrigation has caused severe tissue burns.",
+              "explanation": "Acetic acid for irrigation is a dilute, non-corrosive solution. It must never be confused with glacial acetic acid, which is concentrated and causes severe chemical burns.",
               "relatedDrug": "acetic acid for irrigation"
             }
           ]
@@ -46,29 +46,29 @@
       "levelNumber": 2,
       "title": "Release Mechanism Discrimination",
       "description": "Differentiate modified-release suffixes and distinct dosage delivery kinetics.",
-      "learningObjective": "Distinguish immediate-release from extended-release formulations to prevent overdosage.",
+      "learningObjective": "Distinguish immediate-release from extended-release formulations in prescription verification.",
       "xpReward": 15,
       "unlocked": false,
       "lasaRefIds": ["lasa-015"],
       "activities": [
         {
           "id": "act_202",
-          "activityType": "discrimination",
+          "activityType": "situational",
+          "learningObjective": "Differentiate immediate-release and extended-release product names during prescription verification.",
           "questions": [
             {
               "id": "q302",
               "type": "multiple_choice",
               "lasaId": "lasa-015",
-              "prompt": "Adderall is commonly confused with Adderall XR when release mechanisms are overlooked. What is the primary clinical difference?",
+              "scenario": "An outpatient prescription specifies immediate-release Adderall tablets. On the dispensary shelf, bottles for both immediate-release and extended-release formulations are stored side by side.",
+              "prompt": "Which product name matches the requested immediate-release prescription?",
               "choices": [
-                "Adderall is immediate-release while Adderall XR is extended-release",
-                "Adderall is an antibiotic while Adderall XR is an antifungal",
-                "Adderall is an intravenous infusion while Adderall XR is a topical cream",
-                "They are manufactured by different companies but are chemically identical"
+                "Adderall",
+                "Adderall XR"
               ],
-              "correctAnswer": "Adderall is immediate-release while Adderall XR is extended-release",
-              "explanation": "Adderall (immediate-release) and Adderall XR (extended-release) have different dosing frequencies and pharmacokinetics. Inadvertent substitution can lead to adverse toxicity or subtherapeutic treatment.",
-              "relatedDrug": "Adderall XR"
+              "correctAnswer": "Adderall",
+              "explanation": "Adderall designates the immediate-release formulation, whereas Adderall XR designates the extended-release formulation. Verifying the suffix prevents dosing frequency errors.",
+              "relatedDrug": "Adderall"
             }
           ]
         }
@@ -86,23 +86,22 @@
       "activities": [
         {
           "id": "act_203_01",
-          "activityType": "discrimination",
+          "activityType": "situational",
           "activityRole": "guided_practice",
-          "learningObjective": "Differentiate sulfonylurea antidiabetics from diuretic carbonic anhydrase inhibitors.",
+          "learningObjective": "Identify the requested antidiabetic drug name when presented with look-alike sulfonylurea and carbonic anhydrase pairs.",
           "questions": [
             {
               "id": "q303",
               "type": "multiple_choice",
               "lasaId": "lasa-007",
-              "prompt": "What is the primary clinical risk if acetoHEXAMIDE is accidentally dispensed instead of acetaZOLAMIDE?",
+              "scenario": "A patient requests a prescription refill for their oral diabetes medication, acetohexamide. Two easily confused look-alike names appear in the pharmacy computer inventory.",
+              "prompt": "Which medication name matches the patient's request and properly identifies the target medication?",
               "choices": [
-                "Severe drug-induced hypoglycemia in a non-diabetic patient",
-                "Instant systemic allergic anaphylaxis",
-                "Acute cardiac arrhythmia",
-                "Immediate hepatic necrosis"
+                "acetoHEXAMIDE",
+                "acetaZOLAMIDE"
               ],
-              "correctAnswer": "Severe drug-induced hypoglycemia in a non-diabetic patient",
-              "explanation": "acetoHEXAMIDE is a sulfonylurea oral hypoglycemic agent. Dispensing it to a patient meant for acetaZOLAMIDE (glaucoma/diuretic) can cause profound hypoglycemia and coma.",
+              "correctAnswer": "acetoHEXAMIDE",
+              "explanation": "acetoHEXAMIDE is the antidiabetic sulfonylurea, distinguished by HEXAMIDE from acetaZOLAMIDE.",
               "relatedDrug": "acetoHEXAMIDE"
             }
           ]
@@ -121,10 +120,12 @@
               "isFinalTask": true,
               "scaffold": false,
               "lasaId": "lasa-007",
-              "prompt": "Enter the complete medication name using exact Tall Man lettering to distinguish it from acetaZOLAMIDE:",
+              "prompt": "FINAL UNIT MASTERY TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
               "standardName": "acetohexamide",
               "tallManName": "acetoHEXAMIDE",
-              "expectedSegment": "HEXAMIDE",
+              "prefix": "",
+              "expectedSegment": "acetoHEXAMIDE",
+              "suffix": "",
               "explanation": "acetoHEXAMIDE capitalizes HEXAMIDE to emphasize the difference from acetaZOLAMIDE, which capitalizes ZOLAMIDE.",
               "relatedDrug": "acetoHEXAMIDE"
             }

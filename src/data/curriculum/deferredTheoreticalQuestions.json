@@ -1,0 +1,206 @@
+{
+  "title": "Deferred Theoretical & Clinical Questions Archive",
+  "description": "Archived questions that test theoretical concepts, drug indications, mechanisms of action, regulatory history, or general pharmaceutical knowledge. These questions are intentionally removed from active beginner/intermediate LASA learning sessions and preserved here for future thesis clinical simulation and comprehensive assessment phases.",
+  "scopePolicy": "Active Duoclongo learning content strictly prioritizes: Tall Man Lettering construction, LASA drug identification, LASA drug distinction, and realistic situational LASA recognition. Theoretical and clinical decision-making content is deferred until formal thesis research and validation phases.",
+  "archivedQuestions": [
+    {
+      "id": "q103",
+      "originalUnitId": "unit_001",
+      "originalLevelId": "level_003",
+      "deferredCategory": "pharmacology_indication_theory",
+      "deferredReason": "Tests pharmacological classification and drug indication knowledge ('analgesic' vs 'glaucoma agent') rather than direct name recognition/distinction.",
+      "type": "multiple_choice",
+      "lasaId": "lasa-004",
+      "prompt": "Which of the following represents a documented LASA hazard between an analgesic and a glaucoma agent?",
+      "choices": [
+        "acetaminophen / acetaZOLAMIDE",
+        "Abelcet / amphotericin B",
+        "Accupril / Aciphex",
+        "Actonel / Actos"
+      ],
+      "correctAnswer": "acetaminophen / acetaZOLAMIDE",
+      "explanation": "Acetaminophen (analgesic/antipyretic) and acetaZOLAMIDE (carbonic anhydrase inhibitor for glaucoma) share substantial phonetic and visual prefixes.",
+      "relatedDrug": "acetaZOLAMIDE"
+    },
+    {
+      "id": "q104",
+      "originalUnitId": "unit_001",
+      "originalLevelId": "level_003",
+      "deferredCategory": "ismp_policy_memorization",
+      "deferredReason": "Tests passive memorization of whether ISMP recognizes a pair rather than testing active orthographic discrimination.",
+      "type": "true_false",
+      "lasaId": "lasa-005",
+      "prompt": "acetaZOLAMIDE and acetoHEXAMIDE are recognized by ISMP as a Look-Alike, Sound-Alike pair.",
+      "choices": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "Both acetaZOLAMIDE and acetoHEXAMIDE share identical prefixes ('acet-') and endings ('-amide'), creating severe dispensing confusion.",
+      "relatedDrug": "acetaZOLAMIDE / acetoHEXAMIDE"
+    },
+    {
+      "id": "q105",
+      "originalUnitId": "unit_001",
+      "originalLevelId": "level_003",
+      "deferredCategory": "medication_safety_theory",
+      "deferredReason": "Tests abstract medication safety definitions and risk factor theory rather than medication name distinction.",
+      "type": "multiple_choice",
+      "lasaId": "lasa-002",
+      "prompt": "In the LASA pair Accupril and Aciphex, what is the primary risk factor for medication errors?",
+      "choices": [
+        "Phonetic sound-alike and visual look-alike brand names",
+        "Identical dosage forms and tablet colors",
+        "Identical active pharmaceutical ingredients",
+        "Same clinical indications for hypertension"
+      ],
+      "correctAnswer": "Phonetic sound-alike and visual look-alike brand names",
+      "explanation": "Accupril and Aciphex possess strong phonemic and orthographic similarity despite differing in therapeutic class.",
+      "relatedDrug": "Accupril"
+    },
+    {
+      "id": "q302",
+      "originalUnitId": "unit_002",
+      "originalLevelId": "level_202",
+      "deferredCategory": "release_kinetics_theory",
+      "deferredReason": "Tests pharmacological release kinetics theory (immediate-release vs extended-release pharmacodynamics) rather than label distinction.",
+      "type": "multiple_choice",
+      "lasaId": "lasa-015",
+      "prompt": "Adderall is commonly confused with Adderall XR when release mechanisms are overlooked. What is the primary clinical difference?",
+      "choices": [
+        "Adderall is immediate-release while Adderall XR is extended-release",
+        "Adderall is a prodrug while Adderall XR is an active metabolite",
+        "Adderall contains dextroamphetamine only while XR contains lisdexamfetamine",
+        "Adderall is sublingual while Adderall XR is swallowed whole"
+      ],
+      "correctAnswer": "Adderall is immediate-release while Adderall XR is extended-release",
+      "explanation": "Adderall provides rapid, immediate release requiring multi-dose daily scheduling, whereas Adderall XR delivers biphasic extended release over 10-12 hours.",
+      "relatedDrug": "Adderall"
+    },
+    {
+      "id": "q303",
+      "originalUnitId": "unit_002",
+      "originalLevelId": "level_203",
+      "deferredCategory": "clinical_pathology_theory",
+      "deferredReason": "Tests clinical pathophysiology (severe hypoglycemia in non-diabetic patients) rather than medication name identification.",
+      "type": "multiple_choice",
+      "lasaId": "lasa-007",
+      "prompt": "What is the primary clinical risk if acetoHEXAMIDE is accidentally dispensed instead of acetaZOLAMIDE?",
+      "choices": [
+        "Severe drug-induced hypoglycemia in a non-diabetic patient",
+        "Sudden elevation of intraocular pressure causing optic nerve damage",
+        "Hypertensive crisis from unmonitored alpha-agonist stimulation",
+        "Acute renal tubular acidosis from carbonic anhydrase overstimulation"
+      ],
+      "correctAnswer": "Severe drug-induced hypoglycemia in a non-diabetic patient",
+      "explanation": "AcetoHEXAMIDE is a first-generation sulfonylurea that stimulates pancreatic insulin secretion. Inadvertently dispensing it causes profound hypoglycemia.",
+      "relatedDrug": "acetoHEXAMIDE"
+    },
+    {
+      "id": "q401",
+      "originalUnitId": "unit_003",
+      "originalLevelId": "level_301",
+      "deferredCategory": "pharmacology_indication_theory",
+      "deferredReason": "Tests therapeutic indications (osteoporosis bisphosphonate vs type 2 diabetes thiazolidinedione) rather than LASA name distinction.",
+      "type": "multiple_choice",
+      "lasaId": "lasa-012",
+      "prompt": "Actonel (risedronate) is dangerously confused with Actos (pioglitazone). What is the primary indication of Actonel?",
+      "choices": [
+        "Osteoporosis (bisphosphonate)",
+        "Type 2 diabetes (thiazolidinedione)",
+        "Acute myocardial infarction (thrombolytic)",
+        "Severe hypercholesterolemia (statin)"
+      ],
+      "correctAnswer": "Osteoporosis (bisphosphonate)",
+      "explanation": "Actonel is a bisphosphonate for osteoporosis, while Actos is an oral antidiabetic for type 2 diabetes.",
+      "relatedDrug": "Actonel"
+    },
+    {
+      "id": "q402",
+      "originalUnitId": "unit_003",
+      "originalLevelId": "level_301",
+      "deferredCategory": "clinical_population_theory",
+      "deferredReason": "Tests clinical vaccine population theory (pediatric vs adolescent/adult antigen concentrations) rather than name distinction.",
+      "type": "multiple_choice",
+      "lasaId": "lasa-014",
+      "prompt": "Which population is Adacel (Tdap) specifically formulated for, compared to pediatric Daptacel (DTaP)?",
+      "choices": [
+        "Adolescents and adults (booster with reduced toxoid)",
+        "Infants under 6 weeks of age exclusively",
+        "Pregnant patients in their first trimester only",
+        "Geriatric patients with renal insufficiency"
+      ],
+      "correctAnswer": "Adolescents and adults (booster with reduced toxoid)",
+      "explanation": "Adacel (Tdap, lowercase 'd' and 'p') has lower diphtheria and pertussis antigen content meant as a booster for ages 10-64.",
+      "relatedDrug": "Adacel (Tdap)"
+    },
+    {
+      "id": "q404",
+      "originalUnitId": "unit_003",
+      "originalLevelId": "level_303",
+      "deferredCategory": "regulatory_safety_history",
+      "deferredReason": "Tests regulatory naming history and antibody-drug conjugate dosing mechanism theory rather than name discrimination.",
+      "type": "multiple_choice",
+      "lasaId": "lasa-018",
+      "prompt": "Why did the FDA and ISMP require the 'ado-' prefix for ado-trastuzumab emtansine (Kadcyla)?",
+      "choices": [
+        "To prevent fatal dosing mix-ups with conventional trastuzumab (Herceptin)",
+        "To signify that it can be administered via intramuscular injection",
+        "To denote that it is an oral biosimilar version of Herceptin",
+        "To allow pharmacists to substitute it automatically without a new prescription"
+      ],
+      "correctAnswer": "To prevent fatal dosing mix-ups with conventional trastuzumab (Herceptin)",
+      "explanation": "Ado-trastuzumab emtansine is an antibody-drug conjugate with cytotoxic emtansine. Confusing it with conventional trastuzumab causes life-threatening overdoses.",
+      "relatedDrug": "ado-trastuzumab emtansine"
+    },
+    {
+      "id": "q405",
+      "originalUnitId": "unit_003",
+      "originalLevelId": "level_303",
+      "deferredCategory": "pharmacology_indication_theory",
+      "deferredReason": "Tests drug indications and pharmacological class (cholesterol management vs asthma inhaler) rather than medication name distinction.",
+      "type": "multiple_choice",
+      "lasaId": "lasa-019",
+      "prompt": "Advair (fluticasone/salmeterol) is an inhaler for asthma. What is Advicor (niacin/lovastatin) indicated for?",
+      "choices": [
+        "Lipid and cholesterol management",
+        "Severe hypertension and congestive heart failure",
+        "Chronic obstructive pulmonary disease exacerbation",
+        "Type 2 diabetes glycemic control"
+      ],
+      "correctAnswer": "Lipid and cholesterol management",
+      "explanation": "Advicor is an oral combination of niacin and lovastatin for hyperlipidemia, whereas Advair is an inhaled steroid/bronchodilator combination for respiratory disease.",
+      "relatedDrug": "Advicor"
+    },
+    {
+      "id": "q501",
+      "originalUnitId": "unit_004",
+      "originalLevelId": "level_401",
+      "deferredCategory": "ismp_classification_theory",
+      "deferredReason": "Tests high-alert ISMP classification theory and respiratory depression mechanisms rather than distinguishing confusable opioid medication names.",
+      "type": "multiple_choice",
+      "lasaId": "lasa-026",
+      "prompt": "Why are fentaNYL and ALfentanil designated as high-alert LASA medications by ISMP?",
+      "choices": [
+        "They have dramatically different potencies and rapid onset, where dosing confusion causes fatal respiratory depression",
+        "They are non-controlled analgesics that require refrigeration to prevent degradation",
+        "They share identical generic chemical structures and are legally interchangeable",
+        "They are administered only via topical creams that cause contact dermatitis"
+      ],
+      "correctAnswer": "They have dramatically different potencies and rapid onset, where dosing confusion causes fatal respiratory depression",
+      "explanation": "Fentanyl is roughly 10-20 times more potent than alfentanil. Confusing the names leads to catastrophic opioid overdose and respiratory failure.",
+      "relatedDrug": "fentaNYL"
+    },
+    {
+      "id": "q502",
+      "originalUnitId": "unit_004",
+      "originalLevelId": "level_401",
+      "deferredCategory": "ismp_policy_memorization",
+      "deferredReason": "Passive true/false query about ISMP rules replaced with active orthographic Tall Man distinction task.",
+      "type": "true_false",
+      "lasaId": "lasa-026",
+      "prompt": "In the ISMP Tall Man lettering standard, fentaNYL capitalizes the suffix NYL while ALfentanil capitalizes the prefix AL.",
+      "choices": ["True", "False"],
+      "correctAnswer": "True",
+      "explanation": "ISMP differentiates fentaNYL (suffix capitalized) from ALfentanil and SUFentanil (prefixes capitalized) to prevent look-alike opioid catastrophes.",
+      "relatedDrug": "fentaNYL / ALfentanil"
+    }
+  ]
+}

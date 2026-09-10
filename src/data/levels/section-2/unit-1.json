@@ -25,36 +25,47 @@
           "activities": [
             {
               "id": "act_401_01",
-              "activityType": "recognition",
+              "activityType": "situational",
               "activityRole": "guided_practice",
-              "learningObjective": "Identify clinical hazards between high-potency synthetic opioids.",
+              "learningObjective": "Recognize the target opioid medication name in realistic automated dispensing review scenarios.",
               "questions": [
                 {
                   "id": "q501",
                   "type": "multiple_choice",
                   "lasaId": "lasa-026",
-                  "prompt": "Why are fentaNYL and ALfentanil designated as high-alert LASA medications by ISMP?",
+                  "scenario": "A patient order is received for a fentanyl transdermal patch. When searching the electronic medication cart, multiple synthetic opioid names appear.",
+                  "prompt": "Which medication name matches the order and must be distinguished from the confusable counterpart ALfentanil?",
                   "choices": [
-                    "They have dramatically different potencies and rapid onset, where dosing confusion causes fatal respiratory depression",
-                    "They are manufactured by the same pharmaceutical vendor with identical packaging",
-                    "One is an over-the-counter cough syrup while the other is a topical patch",
-                    "They share identical chemical structures with no clinical differences"
+                    "fentanyl",
+                    "ALfentanil",
+                    "SUFentanil",
+                    "remifentanil"
                   ],
-                  "correctAnswer": "They have dramatically different potencies and rapid onset, where dosing confusion causes fatal respiratory depression",
-                  "explanation": "fentaNYL is an extremely potent opioid. Mix-ups with ALfentanil due to verbal orders or sound-alike names have caused catastrophic respiratory arrest.",
-                  "relatedDrug": "fentaNYL"
-                },
+                  "correctAnswer": "fentanyl",
+                  "explanation": "Fentanyl must be carefully selected to avoid confusion with ALfentanil and SUFentanil, which have dramatically different dosing potencies.",
+                  "relatedDrug": "fentanyl"
+                }
+              ]
+            },
+            {
+              "id": "act_401_02",
+              "activityType": "distinction",
+              "activityRole": "guided_practice",
+              "learningObjective": "Distinguish the correct ISMP Tall Man lettering standard for fentanyl.",
+              "questions": [
                 {
                   "id": "q502",
-                  "type": "true_false",
+                  "type": "multiple_choice",
                   "lasaId": "lasa-026",
-                  "prompt": "In the ISMP Tall Man lettering standard, fentaNYL capitalizes the suffix NYL while ALfentanil capitalizes the prefix AL.",
+                  "prompt": "Which medication name correctly applies ISMP Tall Man lettering to differentiate fentanyl from ALfentanil?",
                   "choices": [
-                    "True",
-                    "False"
+                    "fentaNYL",
+                    "fentanyl",
+                    "FENTANYL",
+                    "fenTANYL"
                   ],
-                  "correctAnswer": "True",
-                  "explanation": "True. ISMP recommends fentaNYL (capitalizing NYL) and ALfentanil (capitalizing AL) to emphasize their distinct phonetic and orthographic ends.",
+                  "correctAnswer": "fentaNYL",
+                  "explanation": "ISMP recommends fentaNYL (capitalizing the NYL suffix) to differentiate it from ALfentanil (capitalizing the AL prefix).",
                   "relatedDrug": "fentaNYL"
                 }
               ]
@@ -64,7 +75,7 @@
               "activityType": "construction",
               "activityRole": "unit_mastery",
               "isFinalTask": true,
-              "learningObjective": "Independently construct the exact Tall Man lettering for high-potency fentanyl without scaffolding.",
+              "learningObjective": "Independently construct the exact Tall Man lettering for fentanyl without scaffolding.",
               "questions": [
                 {
                   "id": "q503_mastery",
@@ -73,11 +84,13 @@
                   "isFinalTask": true,
                   "scaffold": false,
                   "lasaId": "lasa-026",
-                  "prompt": "Enter the complete medication name using exact Tall Man lettering to distinguish it from ALfentanil:",
+                  "prompt": "FINAL UNIT MASTERY TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
                   "standardName": "fentanyl",
                   "tallManName": "fentaNYL",
-                  "expectedSegment": "NYL",
-                  "explanation": "fentaNYL capitalizes NYL to distinguish it from ALfentanil, which capitalizes AL.",
+                  "prefix": "",
+                  "expectedSegment": "fentaNYL",
+                  "suffix": "",
+                  "explanation": "fentaNYL capitalizes NYL to distinguish it from the closely related synthetic opioid ALfentanil.",
                   "relatedDrug": "fentaNYL"
                 }
               ]
