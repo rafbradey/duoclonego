@@ -68,50 +68,47 @@
       "activities": [
         {
           "id": "act_102",
-          "activityType": "discrimination",
+          "activityType": "construction",
+          "learningObjective": "Construct verified Tall Man capitalization to distinguish high-risk look-alike medication pairs.",
           "questions": [
             {
               "id": "q201",
-              "type": "multiple_choice",
-              "lasaId": "lasa-005",
-              "prompt": "Which drug uses Tall Man lettering to distinguish it from the antidiabetic acetoHEXAMIDE?",
-              "choices": [
-                "acetaZOLAMIDE",
-                "acetaminophen",
-                "acetazolamide",
-                "acetohexamide"
-              ],
-              "correctAnswer": "acetaZOLAMIDE",
-              "explanation": "acetaZOLAMIDE capitalizes ZOLAMIDE to emphasize the difference from acetoHEXAMIDE, which capitalizes HEXAMIDE.",
+              "type": "tall_man",
+              "lasaId": "lasa-004",
+              "prompt": "Convert this drug name to Tall Man lettering by entering the letters that should be capitalized:",
+              "standardName": "acetazolamide",
+              "tallManName": "acetaZOLAMIDE",
+              "prefix": "aceta",
+              "expectedSegment": "ZOLAMIDE",
+              "suffix": "",
+              "explanation": "acetaZOLAMIDE capitalizes ZOLAMIDE to emphasize differences from acetaminophen and acetoHEXAMIDE.",
               "relatedDrug": "acetaZOLAMIDE"
             },
             {
               "id": "q202",
-              "type": "multiple_choice",
+              "type": "tall_man",
               "lasaId": "lasa-005",
-              "prompt": "Why is Tall Man lettering used on medication packaging and electronic health records?",
-              "choices": [
-                "To draw visual attention to differing letters in look-alike names",
-                "To indicate the strength and dosage of the pill",
-                "To show that the drug is an over-the-counter medication",
-                "To represent the manufacturer's trademark styling"
-              ],
-              "correctAnswer": "To draw visual attention to differing letters in look-alike names",
-              "explanation": "Tall Man lettering is a medication safety technique recommended by ISMP and the FDA that capitalizes unique letter sequences to disrupt visual confusion.",
-              "relatedDrug": "Tall Man Lettering"
+              "prompt": "Convert this drug name to Tall Man lettering by entering the letters that should be capitalized:",
+              "standardName": "acetohexamide",
+              "tallManName": "acetoHEXAMIDE",
+              "prefix": "aceto",
+              "expectedSegment": "HEXAMIDE",
+              "suffix": "",
+              "explanation": "acetoHEXAMIDE capitalizes HEXAMIDE to distinguish this sulfonylurea antidiabetic from acetaZOLAMIDE.",
+              "relatedDrug": "acetoHEXAMIDE"
             },
             {
               "id": "q203",
-              "type": "true_false",
+              "type": "tall_man",
               "lasaId": "lasa-005",
-              "prompt": "Tall Man lettering was created purely for aesthetic design rather than medication error prevention.",
-              "choices": [
-                "True",
-                "False"
-              ],
-              "correctAnswer": "False",
-              "explanation": "False. Tall Man lettering is an evidence-based clinical safety standard specifically designed to reduce adverse drug events caused by look-alike medication names.",
-              "relatedDrug": "Tall Man Safety"
+              "prompt": "Convert this drug name to Tall Man lettering by entering the letters that should be capitalized:",
+              "standardName": "prednisone",
+              "tallManName": "predniSONE",
+              "prefix": "predni",
+              "expectedSegment": "SONE",
+              "suffix": "",
+              "explanation": "predniSONE capitalizes SONE to distinguish it from the closely related corticosteroid prednisoLONE.",
+              "relatedDrug": "predniSONE"
             }
           ]
         }

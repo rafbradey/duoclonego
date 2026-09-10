@@ -774,3 +774,45 @@ Keep the code understandable.
 Protect the core learning experience.
 
 Do not turn a small feature request into an unnecessary rewrite.
+
+---
+
+# 22. CREATING NEW ACTIVITIES & QUESTION TYPES (DEVELOPER PROCEDURE)
+
+When adding a new learning activity or question interaction:
+
+### Architectural Pipeline
+```text
+LASA Relationship (lasaData.json)
+        ↓
+Learning Objective (Pedagogical Competency)
+        ↓
+Activity Type (construction | matching | recognition | discrimination | retrieval | simulation)
+        ↓
+Question / Task Interaction (tall_man | matching | multiple_choice | true_false)
+        ↓
+Evaluation & Tolerance Engine (lessonEngine.js)
+        ↓
+Corrective Feedback Drawer (FeedbackDrawer.jsx)
+```
+
+### Procedure Checklist
+1. **Activity Placement in Unit JSON:**
+   - Under `levels[i].activities[]`, define the activity container with `id`, `activityType`, and `learningObjective`.
+2. **Question Item Schema:**
+   - Add items under `activity.questions[]`. Include `type`, `lasaId`, `prompt`, `explanation`, `relatedDrug`, and interaction-specific parameters.
+   - Do NOT hardcode drug names, choices, or answers in React components. Keep data in the JSON layer.
+3. **Question Card Component:**
+   - Create `src/components/QuestionCard/<Name>Question.jsx` and associated CSS.
+   - Component receives `(question, selectedAnswer, onSelect, onSubmit, isSubmitted)`.
+   - Never use multiple-choice guessing if the objective requires construction or production.
+4. **Strategy Dispatcher Registration:**
+   - Add `case "<type>":` in `src/components/QuestionCard/QuestionRenderer.jsx`.
+5. **Answer Evaluation in Domain Engine:**
+   - Extend `evaluateAnswer(question, selectedAnswer)` in `src/services/lessonEngine.js`.
+   - Apply tolerant normalization (trim whitespace, handle casing).
+   - Ensure the returned object contains `isCorrect`, `selectedAnswer`, `correctAnswer`, and `explanation`.
+6. **Developer Testing Override Support:**
+   - In `src/pages/Lesson/LessonSession.jsx`, update `handleDeveloperOverride()` so developers can force correct/incorrect outcomes without failing data contracts.
+7. **Documentation:**
+   - Update in-app documentation at `src/pages/Documentation/Documentation.jsx` (Section 4 taxonomy, Section 6 JSON schema, Section 10 boundaries).

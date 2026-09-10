@@ -23,7 +23,7 @@ import {
 import "./Documentation.css";
 
 const LAST_UPDATED = "September 10, 2026";
-const APP_VERSION = "v0.3.1 (Unit 3 & Matching Format Added)";
+const APP_VERSION = "v0.4.0 (Tall Man Constructed Response & Activity Overhaul)";
 
 // Status pill component helper
 function StatusBadge({ status }) {
@@ -496,6 +496,61 @@ function Documentation() {
                                 <li><strong>Immediate Explanatory Feedback:</strong> Errors trigger immediate explanations detailing the exact pharmacological differences rather than generic failure prompts.</li>
                                 <li><strong>Qualitative Progression:</strong> Cognitive demand shifts qualitatively across levels (<code className="doc-inline-code">Familiarization &rarr; Recognition &rarr; Discrimination &rarr; Retrieval</code>).</li>
                             </ul>
+
+                            <h3 className="heading-sm doc-subsection-title">4.2 Purpose-Driven Activity Taxonomy</h3>
+                            <p className="doc-paragraph">
+                                The thesis architecture distinguishes pedagogical purpose from mechanical interaction. Instead of treating every exercise as a generic multiple-choice guessing task, Duoclongo establishes a purpose-driven taxonomy where each activity type serves a distinct learning objective:
+                            </p>
+                            <div className="doc-table-wrapper">
+                                <table className="doc-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Activity Type</th>
+                                            <th>Pedagogical Objective</th>
+                                            <th>Primary Interaction</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code className="doc-inline-code">construction</code></td>
+                                            <td>Active production and spelling of critical orthographic distinctions (e.g. Tall Man capitalization) without visual guessing cues.</td>
+                                            <td>Constructed Response / Fill-in-the-Blank (<code className="doc-inline-code">tall_man</code>) with live name reconstruction</td>
+                                            <td><StatusBadge status="Implemented" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><code className="doc-inline-code">matching</code></td>
+                                            <td>Associate related brand-generic pairs or confusable counterpart names.</td>
+                                            <td>Interactive Tap-to-Match tiles (<code className="doc-inline-code">matching</code>)</td>
+                                            <td><StatusBadge status="Implemented" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><code className="doc-inline-code">recognition</code></td>
+                                            <td>Identify documented LASA counterparts and familiarize learners with high-risk drug names.</td>
+                                            <td>Discrete Choice (<code className="doc-inline-code">multiple_choice</code>)</td>
+                                            <td><StatusBadge status="Implemented" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><code className="doc-inline-code">discrimination</code></td>
+                                            <td>Differentiate subtle orthographic or phonetic differences between look-alike/sound-alike pairs.</td>
+                                            <td>Targeted Choice / Binary True-False (<code className="doc-inline-code">true_false</code>)</td>
+                                            <td><StatusBadge status="Implemented" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><code className="doc-inline-code">retrieval</code></td>
+                                            <td>Revisit previously learned medication pairs and weak areas from memory without immediate study prompts.</td>
+                                            <td>Interleaved Retrieval Challenges (<code className="doc-inline-code">/practice</code> hub)</td>
+                                            <td><StatusBadge status="Implemented" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><code className="doc-inline-code">simulation</code></td>
+                                            <td>Apply multi-checkpoint dispensing verification (drug name, strength, dosage form, expiration date) in realistic clinical scenarios.</td>
+                                            <td>Simulated Prescription Dispensing Runner</td>
+                                            <td><StatusBadge status="Future Thesis Roadmap" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </section>
                     )}
 
@@ -826,7 +881,7 @@ function Documentation() {
                             />
                             <ul className="doc-field-desc-list">
                                 <li><code className="doc-inline-code">id</code>: Unique question identifier (e.g. <code className="doc-inline-code">q101</code>).</li>
-                                <li><code className="doc-inline-code">type</code>: Question format. Currently supported: <code className="doc-inline-code">multiple_choice</code>, <code className="doc-inline-code">true_false</code>, <code className="doc-inline-code">matching</code>.</li>
+                                <li><code className="doc-inline-code">type</code>: Question format. Currently supported: <code className="doc-inline-code">tall_man</code>, <code className="doc-inline-code">matching</code>, <code className="doc-inline-code">multiple_choice</code>, <code className="doc-inline-code">true_false</code>.</li>
                                 <li><code className="doc-inline-code">lasaId</code>: Reference to the underlying LASA pair in <code className="doc-inline-code">lasaData.json</code>.</li>
                                 <li><code className="doc-inline-code">prompt</code>: The question prompt displayed to the learner.</li>
                                 <li><code className="doc-inline-code">choices</code>: Array of selectable text options (for choice questions).</li>
@@ -856,6 +911,37 @@ function Documentation() {
   "relatedDrug": "Activase"
 }`}
                             />
+
+                            <h3 className="heading-sm doc-subsection-title">6.6 Tall Man Lettering Question Schema (<code className="doc-inline-code">tall_man</code>)</h3>
+                            <p className="doc-paragraph">
+                                A dedicated constructed-response activity requiring learners to actively generate the capitalized Tall Man segments for verified drug names, replacing passive multiple-choice guessing:
+                            </p>
+                            <JsonSnippet
+                                label="tall-man-question-example.json"
+                                code={`{
+  "id": "q201",
+  "type": "tall_man",
+  "lasaId": "lasa-004",
+  "prompt": "Convert this drug name to Tall Man lettering by entering the letters that should be capitalized:",
+  "standardName": "acetazolamide",
+  "tallManName": "acetaZOLAMIDE",
+  "prefix": "aceta",
+  "expectedSegment": "ZOLAMIDE",
+  "suffix": "",
+  "explanation": "acetaZOLAMIDE capitalizes ZOLAMIDE to emphasize differences from acetaminophen and acetoHEXAMIDE.",
+  "relatedDrug": "acetaZOLAMIDE"
+}`}
+                            />
+                            <ul className="doc-field-desc-list">
+                                <li><code className="doc-inline-code">standardName</code>: Un-capitalized generic drug name displayed in the reference card.</li>
+                                <li><code className="doc-inline-code">tallManName</code>: Authoritative ISMP 2023 Tall Man representation.</li>
+                                <li><code className="doc-inline-code">prefix</code>: Leading uncapitalized letters displayed in the construction frame (e.g. <code className="doc-inline-code">&quot;aceta&quot;</code>).</li>
+                                <li><code className="doc-inline-code">expectedSegment</code>: Exact uppercase segment required from the learner (e.g. <code className="doc-inline-code">&quot;ZOLAMIDE&quot;</code>).</li>
+                                <li><code className="doc-inline-code">suffix</code>: Trailing uncapitalized letters displayed after the input field (if applicable).</li>
+                                <li><code className="doc-inline-code">Live Name Reconstruction</code>: As the learner types into the input box, a live preview card dynamically renders the complete reconstructed drug name (<code className="doc-inline-code">&lt;TallManText /&gt;</code>) in real time.</li>
+                                <li><code className="doc-inline-code">Tolerant Normalization</code>: The evaluation engine normalizes leading/trailing whitespace and automatically compares uppercase strings, evaluating letter knowledge rather than capslock state.</li>
+                                <li><code className="doc-inline-code">Feedback Behavior</code>: On submission, both correct and incorrect outcomes display the verified Tall Man representation in the feedback drawer along with educational clinical rationale.</li>
+                            </ul>
                         </section>
                     )}
 
@@ -1058,8 +1144,8 @@ function Documentation() {
                                         </tr>
                                         <tr>
                                             <td><strong>Question Formats</strong></td>
-                                            <td>Supports <code className="doc-inline-code">multiple_choice</code>, <code className="doc-inline-code">true_false</code>, and interactive tap-to-match <code className="doc-inline-code">matching</code> pairs with <code className="doc-inline-code">TallManText</code>. Syllable tapping, drag-and-drop sort, and free-text entry remain future formats.</td>
-                                            <td>Active (Multiple + Matching)</td>
+                                            <td>Supports constructed-response Tall Man lettering (<code className="doc-inline-code">tall_man</code>) with live name reconstruction, interactive tap-to-match pairs (<code className="doc-inline-code">matching</code>), <code className="doc-inline-code">multiple_choice</code>, and <code className="doc-inline-code">true_false</code>. Full dispensing simulation scenarios and crosswords remain future thesis phases.</td>
+                                            <td>Active (Tall Man + Matching + Choice)</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Quests & Leaderboards</strong></td>

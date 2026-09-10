@@ -6,7 +6,14 @@ import unit3 from "./section-1/unit-3.json" with { type: "json" };
  * Normalizes a level object and flattens activity questions for evaluation.
  */
 function normalizeLevel(level, unit) {
-    const questions = (level.activities || []).flatMap((act) => act.questions || []);
+    const questions = (level.activities || []).flatMap((act) =>
+        (act.questions || []).map((q) => ({
+            ...q,
+            activityId: act.id,
+            activityType: act.activityType || act.type || "recognition",
+            activityObjective: act.learningObjective || level.learningObjective || ""
+        }))
+    );
 
     const normalized = {
         ...level,

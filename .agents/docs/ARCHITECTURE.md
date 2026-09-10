@@ -263,52 +263,56 @@ State should be separated by responsibility.
 
 ---
 
-# 11. LESSON & LEVEL ENGINE ARCHITECTURE
+# 11. LESSON & ACTIVITY ARCHITECTURE
 
-The learning engine follows a multi-level progression:
+The learning engine follows a purpose-driven progression grounded in cognitive science:
 
-Unit
-↓
-Level (1..X)
-↓
-Lesson Session
-↓
-Activity
-↓
-Question
-↓
-Answer
-↓
-Evaluation
-↓
-Feedback
-↓
-Next Question / Level Completion
+```text
+LASA Relationship (Authoritative Pharmacological Fact)
+        ↓
+Learning Objective (Educational Competency Target)
+        ↓
+Activity Type (Pedagogical Container)
+        ↓
+Question / Task Interaction (Concrete Interaction Mechanism)
+        ↓
+User Response (Constructed Input, Tap, or Selection)
+        ↓
+Evaluation Engine (Domain Evaluation Logic & Normalization)
+        ↓
+Feedback Drawer (Corrective Solution & Pharmacological Explanation)
+        ↓
+Session Progress & XP / Mastery Recording
+```
 
-The lesson engine should not depend on specific UI components.
+### Purpose-Driven Activity Taxonomy
+Activities represent *what the learner is actually practicing*, distinct from the mechanical question UI:
+- `construction`: Active production and reconstruction of critical letters (e.g., Tall Man lettering) without multiple-choice guessing cues.
+- `matching`: Association of related brand-generic pairs or look-alike/sound-alike counterparts via interactive tiles.
+- `recognition`: Identifying documented LASA counterparts from visual prompts.
+- `discrimination`: Differentiating subtle phonemic, orthographic, or therapeutic variations between high-risk pairs.
+- `retrieval`: Memory retrieval of previously learned pairs (e.g. `/practice` hub and Mistakes Queue).
+- `simulation`: Future applied dispensing scenarios enforcing the 4 clinical checkpoints (Name, Strength/Dosage, Route, Expiration).
 
-For example, answer evaluation should not require a React component.
-
-This allows the learning logic to be tested independently.
+The lesson engine (`src/services/lessonEngine.js`) evaluates answers independently of React components, allowing automated unit testing and headless validation.
 
 ---
 
 # 12. QUESTION ARCHITECTURE
 
-Questions support multiple types:
-- multiple choice
-- true/false
-- drug identification
-- LASA pair identification
-- matching
-- scenario-based
-- review
+Questions represent the concrete interaction mechanism dispatched by `activityType` and `question.type`:
 
-Question data defines what the question needs.
+### Supported Interaction Types:
+- `tall_man`: Constructed-response fill-in-the-blank where the user enters the capitalized segment. Real-time name reconstruction dynamically renders `<TallManText />` as the learner types. Evaluated with tolerant whitespace and casing normalization.
+- `matching`: Interactive tile selection requiring learners to link left and right counterpart pairs.
+- `multiple_choice`: Multi-option choice grid for recognition tasks.
+- `true_false`: Binary choice evaluation for clinical distinction challenges.
 
-The UI renders the question based on its type using the `<QuestionRenderer />` dispatcher component (`src/components/QuestionCard/QuestionRenderer.jsx`), ensuring `LessonSession.jsx` remains decoupled from concrete question card implementations.
+Question definition objects provide the data required for rendering and evaluation:
+- `QuestionRenderer.jsx` acts as a strategy dispatcher mapping `question.type` to `<TallManQuestion />`, `<MatchingQuestion />`, or `<MultipleChoiceQuestion />`.
+- `LessonSession.jsx` remains decoupled from concrete question card implementations and passes `onSelect` and `onSubmit` callbacks.
 
-Avoid creating a completely separate lesson implementation for every question type.
+Developer answer overrides (`[ ANSWER CORRECTLY ]` / `[ ANSWER INCORRECTLY ]`) intercept at the session layer without modifying question data schemas.
 
 ---
 

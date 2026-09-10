@@ -28,6 +28,12 @@ function FeedbackDrawer({ evaluation, onContinue }) {
                             {isCorrect ? "Excellent!" : "Correct Solution:"}
                         </h3>
 
+                        {isCorrect && evaluation.tallManName && (
+                            <div className="feedback-solution">
+                                <TallManText name={evaluation.tallManName} />
+                            </div>
+                        )}
+
                         {!isCorrect && (
                             <div className="feedback-solution">
                                 <TallManText name={correctAnswer} />

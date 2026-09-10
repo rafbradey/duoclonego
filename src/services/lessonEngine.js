@@ -60,6 +60,32 @@ export function evaluateAnswer(question, selectedAnswer) {
         };
     }
 
+    // Special handling for constructed-response Tall Man lettering questions
+    if (question.type === "tall_man") {
+        const expectedSegment = String(question.expectedSegment || "").trim().toUpperCase();
+        const inputTrimmed = String(selectedAnswer).trim();
+        const inputUpper = inputTrimmed.toUpperCase();
+
+        const fullReconstructed = `${question.prefix || ""}${inputTrimmed}${question.suffix || ""}`;
+        const targetTallMan = String(question.tallManName || "").trim();
+        const targetTallManUpper = targetTallMan.toUpperCase();
+
+        const isCorrect = Boolean(
+            (expectedSegment && inputUpper === expectedSegment) ||
+            (targetTallMan && inputUpper === targetTallManUpper) ||
+            (targetTallMan && fullReconstructed.toUpperCase() === targetTallManUpper && inputUpper.length === expectedSegment.length)
+        );
+
+        return {
+            isCorrect,
+            selectedAnswer: inputTrimmed,
+            correctAnswer: question.tallManName || expectedSegment,
+            tallManName: question.tallManName || "",
+            explanation: question.explanation || "",
+            relatedDrug: question.tallManName || question.relatedDrug || ""
+        };
+    }
+
     const cleanSelected = String(selectedAnswer).trim().toLowerCase();
     const cleanCorrect = String(question.correctAnswer).trim().toLowerCase();
     const isCorrect = cleanSelected === cleanCorrect;
@@ -151,7 +177,7 @@ export function recordSessionAnswer(
             questionId: question.id,
             prompt: question.prompt,
             selectedAnswer,
-            correctAnswer: question.correctAnswer,
+            correctAnswer: evaluation.correctAnswer || question.correctAnswer,
             isCorrect,
             explanation: question.explanation
         }

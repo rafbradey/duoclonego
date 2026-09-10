@@ -135,6 +135,12 @@ function LessonSession() {
                     }
                 }
                 devAnswer = JSON.stringify(matchMap);
+            } else if (currentQuestion.type === "tall_man") {
+                if (forcedOutcome === "correct") {
+                    devAnswer = currentQuestion.expectedSegment || currentQuestion.tallManName || "CORRECT";
+                } else {
+                    devAnswer = "WRONG";
+                }
             } else {
                 if (forcedOutcome === "correct") {
                     devAnswer = currentQuestion.correctAnswer || (currentQuestion.choices && currentQuestion.choices[0]) || "Correct";
@@ -299,6 +305,7 @@ function LessonSession() {
                     question={currentQuestion}
                     selectedAnswer={selectedAnswer}
                     onSelect={setSelectedAnswer}
+                    onSubmit={handleCheckAnswer}
                     isSubmitted={isSubmitted}
                 />
             </main>
