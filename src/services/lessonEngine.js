@@ -118,10 +118,31 @@ export function createSession(lesson) {
  * @param {Object} session - Current session state
  * @param {Object} question - Current question
  * @param {string} selectedAnswer - Selected answer
+ * @param {Object} [options] - Optional processing options
+ * @param {"correct"|"incorrect"|null} [options.forcedOutcome] - Developer testing override
  * @returns {Object} { nextSession, evaluation }
  */
-export function recordSessionAnswer(session, question, selectedAnswer) {
-    const evaluation = evaluateAnswer(question, selectedAnswer);
+export function recordSessionAnswer(
+    session,
+    question,
+    selectedAnswer,
+    { forcedOutcome = null } = {}
+) {
+    let evaluation = evaluateAnswer(question, selectedAnswer);
+
+    // Apply developer testing override if specified
+    if (forcedOutcome === "correct") {
+        evaluation = {
+            ...evaluation,
+            isCorrect: true
+        };
+    } else if (forcedOutcome === "incorrect") {
+        evaluation = {
+            ...evaluation,
+            isCorrect: false
+        };
+    }
+
     const isCorrect = evaluation.isCorrect;
 
     const updatedAnswers = [

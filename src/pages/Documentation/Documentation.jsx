@@ -17,7 +17,8 @@ import {
     Copy,
     Check,
     Layers,
-    ArrowRight
+    ArrowRight,
+    Wrench
 } from "lucide-react";
 import "./Documentation.css";
 
@@ -38,6 +39,8 @@ function StatusBadge({ status }) {
         badgeClass = "badge-placeholder";
     } else if (normalize.includes("not implemented")) {
         badgeClass = "badge-not-implemented";
+    } else if (normalize.includes("developer")) {
+        badgeClass = "badge-prototype";
     }
 
     return (
@@ -593,6 +596,25 @@ function Documentation() {
                                     <li>Create directory <code className="doc-inline-code">src/data/levels/section-2/</code>.</li>
                                     <li>Create <code className="doc-inline-code">unit-1.json</code> with <code className="doc-inline-code">&quot;sectionId&quot;: &quot;section-2&quot;</code>, <code className="doc-inline-code">&quot;sectionTitle&quot;: &quot;Section 2: High-Alert Medications&quot;</code>.</li>
                                     <li>Import and register in <code className="doc-inline-code">src/data/levels/index.js</code>.</li>
+                                </ul>
+                            </div>
+
+                            {/* Temporary Developer Testing Override Tool */}
+                            <div className="doc-guide-card">
+                                <div className="doc-subfeature-title-bar">
+                                    <h3 className="heading-sm doc-guide-title">
+                                        <Wrench size={18} />
+                                        <span>5.3 Temporary Developer Answer Overrides</span>
+                                    </h3>
+                                    <StatusBadge status="Temporary Developer Tool" />
+                                </div>
+                                <p className="doc-paragraph">
+                                    To accelerate development testing across question formats, feedback states, and session completion without requiring manual answers every time, a temporary side control panel is provided during lesson sessions:
+                                </p>
+                                <ul className="doc-bullet-list">
+                                    <li><strong>ANSWER CORRECTLY:</strong> Feeds into the existing lesson engine flow and forces the evaluation outcome to be correct. Triggers success feedback, XP bonus calculation, and progress advancement.</li>
+                                    <li><strong>ANSWER INCORRECTLY:</strong> Feeds into the existing lesson engine flow and forces the evaluation outcome to be incorrect. Triggers clinical error explanation and mistakes queue logging.</li>
+                                    <li><strong>Environment Guarded:</strong> Guarded by <code className="doc-inline-code">import.meta.env.DEV</code>. It is active solely during local development (<code className="doc-inline-code">npm run dev</code>) and automatically omitted from production builds.</li>
                                 </ul>
                             </div>
 

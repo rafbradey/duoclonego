@@ -168,3 +168,112 @@
         width: 100%;
     }
 }
+
+/* Temporary Developer Testing Override Panel (Dev Mode Only) */
+.dev-controls-panel {
+    position: fixed;
+    right: 1.5rem;
+    top: 5rem;
+    z-index: 95;
+    padding: 0.85rem 1rem;
+    background-color: rgba(22, 33, 46, 0.95);
+    border: 2px dashed rgba(255, 200, 0, 0.45);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    max-width: 220px;
+}
+
+.dev-controls-header {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid rgba(255, 200, 0, 0.25);
+    color: #ffc800;
+}
+
+.dev-controls-icon {
+    flex-shrink: 0;
+}
+
+.dev-controls-title {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.dev-controls-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dev-override-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    border-radius: 10px;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.dev-btn-correct {
+    background-color: rgba(88, 204, 2, 0.15);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: 0 3px 0 rgba(88, 204, 2, 0.35);
+}
+
+.dev-btn-correct:hover:not(:disabled) {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.dev-btn-incorrect {
+    background-color: rgba(255, 75, 75, 0.15);
+    border: 2px solid var(--color-danger);
+    color: var(--color-danger);
+    box-shadow: 0 3px 0 rgba(255, 75, 75, 0.35);
+}
+
+.dev-btn-incorrect:hover:not(:disabled) {
+    background-color: var(--color-danger);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.dev-override-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+@media (max-width: 900px) {
+    .dev-controls-panel {
+        position: static;
+        margin: 0.5rem auto 1rem auto;
+        max-width: 440px;
+        width: calc(100% - 2rem);
+    }
+
+    .dev-controls-actions {
+        flex-direction: row;
+    }
+
+    .dev-override-btn {
+        flex: 1;
+    }
+}
+

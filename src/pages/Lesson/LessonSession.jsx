@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link, useSearchParams } from "react-router";
-import { X, BookOpen, AlertCircle, Sparkles } from "lucide-react";
+import { X, BookOpen, AlertCircle, Sparkles, Wrench, Check } from "lucide-react";
 import { getLessonById } from "../../services/lessonService.js";
 import { createSession, recordSessionAnswer } from "../../services/lessonEngine.js";
 import { getCurrentUser } from "../../services/userService.js";
@@ -107,6 +107,65 @@ function LessonSession() {
         setIsSubmitted(true);
     };
 
+    /**
+     * Temporary Developer Override: forces the current question through
+     * the existing answer evaluation flow as either correct or incorrect.
+     * @param {"correct"|"incorrect"} forcedOutcome
+     */
+    const handleDeveloperOverride = (forcedOutcome) => {
+        if (isSubmitted || !lesson || !session) return;
+
+        const currentQuestion = lesson.questions[session.currentIndex];
+        if (!currentQuestion) return;
+
+        let devAnswer = selectedAnswer;
+        if (!devAnswer) {
+            if (currentQuestion.type === "matching" && Array.isArray(currentQuestion.pairs)) {
+                const matchMap = {};
+                if (forcedOutcome === "correct") {
+                    currentQuestion.pairs.forEach((p) => {
+                        matchMap[p.left] = p.right;
+                    });
+                } else {
+                    if (currentQuestion.pairs.length >= 2) {
+                        matchMap[currentQuestion.pairs[0].left] = currentQuestion.pairs[1].right;
+                        matchMap[currentQuestion.pairs[1].left] = currentQuestion.pairs[0].right;
+                    } else {
+                        matchMap[currentQuestion.pairs[0].left] = "DEV_INCORRECT_MATCH";
+                    }
+                }
+                devAnswer = JSON.stringify(matchMap);
+            } else {
+                if (forcedOutcome === "correct") {
+                    devAnswer = currentQuestion.correctAnswer || (currentQuestion.choices && currentQuestion.choices[0]) || "Correct";
+                } else {
+                    const wrongChoice = currentQuestion.choices?.find(
+                        (c) => String(c).trim().toLowerCase() !== String(currentQuestion.correctAnswer).trim().toLowerCase()
+                    );
+                    devAnswer = wrongChoice || "Incorrect Option";
+                }
+            }
+        }
+
+        const { nextSession, evaluation } = recordSessionAnswer(
+            session,
+            currentQuestion,
+            devAnswer,
+            { forcedOutcome }
+        );
+
+        if (isPracticeMode && currentQuestion?.id) {
+            recordPracticeOutcome(currentQuestion.id, evaluation.isCorrect).catch((err) => {
+                console.error("Failed to record practice outcome:", err);
+            });
+        }
+
+        setSelectedAnswer(devAnswer);
+        setSession(nextSession);
+        setCurrentEvaluation(evaluation);
+        setIsSubmitted(true);
+    };
+
     const handleContinue = () => {
         if (!session) return;
 
@@ -202,6 +261,38 @@ function LessonSession() {
                     </div>
                 </div>
             </header>
+
+            {/* Temporary Developer Testing Override Panel (Dev Mode Only) */}
+            {import.meta.env.DEV && (
+                <aside className="dev-controls-panel duo-card" aria-label="Developer Testing Controls">
+                    <div className="dev-controls-header">
+                        <Wrench size={14} className="dev-controls-icon" />
+                        <span className="dev-controls-title">Developer Controls</span>
+                    </div>
+                    <div className="dev-controls-actions">
+                        <button
+                            type="button"
+                            onClick={() => handleDeveloperOverride("correct")}
+                            disabled={isSubmitted}
+                            className="duo-button dev-override-btn dev-btn-correct"
+                            title="Force current question to evaluate as Correct"
+                        >
+                            <Check size={14} />
+                            <span>ANSWER CORRECTLY</span>
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => handleDeveloperOverride("incorrect")}
+                            disabled={isSubmitted}
+                            className="duo-button dev-override-btn dev-btn-incorrect"
+                            title="Force current question to evaluate as Incorrect"
+                        >
+                            <X size={14} />
+                            <span>ANSWER INCORRECTLY</span>
+                        </button>
+                    </div>
+                </aside>
+            )}
 
             <main className="lesson-runner-content">
                 <QuestionRenderer
