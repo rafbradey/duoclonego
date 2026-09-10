@@ -327,9 +327,9 @@ function Documentation() {
                                         </tr>
                                         <tr>
                                             <td><code className="doc-inline-code">/profile</code></td>
-                                            <td>Learner Profile & History (<code className="doc-inline-code">Profile.jsx</code>)</td>
+                                            <td>Learner Profile & Retention Mastery (<code className="doc-inline-code">Profile.jsx</code>)</td>
                                             <td><code className="doc-inline-code">AppLayout</code></td>
-                                            <td><StatusBadge status="Partially Implemented" /></td>
+                                            <td><StatusBadge status="Implemented" /></td>
                                         </tr>
                                         <tr>
                                             <td><code className="doc-inline-code">/documentation</code></td>
@@ -417,29 +417,49 @@ function Documentation() {
                             {/* Profile */}
                             <div className="doc-subfeature-block">
                                 <div className="doc-subfeature-title-bar">
-                                    <h3 className="heading-sm">3.5 User Profile (<code className="doc-inline-code">/profile</code>)</h3>
-                                    <StatusBadge status="Partially Implemented" />
+                                    <h3 className="heading-sm">3.5 User Profile &amp; Retention Mastery (<code className="doc-inline-code">/profile</code>)</h3>
+                                    <StatusBadge status="Implemented" />
                                 </div>
                                 <p className="doc-paragraph">
-                                    Displays user avatar, display name, username handle, join date, current streak, gem balance, mastery level, and total accumulated XP. Stats synchronize in real time via <code className="doc-inline-code">duoclongo:user-updated</code> events. Operates on local prototype storage.
+                                    A comprehensive learner dashboard providing real-time insights into motivation, spaced retention, and curriculum mastery:
                                 </p>
+                                <ul className="doc-bullet-list">
+                                    <li><strong>Core Motivational Metrics:</strong> Displays user avatar, display name, username handle, join date, current streak, gem balance, mastery level, and total accumulated XP.</li>
+                                    <li><strong>LASA Long-Term Retention Analytics:</strong> Direct visualization of Spaced Repetition (SRS) memory strength across all 24+ verified ISMP drug pairs, tracking how many pairs have achieved Stage 3 Mastery.</li>
+                                    <li><strong>Real-Time Practice Due &amp; Mistakes Alerts:</strong> Live indicators highlighting pairs whose retention timers have expired alongside unredeemed mistakes awaiting remediation.</li>
+                                    <li><strong>Curriculum Completion Progress:</strong> Unit-by-unit visual progression cards displaying completed levels, unit mastery capstones, and overall curriculum completion percentages.</li>
+                                </ul>
                             </div>
 
                             {/* Practice Hub */}
                             <div className="doc-subfeature-block">
                                 <div className="doc-subfeature-title-bar">
-                                    <h3 className="heading-sm">3.6 Targeted Practice Hub (<code className="doc-inline-code">/practice</code>)</h3>
+                                    <h3 className="heading-sm">3.6 Targeted Practice Hub &amp; Spaced Repetition Engine (<code className="doc-inline-code">/practice</code>)</h3>
                                     <StatusBadge status="Implemented" />
                                 </div>
                                 <p className="doc-paragraph">
-                                    A functional retrieval practice center dedicated to reinforcing high-risk LASA medication pairs:
+                                    A retrieval practice and memory consolidation center powered by a pragmatic 4-Stage Leitner Spaced Repetition System (SRS) and unified mistake tracking:
                                 </p>
                                 <ul className="doc-bullet-list">
-                                    <li><strong>Dynamic Question Generation:</strong> Powered by <code className="doc-inline-code">practiceService.generatePracticeSession()</code>, aggregating questions from all completed and unlocked curriculum levels to prevent encountering unlearned pairs prematurely.</li>
-                                    <li><strong>Quick Retrieval Practice:</strong> Generates 5 randomized recall challenges rewarding +10 review XP.</li>
-                                    <li><strong>Targeted Mistakes Queue:</strong> Automatically flags questions missed during standard curriculum lessons into <code className="doc-inline-code">user.mistakes_queue</code>. Answering correctly during practice clears them from the queue.</li>
+                                    <li><strong>Three Specialized Practice Modes:</strong>
+                                        <ul>
+                                            <li><strong>Daily Spaced Review (<code className="doc-inline-code">mode=due</code>):</strong> The primary practice activity when reviews are due. Targets pairs whose interval timers have expired to prevent memory decay. If fewer than 5 items are due, backfills from newly learned pairs.</li>
+                                            <li><strong>Targeted Mistakes Review (<code className="doc-inline-code">mode=mistakes</code>):</strong> Directly exercises questions previously missed in normal unit lessons or capstone mastery. Answering correctly redeems the mistake and clears it from the queue.</li>
+                                            <li><strong>Quick Practice (<code className="doc-inline-code">mode=quick</code>):</strong> Rapid 5-question randomized retrieval across all unlocked curriculum levels, awarding +10 review XP.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>4-Stage Leitner Memory Intervals:</strong>
+                                        <ul>
+                                            <li><strong>Stage 0 (Learning / Flagged):</strong> Immediate review (0 hours).</li>
+                                            <li><strong>Stage 1 (Initial Recall):</strong> 24 hours (1 day).</li>
+                                            <li><strong>Stage 2 (Consolidation):</strong> 72 hours (3 days).</li>
+                                            <li><strong>Stage 3 (Mastered):</strong> 168 hours (7 days).</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Unified Mistake Capture:</strong> Errors made anywhere in the application (normal lessons, unit mastery capstones, or practice) automatically demote the pair to Stage 0 and append the question to <code className="doc-inline-code">user.mistakes_queue</code>.</li>
+                                    <li><strong>Live Practice Stats Bar:</strong> Displays real-time counters for Reviews Finished, Due for Review, Mistakes in Queue, and Mastered Pairs.</li>
+                                    <li><strong>Confusable Pairs Reference Browser:</strong> Interactive flashcard directory of verified ISMP drug pairs with dynamic memory strength pills (<code className="doc-inline-code">Mastered</code>, <code className="doc-inline-code">Review Due</code>, <code className="doc-inline-code">Stage 1/2</code>) and <code className="doc-inline-code">TallManText</code> highlighting.</li>
                                     <li><strong>Protected Hearts (Safe Mode):</strong> Practice sessions protect the learner&apos;s hearts (zero hearts depleted on incorrect answers) to encourage low-anxiety retrieval practice.</li>
-                                    <li><strong>LASA Pair Flashcard Reference:</strong> Interactive browser of verified ISMP drug pairs with level filtering tabs and <code className="doc-inline-code">TallManText</code> highlighting.</li>
                                 </ul>
                             </div>
 
@@ -1158,7 +1178,22 @@ function Documentation() {
                             <ul className="doc-bullet-list">
                                 <li><strong>Zero Direct UI Coupling:</strong> No React component directly accesses <code className="doc-inline-code">localStorage</code>. All reads and writes pass through <code className="doc-inline-code">getCurrentUser()</code>, <code className="doc-inline-code">getUserById()</code>, and <code className="doc-inline-code">updateUserProgress()</code> in <code className="doc-inline-code">src/services/userService.js</code>.</li>
                                 <li><strong>Async Service Signatures:</strong> All user service methods are asynchronous and return Promises. Replacing <code className="doc-inline-code">localStorage</code> with API calls will not require changes to UI component call sites.</li>
-                                <li><strong>Mistakes & Practice Tracking:</strong> Tracks <code className="doc-inline-code">mistakes_queue</code> (array of question IDs needing redemption) and <code className="doc-inline-code">practice_sessions_completed</code> alongside XP and completed lessons.</li>
+                                <li><strong>Spaced Repetition (SRS) State Machine:</strong> Persists an <code className="doc-inline-code">srs_records</code> dictionary mapping each tested LASA pair ID to its memory retention state:
+                                    <pre className="doc-code-inline-block">
+{`"srs_records": {
+  "lasa-001": {
+    "lasaId": "lasa-001",
+    "stage": 3,
+    "consecutiveCorrect": 3,
+    "lastReviewed": 1725960000000,
+    "nextReviewDue": 1726564800000,
+    "mistakeCount": 0,
+    "successCount": 4
+  }
+}`}
+                                    </pre>
+                                </li>
+                                <li><strong>Unified Mistake Queue:</strong> Tracks unredeemed errors across all lessons and practice modes via <code className="doc-inline-code">user.mistakes_queue</code> (array of question ID strings). Missed questions are automatically enqueued; correct answers during practice redeem and remove them.</li>
                                 <li><strong>Event Synchronization:</strong> Dispatches <code className="doc-inline-code">duoclongo:user-updated</code> events on <code className="doc-inline-code">window</code>, allowing open components to update stats in real time.</li>
                             </ul>
                         </section>
@@ -1261,8 +1296,8 @@ function Documentation() {
                                             <td>Phase 4</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Practice Mode</strong></td>
-                                            <td>Implemented (Phase 3). Supports Quick Retrieval Practice, Mistakes Queue Tracking, Protected Hearts (safe mode), and review XP (+10 XP). Advanced spaced repetition scheduling (e.g. SM-2) remains for future enhancements.</td>
+                                            <td><strong>Practice Mode &amp; SRS</strong></td>
+                                            <td>Implemented (Phase 3). Fully operational 4-Stage Leitner Spaced Repetition System with interval timers (0h, 24h, 72h, 168h), Unified Mistakes Queue, and 3 practice modes (Daily Spaced Review, Targeted Mistakes Review, Quick Practice). Cloud synchronization to Supabase planned for Phase 4.</td>
                                             <td>Phase 3 (Active)</td>
                                         </tr>
                                         <tr>
