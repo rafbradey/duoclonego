@@ -14,7 +14,9 @@ export async function getAllLasaEntries() {
  * @returns {Promise<Object|null>} The LASA entry or null if not found
  */
 export async function getLasaById(id) {
-    const entry = lasaData.entries.find((e) => e.id === id);
+    if (!id) return null;
+    const normalizedId = String(id).replace("-", "_");
+    const entry = lasaData.entries.find((e) => e.id === id || e.id === normalizedId || e.id === String(id).replace("_", "-"));
     return entry || null;
 }
 

@@ -84,11 +84,14 @@
 }
 
 .tm-reference-name {
-    font-size: 1.65rem;
+    font-size: clamp(1.2rem, 5vw, 1.65rem);
     font-weight: 800;
     letter-spacing: 0.02em;
     color: var(--text-primary, #ffffff);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    word-break: break-word;
+    text-align: center;
+    max-width: 100%;
 }
 
 /* Construction Frame */
@@ -202,22 +205,46 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 480px) {
-    .tm-reference-name {
-        font-size: 1.35rem;
+    .tm-question-container {
+        gap: 1.15rem;
+    }
+
+    .tm-reference-card {
+        padding: 1rem;
+        border-radius: 14px;
+    }
+
+    .tm-construction-frame {
+        padding: 1rem 0.75rem;
+        border-radius: 14px;
+        gap: 0.6rem;
     }
 
     .tm-affix {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
     }
 
     .tm-segment-input {
-        min-width: 110px;
-        font-size: 1.15rem;
-        padding: 0.5rem 1.8rem 0.5rem 0.6rem;
+        min-width: 90px;
+        max-width: 180px;
+        font-size: 1.1rem;
+        padding: 0.5rem 1.6rem 0.5rem 0.6rem;
+        border-radius: 10px;
+    }
+
+    .tm-preview-card {
+        padding: 0.65rem 1rem;
+        border-radius: 12px;
     }
 
     .tm-preview-value {
-        font-size: 1.25rem;
+        font-size: 1.15rem;
+    }
+
+    .tm-full-input {
+        font-size: 1.15rem;
+        padding: 0.75rem 1rem;
+        border-radius: 12px;
     }
 }
 

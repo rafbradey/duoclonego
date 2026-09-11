@@ -1,0 +1,385 @@
+.quests-container {
+    max-width: 840px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.quests-header-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.75rem 2rem;
+    background: linear-gradient(135deg, rgba(88, 204, 2, 0.12) 0%, rgba(30, 41, 59, 0.4) 100%);
+    border: 1.5px solid rgba(88, 204, 2, 0.3);
+    border-radius: 16px;
+}
+
+.quests-header-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.quests-header-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.quests-header-icon {
+    color: #e6b800;
+}
+
+.quests-header-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+}
+
+.quests-mascot-wrap {
+    flex-shrink: 0;
+}
+
+.quests-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.quests-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.quests-section-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.quests-section-title-wrap h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.quests-reset-timer {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.25rem 0.65rem;
+    border-radius: 12px;
+}
+
+.daily-quests-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quest-card {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-color);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.quest-card:hover {
+    transform: translateY(-2px);
+}
+
+.quest-card.completed {
+    border-color: rgba(88, 204, 2, 0.4);
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(88, 204, 2, 0.04) 100%);
+}
+
+.quest-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.quest-icon-wrap {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.quest-icon-wrap.color-green {
+    background: rgba(88, 204, 2, 0.15);
+    color: #58cc02;
+}
+
+.quest-icon-wrap.color-blue {
+    background: rgba(28, 176, 246, 0.15);
+    color: #1cb0f6;
+}
+
+.quest-icon-wrap.color-yellow {
+    background: rgba(255, 200, 0, 0.15);
+    color: #ffc800;
+}
+
+.quest-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.quest-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.quest-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.quest-progress-text {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.quest-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.35;
+}
+
+.quest-progress-track {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.2rem;
+}
+
+.quest-progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.quest-progress-fill.color-green {
+    background: #58cc02;
+}
+
+.quest-progress-fill.color-blue {
+    background: #1cb0f6;
+}
+
+.quest-progress-fill.color-yellow {
+    background: #ffc800;
+}
+
+.quest-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.quest-reward-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.25rem 0.65rem;
+    border-radius: 8px;
+    background: rgba(255, 200, 0, 0.12);
+    color: #ffd700;
+    border: 1px solid rgba(255, 200, 0, 0.3);
+}
+
+.quest-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.quest-status-badge.done {
+    color: #58cc02;
+}
+
+.quest-status-badge.in-progress {
+    color: var(--text-muted);
+}
+
+/* Milestones Grid */
+.milestones-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.milestone-card {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-color);
+    border-radius: 14px;
+    padding: 1.15rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.milestone-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.milestone-card.unlocked {
+    border-color: rgba(88, 204, 2, 0.4);
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(88, 204, 2, 0.03) 100%);
+}
+
+.milestone-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: 800;
+}
+
+.milestone-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.milestone-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.milestone-tier-pill {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.45rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.milestone-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.milestone-desc {
+    font-size: 0.78rem;
+    line-height: 1.35;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.milestone-progress-track {
+    height: 5px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.35rem;
+}
+
+.milestone-progress-fill {
+    height: 100%;
+    background: #58cc02;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .quests-header-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .quests-header-title-wrap {
+        justify-content: center;
+    }
+
+    .milestones-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quest-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .quest-right {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+}
+
+@media (max-width: 480px) {
+    .quests-container {
+        padding: 0.85rem 0.65rem;
+    }
+
+    .quests-header-card {
+        padding: 1.15rem 0.85rem;
+    }
+
+    .quest-card {
+        padding: 0.85rem;
+    }
+
+    .milestone-card {
+        padding: 0.85rem;
+    }
+}

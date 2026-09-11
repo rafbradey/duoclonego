@@ -42,77 +42,99 @@
     width: 100%;
     background-color: var(--color-primary);
     border-radius: 16px;
-    padding: 1.25rem 1.5rem;
+    padding: 1rem 1.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
     box-shadow: 0 4px var(--color-primary-shadow);
     color: var(--text-white);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .unit-banner-info {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.35rem;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 0.2rem 0.4rem;
+    margin: -0.2rem -0.4rem;
+    transition: background-color 0.15s ease;
+}
+
+.unit-banner-info:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.unit-banner-info:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
 }
 
 .unit-header-meta {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    opacity: 0.85;
 }
 
-.unit-back-icon {
-    flex-shrink: 0;
+.unit-meta-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-white);
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
 }
 
 .unit-title {
-    font-size: 1.1rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
-
-.unit-description {
-    font-size: 1.35rem;
+    font-size: 1.15rem;
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.25;
+    margin: 0;
+    color: var(--text-white);
+    letter-spacing: -0.01em;
 }
 
-.unit-subtitle {
-    font-size: 0.95rem;
-    font-weight: 500;
-    line-height: 1.35;
-    opacity: 0.92;
-    margin-top: 0.25rem;
-}
-
-.unit-guidebook-btn {
-    display: inline-flex;
+.unit-banner-actions {
+    display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.6rem 1rem;
+    flex-shrink: 0;
+}
+
+.unit-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 0.85rem;
     border-radius: 12px;
     border: 2px solid var(--color-primary-shadow);
     background-color: transparent;
     color: var(--text-white);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 800;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     cursor: pointer;
     box-shadow: 0 2px var(--color-primary-shadow);
     transition: background-color 0.15s ease, transform 0.1s ease;
-    flex-shrink: 0;
+    white-space: nowrap;
 }
 
-.unit-guidebook-btn:hover {
+.unit-action-btn:hover {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-.unit-guidebook-btn:active {
+.unit-action-btn:active {
     transform: translateY(2px);
     box-shadow: none;
+}
+
+.unit-overview-btn {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .unit-divider {
@@ -152,6 +174,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    scroll-margin-top: 100px;
+    scroll-margin-bottom: 50px;
 }
 
 .lesson-node-btn {
@@ -283,6 +307,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    scroll-margin-top: 100px;
+    scroll-margin-bottom: 50px;
 }
 
 .unit-mastery-header-label {
@@ -463,46 +489,92 @@
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
     .learn-layout {
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
         gap: 1.5rem;
         padding: 1.5rem 1rem;
+        max-width: 680px;
+    }
+
+    .learn-content-column {
+        max-width: 100%;
+        width: 100%;
     }
 
     .learn-rail-column {
-        width: 100%;
-        max-width: 620px;
+        display: none;
     }
 }
 
 @media (max-width: 640px) {
+    .learn-layout {
+        padding: 1rem 0.75rem;
+    }
+
+    .learn-units-container {
+        gap: 2.25rem;
+    }
+
     .unit-banner {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-    }
-
-    .unit-guidebook-btn {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .unit-description {
-        font-size: 1.15rem;
-    }
-
-    .unit-mastery-card {
-        padding: 1rem 1.15rem;
+        align-items: stretch;
+        padding: 0.9rem 1rem;
         gap: 0.85rem;
     }
 
+    .unit-banner-actions {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .unit-action-btn {
+        flex: 1;
+        justify-content: center;
+        min-height: 40px;
+    }
+
+    .unit-mastery-card {
+        padding: 0.9rem 1rem;
+        gap: 0.75rem;
+    }
+
     .unit-mastery-icon-box {
-        width: 50px;
-        height: 50px;
-        border-radius: 14px;
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
     }
 
     .unit-mastery-name {
-        font-size: 1.05rem;
+        font-size: 1rem;
+    }
+
+    .unit-mastery-desc {
+        font-size: 0.8rem;
     }
 }
+
+@media (max-width: 400px) {
+    .learn-layout {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .unit-banner-title {
+        font-size: 1.1rem;
+    }
+
+    .unit-banner-desc {
+        font-size: 0.78rem;
+    }
+
+    .unit-action-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.72rem;
+    }
+
+    .lesson-node-title {
+        max-width: 160px;
+        font-size: 0.8rem;
+    }
+}
+

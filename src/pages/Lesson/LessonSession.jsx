@@ -356,6 +356,7 @@ function LessonSession() {
                     onSelect={setSelectedAnswer}
                     onSubmit={handleCheckAnswer}
                     isSubmitted={isSubmitted}
+                    isPracticeMode={isPracticeMode}
                 />
             </main>
 

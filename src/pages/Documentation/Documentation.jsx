@@ -908,7 +908,7 @@ function Documentation() {
     {
       "id": "lesson_101",
       "lessonNumber": 1,
-      "title": "Abelcet vs Amphotericin B",
+      "title": "buPROPion vs busPIRone",
       "activities": [ ... ]
     }
   ]
@@ -957,17 +957,17 @@ function Documentation() {
                                 code={`{
   "id": "q101",
   "type": "multiple_choice",
-  "lasaId": "lasa-001",
-  "prompt": "Which medication is a documented Look-Alike / Sound-Alike counterpart to Abelcet?",
+  "lasaId": "lasa_001",
+  "prompt": "Which medication is a documented Look-Alike / Sound-Alike counterpart to buPROPion?",
   "choices": [
-    "amphotericin B",
-    "amoxicillin",
-    "ampicillin",
-    "atenolol"
+    "busPIRone",
+    "hydrALAZINE",
+    "traMADol",
+    "clonazePAM"
   ],
-  "correctAnswer": "amphotericin B",
-  "explanation": "Abelcet (amphotericin B lipid complex) is frequently confused with conventional amphotericin B. Mix-ups between formulations can cause severe dosing and toxicity errors.",
-  "relatedDrug": "Abelcet"
+  "correctAnswer": "busPIRone",
+  "explanation": "buPROPion and busPIRone form a documented ISMP/FDA LASA pair.",
+  "relatedDrug": "buPROPion"
 }`}
                             />
                             <ul className="doc-field-desc-list">

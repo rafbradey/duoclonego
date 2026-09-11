@@ -12,16 +12,40 @@ import {
     Clock,
     Sparkles,
     BookOpen,
-    ArrowRight
+    ArrowRight,
+    Medal,
+    Lock,
+    Trophy,
+    Crown,
+    ShieldAlert,
+    Pencil,
+    Layers
 } from "lucide-react";
 import {
     getCurrentUser,
     getDueSrsPairs,
     getMasteredPairsCount
 } from "../../services/userService.js";
+import { getUserBadges } from "../../services/badgeService.js";
 import { allUnits, allLevels } from "../../data/levels/index.js";
 import userAvatar from "../../assets/avatars/default_avatar_male.png";
 import "./Profile.css";
+
+function BadgeIcon({ iconName, size = 24 }) {
+    switch (iconName) {
+        case "Pencil": return <Pencil size={size} />;
+        case "Layers": return <Layers size={size} />;
+        case "ShieldAlert": return <ShieldAlert size={size} />;
+        case "Sparkles": return <Sparkles size={size} />;
+        case "Award": return <Award size={size} />;
+        case "Trophy": return <Trophy size={size} />;
+        case "Brain": return <Brain size={size} />;
+        case "Flame": return <Flame size={size} />;
+        case "CheckCircle": return <CheckCircle2 size={size} />;
+        case "Crown": return <Crown size={size} />;
+        default: return <Medal size={size} />;
+    }
+}
 
 function Profile() {
     const [user, setUser] = useState(null);
@@ -62,8 +86,11 @@ function Profile() {
                 if (p?.id) pairIdSet.add(p.id);
             });
         });
-        return Math.max(pairIdSet.size, 24);
+        return Math.max(pairIdSet.size, 50);
     }, []);
+
+    // Achievements & Badges analytics
+    const badgeData = useMemo(() => getUserBadges(user), [user]);
 
     // Memory Stage Analytics from live SRS records
     const srsAnalytics = useMemo(() => {
@@ -425,6 +452,72 @@ function Profile() {
                         <span>Continue Learning Path</span>
                         <ArrowRight size={16} />
                     </Link>
+                </div>
+            </section>
+
+            {/* SECTION 3: ACHIEVEMENTS & LASA BADGES */}
+            <section className="profile-section-block duo-card" aria-labelledby="badges-title">
+                <div className="profile-section-header">
+                    <div className="profile-section-title-wrap">
+                        <Trophy size={22} className="badges-header-icon" />
+                        <div>
+                            <h2 id="badges-title" className="heading-md">Achievements & Badges</h2>
+                            <p className="body-text-muted profile-section-subtitle">
+                                Milestones earned through mastering verified FDA/ISMP Look-Alike Sound-Alike medication pairs and curriculum levels.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="badges-overall-chip">
+                        <span>{badgeData.unlockedCount} / {badgeData.totalCount} Unlocked ({badgeData.completionPercentage}%)</span>
+                    </div>
+                </div>
+
+                <div className="profile-badges-grid">
+                    {badgeData.badges.map((badge) => (
+                        <div
+                            key={badge.id}
+                            className={`profile-badge-card ${badge.isUnlocked ? "unlocked" : "locked"} tier-${badge.tier}`}
+                        >
+                            <div className="badge-card-icon-wrap">
+                                <div className={`badge-icon-disc tier-${badge.tier}`}>
+                                    <BadgeIcon iconName={badge.iconName} size={24} />
+                                </div>
+                                {!badge.isUnlocked && (
+                                    <div className="badge-lock-overlay" title="Locked">
+                                        <Lock size={12} />
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="badge-card-content">
+                                <div className="badge-card-header">
+                                    <span className={`badge-tier-pill tier-${badge.tier}`}>{badge.tier.toUpperCase()}</span>
+                                    {badge.isUnlocked ? (
+                                        <span className="badge-status-pill unlocked">
+                                            <CheckCircle2 size={12} /> Unlocked
+                                        </span>
+                                    ) : (
+                                        <span className="badge-status-pill locked">
+                                            {badge.currentValue}/{badge.targetValue}
+                                        </span>
+                                    )}
+                                </div>
+                                <h3 className="heading-xs badge-title">{badge.title}</h3>
+                                <p className="badge-desc">{badge.description}</p>
+
+                                {!badge.isUnlocked && (
+                                    <div className="badge-progress-container">
+                                        <div className="badge-progress-track">
+                                            <div
+                                                className="badge-progress-fill"
+                                                style={{ width: `${badge.percentage}%` }}
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </section>
         </div>

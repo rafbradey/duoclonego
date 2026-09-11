@@ -55,6 +55,8 @@
     background-color: var(--bg-surface);
     border: 2px solid var(--border-color);
     border-radius: 16px;
+    min-width: 0;
+    box-sizing: border-box;
     transition: transform 0.15s ease, border-color 0.15s ease;
 }
 
@@ -107,12 +109,18 @@
     display: flex;
     flex-direction: column;
     gap: 0.15rem;
+    min-width: 0;
+    flex: 1;
 }
 
 .practice-stat-value {
     font-size: 1.25rem;
     font-weight: 800;
     color: var(--text-white);
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .practice-stat-label {
@@ -121,6 +129,9 @@
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.04em;
+    line-height: 1.2;
+    white-space: normal;
+    word-break: break-word;
 }
 
 /* Practice Action Cards */
@@ -364,5 +375,29 @@
 
     .practice-modes-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .practice-hub-container {
+        padding: 0.85rem 0.65rem 2.5rem 0.65rem;
+    }
+
+    .practice-stat-card {
+        padding: 0.75rem 1rem;
+    }
+
+    .practice-mode-card {
+        padding: 1.15rem 1rem;
+    }
+
+    .practice-pairs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .practice-ref-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.25rem;
     }
 }

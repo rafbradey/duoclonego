@@ -1,4 +1,4 @@
-import { allLevels } from "../data/levels/index.js";
+import { allLevels, getQuestionOrigin } from "../data/levels/index.js";
 import { getCurrentUser, recordSrsOutcome, getDueSrsPairs } from "./userService.js";
 
 /**
@@ -99,6 +99,22 @@ export async function generatePracticeSession({ mode = "quick", count = 5 } = {}
         const shuffled = shuffleArray(allCandidates);
         selectedQuestions = shuffled.slice(0, Math.min(count, shuffled.length));
     }
+
+    // Attach exact Learning Path origin metadata to every practice question
+    selectedQuestions = selectedQuestions.map((q) => {
+        const origin = getQuestionOrigin(q);
+        if (origin) {
+            return {
+                ...q,
+                ...origin,
+                isPractice: true
+            };
+        }
+        return {
+            ...q,
+            isPractice: true
+        };
+    });
 
     let title = "Quick Practice";
     let description = "Quick retrieval practice drawn from your completed LASA curriculum.";

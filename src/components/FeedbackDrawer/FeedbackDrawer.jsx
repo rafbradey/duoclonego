@@ -45,6 +45,18 @@ function FeedbackDrawer({ evaluation, onContinue }) {
                                 {explanation}
                             </p>
                         )}
+
+                        {evaluation.riskSummary && (
+                            <div className="feedback-insight-box" role="note">
+                                <span className="feedback-insight-title">
+                                    <span className="feedback-insight-icon" aria-hidden="true">💡</span>
+                                    <span>{isCorrect ? "Did you know?" : "Why does this matter?"}</span>
+                                </span>
+                                <p className="feedback-insight-text">
+                                    {evaluation.riskSummary}
+                                </p>
+                            </div>
+                        )}
                     </div>
                 </div>
 

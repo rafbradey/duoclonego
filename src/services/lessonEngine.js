@@ -20,6 +20,15 @@ export function evaluateAnswer(question, selectedAnswer) {
         };
     }
 
+    // Common metadata attachments
+    const commonMetadata = {
+        riskSummary: question.riskSummary || question.feedbackFact || "",
+        sourceUrl: question.sourceUrl || "",
+        sourceCitation: question.sourceCitation || "",
+        source: question.source || "",
+        pairDisplay: question.pairDisplay || ""
+    };
+
     // Special handling for tap-to-match pair questions
     if (question.type === "matching" && Array.isArray(question.pairs)) {
         let parsedMatches = selectedAnswer;
@@ -56,7 +65,8 @@ export function evaluateAnswer(question, selectedAnswer) {
             selectedAnswer,
             correctAnswer: formattedCorrect,
             explanation: question.explanation || "",
-            relatedDrug: question.relatedDrug || ""
+            relatedDrug: question.relatedDrug || "",
+            ...commonMetadata
         };
     }
 
@@ -83,7 +93,8 @@ export function evaluateAnswer(question, selectedAnswer) {
                 tallManName: targetTallMan,
                 isMastery: true,
                 explanation: question.explanation || "",
-                relatedDrug: targetTallMan || question.relatedDrug || ""
+                relatedDrug: targetTallMan || question.relatedDrug || "",
+                ...commonMetadata
             };
         }
 
@@ -106,20 +117,38 @@ export function evaluateAnswer(question, selectedAnswer) {
             tallManName: question.tallManName || "",
             isMastery: false,
             explanation: question.explanation || "",
-            relatedDrug: question.tallManName || question.relatedDrug || ""
+            relatedDrug: question.tallManName || question.relatedDrug || "",
+            ...commonMetadata
         };
     }
 
-    const cleanSelected = String(selectedAnswer).trim().toLowerCase();
-    const cleanCorrect = String(question.correctAnswer).trim().toLowerCase();
-    const isCorrect = cleanSelected === cleanCorrect;
+    // Detect if this is a Tall Man multiple choice question testing capitalization:
+    // When options are capitalization variations of the same text or subtype is tall_man_mcq,
+    // evaluate strictly case-sensitive.
+    const isTallManMCQ = Boolean(
+        question.subtype === "tall_man_mcq" ||
+        question.isTallManChoice ||
+        (Array.isArray(question.choices) &&
+         question.choices.length > 1 &&
+         new Set(question.choices.map((c) => String(c).trim().toLowerCase())).size === 1)
+    );
+
+    let isCorrect;
+    if (isTallManMCQ) {
+        isCorrect = String(selectedAnswer).trim() === String(question.correctAnswer).trim();
+    } else {
+        const cleanSelected = String(selectedAnswer).trim().toLowerCase();
+        const cleanCorrect = String(question.correctAnswer).trim().toLowerCase();
+        isCorrect = cleanSelected === cleanCorrect;
+    }
 
     return {
         isCorrect,
         selectedAnswer,
         correctAnswer: question.correctAnswer,
         explanation: question.explanation,
-        relatedDrug: question.relatedDrug
+        relatedDrug: question.relatedDrug,
+        ...commonMetadata
     };
 }
 
@@ -299,15 +328,27 @@ export function recordSessionAnswer(
 
     const isCorrect = evaluation.isCorrect;
 
+    const subject = question.relatedDrug ||
+                    question.tallManName ||
+                    question.standardName ||
+                    (question.pairs && question.pairs[0] ? `${question.pairs[0].left} ↔ ${question.pairs[0].right}` : "") ||
+                    "";
+
     const updatedAnswers = [
         ...session.answers,
         {
             questionId: question.id,
+            questionType: question.type || "multiple_choice",
+            subtype: question.subtype || (question.isTallManChoice ? "tall_man_mcq" : ""),
+            activityRole: question.activityRole || "",
+            subject,
+            targetDrug: question.tallManName || question.standardName || question.relatedDrug || "",
             prompt: question.prompt,
             selectedAnswer,
             correctAnswer: evaluation.correctAnswer || question.correctAnswer,
             isCorrect,
-            explanation: question.explanation
+            explanation: question.explanation,
+            pairs: question.pairs || null
         }
     ];
 

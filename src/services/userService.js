@@ -1,4 +1,5 @@
 import usersData from "../data/user.json" with { type: "json" };
+import { getUserBadges } from "./badgeService.js";
 
 const STORAGE_KEY = "duoclongo_user_progress";
 
@@ -154,7 +155,7 @@ export async function updateUserProgress({
     const practiceCount = (currentUser.practice_sessions_completed || 0) +
         (practiceSessionCompleted ? 1 : 0);
 
-    currentUser = {
+    const updatedUser = {
         ...currentUser,
         xp: Math.max(0, (currentUser.xp || 0) + xpToAdd),
         hearts: Math.max(0, (currentUser.hearts || 5) + heartsChange),
@@ -163,6 +164,10 @@ export async function updateUserProgress({
         practice_sessions_completed: practiceCount
     };
 
+    const badgeInfo = getUserBadges(updatedUser);
+    updatedUser.unlocked_badges = badgeInfo.badges.filter((b) => b.isUnlocked).map((b) => b.id);
+
+    currentUser = updatedUser;
     savePersistedUser(currentUser);
     notifyUserUpdated(currentUser);
 
@@ -232,12 +237,16 @@ export async function recordSrsOutcome({ lasaId, isCorrect, questionId } = {}) {
         }
     }
 
-    currentUser = {
+    const updatedUser = {
         ...currentUser,
         srs_records: srsRecords,
         mistakes_queue: mistakesQueue
     };
 
+    const badgeInfo = getUserBadges(updatedUser);
+    updatedUser.unlocked_badges = badgeInfo.badges.filter((b) => b.isUnlocked).map((b) => b.id);
+
+    currentUser = updatedUser;
     savePersistedUser(currentUser);
     notifyUserUpdated(currentUser);
 

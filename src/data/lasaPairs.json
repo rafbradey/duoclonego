@@ -1,517 +1,2082 @@
 {
   "source": {
-    "name": "Institute for Safe Medication Practices (ISMP)",
-    "document": "ISMP List of Confused Drug Names (2023)",
-    "url": "https://www.ismp.org",
-    "citation": "Institute for Safe Medication Practices (ISMP). List of Confused Drug Names. Horsham, PA: ISMP; 2023.",
-    "scope": "Core Look-Alike / Sound-Alike (LASA) Recognition & Tall Man Lettering MVP"
+    "name": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "document": "ISMP List of Confused Drug Names & FDA Table 1 Tall Man List",
+    "url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "citation": "Institute for Safe Medication Practices (ISMP) & U.S. FDA CDER Name Differentiation Project.",
+    "scope": "Core Look-Alike / Sound-Alike (LASA) Recognition & Tall Man Lettering Canonical Dataset"
   },
+  "totalPairs": 50,
   "pairs": [
     {
       "id": "lasa_001",
+      "numericId": 1,
       "drugA": {
-        "genericName": "acetazolamide",
-        "tallManName": "acetaZOLAMIDE",
-        "isBrand": false
+        "tallManName": "buPROPion",
+        "genericName": "bupropion",
+        "displayName": "buPROPion",
+        "isBrand": false,
+        "classOrIndication": "Antidepressant / Smoking cessation"
       },
       "drugB": {
-        "genericName": "acetohexamide",
-        "tallManName": "acetoHEXAMIDE",
-        "isBrand": false
+        "tallManName": "busPIRone",
+        "genericName": "buspirone",
+        "displayName": "busPIRone",
+        "isBrand": false,
+        "classOrIndication": "Anxiolytic"
       },
-      "category": "Look-Alike Generic Stems",
-      "confusionType": "orthographic_stem",
-      "distinguishingFeature": "Prefix aceta- vs aceto-; suffix -ZOLAMIDE vs -HEXAMIDE",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["acetaminophen", "acyclovir", "allopurinol", "atenolol"],
-      "tallManDistractorsA": ["acetazolamide", "ACETAZOLAMIDE", "acetaZOLamide"],
-      "tallManDistractorsB": ["acetohexamide", "ACETOHEXAMIDE", "acetoHEXamide"]
+      "category": "Antidepressant / Smoking cessation",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Confusion between an antidepressant/smoking cessation aid and an anxiolytic; risk of seizure (bupropion overdose) or untreated anxiety/depression.",
+      "riskSummary": "Confusion between an antidepressant/smoking cessation aid and an anxiolytic; risk of seizure (bupropion overdose) or untreated anxiety/depression.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "BUPRopion",
+        "buprOPION",
+        "bupropION"
+      ],
+      "tallManDistractorsB": [
+        "BUSPirone",
+        "buspIRONE",
+        "buspirONE"
+      ],
+      "distractors": [
+        "HYDROmorphone",
+        "CISplatin",
+        "DULOxetine",
+        "chlorproPAMIDE"
+      ]
     },
     {
       "id": "lasa_002",
+      "numericId": 2,
       "drugA": {
-        "genericName": "acetaminophen",
-        "tallManName": "acetaminophen",
-        "isBrand": false
+        "tallManName": "hydrALAZINE",
+        "genericName": "hydralazine",
+        "displayName": "hydrALAZINE",
+        "isBrand": false,
+        "classOrIndication": "Antihypertensive / Vasodilator"
       },
       "drugB": {
-        "genericName": "acetazolamide",
-        "tallManName": "acetaZOLAMIDE",
-        "isBrand": false
+        "tallManName": "hydrOXYzine",
+        "genericName": "hydroxyzine",
+        "displayName": "hydrOXYzine",
+        "isBrand": false,
+        "classOrIndication": "Antihistamine / Anxiolytic / Sedative"
       },
-      "category": "Look-Alike Generic Stems",
-      "confusionType": "orthographic_stem",
-      "distinguishingFeature": "Shared prefix aceta-; distinct suffix -aminophen vs -ZOLAMIDE",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["acetoHEXAMIDE", "acyclovir", "aspirin", "atenolol"],
-      "tallManDistractorsA": ["ACETAMINOPHEN", "acetaMINOPHEN", "acetaminoPHEN"],
-      "tallManDistractorsB": ["acetazolamide", "ACETAZOLAMIDE", "acetaZOLamide"]
+      "category": "Antihypertensive / Vasodilator",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Severe hypotension from accidental hydralazine, or unintended central nervous system sedation from hydroxyzine.",
+      "riskSummary": "Severe hypotension from accidental hydralazine, or unintended central nervous system sedation from hydroxyzine.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "HYDRalazine",
+        "hydralAZINE",
+        "hydralazINE"
+      ],
+      "tallManDistractorsB": [
+        "HYDRoxyzine",
+        "hydroxYZINE",
+        "hydroxyzINE"
+      ],
+      "distractors": [
+        "glyBURIDE",
+        "epiNEPHrine",
+        "ceFAZolin",
+        "dimenhyDRINATE"
+      ]
     },
     {
       "id": "lasa_003",
+      "numericId": 3,
       "drugA": {
-        "genericName": "amphotericin B lipid complex",
-        "brandName": "Abelcet",
-        "tallManName": "Abelcet",
-        "isBrand": true
+        "tallManName": "predniSONE",
+        "genericName": "prednisone",
+        "displayName": "predniSONE",
+        "isBrand": false,
+        "classOrIndication": "Corticosteroid (prodrug)"
       },
       "drugB": {
-        "genericName": "amphotericin B",
-        "tallManName": "amphotericin B",
-        "isBrand": false
+        "tallManName": "prednisoLONE",
+        "genericName": "prednisolone",
+        "displayName": "prednisoLONE",
+        "isBrand": false,
+        "classOrIndication": "Corticosteroid (active metabolite)"
       },
-      "category": "Look-Alike Generic Stems",
-      "confusionType": "orthographic_formulation",
-      "distinguishingFeature": "Brand lipid complex Abelcet vs conventional generic amphotericin B",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["amoxicillin", "ampicillin", "atenolol", "acyclovir"],
-      "tallManDistractorsA": ["abelcet", "ABELCET", "AbelCet"],
-      "tallManDistractorsB": ["AMPHOTERICIN B", "amphotericin b", "Amphotericin B"]
+      "category": "Corticosteroid (prodrug)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Dosing errors in pediatric/hepatic failure populations where conversion from prednisone to active prednisolone is impaired.",
+      "riskSummary": "Dosing errors in pediatric/hepatic failure populations where conversion from prednisone to active prednisolone is impaired.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "PREDnisone",
+        "prednISONE",
+        "prednisONE"
+      ],
+      "tallManDistractorsB": [
+        "PREDNisolone",
+        "predniSOLONE",
+        "prednisolONE"
+      ],
+      "distractors": [
+        "DOCEtaxel",
+        "FLUOxetine",
+        "clomiPHENE",
+        "rOPINIRole"
+      ]
     },
     {
       "id": "lasa_004",
+      "numericId": 4,
       "drugA": {
-        "genericName": "acetic acid for irrigation",
-        "tallManName": "acetic acid for irrigation",
-        "isBrand": false
+        "tallManName": "traMADol",
+        "genericName": "tramadol",
+        "displayName": "traMADol",
+        "isBrand": false,
+        "classOrIndication": "Opioid analgesic"
       },
       "drugB": {
-        "genericName": "glacial acetic acid",
-        "tallManName": "glacial acetic acid",
-        "isBrand": false
+        "tallManName": "traZODone",
+        "genericName": "trazodone",
+        "displayName": "traZODone",
+        "isBrand": false,
+        "classOrIndication": "Antidepressant / Sedative-hypnotic"
       },
-      "category": "Look-Alike Generic Stems",
-      "confusionType": "orthographic_concentration",
-      "distinguishingFeature": "Modifier 'for irrigation' vs 'glacial' (concentrated caustic form)",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["ascorbic acid", "salicylic acid", "sterile water", "boric acid"],
-      "tallManDistractorsA": ["ACETIC ACID FOR IRRIGATION", "Acetic Acid For Irrigation"],
-      "tallManDistractorsB": ["GLACIAL ACETIC ACID", "Glacial Acetic Acid"]
+      "category": "Opioid analgesic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Excessive sedation, hypotension, unmanaged acute pain, or increased risk of serotonin syndrome.",
+      "riskSummary": "Excessive sedation, hypotension, unmanaged acute pain, or increased risk of serotonin syndrome.",
+      "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+      "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+      "sourceCitation": "ISMP Table 2 Recommended Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "TRAmadol",
+        "tramADOL",
+        "tramaDOL"
+      ],
+      "tallManDistractorsB": [
+        "TRAZodone",
+        "trazODONE",
+        "trazodONE"
+      ],
+      "distractors": [
+        "ePHEDrine",
+        "cefTRIAXone",
+        "diphenhydrAMINE",
+        "NovoLOG"
+      ]
     },
     {
       "id": "lasa_005",
+      "numericId": 5,
       "drugA": {
-        "genericName": "tirofiban",
-        "brandName": "Aggrastat",
-        "tallManName": "Aggrastat",
-        "isBrand": true
+        "tallManName": "clonazePAM",
+        "genericName": "clonazepam",
+        "displayName": "clonazePAM",
+        "isBrand": false,
+        "classOrIndication": "Benzodiazepine (anticonvulsant/anxiolytic)"
       },
       "drugB": {
-        "genericName": "argatroban",
-        "tallManName": "argatroban",
-        "isBrand": false
+        "tallManName": "cloNIDine",
+        "genericName": "clonidine",
+        "displayName": "cloNIDine",
+        "isBrand": false,
+        "classOrIndication": "Alpha-2 adrenergic agonist (antihypertensive)"
       },
-      "category": "Look-Alike Generic Stems",
-      "confusionType": "orthographic_start",
-      "distinguishingFeature": "Starting letters Aggr- vs arga-",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["alteplase", "apixaban", "amiodarone", "aspirin"],
-      "tallManDistractorsA": ["aggrastat", "AGGRASTAT", "AggraStat"],
-      "tallManDistractorsB": ["ARGATROBAN", "Argatroban", "argaTROBAN"]
+      "category": "Benzodiazepine (anticonvulsant/anxiolytic)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
+      "riskSummary": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List (cloNIDine confused with clonazePAM); ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "CLONazepam",
+        "clonaZEPAM",
+        "clONAZepam"
+      ],
+      "tallManDistractorsB": [
+        "CLONidine",
+        "clonIDINE",
+        "clonidINE"
+      ],
+      "distractors": [
+        "PAROxetine",
+        "clomiPRAMINE",
+        "sulfADIAZINE",
+        "ZyrTEC"
+      ]
     },
     {
       "id": "lasa_006",
+      "numericId": 6,
       "drugA": {
-        "genericName": "prednisone",
-        "tallManName": "predniSONE",
-        "isBrand": false
+        "tallManName": "ALPRAZolam",
+        "genericName": "alprazolam",
+        "displayName": "ALPRAZolam",
+        "isBrand": false,
+        "classOrIndication": "Benzodiazepine (short-acting)"
       },
       "drugB": {
-        "genericName": "prednisolone",
-        "tallManName": "prednisoLONE",
-        "isBrand": false
+        "tallManName": "LORazepam",
+        "genericName": "lorazepam",
+        "displayName": "LORazepam",
+        "isBrand": false,
+        "classOrIndication": "Benzodiazepine (intermediate-acting)"
       },
-      "category": "Look-Alike Generic Stems",
-      "confusionType": "orthographic_stem",
-      "distinguishingFeature": "Suffix -SONE vs -LONE",
-      "sourceCitation": "ISMP 2023 p. 9",
-      "distractors": ["primidone", "promethazine", "propranolol", "pindolol"],
-      "tallManDistractorsA": ["prednisone", "PREDNISONE", "prednISONE"],
-      "tallManDistractorsB": ["prednisolone", "PREDNISOLONE", "predniSOLONE"]
+      "category": "Benzodiazepine (short-acting)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Potency and duration differences leading to oversedation, respiratory depression, or altered seizure threshold.",
+      "riskSummary": "Potency and duration differences leading to oversedation, respiratory depression, or altered seizure threshold.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "ALPRazolam",
+        "AlpraZOLAM",
+        "AlprazoLAM"
+      ],
+      "tallManDistractorsB": [
+        "LORAzepam",
+        "LoraZEPAM",
+        "LorazePAM"
+      ],
+      "distractors": [
+        "cefoTEtan",
+        "DEPO-Medrol",
+        "NovoLIN R",
+        "ALTEplase"
+      ]
     },
     {
       "id": "lasa_007",
+      "numericId": 7,
       "drugA": {
-        "genericName": "quinapril",
-        "brandName": "Accupril",
-        "tallManName": "Accupril",
-        "isBrand": true
+        "tallManName": "clonazePAM",
+        "genericName": "clonazepam",
+        "displayName": "clonazePAM",
+        "isBrand": false,
+        "classOrIndication": "Benzodiazepine"
       },
       "drugB": {
-        "genericName": "rabeprazole",
-        "brandName": "Aciphex",
-        "tallManName": "Aciphex",
-        "isBrand": true
+        "tallManName": "cloZAPine",
+        "genericName": "clozapine",
+        "displayName": "cloZAPine",
+        "isBrand": false,
+        "classOrIndication": "Atypical antipsychotic"
       },
-      "category": "Phonetic & Brand Counterparts",
-      "confusionType": "acoustic_brand",
-      "distinguishingFeature": "Middle syllable -cupril vs -ciphex",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["Actos", "Aricept", "Afrin", "Altocor"],
-      "tallManDistractorsA": ["accupril", "ACCUPRIL", "AccuPril"],
-      "tallManDistractorsB": ["aciphex", "ACIPHEX", "AciPhex"]
+      "category": "Benzodiazepine",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Agranulocytosis, severe orthostatic hypotension, seizures, and metabolic side effects from accidental clozapine administration.",
+      "riskSummary": "Agranulocytosis, severe orthostatic hypotension, seizures, and metabolic side effects from accidental clozapine administration.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List (cloZAPine confused with clonazePAM); ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "CLONazepam",
+        "clonaZEPAM",
+        "clONAZepam"
+      ],
+      "tallManDistractorsB": [
+        "CLOZapine",
+        "clozAPINE",
+        "clozapINE"
+      ],
+      "distractors": [
+        "cycloSERINE",
+        "sulfiSOXAZOLE",
+        "TopAMAX",
+        "dexmedeTOMIDine"
+      ]
     },
     {
       "id": "lasa_008",
+      "numericId": 8,
       "drugA": {
-        "genericName": "rabeprazole",
-        "brandName": "Aciphex",
-        "tallManName": "Aciphex",
-        "isBrand": true
+        "tallManName": "CeleBREX",
+        "genericName": "celecoxib",
+        "brandName": "CeleBREX",
+        "displayName": "CeleBREX (celecoxib)",
+        "isBrand": true,
+        "classOrIndication": "NSAID (COX-2 selective)"
       },
       "drugB": {
-        "genericName": "donepezil",
-        "brandName": "Aricept",
-        "tallManName": "Aricept",
-        "isBrand": true
+        "tallManName": "CeleXA",
+        "genericName": "citalopram",
+        "brandName": "CeleXA",
+        "displayName": "CeleXA (citalopram)",
+        "isBrand": true,
+        "classOrIndication": "SSRI antidepressant"
       },
-      "category": "Phonetic & Brand Counterparts",
-      "confusionType": "acoustic_brand",
-      "distinguishingFeature": "Shared initial A- and ending -t/-x sound cadence",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["Accupril", "Ativan", "Ambien", "Abilify"],
-      "tallManDistractorsA": ["aciphex", "ACIPHEX", "AciPhex"],
-      "tallManDistractorsB": ["aricept", "ARICEPT", "AriCept"]
+      "category": "NSAID (COX-2 selective)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
+      "riskSummary": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Brand Name Tall Man List (CeleBREX / CeleXA); ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "CELebrex",
+        "CelebREX",
+        "CeLEBrex"
+      ],
+      "tallManDistractorsB": [
+        "CElexa",
+        "CelEXA",
+        "CELexa"
+      ],
+      "distractors": [
+        "SOLU-Medrol",
+        "Lantus",
+        "TENECTEplase",
+        "traMADol"
+      ]
     },
     {
       "id": "lasa_009",
+      "numericId": 9,
       "drugA": {
-        "genericName": "alteplase",
-        "brandName": "Activase",
-        "tallManName": "Activase",
-        "isBrand": true
+        "tallManName": "HYDROmorphone",
+        "genericName": "hydromorphone",
+        "displayName": "HYDROmorphone",
+        "isBrand": false,
+        "classOrIndication": "Semisynthetic opioid analgesic (high potency)"
       },
       "drugB": {
-        "genericName": "alteplase (catheter clearance)",
-        "brandName": "Cathflo Activase",
-        "tallManName": "Cathflo Activase",
-        "isBrand": true
+        "tallManName": "morphine",
+        "genericName": "morphine",
+        "displayName": "morphine",
+        "isBrand": false,
+        "classOrIndication": "Opioid analgesic"
       },
-      "category": "Phonetic & Brand Counterparts",
-      "confusionType": "brand_modifier",
-      "distinguishingFeature": "Cathflo prefix for low-dose 2mg catheter clearance",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["TNKase", "Tenormin", "Toradol", "Trental"],
-      "tallManDistractorsA": ["activase", "ACTIVASE", "ActiVase"],
-      "tallManDistractorsB": ["cathflo activase", "CATHFLO ACTIVASE"]
+      "category": "Semisynthetic opioid analgesic (high potency)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Hydromorphone is 4 to 7 times more potent than morphine; administering hydromorphone at morphine doses frequently results in fatal respiratory arrest.",
+      "riskSummary": "Hydromorphone is 4 to 7 times more potent than morphine; administering hydromorphone at morphine doses frequently results in fatal respiratory arrest.",
+      "source": "ISMP List of Confused Drug Names & High-Alert Medications",
+      "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+      "sourceCitation": "ISMP List of Confused Drug Names; FDA Table 1 (Tall Man designation for HYDROmorphone)",
+      "tallManDistractorsA": [
+        "HydromoRPHONE",
+        "HydromorphONE",
+        "HydROMORphone"
+      ],
+      "tallManDistractorsB": [
+        "MORphine",
+        "morpHINE",
+        "morphINE"
+      ],
+      "distractors": [
+        "TOLAZamide",
+        "Toprol-XL",
+        "buPROPion",
+        "CeleBREX"
+      ]
     },
     {
       "id": "lasa_010",
+      "numericId": 10,
       "drugA": {
-        "genericName": "alteplase",
-        "brandName": "Activase",
-        "tallManName": "Activase",
-        "isBrand": true
+        "tallManName": "DOBUtamine",
+        "genericName": "dobutamine",
+        "displayName": "DOBUtamine",
+        "isBrand": false,
+        "classOrIndication": "Inotrope (beta-1 agonist)"
       },
       "drugB": {
-        "genericName": "tenecteplase",
-        "brandName": "TNKase",
-        "tallManName": "TNKase",
-        "isBrand": true
+        "tallManName": "DOPamine",
+        "genericName": "dopamine",
+        "displayName": "DOPamine",
+        "isBrand": false,
+        "classOrIndication": "Inotrope / Vasopressor (alpha/beta/dopaminergic agonist)"
       },
-      "category": "Phonetic & Brand Counterparts",
-      "confusionType": "acoustic_brand",
-      "distinguishingFeature": "Suffix -ase with distinct roots Activ- vs TNK-",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["Cathflo Activase", "Toradol", "Trental", "Tenormin"],
-      "tallManDistractorsA": ["activase", "ACTIVASE", "ActiVase"],
-      "tallManDistractorsB": ["tnkase", "TNKASE", "tnKase"]
+      "category": "Inotrope (beta-1 agonist)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Hemodynamic instability, dangerous tachycardia, or inappropriate peripheral vasoconstriction/vasodilation in critical care.",
+      "riskSummary": "Hemodynamic instability, dangerous tachycardia, or inappropriate peripheral vasoconstriction/vasodilation in critical care.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "DobutAMINE",
+        "DobutamINE",
+        "DoBUTAmine"
+      ],
+      "tallManDistractorsB": [
+        "DopaMINE",
+        "DopamINE",
+        "DoPAMine"
+      ],
+      "distractors": [
+        "Lente",
+        "hydroxyCHLOROquine",
+        "traZODone",
+        "glyBURIDE"
+      ]
     },
     {
       "id": "lasa_011",
+      "numericId": 11,
       "drugA": {
-        "genericName": "tetanus, diphtheria, acellular pertussis vaccine",
-        "brandName": "Adacel (Tdap)",
-        "tallManName": "Adacel (Tdap)",
-        "isBrand": true
+        "tallManName": "oxyCODONE",
+        "genericName": "oxycodone",
+        "displayName": "oxyCODONE",
+        "isBrand": false,
+        "classOrIndication": "Opioid analgesic"
       },
       "drugB": {
-        "genericName": "diphtheria, tetanus, acellular pertussis vaccine",
-        "brandName": "Daptacel (DTaP)",
-        "tallManName": "Daptacel (DTaP)",
-        "isBrand": true
+        "tallManName": "HYDROcodone",
+        "genericName": "hydrocodone",
+        "displayName": "HYDROcodone",
+        "isBrand": false,
+        "classOrIndication": "Opioid analgesic"
       },
-      "category": "Phonetic & Brand Counterparts",
-      "confusionType": "brand_acronym",
-      "distinguishingFeature": "Adacel (Tdap booster) vs Daptacel (DTaP pediatric primary)",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["Actonel", "Activase", "Advair", "Alora"],
-      "tallManDistractorsA": ["adacel (tdap)", "ADACEL (TDAP)", "Adacel (TDAP)"],
-      "tallManDistractorsB": ["daptacel (dtap)", "DAPTACEL (DTAP)", "Daptacel (dtap)"]
+      "category": "Opioid analgesic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Potency mismatch leading to either inadequate analgesia or opioid overdose and hypoventilation.",
+      "riskSummary": "Potency mismatch leading to either inadequate analgesia or opioid overdose and hypoventilation.",
+      "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+      "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+      "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "OXYCodone",
+        "oxycODONE",
+        "oxycodONE"
+      ],
+      "tallManDistractorsB": [
+        "HYDRocodone",
+        "HydrocODONE",
+        "HydrocodONE"
+      ],
+      "distractors": [
+        "SeroQUEL",
+        "busPIRone",
+        "CeleXA",
+        "DOCEtaxel"
+      ]
     },
     {
       "id": "lasa_012",
+      "numericId": 12,
       "drugA": {
-        "genericName": "imiquimod",
-        "brandName": "Aldara",
-        "tallManName": "Aldara",
-        "isBrand": true
+        "tallManName": "glipiZIDE",
+        "genericName": "glipizide",
+        "displayName": "glipiZIDE",
+        "isBrand": false,
+        "classOrIndication": "Sulfonylurea (short-acting)"
       },
       "drugB": {
-        "genericName": "estradiol",
-        "brandName": "Alora",
-        "tallManName": "Alora",
-        "isBrand": true
+        "tallManName": "glyBURIDE",
+        "genericName": "glyburide",
+        "displayName": "glyBURIDE",
+        "isBrand": false,
+        "classOrIndication": "Sulfonylurea (long-acting)"
       },
-      "category": "Phonetic & Brand Counterparts",
-      "confusionType": "acoustic_brand",
-      "distinguishingFeature": "Interior letters -d- vs -o- (Aldara vs Alora)",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["Allegra", "Albuterol", "Aldactone", "Advicor"],
-      "tallManDistractorsA": ["aldara", "ALDARA", "AlDara"],
-      "tallManDistractorsB": ["alora", "ALORA", "AlOra"]
+      "category": "Sulfonylurea (short-acting)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Prolonged, severe hypoglycemia, especially in elderly patients or those with renal impairment given glyburide.",
+      "riskSummary": "Prolonged, severe hypoglycemia, especially in elderly patients or those with renal impairment given glyburide.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "GLIPizide",
+        "glipIZIDE",
+        "glipizIDE"
+      ],
+      "tallManDistractorsB": [
+        "GLYBuride",
+        "glybURIDE",
+        "glyburIDE"
+      ],
+      "distractors": [
+        "hydroxyUREA",
+        "clonazePAM",
+        "metFORMIN",
+        "ePHEDrine"
+      ]
     },
     {
       "id": "lasa_013",
+      "numericId": 13,
       "drugA": {
-        "genericName": "risedronate",
-        "brandName": "Actonel",
-        "tallManName": "Actonel",
-        "isBrand": true
+        "tallManName": "metFORMIN",
+        "genericName": "metformin",
+        "displayName": "metFORMIN",
+        "isBrand": false,
+        "classOrIndication": "Biguanide antihyperglycemic"
       },
       "drugB": {
-        "genericName": "pioglitazone",
-        "brandName": "Actos",
-        "tallManName": "Actos",
-        "isBrand": true
+        "tallManName": "metroNIDAZOLE",
+        "genericName": "metronidazole",
+        "displayName": "metroNIDAZOLE",
+        "isBrand": false,
+        "classOrIndication": "Nitroimidazole antibacterial / Antiprotozoal"
       },
-      "category": "Suffix Variants & Release Kinetics",
-      "confusionType": "acoustic_brand",
-      "distinguishingFeature": "Ending -onel vs -os",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["Activase", "Advicor", "Altocor", "Accupril"],
-      "tallManDistractorsA": ["actonel", "ACTONEL", "ActoNel"],
-      "tallManDistractorsB": ["actos", "ACTOS", "AcTos"]
+      "category": "Biguanide antihyperglycemic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Lactic acidosis and GI distress vs. untreated anaerobic infection or disulfiram-like ethanol reaction.",
+      "riskSummary": "Lactic acidosis and GI distress vs. untreated anaerobic infection or disulfiram-like ethanol reaction.",
+      "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+      "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+      "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "METFormin",
+        "metfORMIN",
+        "metforMIN"
+      ],
+      "tallManDistractorsB": [
+        "METROnidazole",
+        "metroniDAZOLE",
+        "metronidazOLE"
+      ],
+      "distractors": [
+        "hydrALAZINE",
+        "HYDROmorphone",
+        "PACLitaxel",
+        "PAROxetine"
+      ]
     },
     {
       "id": "lasa_014",
+      "numericId": 14,
       "drugA": {
-        "genericName": "dextroamphetamine/amphetamine",
-        "brandName": "Adderall",
-        "tallManName": "Adderall",
-        "isBrand": true
+        "tallManName": "acetaZOLAMIDE",
+        "genericName": "acetazolamide",
+        "displayName": "acetaZOLAMIDE",
+        "isBrand": false,
+        "classOrIndication": "Carbonic anhydrase inhibitor (diuretic / antiglaucoma)"
       },
       "drugB": {
-        "genericName": "dextroamphetamine/amphetamine extended-release",
-        "brandName": "Adderall XR",
-        "tallManName": "Adderall XR",
-        "isBrand": true
+        "tallManName": "acetoHEXAMIDE",
+        "genericName": "acetohexamide",
+        "displayName": "acetoHEXAMIDE",
+        "isBrand": false,
+        "classOrIndication": "Sulfonylurea (antidiabetic)"
       },
-      "category": "Suffix Variants & Release Kinetics",
-      "confusionType": "release_modifier",
-      "distinguishingFeature": "Release modifier suffix 'XR'",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["Inderal", "Actonel", "Advicor", "Ativan"],
-      "tallManDistractorsA": ["adderall", "ADDERALL", "AdderAll"],
-      "tallManDistractorsB": ["adderall xr", "ADDERALL XR", "Adderall xr"]
+      "category": "Carbonic anhydrase inhibitor (diuretic / antiglaucoma)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Severe hypoglycemia in non-diabetic patients or uncontrolled intraocular pressure/acid-base imbalance.",
+      "riskSummary": "Severe hypoglycemia in non-diabetic patients or uncontrolled intraocular pressure/acid-base imbalance.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "ACETAzolamide",
+        "acetazoLAMIDE",
+        "acetazolamIDE"
+      ],
+      "tallManDistractorsB": [
+        "ACETOhexamide",
+        "acetoheXAMIDE",
+        "acetohexamIDE"
+      ],
+      "distractors": [
+        "cloNIDine",
+        "glyBURIDE",
+        "niCARdipine",
+        "cefoTEtan"
+      ]
     },
     {
       "id": "lasa_015",
+      "numericId": 15,
       "drugA": {
-        "genericName": "dextroamphetamine/amphetamine",
-        "brandName": "Adderall",
-        "tallManName": "Adderall",
-        "isBrand": true
+        "tallManName": "CARBOplatin",
+        "genericName": "carboplatin",
+        "displayName": "CARBOplatin",
+        "isBrand": false,
+        "classOrIndication": "Alkylating antineoplastic (platinum-based)"
       },
       "drugB": {
-        "genericName": "propranolol",
-        "brandName": "Inderal",
-        "tallManName": "Inderal",
-        "isBrand": true
+        "tallManName": "CISplatin",
+        "genericName": "cisplatin",
+        "displayName": "CISplatin",
+        "isBrand": false,
+        "classOrIndication": "Alkylating antineoplastic (platinum-based)"
       },
-      "category": "Suffix Variants & Release Kinetics",
-      "confusionType": "acoustic_brand",
-      "distinguishingFeature": "Initial Ad- vs In- with identical -deral cadence",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["Isordil", "Imdur", "Intropin", "Actonel"],
-      "tallManDistractorsA": ["adderall", "ADDERALL", "AdderAll"],
-      "tallManDistractorsB": ["inderal", "INDERAL", "InDeral"]
+      "category": "Alkylating antineoplastic (platinum-based)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Dramatically different dosing schedules; cisplatin dosed at carboplatin levels causes fatal nephrotoxicity, neurotoxicity, and ototoxicity.",
+      "riskSummary": "Dramatically different dosing schedules; cisplatin dosed at carboplatin levels causes fatal nephrotoxicity, neurotoxicity, and ototoxicity.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "CARBoplatin",
+        "CarbopLATIN",
+        "CarboplaTIN"
+      ],
+      "tallManDistractorsB": [
+        "CISPlatin",
+        "CispLATIN",
+        "CisplaTIN"
+      ],
+      "distractors": [
+        "morphine",
+        "DAUNOrubicin",
+        "ARIPiprazole",
+        "cycloSERINE"
+      ]
     },
     {
       "id": "lasa_016",
+      "numericId": 16,
       "drugA": {
-        "genericName": "ado-trastuzumab emtansine",
-        "tallManName": "ado-trastuzumab emtansine",
-        "isBrand": false
+        "tallManName": "DOCEtaxel",
+        "genericName": "docetaxel",
+        "displayName": "DOCEtaxel",
+        "isBrand": false,
+        "classOrIndication": "Taxane antineoplastic"
       },
       "drugB": {
-        "genericName": "trastuzumab",
-        "tallManName": "trastuzumab",
-        "isBrand": false
+        "tallManName": "PACLitaxel",
+        "genericName": "paclitaxel",
+        "displayName": "PACLitaxel",
+        "isBrand": false,
+        "classOrIndication": "Taxane antineoplastic"
       },
-      "category": "Suffix Variants & Release Kinetics",
-      "confusionType": "prefix_conjugate",
-      "distinguishingFeature": "Prefix 'ado-' and modifier 'emtansine'",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["rituximab", "bevacizumab", "cetuximab", "alemtuzumab"],
-      "tallManDistractorsA": ["ADO-TRASTUZUMAB EMTANSINE", "Ado-Trastuzumab Emtansine"],
-      "tallManDistractorsB": ["TRASTUZUMAB", "Trastuzumab", "trastuzUMAB"]
+      "category": "Taxane antineoplastic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Severe toxicity, fluid retention, neuropathy, and neutropenia due to differing dosing frequencies and premedication protocols.",
+      "riskSummary": "Severe toxicity, fluid retention, neuropathy, and neutropenia due to differing dosing frequencies and premedication protocols.",
+      "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+      "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+      "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Targeted Medication Safety Best Practices",
+      "tallManDistractorsA": [
+        "DoceTAXEL",
+        "DocetaXEL",
+        "DoCETaxel"
+      ],
+      "tallManDistractorsB": [
+        "PacliTAXEL",
+        "PaclitaXEL",
+        "PaCLITaxel"
+      ],
+      "distractors": [
+        "metFORMIN",
+        "NIFEdipine",
+        "cefOXitin",
+        "SOLU-Medrol"
+      ]
     },
     {
       "id": "lasa_017",
+      "numericId": 17,
       "drugA": {
-        "genericName": "fluticasone/salmeterol",
-        "brandName": "Advair",
-        "tallManName": "Advair",
-        "isBrand": true
+        "tallManName": "DAUNOrubicin",
+        "genericName": "daunorubicin",
+        "displayName": "DAUNOrubicin",
+        "isBrand": false,
+        "classOrIndication": "Anthracycline antineoplastic"
       },
       "drugB": {
-        "genericName": "niacin/lovastatin",
-        "brandName": "Advicor",
-        "tallManName": "Advicor",
-        "isBrand": true
+        "tallManName": "DOXOrubicin",
+        "genericName": "doxorubicin",
+        "displayName": "DOXOrubicin",
+        "isBrand": false,
+        "classOrIndication": "Anthracycline antineoplastic"
       },
-      "category": "Suffix Variants & Release Kinetics",
-      "confusionType": "acoustic_brand",
-      "distinguishingFeature": "Suffix -air vs -icor",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["Altocor", "Actos", "Allegra", "Avandia"],
-      "tallManDistractorsA": ["advair", "ADVAIR", "AdVair"],
-      "tallManDistractorsB": ["advicor", "ADVICOR", "AdViCor"]
+      "category": "Anthracycline antineoplastic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Dosing regimen errors leading to irreversible, cumulative cardiotoxicity and severe myelosuppression.",
+      "riskSummary": "Dosing regimen errors leading to irreversible, cumulative cardiotoxicity and severe myelosuppression.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "DaunorUBICIN",
+        "DaunorubiCIN",
+        "DauNORUbicin"
+      ],
+      "tallManDistractorsB": [
+        "DoxoruBICIN",
+        "DoxorubiCIN",
+        "DoXORUbicin"
+      ],
+      "distractors": [
+        "PACLitaxel",
+        "RABEprazole",
+        "cycloSPORINE",
+        "TOLAZamide"
+      ]
     },
     {
       "id": "lasa_018",
+      "numericId": 18,
       "drugA": {
-        "genericName": "niacin/lovastatin",
-        "brandName": "Advicor",
-        "tallManName": "Advicor",
-        "isBrand": true
+        "tallManName": "vinBLAStine",
+        "genericName": "vinblastine",
+        "displayName": "vinBLAStine",
+        "isBrand": false,
+        "classOrIndication": "Vinca alkaloid antineoplastic"
       },
       "drugB": {
-        "genericName": "lovastatin extended-release",
-        "brandName": "Altocor",
-        "tallManName": "Altocor",
-        "isBrand": true
+        "tallManName": "vinCRIStine",
+        "genericName": "vincristine",
+        "displayName": "vinCRIStine",
+        "isBrand": false,
+        "classOrIndication": "Vinca alkaloid antineoplastic"
       },
-      "category": "Suffix Variants & Release Kinetics",
-      "confusionType": "acoustic_brand",
-      "distinguishingFeature": "Middle letters -dvi- vs -lto-",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["Advair", "Actonel", "Aldara", "Afrin"],
-      "tallManDistractorsA": ["advicor", "ADVICOR", "AdViCor"],
-      "tallManDistractorsB": ["altocor", "ALTOCOR", "AlToCor"]
+      "category": "Vinca alkaloid antineoplastic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Vincristine is dosed in fractions of the dose of vinblastine; administering vinblastine doses using vincristine causes fatal neurotoxicity.",
+      "riskSummary": "Vincristine is dosed in fractions of the dose of vinblastine; administering vinblastine doses using vincristine causes fatal neurotoxicity.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "VINBlastine",
+        "vinblaSTINE",
+        "vinblastINE"
+      ],
+      "tallManDistractorsB": [
+        "VINCristine",
+        "vincriSTINE",
+        "vincristINE"
+      ],
+      "distractors": [
+        "amLODIPine",
+        "cefTAZidime",
+        "fentaNYL",
+        "Lente"
+      ]
     },
     {
       "id": "lasa_019",
+      "numericId": 19,
       "drugA": {
-        "genericName": "oxymetazoline",
-        "brandName": "Afrin (oxymetazoline)",
-        "tallManName": "Afrin (oxymetazoline)",
-        "isBrand": true
+        "tallManName": "epiNEPHrine",
+        "genericName": "epinephrine",
+        "displayName": "epiNEPHrine",
+        "isBrand": false,
+        "classOrIndication": "Direct sympathomimetic (alpha/beta agonist)"
       },
       "drugB": {
-        "genericName": "saline nasal spray",
-        "brandName": "Afrin (saline)",
-        "tallManName": "Afrin (saline)",
-        "isBrand": true
+        "tallManName": "ePHEDrine",
+        "genericName": "ephedrine",
+        "displayName": "ePHEDrine",
+        "isBrand": false,
+        "classOrIndication": "Indirect sympathomimetic amine"
       },
-      "category": "Suffix Variants & Release Kinetics",
-      "confusionType": "brand_extension",
-      "distinguishingFeature": "Active ingredient qualifier (oxymetazoline) vs (saline)",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["Actonel", "Advicor", "Adacel", "Accupril"],
-      "tallManDistractorsA": ["afrin (oxymetazoline)", "AFRIN (OXYMETAZOLINE)"],
-      "tallManDistractorsB": ["afrin (saline)", "AFRIN (SALINE)"]
+      "category": "Direct sympathomimetic (alpha/beta agonist)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Subtherapeutic resuscitation in anaphylaxis/cardiac arrest, or extreme hypertension and tachyarrhythmia from incorrect potency delivery.",
+      "riskSummary": "Subtherapeutic resuscitation in anaphylaxis/cardiac arrest, or extreme hypertension and tachyarrhythmia from incorrect potency delivery.",
+      "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+      "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+      "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "EPINephrine",
+        "epinepHRINE",
+        "epinephrINE"
+      ],
+      "tallManDistractorsB": [
+        "EPHEdrine",
+        "epheDRINE",
+        "ephedrINE"
+      ],
+      "distractors": [
+        "azaCITIDine",
+        "DACTINomycin",
+        "TOLBUTamide",
+        "SeroQUEL"
+      ]
     },
     {
       "id": "lasa_020",
+      "numericId": 20,
       "drugA": {
-        "genericName": "alfentanil",
-        "tallManName": "ALfentanil",
-        "isBrand": false
+        "tallManName": "niCARdipine",
+        "genericName": "nicardipine",
+        "displayName": "niCARdipine",
+        "isBrand": false,
+        "classOrIndication": "Dihydropyridine CCB (IV/oral)"
       },
       "drugB": {
-        "genericName": "fentanyl",
-        "tallManName": "fentaNYL",
-        "isBrand": false
+        "tallManName": "NIFEdipine",
+        "genericName": "nifedipine",
+        "displayName": "NIFEdipine",
+        "isBrand": false,
+        "classOrIndication": "Dihydropyridine CCB (oral)"
       },
-      "category": "High-Alert Synthetic Opioids",
-      "confusionType": "high_alert_opioid",
-      "distinguishingFeature": "Capitalized prefix AL- vs capitalized suffix -NYL",
-      "sourceCitation": "ISMP 2023 p. 1",
-      "distractors": ["morphine", "methadone", "meperidine", "remifentanil"],
-      "tallManDistractorsA": ["alfentanil", "ALFENTANIL", "alFENTANIL"],
-      "tallManDistractorsB": ["fentanyl", "FENTANYL", "fenTANYL"]
+      "category": "Dihydropyridine CCB (IV/oral)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Severe precipitous hypotension, reflex tachycardia, or cerebral ischemia due to formulation and pharmacokinetic mismatches.",
+      "riskSummary": "Severe precipitous hypotension, reflex tachycardia, or cerebral ischemia due to formulation and pharmacokinetic mismatches.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "NICArdipine",
+        "nicardIPINE",
+        "nicardipINE"
+      ],
+      "tallManDistractorsB": [
+        "NifedIPINE",
+        "NifedipINE",
+        "NiFEDIpine"
+      ],
+      "distractors": [
+        "chlorproMAZINE",
+        "SUFentanil",
+        "LaMICtal",
+        "hydroxyUREA"
+      ]
     },
     {
       "id": "lasa_021",
+      "numericId": 21,
       "drugA": {
-        "genericName": "alfentanil",
-        "tallManName": "ALfentanil",
-        "isBrand": false
+        "tallManName": "amLODIPine",
+        "genericName": "amlodipine",
+        "displayName": "amLODIPine",
+        "isBrand": false,
+        "classOrIndication": "Calcium channel blocker (antihypertensive)"
       },
       "drugB": {
-        "genericName": "sufentanil",
-        "tallManName": "SUFentanil",
-        "isBrand": false
+        "tallManName": "aMILoride",
+        "genericName": "amiloride",
+        "displayName": "aMILoride",
+        "isBrand": false,
+        "classOrIndication": "Potassium-sparing diuretic"
       },
-      "category": "High-Alert Synthetic Opioids",
-      "confusionType": "high_alert_opioid",
-      "distinguishingFeature": "Prefix AL- vs SUF-",
-      "sourceCitation": "ISMP 2023 pp. 1, 11",
-      "distractors": ["fentaNYL", "morphine", "methadone", "HYDROmorphone"],
-      "tallManDistractorsA": ["alfentanil", "ALFENTANIL", "alFENTANIL"],
-      "tallManDistractorsB": ["sufentanil", "SUFENTANIL", "suFENTANIL"]
+      "category": "Calcium channel blocker (antihypertensive)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Hyperkalemia and dehydration vs. unmanaged hypertension or peripheral edema.",
+      "riskSummary": "Hyperkalemia and dehydration vs. unmanaged hypertension or peripheral edema.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "AMLOdipine",
+        "amlodIPINE",
+        "amlodipINE"
+      ],
+      "tallManDistractorsB": [
+        "amilORIDE",
+        "amilorIDE",
+        "amILOride"
+      ],
+      "distractors": [
+        "DAPTOmycin",
+        "Humalog",
+        "SineQUAN",
+        "hydrALAZINE"
+      ]
     },
     {
       "id": "lasa_022",
+      "numericId": 22,
       "drugA": {
-        "genericName": "fentanyl",
-        "tallManName": "fentaNYL",
-        "isBrand": false
+        "tallManName": "DULOxetine",
+        "genericName": "duloxetine",
+        "displayName": "DULOxetine",
+        "isBrand": false,
+        "classOrIndication": "SNRI antidepressant / Neuropathic pain agent"
       },
       "drugB": {
-        "genericName": "sufentanil",
-        "tallManName": "SUFentanil",
-        "isBrand": false
+        "tallManName": "FLUOxetine",
+        "genericName": "fluoxetine",
+        "displayName": "FLUOxetine",
+        "isBrand": false,
+        "classOrIndication": "SSRI antidepressant"
       },
-      "category": "High-Alert Synthetic Opioids",
-      "confusionType": "high_alert_opioid",
-      "distinguishingFeature": "Suffix -NYL vs prefix SUF-",
-      "sourceCitation": "ISMP 2023 pp. 5, 11",
-      "distractors": ["ALfentanil", "morphine", "remifentanil", "meperidine"],
-      "tallManDistractorsA": ["fentanyl", "FENTANYL", "fenTANYL"],
-      "tallManDistractorsB": ["sufentanil", "SUFENTANIL", "suFENTANIL"]
+      "category": "SNRI antidepressant / Neuropathic pain agent",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Unmanaged neuropathic pain, differences in discontinuation syndrome, or heightened risk of serotonergic excess.",
+      "riskSummary": "Unmanaged neuropathic pain, differences in discontinuation syndrome, or heightened risk of serotonergic excess.",
+      "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+      "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+      "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "DuloxETINE",
+        "DuloxetINE",
+        "DuLOXEtine"
+      ],
+      "tallManDistractorsB": [
+        "FluoxETINE",
+        "FluoxetINE",
+        "FlUOXEtine"
+      ],
+      "distractors": [
+        "risperiDONE",
+        "LaMISil",
+        "leNALIDomide",
+        "cloNIDine"
+      ]
     },
     {
       "id": "lasa_023",
+      "numericId": 23,
       "drugA": {
-        "genericName": "hydromorphone",
-        "tallManName": "HYDROmorphone",
-        "isBrand": false
+        "tallManName": "FLUOxetine",
+        "genericName": "fluoxetine",
+        "displayName": "FLUOxetine",
+        "isBrand": false,
+        "classOrIndication": "SSRI antidepressant (long half-life)"
       },
       "drugB": {
-        "genericName": "morphine",
-        "tallManName": "morphine",
-        "isBrand": false
+        "tallManName": "PAROxetine",
+        "genericName": "paroxetine",
+        "displayName": "PAROxetine",
+        "isBrand": false,
+        "classOrIndication": "SSRI antidepressant (short half-life / anticholinergic)"
       },
-      "category": "High-Alert Synthetic Opioids",
-      "confusionType": "high_alert_opioid",
-      "distinguishingFeature": "Prefix HYDRO- capitalized to differentiate from uncapitalized morphine",
-      "sourceCitation": "ISMP 2023 pp. 6, 8",
-      "distractors": ["fentaNYL", "methadone", "codeine", "oxycodone"],
-      "tallManDistractorsA": ["hydromorphone", "HYDROMORPHONE", "hydroMORPHONE"],
-      "tallManDistractorsB": ["MORPHINE", "Morphine", "morPHINE"]
+      "category": "SSRI antidepressant (long half-life)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Severe anticholinergic side effects, abrupt discontinuation syndrome with missed paroxetine, and drug-drug metabolic interactions.",
+      "riskSummary": "Severe anticholinergic side effects, abrupt discontinuation syndrome with missed paroxetine, and drug-drug metabolic interactions.",
+      "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+      "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+      "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "FluoxETINE",
+        "FluoxetINE",
+        "FlUOXEtine"
+      ],
+      "tallManDistractorsB": [
+        "ParoxETINE",
+        "ParoxetINE",
+        "PaROXEtine"
+      ],
+      "distractors": [
+        "Humulin R",
+        "priLOSEC",
+        "hydrOXYzine",
+        "morphine"
+      ]
     },
     {
       "id": "lasa_024",
+      "numericId": 24,
       "drugA": {
-        "genericName": "hydromorphone",
-        "tallManName": "HYDROmorphone",
-        "isBrand": false
+        "tallManName": "ARIPiprazole",
+        "genericName": "aripiprazole",
+        "displayName": "ARIPiprazole",
+        "isBrand": false,
+        "classOrIndication": "Atypical antipsychotic"
       },
       "drugB": {
-        "genericName": "oxymorphone",
-        "tallManName": "oxyMORphone",
-        "isBrand": false
+        "tallManName": "RABEprazole",
+        "genericName": "rabeprazole",
+        "displayName": "RABEprazole",
+        "isBrand": false,
+        "classOrIndication": "Proton pump inhibitor"
       },
-      "category": "High-Alert Synthetic Opioids",
-      "confusionType": "high_alert_opioid",
-      "distinguishingFeature": "Prefix HYDRO- vs middle syllable -MOR-",
-      "sourceCitation": "ISMP 2023 pp. 6, 8",
-      "distractors": ["morphine", "oxycodone", "oxazepam", "oxcarbazepine"],
-      "tallManDistractorsA": ["hydromorphone", "HYDROMORPHONE", "hydroMORPHONE"],
-      "tallManDistractorsB": ["oxymorphone", "OXYMORPHONE", "OXYmorphone"]
+      "category": "Atypical antipsychotic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Extrapyramidal symptoms, severe sedation, or metabolic syndrome in a patient merely requiring acid suppression.",
+      "riskSummary": "Extrapyramidal symptoms, severe sedation, or metabolic syndrome in a patient merely requiring acid suppression.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "ARIPIprazole",
+        "AripipRAZOLE",
+        "AripiprazOLE"
+      ],
+      "tallManDistractorsB": [
+        "RabeprAZOLE",
+        "RabeprazOLE",
+        "RaBEPRazole"
+      ],
+      "distractors": [
+        "ZyPREXA",
+        "leFLUNomide",
+        "ALPRAZolam",
+        "metFORMIN"
+      ]
+    },
+    {
+      "id": "lasa_025",
+      "numericId": 25,
+      "drugA": {
+        "tallManName": "azaCITIDine",
+        "genericName": "azacitidine",
+        "displayName": "azaCITIDine",
+        "isBrand": false,
+        "classOrIndication": "DNA methyltransferase inhibitor antineoplastic"
+      },
+      "drugB": {
+        "tallManName": "azaTHIOprine",
+        "genericName": "azathioprine",
+        "displayName": "azaTHIOprine",
+        "isBrand": false,
+        "classOrIndication": "Thiopurine immunosuppressant"
+      },
+      "category": "DNA methyltransferase inhibitor antineoplastic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Severe bone marrow ablation/failure vs. acute transplant rejection or uncontrolled autoimmune flare.",
+      "riskSummary": "Severe bone marrow ablation/failure vs. acute transplant rejection or uncontrolled autoimmune flare.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "AZACitidine",
+        "azacitIDINE",
+        "azacitidINE"
+      ],
+      "tallManDistractorsB": [
+        "AZATHioprine",
+        "azathiOPRINE",
+        "azathioprINE"
+      ],
+      "distractors": [
+        "PROzac",
+        "predniSONE",
+        "DOBUtamine",
+        "PACLitaxel"
+      ]
+    },
+    {
+      "id": "lasa_026",
+      "numericId": 26,
+      "drugA": {
+        "tallManName": "ceFAZolin",
+        "genericName": "cefazolin",
+        "displayName": "ceFAZolin",
+        "isBrand": false,
+        "classOrIndication": "First-generation cephalosporin"
+      },
+      "drugB": {
+        "tallManName": "cefTRIAXone",
+        "genericName": "ceftriaxone",
+        "displayName": "cefTRIAXone",
+        "isBrand": false,
+        "classOrIndication": "Third-generation cephalosporin"
+      },
+      "category": "First-generation cephalosporin",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Spectrum-of-activity mismatch leading to therapeutic failure in serious CNS or multi-drug resistant bacterial infections.",
+      "riskSummary": "Spectrum-of-activity mismatch leading to therapeutic failure in serious CNS or multi-drug resistant bacterial infections.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "CEFAzolin",
+        "cefaZOLIN",
+        "cefazoLIN"
+      ],
+      "tallManDistractorsB": [
+        "CEFTriaxone",
+        "ceftriAXONE",
+        "ceftriaxONE"
+      ],
+      "distractors": [
+        "dexAMETHasone",
+        "LORazepam",
+        "metroNIDAZOLE",
+        "niCARdipine"
+      ]
+    },
+    {
+      "id": "lasa_027",
+      "numericId": 27,
+      "drugA": {
+        "tallManName": "cefoTEtan",
+        "genericName": "cefotetan",
+        "displayName": "cefoTEtan",
+        "isBrand": false,
+        "classOrIndication": "Second-generation cephamycin antibiotic"
+      },
+      "drugB": {
+        "tallManName": "cefOXitin",
+        "genericName": "cefoxitin",
+        "displayName": "cefOXitin",
+        "isBrand": false,
+        "classOrIndication": "Second-generation cephamycin antibiotic"
+      },
+      "category": "Second-generation cephamycin antibiotic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Dosing interval mismatches, potential bleeding risk/coagulopathy associated with the N-methylthiotetrazole (NMTT) chain in cefotetan.",
+      "riskSummary": "Dosing interval mismatches, potential bleeding risk/coagulopathy associated with the N-methylthiotetrazole (NMTT) chain in cefotetan.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "CEFOtetan",
+        "cefoTETAN",
+        "cefoteTAN"
+      ],
+      "tallManDistractorsB": [
+        "CEFOxitin",
+        "cefoXITIN",
+        "cefoxiTIN"
+      ],
+      "distractors": [
+        "prednisoLONE",
+        "DOPamine",
+        "DAUNOrubicin",
+        "ARIPiprazole"
+      ]
+    },
+    {
+      "id": "lasa_028",
+      "numericId": 28,
+      "drugA": {
+        "tallManName": "cefTAZidime",
+        "genericName": "ceftazidime",
+        "displayName": "cefTAZidime",
+        "isBrand": false,
+        "classOrIndication": "Third-generation antipseudomonal cephalosporin"
+      },
+      "drugB": {
+        "tallManName": "cefTRIAXone",
+        "genericName": "ceftriaxone",
+        "displayName": "cefTRIAXone",
+        "isBrand": false,
+        "classOrIndication": "Third-generation cephalosporin (non-pseudomonal)"
+      },
+      "category": "Third-generation antipseudomonal cephalosporin",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Inadequate coverage for Pseudomonas aeruginosa infections, leading to sepsis and therapeutic failure.",
+      "riskSummary": "Inadequate coverage for Pseudomonas aeruginosa infections, leading to sepsis and therapeutic failure.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "CEFTazidime",
+        "ceftazIDIME",
+        "ceftazidIME"
+      ],
+      "tallManDistractorsB": [
+        "CEFTriaxone",
+        "ceftriAXONE",
+        "ceftriaxONE"
+      ],
+      "distractors": [
+        "cloZAPine",
+        "acetaZOLAMIDE",
+        "NIFEdipine",
+        "chlorproMAZINE"
+      ]
+    },
+    {
+      "id": "lasa_029",
+      "numericId": 29,
+      "drugA": {
+        "tallManName": "chlorproMAZINE",
+        "genericName": "chlorpromazine",
+        "displayName": "chlorproMAZINE",
+        "isBrand": false,
+        "classOrIndication": "First-generation phenothiazine antipsychotic"
+      },
+      "drugB": {
+        "tallManName": "chlorproPAMIDE",
+        "genericName": "chlorpropamide",
+        "displayName": "chlorproPAMIDE",
+        "isBrand": false,
+        "classOrIndication": "First-generation sulfonylurea antidiabetic"
+      },
+      "category": "First-generation phenothiazine antipsychotic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Profound, protracted hypoglycemia in non-diabetic patients vs. extreme sedation, dystonia, and neuroleptic side effects.",
+      "riskSummary": "Profound, protracted hypoglycemia in non-diabetic patients vs. extreme sedation, dystonia, and neuroleptic side effects.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "CHLORPromazine",
+        "chlorprOMAZINE",
+        "chlorpromazINE"
+      ],
+      "tallManDistractorsB": [
+        "CHLORPropamide",
+        "chlorprOPAMIDE",
+        "chlorpropamIDE"
+      ],
+      "distractors": [
+        "oxyCODONE",
+        "DOXOrubicin",
+        "RABEprazole",
+        "DAPTOmycin"
+      ]
+    },
+    {
+      "id": "lasa_030",
+      "numericId": 30,
+      "drugA": {
+        "tallManName": "clomiPHENE",
+        "genericName": "clomiphene",
+        "displayName": "clomiPHENE",
+        "isBrand": false,
+        "classOrIndication": "Selective estrogen receptor modulator (ovulatory stimulant)"
+      },
+      "drugB": {
+        "tallManName": "clomiPRAMINE",
+        "genericName": "clomipramine",
+        "displayName": "clomiPRAMINE",
+        "isBrand": false,
+        "classOrIndication": "Tricyclic antidepressant"
+      },
+      "category": "Selective estrogen receptor modulator (ovulatory stimulant)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Unintended ovarian hyperstimulation syndrome (OHSS) vs. cardiotoxicity, anticholinergic toxicity, and seizure risk.",
+      "riskSummary": "Unintended ovarian hyperstimulation syndrome (OHSS) vs. cardiotoxicity, anticholinergic toxicity, and seizure risk.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "CLOMiphene",
+        "clomiphENE",
+        "clOMIPhene"
+      ],
+      "tallManDistractorsB": [
+        "CLOMIpramine",
+        "clomipRAMINE",
+        "clomipramINE"
+      ],
+      "distractors": [
+        "acetoHEXAMIDE",
+        "amLODIPine",
+        "cefTAZidime",
+        "risperiDONE"
+      ]
+    },
+    {
+      "id": "lasa_031",
+      "numericId": 31,
+      "drugA": {
+        "tallManName": "cycloSERINE",
+        "genericName": "cycloserine",
+        "displayName": "cycloSERINE",
+        "isBrand": false,
+        "classOrIndication": "Second-line antimycobacterial (TB)"
+      },
+      "drugB": {
+        "tallManName": "cycloSPORINE",
+        "genericName": "cyclosporine",
+        "displayName": "cycloSPORINE",
+        "isBrand": false,
+        "classOrIndication": "Calcineurin inhibitor immunosuppressant"
+      },
+      "category": "Second-line antimycobacterial (TB)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Acute organ transplant rejection / nephrotoxicity from cyclosporine errors, or neurotoxicity and failed TB management from cycloserine errors.",
+      "riskSummary": "Acute organ transplant rejection / nephrotoxicity from cyclosporine errors, or neurotoxicity and failed TB management from cycloserine errors.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "CYCLoserine",
+        "cyclosERINE",
+        "cycloserINE"
+      ],
+      "tallManDistractorsB": [
+        "CYCLOsporine",
+        "cyclosPORINE",
+        "cyclosporINE"
+      ],
+      "distractors": [
+        "vinBLAStine",
+        "azaCITIDine",
+        "dimenhyDRINATE",
+        "Humulin R"
+      ]
+    },
+    {
+      "id": "lasa_032",
+      "numericId": 32,
+      "drugA": {
+        "tallManName": "DACTINomycin",
+        "genericName": "dactinomycin",
+        "displayName": "DACTINomycin",
+        "isBrand": false,
+        "classOrIndication": "Cytotoxic actinomycin antineoplastic"
+      },
+      "drugB": {
+        "tallManName": "DAPTOmycin",
+        "genericName": "daptomycin",
+        "displayName": "DAPTOmycin",
+        "isBrand": false,
+        "classOrIndication": "Lipopeptide antibacterial"
+      },
+      "category": "Cytotoxic actinomycin antineoplastic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Extreme bone marrow suppression, tissue necrosis, and severe toxicity from accidentally administering chemotherapy for an infection.",
+      "riskSummary": "Extreme bone marrow suppression, tissue necrosis, and severe toxicity from accidentally administering chemotherapy for an infection.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "DACTInomycin",
+        "DactinOMYCIN",
+        "DactinomyCIN"
+      ],
+      "tallManDistractorsB": [
+        "DAPTomycin",
+        "DaptoMYCIN",
+        "DaptomyCIN"
+      ],
+      "distractors": [
+        "aMILoride",
+        "chlorproMAZINE",
+        "rOPINIRole",
+        "ZyPREXA"
+      ]
+    },
+    {
+      "id": "lasa_033",
+      "numericId": 33,
+      "drugA": {
+        "tallManName": "dimenhyDRINATE",
+        "genericName": "dimenhydrinate",
+        "displayName": "dimenhyDRINATE",
+        "isBrand": false,
+        "classOrIndication": "Antiemetic / Antihistamine"
+      },
+      "drugB": {
+        "tallManName": "diphenhydrAMINE",
+        "genericName": "diphenhydramine",
+        "displayName": "diphenhydrAMINE",
+        "isBrand": false,
+        "classOrIndication": "First-generation H1 antihistamine"
+      },
+      "category": "Antiemetic / Antihistamine",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Dosing discrepancy (dimenhydrinate contains roughly half the milligram potency of diphenhydramine), leading to under- or over-sedation.",
+      "riskSummary": "Dosing discrepancy (dimenhydrinate contains roughly half the milligram potency of diphenhydramine), leading to under- or over-sedation.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "DIMENHydrinate",
+        "dimenhydrinATE",
+        "dimENHYDrinate"
+      ],
+      "tallManDistractorsB": [
+        "DIPHENhydramine",
+        "diphenhyDRAMINE",
+        "diphenhydramINE"
+      ],
+      "distractors": [
+        "azaTHIOprine",
+        "DAPTOmycin",
+        "NovoLOG",
+        "PROzac"
+      ]
+    },
+    {
+      "id": "lasa_034",
+      "numericId": 34,
+      "drugA": {
+        "tallManName": "DEPO-Medrol",
+        "genericName": "methylprednisolone",
+        "brandName": "DEPO-Medrol",
+        "displayName": "DEPO-Medrol",
+        "isBrand": true,
+        "classOrIndication": "Methylprednisolone acetate (depot / suspension)"
+      },
+      "drugB": {
+        "tallManName": "SOLU-Medrol",
+        "genericName": "methylprednisolone",
+        "brandName": "SOLU-Medrol",
+        "displayName": "SOLU-Medrol",
+        "isBrand": true,
+        "classOrIndication": "Methylprednisolone sodium succinate (IV formulation)"
+      },
+      "category": "Methylprednisolone acetate (depot / suspension)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Depo-Medrol injected intravenously can cause fatal microembolism, respiratory arrest, and cardiac arrest; it is strictly contraindicated for IV use.",
+      "riskSummary": "Depo-Medrol injected intravenously can cause fatal microembolism, respiratory arrest, and cardiac arrest; it is strictly contraindicated for IV use.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Brand Name Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "DEPO-medrol",
+        "Depo-mEDROL",
+        "Depo-medROL"
+      ],
+      "tallManDistractorsB": [
+        "SOLU-medrol",
+        "Solu-mEDROL",
+        "Solu-medROL"
+      ],
+      "distractors": [
+        "chlorproPAMIDE",
+        "sulfADIAZINE",
+        "ZyrTEC",
+        "dexAMETHasone"
+      ]
+    },
+    {
+      "id": "lasa_035",
+      "numericId": 35,
+      "drugA": {
+        "tallManName": "fentaNYL",
+        "genericName": "fentanyl",
+        "displayName": "fentaNYL",
+        "isBrand": false,
+        "classOrIndication": "Synthetic opioid analgesic"
+      },
+      "drugB": {
+        "tallManName": "SUFentanil",
+        "genericName": "sufentanil",
+        "displayName": "SUFentanil",
+        "isBrand": false,
+        "classOrIndication": "Ultra-potent synthetic opioid analgesic"
+      },
+      "category": "Synthetic opioid analgesic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Sufentanil is roughly 5 to 10 times more potent than fentanyl; confusing doses causes immediate, lethal respiratory depression.",
+      "riskSummary": "Sufentanil is roughly 5 to 10 times more potent than fentanyl; confusing doses causes immediate, lethal respiratory depression.",
+      "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+      "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+      "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "FENtanyl",
+        "fentANYL",
+        "feNTAnyl"
+      ],
+      "tallManDistractorsB": [
+        "SUFEntanil",
+        "SufenTANIL",
+        "SufentaNIL"
+      ],
+      "distractors": [
+        "dimenhyDRINATE",
+        "NovoLIN R",
+        "ALTEplase",
+        "prednisoLONE"
+      ]
+    },
+    {
+      "id": "lasa_036",
+      "numericId": 36,
+      "drugA": {
+        "tallManName": "risperiDONE",
+        "genericName": "risperidone",
+        "displayName": "risperiDONE",
+        "isBrand": false,
+        "classOrIndication": "Atypical antipsychotic"
+      },
+      "drugB": {
+        "tallManName": "rOPINIRole",
+        "genericName": "ropinirole",
+        "displayName": "rOPINIRole",
+        "isBrand": false,
+        "classOrIndication": "Dopamine D2/D3 agonist (Parkinson's / RLS)"
+      },
+      "category": "Atypical antipsychotic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Pharmacologically opposing mechanisms: risperidone blocks dopamine (worsening Parkinson's), while ropinirole can trigger psychosis.",
+      "riskSummary": "Pharmacologically opposing mechanisms: risperidone blocks dopamine (worsening Parkinson's), while ropinirole can trigger psychosis.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "RISPeridone",
+        "risperIDONE",
+        "risperidONE"
+      ],
+      "tallManDistractorsB": [
+        "ROPInirole",
+        "ropinIROLE",
+        "ropinirOLE"
+      ],
+      "distractors": [
+        "sulfiSOXAZOLE",
+        "TopAMAX",
+        "dexmedeTOMIDine",
+        "cloZAPine"
+      ]
+    },
+    {
+      "id": "lasa_037",
+      "numericId": 37,
+      "drugA": {
+        "tallManName": "sulfADIAZINE",
+        "genericName": "sulfadiazine",
+        "displayName": "sulfADIAZINE",
+        "isBrand": false,
+        "classOrIndication": "Sulfonamide antibacterial (toxoplasmosis)"
+      },
+      "drugB": {
+        "tallManName": "sulfiSOXAZOLE",
+        "genericName": "sulfisoxazole",
+        "displayName": "sulfiSOXAZOLE",
+        "isBrand": false,
+        "classOrIndication": "Sulfonamide antibacterial (UTIs / otitis media)"
+      },
+      "category": "Sulfonamide antibacterial (toxoplasmosis)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Crystalluria, acute renal injury, allergic hypersensitivity reactions, or untreated parasitic infections.",
+      "riskSummary": "Crystalluria, acute renal injury, allergic hypersensitivity reactions, or untreated parasitic infections.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "SULFAdiazine",
+        "sulfadIAZINE",
+        "sulfadiazINE"
+      ],
+      "tallManDistractorsB": [
+        "SULFIsoxazole",
+        "sulfisoXAZOLE",
+        "sulfisoxazOLE"
+      ],
+      "distractors": [
+        "Lantus",
+        "TENECTEplase",
+        "traMADol",
+        "oxyCODONE"
+      ]
+    },
+    {
+      "id": "lasa_038",
+      "numericId": 38,
+      "drugA": {
+        "tallManName": "TOLAZamide",
+        "genericName": "tolazamide",
+        "displayName": "TOLAZamide",
+        "isBrand": false,
+        "classOrIndication": "First-generation sulfonylurea"
+      },
+      "drugB": {
+        "tallManName": "TOLBUTamide",
+        "genericName": "tolbutamide",
+        "displayName": "TOLBUTamide",
+        "isBrand": false,
+        "classOrIndication": "First-generation sulfonylurea"
+      },
+      "category": "First-generation sulfonylurea",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Different milligram potencies and pharmacokinetics triggering severe, unpredictable hypoglycemia.",
+      "riskSummary": "Different milligram potencies and pharmacokinetics triggering severe, unpredictable hypoglycemia.",
+      "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+      "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+      "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "TOLAzamide",
+        "TolazAMIDE",
+        "TolazamIDE"
+      ],
+      "tallManDistractorsB": [
+        "TOLButamide",
+        "TolbutAMIDE",
+        "TolbutamIDE"
+      ],
+      "distractors": [
+        "Toprol-XL",
+        "buPROPion",
+        "CeleBREX",
+        "acetoHEXAMIDE"
+      ]
+    },
+    {
+      "id": "lasa_039",
+      "numericId": 39,
+      "drugA": {
+        "tallManName": "Humalog",
+        "genericName": "insulin lispro",
+        "brandName": "Humalog",
+        "displayName": "Humalog (insulin lispro)",
+        "isBrand": true,
+        "classOrIndication": "Rapid-acting insulin analogue"
+      },
+      "drugB": {
+        "tallManName": "Humulin R",
+        "genericName": "regular insulin",
+        "brandName": "Humulin R",
+        "displayName": "Humulin R (regular insulin)",
+        "isBrand": true,
+        "classOrIndication": "Short-acting regular human insulin"
+      },
+      "category": "Rapid-acting insulin analogue",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
+      "riskSummary": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
+      "source": "ISMP List of Confused Drug Names",
+      "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+      "sourceCitation": "ISMP List of Confused Drug Names; ISMP Medication Safety Alert! Acute Care",
+      "tallManDistractorsA": [
+        "HUMalog",
+        "HumALOG",
+        "HumaLOG"
+      ],
+      "tallManDistractorsB": [
+        "HUMUlin r",
+        "HumuLIN R",
+        "HumuliN R"
+      ],
+      "distractors": [
+        "hydroxyCHLOROquine",
+        "traZODone",
+        "HYDROcodone",
+        "vinBLAStine"
+      ]
+    },
+    {
+      "id": "lasa_040",
+      "numericId": 40,
+      "drugA": {
+        "tallManName": "NovoLOG",
+        "genericName": "insulin aspart",
+        "brandName": "NovoLOG",
+        "displayName": "NovoLOG (insulin aspart)",
+        "isBrand": true,
+        "classOrIndication": "Rapid-acting insulin analogue"
+      },
+      "drugB": {
+        "tallManName": "NovoLIN R",
+        "genericName": "regular insulin",
+        "brandName": "NovoLIN R",
+        "displayName": "NovoLIN R (regular insulin)",
+        "isBrand": true,
+        "classOrIndication": "Short-acting regular human insulin"
+      },
+      "category": "Rapid-acting insulin analogue",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
+      "riskSummary": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
+      "source": "ISMP List of Confused Drug Names",
+      "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+      "sourceCitation": "ISMP List of Confused Drug Names; ISMP High-Alert Medication Guidelines",
+      "tallManDistractorsA": [
+        "NOVolog",
+        "NovOLOG",
+        "NoVOlog"
+      ],
+      "tallManDistractorsB": [
+        "NOVOlin r",
+        "NovoliN R",
+        "NoVOLin r"
+      ],
+      "distractors": [
+        "busPIRone",
+        "CeleXA",
+        "CARBOplatin",
+        "aMILoride"
+      ]
+    },
+    {
+      "id": "lasa_041",
+      "numericId": 41,
+      "drugA": {
+        "tallManName": "Lantus",
+        "genericName": "insulin glargine",
+        "brandName": "Lantus",
+        "displayName": "Lantus (insulin glargine)",
+        "isBrand": true,
+        "classOrIndication": "Long-acting peakless basal insulin"
+      },
+      "drugB": {
+        "tallManName": "Lente",
+        "genericName": "intermediate-acting insulin",
+        "brandName": "Lente",
+        "displayName": "Lente (intermediate-acting insulin)",
+        "isBrand": true,
+        "classOrIndication": "Intermediate-acting insulin zinc suspension"
+      },
+      "category": "Long-acting peakless basal insulin",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
+      "riskSummary": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
+      "source": "ISMP List of Confused Drug Names",
+      "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+      "sourceCitation": "ISMP List of Confused Drug Names; ISMP National Medication Errors Reporting Program (MERP)",
+      "tallManDistractorsA": [
+        "LAntus",
+        "LanTUS",
+        "LANtus"
+      ],
+      "tallManDistractorsB": [
+        "LEnte",
+        "LeNTE",
+        "LENte"
+      ],
+      "distractors": [
+        "clonazePAM",
+        "glipiZIDE",
+        "vinCRIStine",
+        "azaTHIOprine"
+      ]
+    },
+    {
+      "id": "lasa_042",
+      "numericId": 42,
+      "drugA": {
+        "tallManName": "LaMICtal",
+        "genericName": "lamotrigine",
+        "brandName": "LaMICtal",
+        "displayName": "LaMICtal (lamotrigine)",
+        "isBrand": true,
+        "classOrIndication": "Antiepileptic / Mood stabilizer"
+      },
+      "drugB": {
+        "tallManName": "LaMISil",
+        "genericName": "terbinafine",
+        "brandName": "LaMISil",
+        "displayName": "LaMISil (terbinafine)",
+        "isBrand": true,
+        "classOrIndication": "Allylamine antifungal"
+      },
+      "category": "Antiepileptic / Mood stabilizer",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
+      "riskSummary": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
+      "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+      "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+      "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "LAMictal",
+        "LamiCTAL",
+        "LamicTAL"
+      ],
+      "tallManDistractorsB": [
+        "LAMisil",
+        "LamISIL",
+        "LamiSIL"
+      ],
+      "distractors": [
+        "HYDROmorphone",
+        "CISplatin",
+        "DULOxetine",
+        "chlorproPAMIDE"
+      ]
+    },
+    {
+      "id": "lasa_043",
+      "numericId": 43,
+      "drugA": {
+        "tallManName": "ZyPREXA",
+        "genericName": "olanzapine",
+        "brandName": "ZyPREXA",
+        "displayName": "ZyPREXA (olanzapine)",
+        "isBrand": true,
+        "classOrIndication": "Second-generation antipsychotic"
+      },
+      "drugB": {
+        "tallManName": "ZyrTEC",
+        "genericName": "cetirizine",
+        "brandName": "ZyrTEC",
+        "displayName": "ZyrTEC (cetirizine)",
+        "isBrand": true,
+        "classOrIndication": "Second-generation H1 antihistamine"
+      },
+      "category": "Second-generation antipsychotic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
+      "riskSummary": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
+      "source": "ISMP List of Confused Drug Names & Tall Man List",
+      "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+      "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "ZYPrexa",
+        "ZypREXA",
+        "ZyprEXA"
+      ],
+      "tallManDistractorsB": [
+        "ZYrtec",
+        "ZYRtec",
+        "ZyRTec"
+      ],
+      "distractors": [
+        "glyBURIDE",
+        "epiNEPHrine",
+        "ceFAZolin",
+        "dimenhyDRINATE"
+      ]
+    },
+    {
+      "id": "lasa_044",
+      "numericId": 44,
+      "drugA": {
+        "tallManName": "TopAMAX",
+        "genericName": "topiramate",
+        "brandName": "TopAMAX",
+        "displayName": "TopAMAX (topiramate)",
+        "isBrand": true,
+        "classOrIndication": "Anticonvulsant / Migraine prophylactic"
+      },
+      "drugB": {
+        "tallManName": "Toprol-XL",
+        "genericName": "metoprolol succinate",
+        "brandName": "Toprol-XL",
+        "displayName": "Toprol-XL (metoprolol succinate)",
+        "isBrand": true,
+        "classOrIndication": "Cardioselective beta-1 blocker"
+      },
+      "category": "Anticonvulsant / Migraine prophylactic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
+      "riskSummary": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
+      "source": "ISMP List of Confused Drug Names",
+      "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+      "sourceCitation": "ISMP List of Confused Drug Names; ISMP MERP Reporting Bulletin",
+      "tallManDistractorsA": [
+        "TOPamax",
+        "TopaMAX",
+        "ToPAmax"
+      ],
+      "tallManDistractorsB": [
+        "TOPRol-xl",
+        "ToprOL-XL",
+        "ToPROl-xl"
+      ],
+      "distractors": [
+        "DOCEtaxel",
+        "FLUOxetine",
+        "clomiPHENE",
+        "rOPINIRole"
+      ]
+    },
+    {
+      "id": "lasa_045",
+      "numericId": 45,
+      "drugA": {
+        "tallManName": "SeroQUEL",
+        "genericName": "quetiapine",
+        "brandName": "SeroQUEL",
+        "displayName": "SeroQUEL (quetiapine)",
+        "isBrand": true,
+        "classOrIndication": "Atypical antipsychotic"
+      },
+      "drugB": {
+        "tallManName": "SineQUAN",
+        "genericName": "doxepin",
+        "brandName": "SineQUAN",
+        "displayName": "SineQUAN (doxepin)",
+        "isBrand": true,
+        "classOrIndication": "Tricyclic antidepressant"
+      },
+      "category": "Atypical antipsychotic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
+      "riskSummary": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
+      "source": "ISMP List of Confused Drug Names",
+      "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+      "sourceCitation": "ISMP List of Confused Drug Names; FDA Public Health Advisory",
+      "tallManDistractorsA": [
+        "SERoquel",
+        "SeroqUEL",
+        "SeROQuel"
+      ],
+      "tallManDistractorsB": [
+        "SINequan",
+        "SineqUAN",
+        "SiNEQuan"
+      ],
+      "distractors": [
+        "ePHEDrine",
+        "cefTRIAXone",
+        "diphenhydrAMINE",
+        "NovoLOG"
+      ]
+    },
+    {
+      "id": "lasa_046",
+      "numericId": 46,
+      "drugA": {
+        "tallManName": "priLOSEC",
+        "genericName": "omeprazole",
+        "brandName": "priLOSEC",
+        "displayName": "priLOSEC (omeprazole)",
+        "isBrand": true,
+        "classOrIndication": "Proton pump inhibitor"
+      },
+      "drugB": {
+        "tallManName": "PROzac",
+        "genericName": "fluoxetine",
+        "brandName": "PROzac",
+        "displayName": "PROzac (fluoxetine)",
+        "isBrand": true,
+        "classOrIndication": "SSRI antidepressant"
+      },
+      "category": "Proton pump inhibitor",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
+      "riskSummary": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
+      "source": "FDA Safety Alerts & ISMP List of Confused Drug Names",
+      "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+      "sourceCitation": "FDA MedWatch Safety Alert (Prilosec/Prozac name confusion); ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "PRIlosec",
+        "prilOSEC",
+        "priloSEC"
+      ],
+      "tallManDistractorsB": [
+        "PRozac",
+        "ProZAC",
+        "PrOZac"
+      ],
+      "distractors": [
+        "PAROxetine",
+        "clomiPRAMINE",
+        "sulfADIAZINE",
+        "ZyrTEC"
+      ]
+    },
+    {
+      "id": "lasa_047",
+      "numericId": 47,
+      "drugA": {
+        "tallManName": "ALTEplase",
+        "genericName": "alteplase",
+        "displayName": "ALTEplase",
+        "isBrand": false,
+        "classOrIndication": "Tissue plasminogen activator (tPA) fibrinoloytic"
+      },
+      "drugB": {
+        "tallManName": "TENECTEplase",
+        "genericName": "tenecteplase",
+        "displayName": "TENECTEplase",
+        "isBrand": false,
+        "classOrIndication": "Genetically engineered tPA fibrinolytic"
+      },
+      "category": "Tissue plasminogen activator (tPA) fibrinoloytic",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Dosing difference (tenecteplase is a single weight-based bolus, alteplase is a bolus plus infusion); errors cause massive intracranial hemorrhage or subtherapeutic thrombolysis in stroke/MI.",
+      "riskSummary": "Dosing difference (tenecteplase is a single weight-based bolus, alteplase is a bolus plus infusion); errors cause massive intracranial hemorrhage or subtherapeutic thrombolysis in stroke/MI.",
+      "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+      "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+      "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Acute Care Safety Guidelines",
+      "tallManDistractorsA": [
+        "AltePLASE",
+        "AlteplASE",
+        "AlTEPlase"
+      ],
+      "tallManDistractorsB": [
+        "TENECteplase",
+        "TenectEPLASE",
+        "TenecteplASE"
+      ],
+      "distractors": [
+        "cefoTEtan",
+        "DEPO-Medrol",
+        "NovoLIN R",
+        "hydroxyCHLOROquine"
+      ]
+    },
+    {
+      "id": "lasa_048",
+      "numericId": 48,
+      "drugA": {
+        "tallManName": "hydroxyCHLOROquine",
+        "genericName": "hydroxychloroquine",
+        "displayName": "hydroxyCHLOROquine",
+        "isBrand": false,
+        "classOrIndication": "Aminoquinoline antimalarial / Disease-modifying antirheumatic drug"
+      },
+      "drugB": {
+        "tallManName": "hydroxyUREA",
+        "genericName": "hydroxyurea",
+        "displayName": "hydroxyUREA",
+        "isBrand": false,
+        "classOrIndication": "Antimetabolite antineoplastic"
+      },
+      "category": "Aminoquinoline antimalarial / Disease-modifying antirheumatic drug",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Profound myelosuppression, leukopenia, and thrombocytopenia from unintended cytotoxic hydroxyurea administration.",
+      "riskSummary": "Profound myelosuppression, leukopenia, and thrombocytopenia from unintended cytotoxic hydroxyurea administration.",
+      "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+      "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+      "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+      "tallManDistractorsA": [
+        "HYDROXYChloroquine",
+        "hydroxychLOROQUINE",
+        "hydroxychloroquINE"
+      ],
+      "tallManDistractorsB": [
+        "HYDRoxyurea",
+        "hydroxYUREA",
+        "hydroxyuREA"
+      ],
+      "distractors": [
+        "cycloSERINE",
+        "sulfiSOXAZOLE",
+        "TopAMAX",
+        "busPIRone"
+      ]
+    },
+    {
+      "id": "lasa_049",
+      "numericId": 49,
+      "drugA": {
+        "tallManName": "leNALIDomide",
+        "genericName": "lenalidomide",
+        "displayName": "leNALIDomide",
+        "isBrand": false,
+        "classOrIndication": "Immunomodulatory antineoplastic (thalidomide analogue)"
+      },
+      "drugB": {
+        "tallManName": "leFLUNomide",
+        "genericName": "leflunomide",
+        "displayName": "leFLUNomide",
+        "isBrand": false,
+        "classOrIndication": "Pyrimidine synthesis inhibitor (DMARD)"
+      },
+      "category": "Immunomodulatory antineoplastic (thalidomide analogue)",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Severe embryofetal toxicity, deep vein thrombosis/pulmonary embolism, and intense cytopenias from lenalidomide.",
+      "riskSummary": "Severe embryofetal toxicity, deep vein thrombosis/pulmonary embolism, and intense cytopenias from lenalidomide.",
+      "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+      "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+      "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Medication Safety Alert!",
+      "tallManDistractorsA": [
+        "LENALidomide",
+        "lenaliDOMIDE",
+        "lenalidomIDE"
+      ],
+      "tallManDistractorsB": [
+        "LEFLunomide",
+        "leflunOMIDE",
+        "leflunomIDE"
+      ],
+      "distractors": [
+        "SOLU-Medrol",
+        "Lantus",
+        "TENECTEplase",
+        "clonazePAM"
+      ]
+    },
+    {
+      "id": "lasa_050",
+      "numericId": 50,
+      "drugA": {
+        "tallManName": "dexAMETHasone",
+        "genericName": "dexamethasone",
+        "displayName": "dexAMETHasone",
+        "isBrand": false,
+        "classOrIndication": "Long-acting glucocorticoid"
+      },
+      "drugB": {
+        "tallManName": "dexmedeTOMIDine",
+        "genericName": "dexmedetomidine",
+        "displayName": "dexmedeTOMIDine",
+        "isBrand": false,
+        "classOrIndication": "Selective alpha-2 adrenergic agonist sedative"
+      },
+      "category": "Long-acting glucocorticoid",
+      "confusionType": "orthographic_soundalike",
+      "distinguishingFeature": "Profound sedation, severe bradycardia, and hypotension from dexmedetomidine, or acute glycemic decompensation and immune suppression from dexamethasone.",
+      "riskSummary": "Profound sedation, severe bradycardia, and hypotension from dexmedetomidine, or acute glycemic decompensation and immune suppression from dexamethasone.",
+      "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+      "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+      "sourceCitation": "ISMP 2023 Tall Man Lettering Update; ISMP Table 2 Generic Tall Man List",
+      "tallManDistractorsA": [
+        "DEXAMethasone",
+        "dexametHASONE",
+        "dexamethasONE"
+      ],
+      "tallManDistractorsB": [
+        "DEXMEDetomidine",
+        "dexmedetOMIDINE",
+        "dexmedetomidINE"
+      ],
+      "distractors": [
+        "TOLAZamide",
+        "Toprol-XL",
+        "hydrALAZINE",
+        "HYDROmorphone"
+      ]
     }
   ]
 }
