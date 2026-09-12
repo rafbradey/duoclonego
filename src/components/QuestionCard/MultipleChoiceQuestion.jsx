@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { Volume2 } from "lucide-react";
-import { playMedicationAudio } from "../../services/audioService.js";
 import TallManText from "../TallManText/TallManText.jsx";
+import AudioPronounceButton from "../AudioPronounceButton/AudioPronounceButton.jsx";
 import "./MultipleChoiceQuestion.css";
 
 function MultipleChoiceQuestion({
@@ -10,21 +8,10 @@ function MultipleChoiceQuestion({
     onSelect,
     isSubmitted = false
 }) {
-    const [isPlaying, setIsPlaying] = useState(false);
     if (!question) return null;
 
     const choices = Array.isArray(question.choices) ? question.choices : [];
-    const drugToPronounce = question.relatedDrug || question.spokenDrug || "";
-
-    const handlePronounce = () => {
-        if (!drugToPronounce) return;
-        setIsPlaying(true);
-        playMedicationAudio(drugToPronounce, {
-            onStart: () => setIsPlaying(true),
-            onEnd: () => setIsPlaying(false),
-            onError: () => setIsPlaying(false)
-        });
-    };
+    const drugToPronounce = question.canonicalDrugId || question.relatedDrug || question.spokenDrug || "";
 
     return (
         <div className="mc-question-container">
@@ -33,15 +20,10 @@ function MultipleChoiceQuestion({
                     {question.prompt}
                 </h2>
                 {drugToPronounce && (
-                    <button
-                        type="button"
-                        onClick={handlePronounce}
-                        className={`mc-audio-btn ${isPlaying ? "playing" : ""}`}
-                        title={`Listen to pronunciation of ${drugToPronounce}`}
-                        aria-label={`Pronounce ${drugToPronounce}`}
-                    >
-                        <Volume2 size={20} />
-                    </button>
+                    <AudioPronounceButton
+                        drug={drugToPronounce}
+                        size={20}
+                    />
                 )}
             </div>
 

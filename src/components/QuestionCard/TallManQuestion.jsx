@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Sparkles, Edit3, Award } from "lucide-react";
 import TallManText from "../TallManText/TallManText.jsx";
+import AudioPronounceButton from "../AudioPronounceButton/AudioPronounceButton.jsx";
 import "./TallManQuestion.css";
 
 /**
@@ -97,9 +98,15 @@ function TallManQuestion({
 
             {/* Standard Drug Name Reference Card */}
             <div className="tm-reference-card">
-                <span className="tm-reference-label">
-                    {isMastery ? "Target Drug (Standard Name)" : "Standard Drug Name"}
-                </span>
+                <div className="tm-reference-header">
+                    <span className="tm-reference-label">
+                        {isMastery ? "Target Drug (Standard Name)" : "Standard Drug Name"}
+                    </span>
+                    <AudioPronounceButton
+                        drug={question.canonicalDrugId || standardName || question.relatedDrug || question.tallManName}
+                        size={16}
+                    />
+                </div>
                 <span className="tm-reference-name">{standardName}</span>
             </div>
 

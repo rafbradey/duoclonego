@@ -1,0 +1,62 @@
+.audio-pronounce-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(73, 192, 248, 0.12);
+    border: 2px solid rgba(73, 192, 248, 0.32);
+    color: #49c0f8;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.15s ease;
+    user-select: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.audio-pronounce-btn:hover:not(:disabled) {
+    background: rgba(73, 192, 248, 0.22);
+    border-color: #49c0f8;
+    transform: scale(1.06);
+    box-shadow: 0 0 10px rgba(73, 192, 248, 0.35);
+}
+
+.audio-pronounce-btn:active:not(:disabled) {
+    transform: scale(0.96);
+}
+
+.audio-pronounce-btn:focus-visible {
+    outline: 2px solid #49c0f8;
+    outline-offset: 2px;
+}
+
+.audio-pronounce-btn.playing {
+    background: #49c0f8;
+    border-color: #49c0f8;
+    color: #ffffff;
+    box-shadow: 0 0 14px rgba(73, 192, 248, 0.6);
+    animation: audioPronouncePulse 1s infinite alternate ease-in-out;
+}
+
+.audio-pronounce-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@keyframes audioPronouncePulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 500px) {
+    .audio-pronounce-btn {
+        width: 34px;
+        height: 34px;
+    }
+}

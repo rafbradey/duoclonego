@@ -128,9 +128,9 @@ function SoundAlikeQuestion({
                     </button>
                 </div>
 
-                {/* Primary Visual Medication Display for Simulated Oral Order: ONLY medication name */}
-                {isReadBack && medicationName && (
-                    <div className="sound-oral-order-display" aria-label={`Ordered medication: ${medicationName}`}>
+                {/* Post-submission reveal: show target medication only after answer is submitted */}
+                {isReadBack && isSubmitted && medicationName && (
+                    <div className="sound-oral-order-display sound-reveal-display" aria-label={`Ordered medication: ${medicationName}`}>
                         <span className="sound-medication-name">
                             <TallManText name={medicationName} />
                         </span>
