@@ -257,11 +257,15 @@
 
 .lesson-node-title {
     position: absolute;
-    bottom: -28px;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
     font-size: 0.85rem;
     font-weight: 800;
     white-space: nowrap;
     color: var(--text-white);
+    pointer-events: none;
 }
 
 .lesson-node-xp {
@@ -506,6 +510,19 @@
     }
 }
 
+@media (max-width: 768px) {
+    .lesson-node-title {
+        white-space: normal;
+        width: max-content;
+        max-width: min(240px, calc(100vw - 48px));
+        line-height: 1.25;
+    }
+
+    .lesson-path-connector {
+        margin: 48px 0 16px 0;
+    }
+}
+
 @media (max-width: 640px) {
     .learn-layout {
         padding: 1rem 0.75rem;
@@ -552,6 +569,10 @@
     .unit-mastery-desc {
         font-size: 0.8rem;
     }
+
+    .lesson-node-title {
+        max-width: min(210px, calc(100vw - 40px));
+    }
 }
 
 @media (max-width: 400px) {
@@ -573,8 +594,12 @@
     }
 
     .lesson-node-title {
-        max-width: 160px;
+        max-width: min(180px, calc(100vw - 32px));
         font-size: 0.8rem;
+    }
+
+    .lesson-path-connector {
+        margin: 54px 0 16px 0;
     }
 }
 
