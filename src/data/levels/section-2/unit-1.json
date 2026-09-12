@@ -122,10 +122,10 @@
               "lasaId": "lasa_039",
               "prompt": "Which medication is commonly confused with Humalog?",
               "choices": [
-                "HYDROcodone",
                 "Humulin R",
+                "traZODone",
                 "hydroxyCHLOROquine",
-                "traZODone"
+                "HYDROcodone"
               ],
               "correctAnswer": "Humulin R",
               "explanation": "Humalog and Humulin R form a documented ISMP/FDA LASA pair.",
@@ -169,9 +169,9 @@
               "prompt": "Which medication is commonly confused with NovoLOG?",
               "choices": [
                 "busPIRone",
-                "CARBOplatin",
                 "CeleXA",
-                "NovoLIN R"
+                "NovoLIN R",
+                "CARBOplatin"
               ],
               "correctAnswer": "NovoLIN R",
               "explanation": "NovoLOG and NovoLIN R form a documented ISMP/FDA LASA pair.",
@@ -191,10 +191,10 @@
               "lasaId": "lasa_040",
               "prompt": "Which medication is commonly confused with NovoLIN R?",
               "choices": [
-                "CARBOplatin",
                 "busPIRone",
                 "CeleXA",
-                "NovoLOG"
+                "NovoLOG",
+                "CARBOplatin"
               ],
               "correctAnswer": "NovoLOG",
               "explanation": "NovoLIN R and NovoLOG form a documented ISMP/FDA LASA pair.",
@@ -214,10 +214,10 @@
               "lasaId": "lasa_041",
               "prompt": "Which medication is commonly confused with Lantus?",
               "choices": [
-                "Lente",
                 "vinCRIStine",
-                "clonazePAM",
-                "glipiZIDE"
+                "Lente",
+                "glipiZIDE",
+                "clonazePAM"
               ],
               "correctAnswer": "Lente",
               "explanation": "Lantus and Lente form a documented ISMP/FDA LASA pair.",
@@ -239,8 +239,8 @@
               "choices": [
                 "glipiZIDE",
                 "vinCRIStine",
-                "clonazePAM",
-                "Lantus"
+                "Lantus",
+                "clonazePAM"
               ],
               "correctAnswer": "Lantus",
               "explanation": "Lente and Lantus form a documented ISMP/FDA LASA pair.",
@@ -261,8 +261,8 @@
               "prompt": "Which medication is commonly confused with LaMICtal?",
               "choices": [
                 "CISplatin",
-                "LaMISil",
                 "DULOxetine",
+                "LaMISil",
                 "HYDROmorphone"
               ],
               "correctAnswer": "LaMISil",
@@ -283,10 +283,10 @@
               "lasaId": "lasa_042",
               "prompt": "Which medication is commonly confused with LaMISil?",
               "choices": [
-                "CISplatin",
-                "DULOxetine",
+                "HYDROmorphone",
                 "LaMICtal",
-                "HYDROmorphone"
+                "DULOxetine",
+                "CISplatin"
               ],
               "correctAnswer": "LaMICtal",
               "explanation": "LaMISil and LaMICtal form a documented ISMP/FDA LASA pair.",
@@ -306,10 +306,10 @@
               "lasaId": "lasa_043",
               "prompt": "Which medication is commonly confused with ZyPREXA?",
               "choices": [
-                "ZyrTEC",
-                "epiNEPHrine",
+                "glyBURIDE",
                 "ceFAZolin",
-                "glyBURIDE"
+                "epiNEPHrine",
+                "ZyrTEC"
               ],
               "correctAnswer": "ZyrTEC",
               "explanation": "ZyPREXA and ZyrTEC form a documented ISMP/FDA LASA pair.",
@@ -329,10 +329,10 @@
               "lasaId": "lasa_043",
               "prompt": "Which medication is commonly confused with ZyrTEC?",
               "choices": [
-                "ZyPREXA",
-                "epiNEPHrine",
                 "glyBURIDE",
-                "ceFAZolin"
+                "ceFAZolin",
+                "ZyPREXA",
+                "epiNEPHrine"
               ],
               "correctAnswer": "ZyPREXA",
               "explanation": "ZyrTEC and ZyPREXA form a documented ISMP/FDA LASA pair.",
@@ -352,10 +352,10 @@
               "lasaId": "lasa_044",
               "prompt": "Which medication is commonly confused with TopAMAX?",
               "choices": [
-                "DOCEtaxel",
                 "clomiPHENE",
-                "Toprol-XL",
-                "FLUOxetine"
+                "FLUOxetine",
+                "DOCEtaxel",
+                "Toprol-XL"
               ],
               "correctAnswer": "Toprol-XL",
               "explanation": "TopAMAX and Toprol-XL form a documented ISMP/FDA LASA pair.",
@@ -375,10 +375,10 @@
               "lasaId": "lasa_044",
               "prompt": "Which medication is commonly confused with Toprol-XL?",
               "choices": [
-                "TopAMAX",
-                "DOCEtaxel",
                 "FLUOxetine",
-                "clomiPHENE"
+                "clomiPHENE",
+                "DOCEtaxel",
+                "TopAMAX"
               ],
               "correctAnswer": "TopAMAX",
               "explanation": "Toprol-XL and TopAMAX form a documented ISMP/FDA LASA pair.",
@@ -398,10 +398,10 @@
               "lasaId": "lasa_045",
               "prompt": "Which medication is commonly confused with SeroQUEL?",
               "choices": [
+                "SineQUAN",
                 "ePHEDrine",
                 "diphenhydrAMINE",
-                "cefTRIAXone",
-                "SineQUAN"
+                "cefTRIAXone"
               ],
               "correctAnswer": "SineQUAN",
               "explanation": "SeroQUEL and SineQUAN form a documented ISMP/FDA LASA pair.",
@@ -421,10 +421,10 @@
               "lasaId": "lasa_045",
               "prompt": "Which medication is commonly confused with SineQUAN?",
               "choices": [
-                "ePHEDrine",
-                "diphenhydrAMINE",
                 "SeroQUEL",
-                "cefTRIAXone"
+                "cefTRIAXone",
+                "ePHEDrine",
+                "diphenhydrAMINE"
               ],
               "correctAnswer": "SeroQUEL",
               "explanation": "SineQUAN and SeroQUEL form a documented ISMP/FDA LASA pair.",
@@ -444,10 +444,10 @@
               "lasaId": "lasa_046",
               "prompt": "Which medication is commonly confused with priLOSEC?",
               "choices": [
-                "PAROxetine",
                 "sulfADIAZINE",
+                "clomiPRAMINE",
                 "PROzac",
-                "clomiPRAMINE"
+                "PAROxetine"
               ],
               "correctAnswer": "PROzac",
               "explanation": "priLOSEC and PROzac form a documented ISMP/FDA LASA pair.",
@@ -469,8 +469,8 @@
               "choices": [
                 "clomiPRAMINE",
                 "PAROxetine",
-                "priLOSEC",
-                "sulfADIAZINE"
+                "sulfADIAZINE",
+                "priLOSEC"
               ],
               "correctAnswer": "priLOSEC",
               "explanation": "PROzac and priLOSEC form a documented ISMP/FDA LASA pair.",
@@ -491,9 +491,9 @@
               "prompt": "Which medication is commonly confused with ALTEplase?",
               "choices": [
                 "NovoLIN R",
-                "DEPO-Medrol",
                 "TENECTEplase",
-                "cefoTEtan"
+                "cefoTEtan",
+                "DEPO-Medrol"
               ],
               "correctAnswer": "TENECTEplase",
               "explanation": "ALTEplase and TENECTEplase form a documented ISMP/FDA LASA pair.",
@@ -514,9 +514,9 @@
               "prompt": "Which medication is commonly confused with TENECTEplase?",
               "choices": [
                 "cefoTEtan",
-                "NovoLIN R",
                 "ALTEplase",
-                "DEPO-Medrol"
+                "DEPO-Medrol",
+                "NovoLIN R"
               ],
               "correctAnswer": "ALTEplase",
               "explanation": "TENECTEplase and ALTEplase form a documented ISMP/FDA LASA pair.",
@@ -536,10 +536,10 @@
               "lasaId": "lasa_048",
               "prompt": "Which medication is commonly confused with hydroxyCHLOROquine?",
               "choices": [
-                "sulfiSOXAZOLE",
-                "cycloSERINE",
                 "TopAMAX",
-                "hydroxyUREA"
+                "sulfiSOXAZOLE",
+                "hydroxyUREA",
+                "cycloSERINE"
               ],
               "correctAnswer": "hydroxyUREA",
               "explanation": "hydroxyCHLOROquine and hydroxyUREA form a documented ISMP/FDA LASA pair.",
@@ -559,10 +559,10 @@
               "lasaId": "lasa_048",
               "prompt": "Which medication is commonly confused with hydroxyUREA?",
               "choices": [
-                "hydroxyCHLOROquine",
                 "TopAMAX",
-                "sulfiSOXAZOLE",
-                "cycloSERINE"
+                "hydroxyCHLOROquine",
+                "cycloSERINE",
+                "sulfiSOXAZOLE"
               ],
               "correctAnswer": "hydroxyCHLOROquine",
               "explanation": "hydroxyUREA and hydroxyCHLOROquine form a documented ISMP/FDA LASA pair.",
@@ -584,8 +584,8 @@
               "choices": [
                 "leFLUNomide",
                 "Lantus",
-                "TENECTEplase",
-                "SOLU-Medrol"
+                "SOLU-Medrol",
+                "TENECTEplase"
               ],
               "correctAnswer": "leFLUNomide",
               "explanation": "leNALIDomide and leFLUNomide form a documented ISMP/FDA LASA pair.",
@@ -628,10 +628,10 @@
               "lasaId": "lasa_050",
               "prompt": "Which medication is commonly confused with dexAMETHasone?",
               "choices": [
-                "hydrALAZINE",
                 "Toprol-XL",
                 "TOLAZamide",
-                "dexmedeTOMIDine"
+                "dexmedeTOMIDine",
+                "hydrALAZINE"
               ],
               "correctAnswer": "dexmedeTOMIDine",
               "explanation": "dexAMETHasone and dexmedeTOMIDine form a documented ISMP/FDA LASA pair.",
@@ -651,10 +651,10 @@
               "lasaId": "lasa_050",
               "prompt": "Which medication is commonly confused with dexmedeTOMIDine?",
               "choices": [
-                "Toprol-XL",
-                "hydrALAZINE",
                 "TOLAZamide",
-                "dexAMETHasone"
+                "hydrALAZINE",
+                "dexAMETHasone",
+                "Toprol-XL"
               ],
               "correctAnswer": "dexAMETHasone",
               "explanation": "dexmedeTOMIDine and dexAMETHasone form a documented ISMP/FDA LASA pair.",
@@ -678,10 +678,10 @@
           "lasaId": "lasa_039",
           "prompt": "Which medication is commonly confused with Humalog?",
           "choices": [
-            "HYDROcodone",
             "Humulin R",
+            "traZODone",
             "hydroxyCHLOROquine",
-            "traZODone"
+            "HYDROcodone"
           ],
           "correctAnswer": "Humulin R",
           "explanation": "Humalog and Humulin R form a documented ISMP/FDA LASA pair.",
@@ -725,9 +725,9 @@
           "prompt": "Which medication is commonly confused with NovoLOG?",
           "choices": [
             "busPIRone",
-            "CARBOplatin",
             "CeleXA",
-            "NovoLIN R"
+            "NovoLIN R",
+            "CARBOplatin"
           ],
           "correctAnswer": "NovoLIN R",
           "explanation": "NovoLOG and NovoLIN R form a documented ISMP/FDA LASA pair.",
@@ -747,10 +747,10 @@
           "lasaId": "lasa_040",
           "prompt": "Which medication is commonly confused with NovoLIN R?",
           "choices": [
-            "CARBOplatin",
             "busPIRone",
             "CeleXA",
-            "NovoLOG"
+            "NovoLOG",
+            "CARBOplatin"
           ],
           "correctAnswer": "NovoLOG",
           "explanation": "NovoLIN R and NovoLOG form a documented ISMP/FDA LASA pair.",
@@ -770,10 +770,10 @@
           "lasaId": "lasa_041",
           "prompt": "Which medication is commonly confused with Lantus?",
           "choices": [
-            "Lente",
             "vinCRIStine",
-            "clonazePAM",
-            "glipiZIDE"
+            "Lente",
+            "glipiZIDE",
+            "clonazePAM"
           ],
           "correctAnswer": "Lente",
           "explanation": "Lantus and Lente form a documented ISMP/FDA LASA pair.",
@@ -795,8 +795,8 @@
           "choices": [
             "glipiZIDE",
             "vinCRIStine",
-            "clonazePAM",
-            "Lantus"
+            "Lantus",
+            "clonazePAM"
           ],
           "correctAnswer": "Lantus",
           "explanation": "Lente and Lantus form a documented ISMP/FDA LASA pair.",
@@ -817,8 +817,8 @@
           "prompt": "Which medication is commonly confused with LaMICtal?",
           "choices": [
             "CISplatin",
-            "LaMISil",
             "DULOxetine",
+            "LaMISil",
             "HYDROmorphone"
           ],
           "correctAnswer": "LaMISil",
@@ -839,10 +839,10 @@
           "lasaId": "lasa_042",
           "prompt": "Which medication is commonly confused with LaMISil?",
           "choices": [
-            "CISplatin",
-            "DULOxetine",
+            "HYDROmorphone",
             "LaMICtal",
-            "HYDROmorphone"
+            "DULOxetine",
+            "CISplatin"
           ],
           "correctAnswer": "LaMICtal",
           "explanation": "LaMISil and LaMICtal form a documented ISMP/FDA LASA pair.",
@@ -862,10 +862,10 @@
           "lasaId": "lasa_043",
           "prompt": "Which medication is commonly confused with ZyPREXA?",
           "choices": [
-            "ZyrTEC",
-            "epiNEPHrine",
+            "glyBURIDE",
             "ceFAZolin",
-            "glyBURIDE"
+            "epiNEPHrine",
+            "ZyrTEC"
           ],
           "correctAnswer": "ZyrTEC",
           "explanation": "ZyPREXA and ZyrTEC form a documented ISMP/FDA LASA pair.",
@@ -885,10 +885,10 @@
           "lasaId": "lasa_043",
           "prompt": "Which medication is commonly confused with ZyrTEC?",
           "choices": [
-            "ZyPREXA",
-            "epiNEPHrine",
             "glyBURIDE",
-            "ceFAZolin"
+            "ceFAZolin",
+            "ZyPREXA",
+            "epiNEPHrine"
           ],
           "correctAnswer": "ZyPREXA",
           "explanation": "ZyrTEC and ZyPREXA form a documented ISMP/FDA LASA pair.",
@@ -908,10 +908,10 @@
           "lasaId": "lasa_044",
           "prompt": "Which medication is commonly confused with TopAMAX?",
           "choices": [
-            "DOCEtaxel",
             "clomiPHENE",
-            "Toprol-XL",
-            "FLUOxetine"
+            "FLUOxetine",
+            "DOCEtaxel",
+            "Toprol-XL"
           ],
           "correctAnswer": "Toprol-XL",
           "explanation": "TopAMAX and Toprol-XL form a documented ISMP/FDA LASA pair.",
@@ -931,10 +931,10 @@
           "lasaId": "lasa_044",
           "prompt": "Which medication is commonly confused with Toprol-XL?",
           "choices": [
-            "TopAMAX",
-            "DOCEtaxel",
             "FLUOxetine",
-            "clomiPHENE"
+            "clomiPHENE",
+            "DOCEtaxel",
+            "TopAMAX"
           ],
           "correctAnswer": "TopAMAX",
           "explanation": "Toprol-XL and TopAMAX form a documented ISMP/FDA LASA pair.",
@@ -954,10 +954,10 @@
           "lasaId": "lasa_045",
           "prompt": "Which medication is commonly confused with SeroQUEL?",
           "choices": [
+            "SineQUAN",
             "ePHEDrine",
             "diphenhydrAMINE",
-            "cefTRIAXone",
-            "SineQUAN"
+            "cefTRIAXone"
           ],
           "correctAnswer": "SineQUAN",
           "explanation": "SeroQUEL and SineQUAN form a documented ISMP/FDA LASA pair.",
@@ -977,10 +977,10 @@
           "lasaId": "lasa_045",
           "prompt": "Which medication is commonly confused with SineQUAN?",
           "choices": [
-            "ePHEDrine",
-            "diphenhydrAMINE",
             "SeroQUEL",
-            "cefTRIAXone"
+            "cefTRIAXone",
+            "ePHEDrine",
+            "diphenhydrAMINE"
           ],
           "correctAnswer": "SeroQUEL",
           "explanation": "SineQUAN and SeroQUEL form a documented ISMP/FDA LASA pair.",
@@ -1000,10 +1000,10 @@
           "lasaId": "lasa_046",
           "prompt": "Which medication is commonly confused with priLOSEC?",
           "choices": [
-            "PAROxetine",
             "sulfADIAZINE",
+            "clomiPRAMINE",
             "PROzac",
-            "clomiPRAMINE"
+            "PAROxetine"
           ],
           "correctAnswer": "PROzac",
           "explanation": "priLOSEC and PROzac form a documented ISMP/FDA LASA pair.",
@@ -1025,8 +1025,8 @@
           "choices": [
             "clomiPRAMINE",
             "PAROxetine",
-            "priLOSEC",
-            "sulfADIAZINE"
+            "sulfADIAZINE",
+            "priLOSEC"
           ],
           "correctAnswer": "priLOSEC",
           "explanation": "PROzac and priLOSEC form a documented ISMP/FDA LASA pair.",
@@ -1047,9 +1047,9 @@
           "prompt": "Which medication is commonly confused with ALTEplase?",
           "choices": [
             "NovoLIN R",
-            "DEPO-Medrol",
             "TENECTEplase",
-            "cefoTEtan"
+            "cefoTEtan",
+            "DEPO-Medrol"
           ],
           "correctAnswer": "TENECTEplase",
           "explanation": "ALTEplase and TENECTEplase form a documented ISMP/FDA LASA pair.",
@@ -1070,9 +1070,9 @@
           "prompt": "Which medication is commonly confused with TENECTEplase?",
           "choices": [
             "cefoTEtan",
-            "NovoLIN R",
             "ALTEplase",
-            "DEPO-Medrol"
+            "DEPO-Medrol",
+            "NovoLIN R"
           ],
           "correctAnswer": "ALTEplase",
           "explanation": "TENECTEplase and ALTEplase form a documented ISMP/FDA LASA pair.",
@@ -1092,10 +1092,10 @@
           "lasaId": "lasa_048",
           "prompt": "Which medication is commonly confused with hydroxyCHLOROquine?",
           "choices": [
-            "sulfiSOXAZOLE",
-            "cycloSERINE",
             "TopAMAX",
-            "hydroxyUREA"
+            "sulfiSOXAZOLE",
+            "hydroxyUREA",
+            "cycloSERINE"
           ],
           "correctAnswer": "hydroxyUREA",
           "explanation": "hydroxyCHLOROquine and hydroxyUREA form a documented ISMP/FDA LASA pair.",
@@ -1115,10 +1115,10 @@
           "lasaId": "lasa_048",
           "prompt": "Which medication is commonly confused with hydroxyUREA?",
           "choices": [
-            "hydroxyCHLOROquine",
             "TopAMAX",
-            "sulfiSOXAZOLE",
-            "cycloSERINE"
+            "hydroxyCHLOROquine",
+            "cycloSERINE",
+            "sulfiSOXAZOLE"
           ],
           "correctAnswer": "hydroxyCHLOROquine",
           "explanation": "hydroxyUREA and hydroxyCHLOROquine form a documented ISMP/FDA LASA pair.",
@@ -1140,8 +1140,8 @@
           "choices": [
             "leFLUNomide",
             "Lantus",
-            "TENECTEplase",
-            "SOLU-Medrol"
+            "SOLU-Medrol",
+            "TENECTEplase"
           ],
           "correctAnswer": "leFLUNomide",
           "explanation": "leNALIDomide and leFLUNomide form a documented ISMP/FDA LASA pair.",
@@ -1184,10 +1184,10 @@
           "lasaId": "lasa_050",
           "prompt": "Which medication is commonly confused with dexAMETHasone?",
           "choices": [
-            "hydrALAZINE",
             "Toprol-XL",
             "TOLAZamide",
-            "dexmedeTOMIDine"
+            "dexmedeTOMIDine",
+            "hydrALAZINE"
           ],
           "correctAnswer": "dexmedeTOMIDine",
           "explanation": "dexAMETHasone and dexmedeTOMIDine form a documented ISMP/FDA LASA pair.",
@@ -1207,10 +1207,10 @@
           "lasaId": "lasa_050",
           "prompt": "Which medication is commonly confused with dexmedeTOMIDine?",
           "choices": [
-            "Toprol-XL",
-            "hydrALAZINE",
             "TOLAZamide",
-            "dexAMETHasone"
+            "hydrALAZINE",
+            "dexAMETHasone",
+            "Toprol-XL"
           ],
           "correctAnswer": "dexAMETHasone",
           "explanation": "dexmedeTOMIDine and dexAMETHasone form a documented ISMP/FDA LASA pair.",
@@ -1291,9 +1291,9 @@
               "prompt": "Which is the correct Tall Man lettering for insulin aspart?",
               "choices": [
                 "NoVOlog",
-                "NovoLOG",
                 "NovOLOG",
-                "NOVolog"
+                "NOVolog",
+                "NovoLOG"
               ],
               "correctAnswer": "NovoLOG",
               "explanation": "NovoLOG uses capitalized Tall Man lettering to distinguish it from its confusable counterpart NovoLIN R.",
@@ -1315,8 +1315,8 @@
               "lasaId": "lasa_040",
               "prompt": "Which is the correct Tall Man lettering for regular insulin?",
               "choices": [
-                "NoVOLin r",
                 "NOVOlin r",
+                "NoVOLin r",
                 "NovoLIN R",
                 "NovoliN R"
               ],
@@ -1340,10 +1340,10 @@
               "lasaId": "lasa_042",
               "prompt": "Which is the correct Tall Man lettering for lamotrigine?",
               "choices": [
-                "LamicTAL",
-                "LamiCTAL",
+                "LAMictal",
                 "LaMICtal",
-                "LAMictal"
+                "LamiCTAL",
+                "LamicTAL"
               ],
               "correctAnswer": "LaMICtal",
               "explanation": "LaMICtal uses capitalized Tall Man lettering to distinguish it from its confusable counterpart LaMISil.",
@@ -1365,10 +1365,10 @@
               "lasaId": "lasa_042",
               "prompt": "Which is the correct Tall Man lettering for terbinafine?",
               "choices": [
-                "LaMISil",
-                "LamiSIL",
                 "LAMisil",
-                "LamISIL"
+                "LaMISil",
+                "LamISIL",
+                "LamiSIL"
               ],
               "correctAnswer": "LaMISil",
               "explanation": "LaMISil uses capitalized Tall Man lettering to distinguish it from its confusable counterpart LaMICtal.",
@@ -1390,10 +1390,10 @@
               "lasaId": "lasa_043",
               "prompt": "Which is the correct Tall Man lettering for olanzapine?",
               "choices": [
-                "ZyprEXA",
                 "ZyPREXA",
                 "ZYPrexa",
-                "ZypREXA"
+                "ZypREXA",
+                "ZyprEXA"
               ],
               "correctAnswer": "ZyPREXA",
               "explanation": "ZyPREXA uses capitalized Tall Man lettering to distinguish it from its confusable counterpart ZyrTEC.",
@@ -1415,9 +1415,9 @@
               "lasaId": "lasa_043",
               "prompt": "Which is the correct Tall Man lettering for cetirizine?",
               "choices": [
-                "ZyrTEC",
                 "ZYrtec",
                 "ZYRtec",
+                "ZyrTEC",
                 "ZyRTec"
               ],
               "correctAnswer": "ZyrTEC",
@@ -1440,10 +1440,10 @@
               "lasaId": "lasa_044",
               "prompt": "Which is the correct Tall Man lettering for topiramate?",
               "choices": [
-                "TOPamax",
-                "TopAMAX",
+                "ToPAmax",
                 "TopaMAX",
-                "ToPAmax"
+                "TopAMAX",
+                "TOPamax"
               ],
               "correctAnswer": "TopAMAX",
               "explanation": "TopAMAX uses capitalized Tall Man lettering to distinguish it from its confusable counterpart Toprol-XL.",
@@ -1465,10 +1465,10 @@
               "lasaId": "lasa_044",
               "prompt": "Which is the correct Tall Man lettering for metoprolol succinate?",
               "choices": [
-                "TOPRol-xl",
-                "Toprol-XL",
                 "ToprOL-XL",
-                "ToPROl-xl"
+                "ToPROl-xl",
+                "Toprol-XL",
+                "TOPRol-xl"
               ],
               "correctAnswer": "Toprol-XL",
               "explanation": "Toprol-XL uses capitalized Tall Man lettering to distinguish it from its confusable counterpart TopAMAX.",
@@ -1490,10 +1490,10 @@
               "lasaId": "lasa_045",
               "prompt": "Which is the correct Tall Man lettering for quetiapine?",
               "choices": [
-                "SERoquel",
-                "SeroqUEL",
                 "SeROQuel",
-                "SeroQUEL"
+                "SeroQUEL",
+                "SERoquel",
+                "SeroqUEL"
               ],
               "correctAnswer": "SeroQUEL",
               "explanation": "SeroQUEL uses capitalized Tall Man lettering to distinguish it from its confusable counterpart SineQUAN.",
@@ -1515,9 +1515,9 @@
               "lasaId": "lasa_045",
               "prompt": "Which is the correct Tall Man lettering for doxepin?",
               "choices": [
+                "SiNEQuan",
                 "SineQUAN",
                 "SINequan",
-                "SiNEQuan",
                 "SineqUAN"
               ],
               "correctAnswer": "SineQUAN",
@@ -1570,9 +1570,9 @@
           "prompt": "Which is the correct Tall Man lettering for insulin aspart?",
           "choices": [
             "NoVOlog",
-            "NovoLOG",
             "NovOLOG",
-            "NOVolog"
+            "NOVolog",
+            "NovoLOG"
           ],
           "correctAnswer": "NovoLOG",
           "explanation": "NovoLOG uses capitalized Tall Man lettering to distinguish it from its confusable counterpart NovoLIN R.",
@@ -1594,8 +1594,8 @@
           "lasaId": "lasa_040",
           "prompt": "Which is the correct Tall Man lettering for regular insulin?",
           "choices": [
-            "NoVOLin r",
             "NOVOlin r",
+            "NoVOLin r",
             "NovoLIN R",
             "NovoliN R"
           ],
@@ -1619,10 +1619,10 @@
           "lasaId": "lasa_042",
           "prompt": "Which is the correct Tall Man lettering for lamotrigine?",
           "choices": [
-            "LamicTAL",
-            "LamiCTAL",
+            "LAMictal",
             "LaMICtal",
-            "LAMictal"
+            "LamiCTAL",
+            "LamicTAL"
           ],
           "correctAnswer": "LaMICtal",
           "explanation": "LaMICtal uses capitalized Tall Man lettering to distinguish it from its confusable counterpart LaMISil.",
@@ -1644,10 +1644,10 @@
           "lasaId": "lasa_042",
           "prompt": "Which is the correct Tall Man lettering for terbinafine?",
           "choices": [
-            "LaMISil",
-            "LamiSIL",
             "LAMisil",
-            "LamISIL"
+            "LaMISil",
+            "LamISIL",
+            "LamiSIL"
           ],
           "correctAnswer": "LaMISil",
           "explanation": "LaMISil uses capitalized Tall Man lettering to distinguish it from its confusable counterpart LaMICtal.",
@@ -1669,10 +1669,10 @@
           "lasaId": "lasa_043",
           "prompt": "Which is the correct Tall Man lettering for olanzapine?",
           "choices": [
-            "ZyprEXA",
             "ZyPREXA",
             "ZYPrexa",
-            "ZypREXA"
+            "ZypREXA",
+            "ZyprEXA"
           ],
           "correctAnswer": "ZyPREXA",
           "explanation": "ZyPREXA uses capitalized Tall Man lettering to distinguish it from its confusable counterpart ZyrTEC.",
@@ -1694,9 +1694,9 @@
           "lasaId": "lasa_043",
           "prompt": "Which is the correct Tall Man lettering for cetirizine?",
           "choices": [
-            "ZyrTEC",
             "ZYrtec",
             "ZYRtec",
+            "ZyrTEC",
             "ZyRTec"
           ],
           "correctAnswer": "ZyrTEC",
@@ -1719,10 +1719,10 @@
           "lasaId": "lasa_044",
           "prompt": "Which is the correct Tall Man lettering for topiramate?",
           "choices": [
-            "TOPamax",
-            "TopAMAX",
+            "ToPAmax",
             "TopaMAX",
-            "ToPAmax"
+            "TopAMAX",
+            "TOPamax"
           ],
           "correctAnswer": "TopAMAX",
           "explanation": "TopAMAX uses capitalized Tall Man lettering to distinguish it from its confusable counterpart Toprol-XL.",
@@ -1744,10 +1744,10 @@
           "lasaId": "lasa_044",
           "prompt": "Which is the correct Tall Man lettering for metoprolol succinate?",
           "choices": [
-            "TOPRol-xl",
-            "Toprol-XL",
             "ToprOL-XL",
-            "ToPROl-xl"
+            "ToPROl-xl",
+            "Toprol-XL",
+            "TOPRol-xl"
           ],
           "correctAnswer": "Toprol-XL",
           "explanation": "Toprol-XL uses capitalized Tall Man lettering to distinguish it from its confusable counterpart TopAMAX.",
@@ -1769,10 +1769,10 @@
           "lasaId": "lasa_045",
           "prompt": "Which is the correct Tall Man lettering for quetiapine?",
           "choices": [
-            "SERoquel",
-            "SeroqUEL",
             "SeROQuel",
-            "SeroQUEL"
+            "SeroQUEL",
+            "SERoquel",
+            "SeroqUEL"
           ],
           "correctAnswer": "SeroQUEL",
           "explanation": "SeroQUEL uses capitalized Tall Man lettering to distinguish it from its confusable counterpart SineQUAN.",
@@ -1794,9 +1794,9 @@
           "lasaId": "lasa_045",
           "prompt": "Which is the correct Tall Man lettering for doxepin?",
           "choices": [
+            "SiNEQuan",
             "SineQUAN",
             "SINequan",
-            "SiNEQuan",
             "SineqUAN"
           ],
           "correctAnswer": "SineQUAN",
@@ -1852,10 +1852,10 @@
               "lasaId": "lasa_046",
               "prompt": "Which is the correct Tall Man lettering for omeprazole?",
               "choices": [
+                "PRIlosec",
                 "priLOSEC",
-                "prilOSEC",
                 "priloSEC",
-                "PRIlosec"
+                "prilOSEC"
               ],
               "correctAnswer": "priLOSEC",
               "explanation": "priLOSEC uses capitalized Tall Man lettering to distinguish it from its confusable counterpart PROzac.",
@@ -1877,9 +1877,9 @@
               "lasaId": "lasa_046",
               "prompt": "Which is the correct Tall Man lettering for fluoxetine?",
               "choices": [
+                "PROzac",
                 "ProZAC",
                 "PRozac",
-                "PROzac",
                 "PrOZac"
               ],
               "correctAnswer": "PROzac",
@@ -1902,10 +1902,10 @@
               "lasaId": "lasa_047",
               "prompt": "Which is the correct Tall Man lettering for alteplase?",
               "choices": [
+                "AlTEPlase",
                 "ALTEplase",
                 "AltePLASE",
-                "AlteplASE",
-                "AlTEPlase"
+                "AlteplASE"
               ],
               "correctAnswer": "ALTEplase",
               "explanation": "ALTEplase uses capitalized Tall Man lettering to distinguish it from its confusable counterpart TENECTEplase.",
@@ -1928,9 +1928,9 @@
               "prompt": "Which is the correct Tall Man lettering for tenecteplase?",
               "choices": [
                 "TENECTEplase",
-                "TENECteplase",
                 "TenectEPLASE",
-                "TenecteplASE"
+                "TenecteplASE",
+                "TENECteplase"
               ],
               "correctAnswer": "TENECTEplase",
               "explanation": "TENECTEplase uses capitalized Tall Man lettering to distinguish it from its confusable counterpart ALTEplase.",
@@ -1953,9 +1953,9 @@
               "prompt": "Which is the correct Tall Man lettering for hydroxychloroquine?",
               "choices": [
                 "hydroxychLOROQUINE",
-                "hydroxychloroquINE",
+                "hydroxyCHLOROquine",
                 "HYDROXYChloroquine",
-                "hydroxyCHLOROquine"
+                "hydroxychloroquINE"
               ],
               "correctAnswer": "hydroxyCHLOROquine",
               "explanation": "hydroxyCHLOROquine uses capitalized Tall Man lettering to distinguish it from its confusable counterpart hydroxyUREA.",
@@ -1978,8 +1978,8 @@
               "prompt": "Which is the correct Tall Man lettering for hydroxyurea?",
               "choices": [
                 "hydroxYUREA",
-                "hydroxyuREA",
                 "HYDRoxyurea",
+                "hydroxyuREA",
                 "hydroxyUREA"
               ],
               "correctAnswer": "hydroxyUREA",
@@ -2002,10 +2002,10 @@
               "lasaId": "lasa_049",
               "prompt": "Which is the correct Tall Man lettering for lenalidomide?",
               "choices": [
+                "lenaliDOMIDE",
                 "lenalidomIDE",
                 "leNALIDomide",
-                "LENALidomide",
-                "lenaliDOMIDE"
+                "LENALidomide"
               ],
               "correctAnswer": "leNALIDomide",
               "explanation": "leNALIDomide uses capitalized Tall Man lettering to distinguish it from its confusable counterpart leFLUNomide.",
@@ -2027,10 +2027,10 @@
               "lasaId": "lasa_049",
               "prompt": "Which is the correct Tall Man lettering for leflunomide?",
               "choices": [
+                "leFLUNomide",
                 "LEFLunomide",
                 "leflunOMIDE",
-                "leflunomIDE",
-                "leFLUNomide"
+                "leflunomIDE"
               ],
               "correctAnswer": "leFLUNomide",
               "explanation": "leFLUNomide uses capitalized Tall Man lettering to distinguish it from its confusable counterpart leNALIDomide.",
@@ -2052,10 +2052,10 @@
               "lasaId": "lasa_050",
               "prompt": "Which is the correct Tall Man lettering for dexamethasone?",
               "choices": [
-                "dexametHASONE",
                 "dexamethasONE",
-                "DEXAMethasone",
-                "dexAMETHasone"
+                "dexAMETHasone",
+                "dexametHASONE",
+                "DEXAMethasone"
               ],
               "correctAnswer": "dexAMETHasone",
               "explanation": "dexAMETHasone uses capitalized Tall Man lettering to distinguish it from its confusable counterpart dexmedeTOMIDine.",
@@ -2077,10 +2077,10 @@
               "lasaId": "lasa_050",
               "prompt": "Which is the correct Tall Man lettering for dexmedetomidine?",
               "choices": [
-                "dexmedetomidINE",
-                "dexmedetOMIDINE",
                 "dexmedeTOMIDine",
-                "DEXMEDetomidine"
+                "dexmedetomidINE",
+                "DEXMEDetomidine",
+                "dexmedetOMIDINE"
               ],
               "correctAnswer": "dexmedeTOMIDine",
               "explanation": "dexmedeTOMIDine uses capitalized Tall Man lettering to distinguish it from its confusable counterpart dexAMETHasone.",
@@ -2106,14 +2106,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "insulin lispro",
+              "canonicalDrugId": "lasa_039_a",
               "spokenDrug": "Humalog",
               "drugToPronounce": "insulin lispro",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
-                "Humulin R",
                 "Humalog",
-                "buPROPion",
-                "busPIRone"
+                "busPIRone",
+                "Humulin R",
+                "buPROPion"
               ],
               "correctAnswer": "Humalog",
               "relatedDrug": "Humalog",
@@ -2132,14 +2133,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "regular insulin",
+              "canonicalDrugId": "lasa_040_b",
               "spokenDrug": "NovoLIN R",
               "drugToPronounce": "regular insulin",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
                 "buPROPion",
                 "busPIRone",
-                "NovoLIN R",
-                "NovoLOG"
+                "NovoLOG",
+                "NovoLIN R"
               ],
               "correctAnswer": "NovoLIN R",
               "relatedDrug": "NovoLIN R",
@@ -2158,6 +2160,7 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "insulin glargine",
+              "canonicalDrugId": "lasa_041_a",
               "spokenDrug": "Lantus",
               "drugToPronounce": "insulin glargine",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
@@ -2184,13 +2187,14 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "terbinafine",
+              "canonicalDrugId": "lasa_042_b",
               "spokenDrug": "LaMISil",
               "drugToPronounce": "terbinafine",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
+                "LaMICtal",
                 "buPROPion",
                 "LaMISil",
-                "LaMICtal",
                 "busPIRone"
               ],
               "correctAnswer": "LaMISil",
@@ -2210,14 +2214,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "olanzapine",
+              "canonicalDrugId": "lasa_043_a",
               "spokenDrug": "ZyPREXA",
               "drugToPronounce": "olanzapine",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
                 "ZyrTEC",
+                "ZyPREXA",
                 "buPROPion",
-                "busPIRone",
-                "ZyPREXA"
+                "busPIRone"
               ],
               "correctAnswer": "ZyPREXA",
               "relatedDrug": "ZyPREXA",
@@ -2236,14 +2241,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "metoprolol succinate",
+              "canonicalDrugId": "lasa_044_b",
               "spokenDrug": "Toprol-XL",
               "drugToPronounce": "metoprolol succinate",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
-                "Toprol-XL",
                 "TopAMAX",
                 "busPIRone",
-                "buPROPion"
+                "buPROPion",
+                "Toprol-XL"
               ],
               "correctAnswer": "Toprol-XL",
               "relatedDrug": "Toprol-XL",
@@ -2262,14 +2268,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "quetiapine",
+              "canonicalDrugId": "lasa_045_a",
               "spokenDrug": "SeroQUEL",
               "drugToPronounce": "quetiapine",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
-                "buPROPion",
-                "SeroQUEL",
                 "SineQUAN",
-                "busPIRone"
+                "busPIRone",
+                "SeroQUEL",
+                "buPROPion"
               ],
               "correctAnswer": "SeroQUEL",
               "relatedDrug": "SeroQUEL",
@@ -2288,14 +2295,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "fluoxetine",
+              "canonicalDrugId": "lasa_046_b",
               "spokenDrug": "PROzac",
               "drugToPronounce": "fluoxetine",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
-                "buPROPion",
+                "PROzac",
                 "busPIRone",
                 "priLOSEC",
-                "PROzac"
+                "buPROPion"
               ],
               "correctAnswer": "PROzac",
               "relatedDrug": "PROzac",
@@ -2314,14 +2322,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "lenalidomide",
+              "canonicalDrugId": "lasa_049_a",
               "spokenDrug": "leNALIDomide",
               "drugToPronounce": "lenalidomide",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
-                "buPROPion",
+                "busPIRone",
                 "leNALIDomide",
                 "leFLUNomide",
-                "busPIRone"
+                "buPROPion"
               ],
               "correctAnswer": "leNALIDomide",
               "relatedDrug": "leNALIDomide",
@@ -2349,10 +2358,10 @@
           "lasaId": "lasa_046",
           "prompt": "Which is the correct Tall Man lettering for omeprazole?",
           "choices": [
+            "PRIlosec",
             "priLOSEC",
-            "prilOSEC",
             "priloSEC",
-            "PRIlosec"
+            "prilOSEC"
           ],
           "correctAnswer": "priLOSEC",
           "explanation": "priLOSEC uses capitalized Tall Man lettering to distinguish it from its confusable counterpart PROzac.",
@@ -2374,9 +2383,9 @@
           "lasaId": "lasa_046",
           "prompt": "Which is the correct Tall Man lettering for fluoxetine?",
           "choices": [
+            "PROzac",
             "ProZAC",
             "PRozac",
-            "PROzac",
             "PrOZac"
           ],
           "correctAnswer": "PROzac",
@@ -2399,10 +2408,10 @@
           "lasaId": "lasa_047",
           "prompt": "Which is the correct Tall Man lettering for alteplase?",
           "choices": [
+            "AlTEPlase",
             "ALTEplase",
             "AltePLASE",
-            "AlteplASE",
-            "AlTEPlase"
+            "AlteplASE"
           ],
           "correctAnswer": "ALTEplase",
           "explanation": "ALTEplase uses capitalized Tall Man lettering to distinguish it from its confusable counterpart TENECTEplase.",
@@ -2425,9 +2434,9 @@
           "prompt": "Which is the correct Tall Man lettering for tenecteplase?",
           "choices": [
             "TENECTEplase",
-            "TENECteplase",
             "TenectEPLASE",
-            "TenecteplASE"
+            "TenecteplASE",
+            "TENECteplase"
           ],
           "correctAnswer": "TENECTEplase",
           "explanation": "TENECTEplase uses capitalized Tall Man lettering to distinguish it from its confusable counterpart ALTEplase.",
@@ -2450,9 +2459,9 @@
           "prompt": "Which is the correct Tall Man lettering for hydroxychloroquine?",
           "choices": [
             "hydroxychLOROQUINE",
-            "hydroxychloroquINE",
+            "hydroxyCHLOROquine",
             "HYDROXYChloroquine",
-            "hydroxyCHLOROquine"
+            "hydroxychloroquINE"
           ],
           "correctAnswer": "hydroxyCHLOROquine",
           "explanation": "hydroxyCHLOROquine uses capitalized Tall Man lettering to distinguish it from its confusable counterpart hydroxyUREA.",
@@ -2475,8 +2484,8 @@
           "prompt": "Which is the correct Tall Man lettering for hydroxyurea?",
           "choices": [
             "hydroxYUREA",
-            "hydroxyuREA",
             "HYDRoxyurea",
+            "hydroxyuREA",
             "hydroxyUREA"
           ],
           "correctAnswer": "hydroxyUREA",
@@ -2499,10 +2508,10 @@
           "lasaId": "lasa_049",
           "prompt": "Which is the correct Tall Man lettering for lenalidomide?",
           "choices": [
+            "lenaliDOMIDE",
             "lenalidomIDE",
             "leNALIDomide",
-            "LENALidomide",
-            "lenaliDOMIDE"
+            "LENALidomide"
           ],
           "correctAnswer": "leNALIDomide",
           "explanation": "leNALIDomide uses capitalized Tall Man lettering to distinguish it from its confusable counterpart leFLUNomide.",
@@ -2524,10 +2533,10 @@
           "lasaId": "lasa_049",
           "prompt": "Which is the correct Tall Man lettering for leflunomide?",
           "choices": [
+            "leFLUNomide",
             "LEFLunomide",
             "leflunOMIDE",
-            "leflunomIDE",
-            "leFLUNomide"
+            "leflunomIDE"
           ],
           "correctAnswer": "leFLUNomide",
           "explanation": "leFLUNomide uses capitalized Tall Man lettering to distinguish it from its confusable counterpart leNALIDomide.",
@@ -2549,10 +2558,10 @@
           "lasaId": "lasa_050",
           "prompt": "Which is the correct Tall Man lettering for dexamethasone?",
           "choices": [
-            "dexametHASONE",
             "dexamethasONE",
-            "DEXAMethasone",
-            "dexAMETHasone"
+            "dexAMETHasone",
+            "dexametHASONE",
+            "DEXAMethasone"
           ],
           "correctAnswer": "dexAMETHasone",
           "explanation": "dexAMETHasone uses capitalized Tall Man lettering to distinguish it from its confusable counterpart dexmedeTOMIDine.",
@@ -2574,10 +2583,10 @@
           "lasaId": "lasa_050",
           "prompt": "Which is the correct Tall Man lettering for dexmedetomidine?",
           "choices": [
-            "dexmedetomidINE",
-            "dexmedetOMIDINE",
             "dexmedeTOMIDine",
-            "DEXMEDetomidine"
+            "dexmedetomidINE",
+            "DEXMEDetomidine",
+            "dexmedetOMIDINE"
           ],
           "correctAnswer": "dexmedeTOMIDine",
           "explanation": "dexmedeTOMIDine uses capitalized Tall Man lettering to distinguish it from its confusable counterpart dexAMETHasone.",
@@ -2594,14 +2603,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "insulin lispro",
+          "canonicalDrugId": "lasa_039_a",
           "spokenDrug": "Humalog",
           "drugToPronounce": "insulin lispro",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
-            "Humulin R",
             "Humalog",
-            "buPROPion",
-            "busPIRone"
+            "busPIRone",
+            "Humulin R",
+            "buPROPion"
           ],
           "correctAnswer": "Humalog",
           "relatedDrug": "Humalog",
@@ -2620,14 +2630,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "regular insulin",
+          "canonicalDrugId": "lasa_040_b",
           "spokenDrug": "NovoLIN R",
           "drugToPronounce": "regular insulin",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
             "buPROPion",
             "busPIRone",
-            "NovoLIN R",
-            "NovoLOG"
+            "NovoLOG",
+            "NovoLIN R"
           ],
           "correctAnswer": "NovoLIN R",
           "relatedDrug": "NovoLIN R",
@@ -2646,6 +2657,7 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "insulin glargine",
+          "canonicalDrugId": "lasa_041_a",
           "spokenDrug": "Lantus",
           "drugToPronounce": "insulin glargine",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
@@ -2672,13 +2684,14 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "terbinafine",
+          "canonicalDrugId": "lasa_042_b",
           "spokenDrug": "LaMISil",
           "drugToPronounce": "terbinafine",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
+            "LaMICtal",
             "buPROPion",
             "LaMISil",
-            "LaMICtal",
             "busPIRone"
           ],
           "correctAnswer": "LaMISil",
@@ -2698,14 +2711,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "olanzapine",
+          "canonicalDrugId": "lasa_043_a",
           "spokenDrug": "ZyPREXA",
           "drugToPronounce": "olanzapine",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
             "ZyrTEC",
+            "ZyPREXA",
             "buPROPion",
-            "busPIRone",
-            "ZyPREXA"
+            "busPIRone"
           ],
           "correctAnswer": "ZyPREXA",
           "relatedDrug": "ZyPREXA",
@@ -2724,14 +2738,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "metoprolol succinate",
+          "canonicalDrugId": "lasa_044_b",
           "spokenDrug": "Toprol-XL",
           "drugToPronounce": "metoprolol succinate",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
-            "Toprol-XL",
             "TopAMAX",
             "busPIRone",
-            "buPROPion"
+            "buPROPion",
+            "Toprol-XL"
           ],
           "correctAnswer": "Toprol-XL",
           "relatedDrug": "Toprol-XL",
@@ -2750,14 +2765,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "quetiapine",
+          "canonicalDrugId": "lasa_045_a",
           "spokenDrug": "SeroQUEL",
           "drugToPronounce": "quetiapine",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
-            "buPROPion",
-            "SeroQUEL",
             "SineQUAN",
-            "busPIRone"
+            "busPIRone",
+            "SeroQUEL",
+            "buPROPion"
           ],
           "correctAnswer": "SeroQUEL",
           "relatedDrug": "SeroQUEL",
@@ -2776,14 +2792,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "fluoxetine",
+          "canonicalDrugId": "lasa_046_b",
           "spokenDrug": "PROzac",
           "drugToPronounce": "fluoxetine",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
-            "buPROPion",
+            "PROzac",
             "busPIRone",
             "priLOSEC",
-            "PROzac"
+            "buPROPion"
           ],
           "correctAnswer": "PROzac",
           "relatedDrug": "PROzac",
@@ -2802,14 +2819,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "lenalidomide",
+          "canonicalDrugId": "lasa_049_a",
           "spokenDrug": "leNALIDomide",
           "drugToPronounce": "lenalidomide",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
-            "buPROPion",
+            "busPIRone",
             "leNALIDomide",
             "leFLUNomide",
-            "busPIRone"
+            "buPROPion"
           ],
           "correctAnswer": "leNALIDomide",
           "relatedDrug": "leNALIDomide",
@@ -3910,19 +3928,23 @@
               "pairs": [
                 {
                   "left": "Humalog",
-                  "right": "Humulin R"
+                  "right": "Humulin R",
+                  "lasaId": "lasa_039"
                 },
                 {
                   "left": "NovoLOG",
-                  "right": "NovoLIN R"
+                  "right": "NovoLIN R",
+                  "lasaId": "lasa_040"
                 },
                 {
                   "left": "Lantus",
-                  "right": "Lente"
+                  "right": "Lente",
+                  "lasaId": "lasa_041"
                 },
                 {
                   "left": "LaMICtal",
-                  "right": "LaMISil"
+                  "right": "LaMISil",
+                  "lasaId": "lasa_042"
                 }
               ],
               "explanation": "Documented ISMP LASA pairs: Humalog ↔ Humulin R; NovoLOG ↔ NovoLIN R; Lantus ↔ Lente; LaMICtal ↔ LaMISil.",
@@ -3943,19 +3965,23 @@
               "pairs": [
                 {
                   "left": "ZyPREXA",
-                  "right": "ZyrTEC"
+                  "right": "ZyrTEC",
+                  "lasaId": "lasa_043"
                 },
                 {
                   "left": "TopAMAX",
-                  "right": "Toprol-XL"
+                  "right": "Toprol-XL",
+                  "lasaId": "lasa_044"
                 },
                 {
                   "left": "SeroQUEL",
-                  "right": "SineQUAN"
+                  "right": "SineQUAN",
+                  "lasaId": "lasa_045"
                 },
                 {
                   "left": "priLOSEC",
-                  "right": "PROzac"
+                  "right": "PROzac",
+                  "lasaId": "lasa_046"
                 }
               ],
               "explanation": "Documented ISMP LASA pairs: ZyPREXA ↔ ZyrTEC; TopAMAX ↔ Toprol-XL; SeroQUEL ↔ SineQUAN; priLOSEC ↔ PROzac.",
@@ -3976,19 +4002,23 @@
               "pairs": [
                 {
                   "left": "ALTEplase",
-                  "right": "TENECTEplase"
+                  "right": "TENECTEplase",
+                  "lasaId": "lasa_047"
                 },
                 {
                   "left": "hydroxyCHLOROquine",
-                  "right": "hydroxyUREA"
+                  "right": "hydroxyUREA",
+                  "lasaId": "lasa_048"
                 },
                 {
                   "left": "leNALIDomide",
-                  "right": "leFLUNomide"
+                  "right": "leFLUNomide",
+                  "lasaId": "lasa_049"
                 },
                 {
                   "left": "dexAMETHasone",
-                  "right": "dexmedeTOMIDine"
+                  "right": "dexmedeTOMIDine",
+                  "lasaId": "lasa_050"
                 }
               ],
               "explanation": "Documented ISMP LASA pairs: ALTEplase ↔ TENECTEplase; hydroxyCHLOROquine ↔ hydroxyUREA; leNALIDomide ↔ leFLUNomide; dexAMETHasone ↔ dexmedeTOMIDine.",
@@ -4014,14 +4044,15 @@
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "insulin lispro",
+              "canonicalDrugId": "lasa_039_a",
               "spokenDrug": "Humalog",
               "drugToPronounce": "insulin lispro",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "busPIRone",
-                "Humalog",
+                "Humulin R",
                 "buPROPion",
-                "Humulin R"
+                "busPIRone",
+                "Humalog"
               ],
               "correctAnswer": "Humalog",
               "relatedDrug": "Humalog",
@@ -4033,22 +4064,22 @@
               "riskSummary": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP Medication Safety Alert! Acute Care",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_039_a"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_040_B_read_back_level_020_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "regular insulin",
+              "canonicalDrugId": "lasa_040_b",
               "spokenDrug": "NovoLIN R",
               "drugToPronounce": "regular insulin",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "NovoLOG",
-                "buPROPion",
+                "NovoLIN R",
                 "busPIRone",
-                "NovoLIN R"
+                "buPROPion",
+                "NovoLOG"
               ],
               "correctAnswer": "NovoLIN R",
               "relatedDrug": "NovoLIN R",
@@ -4060,20 +4091,20 @@
               "riskSummary": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP High-Alert Medication Guidelines",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_040_b"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_041_A_read_back_level_020_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "insulin glargine",
+              "canonicalDrugId": "lasa_041_a",
               "spokenDrug": "Lantus",
               "drugToPronounce": "insulin glargine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "Lente",
                 "buPROPion",
+                "Lente",
                 "Lantus",
                 "busPIRone"
               ],
@@ -4087,22 +4118,22 @@
               "riskSummary": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP National Medication Errors Reporting Program (MERP)",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_041_a"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_042_B_read_back_level_020_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "terbinafine",
+              "canonicalDrugId": "lasa_042_b",
               "spokenDrug": "LaMISil",
               "drugToPronounce": "terbinafine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "buPROPion",
-                "busPIRone",
                 "LaMICtal",
-                "LaMISil"
+                "LaMISil",
+                "buPROPion",
+                "busPIRone"
               ],
               "correctAnswer": "LaMISil",
               "relatedDrug": "LaMISil",
@@ -4114,22 +4145,22 @@
               "riskSummary": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-              "canonicalDrugId": "lasa_042_b"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
             },
             {
               "id": "q_sound_lasa_043_A_read_back_level_020_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "olanzapine",
+              "canonicalDrugId": "lasa_043_a",
               "spokenDrug": "ZyPREXA",
               "drugToPronounce": "olanzapine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
                 "busPIRone",
                 "ZyPREXA",
-                "buPROPion",
-                "ZyrTEC"
+                "ZyrTEC",
+                "buPROPion"
               ],
               "correctAnswer": "ZyPREXA",
               "relatedDrug": "ZyPREXA",
@@ -4141,21 +4172,21 @@
               "riskSummary": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
               "source": "ISMP List of Confused Drug Names & Tall Man List",
               "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_043_a"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_044_B_read_back_level_020_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "metoprolol succinate",
+              "canonicalDrugId": "lasa_044_b",
               "spokenDrug": "Toprol-XL",
               "drugToPronounce": "metoprolol succinate",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
+                "Toprol-XL",
                 "busPIRone",
                 "buPROPion",
-                "Toprol-XL",
                 "TopAMAX"
               ],
               "correctAnswer": "Toprol-XL",
@@ -4168,22 +4199,22 @@
               "riskSummary": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP MERP Reporting Bulletin",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_044_b"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_045_A_read_back_level_020_rb_6",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "quetiapine",
+              "canonicalDrugId": "lasa_045_a",
               "spokenDrug": "SeroQUEL",
               "drugToPronounce": "quetiapine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "SineQUAN",
-                "SeroQUEL",
                 "buPROPion",
-                "busPIRone"
+                "SeroQUEL",
+                "busPIRone",
+                "SineQUAN"
               ],
               "correctAnswer": "SeroQUEL",
               "relatedDrug": "SeroQUEL",
@@ -4195,22 +4226,22 @@
               "riskSummary": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; FDA Public Health Advisory",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_045_a"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_046_B_read_back_level_020_rb_7",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "fluoxetine",
+              "canonicalDrugId": "lasa_046_b",
               "spokenDrug": "PROzac",
               "drugToPronounce": "fluoxetine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
                 "PROzac",
                 "buPROPion",
-                "busPIRone",
-                "priLOSEC"
+                "priLOSEC",
+                "busPIRone"
               ],
               "correctAnswer": "PROzac",
               "relatedDrug": "PROzac",
@@ -4222,22 +4253,22 @@
               "riskSummary": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
               "source": "FDA Safety Alerts & ISMP List of Confused Drug Names",
               "sourceCitation": "FDA MedWatch Safety Alert (Prilosec/Prozac name confusion); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_046_b"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_049_A_read_back_level_020_rb_8",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "lenalidomide",
+              "canonicalDrugId": "lasa_049_a",
               "spokenDrug": "leNALIDomide",
               "drugToPronounce": "lenalidomide",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "leNALIDomide",
                 "leFLUNomide",
                 "buPROPion",
-                "busPIRone"
+                "busPIRone",
+                "leNALIDomide"
               ],
               "correctAnswer": "leNALIDomide",
               "relatedDrug": "leNALIDomide",
@@ -4249,8 +4280,7 @@
               "riskSummary": "Severe embryofetal toxicity, deep vein thrombosis/pulmonary embolism, and intense cytopenias from lenalidomide.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Medication Safety Alert!",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-              "canonicalDrugId": "lasa_049_a"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
             }
           ]
         }
@@ -4265,19 +4295,23 @@
           "pairs": [
             {
               "left": "Humalog",
-              "right": "Humulin R"
+              "right": "Humulin R",
+              "lasaId": "lasa_039"
             },
             {
               "left": "NovoLOG",
-              "right": "NovoLIN R"
+              "right": "NovoLIN R",
+              "lasaId": "lasa_040"
             },
             {
               "left": "Lantus",
-              "right": "Lente"
+              "right": "Lente",
+              "lasaId": "lasa_041"
             },
             {
               "left": "LaMICtal",
-              "right": "LaMISil"
+              "right": "LaMISil",
+              "lasaId": "lasa_042"
             }
           ],
           "explanation": "Documented ISMP LASA pairs: Humalog ↔ Humulin R; NovoLOG ↔ NovoLIN R; Lantus ↔ Lente; LaMICtal ↔ LaMISil.",
@@ -4298,19 +4332,23 @@
           "pairs": [
             {
               "left": "ZyPREXA",
-              "right": "ZyrTEC"
+              "right": "ZyrTEC",
+              "lasaId": "lasa_043"
             },
             {
               "left": "TopAMAX",
-              "right": "Toprol-XL"
+              "right": "Toprol-XL",
+              "lasaId": "lasa_044"
             },
             {
               "left": "SeroQUEL",
-              "right": "SineQUAN"
+              "right": "SineQUAN",
+              "lasaId": "lasa_045"
             },
             {
               "left": "priLOSEC",
-              "right": "PROzac"
+              "right": "PROzac",
+              "lasaId": "lasa_046"
             }
           ],
           "explanation": "Documented ISMP LASA pairs: ZyPREXA ↔ ZyrTEC; TopAMAX ↔ Toprol-XL; SeroQUEL ↔ SineQUAN; priLOSEC ↔ PROzac.",
@@ -4331,19 +4369,23 @@
           "pairs": [
             {
               "left": "ALTEplase",
-              "right": "TENECTEplase"
+              "right": "TENECTEplase",
+              "lasaId": "lasa_047"
             },
             {
               "left": "hydroxyCHLOROquine",
-              "right": "hydroxyUREA"
+              "right": "hydroxyUREA",
+              "lasaId": "lasa_048"
             },
             {
               "left": "leNALIDomide",
-              "right": "leFLUNomide"
+              "right": "leFLUNomide",
+              "lasaId": "lasa_049"
             },
             {
               "left": "dexAMETHasone",
-              "right": "dexmedeTOMIDine"
+              "right": "dexmedeTOMIDine",
+              "lasaId": "lasa_050"
             }
           ],
           "explanation": "Documented ISMP LASA pairs: ALTEplase ↔ TENECTEplase; hydroxyCHLOROquine ↔ hydroxyUREA; leNALIDomide ↔ leFLUNomide; dexAMETHasone ↔ dexmedeTOMIDine.",
@@ -4360,14 +4402,15 @@
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "insulin lispro",
+          "canonicalDrugId": "lasa_039_a",
           "spokenDrug": "Humalog",
           "drugToPronounce": "insulin lispro",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "busPIRone",
-            "Humalog",
+            "Humulin R",
             "buPROPion",
-            "Humulin R"
+            "busPIRone",
+            "Humalog"
           ],
           "correctAnswer": "Humalog",
           "relatedDrug": "Humalog",
@@ -4379,22 +4422,22 @@
           "riskSummary": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP Medication Safety Alert! Acute Care",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_039_a"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_040_B_read_back_level_020_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "regular insulin",
+          "canonicalDrugId": "lasa_040_b",
           "spokenDrug": "NovoLIN R",
           "drugToPronounce": "regular insulin",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "NovoLOG",
-            "buPROPion",
+            "NovoLIN R",
             "busPIRone",
-            "NovoLIN R"
+            "buPROPion",
+            "NovoLOG"
           ],
           "correctAnswer": "NovoLIN R",
           "relatedDrug": "NovoLIN R",
@@ -4406,20 +4449,20 @@
           "riskSummary": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP High-Alert Medication Guidelines",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_040_b"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_041_A_read_back_level_020_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "insulin glargine",
+          "canonicalDrugId": "lasa_041_a",
           "spokenDrug": "Lantus",
           "drugToPronounce": "insulin glargine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "Lente",
             "buPROPion",
+            "Lente",
             "Lantus",
             "busPIRone"
           ],
@@ -4433,22 +4476,22 @@
           "riskSummary": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP National Medication Errors Reporting Program (MERP)",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_041_a"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_042_B_read_back_level_020_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "terbinafine",
+          "canonicalDrugId": "lasa_042_b",
           "spokenDrug": "LaMISil",
           "drugToPronounce": "terbinafine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "buPROPion",
-            "busPIRone",
             "LaMICtal",
-            "LaMISil"
+            "LaMISil",
+            "buPROPion",
+            "busPIRone"
           ],
           "correctAnswer": "LaMISil",
           "relatedDrug": "LaMISil",
@@ -4460,22 +4503,22 @@
           "riskSummary": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-          "canonicalDrugId": "lasa_042_b"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
         },
         {
           "id": "q_sound_lasa_043_A_read_back_level_020_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "olanzapine",
+          "canonicalDrugId": "lasa_043_a",
           "spokenDrug": "ZyPREXA",
           "drugToPronounce": "olanzapine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
             "busPIRone",
             "ZyPREXA",
-            "buPROPion",
-            "ZyrTEC"
+            "ZyrTEC",
+            "buPROPion"
           ],
           "correctAnswer": "ZyPREXA",
           "relatedDrug": "ZyPREXA",
@@ -4487,21 +4530,21 @@
           "riskSummary": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
           "source": "ISMP List of Confused Drug Names & Tall Man List",
           "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_043_a"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_044_B_read_back_level_020_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "metoprolol succinate",
+          "canonicalDrugId": "lasa_044_b",
           "spokenDrug": "Toprol-XL",
           "drugToPronounce": "metoprolol succinate",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
+            "Toprol-XL",
             "busPIRone",
             "buPROPion",
-            "Toprol-XL",
             "TopAMAX"
           ],
           "correctAnswer": "Toprol-XL",
@@ -4514,22 +4557,22 @@
           "riskSummary": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP MERP Reporting Bulletin",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_044_b"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_045_A_read_back_level_020_rb_6",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "quetiapine",
+          "canonicalDrugId": "lasa_045_a",
           "spokenDrug": "SeroQUEL",
           "drugToPronounce": "quetiapine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "SineQUAN",
-            "SeroQUEL",
             "buPROPion",
-            "busPIRone"
+            "SeroQUEL",
+            "busPIRone",
+            "SineQUAN"
           ],
           "correctAnswer": "SeroQUEL",
           "relatedDrug": "SeroQUEL",
@@ -4541,22 +4584,22 @@
           "riskSummary": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; FDA Public Health Advisory",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_045_a"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_046_B_read_back_level_020_rb_7",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "fluoxetine",
+          "canonicalDrugId": "lasa_046_b",
           "spokenDrug": "PROzac",
           "drugToPronounce": "fluoxetine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
             "PROzac",
             "buPROPion",
-            "busPIRone",
-            "priLOSEC"
+            "priLOSEC",
+            "busPIRone"
           ],
           "correctAnswer": "PROzac",
           "relatedDrug": "PROzac",
@@ -4568,22 +4611,22 @@
           "riskSummary": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
           "source": "FDA Safety Alerts & ISMP List of Confused Drug Names",
           "sourceCitation": "FDA MedWatch Safety Alert (Prilosec/Prozac name confusion); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_046_b"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_049_A_read_back_level_020_rb_8",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "lenalidomide",
+          "canonicalDrugId": "lasa_049_a",
           "spokenDrug": "leNALIDomide",
           "drugToPronounce": "lenalidomide",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "leNALIDomide",
             "leFLUNomide",
             "buPROPion",
-            "busPIRone"
+            "busPIRone",
+            "leNALIDomide"
           ],
           "correctAnswer": "leNALIDomide",
           "relatedDrug": "leNALIDomide",
@@ -4595,8 +4638,7 @@
           "riskSummary": "Severe embryofetal toxicity, deep vein thrombosis/pulmonary embolism, and intense cytopenias from lenalidomide.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Medication Safety Alert!",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-          "canonicalDrugId": "lasa_049_a"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
         }
       ]
     },
@@ -5642,14 +5684,15 @@
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "insulin lispro",
+              "canonicalDrugId": "lasa_039_a",
               "spokenDrug": "Humalog",
               "drugToPronounce": "insulin lispro",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
                 "Humalog",
-                "buPROPion",
+                "Humulin R",
                 "busPIRone",
-                "Humulin R"
+                "buPROPion"
               ],
               "correctAnswer": "Humalog",
               "relatedDrug": "Humalog",
@@ -5661,22 +5704,22 @@
               "riskSummary": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP Medication Safety Alert! Acute Care",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_039_a"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_040_B_read_back_mst_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "regular insulin",
+              "canonicalDrugId": "lasa_040_b",
               "spokenDrug": "NovoLIN R",
               "drugToPronounce": "regular insulin",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "busPIRone",
+                "buPROPion",
                 "NovoLOG",
-                "NovoLIN R",
-                "buPROPion"
+                "busPIRone",
+                "NovoLIN R"
               ],
               "correctAnswer": "NovoLIN R",
               "relatedDrug": "NovoLIN R",
@@ -5688,22 +5731,22 @@
               "riskSummary": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP High-Alert Medication Guidelines",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_040_b"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_041_A_read_back_mst_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "insulin glargine",
+              "canonicalDrugId": "lasa_041_a",
               "spokenDrug": "Lantus",
               "drugToPronounce": "insulin glargine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
                 "busPIRone",
-                "Lente",
                 "Lantus",
-                "buPROPion"
+                "buPROPion",
+                "Lente"
               ],
               "correctAnswer": "Lantus",
               "relatedDrug": "Lantus",
@@ -5715,22 +5758,22 @@
               "riskSummary": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP National Medication Errors Reporting Program (MERP)",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_041_a"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_042_B_read_back_mst_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "terbinafine",
+              "canonicalDrugId": "lasa_042_b",
               "spokenDrug": "LaMISil",
               "drugToPronounce": "terbinafine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "LaMICtal",
                 "buPROPion",
-                "busPIRone",
-                "LaMISil"
+                "LaMICtal",
+                "LaMISil",
+                "busPIRone"
               ],
               "correctAnswer": "LaMISil",
               "relatedDrug": "LaMISil",
@@ -5742,21 +5785,21 @@
               "riskSummary": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-              "canonicalDrugId": "lasa_042_b"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
             },
             {
               "id": "q_sound_lasa_043_A_read_back_mst_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "olanzapine",
+              "canonicalDrugId": "lasa_043_a",
               "spokenDrug": "ZyPREXA",
               "drugToPronounce": "olanzapine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "ZyrTEC",
                 "ZyPREXA",
                 "buPROPion",
+                "ZyrTEC",
                 "busPIRone"
               ],
               "correctAnswer": "ZyPREXA",
@@ -5769,22 +5812,22 @@
               "riskSummary": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
               "source": "ISMP List of Confused Drug Names & Tall Man List",
               "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_043_a"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_044_B_read_back_mst_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "metoprolol succinate",
+              "canonicalDrugId": "lasa_044_b",
               "spokenDrug": "Toprol-XL",
               "drugToPronounce": "metoprolol succinate",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "busPIRone",
-                "buPROPion",
                 "Toprol-XL",
-                "TopAMAX"
+                "buPROPion",
+                "TopAMAX",
+                "busPIRone"
               ],
               "correctAnswer": "Toprol-XL",
               "relatedDrug": "Toprol-XL",
@@ -5796,22 +5839,22 @@
               "riskSummary": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP MERP Reporting Bulletin",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_044_b"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_045_A_read_back_mst_rb_6",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "quetiapine",
+              "canonicalDrugId": "lasa_045_a",
               "spokenDrug": "SeroQUEL",
               "drugToPronounce": "quetiapine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "SeroQUEL",
-                "SineQUAN",
                 "buPROPion",
-                "busPIRone"
+                "SeroQUEL",
+                "busPIRone",
+                "SineQUAN"
               ],
               "correctAnswer": "SeroQUEL",
               "relatedDrug": "SeroQUEL",
@@ -5823,22 +5866,22 @@
               "riskSummary": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; FDA Public Health Advisory",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_045_a"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_046_B_read_back_mst_rb_7",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "fluoxetine",
+              "canonicalDrugId": "lasa_046_b",
               "spokenDrug": "PROzac",
               "drugToPronounce": "fluoxetine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "buPROPion",
-                "priLOSEC",
+                "busPIRone",
                 "PROzac",
-                "busPIRone"
+                "buPROPion",
+                "priLOSEC"
               ],
               "correctAnswer": "PROzac",
               "relatedDrug": "PROzac",
@@ -5850,22 +5893,22 @@
               "riskSummary": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
               "source": "FDA Safety Alerts & ISMP List of Confused Drug Names",
               "sourceCitation": "FDA MedWatch Safety Alert (Prilosec/Prozac name confusion); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-              "canonicalDrugId": "lasa_046_b"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
             },
             {
               "id": "q_sound_lasa_049_A_read_back_mst_rb_8",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "lenalidomide",
+              "canonicalDrugId": "lasa_049_a",
               "spokenDrug": "leNALIDomide",
               "drugToPronounce": "lenalidomide",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "buPROPion",
                 "busPIRone",
                 "leFLUNomide",
-                "leNALIDomide"
+                "leNALIDomide",
+                "buPROPion"
               ],
               "correctAnswer": "leNALIDomide",
               "relatedDrug": "leNALIDomide",
@@ -5877,8 +5920,7 @@
               "riskSummary": "Severe embryofetal toxicity, deep vein thrombosis/pulmonary embolism, and intense cytopenias from lenalidomide.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Medication Safety Alert!",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-              "canonicalDrugId": "lasa_049_a"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
             }
           ]
         },
@@ -5897,10 +5939,10 @@
               "lasaId": "lasa_039",
               "prompt": "Which medication is commonly confused with Humalog?",
               "choices": [
-                "hydroxyCHLOROquine",
+                "traZODone",
                 "HYDROcodone",
-                "Humulin R",
-                "traZODone"
+                "hydroxyCHLOROquine",
+                "Humulin R"
               ],
               "correctAnswer": "Humulin R",
               "explanation": "Humalog and Humulin R form a documented ISMP/FDA LASA pair.",
@@ -5920,10 +5962,10 @@
               "lasaId": "lasa_040",
               "prompt": "Which medication is commonly confused with NovoLIN R?",
               "choices": [
-                "CARBOplatin",
-                "busPIRone",
                 "CeleXA",
-                "NovoLOG"
+                "NovoLOG",
+                "busPIRone",
+                "CARBOplatin"
               ],
               "correctAnswer": "NovoLOG",
               "explanation": "NovoLIN R and NovoLOG form a documented ISMP/FDA LASA pair.",
@@ -5944,9 +5986,9 @@
               "prompt": "Which medication is commonly confused with Lantus?",
               "choices": [
                 "vinCRIStine",
-                "glipiZIDE",
+                "Lente",
                 "clonazePAM",
-                "Lente"
+                "glipiZIDE"
               ],
               "correctAnswer": "Lente",
               "explanation": "Lantus and Lente form a documented ISMP/FDA LASA pair.",
@@ -5967,9 +6009,9 @@
               "prompt": "Which medication is commonly confused with LaMISil?",
               "choices": [
                 "DULOxetine",
-                "HYDROmorphone",
+                "CISplatin",
                 "LaMICtal",
-                "CISplatin"
+                "HYDROmorphone"
               ],
               "correctAnswer": "LaMICtal",
               "explanation": "LaMISil and LaMICtal form a documented ISMP/FDA LASA pair.",
@@ -5989,10 +6031,10 @@
               "lasaId": "lasa_043",
               "prompt": "Which medication is commonly confused with ZyPREXA?",
               "choices": [
-                "glyBURIDE",
-                "epiNEPHrine",
                 "ceFAZolin",
-                "ZyrTEC"
+                "ZyrTEC",
+                "epiNEPHrine",
+                "glyBURIDE"
               ],
               "correctAnswer": "ZyrTEC",
               "explanation": "ZyPREXA and ZyrTEC form a documented ISMP/FDA LASA pair.",
@@ -6013,8 +6055,8 @@
               "prompt": "Which medication is commonly confused with Toprol-XL?",
               "choices": [
                 "FLUOxetine",
-                "TopAMAX",
                 "DOCEtaxel",
+                "TopAMAX",
                 "clomiPHENE"
               ],
               "correctAnswer": "TopAMAX",
@@ -6035,10 +6077,10 @@
               "lasaId": "lasa_045",
               "prompt": "Which medication is commonly confused with SeroQUEL?",
               "choices": [
-                "ePHEDrine",
+                "cefTRIAXone",
                 "SineQUAN",
-                "diphenhydrAMINE",
-                "cefTRIAXone"
+                "ePHEDrine",
+                "diphenhydrAMINE"
               ],
               "correctAnswer": "SineQUAN",
               "explanation": "SeroQUEL and SineQUAN form a documented ISMP/FDA LASA pair.",
@@ -6058,10 +6100,10 @@
               "lasaId": "lasa_046",
               "prompt": "Which medication is commonly confused with PROzac?",
               "choices": [
-                "sulfADIAZINE",
-                "clomiPRAMINE",
+                "priLOSEC",
                 "PAROxetine",
-                "priLOSEC"
+                "clomiPRAMINE",
+                "sulfADIAZINE"
               ],
               "correctAnswer": "priLOSEC",
               "explanation": "PROzac and priLOSEC form a documented ISMP/FDA LASA pair.",
@@ -6082,9 +6124,9 @@
               "prompt": "Which medication is commonly confused with ALTEplase?",
               "choices": [
                 "TENECTEplase",
-                "NovoLIN R",
+                "DEPO-Medrol",
                 "cefoTEtan",
-                "DEPO-Medrol"
+                "NovoLIN R"
               ],
               "correctAnswer": "TENECTEplase",
               "explanation": "ALTEplase and TENECTEplase form a documented ISMP/FDA LASA pair.",
@@ -6104,10 +6146,10 @@
               "lasaId": "lasa_048",
               "prompt": "Which medication is commonly confused with hydroxyUREA?",
               "choices": [
-                "cycloSERINE",
-                "TopAMAX",
                 "hydroxyCHLOROquine",
-                "sulfiSOXAZOLE"
+                "TopAMAX",
+                "sulfiSOXAZOLE",
+                "cycloSERINE"
               ],
               "correctAnswer": "hydroxyCHLOROquine",
               "explanation": "hydroxyUREA and hydroxyCHLOROquine form a documented ISMP/FDA LASA pair.",
@@ -6127,10 +6169,10 @@
               "lasaId": "lasa_049",
               "prompt": "Which medication is commonly confused with leNALIDomide?",
               "choices": [
-                "leFLUNomide",
-                "SOLU-Medrol",
+                "TENECTEplase",
                 "Lantus",
-                "TENECTEplase"
+                "SOLU-Medrol",
+                "leFLUNomide"
               ],
               "correctAnswer": "leFLUNomide",
               "explanation": "leNALIDomide and leFLUNomide form a documented ISMP/FDA LASA pair.",
@@ -6150,10 +6192,10 @@
               "lasaId": "lasa_050",
               "prompt": "Which medication is commonly confused with dexmedeTOMIDine?",
               "choices": [
-                "hydrALAZINE",
-                "Toprol-XL",
+                "TOLAZamide",
                 "dexAMETHasone",
-                "TOLAZamide"
+                "hydrALAZINE",
+                "Toprol-XL"
               ],
               "correctAnswer": "dexAMETHasone",
               "explanation": "dexmedeTOMIDine and dexAMETHasone form a documented ISMP/FDA LASA pair.",
@@ -7161,14 +7203,15 @@
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "insulin lispro",
+          "canonicalDrugId": "lasa_039_a",
           "spokenDrug": "Humalog",
           "drugToPronounce": "insulin lispro",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
             "Humalog",
-            "buPROPion",
+            "Humulin R",
             "busPIRone",
-            "Humulin R"
+            "buPROPion"
           ],
           "correctAnswer": "Humalog",
           "relatedDrug": "Humalog",
@@ -7180,22 +7223,22 @@
           "riskSummary": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP Medication Safety Alert! Acute Care",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_039_a"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_040_B_read_back_mst_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "regular insulin",
+          "canonicalDrugId": "lasa_040_b",
           "spokenDrug": "NovoLIN R",
           "drugToPronounce": "regular insulin",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "busPIRone",
+            "buPROPion",
             "NovoLOG",
-            "NovoLIN R",
-            "buPROPion"
+            "busPIRone",
+            "NovoLIN R"
           ],
           "correctAnswer": "NovoLIN R",
           "relatedDrug": "NovoLIN R",
@@ -7207,22 +7250,22 @@
           "riskSummary": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP High-Alert Medication Guidelines",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_040_b"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_041_A_read_back_mst_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "insulin glargine",
+          "canonicalDrugId": "lasa_041_a",
           "spokenDrug": "Lantus",
           "drugToPronounce": "insulin glargine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
             "busPIRone",
-            "Lente",
             "Lantus",
-            "buPROPion"
+            "buPROPion",
+            "Lente"
           ],
           "correctAnswer": "Lantus",
           "relatedDrug": "Lantus",
@@ -7234,22 +7277,22 @@
           "riskSummary": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP National Medication Errors Reporting Program (MERP)",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_041_a"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_042_B_read_back_mst_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "terbinafine",
+          "canonicalDrugId": "lasa_042_b",
           "spokenDrug": "LaMISil",
           "drugToPronounce": "terbinafine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "LaMICtal",
             "buPROPion",
-            "busPIRone",
-            "LaMISil"
+            "LaMICtal",
+            "LaMISil",
+            "busPIRone"
           ],
           "correctAnswer": "LaMISil",
           "relatedDrug": "LaMISil",
@@ -7261,21 +7304,21 @@
           "riskSummary": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-          "canonicalDrugId": "lasa_042_b"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
         },
         {
           "id": "q_sound_lasa_043_A_read_back_mst_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "olanzapine",
+          "canonicalDrugId": "lasa_043_a",
           "spokenDrug": "ZyPREXA",
           "drugToPronounce": "olanzapine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "ZyrTEC",
             "ZyPREXA",
             "buPROPion",
+            "ZyrTEC",
             "busPIRone"
           ],
           "correctAnswer": "ZyPREXA",
@@ -7288,22 +7331,22 @@
           "riskSummary": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
           "source": "ISMP List of Confused Drug Names & Tall Man List",
           "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_043_a"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_044_B_read_back_mst_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "metoprolol succinate",
+          "canonicalDrugId": "lasa_044_b",
           "spokenDrug": "Toprol-XL",
           "drugToPronounce": "metoprolol succinate",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "busPIRone",
-            "buPROPion",
             "Toprol-XL",
-            "TopAMAX"
+            "buPROPion",
+            "TopAMAX",
+            "busPIRone"
           ],
           "correctAnswer": "Toprol-XL",
           "relatedDrug": "Toprol-XL",
@@ -7315,22 +7358,22 @@
           "riskSummary": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP MERP Reporting Bulletin",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_044_b"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_045_A_read_back_mst_rb_6",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "quetiapine",
+          "canonicalDrugId": "lasa_045_a",
           "spokenDrug": "SeroQUEL",
           "drugToPronounce": "quetiapine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "SeroQUEL",
-            "SineQUAN",
             "buPROPion",
-            "busPIRone"
+            "SeroQUEL",
+            "busPIRone",
+            "SineQUAN"
           ],
           "correctAnswer": "SeroQUEL",
           "relatedDrug": "SeroQUEL",
@@ -7342,22 +7385,22 @@
           "riskSummary": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; FDA Public Health Advisory",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_045_a"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_046_B_read_back_mst_rb_7",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "fluoxetine",
+          "canonicalDrugId": "lasa_046_b",
           "spokenDrug": "PROzac",
           "drugToPronounce": "fluoxetine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "buPROPion",
-            "priLOSEC",
+            "busPIRone",
             "PROzac",
-            "busPIRone"
+            "buPROPion",
+            "priLOSEC"
           ],
           "correctAnswer": "PROzac",
           "relatedDrug": "PROzac",
@@ -7369,22 +7412,22 @@
           "riskSummary": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
           "source": "FDA Safety Alerts & ISMP List of Confused Drug Names",
           "sourceCitation": "FDA MedWatch Safety Alert (Prilosec/Prozac name confusion); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
-          "canonicalDrugId": "lasa_046_b"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
         },
         {
           "id": "q_sound_lasa_049_A_read_back_mst_rb_8",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "lenalidomide",
+          "canonicalDrugId": "lasa_049_a",
           "spokenDrug": "leNALIDomide",
           "drugToPronounce": "lenalidomide",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "buPROPion",
             "busPIRone",
             "leFLUNomide",
-            "leNALIDomide"
+            "leNALIDomide",
+            "buPROPion"
           ],
           "correctAnswer": "leNALIDomide",
           "relatedDrug": "leNALIDomide",
@@ -7396,8 +7439,7 @@
           "riskSummary": "Severe embryofetal toxicity, deep vein thrombosis/pulmonary embolism, and intense cytopenias from lenalidomide.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Medication Safety Alert!",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-          "canonicalDrugId": "lasa_049_a"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
         },
         {
           "id": "q_pair_lasa_039_A_mst_disc_0",
@@ -7407,10 +7449,10 @@
           "lasaId": "lasa_039",
           "prompt": "Which medication is commonly confused with Humalog?",
           "choices": [
-            "hydroxyCHLOROquine",
+            "traZODone",
             "HYDROcodone",
-            "Humulin R",
-            "traZODone"
+            "hydroxyCHLOROquine",
+            "Humulin R"
           ],
           "correctAnswer": "Humulin R",
           "explanation": "Humalog and Humulin R form a documented ISMP/FDA LASA pair.",
@@ -7430,10 +7472,10 @@
           "lasaId": "lasa_040",
           "prompt": "Which medication is commonly confused with NovoLIN R?",
           "choices": [
-            "CARBOplatin",
-            "busPIRone",
             "CeleXA",
-            "NovoLOG"
+            "NovoLOG",
+            "busPIRone",
+            "CARBOplatin"
           ],
           "correctAnswer": "NovoLOG",
           "explanation": "NovoLIN R and NovoLOG form a documented ISMP/FDA LASA pair.",
@@ -7454,9 +7496,9 @@
           "prompt": "Which medication is commonly confused with Lantus?",
           "choices": [
             "vinCRIStine",
-            "glipiZIDE",
+            "Lente",
             "clonazePAM",
-            "Lente"
+            "glipiZIDE"
           ],
           "correctAnswer": "Lente",
           "explanation": "Lantus and Lente form a documented ISMP/FDA LASA pair.",
@@ -7477,9 +7519,9 @@
           "prompt": "Which medication is commonly confused with LaMISil?",
           "choices": [
             "DULOxetine",
-            "HYDROmorphone",
+            "CISplatin",
             "LaMICtal",
-            "CISplatin"
+            "HYDROmorphone"
           ],
           "correctAnswer": "LaMICtal",
           "explanation": "LaMISil and LaMICtal form a documented ISMP/FDA LASA pair.",
@@ -7499,10 +7541,10 @@
           "lasaId": "lasa_043",
           "prompt": "Which medication is commonly confused with ZyPREXA?",
           "choices": [
-            "glyBURIDE",
-            "epiNEPHrine",
             "ceFAZolin",
-            "ZyrTEC"
+            "ZyrTEC",
+            "epiNEPHrine",
+            "glyBURIDE"
           ],
           "correctAnswer": "ZyrTEC",
           "explanation": "ZyPREXA and ZyrTEC form a documented ISMP/FDA LASA pair.",
@@ -7523,8 +7565,8 @@
           "prompt": "Which medication is commonly confused with Toprol-XL?",
           "choices": [
             "FLUOxetine",
-            "TopAMAX",
             "DOCEtaxel",
+            "TopAMAX",
             "clomiPHENE"
           ],
           "correctAnswer": "TopAMAX",
@@ -7545,10 +7587,10 @@
           "lasaId": "lasa_045",
           "prompt": "Which medication is commonly confused with SeroQUEL?",
           "choices": [
-            "ePHEDrine",
+            "cefTRIAXone",
             "SineQUAN",
-            "diphenhydrAMINE",
-            "cefTRIAXone"
+            "ePHEDrine",
+            "diphenhydrAMINE"
           ],
           "correctAnswer": "SineQUAN",
           "explanation": "SeroQUEL and SineQUAN form a documented ISMP/FDA LASA pair.",
@@ -7568,10 +7610,10 @@
           "lasaId": "lasa_046",
           "prompt": "Which medication is commonly confused with PROzac?",
           "choices": [
-            "sulfADIAZINE",
-            "clomiPRAMINE",
+            "priLOSEC",
             "PAROxetine",
-            "priLOSEC"
+            "clomiPRAMINE",
+            "sulfADIAZINE"
           ],
           "correctAnswer": "priLOSEC",
           "explanation": "PROzac and priLOSEC form a documented ISMP/FDA LASA pair.",
@@ -7592,9 +7634,9 @@
           "prompt": "Which medication is commonly confused with ALTEplase?",
           "choices": [
             "TENECTEplase",
-            "NovoLIN R",
+            "DEPO-Medrol",
             "cefoTEtan",
-            "DEPO-Medrol"
+            "NovoLIN R"
           ],
           "correctAnswer": "TENECTEplase",
           "explanation": "ALTEplase and TENECTEplase form a documented ISMP/FDA LASA pair.",
@@ -7614,10 +7656,10 @@
           "lasaId": "lasa_048",
           "prompt": "Which medication is commonly confused with hydroxyUREA?",
           "choices": [
-            "cycloSERINE",
-            "TopAMAX",
             "hydroxyCHLOROquine",
-            "sulfiSOXAZOLE"
+            "TopAMAX",
+            "sulfiSOXAZOLE",
+            "cycloSERINE"
           ],
           "correctAnswer": "hydroxyCHLOROquine",
           "explanation": "hydroxyUREA and hydroxyCHLOROquine form a documented ISMP/FDA LASA pair.",
@@ -7637,10 +7679,10 @@
           "lasaId": "lasa_049",
           "prompt": "Which medication is commonly confused with leNALIDomide?",
           "choices": [
-            "leFLUNomide",
-            "SOLU-Medrol",
+            "TENECTEplase",
             "Lantus",
-            "TENECTEplase"
+            "SOLU-Medrol",
+            "leFLUNomide"
           ],
           "correctAnswer": "leFLUNomide",
           "explanation": "leNALIDomide and leFLUNomide form a documented ISMP/FDA LASA pair.",
@@ -7660,10 +7702,10 @@
           "lasaId": "lasa_050",
           "prompt": "Which medication is commonly confused with dexmedeTOMIDine?",
           "choices": [
-            "hydrALAZINE",
-            "Toprol-XL",
+            "TOLAZamide",
             "dexAMETHasone",
-            "TOLAZamide"
+            "hydrALAZINE",
+            "Toprol-XL"
           ],
           "correctAnswer": "dexAMETHasone",
           "explanation": "dexmedeTOMIDine and dexAMETHasone form a documented ISMP/FDA LASA pair.",

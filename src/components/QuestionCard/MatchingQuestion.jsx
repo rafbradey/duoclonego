@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Check, X, Sparkles } from "lucide-react";
 import TallManText from "../TallManText/TallManText.jsx";
+import { normalizeMatchingPairs } from "../../services/questionGenerator.js";
 import "./MatchingQuestion.css";
 
 /**
@@ -20,7 +21,10 @@ function MatchingQuestion({
     onSelect,
     isSubmitted = false
 }) {
-    const rawPairs = useMemo(() => question?.pairs || [], [question]);
+    const rawPairs = useMemo(() => {
+        const inputPairs = question?.pairs || [];
+        return normalizeMatchingPairs(inputPairs);
+    }, [question]);
 
     // Shuffled column items derived deterministically for this question instance
     const leftItems = useMemo(() => shuffle(rawPairs.map((p) => p.left)), [rawPairs]);
@@ -35,9 +39,14 @@ function MatchingQuestion({
     const [justMatchedPair, setJustMatchedPair] = useState(null);
 
     const isPairMatch = (left, right) => {
+        const lNorm = String(left).trim().toLowerCase();
+        const rNorm = String(right).trim().toLowerCase();
         return rawPairs.some(
-            (p) => String(p.left).trim().toLowerCase() === String(left).trim().toLowerCase() &&
-                   String(p.right).trim().toLowerCase() === String(right).trim().toLowerCase()
+            (p) => {
+                const pl = String(p.left).trim().toLowerCase();
+                const pr = String(p.right).trim().toLowerCase();
+                return (pl === lNorm && pr === rNorm) || (pl === rNorm && pr === lNorm);
+            }
         );
     };
 

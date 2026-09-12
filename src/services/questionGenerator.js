@@ -152,16 +152,110 @@ export function generateLasaPairRecognitionQuestion(lasaRecord, { promptSide = "
 /**
  * Generates a Type C: Pair Memorization & Interactive Tap-to-Match question.
  * Connects 3–4 confusable pairs for active memory consolidation.
+/**
+ * Normalizes an array of matching pairs to ensure:
+ * 1. Each PRIMARY medication represents exactly ONE medication.
+ * 2. If a pair was provided with compound names (e.g. "A / B" or "A ↔ B"), it is split into single medication items.
+ * 3. No duplicate medication names appear in the left column.
+ *
+ * @param {Array} rawPairs - Array of raw pair items
+ * @returns {Array} Clean array of { left, right } pairs
+ */
+export function normalizeMatchingPairs(rawPairs) {
+    if (!Array.isArray(rawPairs)) return [];
+
+    const normalized = [];
+    const usedLeft = new Set();
+    const usedRight = new Set();
+
+    for (const item of rawPairs) {
+        if (!item) continue;
+
+        let left = item.left || item.primary || (item.drugA ? (item.drugA.tallManName || item.drugA.genericName) : "");
+        let right = item.right || item.counterpart || (item.drugB ? (item.drugB.tallManName || item.drugB.genericName) : "");
+
+        if (!left && typeof item === "string") {
+            left = item;
+        }
+
+        // If left contains a compound delimiter like " / ", " ↔ ", or " - " (when separating two drugs)
+        if (typeof left === "string" && (left.includes(" / ") || left.includes(" ↔ "))) {
+            const separator = left.includes(" / ") ? " / " : " ↔ ";
+            const parts = left.split(separator).map((s) => s.trim()).filter(Boolean);
+
+            if (parts.length >= 2) {
+                // If right is not provided, the compound string contained both medications of the pair
+                if (!right) {
+                    left = parts[0];
+                    right = parts[1];
+                } else if (typeof right === "string" && (right.includes(" / ") || right.includes(" ↔ "))) {
+                    // Both left and right are compound: split 1-to-1
+                    const rParts = right.split(right.includes(" / ") ? " / " : " ↔ ").map((s) => s.trim()).filter(Boolean);
+                    parts.forEach((p, idx) => {
+                        const r = rParts[idx] || rParts[0];
+                        const pLower = p.toLowerCase();
+                        if (!usedLeft.has(pLower)) {
+                            usedLeft.add(pLower);
+                            normalized.push({ left: p, right: r });
+                        }
+                    });
+                    continue;
+                } else {
+                    // Left contains multiple medications matching to a shared information/counterpart item
+                    parts.forEach((p) => {
+                        const pLower = p.toLowerCase();
+                        if (!usedLeft.has(pLower)) {
+                            usedLeft.add(pLower);
+                            normalized.push({ left: p, right });
+                        }
+                    });
+                    continue;
+                }
+            }
+        }
+
+        if (left && right) {
+            let leftStr = String(left).trim();
+            let rightStr = String(right).trim();
+            let leftLower = leftStr.toLowerCase();
+            let rightLower = rightStr.toLowerCase();
+
+            // If left drug is already in left column, but right is not, swap sides to prevent duplicate
+            if (usedLeft.has(leftLower) && !usedLeft.has(rightLower) && !usedRight.has(leftLower)) {
+                [leftStr, rightStr] = [rightStr, leftStr];
+                [leftLower, rightLower] = [rightLower, leftLower];
+            } else if (usedRight.has(rightLower) && !usedLeft.has(rightLower) && !usedRight.has(leftLower)) {
+                // If right drug is already in right column, swap sides if left is free on right and right is free on left
+                [leftStr, rightStr] = [rightStr, leftStr];
+                [leftLower, rightLower] = [rightLower, leftLower];
+            }
+
+            if (!usedLeft.has(leftLower) && !usedRight.has(rightLower)) {
+                usedLeft.add(leftLower);
+                usedRight.add(rightLower);
+                normalized.push({ left: leftStr, right: rightStr, lasaId: item.lasaId || item.id });
+            }
+        }
+    }
+
+    return normalized;
+}
+
+/**
+ * Generates a Type C: Pair Memorization & Interactive Tap-to-Match question.
+ * Connects 3–4 confusable pairs for active memory consolidation.
  */
 export function generateMatchingQuestion(lasaRecords, { id = "q_match_001" } = {}) {
-    const pairs = lasaRecords.slice(0, 4).map((record) => {
-        const left = record.drugA.tallManName || record.drugA.genericName;
-        const right = record.drugB.tallManName || record.drugB.genericName;
-        return { left, right };
+    const rawPairs = (lasaRecords || []).map((record) => {
+        const left = record.drugA?.tallManName || record.drugA?.genericName || record.left || "";
+        const right = record.drugB?.tallManName || record.drugB?.genericName || record.right || "";
+        return { left, right, lasaId: record.id };
     });
 
+    const pairs = normalizeMatchingPairs(rawPairs).slice(0, 4);
+
     const explanation = pairs.map((p) => `${p.left} ↔ ${p.right}`).join("; ");
-    const firstRecord = lasaRecords[0] || {};
+    const firstRecord = (lasaRecords && lasaRecords[0]) || {};
     const pairDisplay = pairs.map((p) => `${p.left} ↔ ${p.right}`).join(", ");
 
     return {

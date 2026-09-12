@@ -129,9 +129,9 @@
               "lasaId": "lasa_026",
               "prompt": "Which medication is commonly confused with ceFAZolin?",
               "choices": [
-                "metroNIDAZOLE",
                 "LORazepam",
                 "dexAMETHasone",
+                "metroNIDAZOLE",
                 "cefTRIAXone"
               ],
               "correctAnswer": "cefTRIAXone",
@@ -152,10 +152,10 @@
               "lasaId": "lasa_026",
               "prompt": "Which medication is commonly confused with cefTRIAXone?",
               "choices": [
+                "LORazepam",
                 "dexAMETHasone",
                 "ceFAZolin",
-                "metroNIDAZOLE",
-                "LORazepam"
+                "metroNIDAZOLE"
               ],
               "correctAnswer": "ceFAZolin",
               "explanation": "cefTRIAXone and ceFAZolin form a documented ISMP/FDA LASA pair.",
@@ -177,8 +177,8 @@
               "choices": [
                 "cefOXitin",
                 "DAUNOrubicin",
-                "DOPamine",
-                "prednisoLONE"
+                "prednisoLONE",
+                "DOPamine"
               ],
               "correctAnswer": "cefOXitin",
               "explanation": "cefoTEtan and cefOXitin form a documented ISMP/FDA LASA pair.",
@@ -198,10 +198,10 @@
               "lasaId": "lasa_027",
               "prompt": "Which medication is commonly confused with cefOXitin?",
               "choices": [
-                "prednisoLONE",
-                "cefoTEtan",
+                "DAUNOrubicin",
                 "DOPamine",
-                "DAUNOrubicin"
+                "prednisoLONE",
+                "cefoTEtan"
               ],
               "correctAnswer": "cefoTEtan",
               "explanation": "cefOXitin and cefoTEtan form a documented ISMP/FDA LASA pair.",
@@ -223,8 +223,8 @@
               "choices": [
                 "cloZAPine",
                 "NIFEdipine",
-                "cefTRIAXone",
-                "acetaZOLAMIDE"
+                "acetaZOLAMIDE",
+                "cefTRIAXone"
               ],
               "correctAnswer": "cefTRIAXone",
               "explanation": "cefTAZidime and cefTRIAXone form a documented ISMP/FDA LASA pair.",
@@ -245,9 +245,9 @@
               "prompt": "Which medication is commonly confused with cefTRIAXone?",
               "choices": [
                 "NIFEdipine",
-                "cefTAZidime",
+                "cloZAPine",
                 "acetaZOLAMIDE",
-                "cloZAPine"
+                "cefTAZidime"
               ],
               "correctAnswer": "cefTAZidime",
               "explanation": "cefTRIAXone and cefTAZidime form a documented ISMP/FDA LASA pair.",
@@ -290,10 +290,10 @@
               "lasaId": "lasa_029",
               "prompt": "Which medication is commonly confused with chlorproPAMIDE?",
               "choices": [
-                "chlorproMAZINE",
                 "oxyCODONE",
-                "RABEprazole",
-                "DOXOrubicin"
+                "chlorproMAZINE",
+                "DOXOrubicin",
+                "RABEprazole"
               ],
               "correctAnswer": "chlorproMAZINE",
               "explanation": "chlorproPAMIDE and chlorproMAZINE form a documented ISMP/FDA LASA pair.",
@@ -313,10 +313,10 @@
               "lasaId": "lasa_030",
               "prompt": "Which medication is commonly confused with clomiPHENE?",
               "choices": [
-                "amLODIPine",
-                "cefTAZidime",
                 "acetoHEXAMIDE",
-                "clomiPRAMINE"
+                "cefTAZidime",
+                "clomiPRAMINE",
+                "amLODIPine"
               ],
               "correctAnswer": "clomiPRAMINE",
               "explanation": "clomiPHENE and clomiPRAMINE form a documented ISMP/FDA LASA pair.",
@@ -336,10 +336,10 @@
               "lasaId": "lasa_030",
               "prompt": "Which medication is commonly confused with clomiPRAMINE?",
               "choices": [
-                "cefTAZidime",
-                "amLODIPine",
                 "clomiPHENE",
-                "acetoHEXAMIDE"
+                "acetoHEXAMIDE",
+                "cefTAZidime",
+                "amLODIPine"
               ],
               "correctAnswer": "clomiPHENE",
               "explanation": "clomiPRAMINE and clomiPHENE form a documented ISMP/FDA LASA pair.",
@@ -359,10 +359,10 @@
               "lasaId": "lasa_031",
               "prompt": "Which medication is commonly confused with cycloSERINE?",
               "choices": [
-                "azaCITIDine",
                 "cycloSPORINE",
                 "vinBLAStine",
-                "dimenhyDRINATE"
+                "dimenhyDRINATE",
+                "azaCITIDine"
               ],
               "correctAnswer": "cycloSPORINE",
               "explanation": "cycloSERINE and cycloSPORINE form a documented ISMP/FDA LASA pair.",
@@ -383,9 +383,9 @@
               "prompt": "Which medication is commonly confused with cycloSPORINE?",
               "choices": [
                 "cycloSERINE",
-                "vinBLAStine",
                 "azaCITIDine",
-                "dimenhyDRINATE"
+                "dimenhyDRINATE",
+                "vinBLAStine"
               ],
               "correctAnswer": "cycloSERINE",
               "explanation": "cycloSPORINE and cycloSERINE form a documented ISMP/FDA LASA pair.",
@@ -405,10 +405,10 @@
               "lasaId": "lasa_032",
               "prompt": "Which medication is commonly confused with DACTINomycin?",
               "choices": [
-                "chlorproMAZINE",
+                "rOPINIRole",
                 "aMILoride",
-                "DAPTOmycin",
-                "rOPINIRole"
+                "chlorproMAZINE",
+                "DAPTOmycin"
               ],
               "correctAnswer": "DAPTOmycin",
               "explanation": "DACTINomycin and DAPTOmycin form a documented ISMP/FDA LASA pair.",
@@ -430,8 +430,8 @@
               "choices": [
                 "aMILoride",
                 "chlorproMAZINE",
-                "DACTINomycin",
-                "rOPINIRole"
+                "rOPINIRole",
+                "DACTINomycin"
               ],
               "correctAnswer": "DACTINomycin",
               "explanation": "DAPTOmycin and DACTINomycin form a documented ISMP/FDA LASA pair.",
@@ -451,8 +451,8 @@
               "lasaId": "lasa_033",
               "prompt": "Which medication is commonly confused with dimenhyDRINATE?",
               "choices": [
-                "NovoLOG",
                 "diphenhydrAMINE",
+                "NovoLOG",
                 "azaTHIOprine",
                 "DAPTOmycin"
               ],
@@ -474,10 +474,10 @@
               "lasaId": "lasa_033",
               "prompt": "Which medication is commonly confused with diphenhydrAMINE?",
               "choices": [
+                "dimenhyDRINATE",
                 "azaTHIOprine",
                 "DAPTOmycin",
-                "NovoLOG",
-                "dimenhyDRINATE"
+                "NovoLOG"
               ],
               "correctAnswer": "dimenhyDRINATE",
               "explanation": "diphenhydrAMINE and dimenhyDRINATE form a documented ISMP/FDA LASA pair.",
@@ -497,9 +497,9 @@
               "lasaId": "lasa_034",
               "prompt": "Which medication is commonly confused with DEPO-Medrol?",
               "choices": [
-                "SOLU-Medrol",
-                "ZyrTEC",
                 "chlorproPAMIDE",
+                "ZyrTEC",
+                "SOLU-Medrol",
                 "sulfADIAZINE"
               ],
               "correctAnswer": "SOLU-Medrol",
@@ -520,10 +520,10 @@
               "lasaId": "lasa_034",
               "prompt": "Which medication is commonly confused with SOLU-Medrol?",
               "choices": [
-                "sulfADIAZINE",
                 "chlorproPAMIDE",
+                "DEPO-Medrol",
                 "ZyrTEC",
-                "DEPO-Medrol"
+                "sulfADIAZINE"
               ],
               "correctAnswer": "DEPO-Medrol",
               "explanation": "SOLU-Medrol and DEPO-Medrol form a documented ISMP/FDA LASA pair.",
@@ -543,8 +543,8 @@
               "lasaId": "lasa_035",
               "prompt": "Which medication is commonly confused with fentaNYL?",
               "choices": [
-                "NovoLIN R",
                 "ALTEplase",
+                "NovoLIN R",
                 "dimenhyDRINATE",
                 "SUFentanil"
               ],
@@ -568,8 +568,8 @@
               "choices": [
                 "fentaNYL",
                 "dimenhyDRINATE",
-                "NovoLIN R",
-                "ALTEplase"
+                "ALTEplase",
+                "NovoLIN R"
               ],
               "correctAnswer": "fentaNYL",
               "explanation": "SUFentanil and fentaNYL form a documented ISMP/FDA LASA pair.",
@@ -589,10 +589,10 @@
               "lasaId": "lasa_036",
               "prompt": "Which medication is commonly confused with risperiDONE?",
               "choices": [
-                "rOPINIRole",
-                "TopAMAX",
                 "sulfiSOXAZOLE",
-                "dexmedeTOMIDine"
+                "dexmedeTOMIDine",
+                "TopAMAX",
+                "rOPINIRole"
               ],
               "correctAnswer": "rOPINIRole",
               "explanation": "risperiDONE and rOPINIRole form a documented ISMP/FDA LASA pair.",
@@ -612,10 +612,10 @@
               "lasaId": "lasa_036",
               "prompt": "Which medication is commonly confused with rOPINIRole?",
               "choices": [
-                "risperiDONE",
-                "sulfiSOXAZOLE",
                 "dexmedeTOMIDine",
-                "TopAMAX"
+                "TopAMAX",
+                "sulfiSOXAZOLE",
+                "risperiDONE"
               ],
               "correctAnswer": "risperiDONE",
               "explanation": "rOPINIRole and risperiDONE form a documented ISMP/FDA LASA pair.",
@@ -635,10 +635,10 @@
               "lasaId": "lasa_037",
               "prompt": "Which medication is commonly confused with sulfADIAZINE?",
               "choices": [
-                "Lantus",
-                "traMADol",
+                "sulfiSOXAZOLE",
                 "TENECTEplase",
-                "sulfiSOXAZOLE"
+                "traMADol",
+                "Lantus"
               ],
               "correctAnswer": "sulfiSOXAZOLE",
               "explanation": "sulfADIAZINE and sulfiSOXAZOLE form a documented ISMP/FDA LASA pair.",
@@ -658,10 +658,10 @@
               "lasaId": "lasa_037",
               "prompt": "Which medication is commonly confused with sulfiSOXAZOLE?",
               "choices": [
-                "TENECTEplase",
+                "traMADol",
                 "sulfADIAZINE",
                 "Lantus",
-                "traMADol"
+                "TENECTEplase"
               ],
               "correctAnswer": "sulfADIAZINE",
               "explanation": "sulfiSOXAZOLE and sulfADIAZINE form a documented ISMP/FDA LASA pair.",
@@ -682,8 +682,8 @@
               "prompt": "Which medication is commonly confused with TOLAZamide?",
               "choices": [
                 "CeleBREX",
-                "buPROPion",
                 "TOLBUTamide",
+                "buPROPion",
                 "Toprol-XL"
               ],
               "correctAnswer": "TOLBUTamide",
@@ -704,9 +704,9 @@
               "lasaId": "lasa_038",
               "prompt": "Which medication is commonly confused with TOLBUTamide?",
               "choices": [
-                "Toprol-XL",
-                "TOLAZamide",
                 "buPROPion",
+                "TOLAZamide",
+                "Toprol-XL",
                 "CeleBREX"
               ],
               "correctAnswer": "TOLAZamide",
@@ -731,9 +731,9 @@
           "lasaId": "lasa_026",
           "prompt": "Which medication is commonly confused with ceFAZolin?",
           "choices": [
-            "metroNIDAZOLE",
             "LORazepam",
             "dexAMETHasone",
+            "metroNIDAZOLE",
             "cefTRIAXone"
           ],
           "correctAnswer": "cefTRIAXone",
@@ -754,10 +754,10 @@
           "lasaId": "lasa_026",
           "prompt": "Which medication is commonly confused with cefTRIAXone?",
           "choices": [
+            "LORazepam",
             "dexAMETHasone",
             "ceFAZolin",
-            "metroNIDAZOLE",
-            "LORazepam"
+            "metroNIDAZOLE"
           ],
           "correctAnswer": "ceFAZolin",
           "explanation": "cefTRIAXone and ceFAZolin form a documented ISMP/FDA LASA pair.",
@@ -779,8 +779,8 @@
           "choices": [
             "cefOXitin",
             "DAUNOrubicin",
-            "DOPamine",
-            "prednisoLONE"
+            "prednisoLONE",
+            "DOPamine"
           ],
           "correctAnswer": "cefOXitin",
           "explanation": "cefoTEtan and cefOXitin form a documented ISMP/FDA LASA pair.",
@@ -800,10 +800,10 @@
           "lasaId": "lasa_027",
           "prompt": "Which medication is commonly confused with cefOXitin?",
           "choices": [
-            "prednisoLONE",
-            "cefoTEtan",
+            "DAUNOrubicin",
             "DOPamine",
-            "DAUNOrubicin"
+            "prednisoLONE",
+            "cefoTEtan"
           ],
           "correctAnswer": "cefoTEtan",
           "explanation": "cefOXitin and cefoTEtan form a documented ISMP/FDA LASA pair.",
@@ -825,8 +825,8 @@
           "choices": [
             "cloZAPine",
             "NIFEdipine",
-            "cefTRIAXone",
-            "acetaZOLAMIDE"
+            "acetaZOLAMIDE",
+            "cefTRIAXone"
           ],
           "correctAnswer": "cefTRIAXone",
           "explanation": "cefTAZidime and cefTRIAXone form a documented ISMP/FDA LASA pair.",
@@ -847,9 +847,9 @@
           "prompt": "Which medication is commonly confused with cefTRIAXone?",
           "choices": [
             "NIFEdipine",
-            "cefTAZidime",
+            "cloZAPine",
             "acetaZOLAMIDE",
-            "cloZAPine"
+            "cefTAZidime"
           ],
           "correctAnswer": "cefTAZidime",
           "explanation": "cefTRIAXone and cefTAZidime form a documented ISMP/FDA LASA pair.",
@@ -892,10 +892,10 @@
           "lasaId": "lasa_029",
           "prompt": "Which medication is commonly confused with chlorproPAMIDE?",
           "choices": [
-            "chlorproMAZINE",
             "oxyCODONE",
-            "RABEprazole",
-            "DOXOrubicin"
+            "chlorproMAZINE",
+            "DOXOrubicin",
+            "RABEprazole"
           ],
           "correctAnswer": "chlorproMAZINE",
           "explanation": "chlorproPAMIDE and chlorproMAZINE form a documented ISMP/FDA LASA pair.",
@@ -915,10 +915,10 @@
           "lasaId": "lasa_030",
           "prompt": "Which medication is commonly confused with clomiPHENE?",
           "choices": [
-            "amLODIPine",
-            "cefTAZidime",
             "acetoHEXAMIDE",
-            "clomiPRAMINE"
+            "cefTAZidime",
+            "clomiPRAMINE",
+            "amLODIPine"
           ],
           "correctAnswer": "clomiPRAMINE",
           "explanation": "clomiPHENE and clomiPRAMINE form a documented ISMP/FDA LASA pair.",
@@ -938,10 +938,10 @@
           "lasaId": "lasa_030",
           "prompt": "Which medication is commonly confused with clomiPRAMINE?",
           "choices": [
-            "cefTAZidime",
-            "amLODIPine",
             "clomiPHENE",
-            "acetoHEXAMIDE"
+            "acetoHEXAMIDE",
+            "cefTAZidime",
+            "amLODIPine"
           ],
           "correctAnswer": "clomiPHENE",
           "explanation": "clomiPRAMINE and clomiPHENE form a documented ISMP/FDA LASA pair.",
@@ -961,10 +961,10 @@
           "lasaId": "lasa_031",
           "prompt": "Which medication is commonly confused with cycloSERINE?",
           "choices": [
-            "azaCITIDine",
             "cycloSPORINE",
             "vinBLAStine",
-            "dimenhyDRINATE"
+            "dimenhyDRINATE",
+            "azaCITIDine"
           ],
           "correctAnswer": "cycloSPORINE",
           "explanation": "cycloSERINE and cycloSPORINE form a documented ISMP/FDA LASA pair.",
@@ -985,9 +985,9 @@
           "prompt": "Which medication is commonly confused with cycloSPORINE?",
           "choices": [
             "cycloSERINE",
-            "vinBLAStine",
             "azaCITIDine",
-            "dimenhyDRINATE"
+            "dimenhyDRINATE",
+            "vinBLAStine"
           ],
           "correctAnswer": "cycloSERINE",
           "explanation": "cycloSPORINE and cycloSERINE form a documented ISMP/FDA LASA pair.",
@@ -1007,10 +1007,10 @@
           "lasaId": "lasa_032",
           "prompt": "Which medication is commonly confused with DACTINomycin?",
           "choices": [
-            "chlorproMAZINE",
+            "rOPINIRole",
             "aMILoride",
-            "DAPTOmycin",
-            "rOPINIRole"
+            "chlorproMAZINE",
+            "DAPTOmycin"
           ],
           "correctAnswer": "DAPTOmycin",
           "explanation": "DACTINomycin and DAPTOmycin form a documented ISMP/FDA LASA pair.",
@@ -1032,8 +1032,8 @@
           "choices": [
             "aMILoride",
             "chlorproMAZINE",
-            "DACTINomycin",
-            "rOPINIRole"
+            "rOPINIRole",
+            "DACTINomycin"
           ],
           "correctAnswer": "DACTINomycin",
           "explanation": "DAPTOmycin and DACTINomycin form a documented ISMP/FDA LASA pair.",
@@ -1053,8 +1053,8 @@
           "lasaId": "lasa_033",
           "prompt": "Which medication is commonly confused with dimenhyDRINATE?",
           "choices": [
-            "NovoLOG",
             "diphenhydrAMINE",
+            "NovoLOG",
             "azaTHIOprine",
             "DAPTOmycin"
           ],
@@ -1076,10 +1076,10 @@
           "lasaId": "lasa_033",
           "prompt": "Which medication is commonly confused with diphenhydrAMINE?",
           "choices": [
+            "dimenhyDRINATE",
             "azaTHIOprine",
             "DAPTOmycin",
-            "NovoLOG",
-            "dimenhyDRINATE"
+            "NovoLOG"
           ],
           "correctAnswer": "dimenhyDRINATE",
           "explanation": "diphenhydrAMINE and dimenhyDRINATE form a documented ISMP/FDA LASA pair.",
@@ -1099,9 +1099,9 @@
           "lasaId": "lasa_034",
           "prompt": "Which medication is commonly confused with DEPO-Medrol?",
           "choices": [
-            "SOLU-Medrol",
-            "ZyrTEC",
             "chlorproPAMIDE",
+            "ZyrTEC",
+            "SOLU-Medrol",
             "sulfADIAZINE"
           ],
           "correctAnswer": "SOLU-Medrol",
@@ -1122,10 +1122,10 @@
           "lasaId": "lasa_034",
           "prompt": "Which medication is commonly confused with SOLU-Medrol?",
           "choices": [
-            "sulfADIAZINE",
             "chlorproPAMIDE",
+            "DEPO-Medrol",
             "ZyrTEC",
-            "DEPO-Medrol"
+            "sulfADIAZINE"
           ],
           "correctAnswer": "DEPO-Medrol",
           "explanation": "SOLU-Medrol and DEPO-Medrol form a documented ISMP/FDA LASA pair.",
@@ -1145,8 +1145,8 @@
           "lasaId": "lasa_035",
           "prompt": "Which medication is commonly confused with fentaNYL?",
           "choices": [
-            "NovoLIN R",
             "ALTEplase",
+            "NovoLIN R",
             "dimenhyDRINATE",
             "SUFentanil"
           ],
@@ -1170,8 +1170,8 @@
           "choices": [
             "fentaNYL",
             "dimenhyDRINATE",
-            "NovoLIN R",
-            "ALTEplase"
+            "ALTEplase",
+            "NovoLIN R"
           ],
           "correctAnswer": "fentaNYL",
           "explanation": "SUFentanil and fentaNYL form a documented ISMP/FDA LASA pair.",
@@ -1191,10 +1191,10 @@
           "lasaId": "lasa_036",
           "prompt": "Which medication is commonly confused with risperiDONE?",
           "choices": [
-            "rOPINIRole",
-            "TopAMAX",
             "sulfiSOXAZOLE",
-            "dexmedeTOMIDine"
+            "dexmedeTOMIDine",
+            "TopAMAX",
+            "rOPINIRole"
           ],
           "correctAnswer": "rOPINIRole",
           "explanation": "risperiDONE and rOPINIRole form a documented ISMP/FDA LASA pair.",
@@ -1214,10 +1214,10 @@
           "lasaId": "lasa_036",
           "prompt": "Which medication is commonly confused with rOPINIRole?",
           "choices": [
-            "risperiDONE",
-            "sulfiSOXAZOLE",
             "dexmedeTOMIDine",
-            "TopAMAX"
+            "TopAMAX",
+            "sulfiSOXAZOLE",
+            "risperiDONE"
           ],
           "correctAnswer": "risperiDONE",
           "explanation": "rOPINIRole and risperiDONE form a documented ISMP/FDA LASA pair.",
@@ -1237,10 +1237,10 @@
           "lasaId": "lasa_037",
           "prompt": "Which medication is commonly confused with sulfADIAZINE?",
           "choices": [
-            "Lantus",
-            "traMADol",
+            "sulfiSOXAZOLE",
             "TENECTEplase",
-            "sulfiSOXAZOLE"
+            "traMADol",
+            "Lantus"
           ],
           "correctAnswer": "sulfiSOXAZOLE",
           "explanation": "sulfADIAZINE and sulfiSOXAZOLE form a documented ISMP/FDA LASA pair.",
@@ -1260,10 +1260,10 @@
           "lasaId": "lasa_037",
           "prompt": "Which medication is commonly confused with sulfiSOXAZOLE?",
           "choices": [
-            "TENECTEplase",
+            "traMADol",
             "sulfADIAZINE",
             "Lantus",
-            "traMADol"
+            "TENECTEplase"
           ],
           "correctAnswer": "sulfADIAZINE",
           "explanation": "sulfiSOXAZOLE and sulfADIAZINE form a documented ISMP/FDA LASA pair.",
@@ -1284,8 +1284,8 @@
           "prompt": "Which medication is commonly confused with TOLAZamide?",
           "choices": [
             "CeleBREX",
-            "buPROPion",
             "TOLBUTamide",
+            "buPROPion",
             "Toprol-XL"
           ],
           "correctAnswer": "TOLBUTamide",
@@ -1306,9 +1306,9 @@
           "lasaId": "lasa_038",
           "prompt": "Which medication is commonly confused with TOLBUTamide?",
           "choices": [
-            "Toprol-XL",
-            "TOLAZamide",
             "buPROPion",
+            "TOLAZamide",
+            "Toprol-XL",
             "CeleBREX"
           ],
           "correctAnswer": "TOLAZamide",
@@ -1365,10 +1365,10 @@
               "lasaId": "lasa_026",
               "prompt": "Which is the correct Tall Man lettering for cefazolin?",
               "choices": [
-                "CEFAzolin",
-                "ceFAZolin",
                 "cefazoLIN",
-                "cefaZOLIN"
+                "ceFAZolin",
+                "cefaZOLIN",
+                "CEFAzolin"
               ],
               "correctAnswer": "ceFAZolin",
               "explanation": "ceFAZolin uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cefTRIAXone.",
@@ -1390,10 +1390,10 @@
               "lasaId": "lasa_026",
               "prompt": "Which is the correct Tall Man lettering for ceftriaxone?",
               "choices": [
-                "ceftriaxONE",
                 "ceftriAXONE",
+                "cefTRIAXone",
                 "CEFTriaxone",
-                "cefTRIAXone"
+                "ceftriaxONE"
               ],
               "correctAnswer": "cefTRIAXone",
               "explanation": "cefTRIAXone uses capitalized Tall Man lettering to distinguish it from its confusable counterpart ceFAZolin.",
@@ -1415,10 +1415,10 @@
               "lasaId": "lasa_027",
               "prompt": "Which is the correct Tall Man lettering for cefotetan?",
               "choices": [
-                "cefoteTAN",
-                "cefoTETAN",
                 "CEFOtetan",
-                "cefoTEtan"
+                "cefoTETAN",
+                "cefoTEtan",
+                "cefoteTAN"
               ],
               "correctAnswer": "cefoTEtan",
               "explanation": "cefoTEtan uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cefOXitin.",
@@ -1440,10 +1440,10 @@
               "lasaId": "lasa_027",
               "prompt": "Which is the correct Tall Man lettering for cefoxitin?",
               "choices": [
-                "cefoxiTIN",
+                "cefOXitin",
                 "cefoXITIN",
                 "CEFOxitin",
-                "cefOXitin"
+                "cefoxiTIN"
               ],
               "correctAnswer": "cefOXitin",
               "explanation": "cefOXitin uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cefoTEtan.",
@@ -1465,10 +1465,10 @@
               "lasaId": "lasa_028",
               "prompt": "Which is the correct Tall Man lettering for ceftazidime?",
               "choices": [
-                "ceftazIDIME",
+                "ceftazidIME",
                 "cefTAZidime",
-                "CEFTazidime",
-                "ceftazidIME"
+                "ceftazIDIME",
+                "CEFTazidime"
               ],
               "correctAnswer": "cefTAZidime",
               "explanation": "cefTAZidime uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cefTRIAXone.",
@@ -1491,9 +1491,9 @@
               "prompt": "Which is the correct Tall Man lettering for ceftriaxone?",
               "choices": [
                 "ceftriaxONE",
+                "ceftriAXONE",
                 "CEFTriaxone",
-                "cefTRIAXone",
-                "ceftriAXONE"
+                "cefTRIAXone"
               ],
               "correctAnswer": "cefTRIAXone",
               "explanation": "cefTRIAXone uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cefTAZidime.",
@@ -1515,9 +1515,9 @@
               "lasaId": "lasa_029",
               "prompt": "Which is the correct Tall Man lettering for chlorpromazine?",
               "choices": [
+                "chlorpromazINE",
                 "chlorprOMAZINE",
                 "chlorproMAZINE",
-                "chlorpromazINE",
                 "CHLORPromazine"
               ],
               "correctAnswer": "chlorproMAZINE",
@@ -1540,10 +1540,10 @@
               "lasaId": "lasa_029",
               "prompt": "Which is the correct Tall Man lettering for chlorpropamide?",
               "choices": [
+                "chlorprOPAMIDE",
                 "chlorpropamIDE",
                 "chlorproPAMIDE",
-                "CHLORPropamide",
-                "chlorprOPAMIDE"
+                "CHLORPropamide"
               ],
               "correctAnswer": "chlorproPAMIDE",
               "explanation": "chlorproPAMIDE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart chlorproMAZINE.",
@@ -1565,10 +1565,10 @@
               "lasaId": "lasa_030",
               "prompt": "Which is the correct Tall Man lettering for clomiphene?",
               "choices": [
-                "CLOMiphene",
                 "clomiPHENE",
-                "clomiphENE",
-                "clOMIPhene"
+                "clOMIPhene",
+                "CLOMiphene",
+                "clomiphENE"
               ],
               "correctAnswer": "clomiPHENE",
               "explanation": "clomiPHENE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart clomiPRAMINE.",
@@ -1590,10 +1590,10 @@
               "lasaId": "lasa_030",
               "prompt": "Which is the correct Tall Man lettering for clomipramine?",
               "choices": [
+                "clomipRAMINE",
                 "clomiPRAMINE",
-                "clomipramINE",
                 "CLOMIpramine",
-                "clomipRAMINE"
+                "clomipramINE"
               ],
               "correctAnswer": "clomiPRAMINE",
               "explanation": "clomiPRAMINE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart clomiPHENE.",
@@ -1615,10 +1615,10 @@
               "lasaId": "lasa_031",
               "prompt": "Which is the correct Tall Man lettering for cycloserine?",
               "choices": [
-                "cycloSERINE",
-                "cycloserINE",
+                "cyclosERINE",
                 "CYCLoserine",
-                "cyclosERINE"
+                "cycloserINE",
+                "cycloSERINE"
               ],
               "correctAnswer": "cycloSERINE",
               "explanation": "cycloSERINE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cycloSPORINE.",
@@ -1640,10 +1640,10 @@
               "lasaId": "lasa_031",
               "prompt": "Which is the correct Tall Man lettering for cyclosporine?",
               "choices": [
+                "cyclosPORINE",
                 "CYCLOsporine",
                 "cycloSPORINE",
-                "cyclosporINE",
-                "cyclosPORINE"
+                "cyclosporINE"
               ],
               "correctAnswer": "cycloSPORINE",
               "explanation": "cycloSPORINE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cycloSERINE.",
@@ -1665,10 +1665,10 @@
               "lasaId": "lasa_032",
               "prompt": "Which is the correct Tall Man lettering for dactinomycin?",
               "choices": [
-                "DACTInomycin",
-                "DactinOMYCIN",
                 "DactinomyCIN",
-                "DACTINomycin"
+                "DACTInomycin",
+                "DACTINomycin",
+                "DactinOMYCIN"
               ],
               "correctAnswer": "DACTINomycin",
               "explanation": "DACTINomycin uses capitalized Tall Man lettering to distinguish it from its confusable counterpart DAPTOmycin.",
@@ -1694,10 +1694,10 @@
           "lasaId": "lasa_026",
           "prompt": "Which is the correct Tall Man lettering for cefazolin?",
           "choices": [
-            "CEFAzolin",
-            "ceFAZolin",
             "cefazoLIN",
-            "cefaZOLIN"
+            "ceFAZolin",
+            "cefaZOLIN",
+            "CEFAzolin"
           ],
           "correctAnswer": "ceFAZolin",
           "explanation": "ceFAZolin uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cefTRIAXone.",
@@ -1719,10 +1719,10 @@
           "lasaId": "lasa_026",
           "prompt": "Which is the correct Tall Man lettering for ceftriaxone?",
           "choices": [
-            "ceftriaxONE",
             "ceftriAXONE",
+            "cefTRIAXone",
             "CEFTriaxone",
-            "cefTRIAXone"
+            "ceftriaxONE"
           ],
           "correctAnswer": "cefTRIAXone",
           "explanation": "cefTRIAXone uses capitalized Tall Man lettering to distinguish it from its confusable counterpart ceFAZolin.",
@@ -1744,10 +1744,10 @@
           "lasaId": "lasa_027",
           "prompt": "Which is the correct Tall Man lettering for cefotetan?",
           "choices": [
-            "cefoteTAN",
-            "cefoTETAN",
             "CEFOtetan",
-            "cefoTEtan"
+            "cefoTETAN",
+            "cefoTEtan",
+            "cefoteTAN"
           ],
           "correctAnswer": "cefoTEtan",
           "explanation": "cefoTEtan uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cefOXitin.",
@@ -1769,10 +1769,10 @@
           "lasaId": "lasa_027",
           "prompt": "Which is the correct Tall Man lettering for cefoxitin?",
           "choices": [
-            "cefoxiTIN",
+            "cefOXitin",
             "cefoXITIN",
             "CEFOxitin",
-            "cefOXitin"
+            "cefoxiTIN"
           ],
           "correctAnswer": "cefOXitin",
           "explanation": "cefOXitin uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cefoTEtan.",
@@ -1794,10 +1794,10 @@
           "lasaId": "lasa_028",
           "prompt": "Which is the correct Tall Man lettering for ceftazidime?",
           "choices": [
-            "ceftazIDIME",
+            "ceftazidIME",
             "cefTAZidime",
-            "CEFTazidime",
-            "ceftazidIME"
+            "ceftazIDIME",
+            "CEFTazidime"
           ],
           "correctAnswer": "cefTAZidime",
           "explanation": "cefTAZidime uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cefTRIAXone.",
@@ -1820,9 +1820,9 @@
           "prompt": "Which is the correct Tall Man lettering for ceftriaxone?",
           "choices": [
             "ceftriaxONE",
+            "ceftriAXONE",
             "CEFTriaxone",
-            "cefTRIAXone",
-            "ceftriAXONE"
+            "cefTRIAXone"
           ],
           "correctAnswer": "cefTRIAXone",
           "explanation": "cefTRIAXone uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cefTAZidime.",
@@ -1844,9 +1844,9 @@
           "lasaId": "lasa_029",
           "prompt": "Which is the correct Tall Man lettering for chlorpromazine?",
           "choices": [
+            "chlorpromazINE",
             "chlorprOMAZINE",
             "chlorproMAZINE",
-            "chlorpromazINE",
             "CHLORPromazine"
           ],
           "correctAnswer": "chlorproMAZINE",
@@ -1869,10 +1869,10 @@
           "lasaId": "lasa_029",
           "prompt": "Which is the correct Tall Man lettering for chlorpropamide?",
           "choices": [
+            "chlorprOPAMIDE",
             "chlorpropamIDE",
             "chlorproPAMIDE",
-            "CHLORPropamide",
-            "chlorprOPAMIDE"
+            "CHLORPropamide"
           ],
           "correctAnswer": "chlorproPAMIDE",
           "explanation": "chlorproPAMIDE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart chlorproMAZINE.",
@@ -1894,10 +1894,10 @@
           "lasaId": "lasa_030",
           "prompt": "Which is the correct Tall Man lettering for clomiphene?",
           "choices": [
-            "CLOMiphene",
             "clomiPHENE",
-            "clomiphENE",
-            "clOMIPhene"
+            "clOMIPhene",
+            "CLOMiphene",
+            "clomiphENE"
           ],
           "correctAnswer": "clomiPHENE",
           "explanation": "clomiPHENE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart clomiPRAMINE.",
@@ -1919,10 +1919,10 @@
           "lasaId": "lasa_030",
           "prompt": "Which is the correct Tall Man lettering for clomipramine?",
           "choices": [
+            "clomipRAMINE",
             "clomiPRAMINE",
-            "clomipramINE",
             "CLOMIpramine",
-            "clomipRAMINE"
+            "clomipramINE"
           ],
           "correctAnswer": "clomiPRAMINE",
           "explanation": "clomiPRAMINE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart clomiPHENE.",
@@ -1944,10 +1944,10 @@
           "lasaId": "lasa_031",
           "prompt": "Which is the correct Tall Man lettering for cycloserine?",
           "choices": [
-            "cycloSERINE",
-            "cycloserINE",
+            "cyclosERINE",
             "CYCLoserine",
-            "cyclosERINE"
+            "cycloserINE",
+            "cycloSERINE"
           ],
           "correctAnswer": "cycloSERINE",
           "explanation": "cycloSERINE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cycloSPORINE.",
@@ -1969,10 +1969,10 @@
           "lasaId": "lasa_031",
           "prompt": "Which is the correct Tall Man lettering for cyclosporine?",
           "choices": [
+            "cyclosPORINE",
             "CYCLOsporine",
             "cycloSPORINE",
-            "cyclosporINE",
-            "cyclosPORINE"
+            "cyclosporINE"
           ],
           "correctAnswer": "cycloSPORINE",
           "explanation": "cycloSPORINE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cycloSERINE.",
@@ -1994,10 +1994,10 @@
           "lasaId": "lasa_032",
           "prompt": "Which is the correct Tall Man lettering for dactinomycin?",
           "choices": [
-            "DACTInomycin",
-            "DactinOMYCIN",
             "DactinomyCIN",
-            "DACTINomycin"
+            "DACTInomycin",
+            "DACTINomycin",
+            "DactinOMYCIN"
           ],
           "correctAnswer": "DACTINomycin",
           "explanation": "DACTINomycin uses capitalized Tall Man lettering to distinguish it from its confusable counterpart DAPTOmycin.",
@@ -2053,10 +2053,10 @@
               "lasaId": "lasa_032",
               "prompt": "Which is the correct Tall Man lettering for daptomycin?",
               "choices": [
-                "DAPTomycin",
                 "DAPTOmycin",
-                "DaptomyCIN",
-                "DaptoMYCIN"
+                "DAPTomycin",
+                "DaptoMYCIN",
+                "DaptomyCIN"
               ],
               "correctAnswer": "DAPTOmycin",
               "explanation": "DAPTOmycin uses capitalized Tall Man lettering to distinguish it from its confusable counterpart DACTINomycin.",
@@ -2103,10 +2103,10 @@
               "lasaId": "lasa_033",
               "prompt": "Which is the correct Tall Man lettering for diphenhydramine?",
               "choices": [
-                "DIPHENhydramine",
-                "diphenhyDRAMINE",
                 "diphenhydrAMINE",
-                "diphenhydramINE"
+                "diphenhydramINE",
+                "diphenhyDRAMINE",
+                "DIPHENhydramine"
               ],
               "correctAnswer": "diphenhydrAMINE",
               "explanation": "diphenhydrAMINE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart dimenhyDRINATE.",
@@ -2128,10 +2128,10 @@
               "lasaId": "lasa_034",
               "prompt": "Which is the correct Tall Man lettering for methylprednisolone?",
               "choices": [
-                "DEPO-Medrol",
-                "DEPO-medrol",
                 "Depo-mEDROL",
-                "Depo-medROL"
+                "DEPO-Medrol",
+                "Depo-medROL",
+                "DEPO-medrol"
               ],
               "correctAnswer": "DEPO-Medrol",
               "explanation": "DEPO-Medrol uses capitalized Tall Man lettering to distinguish it from its confusable counterpart SOLU-Medrol.",
@@ -2153,10 +2153,10 @@
               "lasaId": "lasa_034",
               "prompt": "Which is the correct Tall Man lettering for methylprednisolone?",
               "choices": [
-                "SOLU-Medrol",
                 "Solu-mEDROL",
-                "SOLU-medrol",
-                "Solu-medROL"
+                "SOLU-Medrol",
+                "Solu-medROL",
+                "SOLU-medrol"
               ],
               "correctAnswer": "SOLU-Medrol",
               "explanation": "SOLU-Medrol uses capitalized Tall Man lettering to distinguish it from its confusable counterpart DEPO-Medrol.",
@@ -2178,9 +2178,9 @@
               "lasaId": "lasa_035",
               "prompt": "Which is the correct Tall Man lettering for fentanyl?",
               "choices": [
-                "feNTAnyl",
                 "fentaNYL",
                 "fentANYL",
+                "feNTAnyl",
                 "FENtanyl"
               ],
               "correctAnswer": "fentaNYL",
@@ -2203,10 +2203,10 @@
               "lasaId": "lasa_035",
               "prompt": "Which is the correct Tall Man lettering for sufentanil?",
               "choices": [
-                "SUFentanil",
-                "SufenTANIL",
                 "SUFEntanil",
-                "SufentaNIL"
+                "SufenTANIL",
+                "SufentaNIL",
+                "SUFentanil"
               ],
               "correctAnswer": "SUFentanil",
               "explanation": "SUFentanil uses capitalized Tall Man lettering to distinguish it from its confusable counterpart fentaNYL.",
@@ -2230,8 +2230,8 @@
               "choices": [
                 "risperidONE",
                 "risperiDONE",
-                "risperIDONE",
-                "RISPeridone"
+                "RISPeridone",
+                "risperIDONE"
               ],
               "correctAnswer": "risperiDONE",
               "explanation": "risperiDONE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart rOPINIRole.",
@@ -2253,8 +2253,8 @@
               "lasaId": "lasa_036",
               "prompt": "Which is the correct Tall Man lettering for ropinirole?",
               "choices": [
-                "ROPInirole",
                 "rOPINIRole",
+                "ROPInirole",
                 "ropinirOLE",
                 "ropinIROLE"
               ],
@@ -2278,9 +2278,9 @@
               "lasaId": "lasa_037",
               "prompt": "Which is the correct Tall Man lettering for sulfadiazine?",
               "choices": [
+                "sulfadIAZINE",
                 "sulfadiazINE",
                 "sulfADIAZINE",
-                "sulfadIAZINE",
                 "SULFAdiazine"
               ],
               "correctAnswer": "sulfADIAZINE",
@@ -2303,10 +2303,10 @@
               "lasaId": "lasa_037",
               "prompt": "Which is the correct Tall Man lettering for sulfisoxazole?",
               "choices": [
-                "SULFIsoxazole",
                 "sulfisoXAZOLE",
-                "sulfiSOXAZOLE",
-                "sulfisoxazOLE"
+                "SULFIsoxazole",
+                "sulfisoxazOLE",
+                "sulfiSOXAZOLE"
               ],
               "correctAnswer": "sulfiSOXAZOLE",
               "explanation": "sulfiSOXAZOLE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart sulfADIAZINE.",
@@ -2328,10 +2328,10 @@
               "lasaId": "lasa_038",
               "prompt": "Which is the correct Tall Man lettering for tolazamide?",
               "choices": [
-                "TolazAMIDE",
                 "TolazamIDE",
                 "TOLAZamide",
-                "TOLAzamide"
+                "TOLAzamide",
+                "TolazAMIDE"
               ],
               "correctAnswer": "TOLAZamide",
               "explanation": "TOLAZamide uses capitalized Tall Man lettering to distinguish it from its confusable counterpart TOLBUTamide.",
@@ -2353,10 +2353,10 @@
               "lasaId": "lasa_038",
               "prompt": "Which is the correct Tall Man lettering for tolbutamide?",
               "choices": [
-                "TOLButamide",
+                "TOLBUTamide",
                 "TolbutAMIDE",
-                "TolbutamIDE",
-                "TOLBUTamide"
+                "TOLButamide",
+                "TolbutamIDE"
               ],
               "correctAnswer": "TOLBUTamide",
               "explanation": "TOLBUTamide uses capitalized Tall Man lettering to distinguish it from its confusable counterpart TOLAZamide.",
@@ -2382,14 +2382,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "cefotetan",
+              "canonicalDrugId": "lasa_027_a",
               "spokenDrug": "cefoTEtan",
               "drugToPronounce": "cefotetan",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
-                "buPROPion",
-                "cefoTEtan",
+                "cefOXitin",
                 "busPIRone",
-                "cefOXitin"
+                "cefoTEtan",
+                "buPROPion"
               ],
               "correctAnswer": "cefoTEtan",
               "relatedDrug": "cefoTEtan",
@@ -2408,13 +2409,14 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "ceftriaxone",
+              "canonicalDrugId": "lasa_028_b",
               "spokenDrug": "cefTRIAXone",
               "drugToPronounce": "ceftriaxone",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
+                "cefTAZidime",
                 "busPIRone",
                 "buPROPion",
-                "cefTAZidime",
                 "cefTRIAXone"
               ],
               "correctAnswer": "cefTRIAXone",
@@ -2434,14 +2436,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "cycloserine",
+              "canonicalDrugId": "lasa_031_a",
               "spokenDrug": "cycloSERINE",
               "drugToPronounce": "cycloserine",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
-                "busPIRone",
-                "cycloSPORINE",
                 "cycloSERINE",
-                "buPROPion"
+                "busPIRone",
+                "buPROPion",
+                "cycloSPORINE"
               ],
               "correctAnswer": "cycloSERINE",
               "relatedDrug": "cycloSERINE",
@@ -2460,14 +2463,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "sufentanil",
+              "canonicalDrugId": "lasa_035_b",
               "spokenDrug": "SUFentanil",
               "drugToPronounce": "sufentanil",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
-                "buPROPion",
-                "SUFentanil",
+                "fentaNYL",
                 "busPIRone",
-                "fentaNYL"
+                "SUFentanil",
+                "buPROPion"
               ],
               "correctAnswer": "SUFentanil",
               "relatedDrug": "SUFentanil",
@@ -2486,6 +2490,7 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "risperidone",
+              "canonicalDrugId": "lasa_036_a",
               "spokenDrug": "risperiDONE",
               "drugToPronounce": "risperidone",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
@@ -2512,13 +2517,14 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "tolbutamide",
+              "canonicalDrugId": "lasa_038_b",
               "spokenDrug": "TOLBUTamide",
               "drugToPronounce": "tolbutamide",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
-                "busPIRone",
-                "buPROPion",
                 "TOLAZamide",
+                "buPROPion",
+                "busPIRone",
                 "TOLBUTamide"
               ],
               "correctAnswer": "TOLBUTamide",
@@ -2547,10 +2553,10 @@
           "lasaId": "lasa_032",
           "prompt": "Which is the correct Tall Man lettering for daptomycin?",
           "choices": [
-            "DAPTomycin",
             "DAPTOmycin",
-            "DaptomyCIN",
-            "DaptoMYCIN"
+            "DAPTomycin",
+            "DaptoMYCIN",
+            "DaptomyCIN"
           ],
           "correctAnswer": "DAPTOmycin",
           "explanation": "DAPTOmycin uses capitalized Tall Man lettering to distinguish it from its confusable counterpart DACTINomycin.",
@@ -2597,10 +2603,10 @@
           "lasaId": "lasa_033",
           "prompt": "Which is the correct Tall Man lettering for diphenhydramine?",
           "choices": [
-            "DIPHENhydramine",
-            "diphenhyDRAMINE",
             "diphenhydrAMINE",
-            "diphenhydramINE"
+            "diphenhydramINE",
+            "diphenhyDRAMINE",
+            "DIPHENhydramine"
           ],
           "correctAnswer": "diphenhydrAMINE",
           "explanation": "diphenhydrAMINE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart dimenhyDRINATE.",
@@ -2622,10 +2628,10 @@
           "lasaId": "lasa_034",
           "prompt": "Which is the correct Tall Man lettering for methylprednisolone?",
           "choices": [
-            "DEPO-Medrol",
-            "DEPO-medrol",
             "Depo-mEDROL",
-            "Depo-medROL"
+            "DEPO-Medrol",
+            "Depo-medROL",
+            "DEPO-medrol"
           ],
           "correctAnswer": "DEPO-Medrol",
           "explanation": "DEPO-Medrol uses capitalized Tall Man lettering to distinguish it from its confusable counterpart SOLU-Medrol.",
@@ -2647,10 +2653,10 @@
           "lasaId": "lasa_034",
           "prompt": "Which is the correct Tall Man lettering for methylprednisolone?",
           "choices": [
-            "SOLU-Medrol",
             "Solu-mEDROL",
-            "SOLU-medrol",
-            "Solu-medROL"
+            "SOLU-Medrol",
+            "Solu-medROL",
+            "SOLU-medrol"
           ],
           "correctAnswer": "SOLU-Medrol",
           "explanation": "SOLU-Medrol uses capitalized Tall Man lettering to distinguish it from its confusable counterpart DEPO-Medrol.",
@@ -2672,9 +2678,9 @@
           "lasaId": "lasa_035",
           "prompt": "Which is the correct Tall Man lettering for fentanyl?",
           "choices": [
-            "feNTAnyl",
             "fentaNYL",
             "fentANYL",
+            "feNTAnyl",
             "FENtanyl"
           ],
           "correctAnswer": "fentaNYL",
@@ -2697,10 +2703,10 @@
           "lasaId": "lasa_035",
           "prompt": "Which is the correct Tall Man lettering for sufentanil?",
           "choices": [
-            "SUFentanil",
-            "SufenTANIL",
             "SUFEntanil",
-            "SufentaNIL"
+            "SufenTANIL",
+            "SufentaNIL",
+            "SUFentanil"
           ],
           "correctAnswer": "SUFentanil",
           "explanation": "SUFentanil uses capitalized Tall Man lettering to distinguish it from its confusable counterpart fentaNYL.",
@@ -2724,8 +2730,8 @@
           "choices": [
             "risperidONE",
             "risperiDONE",
-            "risperIDONE",
-            "RISPeridone"
+            "RISPeridone",
+            "risperIDONE"
           ],
           "correctAnswer": "risperiDONE",
           "explanation": "risperiDONE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart rOPINIRole.",
@@ -2747,8 +2753,8 @@
           "lasaId": "lasa_036",
           "prompt": "Which is the correct Tall Man lettering for ropinirole?",
           "choices": [
-            "ROPInirole",
             "rOPINIRole",
+            "ROPInirole",
             "ropinirOLE",
             "ropinIROLE"
           ],
@@ -2772,9 +2778,9 @@
           "lasaId": "lasa_037",
           "prompt": "Which is the correct Tall Man lettering for sulfadiazine?",
           "choices": [
+            "sulfadIAZINE",
             "sulfadiazINE",
             "sulfADIAZINE",
-            "sulfadIAZINE",
             "SULFAdiazine"
           ],
           "correctAnswer": "sulfADIAZINE",
@@ -2797,10 +2803,10 @@
           "lasaId": "lasa_037",
           "prompt": "Which is the correct Tall Man lettering for sulfisoxazole?",
           "choices": [
-            "SULFIsoxazole",
             "sulfisoXAZOLE",
-            "sulfiSOXAZOLE",
-            "sulfisoxazOLE"
+            "SULFIsoxazole",
+            "sulfisoxazOLE",
+            "sulfiSOXAZOLE"
           ],
           "correctAnswer": "sulfiSOXAZOLE",
           "explanation": "sulfiSOXAZOLE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart sulfADIAZINE.",
@@ -2822,10 +2828,10 @@
           "lasaId": "lasa_038",
           "prompt": "Which is the correct Tall Man lettering for tolazamide?",
           "choices": [
-            "TolazAMIDE",
             "TolazamIDE",
             "TOLAZamide",
-            "TOLAzamide"
+            "TOLAzamide",
+            "TolazAMIDE"
           ],
           "correctAnswer": "TOLAZamide",
           "explanation": "TOLAZamide uses capitalized Tall Man lettering to distinguish it from its confusable counterpart TOLBUTamide.",
@@ -2847,10 +2853,10 @@
           "lasaId": "lasa_038",
           "prompt": "Which is the correct Tall Man lettering for tolbutamide?",
           "choices": [
-            "TOLButamide",
+            "TOLBUTamide",
             "TolbutAMIDE",
-            "TolbutamIDE",
-            "TOLBUTamide"
+            "TOLButamide",
+            "TolbutamIDE"
           ],
           "correctAnswer": "TOLBUTamide",
           "explanation": "TOLBUTamide uses capitalized Tall Man lettering to distinguish it from its confusable counterpart TOLAZamide.",
@@ -2867,14 +2873,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "cefotetan",
+          "canonicalDrugId": "lasa_027_a",
           "spokenDrug": "cefoTEtan",
           "drugToPronounce": "cefotetan",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
-            "buPROPion",
-            "cefoTEtan",
+            "cefOXitin",
             "busPIRone",
-            "cefOXitin"
+            "cefoTEtan",
+            "buPROPion"
           ],
           "correctAnswer": "cefoTEtan",
           "relatedDrug": "cefoTEtan",
@@ -2893,13 +2900,14 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "ceftriaxone",
+          "canonicalDrugId": "lasa_028_b",
           "spokenDrug": "cefTRIAXone",
           "drugToPronounce": "ceftriaxone",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
+            "cefTAZidime",
             "busPIRone",
             "buPROPion",
-            "cefTAZidime",
             "cefTRIAXone"
           ],
           "correctAnswer": "cefTRIAXone",
@@ -2919,14 +2927,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "cycloserine",
+          "canonicalDrugId": "lasa_031_a",
           "spokenDrug": "cycloSERINE",
           "drugToPronounce": "cycloserine",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
-            "busPIRone",
-            "cycloSPORINE",
             "cycloSERINE",
-            "buPROPion"
+            "busPIRone",
+            "buPROPion",
+            "cycloSPORINE"
           ],
           "correctAnswer": "cycloSERINE",
           "relatedDrug": "cycloSERINE",
@@ -2945,14 +2954,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "sufentanil",
+          "canonicalDrugId": "lasa_035_b",
           "spokenDrug": "SUFentanil",
           "drugToPronounce": "sufentanil",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
-            "buPROPion",
-            "SUFentanil",
+            "fentaNYL",
             "busPIRone",
-            "fentaNYL"
+            "SUFentanil",
+            "buPROPion"
           ],
           "correctAnswer": "SUFentanil",
           "relatedDrug": "SUFentanil",
@@ -2971,6 +2981,7 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "risperidone",
+          "canonicalDrugId": "lasa_036_a",
           "spokenDrug": "risperiDONE",
           "drugToPronounce": "risperidone",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
@@ -2997,13 +3008,14 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "tolbutamide",
+          "canonicalDrugId": "lasa_038_b",
           "spokenDrug": "TOLBUTamide",
           "drugToPronounce": "tolbutamide",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
-            "busPIRone",
-            "buPROPion",
             "TOLAZamide",
+            "buPROPion",
+            "busPIRone",
             "TOLBUTamide"
           ],
           "correctAnswer": "TOLBUTamide",
@@ -4347,29 +4359,33 @@
               "pairs": [
                 {
                   "left": "ceFAZolin",
-                  "right": "cefTRIAXone"
+                  "right": "cefTRIAXone",
+                  "lasaId": "lasa_026"
                 },
                 {
                   "left": "cefoTEtan",
-                  "right": "cefOXitin"
+                  "right": "cefOXitin",
+                  "lasaId": "lasa_027"
                 },
                 {
-                  "left": "cefTAZidime",
-                  "right": "cefTRIAXone"
+                  "left": "cefTRIAXone",
+                  "right": "cefTAZidime",
+                  "lasaId": "lasa_028"
                 },
                 {
                   "left": "chlorproMAZINE",
-                  "right": "chlorproPAMIDE"
+                  "right": "chlorproPAMIDE",
+                  "lasaId": "lasa_029"
                 }
               ],
-              "explanation": "Documented ISMP LASA pairs: ceFAZolin ↔ cefTRIAXone; cefoTEtan ↔ cefOXitin; cefTAZidime ↔ cefTRIAXone; chlorproMAZINE ↔ chlorproPAMIDE.",
+              "explanation": "Documented ISMP LASA pairs: ceFAZolin ↔ cefTRIAXone; cefoTEtan ↔ cefOXitin; cefTRIAXone ↔ cefTAZidime; chlorproMAZINE ↔ chlorproPAMIDE.",
               "relatedDrug": "ceFAZolin",
               "riskSummary": "Spectrum-of-activity mismatch leading to therapeutic failure in serious CNS or multi-drug resistant bacterial infections.",
               "feedbackFact": "Spectrum-of-activity mismatch leading to therapeutic failure in serious CNS or multi-drug resistant bacterial infections.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
               "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "pairDisplay": "ceFAZolin ↔ cefTRIAXone, cefoTEtan ↔ cefOXitin, cefTAZidime ↔ cefTRIAXone, chlorproMAZINE ↔ chlorproPAMIDE"
+              "pairDisplay": "ceFAZolin ↔ cefTRIAXone, cefoTEtan ↔ cefOXitin, cefTRIAXone ↔ cefTAZidime, chlorproMAZINE ↔ chlorproPAMIDE"
             },
             {
               "id": "q_match_level_015_4",
@@ -4380,19 +4396,23 @@
               "pairs": [
                 {
                   "left": "clomiPHENE",
-                  "right": "clomiPRAMINE"
+                  "right": "clomiPRAMINE",
+                  "lasaId": "lasa_030"
                 },
                 {
                   "left": "cycloSERINE",
-                  "right": "cycloSPORINE"
+                  "right": "cycloSPORINE",
+                  "lasaId": "lasa_031"
                 },
                 {
                   "left": "DACTINomycin",
-                  "right": "DAPTOmycin"
+                  "right": "DAPTOmycin",
+                  "lasaId": "lasa_032"
                 },
                 {
                   "left": "dimenhyDRINATE",
-                  "right": "diphenhydrAMINE"
+                  "right": "diphenhydrAMINE",
+                  "lasaId": "lasa_033"
                 }
               ],
               "explanation": "Documented ISMP LASA pairs: clomiPHENE ↔ clomiPRAMINE; cycloSERINE ↔ cycloSPORINE; DACTINomycin ↔ DAPTOmycin; dimenhyDRINATE ↔ diphenhydrAMINE.",
@@ -4413,19 +4433,23 @@
               "pairs": [
                 {
                   "left": "DEPO-Medrol",
-                  "right": "SOLU-Medrol"
+                  "right": "SOLU-Medrol",
+                  "lasaId": "lasa_034"
                 },
                 {
                   "left": "fentaNYL",
-                  "right": "SUFentanil"
+                  "right": "SUFentanil",
+                  "lasaId": "lasa_035"
                 },
                 {
                   "left": "risperiDONE",
-                  "right": "rOPINIRole"
+                  "right": "rOPINIRole",
+                  "lasaId": "lasa_036"
                 },
                 {
                   "left": "sulfADIAZINE",
-                  "right": "sulfiSOXAZOLE"
+                  "right": "sulfiSOXAZOLE",
+                  "lasaId": "lasa_037"
                 }
               ],
               "explanation": "Documented ISMP LASA pairs: DEPO-Medrol ↔ SOLU-Medrol; fentaNYL ↔ SUFentanil; risperiDONE ↔ rOPINIRole; sulfADIAZINE ↔ sulfiSOXAZOLE.",
@@ -4451,14 +4475,15 @@
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "cefotetan",
+              "canonicalDrugId": "lasa_027_a",
               "spokenDrug": "cefoTEtan",
               "drugToPronounce": "cefotetan",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
+                "buPROPion",
                 "cefOXitin",
                 "busPIRone",
-                "cefoTEtan",
-                "buPROPion"
+                "cefoTEtan"
               ],
               "correctAnswer": "cefoTEtan",
               "relatedDrug": "cefoTEtan",
@@ -4470,22 +4495,22 @@
               "riskSummary": "Dosing interval mismatches, potential bleeding risk/coagulopathy associated with the N-methylthiotetrazole (NMTT) chain in cefotetan.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_027_a"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_028_B_read_back_level_015_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "ceftriaxone",
+              "canonicalDrugId": "lasa_028_b",
               "spokenDrug": "cefTRIAXone",
               "drugToPronounce": "ceftriaxone",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "cefTAZidime",
-                "buPROPion",
                 "cefTRIAXone",
-                "busPIRone"
+                "cefTAZidime",
+                "busPIRone",
+                "buPROPion"
               ],
               "correctAnswer": "cefTRIAXone",
               "relatedDrug": "cefTRIAXone",
@@ -4497,22 +4522,22 @@
               "riskSummary": "Inadequate coverage for Pseudomonas aeruginosa infections, leading to sepsis and therapeutic failure.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_028_b"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_031_A_read_back_level_015_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "cycloserine",
+              "canonicalDrugId": "lasa_031_a",
               "spokenDrug": "cycloSERINE",
               "drugToPronounce": "cycloserine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "cycloSERINE",
                 "buPROPion",
-                "cycloSPORINE",
-                "busPIRone"
+                "cycloSERINE",
+                "busPIRone",
+                "cycloSPORINE"
               ],
               "correctAnswer": "cycloSERINE",
               "relatedDrug": "cycloSERINE",
@@ -4524,21 +4549,21 @@
               "riskSummary": "Acute organ transplant rejection / nephrotoxicity from cyclosporine errors, or neurotoxicity and failed TB management from cycloserine errors.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_031_a"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_035_B_read_back_level_015_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "sufentanil",
+              "canonicalDrugId": "lasa_035_b",
               "spokenDrug": "SUFentanil",
               "drugToPronounce": "sufentanil",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
+                "busPIRone",
                 "fentaNYL",
                 "SUFentanil",
-                "busPIRone",
                 "buPROPion"
               ],
               "correctAnswer": "SUFentanil",
@@ -4551,22 +4576,22 @@
               "riskSummary": "Sufentanil is roughly 5 to 10 times more potent than fentanyl; confusing doses causes immediate, lethal respiratory depression.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-              "canonicalDrugId": "lasa_035_b"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
             },
             {
               "id": "q_sound_lasa_036_A_read_back_level_015_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "risperidone",
+              "canonicalDrugId": "lasa_036_a",
               "spokenDrug": "risperiDONE",
               "drugToPronounce": "risperidone",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "risperiDONE",
                 "busPIRone",
-                "rOPINIRole",
-                "buPROPion"
+                "risperiDONE",
+                "buPROPion",
+                "rOPINIRole"
               ],
               "correctAnswer": "risperiDONE",
               "relatedDrug": "risperiDONE",
@@ -4578,22 +4603,22 @@
               "riskSummary": "Pharmacologically opposing mechanisms: risperidone blocks dopamine (worsening Parkinson's), while ropinirole can trigger psychosis.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_036_a"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_038_B_read_back_level_015_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "tolbutamide",
+              "canonicalDrugId": "lasa_038_b",
               "spokenDrug": "TOLBUTamide",
               "drugToPronounce": "tolbutamide",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
                 "TOLAZamide",
+                "buPROPion",
                 "busPIRone",
-                "TOLBUTamide",
-                "buPROPion"
+                "TOLBUTamide"
               ],
               "correctAnswer": "TOLBUTamide",
               "relatedDrug": "TOLBUTamide",
@@ -4605,8 +4630,7 @@
               "riskSummary": "Different milligram potencies and pharmacokinetics triggering severe, unpredictable hypoglycemia.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_038_b"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             }
           ]
         }
@@ -4621,29 +4645,33 @@
           "pairs": [
             {
               "left": "ceFAZolin",
-              "right": "cefTRIAXone"
+              "right": "cefTRIAXone",
+              "lasaId": "lasa_026"
             },
             {
               "left": "cefoTEtan",
-              "right": "cefOXitin"
+              "right": "cefOXitin",
+              "lasaId": "lasa_027"
             },
             {
-              "left": "cefTAZidime",
-              "right": "cefTRIAXone"
+              "left": "cefTRIAXone",
+              "right": "cefTAZidime",
+              "lasaId": "lasa_028"
             },
             {
               "left": "chlorproMAZINE",
-              "right": "chlorproPAMIDE"
+              "right": "chlorproPAMIDE",
+              "lasaId": "lasa_029"
             }
           ],
-          "explanation": "Documented ISMP LASA pairs: ceFAZolin ↔ cefTRIAXone; cefoTEtan ↔ cefOXitin; cefTAZidime ↔ cefTRIAXone; chlorproMAZINE ↔ chlorproPAMIDE.",
+          "explanation": "Documented ISMP LASA pairs: ceFAZolin ↔ cefTRIAXone; cefoTEtan ↔ cefOXitin; cefTRIAXone ↔ cefTAZidime; chlorproMAZINE ↔ chlorproPAMIDE.",
           "relatedDrug": "ceFAZolin",
           "riskSummary": "Spectrum-of-activity mismatch leading to therapeutic failure in serious CNS or multi-drug resistant bacterial infections.",
           "feedbackFact": "Spectrum-of-activity mismatch leading to therapeutic failure in serious CNS or multi-drug resistant bacterial infections.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
           "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "pairDisplay": "ceFAZolin ↔ cefTRIAXone, cefoTEtan ↔ cefOXitin, cefTAZidime ↔ cefTRIAXone, chlorproMAZINE ↔ chlorproPAMIDE"
+          "pairDisplay": "ceFAZolin ↔ cefTRIAXone, cefoTEtan ↔ cefOXitin, cefTRIAXone ↔ cefTAZidime, chlorproMAZINE ↔ chlorproPAMIDE"
         },
         {
           "id": "q_match_level_015_4",
@@ -4654,19 +4682,23 @@
           "pairs": [
             {
               "left": "clomiPHENE",
-              "right": "clomiPRAMINE"
+              "right": "clomiPRAMINE",
+              "lasaId": "lasa_030"
             },
             {
               "left": "cycloSERINE",
-              "right": "cycloSPORINE"
+              "right": "cycloSPORINE",
+              "lasaId": "lasa_031"
             },
             {
               "left": "DACTINomycin",
-              "right": "DAPTOmycin"
+              "right": "DAPTOmycin",
+              "lasaId": "lasa_032"
             },
             {
               "left": "dimenhyDRINATE",
-              "right": "diphenhydrAMINE"
+              "right": "diphenhydrAMINE",
+              "lasaId": "lasa_033"
             }
           ],
           "explanation": "Documented ISMP LASA pairs: clomiPHENE ↔ clomiPRAMINE; cycloSERINE ↔ cycloSPORINE; DACTINomycin ↔ DAPTOmycin; dimenhyDRINATE ↔ diphenhydrAMINE.",
@@ -4687,19 +4719,23 @@
           "pairs": [
             {
               "left": "DEPO-Medrol",
-              "right": "SOLU-Medrol"
+              "right": "SOLU-Medrol",
+              "lasaId": "lasa_034"
             },
             {
               "left": "fentaNYL",
-              "right": "SUFentanil"
+              "right": "SUFentanil",
+              "lasaId": "lasa_035"
             },
             {
               "left": "risperiDONE",
-              "right": "rOPINIRole"
+              "right": "rOPINIRole",
+              "lasaId": "lasa_036"
             },
             {
               "left": "sulfADIAZINE",
-              "right": "sulfiSOXAZOLE"
+              "right": "sulfiSOXAZOLE",
+              "lasaId": "lasa_037"
             }
           ],
           "explanation": "Documented ISMP LASA pairs: DEPO-Medrol ↔ SOLU-Medrol; fentaNYL ↔ SUFentanil; risperiDONE ↔ rOPINIRole; sulfADIAZINE ↔ sulfiSOXAZOLE.",
@@ -4716,14 +4752,15 @@
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "cefotetan",
+          "canonicalDrugId": "lasa_027_a",
           "spokenDrug": "cefoTEtan",
           "drugToPronounce": "cefotetan",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
+            "buPROPion",
             "cefOXitin",
             "busPIRone",
-            "cefoTEtan",
-            "buPROPion"
+            "cefoTEtan"
           ],
           "correctAnswer": "cefoTEtan",
           "relatedDrug": "cefoTEtan",
@@ -4735,22 +4772,22 @@
           "riskSummary": "Dosing interval mismatches, potential bleeding risk/coagulopathy associated with the N-methylthiotetrazole (NMTT) chain in cefotetan.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_027_a"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_028_B_read_back_level_015_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "ceftriaxone",
+          "canonicalDrugId": "lasa_028_b",
           "spokenDrug": "cefTRIAXone",
           "drugToPronounce": "ceftriaxone",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "cefTAZidime",
-            "buPROPion",
             "cefTRIAXone",
-            "busPIRone"
+            "cefTAZidime",
+            "busPIRone",
+            "buPROPion"
           ],
           "correctAnswer": "cefTRIAXone",
           "relatedDrug": "cefTRIAXone",
@@ -4762,22 +4799,22 @@
           "riskSummary": "Inadequate coverage for Pseudomonas aeruginosa infections, leading to sepsis and therapeutic failure.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_028_b"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_031_A_read_back_level_015_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "cycloserine",
+          "canonicalDrugId": "lasa_031_a",
           "spokenDrug": "cycloSERINE",
           "drugToPronounce": "cycloserine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "cycloSERINE",
             "buPROPion",
-            "cycloSPORINE",
-            "busPIRone"
+            "cycloSERINE",
+            "busPIRone",
+            "cycloSPORINE"
           ],
           "correctAnswer": "cycloSERINE",
           "relatedDrug": "cycloSERINE",
@@ -4789,21 +4826,21 @@
           "riskSummary": "Acute organ transplant rejection / nephrotoxicity from cyclosporine errors, or neurotoxicity and failed TB management from cycloserine errors.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_031_a"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_035_B_read_back_level_015_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "sufentanil",
+          "canonicalDrugId": "lasa_035_b",
           "spokenDrug": "SUFentanil",
           "drugToPronounce": "sufentanil",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
+            "busPIRone",
             "fentaNYL",
             "SUFentanil",
-            "busPIRone",
             "buPROPion"
           ],
           "correctAnswer": "SUFentanil",
@@ -4816,22 +4853,22 @@
           "riskSummary": "Sufentanil is roughly 5 to 10 times more potent than fentanyl; confusing doses causes immediate, lethal respiratory depression.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-          "canonicalDrugId": "lasa_035_b"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
         },
         {
           "id": "q_sound_lasa_036_A_read_back_level_015_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "risperidone",
+          "canonicalDrugId": "lasa_036_a",
           "spokenDrug": "risperiDONE",
           "drugToPronounce": "risperidone",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "risperiDONE",
             "busPIRone",
-            "rOPINIRole",
-            "buPROPion"
+            "risperiDONE",
+            "buPROPion",
+            "rOPINIRole"
           ],
           "correctAnswer": "risperiDONE",
           "relatedDrug": "risperiDONE",
@@ -4843,22 +4880,22 @@
           "riskSummary": "Pharmacologically opposing mechanisms: risperidone blocks dopamine (worsening Parkinson's), while ropinirole can trigger psychosis.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_036_a"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_038_B_read_back_level_015_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "tolbutamide",
+          "canonicalDrugId": "lasa_038_b",
           "spokenDrug": "TOLBUTamide",
           "drugToPronounce": "tolbutamide",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
             "TOLAZamide",
+            "buPROPion",
             "busPIRone",
-            "TOLBUTamide",
-            "buPROPion"
+            "TOLBUTamide"
           ],
           "correctAnswer": "TOLBUTamide",
           "relatedDrug": "TOLBUTamide",
@@ -4870,8 +4907,7 @@
           "riskSummary": "Different milligram potencies and pharmacokinetics triggering severe, unpredictable hypoglycemia.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_038_b"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         }
       ]
     },
@@ -6153,13 +6189,14 @@
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "cefotetan",
+              "canonicalDrugId": "lasa_027_a",
               "spokenDrug": "cefoTEtan",
               "drugToPronounce": "cefotetan",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
+                "cefOXitin",
                 "busPIRone",
                 "cefoTEtan",
-                "cefOXitin",
                 "buPROPion"
               ],
               "correctAnswer": "cefoTEtan",
@@ -6172,20 +6209,20 @@
               "riskSummary": "Dosing interval mismatches, potential bleeding risk/coagulopathy associated with the N-methylthiotetrazole (NMTT) chain in cefotetan.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_027_a"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_028_B_read_back_mst_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "ceftriaxone",
+              "canonicalDrugId": "lasa_028_b",
               "spokenDrug": "cefTRIAXone",
               "drugToPronounce": "ceftriaxone",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "busPIRone",
                 "cefTRIAXone",
+                "busPIRone",
                 "buPROPion",
                 "cefTAZidime"
               ],
@@ -6199,22 +6236,22 @@
               "riskSummary": "Inadequate coverage for Pseudomonas aeruginosa infections, leading to sepsis and therapeutic failure.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_028_b"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_031_A_read_back_mst_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "cycloserine",
+              "canonicalDrugId": "lasa_031_a",
               "spokenDrug": "cycloSERINE",
               "drugToPronounce": "cycloserine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
+                "cycloSERINE",
                 "busPIRone",
                 "buPROPion",
-                "cycloSPORINE",
-                "cycloSERINE"
+                "cycloSPORINE"
               ],
               "correctAnswer": "cycloSERINE",
               "relatedDrug": "cycloSERINE",
@@ -6226,21 +6263,21 @@
               "riskSummary": "Acute organ transplant rejection / nephrotoxicity from cyclosporine errors, or neurotoxicity and failed TB management from cycloserine errors.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_031_a"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_035_B_read_back_mst_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "sufentanil",
+              "canonicalDrugId": "lasa_035_b",
               "spokenDrug": "SUFentanil",
               "drugToPronounce": "sufentanil",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
+                "busPIRone",
                 "fentaNYL",
                 "SUFentanil",
-                "busPIRone",
                 "buPROPion"
               ],
               "correctAnswer": "SUFentanil",
@@ -6253,22 +6290,22 @@
               "riskSummary": "Sufentanil is roughly 5 to 10 times more potent than fentanyl; confusing doses causes immediate, lethal respiratory depression.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-              "canonicalDrugId": "lasa_035_b"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
             },
             {
               "id": "q_sound_lasa_036_A_read_back_mst_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "risperidone",
+              "canonicalDrugId": "lasa_036_a",
               "spokenDrug": "risperiDONE",
               "drugToPronounce": "risperidone",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
+                "busPIRone",
                 "risperiDONE",
                 "rOPINIRole",
-                "buPROPion",
-                "busPIRone"
+                "buPROPion"
               ],
               "correctAnswer": "risperiDONE",
               "relatedDrug": "risperiDONE",
@@ -6280,22 +6317,22 @@
               "riskSummary": "Pharmacologically opposing mechanisms: risperidone blocks dopamine (worsening Parkinson's), while ropinirole can trigger psychosis.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_036_a"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_038_B_read_back_mst_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "tolbutamide",
+              "canonicalDrugId": "lasa_038_b",
               "spokenDrug": "TOLBUTamide",
               "drugToPronounce": "tolbutamide",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "TOLAZamide",
-                "TOLBUTamide",
                 "buPROPion",
-                "busPIRone"
+                "TOLBUTamide",
+                "busPIRone",
+                "TOLAZamide"
               ],
               "correctAnswer": "TOLBUTamide",
               "relatedDrug": "TOLBUTamide",
@@ -6307,8 +6344,7 @@
               "riskSummary": "Different milligram potencies and pharmacokinetics triggering severe, unpredictable hypoglycemia.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_038_b"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             }
           ]
         },
@@ -6327,10 +6363,10 @@
               "lasaId": "lasa_026",
               "prompt": "Which medication is commonly confused with ceFAZolin?",
               "choices": [
-                "cefTRIAXone",
+                "metroNIDAZOLE",
                 "dexAMETHasone",
                 "LORazepam",
-                "metroNIDAZOLE"
+                "cefTRIAXone"
               ],
               "correctAnswer": "cefTRIAXone",
               "explanation": "ceFAZolin and cefTRIAXone form a documented ISMP/FDA LASA pair.",
@@ -6350,10 +6386,10 @@
               "lasaId": "lasa_027",
               "prompt": "Which medication is commonly confused with cefOXitin?",
               "choices": [
-                "prednisoLONE",
-                "DAUNOrubicin",
                 "DOPamine",
-                "cefoTEtan"
+                "cefoTEtan",
+                "DAUNOrubicin",
+                "prednisoLONE"
               ],
               "correctAnswer": "cefoTEtan",
               "explanation": "cefOXitin and cefoTEtan form a documented ISMP/FDA LASA pair.",
@@ -6374,9 +6410,9 @@
               "prompt": "Which medication is commonly confused with cefTAZidime?",
               "choices": [
                 "cefTRIAXone",
+                "acetaZOLAMIDE",
                 "cloZAPine",
-                "NIFEdipine",
-                "acetaZOLAMIDE"
+                "NIFEdipine"
               ],
               "correctAnswer": "cefTRIAXone",
               "explanation": "cefTAZidime and cefTRIAXone form a documented ISMP/FDA LASA pair.",
@@ -6396,10 +6432,10 @@
               "lasaId": "lasa_029",
               "prompt": "Which medication is commonly confused with chlorproPAMIDE?",
               "choices": [
-                "RABEprazole",
-                "oxyCODONE",
                 "chlorproMAZINE",
-                "DOXOrubicin"
+                "DOXOrubicin",
+                "oxyCODONE",
+                "RABEprazole"
               ],
               "correctAnswer": "chlorproMAZINE",
               "explanation": "chlorproPAMIDE and chlorproMAZINE form a documented ISMP/FDA LASA pair.",
@@ -6419,10 +6455,10 @@
               "lasaId": "lasa_030",
               "prompt": "Which medication is commonly confused with clomiPHENE?",
               "choices": [
-                "clomiPRAMINE",
                 "amLODIPine",
-                "acetoHEXAMIDE",
-                "cefTAZidime"
+                "cefTAZidime",
+                "clomiPRAMINE",
+                "acetoHEXAMIDE"
               ],
               "correctAnswer": "clomiPRAMINE",
               "explanation": "clomiPHENE and clomiPRAMINE form a documented ISMP/FDA LASA pair.",
@@ -6442,10 +6478,10 @@
               "lasaId": "lasa_031",
               "prompt": "Which medication is commonly confused with cycloSPORINE?",
               "choices": [
+                "cycloSERINE",
                 "vinBLAStine",
-                "azaCITIDine",
                 "dimenhyDRINATE",
-                "cycloSERINE"
+                "azaCITIDine"
               ],
               "correctAnswer": "cycloSERINE",
               "explanation": "cycloSPORINE and cycloSERINE form a documented ISMP/FDA LASA pair.",
@@ -6466,9 +6502,9 @@
               "prompt": "Which medication is commonly confused with DACTINomycin?",
               "choices": [
                 "chlorproMAZINE",
-                "DAPTOmycin",
                 "aMILoride",
-                "rOPINIRole"
+                "rOPINIRole",
+                "DAPTOmycin"
               ],
               "correctAnswer": "DAPTOmycin",
               "explanation": "DACTINomycin and DAPTOmycin form a documented ISMP/FDA LASA pair.",
@@ -6488,10 +6524,10 @@
               "lasaId": "lasa_033",
               "prompt": "Which medication is commonly confused with diphenhydrAMINE?",
               "choices": [
+                "NovoLOG",
                 "DAPTOmycin",
-                "azaTHIOprine",
                 "dimenhyDRINATE",
-                "NovoLOG"
+                "azaTHIOprine"
               ],
               "correctAnswer": "dimenhyDRINATE",
               "explanation": "diphenhydrAMINE and dimenhyDRINATE form a documented ISMP/FDA LASA pair.",
@@ -6511,10 +6547,10 @@
               "lasaId": "lasa_034",
               "prompt": "Which medication is commonly confused with DEPO-Medrol?",
               "choices": [
-                "ZyrTEC",
                 "chlorproPAMIDE",
-                "SOLU-Medrol",
-                "sulfADIAZINE"
+                "ZyrTEC",
+                "sulfADIAZINE",
+                "SOLU-Medrol"
               ],
               "correctAnswer": "SOLU-Medrol",
               "explanation": "DEPO-Medrol and SOLU-Medrol form a documented ISMP/FDA LASA pair.",
@@ -6534,10 +6570,10 @@
               "lasaId": "lasa_035",
               "prompt": "Which medication is commonly confused with SUFentanil?",
               "choices": [
-                "fentaNYL",
-                "NovoLIN R",
                 "dimenhyDRINATE",
-                "ALTEplase"
+                "NovoLIN R",
+                "ALTEplase",
+                "fentaNYL"
               ],
               "correctAnswer": "fentaNYL",
               "explanation": "SUFentanil and fentaNYL form a documented ISMP/FDA LASA pair.",
@@ -6557,10 +6593,10 @@
               "lasaId": "lasa_036",
               "prompt": "Which medication is commonly confused with risperiDONE?",
               "choices": [
-                "TopAMAX",
                 "sulfiSOXAZOLE",
-                "dexmedeTOMIDine",
-                "rOPINIRole"
+                "rOPINIRole",
+                "TopAMAX",
+                "dexmedeTOMIDine"
               ],
               "correctAnswer": "rOPINIRole",
               "explanation": "risperiDONE and rOPINIRole form a documented ISMP/FDA LASA pair.",
@@ -6580,9 +6616,9 @@
               "lasaId": "lasa_037",
               "prompt": "Which medication is commonly confused with sulfiSOXAZOLE?",
               "choices": [
-                "Lantus",
-                "sulfADIAZINE",
                 "traMADol",
+                "sulfADIAZINE",
+                "Lantus",
                 "TENECTEplase"
               ],
               "correctAnswer": "sulfADIAZINE",
@@ -6603,9 +6639,9 @@
               "lasaId": "lasa_038",
               "prompt": "Which medication is commonly confused with TOLAZamide?",
               "choices": [
-                "TOLBUTamide",
-                "Toprol-XL",
                 "CeleBREX",
+                "Toprol-XL",
+                "TOLBUTamide",
                 "buPROPion"
               ],
               "correctAnswer": "TOLBUTamide",
@@ -7849,13 +7885,14 @@
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "cefotetan",
+          "canonicalDrugId": "lasa_027_a",
           "spokenDrug": "cefoTEtan",
           "drugToPronounce": "cefotetan",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
+            "cefOXitin",
             "busPIRone",
             "cefoTEtan",
-            "cefOXitin",
             "buPROPion"
           ],
           "correctAnswer": "cefoTEtan",
@@ -7868,20 +7905,20 @@
           "riskSummary": "Dosing interval mismatches, potential bleeding risk/coagulopathy associated with the N-methylthiotetrazole (NMTT) chain in cefotetan.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_027_a"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_028_B_read_back_mst_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "ceftriaxone",
+          "canonicalDrugId": "lasa_028_b",
           "spokenDrug": "cefTRIAXone",
           "drugToPronounce": "ceftriaxone",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "busPIRone",
             "cefTRIAXone",
+            "busPIRone",
             "buPROPion",
             "cefTAZidime"
           ],
@@ -7895,22 +7932,22 @@
           "riskSummary": "Inadequate coverage for Pseudomonas aeruginosa infections, leading to sepsis and therapeutic failure.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_028_b"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_031_A_read_back_mst_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "cycloserine",
+          "canonicalDrugId": "lasa_031_a",
           "spokenDrug": "cycloSERINE",
           "drugToPronounce": "cycloserine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
+            "cycloSERINE",
             "busPIRone",
             "buPROPion",
-            "cycloSPORINE",
-            "cycloSERINE"
+            "cycloSPORINE"
           ],
           "correctAnswer": "cycloSERINE",
           "relatedDrug": "cycloSERINE",
@@ -7922,21 +7959,21 @@
           "riskSummary": "Acute organ transplant rejection / nephrotoxicity from cyclosporine errors, or neurotoxicity and failed TB management from cycloserine errors.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_031_a"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_035_B_read_back_mst_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "sufentanil",
+          "canonicalDrugId": "lasa_035_b",
           "spokenDrug": "SUFentanil",
           "drugToPronounce": "sufentanil",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
+            "busPIRone",
             "fentaNYL",
             "SUFentanil",
-            "busPIRone",
             "buPROPion"
           ],
           "correctAnswer": "SUFentanil",
@@ -7949,22 +7986,22 @@
           "riskSummary": "Sufentanil is roughly 5 to 10 times more potent than fentanyl; confusing doses causes immediate, lethal respiratory depression.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-          "canonicalDrugId": "lasa_035_b"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
         },
         {
           "id": "q_sound_lasa_036_A_read_back_mst_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "risperidone",
+          "canonicalDrugId": "lasa_036_a",
           "spokenDrug": "risperiDONE",
           "drugToPronounce": "risperidone",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
+            "busPIRone",
             "risperiDONE",
             "rOPINIRole",
-            "buPROPion",
-            "busPIRone"
+            "buPROPion"
           ],
           "correctAnswer": "risperiDONE",
           "relatedDrug": "risperiDONE",
@@ -7976,22 +8013,22 @@
           "riskSummary": "Pharmacologically opposing mechanisms: risperidone blocks dopamine (worsening Parkinson's), while ropinirole can trigger psychosis.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_036_a"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_038_B_read_back_mst_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "tolbutamide",
+          "canonicalDrugId": "lasa_038_b",
           "spokenDrug": "TOLBUTamide",
           "drugToPronounce": "tolbutamide",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "TOLAZamide",
-            "TOLBUTamide",
             "buPROPion",
-            "busPIRone"
+            "TOLBUTamide",
+            "busPIRone",
+            "TOLAZamide"
           ],
           "correctAnswer": "TOLBUTamide",
           "relatedDrug": "TOLBUTamide",
@@ -8003,8 +8040,7 @@
           "riskSummary": "Different milligram potencies and pharmacokinetics triggering severe, unpredictable hypoglycemia.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_038_b"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_pair_lasa_026_A_mst_disc_0",
@@ -8014,10 +8050,10 @@
           "lasaId": "lasa_026",
           "prompt": "Which medication is commonly confused with ceFAZolin?",
           "choices": [
-            "cefTRIAXone",
+            "metroNIDAZOLE",
             "dexAMETHasone",
             "LORazepam",
-            "metroNIDAZOLE"
+            "cefTRIAXone"
           ],
           "correctAnswer": "cefTRIAXone",
           "explanation": "ceFAZolin and cefTRIAXone form a documented ISMP/FDA LASA pair.",
@@ -8037,10 +8073,10 @@
           "lasaId": "lasa_027",
           "prompt": "Which medication is commonly confused with cefOXitin?",
           "choices": [
-            "prednisoLONE",
-            "DAUNOrubicin",
             "DOPamine",
-            "cefoTEtan"
+            "cefoTEtan",
+            "DAUNOrubicin",
+            "prednisoLONE"
           ],
           "correctAnswer": "cefoTEtan",
           "explanation": "cefOXitin and cefoTEtan form a documented ISMP/FDA LASA pair.",
@@ -8061,9 +8097,9 @@
           "prompt": "Which medication is commonly confused with cefTAZidime?",
           "choices": [
             "cefTRIAXone",
+            "acetaZOLAMIDE",
             "cloZAPine",
-            "NIFEdipine",
-            "acetaZOLAMIDE"
+            "NIFEdipine"
           ],
           "correctAnswer": "cefTRIAXone",
           "explanation": "cefTAZidime and cefTRIAXone form a documented ISMP/FDA LASA pair.",
@@ -8083,10 +8119,10 @@
           "lasaId": "lasa_029",
           "prompt": "Which medication is commonly confused with chlorproPAMIDE?",
           "choices": [
-            "RABEprazole",
-            "oxyCODONE",
             "chlorproMAZINE",
-            "DOXOrubicin"
+            "DOXOrubicin",
+            "oxyCODONE",
+            "RABEprazole"
           ],
           "correctAnswer": "chlorproMAZINE",
           "explanation": "chlorproPAMIDE and chlorproMAZINE form a documented ISMP/FDA LASA pair.",
@@ -8106,10 +8142,10 @@
           "lasaId": "lasa_030",
           "prompt": "Which medication is commonly confused with clomiPHENE?",
           "choices": [
-            "clomiPRAMINE",
             "amLODIPine",
-            "acetoHEXAMIDE",
-            "cefTAZidime"
+            "cefTAZidime",
+            "clomiPRAMINE",
+            "acetoHEXAMIDE"
           ],
           "correctAnswer": "clomiPRAMINE",
           "explanation": "clomiPHENE and clomiPRAMINE form a documented ISMP/FDA LASA pair.",
@@ -8129,10 +8165,10 @@
           "lasaId": "lasa_031",
           "prompt": "Which medication is commonly confused with cycloSPORINE?",
           "choices": [
+            "cycloSERINE",
             "vinBLAStine",
-            "azaCITIDine",
             "dimenhyDRINATE",
-            "cycloSERINE"
+            "azaCITIDine"
           ],
           "correctAnswer": "cycloSERINE",
           "explanation": "cycloSPORINE and cycloSERINE form a documented ISMP/FDA LASA pair.",
@@ -8153,9 +8189,9 @@
           "prompt": "Which medication is commonly confused with DACTINomycin?",
           "choices": [
             "chlorproMAZINE",
-            "DAPTOmycin",
             "aMILoride",
-            "rOPINIRole"
+            "rOPINIRole",
+            "DAPTOmycin"
           ],
           "correctAnswer": "DAPTOmycin",
           "explanation": "DACTINomycin and DAPTOmycin form a documented ISMP/FDA LASA pair.",
@@ -8175,10 +8211,10 @@
           "lasaId": "lasa_033",
           "prompt": "Which medication is commonly confused with diphenhydrAMINE?",
           "choices": [
+            "NovoLOG",
             "DAPTOmycin",
-            "azaTHIOprine",
             "dimenhyDRINATE",
-            "NovoLOG"
+            "azaTHIOprine"
           ],
           "correctAnswer": "dimenhyDRINATE",
           "explanation": "diphenhydrAMINE and dimenhyDRINATE form a documented ISMP/FDA LASA pair.",
@@ -8198,10 +8234,10 @@
           "lasaId": "lasa_034",
           "prompt": "Which medication is commonly confused with DEPO-Medrol?",
           "choices": [
-            "ZyrTEC",
             "chlorproPAMIDE",
-            "SOLU-Medrol",
-            "sulfADIAZINE"
+            "ZyrTEC",
+            "sulfADIAZINE",
+            "SOLU-Medrol"
           ],
           "correctAnswer": "SOLU-Medrol",
           "explanation": "DEPO-Medrol and SOLU-Medrol form a documented ISMP/FDA LASA pair.",
@@ -8221,10 +8257,10 @@
           "lasaId": "lasa_035",
           "prompt": "Which medication is commonly confused with SUFentanil?",
           "choices": [
-            "fentaNYL",
-            "NovoLIN R",
             "dimenhyDRINATE",
-            "ALTEplase"
+            "NovoLIN R",
+            "ALTEplase",
+            "fentaNYL"
           ],
           "correctAnswer": "fentaNYL",
           "explanation": "SUFentanil and fentaNYL form a documented ISMP/FDA LASA pair.",
@@ -8244,10 +8280,10 @@
           "lasaId": "lasa_036",
           "prompt": "Which medication is commonly confused with risperiDONE?",
           "choices": [
-            "TopAMAX",
             "sulfiSOXAZOLE",
-            "dexmedeTOMIDine",
-            "rOPINIRole"
+            "rOPINIRole",
+            "TopAMAX",
+            "dexmedeTOMIDine"
           ],
           "correctAnswer": "rOPINIRole",
           "explanation": "risperiDONE and rOPINIRole form a documented ISMP/FDA LASA pair.",
@@ -8267,9 +8303,9 @@
           "lasaId": "lasa_037",
           "prompt": "Which medication is commonly confused with sulfiSOXAZOLE?",
           "choices": [
-            "Lantus",
-            "sulfADIAZINE",
             "traMADol",
+            "sulfADIAZINE",
+            "Lantus",
             "TENECTEplase"
           ],
           "correctAnswer": "sulfADIAZINE",
@@ -8290,9 +8326,9 @@
           "lasaId": "lasa_038",
           "prompt": "Which medication is commonly confused with TOLAZamide?",
           "choices": [
-            "TOLBUTamide",
-            "Toprol-XL",
             "CeleBREX",
+            "Toprol-XL",
+            "TOLBUTamide",
             "buPROPion"
           ],
           "correctAnswer": "TOLBUTamide",

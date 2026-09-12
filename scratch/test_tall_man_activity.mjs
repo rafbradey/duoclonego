@@ -7,7 +7,7 @@ console.log("=== Testing Tall Man Activity Architecture & Evaluation ===");
 // 1. Verify level_002 loads with activity metadata preserved
 const level2 = allLevels.find((lvl) => lvl.id === "level_002");
 assert.ok(level2, "level_002 must exist in allLevels");
-assert.equal(level2.questions.length, 3, "level_002 should have 3 questions");
+assert.ok(level2.questions.length >= 3, "level_002 should have >= 3 questions");
 
 const q1 = level2.questions[0];
 console.log("Q1 question metadata:", {

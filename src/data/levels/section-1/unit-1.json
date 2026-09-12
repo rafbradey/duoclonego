@@ -129,10 +129,10 @@
               "lasaId": "lasa_001",
               "prompt": "Which medication is commonly confused with buPROPion?",
               "choices": [
+                "CISplatin",
                 "HYDROmorphone",
                 "DULOxetine",
-                "busPIRone",
-                "CISplatin"
+                "busPIRone"
               ],
               "correctAnswer": "busPIRone",
               "explanation": "buPROPion and busPIRone form a documented ISMP/FDA LASA pair.",
@@ -152,10 +152,10 @@
               "lasaId": "lasa_001",
               "prompt": "Which medication is commonly confused with busPIRone?",
               "choices": [
-                "HYDROmorphone",
                 "buPROPion",
-                "CISplatin",
-                "DULOxetine"
+                "HYDROmorphone",
+                "DULOxetine",
+                "CISplatin"
               ],
               "correctAnswer": "buPROPion",
               "explanation": "busPIRone and buPROPion form a documented ISMP/FDA LASA pair.",
@@ -175,10 +175,10 @@
               "lasaId": "lasa_002",
               "prompt": "Which medication is commonly confused with hydrALAZINE?",
               "choices": [
-                "hydrOXYzine",
-                "glyBURIDE",
                 "ceFAZolin",
-                "epiNEPHrine"
+                "glyBURIDE",
+                "epiNEPHrine",
+                "hydrOXYzine"
               ],
               "correctAnswer": "hydrOXYzine",
               "explanation": "hydrALAZINE and hydrOXYzine form a documented ISMP/FDA LASA pair.",
@@ -198,10 +198,10 @@
               "lasaId": "lasa_002",
               "prompt": "Which medication is commonly confused with hydrOXYzine?",
               "choices": [
-                "ceFAZolin",
                 "epiNEPHrine",
                 "hydrALAZINE",
-                "glyBURIDE"
+                "glyBURIDE",
+                "ceFAZolin"
               ],
               "correctAnswer": "hydrALAZINE",
               "explanation": "hydrOXYzine and hydrALAZINE form a documented ISMP/FDA LASA pair.",
@@ -244,10 +244,10 @@
               "lasaId": "lasa_003",
               "prompt": "Which medication is commonly confused with prednisoLONE?",
               "choices": [
-                "FLUOxetine",
                 "clomiPHENE",
-                "predniSONE",
-                "DOCEtaxel"
+                "FLUOxetine",
+                "DOCEtaxel",
+                "predniSONE"
               ],
               "correctAnswer": "predniSONE",
               "explanation": "prednisoLONE and predniSONE form a documented ISMP/FDA LASA pair.",
@@ -267,8 +267,8 @@
               "lasaId": "lasa_004",
               "prompt": "Which medication is commonly confused with traMADol?",
               "choices": [
-                "traZODone",
                 "diphenhydrAMINE",
+                "traZODone",
                 "ePHEDrine",
                 "cefTRIAXone"
               ],
@@ -291,9 +291,9 @@
               "prompt": "Which medication is commonly confused with traZODone?",
               "choices": [
                 "ePHEDrine",
+                "diphenhydrAMINE",
                 "traMADol",
-                "cefTRIAXone",
-                "diphenhydrAMINE"
+                "cefTRIAXone"
               ],
               "correctAnswer": "traMADol",
               "explanation": "traZODone and traMADol form a documented ISMP/FDA LASA pair.",
@@ -313,10 +313,10 @@
               "lasaId": "lasa_005",
               "prompt": "Which medication is commonly confused with clonazePAM?",
               "choices": [
-                "clomiPRAMINE",
                 "cloNIDine",
-                "PAROxetine",
-                "sulfADIAZINE"
+                "clomiPRAMINE",
+                "sulfADIAZINE",
+                "PAROxetine"
               ],
               "correctAnswer": "cloNIDine",
               "explanation": "clonazePAM and cloNIDine form a documented ISMP/FDA LASA pair.",
@@ -338,8 +338,8 @@
               "choices": [
                 "clomiPRAMINE",
                 "clonazePAM",
-                "PAROxetine",
-                "sulfADIAZINE"
+                "sulfADIAZINE",
+                "PAROxetine"
               ],
               "correctAnswer": "clonazePAM",
               "explanation": "cloNIDine and clonazePAM form a documented ISMP/FDA LASA pair.",
@@ -359,9 +359,9 @@
               "lasaId": "lasa_006",
               "prompt": "Which medication is commonly confused with ALPRAZolam?",
               "choices": [
-                "LORazepam",
                 "DEPO-Medrol",
                 "cefoTEtan",
+                "LORazepam",
                 "NovoLIN R"
               ],
               "correctAnswer": "LORazepam",
@@ -382,10 +382,10 @@
               "lasaId": "lasa_006",
               "prompt": "Which medication is commonly confused with LORazepam?",
               "choices": [
-                "cefoTEtan",
+                "DEPO-Medrol",
                 "NovoLIN R",
                 "ALPRAZolam",
-                "DEPO-Medrol"
+                "cefoTEtan"
               ],
               "correctAnswer": "ALPRAZolam",
               "explanation": "LORazepam and ALPRAZolam form a documented ISMP/FDA LASA pair.",
@@ -405,10 +405,10 @@
               "lasaId": "lasa_007",
               "prompt": "Which medication is commonly confused with clonazePAM?",
               "choices": [
-                "sulfiSOXAZOLE",
-                "cloZAPine",
+                "TopAMAX",
                 "cycloSERINE",
-                "TopAMAX"
+                "cloZAPine",
+                "sulfiSOXAZOLE"
               ],
               "correctAnswer": "cloZAPine",
               "explanation": "clonazePAM and cloZAPine form a documented ISMP/FDA LASA pair.",
@@ -428,10 +428,10 @@
               "lasaId": "lasa_007",
               "prompt": "Which medication is commonly confused with cloZAPine?",
               "choices": [
-                "sulfiSOXAZOLE",
                 "clonazePAM",
-                "TopAMAX",
-                "cycloSERINE"
+                "cycloSERINE",
+                "sulfiSOXAZOLE",
+                "TopAMAX"
               ],
               "correctAnswer": "clonazePAM",
               "explanation": "cloZAPine and clonazePAM form a documented ISMP/FDA LASA pair.",
@@ -451,9 +451,9 @@
               "lasaId": "lasa_008",
               "prompt": "Which medication is commonly confused with CeleBREX?",
               "choices": [
-                "TENECTEplase",
-                "SOLU-Medrol",
                 "Lantus",
+                "SOLU-Medrol",
+                "TENECTEplase",
                 "CeleXA"
               ],
               "correctAnswer": "CeleXA",
@@ -475,9 +475,9 @@
               "prompt": "Which medication is commonly confused with CeleXA?",
               "choices": [
                 "CeleBREX",
-                "SOLU-Medrol",
+                "TENECTEplase",
                 "Lantus",
-                "TENECTEplase"
+                "SOLU-Medrol"
               ],
               "correctAnswer": "CeleBREX",
               "explanation": "CeleXA and CeleBREX form a documented ISMP/FDA LASA pair.",
@@ -497,10 +497,10 @@
               "lasaId": "lasa_009",
               "prompt": "Which medication is commonly confused with HYDROmorphone?",
               "choices": [
+                "morphine",
                 "TOLAZamide",
                 "buPROPion",
-                "Toprol-XL",
-                "morphine"
+                "Toprol-XL"
               ],
               "correctAnswer": "morphine",
               "explanation": "HYDROmorphone and morphine form a documented ISMP/FDA LASA pair.",
@@ -520,8 +520,8 @@
               "lasaId": "lasa_009",
               "prompt": "Which medication is commonly confused with morphine?",
               "choices": [
-                "TOLAZamide",
                 "Toprol-XL",
+                "TOLAZamide",
                 "HYDROmorphone",
                 "buPROPion"
               ],
@@ -543,10 +543,10 @@
               "lasaId": "lasa_010",
               "prompt": "Which medication is commonly confused with DOBUtamine?",
               "choices": [
-                "Lente",
+                "DOPamine",
                 "hydroxyCHLOROquine",
-                "traZODone",
-                "DOPamine"
+                "Lente",
+                "traZODone"
               ],
               "correctAnswer": "DOPamine",
               "explanation": "DOBUtamine and DOPamine form a documented ISMP/FDA LASA pair.",
@@ -567,9 +567,9 @@
               "prompt": "Which medication is commonly confused with DOPamine?",
               "choices": [
                 "DOBUtamine",
+                "traZODone",
                 "hydroxyCHLOROquine",
-                "Lente",
-                "traZODone"
+                "Lente"
               ],
               "correctAnswer": "DOBUtamine",
               "explanation": "DOPamine and DOBUtamine form a documented ISMP/FDA LASA pair.",
@@ -589,9 +589,9 @@
               "lasaId": "lasa_011",
               "prompt": "Which medication is commonly confused with oxyCODONE?",
               "choices": [
+                "busPIRone",
                 "CeleXA",
                 "HYDROcodone",
-                "busPIRone",
                 "SeroQUEL"
               ],
               "correctAnswer": "HYDROcodone",
@@ -612,10 +612,10 @@
               "lasaId": "lasa_011",
               "prompt": "Which medication is commonly confused with HYDROcodone?",
               "choices": [
-                "busPIRone",
-                "SeroQUEL",
+                "oxyCODONE",
                 "CeleXA",
-                "oxyCODONE"
+                "busPIRone",
+                "SeroQUEL"
               ],
               "correctAnswer": "oxyCODONE",
               "explanation": "HYDROcodone and oxyCODONE form a documented ISMP/FDA LASA pair.",
@@ -635,10 +635,10 @@
               "lasaId": "lasa_012",
               "prompt": "Which medication is commonly confused with glipiZIDE?",
               "choices": [
-                "metFORMIN",
                 "hydroxyUREA",
                 "clonazePAM",
-                "glyBURIDE"
+                "glyBURIDE",
+                "metFORMIN"
               ],
               "correctAnswer": "glyBURIDE",
               "explanation": "glipiZIDE and glyBURIDE form a documented ISMP/FDA LASA pair.",
@@ -658,10 +658,10 @@
               "lasaId": "lasa_012",
               "prompt": "Which medication is commonly confused with glyBURIDE?",
               "choices": [
-                "clonazePAM",
-                "glipiZIDE",
+                "hydroxyUREA",
                 "metFORMIN",
-                "hydroxyUREA"
+                "clonazePAM",
+                "glipiZIDE"
               ],
               "correctAnswer": "glipiZIDE",
               "explanation": "glyBURIDE and glipiZIDE form a documented ISMP/FDA LASA pair.",
@@ -704,8 +704,8 @@
               "lasaId": "lasa_013",
               "prompt": "Which medication is commonly confused with metroNIDAZOLE?",
               "choices": [
-                "metFORMIN",
                 "HYDROmorphone",
+                "metFORMIN",
                 "hydrALAZINE",
                 "PACLitaxel"
               ],
@@ -731,10 +731,10 @@
           "lasaId": "lasa_001",
           "prompt": "Which medication is commonly confused with buPROPion?",
           "choices": [
+            "CISplatin",
             "HYDROmorphone",
             "DULOxetine",
-            "busPIRone",
-            "CISplatin"
+            "busPIRone"
           ],
           "correctAnswer": "busPIRone",
           "explanation": "buPROPion and busPIRone form a documented ISMP/FDA LASA pair.",
@@ -754,10 +754,10 @@
           "lasaId": "lasa_001",
           "prompt": "Which medication is commonly confused with busPIRone?",
           "choices": [
-            "HYDROmorphone",
             "buPROPion",
-            "CISplatin",
-            "DULOxetine"
+            "HYDROmorphone",
+            "DULOxetine",
+            "CISplatin"
           ],
           "correctAnswer": "buPROPion",
           "explanation": "busPIRone and buPROPion form a documented ISMP/FDA LASA pair.",
@@ -777,10 +777,10 @@
           "lasaId": "lasa_002",
           "prompt": "Which medication is commonly confused with hydrALAZINE?",
           "choices": [
-            "hydrOXYzine",
-            "glyBURIDE",
             "ceFAZolin",
-            "epiNEPHrine"
+            "glyBURIDE",
+            "epiNEPHrine",
+            "hydrOXYzine"
           ],
           "correctAnswer": "hydrOXYzine",
           "explanation": "hydrALAZINE and hydrOXYzine form a documented ISMP/FDA LASA pair.",
@@ -800,10 +800,10 @@
           "lasaId": "lasa_002",
           "prompt": "Which medication is commonly confused with hydrOXYzine?",
           "choices": [
-            "ceFAZolin",
             "epiNEPHrine",
             "hydrALAZINE",
-            "glyBURIDE"
+            "glyBURIDE",
+            "ceFAZolin"
           ],
           "correctAnswer": "hydrALAZINE",
           "explanation": "hydrOXYzine and hydrALAZINE form a documented ISMP/FDA LASA pair.",
@@ -846,10 +846,10 @@
           "lasaId": "lasa_003",
           "prompt": "Which medication is commonly confused with prednisoLONE?",
           "choices": [
-            "FLUOxetine",
             "clomiPHENE",
-            "predniSONE",
-            "DOCEtaxel"
+            "FLUOxetine",
+            "DOCEtaxel",
+            "predniSONE"
           ],
           "correctAnswer": "predniSONE",
           "explanation": "prednisoLONE and predniSONE form a documented ISMP/FDA LASA pair.",
@@ -869,8 +869,8 @@
           "lasaId": "lasa_004",
           "prompt": "Which medication is commonly confused with traMADol?",
           "choices": [
-            "traZODone",
             "diphenhydrAMINE",
+            "traZODone",
             "ePHEDrine",
             "cefTRIAXone"
           ],
@@ -893,9 +893,9 @@
           "prompt": "Which medication is commonly confused with traZODone?",
           "choices": [
             "ePHEDrine",
+            "diphenhydrAMINE",
             "traMADol",
-            "cefTRIAXone",
-            "diphenhydrAMINE"
+            "cefTRIAXone"
           ],
           "correctAnswer": "traMADol",
           "explanation": "traZODone and traMADol form a documented ISMP/FDA LASA pair.",
@@ -915,10 +915,10 @@
           "lasaId": "lasa_005",
           "prompt": "Which medication is commonly confused with clonazePAM?",
           "choices": [
-            "clomiPRAMINE",
             "cloNIDine",
-            "PAROxetine",
-            "sulfADIAZINE"
+            "clomiPRAMINE",
+            "sulfADIAZINE",
+            "PAROxetine"
           ],
           "correctAnswer": "cloNIDine",
           "explanation": "clonazePAM and cloNIDine form a documented ISMP/FDA LASA pair.",
@@ -940,8 +940,8 @@
           "choices": [
             "clomiPRAMINE",
             "clonazePAM",
-            "PAROxetine",
-            "sulfADIAZINE"
+            "sulfADIAZINE",
+            "PAROxetine"
           ],
           "correctAnswer": "clonazePAM",
           "explanation": "cloNIDine and clonazePAM form a documented ISMP/FDA LASA pair.",
@@ -961,9 +961,9 @@
           "lasaId": "lasa_006",
           "prompt": "Which medication is commonly confused with ALPRAZolam?",
           "choices": [
-            "LORazepam",
             "DEPO-Medrol",
             "cefoTEtan",
+            "LORazepam",
             "NovoLIN R"
           ],
           "correctAnswer": "LORazepam",
@@ -984,10 +984,10 @@
           "lasaId": "lasa_006",
           "prompt": "Which medication is commonly confused with LORazepam?",
           "choices": [
-            "cefoTEtan",
+            "DEPO-Medrol",
             "NovoLIN R",
             "ALPRAZolam",
-            "DEPO-Medrol"
+            "cefoTEtan"
           ],
           "correctAnswer": "ALPRAZolam",
           "explanation": "LORazepam and ALPRAZolam form a documented ISMP/FDA LASA pair.",
@@ -1007,10 +1007,10 @@
           "lasaId": "lasa_007",
           "prompt": "Which medication is commonly confused with clonazePAM?",
           "choices": [
-            "sulfiSOXAZOLE",
-            "cloZAPine",
+            "TopAMAX",
             "cycloSERINE",
-            "TopAMAX"
+            "cloZAPine",
+            "sulfiSOXAZOLE"
           ],
           "correctAnswer": "cloZAPine",
           "explanation": "clonazePAM and cloZAPine form a documented ISMP/FDA LASA pair.",
@@ -1030,10 +1030,10 @@
           "lasaId": "lasa_007",
           "prompt": "Which medication is commonly confused with cloZAPine?",
           "choices": [
-            "sulfiSOXAZOLE",
             "clonazePAM",
-            "TopAMAX",
-            "cycloSERINE"
+            "cycloSERINE",
+            "sulfiSOXAZOLE",
+            "TopAMAX"
           ],
           "correctAnswer": "clonazePAM",
           "explanation": "cloZAPine and clonazePAM form a documented ISMP/FDA LASA pair.",
@@ -1053,9 +1053,9 @@
           "lasaId": "lasa_008",
           "prompt": "Which medication is commonly confused with CeleBREX?",
           "choices": [
-            "TENECTEplase",
-            "SOLU-Medrol",
             "Lantus",
+            "SOLU-Medrol",
+            "TENECTEplase",
             "CeleXA"
           ],
           "correctAnswer": "CeleXA",
@@ -1077,9 +1077,9 @@
           "prompt": "Which medication is commonly confused with CeleXA?",
           "choices": [
             "CeleBREX",
-            "SOLU-Medrol",
+            "TENECTEplase",
             "Lantus",
-            "TENECTEplase"
+            "SOLU-Medrol"
           ],
           "correctAnswer": "CeleBREX",
           "explanation": "CeleXA and CeleBREX form a documented ISMP/FDA LASA pair.",
@@ -1099,10 +1099,10 @@
           "lasaId": "lasa_009",
           "prompt": "Which medication is commonly confused with HYDROmorphone?",
           "choices": [
+            "morphine",
             "TOLAZamide",
             "buPROPion",
-            "Toprol-XL",
-            "morphine"
+            "Toprol-XL"
           ],
           "correctAnswer": "morphine",
           "explanation": "HYDROmorphone and morphine form a documented ISMP/FDA LASA pair.",
@@ -1122,8 +1122,8 @@
           "lasaId": "lasa_009",
           "prompt": "Which medication is commonly confused with morphine?",
           "choices": [
-            "TOLAZamide",
             "Toprol-XL",
+            "TOLAZamide",
             "HYDROmorphone",
             "buPROPion"
           ],
@@ -1145,10 +1145,10 @@
           "lasaId": "lasa_010",
           "prompt": "Which medication is commonly confused with DOBUtamine?",
           "choices": [
-            "Lente",
+            "DOPamine",
             "hydroxyCHLOROquine",
-            "traZODone",
-            "DOPamine"
+            "Lente",
+            "traZODone"
           ],
           "correctAnswer": "DOPamine",
           "explanation": "DOBUtamine and DOPamine form a documented ISMP/FDA LASA pair.",
@@ -1169,9 +1169,9 @@
           "prompt": "Which medication is commonly confused with DOPamine?",
           "choices": [
             "DOBUtamine",
+            "traZODone",
             "hydroxyCHLOROquine",
-            "Lente",
-            "traZODone"
+            "Lente"
           ],
           "correctAnswer": "DOBUtamine",
           "explanation": "DOPamine and DOBUtamine form a documented ISMP/FDA LASA pair.",
@@ -1191,9 +1191,9 @@
           "lasaId": "lasa_011",
           "prompt": "Which medication is commonly confused with oxyCODONE?",
           "choices": [
+            "busPIRone",
             "CeleXA",
             "HYDROcodone",
-            "busPIRone",
             "SeroQUEL"
           ],
           "correctAnswer": "HYDROcodone",
@@ -1214,10 +1214,10 @@
           "lasaId": "lasa_011",
           "prompt": "Which medication is commonly confused with HYDROcodone?",
           "choices": [
-            "busPIRone",
-            "SeroQUEL",
+            "oxyCODONE",
             "CeleXA",
-            "oxyCODONE"
+            "busPIRone",
+            "SeroQUEL"
           ],
           "correctAnswer": "oxyCODONE",
           "explanation": "HYDROcodone and oxyCODONE form a documented ISMP/FDA LASA pair.",
@@ -1237,10 +1237,10 @@
           "lasaId": "lasa_012",
           "prompt": "Which medication is commonly confused with glipiZIDE?",
           "choices": [
-            "metFORMIN",
             "hydroxyUREA",
             "clonazePAM",
-            "glyBURIDE"
+            "glyBURIDE",
+            "metFORMIN"
           ],
           "correctAnswer": "glyBURIDE",
           "explanation": "glipiZIDE and glyBURIDE form a documented ISMP/FDA LASA pair.",
@@ -1260,10 +1260,10 @@
           "lasaId": "lasa_012",
           "prompt": "Which medication is commonly confused with glyBURIDE?",
           "choices": [
-            "clonazePAM",
-            "glipiZIDE",
+            "hydroxyUREA",
             "metFORMIN",
-            "hydroxyUREA"
+            "clonazePAM",
+            "glipiZIDE"
           ],
           "correctAnswer": "glipiZIDE",
           "explanation": "glyBURIDE and glipiZIDE form a documented ISMP/FDA LASA pair.",
@@ -1306,8 +1306,8 @@
           "lasaId": "lasa_013",
           "prompt": "Which medication is commonly confused with metroNIDAZOLE?",
           "choices": [
-            "metFORMIN",
             "HYDROmorphone",
+            "metFORMIN",
             "hydrALAZINE",
             "PACLitaxel"
           ],
@@ -1365,8 +1365,8 @@
               "lasaId": "lasa_001",
               "prompt": "Which is the correct Tall Man lettering for bupropion?",
               "choices": [
-                "BUPRopion",
                 "bupropION",
+                "BUPRopion",
                 "buprOPION",
                 "buPROPion"
               ],
@@ -1391,9 +1391,9 @@
               "prompt": "Which is the correct Tall Man lettering for buspirone?",
               "choices": [
                 "buspirONE",
-                "busPIRone",
+                "BUSPirone",
                 "buspIRONE",
-                "BUSPirone"
+                "busPIRone"
               ],
               "correctAnswer": "busPIRone",
               "explanation": "busPIRone uses capitalized Tall Man lettering to distinguish it from its confusable counterpart buPROPion.",
@@ -1415,10 +1415,10 @@
               "lasaId": "lasa_002",
               "prompt": "Which is the correct Tall Man lettering for hydralazine?",
               "choices": [
+                "hydralazINE",
                 "hydrALAZINE",
-                "hydralAZINE",
                 "HYDRalazine",
-                "hydralazINE"
+                "hydralAZINE"
               ],
               "correctAnswer": "hydrALAZINE",
               "explanation": "hydrALAZINE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart hydrOXYzine.",
@@ -1440,10 +1440,10 @@
               "lasaId": "lasa_002",
               "prompt": "Which is the correct Tall Man lettering for hydroxyzine?",
               "choices": [
+                "hydroxYZINE",
                 "hydroxyzINE",
                 "HYDRoxyzine",
-                "hydrOXYzine",
-                "hydroxYZINE"
+                "hydrOXYzine"
               ],
               "correctAnswer": "hydrOXYzine",
               "explanation": "hydrOXYzine uses capitalized Tall Man lettering to distinguish it from its confusable counterpart hydrALAZINE.",
@@ -1466,8 +1466,8 @@
               "prompt": "Which is the correct Tall Man lettering for prednisone?",
               "choices": [
                 "prednISONE",
-                "predniSONE",
                 "PREDnisone",
+                "predniSONE",
                 "prednisONE"
               ],
               "correctAnswer": "predniSONE",
@@ -1490,10 +1490,10 @@
               "lasaId": "lasa_003",
               "prompt": "Which is the correct Tall Man lettering for prednisolone?",
               "choices": [
-                "prednisolONE",
-                "prednisoLONE",
+                "PREDNisolone",
                 "predniSOLONE",
-                "PREDNisolone"
+                "prednisoLONE",
+                "prednisolONE"
               ],
               "correctAnswer": "prednisoLONE",
               "explanation": "prednisoLONE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart predniSONE.",
@@ -1515,10 +1515,10 @@
               "lasaId": "lasa_004",
               "prompt": "Which is the correct Tall Man lettering for tramadol?",
               "choices": [
-                "tramaDOL",
-                "TRAmadol",
                 "tramADOL",
-                "traMADol"
+                "traMADol",
+                "tramaDOL",
+                "TRAmadol"
               ],
               "correctAnswer": "traMADol",
               "explanation": "traMADol uses capitalized Tall Man lettering to distinguish it from its confusable counterpart traZODone.",
@@ -1540,8 +1540,8 @@
               "lasaId": "lasa_004",
               "prompt": "Which is the correct Tall Man lettering for trazodone?",
               "choices": [
-                "TRAZodone",
                 "trazODONE",
+                "TRAZodone",
                 "traZODone",
                 "trazodONE"
               ],
@@ -1565,10 +1565,10 @@
               "lasaId": "lasa_005",
               "prompt": "Which is the correct Tall Man lettering for clonazepam?",
               "choices": [
-                "clONAZepam",
+                "clonazePAM",
                 "CLONazepam",
                 "clonaZEPAM",
-                "clonazePAM"
+                "clONAZepam"
               ],
               "correctAnswer": "clonazePAM",
               "explanation": "clonazePAM uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cloNIDine.",
@@ -1591,8 +1591,8 @@
               "prompt": "Which is the correct Tall Man lettering for clonidine?",
               "choices": [
                 "clonidINE",
-                "cloNIDine",
                 "CLONidine",
+                "cloNIDine",
                 "clonIDINE"
               ],
               "correctAnswer": "cloNIDine",
@@ -1615,9 +1615,9 @@
               "lasaId": "lasa_006",
               "prompt": "Which is the correct Tall Man lettering for alprazolam?",
               "choices": [
-                "ALPRAZolam",
-                "AlpraZOLAM",
                 "AlprazoLAM",
+                "AlpraZOLAM",
+                "ALPRAZolam",
                 "ALPRazolam"
               ],
               "correctAnswer": "ALPRAZolam",
@@ -1640,10 +1640,10 @@
               "lasaId": "lasa_006",
               "prompt": "Which is the correct Tall Man lettering for lorazepam?",
               "choices": [
-                "LorazePAM",
                 "LORazepam",
                 "LORAzepam",
-                "LoraZEPAM"
+                "LoraZEPAM",
+                "LorazePAM"
               ],
               "correctAnswer": "LORazepam",
               "explanation": "LORazepam uses capitalized Tall Man lettering to distinguish it from its confusable counterpart ALPRAZolam.",
@@ -1665,10 +1665,10 @@
               "lasaId": "lasa_007",
               "prompt": "Which is the correct Tall Man lettering for clonazepam?",
               "choices": [
-                "clONAZepam",
-                "CLONazepam",
                 "clonazePAM",
-                "clonaZEPAM"
+                "clONAZepam",
+                "clonaZEPAM",
+                "CLONazepam"
               ],
               "correctAnswer": "clonazePAM",
               "explanation": "clonazePAM uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cloZAPine.",
@@ -1694,8 +1694,8 @@
           "lasaId": "lasa_001",
           "prompt": "Which is the correct Tall Man lettering for bupropion?",
           "choices": [
-            "BUPRopion",
             "bupropION",
+            "BUPRopion",
             "buprOPION",
             "buPROPion"
           ],
@@ -1720,9 +1720,9 @@
           "prompt": "Which is the correct Tall Man lettering for buspirone?",
           "choices": [
             "buspirONE",
-            "busPIRone",
+            "BUSPirone",
             "buspIRONE",
-            "BUSPirone"
+            "busPIRone"
           ],
           "correctAnswer": "busPIRone",
           "explanation": "busPIRone uses capitalized Tall Man lettering to distinguish it from its confusable counterpart buPROPion.",
@@ -1744,10 +1744,10 @@
           "lasaId": "lasa_002",
           "prompt": "Which is the correct Tall Man lettering for hydralazine?",
           "choices": [
+            "hydralazINE",
             "hydrALAZINE",
-            "hydralAZINE",
             "HYDRalazine",
-            "hydralazINE"
+            "hydralAZINE"
           ],
           "correctAnswer": "hydrALAZINE",
           "explanation": "hydrALAZINE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart hydrOXYzine.",
@@ -1769,10 +1769,10 @@
           "lasaId": "lasa_002",
           "prompt": "Which is the correct Tall Man lettering for hydroxyzine?",
           "choices": [
+            "hydroxYZINE",
             "hydroxyzINE",
             "HYDRoxyzine",
-            "hydrOXYzine",
-            "hydroxYZINE"
+            "hydrOXYzine"
           ],
           "correctAnswer": "hydrOXYzine",
           "explanation": "hydrOXYzine uses capitalized Tall Man lettering to distinguish it from its confusable counterpart hydrALAZINE.",
@@ -1795,8 +1795,8 @@
           "prompt": "Which is the correct Tall Man lettering for prednisone?",
           "choices": [
             "prednISONE",
-            "predniSONE",
             "PREDnisone",
+            "predniSONE",
             "prednisONE"
           ],
           "correctAnswer": "predniSONE",
@@ -1819,10 +1819,10 @@
           "lasaId": "lasa_003",
           "prompt": "Which is the correct Tall Man lettering for prednisolone?",
           "choices": [
-            "prednisolONE",
-            "prednisoLONE",
+            "PREDNisolone",
             "predniSOLONE",
-            "PREDNisolone"
+            "prednisoLONE",
+            "prednisolONE"
           ],
           "correctAnswer": "prednisoLONE",
           "explanation": "prednisoLONE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart predniSONE.",
@@ -1844,10 +1844,10 @@
           "lasaId": "lasa_004",
           "prompt": "Which is the correct Tall Man lettering for tramadol?",
           "choices": [
-            "tramaDOL",
-            "TRAmadol",
             "tramADOL",
-            "traMADol"
+            "traMADol",
+            "tramaDOL",
+            "TRAmadol"
           ],
           "correctAnswer": "traMADol",
           "explanation": "traMADol uses capitalized Tall Man lettering to distinguish it from its confusable counterpart traZODone.",
@@ -1869,8 +1869,8 @@
           "lasaId": "lasa_004",
           "prompt": "Which is the correct Tall Man lettering for trazodone?",
           "choices": [
-            "TRAZodone",
             "trazODONE",
+            "TRAZodone",
             "traZODone",
             "trazodONE"
           ],
@@ -1894,10 +1894,10 @@
           "lasaId": "lasa_005",
           "prompt": "Which is the correct Tall Man lettering for clonazepam?",
           "choices": [
-            "clONAZepam",
+            "clonazePAM",
             "CLONazepam",
             "clonaZEPAM",
-            "clonazePAM"
+            "clONAZepam"
           ],
           "correctAnswer": "clonazePAM",
           "explanation": "clonazePAM uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cloNIDine.",
@@ -1920,8 +1920,8 @@
           "prompt": "Which is the correct Tall Man lettering for clonidine?",
           "choices": [
             "clonidINE",
-            "cloNIDine",
             "CLONidine",
+            "cloNIDine",
             "clonIDINE"
           ],
           "correctAnswer": "cloNIDine",
@@ -1944,9 +1944,9 @@
           "lasaId": "lasa_006",
           "prompt": "Which is the correct Tall Man lettering for alprazolam?",
           "choices": [
-            "ALPRAZolam",
-            "AlpraZOLAM",
             "AlprazoLAM",
+            "AlpraZOLAM",
+            "ALPRAZolam",
             "ALPRazolam"
           ],
           "correctAnswer": "ALPRAZolam",
@@ -1969,10 +1969,10 @@
           "lasaId": "lasa_006",
           "prompt": "Which is the correct Tall Man lettering for lorazepam?",
           "choices": [
-            "LorazePAM",
             "LORazepam",
             "LORAzepam",
-            "LoraZEPAM"
+            "LoraZEPAM",
+            "LorazePAM"
           ],
           "correctAnswer": "LORazepam",
           "explanation": "LORazepam uses capitalized Tall Man lettering to distinguish it from its confusable counterpart ALPRAZolam.",
@@ -1994,10 +1994,10 @@
           "lasaId": "lasa_007",
           "prompt": "Which is the correct Tall Man lettering for clonazepam?",
           "choices": [
-            "clONAZepam",
-            "CLONazepam",
             "clonazePAM",
-            "clonaZEPAM"
+            "clONAZepam",
+            "clonaZEPAM",
+            "CLONazepam"
           ],
           "correctAnswer": "clonazePAM",
           "explanation": "clonazePAM uses capitalized Tall Man lettering to distinguish it from its confusable counterpart cloZAPine.",
@@ -2053,10 +2053,10 @@
               "lasaId": "lasa_007",
               "prompt": "Which is the correct Tall Man lettering for clozapine?",
               "choices": [
-                "CLOZapine",
-                "clozapINE",
                 "clozAPINE",
-                "cloZAPine"
+                "cloZAPine",
+                "CLOZapine",
+                "clozapINE"
               ],
               "correctAnswer": "cloZAPine",
               "explanation": "cloZAPine uses capitalized Tall Man lettering to distinguish it from its confusable counterpart clonazePAM.",
@@ -2078,9 +2078,9 @@
               "lasaId": "lasa_008",
               "prompt": "Which is the correct Tall Man lettering for celecoxib?",
               "choices": [
-                "CeLEBrex",
-                "CelebREX",
                 "CELebrex",
+                "CelebREX",
+                "CeLEBrex",
                 "CeleBREX"
               ],
               "correctAnswer": "CeleBREX",
@@ -2103,10 +2103,10 @@
               "lasaId": "lasa_008",
               "prompt": "Which is the correct Tall Man lettering for citalopram?",
               "choices": [
-                "CELexa",
+                "CElexa",
                 "CelEXA",
                 "CeleXA",
-                "CElexa"
+                "CELexa"
               ],
               "correctAnswer": "CeleXA",
               "explanation": "CeleXA uses capitalized Tall Man lettering to distinguish it from its confusable counterpart CeleBREX.",
@@ -2128,10 +2128,10 @@
               "lasaId": "lasa_009",
               "prompt": "Which is the correct Tall Man lettering for hydromorphone?",
               "choices": [
-                "HydromorphONE",
                 "HydromoRPHONE",
-                "HydROMORphone",
-                "HYDROmorphone"
+                "HydromorphONE",
+                "HYDROmorphone",
+                "HydROMORphone"
               ],
               "correctAnswer": "HYDROmorphone",
               "explanation": "HYDROmorphone uses capitalized Tall Man lettering to distinguish it from its confusable counterpart morphine.",
@@ -2153,10 +2153,10 @@
               "lasaId": "lasa_010",
               "prompt": "Which is the correct Tall Man lettering for dobutamine?",
               "choices": [
-                "DobutamINE",
                 "DobutAMINE",
-                "DoBUTAmine",
-                "DOBUtamine"
+                "DobutamINE",
+                "DOBUtamine",
+                "DoBUTAmine"
               ],
               "correctAnswer": "DOBUtamine",
               "explanation": "DOBUtamine uses capitalized Tall Man lettering to distinguish it from its confusable counterpart DOPamine.",
@@ -2178,10 +2178,10 @@
               "lasaId": "lasa_010",
               "prompt": "Which is the correct Tall Man lettering for dopamine?",
               "choices": [
-                "DopaMINE",
+                "DOPamine",
                 "DoPAMine",
                 "DopamINE",
-                "DOPamine"
+                "DopaMINE"
               ],
               "correctAnswer": "DOPamine",
               "explanation": "DOPamine uses capitalized Tall Man lettering to distinguish it from its confusable counterpart DOBUtamine.",
@@ -2203,10 +2203,10 @@
               "lasaId": "lasa_011",
               "prompt": "Which is the correct Tall Man lettering for oxycodone?",
               "choices": [
-                "oxyCODONE",
-                "OXYCodone",
+                "oxycODONE",
                 "oxycodONE",
-                "oxycODONE"
+                "oxyCODONE",
+                "OXYCodone"
               ],
               "correctAnswer": "oxyCODONE",
               "explanation": "oxyCODONE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart HYDROcodone.",
@@ -2228,10 +2228,10 @@
               "lasaId": "lasa_011",
               "prompt": "Which is the correct Tall Man lettering for hydrocodone?",
               "choices": [
-                "HydrocodONE",
                 "HydrocODONE",
-                "HYDROcodone",
-                "HYDRocodone"
+                "HydrocodONE",
+                "HYDRocodone",
+                "HYDROcodone"
               ],
               "correctAnswer": "HYDROcodone",
               "explanation": "HYDROcodone uses capitalized Tall Man lettering to distinguish it from its confusable counterpart oxyCODONE.",
@@ -2254,8 +2254,8 @@
               "prompt": "Which is the correct Tall Man lettering for glipizide?",
               "choices": [
                 "glipizIDE",
-                "glipIZIDE",
                 "glipiZIDE",
+                "glipIZIDE",
                 "GLIPizide"
               ],
               "correctAnswer": "glipiZIDE",
@@ -2278,10 +2278,10 @@
               "lasaId": "lasa_012",
               "prompt": "Which is the correct Tall Man lettering for glyburide?",
               "choices": [
+                "GLYBuride",
                 "glyBURIDE",
                 "glybURIDE",
-                "glyburIDE",
-                "GLYBuride"
+                "glyburIDE"
               ],
               "correctAnswer": "glyBURIDE",
               "explanation": "glyBURIDE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart glipiZIDE.",
@@ -2304,9 +2304,9 @@
               "prompt": "Which is the correct Tall Man lettering for metformin?",
               "choices": [
                 "metFORMIN",
+                "METFormin",
                 "metfORMIN",
-                "metforMIN",
-                "METFormin"
+                "metforMIN"
               ],
               "correctAnswer": "metFORMIN",
               "explanation": "metFORMIN uses capitalized Tall Man lettering to distinguish it from its confusable counterpart metroNIDAZOLE.",
@@ -2328,10 +2328,10 @@
               "lasaId": "lasa_013",
               "prompt": "Which is the correct Tall Man lettering for metronidazole?",
               "choices": [
+                "METROnidazole",
                 "metroNIDAZOLE",
-                "metronidazOLE",
                 "metroniDAZOLE",
-                "METROnidazole"
+                "metronidazOLE"
               ],
               "correctAnswer": "metroNIDAZOLE",
               "explanation": "metroNIDAZOLE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart metFORMIN.",
@@ -2357,14 +2357,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "bupropion",
+              "canonicalDrugId": "lasa_001_a",
               "spokenDrug": "buPROPion",
               "drugToPronounce": "bupropion",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
-                "hydrALAZINE",
-                "buPROPion",
                 "busPIRone",
-                "hydrOXYzine"
+                "hydrOXYzine",
+                "buPROPion",
+                "hydrALAZINE"
               ],
               "correctAnswer": "buPROPion",
               "relatedDrug": "buPROPion",
@@ -2383,13 +2384,14 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "hydroxyzine",
+              "canonicalDrugId": "lasa_002_b",
               "spokenDrug": "hydrOXYzine",
               "drugToPronounce": "hydroxyzine",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
                 "hydrALAZINE",
-                "busPIRone",
                 "hydrOXYzine",
+                "busPIRone",
                 "buPROPion"
               ],
               "correctAnswer": "hydrOXYzine",
@@ -2409,14 +2411,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "tramadol",
+              "canonicalDrugId": "lasa_004_a",
               "spokenDrug": "traMADol",
               "drugToPronounce": "tramadol",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
                 "busPIRone",
-                "traZODone",
                 "traMADol",
-                "buPROPion"
+                "buPROPion",
+                "traZODone"
               ],
               "correctAnswer": "traMADol",
               "relatedDrug": "traMADol",
@@ -2435,14 +2438,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "clonidine",
+              "canonicalDrugId": "lasa_005_b",
               "spokenDrug": "cloNIDine",
               "drugToPronounce": "clonidine",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
                 "cloNIDine",
                 "clonazePAM",
-                "buPROPion",
-                "busPIRone"
+                "busPIRone",
+                "buPROPion"
               ],
               "correctAnswer": "cloNIDine",
               "relatedDrug": "cloNIDine",
@@ -2461,14 +2465,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "clonazepam",
+              "canonicalDrugId": "lasa_007_a",
               "spokenDrug": "clonazePAM",
               "drugToPronounce": "clonazepam",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
-                "buPROPion",
                 "busPIRone",
-                "cloZAPine",
-                "clonazePAM"
+                "buPROPion",
+                "clonazePAM",
+                "cloZAPine"
               ],
               "correctAnswer": "clonazePAM",
               "relatedDrug": "clonazePAM",
@@ -2487,13 +2492,14 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "citalopram",
+              "canonicalDrugId": "lasa_008_b",
               "spokenDrug": "CeleXA",
               "drugToPronounce": "citalopram",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
-                "CeleBREX",
-                "CeleXA",
                 "buPROPion",
+                "CeleXA",
+                "CeleBREX",
                 "busPIRone"
               ],
               "correctAnswer": "CeleXA",
@@ -2513,14 +2519,15 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "dobutamine",
+              "canonicalDrugId": "lasa_010_a",
               "spokenDrug": "DOBUtamine",
               "drugToPronounce": "dobutamine",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
                 "DOBUtamine",
-                "buPROPion",
                 "busPIRone",
-                "DOPamine"
+                "DOPamine",
+                "buPROPion"
               ],
               "correctAnswer": "DOBUtamine",
               "relatedDrug": "DOBUtamine",
@@ -2539,13 +2546,14 @@
               "type": "sound_alike",
               "subtype": "acoustic_mcq",
               "spokenText": "glyburide",
+              "canonicalDrugId": "lasa_012_b",
               "spokenDrug": "glyBURIDE",
               "drugToPronounce": "glyburide",
               "prompt": "Listen to the spoken medication name and identify the correct drug:",
               "choices": [
-                "buPROPion",
-                "glyBURIDE",
                 "busPIRone",
+                "glyBURIDE",
+                "buPROPion",
                 "glipiZIDE"
               ],
               "correctAnswer": "glyBURIDE",
@@ -2574,10 +2582,10 @@
           "lasaId": "lasa_007",
           "prompt": "Which is the correct Tall Man lettering for clozapine?",
           "choices": [
-            "CLOZapine",
-            "clozapINE",
             "clozAPINE",
-            "cloZAPine"
+            "cloZAPine",
+            "CLOZapine",
+            "clozapINE"
           ],
           "correctAnswer": "cloZAPine",
           "explanation": "cloZAPine uses capitalized Tall Man lettering to distinguish it from its confusable counterpart clonazePAM.",
@@ -2599,9 +2607,9 @@
           "lasaId": "lasa_008",
           "prompt": "Which is the correct Tall Man lettering for celecoxib?",
           "choices": [
-            "CeLEBrex",
-            "CelebREX",
             "CELebrex",
+            "CelebREX",
+            "CeLEBrex",
             "CeleBREX"
           ],
           "correctAnswer": "CeleBREX",
@@ -2624,10 +2632,10 @@
           "lasaId": "lasa_008",
           "prompt": "Which is the correct Tall Man lettering for citalopram?",
           "choices": [
-            "CELexa",
+            "CElexa",
             "CelEXA",
             "CeleXA",
-            "CElexa"
+            "CELexa"
           ],
           "correctAnswer": "CeleXA",
           "explanation": "CeleXA uses capitalized Tall Man lettering to distinguish it from its confusable counterpart CeleBREX.",
@@ -2649,10 +2657,10 @@
           "lasaId": "lasa_009",
           "prompt": "Which is the correct Tall Man lettering for hydromorphone?",
           "choices": [
-            "HydromorphONE",
             "HydromoRPHONE",
-            "HydROMORphone",
-            "HYDROmorphone"
+            "HydromorphONE",
+            "HYDROmorphone",
+            "HydROMORphone"
           ],
           "correctAnswer": "HYDROmorphone",
           "explanation": "HYDROmorphone uses capitalized Tall Man lettering to distinguish it from its confusable counterpart morphine.",
@@ -2674,10 +2682,10 @@
           "lasaId": "lasa_010",
           "prompt": "Which is the correct Tall Man lettering for dobutamine?",
           "choices": [
-            "DobutamINE",
             "DobutAMINE",
-            "DoBUTAmine",
-            "DOBUtamine"
+            "DobutamINE",
+            "DOBUtamine",
+            "DoBUTAmine"
           ],
           "correctAnswer": "DOBUtamine",
           "explanation": "DOBUtamine uses capitalized Tall Man lettering to distinguish it from its confusable counterpart DOPamine.",
@@ -2699,10 +2707,10 @@
           "lasaId": "lasa_010",
           "prompt": "Which is the correct Tall Man lettering for dopamine?",
           "choices": [
-            "DopaMINE",
+            "DOPamine",
             "DoPAMine",
             "DopamINE",
-            "DOPamine"
+            "DopaMINE"
           ],
           "correctAnswer": "DOPamine",
           "explanation": "DOPamine uses capitalized Tall Man lettering to distinguish it from its confusable counterpart DOBUtamine.",
@@ -2724,10 +2732,10 @@
           "lasaId": "lasa_011",
           "prompt": "Which is the correct Tall Man lettering for oxycodone?",
           "choices": [
-            "oxyCODONE",
-            "OXYCodone",
+            "oxycODONE",
             "oxycodONE",
-            "oxycODONE"
+            "oxyCODONE",
+            "OXYCodone"
           ],
           "correctAnswer": "oxyCODONE",
           "explanation": "oxyCODONE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart HYDROcodone.",
@@ -2749,10 +2757,10 @@
           "lasaId": "lasa_011",
           "prompt": "Which is the correct Tall Man lettering for hydrocodone?",
           "choices": [
-            "HydrocodONE",
             "HydrocODONE",
-            "HYDROcodone",
-            "HYDRocodone"
+            "HydrocodONE",
+            "HYDRocodone",
+            "HYDROcodone"
           ],
           "correctAnswer": "HYDROcodone",
           "explanation": "HYDROcodone uses capitalized Tall Man lettering to distinguish it from its confusable counterpart oxyCODONE.",
@@ -2775,8 +2783,8 @@
           "prompt": "Which is the correct Tall Man lettering for glipizide?",
           "choices": [
             "glipizIDE",
-            "glipIZIDE",
             "glipiZIDE",
+            "glipIZIDE",
             "GLIPizide"
           ],
           "correctAnswer": "glipiZIDE",
@@ -2799,10 +2807,10 @@
           "lasaId": "lasa_012",
           "prompt": "Which is the correct Tall Man lettering for glyburide?",
           "choices": [
+            "GLYBuride",
             "glyBURIDE",
             "glybURIDE",
-            "glyburIDE",
-            "GLYBuride"
+            "glyburIDE"
           ],
           "correctAnswer": "glyBURIDE",
           "explanation": "glyBURIDE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart glipiZIDE.",
@@ -2825,9 +2833,9 @@
           "prompt": "Which is the correct Tall Man lettering for metformin?",
           "choices": [
             "metFORMIN",
+            "METFormin",
             "metfORMIN",
-            "metforMIN",
-            "METFormin"
+            "metforMIN"
           ],
           "correctAnswer": "metFORMIN",
           "explanation": "metFORMIN uses capitalized Tall Man lettering to distinguish it from its confusable counterpart metroNIDAZOLE.",
@@ -2849,10 +2857,10 @@
           "lasaId": "lasa_013",
           "prompt": "Which is the correct Tall Man lettering for metronidazole?",
           "choices": [
+            "METROnidazole",
             "metroNIDAZOLE",
-            "metronidazOLE",
             "metroniDAZOLE",
-            "METROnidazole"
+            "metronidazOLE"
           ],
           "correctAnswer": "metroNIDAZOLE",
           "explanation": "metroNIDAZOLE uses capitalized Tall Man lettering to distinguish it from its confusable counterpart metFORMIN.",
@@ -2869,14 +2877,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "bupropion",
+          "canonicalDrugId": "lasa_001_a",
           "spokenDrug": "buPROPion",
           "drugToPronounce": "bupropion",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
-            "hydrALAZINE",
-            "buPROPion",
             "busPIRone",
-            "hydrOXYzine"
+            "hydrOXYzine",
+            "buPROPion",
+            "hydrALAZINE"
           ],
           "correctAnswer": "buPROPion",
           "relatedDrug": "buPROPion",
@@ -2895,13 +2904,14 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "hydroxyzine",
+          "canonicalDrugId": "lasa_002_b",
           "spokenDrug": "hydrOXYzine",
           "drugToPronounce": "hydroxyzine",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
             "hydrALAZINE",
-            "busPIRone",
             "hydrOXYzine",
+            "busPIRone",
             "buPROPion"
           ],
           "correctAnswer": "hydrOXYzine",
@@ -2921,14 +2931,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "tramadol",
+          "canonicalDrugId": "lasa_004_a",
           "spokenDrug": "traMADol",
           "drugToPronounce": "tramadol",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
             "busPIRone",
-            "traZODone",
             "traMADol",
-            "buPROPion"
+            "buPROPion",
+            "traZODone"
           ],
           "correctAnswer": "traMADol",
           "relatedDrug": "traMADol",
@@ -2947,14 +2958,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "clonidine",
+          "canonicalDrugId": "lasa_005_b",
           "spokenDrug": "cloNIDine",
           "drugToPronounce": "clonidine",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
             "cloNIDine",
             "clonazePAM",
-            "buPROPion",
-            "busPIRone"
+            "busPIRone",
+            "buPROPion"
           ],
           "correctAnswer": "cloNIDine",
           "relatedDrug": "cloNIDine",
@@ -2973,14 +2985,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "clonazepam",
+          "canonicalDrugId": "lasa_007_a",
           "spokenDrug": "clonazePAM",
           "drugToPronounce": "clonazepam",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
-            "buPROPion",
             "busPIRone",
-            "cloZAPine",
-            "clonazePAM"
+            "buPROPion",
+            "clonazePAM",
+            "cloZAPine"
           ],
           "correctAnswer": "clonazePAM",
           "relatedDrug": "clonazePAM",
@@ -2999,13 +3012,14 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "citalopram",
+          "canonicalDrugId": "lasa_008_b",
           "spokenDrug": "CeleXA",
           "drugToPronounce": "citalopram",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
-            "CeleBREX",
-            "CeleXA",
             "buPROPion",
+            "CeleXA",
+            "CeleBREX",
             "busPIRone"
           ],
           "correctAnswer": "CeleXA",
@@ -3025,14 +3039,15 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "dobutamine",
+          "canonicalDrugId": "lasa_010_a",
           "spokenDrug": "DOBUtamine",
           "drugToPronounce": "dobutamine",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
             "DOBUtamine",
-            "buPROPion",
             "busPIRone",
-            "DOPamine"
+            "DOPamine",
+            "buPROPion"
           ],
           "correctAnswer": "DOBUtamine",
           "relatedDrug": "DOBUtamine",
@@ -3051,13 +3066,14 @@
           "type": "sound_alike",
           "subtype": "acoustic_mcq",
           "spokenText": "glyburide",
+          "canonicalDrugId": "lasa_012_b",
           "spokenDrug": "glyBURIDE",
           "drugToPronounce": "glyburide",
           "prompt": "Listen to the spoken medication name and identify the correct drug:",
           "choices": [
-            "buPROPion",
-            "glyBURIDE",
             "busPIRone",
+            "glyBURIDE",
+            "buPROPion",
             "glipiZIDE"
           ],
           "correctAnswer": "glyBURIDE",
@@ -4353,19 +4369,23 @@
               "pairs": [
                 {
                   "left": "buPROPion",
-                  "right": "busPIRone"
+                  "right": "busPIRone",
+                  "lasaId": "lasa_001"
                 },
                 {
                   "left": "hydrALAZINE",
-                  "right": "hydrOXYzine"
+                  "right": "hydrOXYzine",
+                  "lasaId": "lasa_002"
                 },
                 {
                   "left": "predniSONE",
-                  "right": "prednisoLONE"
+                  "right": "prednisoLONE",
+                  "lasaId": "lasa_003"
                 },
                 {
                   "left": "traMADol",
-                  "right": "traZODone"
+                  "right": "traZODone",
+                  "lasaId": "lasa_004"
                 }
               ],
               "explanation": "Documented ISMP LASA pairs: buPROPion ↔ busPIRone; hydrALAZINE ↔ hydrOXYzine; predniSONE ↔ prednisoLONE; traMADol ↔ traZODone.",
@@ -4386,29 +4406,33 @@
               "pairs": [
                 {
                   "left": "clonazePAM",
-                  "right": "cloNIDine"
+                  "right": "cloNIDine",
+                  "lasaId": "lasa_005"
                 },
                 {
                   "left": "ALPRAZolam",
-                  "right": "LORazepam"
+                  "right": "LORazepam",
+                  "lasaId": "lasa_006"
                 },
                 {
-                  "left": "clonazePAM",
-                  "right": "cloZAPine"
+                  "left": "cloZAPine",
+                  "right": "clonazePAM",
+                  "lasaId": "lasa_007"
                 },
                 {
                   "left": "CeleBREX",
-                  "right": "CeleXA"
+                  "right": "CeleXA",
+                  "lasaId": "lasa_008"
                 }
               ],
-              "explanation": "Documented ISMP LASA pairs: clonazePAM ↔ cloNIDine; ALPRAZolam ↔ LORazepam; clonazePAM ↔ cloZAPine; CeleBREX ↔ CeleXA.",
+              "explanation": "Documented ISMP LASA pairs: clonazePAM ↔ cloNIDine; ALPRAZolam ↔ LORazepam; cloZAPine ↔ clonazePAM; CeleBREX ↔ CeleXA.",
               "relatedDrug": "clonazePAM",
               "riskSummary": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
               "feedbackFact": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List (cloNIDine confused with clonazePAM); ISMP List of Confused Drug Names",
               "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "pairDisplay": "clonazePAM ↔ cloNIDine, ALPRAZolam ↔ LORazepam, clonazePAM ↔ cloZAPine, CeleBREX ↔ CeleXA"
+              "pairDisplay": "clonazePAM ↔ cloNIDine, ALPRAZolam ↔ LORazepam, cloZAPine ↔ clonazePAM, CeleBREX ↔ CeleXA"
             },
             {
               "id": "q_match_level_005_8",
@@ -4419,19 +4443,23 @@
               "pairs": [
                 {
                   "left": "HYDROmorphone",
-                  "right": "morphine"
+                  "right": "morphine",
+                  "lasaId": "lasa_009"
                 },
                 {
                   "left": "DOBUtamine",
-                  "right": "DOPamine"
+                  "right": "DOPamine",
+                  "lasaId": "lasa_010"
                 },
                 {
                   "left": "oxyCODONE",
-                  "right": "HYDROcodone"
+                  "right": "HYDROcodone",
+                  "lasaId": "lasa_011"
                 },
                 {
                   "left": "glipiZIDE",
-                  "right": "glyBURIDE"
+                  "right": "glyBURIDE",
+                  "lasaId": "lasa_012"
                 }
               ],
               "explanation": "Documented ISMP LASA pairs: HYDROmorphone ↔ morphine; DOBUtamine ↔ DOPamine; oxyCODONE ↔ HYDROcodone; glipiZIDE ↔ glyBURIDE.",
@@ -4457,14 +4485,15 @@
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "bupropion",
+              "canonicalDrugId": "lasa_001_a",
               "spokenDrug": "buPROPion",
               "drugToPronounce": "bupropion",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "hydrALAZINE",
-                "hydrOXYzine",
                 "buPROPion",
-                "busPIRone"
+                "hydrALAZINE",
+                "busPIRone",
+                "hydrOXYzine"
               ],
               "correctAnswer": "buPROPion",
               "relatedDrug": "buPROPion",
@@ -4476,22 +4505,22 @@
               "riskSummary": "Confusion between an antidepressant/smoking cessation aid and an anxiolytic; risk of seizure (bupropion overdose) or untreated anxiety/depression.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_001_a"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_002_B_read_back_level_005_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "hydroxyzine",
+              "canonicalDrugId": "lasa_002_b",
               "spokenDrug": "hydrOXYzine",
               "drugToPronounce": "hydroxyzine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "buPROPion",
                 "hydrOXYzine",
                 "busPIRone",
-                "hydrALAZINE"
+                "hydrALAZINE",
+                "buPROPion"
               ],
               "correctAnswer": "hydrOXYzine",
               "relatedDrug": "hydrOXYzine",
@@ -4503,21 +4532,21 @@
               "riskSummary": "Severe hypotension from accidental hydralazine, or unintended central nervous system sedation from hydroxyzine.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_002_b"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_004_A_read_back_level_005_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "tramadol",
+              "canonicalDrugId": "lasa_004_a",
               "spokenDrug": "traMADol",
               "drugToPronounce": "tramadol",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "busPIRone",
-                "traMADol",
                 "traZODone",
+                "traMADol",
+                "busPIRone",
                 "buPROPion"
               ],
               "correctAnswer": "traMADol",
@@ -4530,22 +4559,22 @@
               "riskSummary": "Excessive sedation, hypotension, unmanaged acute pain, or increased risk of serotonin syndrome.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Recommended Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-              "canonicalDrugId": "lasa_004_a"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
             },
             {
               "id": "q_sound_lasa_005_B_read_back_level_005_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "clonidine",
+              "canonicalDrugId": "lasa_005_b",
               "spokenDrug": "cloNIDine",
               "drugToPronounce": "clonidine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "cloNIDine",
+                "buPROPion",
                 "busPIRone",
-                "clonazePAM",
-                "buPROPion"
+                "cloNIDine",
+                "clonazePAM"
               ],
               "correctAnswer": "cloNIDine",
               "relatedDrug": "cloNIDine",
@@ -4557,22 +4586,22 @@
               "riskSummary": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List (cloNIDine confused with clonazePAM); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_005_b"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_007_A_read_back_level_005_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "clonazepam",
+              "canonicalDrugId": "lasa_007_a",
               "spokenDrug": "clonazePAM",
               "drugToPronounce": "clonazepam",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
                 "buPROPion",
-                "clonazePAM",
                 "busPIRone",
-                "cloZAPine"
+                "cloZAPine",
+                "clonazePAM"
               ],
               "correctAnswer": "clonazePAM",
               "relatedDrug": "clonazePAM",
@@ -4584,21 +4613,21 @@
               "riskSummary": "Agranulocytosis, severe orthostatic hypotension, seizures, and metabolic side effects from accidental clozapine administration.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List (cloZAPine confused with clonazePAM); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_007_a"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_008_B_read_back_level_005_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "citalopram",
+              "canonicalDrugId": "lasa_008_b",
               "spokenDrug": "CeleXA",
               "drugToPronounce": "citalopram",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "CeleXA",
                 "buPROPion",
                 "busPIRone",
+                "CeleXA",
                 "CeleBREX"
               ],
               "correctAnswer": "CeleXA",
@@ -4611,22 +4640,22 @@
               "riskSummary": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Brand Name Tall Man List (CeleBREX / CeleXA); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_008_b"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_010_A_read_back_level_005_rb_6",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "dobutamine",
+              "canonicalDrugId": "lasa_010_a",
               "spokenDrug": "DOBUtamine",
               "drugToPronounce": "dobutamine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "buPROPion",
+                "busPIRone",
                 "DOPamine",
                 "DOBUtamine",
-                "busPIRone"
+                "buPROPion"
               ],
               "correctAnswer": "DOBUtamine",
               "relatedDrug": "DOBUtamine",
@@ -4638,21 +4667,21 @@
               "riskSummary": "Hemodynamic instability, dangerous tachycardia, or inappropriate peripheral vasoconstriction/vasodilation in critical care.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_010_a"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_012_B_read_back_level_005_rb_7",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "glyburide",
+              "canonicalDrugId": "lasa_012_b",
               "spokenDrug": "glyBURIDE",
               "drugToPronounce": "glyburide",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "glyBURIDE",
                 "busPIRone",
                 "buPROPion",
+                "glyBURIDE",
                 "glipiZIDE"
               ],
               "correctAnswer": "glyBURIDE",
@@ -4665,8 +4694,7 @@
               "riskSummary": "Prolonged, severe hypoglycemia, especially in elderly patients or those with renal impairment given glyburide.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_012_b"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             }
           ]
         }
@@ -4681,19 +4709,23 @@
           "pairs": [
             {
               "left": "buPROPion",
-              "right": "busPIRone"
+              "right": "busPIRone",
+              "lasaId": "lasa_001"
             },
             {
               "left": "hydrALAZINE",
-              "right": "hydrOXYzine"
+              "right": "hydrOXYzine",
+              "lasaId": "lasa_002"
             },
             {
               "left": "predniSONE",
-              "right": "prednisoLONE"
+              "right": "prednisoLONE",
+              "lasaId": "lasa_003"
             },
             {
               "left": "traMADol",
-              "right": "traZODone"
+              "right": "traZODone",
+              "lasaId": "lasa_004"
             }
           ],
           "explanation": "Documented ISMP LASA pairs: buPROPion ↔ busPIRone; hydrALAZINE ↔ hydrOXYzine; predniSONE ↔ prednisoLONE; traMADol ↔ traZODone.",
@@ -4714,29 +4746,33 @@
           "pairs": [
             {
               "left": "clonazePAM",
-              "right": "cloNIDine"
+              "right": "cloNIDine",
+              "lasaId": "lasa_005"
             },
             {
               "left": "ALPRAZolam",
-              "right": "LORazepam"
+              "right": "LORazepam",
+              "lasaId": "lasa_006"
             },
             {
-              "left": "clonazePAM",
-              "right": "cloZAPine"
+              "left": "cloZAPine",
+              "right": "clonazePAM",
+              "lasaId": "lasa_007"
             },
             {
               "left": "CeleBREX",
-              "right": "CeleXA"
+              "right": "CeleXA",
+              "lasaId": "lasa_008"
             }
           ],
-          "explanation": "Documented ISMP LASA pairs: clonazePAM ↔ cloNIDine; ALPRAZolam ↔ LORazepam; clonazePAM ↔ cloZAPine; CeleBREX ↔ CeleXA.",
+          "explanation": "Documented ISMP LASA pairs: clonazePAM ↔ cloNIDine; ALPRAZolam ↔ LORazepam; cloZAPine ↔ clonazePAM; CeleBREX ↔ CeleXA.",
           "relatedDrug": "clonazePAM",
           "riskSummary": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
           "feedbackFact": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List (cloNIDine confused with clonazePAM); ISMP List of Confused Drug Names",
           "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "pairDisplay": "clonazePAM ↔ cloNIDine, ALPRAZolam ↔ LORazepam, clonazePAM ↔ cloZAPine, CeleBREX ↔ CeleXA"
+          "pairDisplay": "clonazePAM ↔ cloNIDine, ALPRAZolam ↔ LORazepam, cloZAPine ↔ clonazePAM, CeleBREX ↔ CeleXA"
         },
         {
           "id": "q_match_level_005_8",
@@ -4747,19 +4783,23 @@
           "pairs": [
             {
               "left": "HYDROmorphone",
-              "right": "morphine"
+              "right": "morphine",
+              "lasaId": "lasa_009"
             },
             {
               "left": "DOBUtamine",
-              "right": "DOPamine"
+              "right": "DOPamine",
+              "lasaId": "lasa_010"
             },
             {
               "left": "oxyCODONE",
-              "right": "HYDROcodone"
+              "right": "HYDROcodone",
+              "lasaId": "lasa_011"
             },
             {
               "left": "glipiZIDE",
-              "right": "glyBURIDE"
+              "right": "glyBURIDE",
+              "lasaId": "lasa_012"
             }
           ],
           "explanation": "Documented ISMP LASA pairs: HYDROmorphone ↔ morphine; DOBUtamine ↔ DOPamine; oxyCODONE ↔ HYDROcodone; glipiZIDE ↔ glyBURIDE.",
@@ -4776,14 +4816,15 @@
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "bupropion",
+          "canonicalDrugId": "lasa_001_a",
           "spokenDrug": "buPROPion",
           "drugToPronounce": "bupropion",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "hydrALAZINE",
-            "hydrOXYzine",
             "buPROPion",
-            "busPIRone"
+            "hydrALAZINE",
+            "busPIRone",
+            "hydrOXYzine"
           ],
           "correctAnswer": "buPROPion",
           "relatedDrug": "buPROPion",
@@ -4795,22 +4836,22 @@
           "riskSummary": "Confusion between an antidepressant/smoking cessation aid and an anxiolytic; risk of seizure (bupropion overdose) or untreated anxiety/depression.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_001_a"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_002_B_read_back_level_005_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "hydroxyzine",
+          "canonicalDrugId": "lasa_002_b",
           "spokenDrug": "hydrOXYzine",
           "drugToPronounce": "hydroxyzine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "buPROPion",
             "hydrOXYzine",
             "busPIRone",
-            "hydrALAZINE"
+            "hydrALAZINE",
+            "buPROPion"
           ],
           "correctAnswer": "hydrOXYzine",
           "relatedDrug": "hydrOXYzine",
@@ -4822,21 +4863,21 @@
           "riskSummary": "Severe hypotension from accidental hydralazine, or unintended central nervous system sedation from hydroxyzine.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_002_b"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_004_A_read_back_level_005_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "tramadol",
+          "canonicalDrugId": "lasa_004_a",
           "spokenDrug": "traMADol",
           "drugToPronounce": "tramadol",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "busPIRone",
-            "traMADol",
             "traZODone",
+            "traMADol",
+            "busPIRone",
             "buPROPion"
           ],
           "correctAnswer": "traMADol",
@@ -4849,22 +4890,22 @@
           "riskSummary": "Excessive sedation, hypotension, unmanaged acute pain, or increased risk of serotonin syndrome.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Recommended Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-          "canonicalDrugId": "lasa_004_a"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
         },
         {
           "id": "q_sound_lasa_005_B_read_back_level_005_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "clonidine",
+          "canonicalDrugId": "lasa_005_b",
           "spokenDrug": "cloNIDine",
           "drugToPronounce": "clonidine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "cloNIDine",
+            "buPROPion",
             "busPIRone",
-            "clonazePAM",
-            "buPROPion"
+            "cloNIDine",
+            "clonazePAM"
           ],
           "correctAnswer": "cloNIDine",
           "relatedDrug": "cloNIDine",
@@ -4876,22 +4917,22 @@
           "riskSummary": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List (cloNIDine confused with clonazePAM); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_005_b"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_007_A_read_back_level_005_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "clonazepam",
+          "canonicalDrugId": "lasa_007_a",
           "spokenDrug": "clonazePAM",
           "drugToPronounce": "clonazepam",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
             "buPROPion",
-            "clonazePAM",
             "busPIRone",
-            "cloZAPine"
+            "cloZAPine",
+            "clonazePAM"
           ],
           "correctAnswer": "clonazePAM",
           "relatedDrug": "clonazePAM",
@@ -4903,21 +4944,21 @@
           "riskSummary": "Agranulocytosis, severe orthostatic hypotension, seizures, and metabolic side effects from accidental clozapine administration.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List (cloZAPine confused with clonazePAM); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_007_a"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_008_B_read_back_level_005_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "citalopram",
+          "canonicalDrugId": "lasa_008_b",
           "spokenDrug": "CeleXA",
           "drugToPronounce": "citalopram",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "CeleXA",
             "buPROPion",
             "busPIRone",
+            "CeleXA",
             "CeleBREX"
           ],
           "correctAnswer": "CeleXA",
@@ -4930,22 +4971,22 @@
           "riskSummary": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Brand Name Tall Man List (CeleBREX / CeleXA); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_008_b"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_010_A_read_back_level_005_rb_6",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "dobutamine",
+          "canonicalDrugId": "lasa_010_a",
           "spokenDrug": "DOBUtamine",
           "drugToPronounce": "dobutamine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "buPROPion",
+            "busPIRone",
             "DOPamine",
             "DOBUtamine",
-            "busPIRone"
+            "buPROPion"
           ],
           "correctAnswer": "DOBUtamine",
           "relatedDrug": "DOBUtamine",
@@ -4957,21 +4998,21 @@
           "riskSummary": "Hemodynamic instability, dangerous tachycardia, or inappropriate peripheral vasoconstriction/vasodilation in critical care.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_010_a"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_012_B_read_back_level_005_rb_7",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "glyburide",
+          "canonicalDrugId": "lasa_012_b",
           "spokenDrug": "glyBURIDE",
           "drugToPronounce": "glyburide",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "glyBURIDE",
             "busPIRone",
             "buPROPion",
+            "glyBURIDE",
             "glipiZIDE"
           ],
           "correctAnswer": "glyBURIDE",
@@ -4984,8 +5025,7 @@
           "riskSummary": "Prolonged, severe hypoglycemia, especially in elderly patients or those with renal impairment given glyburide.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_012_b"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         }
       ]
     },
@@ -6220,12 +6260,13 @@
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "bupropion",
+              "canonicalDrugId": "lasa_001_a",
               "spokenDrug": "buPROPion",
               "drugToPronounce": "bupropion",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "buPROPion",
                 "busPIRone",
+                "buPROPion",
                 "hydrOXYzine",
                 "hydrALAZINE"
               ],
@@ -6239,22 +6280,22 @@
               "riskSummary": "Confusion between an antidepressant/smoking cessation aid and an anxiolytic; risk of seizure (bupropion overdose) or untreated anxiety/depression.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_001_a"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_002_B_read_back_mst_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "hydroxyzine",
+              "canonicalDrugId": "lasa_002_b",
               "spokenDrug": "hydrOXYzine",
               "drugToPronounce": "hydroxyzine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "buPROPion",
+                "busPIRone",
                 "hydrALAZINE",
                 "hydrOXYzine",
-                "busPIRone"
+                "buPROPion"
               ],
               "correctAnswer": "hydrOXYzine",
               "relatedDrug": "hydrOXYzine",
@@ -6266,22 +6307,22 @@
               "riskSummary": "Severe hypotension from accidental hydralazine, or unintended central nervous system sedation from hydroxyzine.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_002_b"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_004_A_read_back_mst_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "tramadol",
+              "canonicalDrugId": "lasa_004_a",
               "spokenDrug": "traMADol",
               "drugToPronounce": "tramadol",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "buPROPion",
                 "busPIRone",
-                "traZODone",
-                "traMADol"
+                "traMADol",
+                "buPROPion",
+                "traZODone"
               ],
               "correctAnswer": "traMADol",
               "relatedDrug": "traMADol",
@@ -6293,22 +6334,22 @@
               "riskSummary": "Excessive sedation, hypotension, unmanaged acute pain, or increased risk of serotonin syndrome.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Recommended Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-              "canonicalDrugId": "lasa_004_a"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
             },
             {
               "id": "q_sound_lasa_005_B_read_back_mst_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "clonidine",
+              "canonicalDrugId": "lasa_005_b",
               "spokenDrug": "cloNIDine",
               "drugToPronounce": "clonidine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "cloNIDine",
                 "buPROPion",
                 "clonazePAM",
-                "busPIRone"
+                "busPIRone",
+                "cloNIDine"
               ],
               "correctAnswer": "cloNIDine",
               "relatedDrug": "cloNIDine",
@@ -6320,22 +6361,22 @@
               "riskSummary": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List (cloNIDine confused with clonazePAM); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_005_b"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_007_A_read_back_mst_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "clonazepam",
+              "canonicalDrugId": "lasa_007_a",
               "spokenDrug": "clonazePAM",
               "drugToPronounce": "clonazepam",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
                 "busPIRone",
-                "clonazePAM",
+                "buPROPion",
                 "cloZAPine",
-                "buPROPion"
+                "clonazePAM"
               ],
               "correctAnswer": "clonazePAM",
               "relatedDrug": "clonazePAM",
@@ -6347,22 +6388,22 @@
               "riskSummary": "Agranulocytosis, severe orthostatic hypotension, seizures, and metabolic side effects from accidental clozapine administration.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List (cloZAPine confused with clonazePAM); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_007_a"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_008_B_read_back_mst_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "citalopram",
+              "canonicalDrugId": "lasa_008_b",
               "spokenDrug": "CeleXA",
               "drugToPronounce": "citalopram",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
                 "buPROPion",
-                "CeleXA",
                 "busPIRone",
-                "CeleBREX"
+                "CeleBREX",
+                "CeleXA"
               ],
               "correctAnswer": "CeleXA",
               "relatedDrug": "CeleXA",
@@ -6374,22 +6415,22 @@
               "riskSummary": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Brand Name Tall Man List (CeleBREX / CeleXA); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_008_b"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_010_A_read_back_mst_rb_6",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "dobutamine",
+              "canonicalDrugId": "lasa_010_a",
               "spokenDrug": "DOBUtamine",
               "drugToPronounce": "dobutamine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
-                "buPROPion",
-                "DOPamine",
+                "DOBUtamine",
                 "busPIRone",
-                "DOBUtamine"
+                "DOPamine",
+                "buPROPion"
               ],
               "correctAnswer": "DOBUtamine",
               "relatedDrug": "DOBUtamine",
@@ -6401,22 +6442,22 @@
               "riskSummary": "Hemodynamic instability, dangerous tachycardia, or inappropriate peripheral vasoconstriction/vasodilation in critical care.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_010_a"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             },
             {
               "id": "q_sound_lasa_012_B_read_back_mst_rb_7",
               "type": "sound_alike",
               "subtype": "read_back",
               "spokenText": "glyburide",
+              "canonicalDrugId": "lasa_012_b",
               "spokenDrug": "glyBURIDE",
               "drugToPronounce": "glyburide",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
               "choices": [
                 "buPROPion",
+                "busPIRone",
                 "glyBURIDE",
-                "glipiZIDE",
-                "busPIRone"
+                "glipiZIDE"
               ],
               "correctAnswer": "glyBURIDE",
               "relatedDrug": "glyBURIDE",
@@ -6428,8 +6469,7 @@
               "riskSummary": "Prolonged, severe hypoglycemia, especially in elderly patients or those with renal impairment given glyburide.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-              "canonicalDrugId": "lasa_012_b"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
             }
           ]
         },
@@ -6448,10 +6488,10 @@
               "lasaId": "lasa_001",
               "prompt": "Which medication is commonly confused with buPROPion?",
               "choices": [
-                "busPIRone",
-                "DULOxetine",
                 "CISplatin",
-                "HYDROmorphone"
+                "HYDROmorphone",
+                "DULOxetine",
+                "busPIRone"
               ],
               "correctAnswer": "busPIRone",
               "explanation": "buPROPion and busPIRone form a documented ISMP/FDA LASA pair.",
@@ -6494,9 +6534,9 @@
               "lasaId": "lasa_003",
               "prompt": "Which medication is commonly confused with predniSONE?",
               "choices": [
-                "DOCEtaxel",
-                "clomiPHENE",
                 "prednisoLONE",
+                "clomiPHENE",
+                "DOCEtaxel",
                 "FLUOxetine"
               ],
               "correctAnswer": "prednisoLONE",
@@ -6517,8 +6557,8 @@
               "lasaId": "lasa_004",
               "prompt": "Which medication is commonly confused with traZODone?",
               "choices": [
-                "diphenhydrAMINE",
                 "cefTRIAXone",
+                "diphenhydrAMINE",
                 "ePHEDrine",
                 "traMADol"
               ],
@@ -6542,8 +6582,8 @@
               "choices": [
                 "clomiPRAMINE",
                 "PAROxetine",
-                "sulfADIAZINE",
-                "cloNIDine"
+                "cloNIDine",
+                "sulfADIAZINE"
               ],
               "correctAnswer": "cloNIDine",
               "explanation": "clonazePAM and cloNIDine form a documented ISMP/FDA LASA pair.",
@@ -6587,9 +6627,9 @@
               "prompt": "Which medication is commonly confused with clonazePAM?",
               "choices": [
                 "cloZAPine",
-                "sulfiSOXAZOLE",
                 "cycloSERINE",
-                "TopAMAX"
+                "TopAMAX",
+                "sulfiSOXAZOLE"
               ],
               "correctAnswer": "cloZAPine",
               "explanation": "clonazePAM and cloZAPine form a documented ISMP/FDA LASA pair.",
@@ -6609,10 +6649,10 @@
               "lasaId": "lasa_008",
               "prompt": "Which medication is commonly confused with CeleXA?",
               "choices": [
-                "SOLU-Medrol",
+                "Lantus",
                 "TENECTEplase",
-                "CeleBREX",
-                "Lantus"
+                "SOLU-Medrol",
+                "CeleBREX"
               ],
               "correctAnswer": "CeleBREX",
               "explanation": "CeleXA and CeleBREX form a documented ISMP/FDA LASA pair.",
@@ -6632,10 +6672,10 @@
               "lasaId": "lasa_009",
               "prompt": "Which medication is commonly confused with HYDROmorphone?",
               "choices": [
-                "buPROPion",
-                "TOLAZamide",
                 "morphine",
-                "Toprol-XL"
+                "Toprol-XL",
+                "TOLAZamide",
+                "buPROPion"
               ],
               "correctAnswer": "morphine",
               "explanation": "HYDROmorphone and morphine form a documented ISMP/FDA LASA pair.",
@@ -6655,9 +6695,9 @@
               "lasaId": "lasa_010",
               "prompt": "Which medication is commonly confused with DOPamine?",
               "choices": [
+                "hydroxyCHLOROquine",
                 "traZODone",
                 "DOBUtamine",
-                "hydroxyCHLOROquine",
                 "Lente"
               ],
               "correctAnswer": "DOBUtamine",
@@ -6678,8 +6718,8 @@
               "lasaId": "lasa_011",
               "prompt": "Which medication is commonly confused with oxyCODONE?",
               "choices": [
-                "SeroQUEL",
                 "CeleXA",
+                "SeroQUEL",
                 "HYDROcodone",
                 "busPIRone"
               ],
@@ -6701,10 +6741,10 @@
               "lasaId": "lasa_012",
               "prompt": "Which medication is commonly confused with glyBURIDE?",
               "choices": [
-                "metFORMIN",
-                "hydroxyUREA",
                 "clonazePAM",
-                "glipiZIDE"
+                "glipiZIDE",
+                "hydroxyUREA",
+                "metFORMIN"
               ],
               "correctAnswer": "glipiZIDE",
               "explanation": "glyBURIDE and glipiZIDE form a documented ISMP/FDA LASA pair.",
@@ -6724,9 +6764,9 @@
               "lasaId": "lasa_013",
               "prompt": "Which medication is commonly confused with metFORMIN?",
               "choices": [
-                "metroNIDAZOLE",
                 "PACLitaxel",
                 "HYDROmorphone",
+                "metroNIDAZOLE",
                 "hydrALAZINE"
               ],
               "correctAnswer": "metroNIDAZOLE",
@@ -7923,12 +7963,13 @@
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "bupropion",
+          "canonicalDrugId": "lasa_001_a",
           "spokenDrug": "buPROPion",
           "drugToPronounce": "bupropion",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "buPROPion",
             "busPIRone",
+            "buPROPion",
             "hydrOXYzine",
             "hydrALAZINE"
           ],
@@ -7942,22 +7983,22 @@
           "riskSummary": "Confusion between an antidepressant/smoking cessation aid and an anxiolytic; risk of seizure (bupropion overdose) or untreated anxiety/depression.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_001_a"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_002_B_read_back_mst_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "hydroxyzine",
+          "canonicalDrugId": "lasa_002_b",
           "spokenDrug": "hydrOXYzine",
           "drugToPronounce": "hydroxyzine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "buPROPion",
+            "busPIRone",
             "hydrALAZINE",
             "hydrOXYzine",
-            "busPIRone"
+            "buPROPion"
           ],
           "correctAnswer": "hydrOXYzine",
           "relatedDrug": "hydrOXYzine",
@@ -7969,22 +8010,22 @@
           "riskSummary": "Severe hypotension from accidental hydralazine, or unintended central nervous system sedation from hydroxyzine.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_002_b"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_004_A_read_back_mst_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "tramadol",
+          "canonicalDrugId": "lasa_004_a",
           "spokenDrug": "traMADol",
           "drugToPronounce": "tramadol",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "buPROPion",
             "busPIRone",
-            "traZODone",
-            "traMADol"
+            "traMADol",
+            "buPROPion",
+            "traZODone"
           ],
           "correctAnswer": "traMADol",
           "relatedDrug": "traMADol",
@@ -7996,22 +8037,22 @@
           "riskSummary": "Excessive sedation, hypotension, unmanaged acute pain, or increased risk of serotonin syndrome.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Recommended Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
-          "canonicalDrugId": "lasa_004_a"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
         },
         {
           "id": "q_sound_lasa_005_B_read_back_mst_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "clonidine",
+          "canonicalDrugId": "lasa_005_b",
           "spokenDrug": "cloNIDine",
           "drugToPronounce": "clonidine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "cloNIDine",
             "buPROPion",
             "clonazePAM",
-            "busPIRone"
+            "busPIRone",
+            "cloNIDine"
           ],
           "correctAnswer": "cloNIDine",
           "relatedDrug": "cloNIDine",
@@ -8023,22 +8064,22 @@
           "riskSummary": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List (cloNIDine confused with clonazePAM); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_005_b"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_007_A_read_back_mst_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "clonazepam",
+          "canonicalDrugId": "lasa_007_a",
           "spokenDrug": "clonazePAM",
           "drugToPronounce": "clonazepam",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
             "busPIRone",
-            "clonazePAM",
+            "buPROPion",
             "cloZAPine",
-            "buPROPion"
+            "clonazePAM"
           ],
           "correctAnswer": "clonazePAM",
           "relatedDrug": "clonazePAM",
@@ -8050,22 +8091,22 @@
           "riskSummary": "Agranulocytosis, severe orthostatic hypotension, seizures, and metabolic side effects from accidental clozapine administration.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List (cloZAPine confused with clonazePAM); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_007_a"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_008_B_read_back_mst_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "citalopram",
+          "canonicalDrugId": "lasa_008_b",
           "spokenDrug": "CeleXA",
           "drugToPronounce": "citalopram",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
             "buPROPion",
-            "CeleXA",
             "busPIRone",
-            "CeleBREX"
+            "CeleBREX",
+            "CeleXA"
           ],
           "correctAnswer": "CeleXA",
           "relatedDrug": "CeleXA",
@@ -8077,22 +8118,22 @@
           "riskSummary": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Brand Name Tall Man List (CeleBREX / CeleXA); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_008_b"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_010_A_read_back_mst_rb_6",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "dobutamine",
+          "canonicalDrugId": "lasa_010_a",
           "spokenDrug": "DOBUtamine",
           "drugToPronounce": "dobutamine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
-            "buPROPion",
-            "DOPamine",
+            "DOBUtamine",
             "busPIRone",
-            "DOBUtamine"
+            "DOPamine",
+            "buPROPion"
           ],
           "correctAnswer": "DOBUtamine",
           "relatedDrug": "DOBUtamine",
@@ -8104,22 +8145,22 @@
           "riskSummary": "Hemodynamic instability, dangerous tachycardia, or inappropriate peripheral vasoconstriction/vasodilation in critical care.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_010_a"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_sound_lasa_012_B_read_back_mst_rb_7",
           "type": "sound_alike",
           "subtype": "read_back",
           "spokenText": "glyburide",
+          "canonicalDrugId": "lasa_012_b",
           "spokenDrug": "glyBURIDE",
           "drugToPronounce": "glyburide",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
           "choices": [
             "buPROPion",
+            "busPIRone",
             "glyBURIDE",
-            "glipiZIDE",
-            "busPIRone"
+            "glipiZIDE"
           ],
           "correctAnswer": "glyBURIDE",
           "relatedDrug": "glyBURIDE",
@@ -8131,8 +8172,7 @@
           "riskSummary": "Prolonged, severe hypoglycemia, especially in elderly patients or those with renal impairment given glyburide.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
-          "canonicalDrugId": "lasa_012_b"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
         },
         {
           "id": "q_pair_lasa_001_A_mst_disc_0",
@@ -8142,10 +8182,10 @@
           "lasaId": "lasa_001",
           "prompt": "Which medication is commonly confused with buPROPion?",
           "choices": [
-            "busPIRone",
-            "DULOxetine",
             "CISplatin",
-            "HYDROmorphone"
+            "HYDROmorphone",
+            "DULOxetine",
+            "busPIRone"
           ],
           "correctAnswer": "busPIRone",
           "explanation": "buPROPion and busPIRone form a documented ISMP/FDA LASA pair.",
@@ -8188,9 +8228,9 @@
           "lasaId": "lasa_003",
           "prompt": "Which medication is commonly confused with predniSONE?",
           "choices": [
-            "DOCEtaxel",
-            "clomiPHENE",
             "prednisoLONE",
+            "clomiPHENE",
+            "DOCEtaxel",
             "FLUOxetine"
           ],
           "correctAnswer": "prednisoLONE",
@@ -8211,8 +8251,8 @@
           "lasaId": "lasa_004",
           "prompt": "Which medication is commonly confused with traZODone?",
           "choices": [
-            "diphenhydrAMINE",
             "cefTRIAXone",
+            "diphenhydrAMINE",
             "ePHEDrine",
             "traMADol"
           ],
@@ -8236,8 +8276,8 @@
           "choices": [
             "clomiPRAMINE",
             "PAROxetine",
-            "sulfADIAZINE",
-            "cloNIDine"
+            "cloNIDine",
+            "sulfADIAZINE"
           ],
           "correctAnswer": "cloNIDine",
           "explanation": "clonazePAM and cloNIDine form a documented ISMP/FDA LASA pair.",
@@ -8281,9 +8321,9 @@
           "prompt": "Which medication is commonly confused with clonazePAM?",
           "choices": [
             "cloZAPine",
-            "sulfiSOXAZOLE",
             "cycloSERINE",
-            "TopAMAX"
+            "TopAMAX",
+            "sulfiSOXAZOLE"
           ],
           "correctAnswer": "cloZAPine",
           "explanation": "clonazePAM and cloZAPine form a documented ISMP/FDA LASA pair.",
@@ -8303,10 +8343,10 @@
           "lasaId": "lasa_008",
           "prompt": "Which medication is commonly confused with CeleXA?",
           "choices": [
-            "SOLU-Medrol",
+            "Lantus",
             "TENECTEplase",
-            "CeleBREX",
-            "Lantus"
+            "SOLU-Medrol",
+            "CeleBREX"
           ],
           "correctAnswer": "CeleBREX",
           "explanation": "CeleXA and CeleBREX form a documented ISMP/FDA LASA pair.",
@@ -8326,10 +8366,10 @@
           "lasaId": "lasa_009",
           "prompt": "Which medication is commonly confused with HYDROmorphone?",
           "choices": [
-            "buPROPion",
-            "TOLAZamide",
             "morphine",
-            "Toprol-XL"
+            "Toprol-XL",
+            "TOLAZamide",
+            "buPROPion"
           ],
           "correctAnswer": "morphine",
           "explanation": "HYDROmorphone and morphine form a documented ISMP/FDA LASA pair.",
@@ -8349,9 +8389,9 @@
           "lasaId": "lasa_010",
           "prompt": "Which medication is commonly confused with DOPamine?",
           "choices": [
+            "hydroxyCHLOROquine",
             "traZODone",
             "DOBUtamine",
-            "hydroxyCHLOROquine",
             "Lente"
           ],
           "correctAnswer": "DOBUtamine",
@@ -8372,8 +8412,8 @@
           "lasaId": "lasa_011",
           "prompt": "Which medication is commonly confused with oxyCODONE?",
           "choices": [
-            "SeroQUEL",
             "CeleXA",
+            "SeroQUEL",
             "HYDROcodone",
             "busPIRone"
           ],
@@ -8395,10 +8435,10 @@
           "lasaId": "lasa_012",
           "prompt": "Which medication is commonly confused with glyBURIDE?",
           "choices": [
-            "metFORMIN",
-            "hydroxyUREA",
             "clonazePAM",
-            "glipiZIDE"
+            "glipiZIDE",
+            "hydroxyUREA",
+            "metFORMIN"
           ],
           "correctAnswer": "glipiZIDE",
           "explanation": "glyBURIDE and glipiZIDE form a documented ISMP/FDA LASA pair.",
@@ -8418,9 +8458,9 @@
           "lasaId": "lasa_013",
           "prompt": "Which medication is commonly confused with metFORMIN?",
           "choices": [
-            "metroNIDAZOLE",
             "PACLitaxel",
             "HYDROmorphone",
+            "metroNIDAZOLE",
             "hydrALAZINE"
           ],
           "correctAnswer": "metroNIDAZOLE",

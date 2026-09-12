@@ -47,13 +47,18 @@ export function evaluateAnswer(question, selectedAnswer) {
                 const rightNorm = String(pair.right).trim().toLowerCase();
 
                 if (Array.isArray(parsedMatches)) {
-                    return parsedMatches.some(
-                        (m) => String(m.left).trim().toLowerCase() === leftNorm &&
-                               String(m.right).trim().toLowerCase() === rightNorm
-                    );
+                    return parsedMatches.some((m) => {
+                        const ml = String(m.left).trim().toLowerCase();
+                        const mr = String(m.right).trim().toLowerCase();
+                        return (ml === leftNorm && mr === rightNorm) || (ml === rightNorm && mr === leftNorm);
+                    });
                 } else {
                     const matchedVal = parsedMatches[pair.left] ?? parsedMatches[leftNorm];
-                    return matchedVal && String(matchedVal).trim().toLowerCase() === rightNorm;
+                    const matchedRev = Object.keys(parsedMatches).find(
+                        (k) => String(parsedMatches[k]).trim().toLowerCase() === leftNorm
+                    );
+                    return (matchedVal && (String(matchedVal).trim().toLowerCase() === rightNorm || String(matchedVal).trim().toLowerCase() === leftNorm)) ||
+                           (matchedRev && String(matchedRev).trim().toLowerCase() === rightNorm);
                 }
             });
         }
