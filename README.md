@@ -13,6 +13,7 @@ By combining clinical pharmacology data with gamified cognitive reinforcement—
   - Direct Level Completion navigation (`[ Continue to Next Level ]`) with automatic progression checks.
 - **Interactive Clinical Question Types**:
   - **Look-Alike & Sound-Alike Identification**: Multiple-choice discrimination between confusing pairs.
+  - **Sound-Alike Acoustic Discrimination**: Distinguishing phonetically confusable medications powered by pre-rendered, build-time clinical pronunciation audio assets.
   - **Tap-to-Match Pairing**: Active recall pairing of medication counterparts under time and heart constraints.
   - **Tall Man Lettering Fill-in-the-Blank**: Case-sensitive mastery challenges emphasizing FDA/ISMP capitalization rules (e.g., `buPROPion` vs `busPIRone`).
 - **Spaced Repetition System (SRS)**:
@@ -112,7 +113,8 @@ Runs ESLint across all source modules.
 
 ```text
 duoclonego/
-├── public/                 # Static assets, icons, audio cues, and avatars
+├── public/                 # Static assets, icons, avatars, and audio
+│   └── audio/lasa/         # Pre-generated clinical medication pronunciation MP3s
 ├── src/
 │   ├── components/         # Reusable UI components
 │   │   ├── FeedbackDrawer/ # Real-time answer result drawer
@@ -124,6 +126,7 @@ duoclonego/
 │   │   ├── Sidebar/        # Desktop sidebar & mobile Learning Path drawer
 │   │   └── UnitDescriptionModal/ # Unit preview and clinical objectives modal
 │   ├── data/               # Clinical datasets and curriculum
+│   │   ├── audioMapping.json # Deterministic medication ID to audio file mapping
 │   │   ├── lasaData.json   # Canonical medication details & confusion reasons
 │   │   ├── lasaPairs.json  # Documented ISMP look-alike/sound-alike pairs
 │   │   └── levels/         # Unit and level curriculum JSON definitions
@@ -135,7 +138,7 @@ duoclonego/
 │   │   ├── Quests/         # Daily quests and achievement tracker
 │   │   └── Documentation/  # Living clinical documentation and architecture guide
 │   ├── services/           # Pure domain logic and storage engines
-│   │   ├── audioService.js      # Web Audio sound cues for correct/incorrect
+│   │   ├── audioService.js      # Web Audio feedback chimes & static pronunciation playback
 │   │   ├── badgeService.js      # Achievement calculations and badge unlocked checks
 │   │   ├── drugService.js       # Medication search, details, and metadata indexing
 │   │   ├── lessonEngine.js      # Answer validation, scoring, and session tracking

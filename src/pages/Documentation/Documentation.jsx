@@ -18,7 +18,8 @@ import {
     Check,
     Layers,
     ArrowRight,
-    Wrench
+    Wrench,
+    Volume2
 } from "lucide-react";
 import "./Documentation.css";
 
@@ -1251,12 +1252,83 @@ function Documentation() {
                                         </tr>
                                         <tr>
                                             <td><strong>Domain Services</strong></td>
-                                            <td><code className="doc-inline-code">drugService</code>, <code className="doc-inline-code">lessonService</code>, <code className="doc-inline-code">practiceService</code>, <code className="doc-inline-code">userService</code>, <code className="doc-inline-code">unitService</code></td>
-                                            <td>Decoupled async service facades abstracting data access</td>
+                                            <td><code className="doc-inline-code">drugService</code>, <code className="doc-inline-code">lessonService</code>, <code className="doc-inline-code">practiceService</code>, <code className="doc-inline-code">userService</code>, <code className="doc-inline-code">unitService</code>, <code className="doc-inline-code">audioService</code></td>
+                                            <td>Decoupled async service facades abstracting data access &amp; audio playback</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
+
+                            {/* AUDIO ARCHITECTURE SUBSECTION */}
+                            <div className="doc-subsection-divider" style={{ margin: "2rem 0 1.5rem" }} />
+                            <div className="doc-section-header" style={{ marginBottom: "1rem" }}>
+                                <div className="doc-section-title-wrap">
+                                    <Volume2 size={20} className="doc-section-icon" style={{ color: "var(--color-secondary)" }} />
+                                    <h3 className="heading-md" style={{ margin: 0 }}>Medication Pronunciation &amp; Audio Architecture (Azure AI Speech Pipeline)</h3>
+                                </div>
+                                <StatusBadge status="Active Target (Phase 4)" />
+                            </div>
+
+                            <p className="doc-paragraph">
+                                <strong>Educational Scope:</strong> Duoclongo provides spoken medication pronunciation audio strictly to foster <em>Look-Alike, Sound-Alike (LASA) name recognition</em> and <em>sound-alike acoustic discrimination</em>. It is engineered for educational cognitive vigilance and is <strong>not</strong> prescribing, dispensing, or clinical administration training.
+                            </p>
+
+                            <h4 className="heading-xs" style={{ textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--text-muted)", marginTop: "1.25rem", marginBottom: "0.5rem" }}>
+                                Current Prototype vs. Target Build-Time Architecture
+                            </h4>
+                            <div className="doc-arch-columns" style={{ marginBottom: "1.25rem" }}>
+                                <div className="doc-arch-box current">
+                                    <span className="doc-arch-tag current-tag">Current Prototype (In-Browser TTS)</span>
+                                    <div className="doc-arch-flow">
+                                        <span>Display Name String</span>
+                                        <ArrowRight size={14} />
+                                        <span>Web Speech API (<code className="doc-inline-code">speechSynthesis</code>)</span>
+                                        <ArrowRight size={14} />
+                                        <span>Device Speaker</span>
+                                    </div>
+                                    <p className="doc-arch-note">
+                                        Dependent on local device OS voices; inconsistent pronunciations of complex pharmacological nomenclature across client browsers.
+                                    </p>
+                                </div>
+
+                                <div className="doc-arch-box future">
+                                    <span className="doc-arch-tag future-tag">Target Architecture (Build-Time Azure Speech)</span>
+                                    <div className="doc-arch-flow">
+                                        <span>Canonical LASA (<code className="doc-inline-code">lasaPairs.json</code>)</span>
+                                        <ArrowRight size={14} />
+                                        <span>Azure AI Speech CLI</span>
+                                        <ArrowRight size={14} />
+                                        <span>Static MP3 (<code className="doc-inline-code">/audio/lasa/*.mp3</code>)</span>
+                                        <ArrowRight size={14} />
+                                        <span>Deterministic Mapping</span>
+                                        <ArrowRight size={14} />
+                                        <span>Existing Speaker UI</span>
+                                    </div>
+                                    <p className="doc-arch-note">
+                                        Zero runtime API calls or secrets. Azure is used offline at build-time to produce deterministic clinical MP3 assets committed to the repository for instantaneous, zero-latency static playback.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <h4 className="heading-xs" style={{ textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--text-muted)", marginTop: "1.25rem", marginBottom: "0.5rem" }}>
+                                Engineering &amp; Security Specifications
+                            </h4>
+                            <ul className="doc-bullet-list">
+                                <li><strong>Why Pre-Generated:</strong> Moving to build-time audio eliminates external cloud dependencies during learner sessions, prevents API rate-limiting or outages, ensures 100% reproducible enunciation, and enables full static hosting on platforms like Vercel with zero Azure credentials in production.</li>
+                                <li><strong>Canonical Data Grounding:</strong> All audio generation derives strictly from verified records in <code className="doc-inline-code">src/data/lasaPairs.json</code> (50 ISMP 2023 / FDA Table 1 pairs). No drug names, pairs, or phonetic rules are ever invented or artificially modified.</li>
+                                <li><strong>Stable Medication-ID Association:</strong> Audio assets are mapped deterministically via <code className="doc-inline-code">src/data/audioMapping.json</code> to stable medication identifiers (e.g. <code className="doc-inline-code">playMedicationAudio(medicationId)</code> $\rightarrow$ <code className="doc-inline-code">/audio/lasa/[id].mp3</code>). The UI never guesses filenames from variable display text.</li>
+                                <li><strong>Credential Isolation:</strong> Azure credentials (<code className="doc-inline-code">AZURE_SPEECH_KEY</code>, <code className="doc-inline-code">AZURE_SPEECH_REGION</code>) reside exclusively in local dev environments via gitignored <code className="doc-inline-code">.env.local</code>. They are <em>never</em> bundled into client JavaScript, never prefixed with <code className="doc-inline-code">VITE_</code>, and never accessible to the browser.</li>
+                                <li><strong>Preserved Speaker UI:</strong> Existing 3D pushable speaker buttons, placement, accessible ARIA announcements, and question-card layouts are completely retained; only the underlying audio source transitions from runtime synthesis to static asset playback.</li>
+                                <li><strong>Separation from Game Sounds:</strong> Duoclongo's real-time Web Audio API feedback sounds (<code className="doc-inline-code">playCorrectSound()</code> affirmative chime, <code className="doc-inline-code">playIncorrectSound()</code> error buzz in <code className="doc-inline-code">src/services/audioService.js</code>) remain completely separate and are not modified by the speech pipeline.</li>
+                                <li><strong>Developer CLI Tools:</strong>
+                                    <ul style={{ marginTop: "0.4rem", paddingLeft: "1.2rem" }}>
+                                        <li><code className="doc-inline-code">npm run generate:lasa-audio</code>: Synthesizes missing clips into <code className="doc-inline-code">public/audio/lasa/</code>; supports <code className="doc-inline-code">--force</code> and targeted <code className="doc-inline-code">--id=&lt;id&gt;</code> regeneration.</li>
+                                        <li><code className="doc-inline-code">npm run validate:lasa-audio</code>: Verifies 100% asset coverage, checks for broken mappings, and flags orphaned audio files.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Pronunciation QA &amp; Review Protocol:</strong> Successful audio generation does not automatically guarantee pharmacological accuracy. Suspect pronunciations are evaluated against official USAN phonetics and package inserts, corrected using Azure SSML phonetic markup, and regenerated individually. Missing assets fail gracefully without crashing lessons.</li>
+                                <li><strong>Research &amp; Thesis Note:</strong> In research publications, the source-verified clinical LASA data (ISMP/FDA) is clearly distinguished from technical speech synthesis tooling (Azure AI Speech). Azure provides high-fidelity acoustic reproduction; clinical validity stems from the authoritative ISMP source records.</li>
+                            </ul>
                         </section>
                     )}
 
@@ -1317,8 +1389,8 @@ function Documentation() {
                                         </tr>
                                         <tr>
                                             <td><strong>Sound & Pronunciation</strong></td>
-                                            <td>Phonetic text comparisons are present, but native audio pronunciation synthesis or recorded voice clips are not yet integrated.</td>
-                                            <td>Phase 8</td>
+                                            <td>Active development (Phase 4). Web Audio API feedback chimes implemented; medication pronunciation migrating from prototype Web Speech API to pre-rendered Azure AI Speech static assets (<code className="doc-inline-code">/audio/lasa/*.mp3</code>) for verified clinical enunciation.</td>
+                                            <td>Phase 4 (Active Target)</td>
                                         </tr>
                                     </tbody>
                                 </table>
