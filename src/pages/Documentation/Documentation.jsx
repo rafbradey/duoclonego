@@ -23,8 +23,8 @@ import {
 } from "lucide-react";
 import "./Documentation.css";
 
-const LAST_UPDATED = "September 10, 2026";
-const APP_VERSION = "v0.8.0 (Realigned Core LASA Recognition MVP & Web Audio Feedback)";
+const LAST_UPDATED = "September 12, 2026";
+const APP_VERSION = "v0.9.5 (Universal Medication Pronunciation, 6-Level Curriculum Architecture, & Static Azure Audio Pipeline)";
 
 // Status pill component helper
 function StatusBadge({ status }) {
@@ -338,6 +338,12 @@ function Documentation() {
                                             <td><code className="doc-inline-code">AppLayout</code></td>
                                             <td><StatusBadge status="Implemented" /></td>
                                         </tr>
+                                        <tr>
+                                            <td><code className="doc-inline-code">/test-tts</code></td>
+                                            <td>Developer Speech Diagnostic Suite (<code className="doc-inline-code">TtsTestPage.jsx</code>)</td>
+                                            <td><code className="doc-inline-code">AppLayout</code></td>
+                                            <td><StatusBadge status="Developer Environment" /></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -370,18 +376,27 @@ function Documentation() {
                             <div className="doc-subfeature-block">
                                 <div className="doc-subfeature-title-bar">
                                     <h3 className="heading-sm">3.2 Curriculum Tree (<code className="doc-inline-code">/learn</code>)</h3>
-                                    <StatusBadge status="Implemented" />
+                                    <StatusBadge status="Implemented (6-Level Architecture)" />
                                 </div>
                                 <p className="doc-paragraph">
-                                    The primary educational hub. Renders Unit cards containing visual progression paths. Each level node resolves its status dynamically:
+                                    The primary educational hub. Renders Section and Unit cards containing standardized 6-level progression paths with 100% 5-pair coverage guarantees:
                                 </p>
                                 <ul className="doc-bullet-list">
                                     <li><strong>Completed Level:</strong> Golden accent ring, checkmark icon, and <code className="doc-inline-code">✓ DONE</code> badge. Users can freely replay completed levels for practice.</li>
                                     <li><strong>Active Level:</strong> Primary green background with a <code className="doc-inline-code">Star</code> icon and subtle pulse animation inviting interaction. Clicking navigates directly to <code className="doc-inline-code">/lesson/:levelId</code>.</li>
                                     <li><strong>Locked Level:</strong> Grayed surface with padlock icon; disabled until the preceding prerequisite level is completed.</li>
-                                    <li><strong>Dedicated Unit Mastery (4th Level):</strong> Distinct gold/amber capstone card positioned after Level 3 with a prominent trophy badge (🏆), dedicated route <code className="doc-inline-code">/unit/:unitId/mastery</code>, and +25 XP capstone reward. Locked until Levels 1–3 are completed; conquering Unit Mastery unlocks the subsequent Unit.</li>
+                                    <li><strong>6-Level Structured Progression:</strong>
+                                        <ul>
+                                            <li><strong>Level 1: Introduction &amp; Familiarization:</strong> Discrete choice pairing 5 target LASA pairs.</li>
+                                            <li><strong>Level 2: Tall Man Guided Construction:</strong> Scaffolded affix frames with live orthographic reconstruction.</li>
+                                            <li><strong>Level 3: Clinical Risk &amp; Indication Distinction:</strong> Differentiating indication mismatches and critical safety confusions.</li>
+                                            <li><strong>Level 4: Simulated Oral Order / Verify Read-Back:</strong> Pure auditory challenge requiring verbal read-back discrimination before answer options unlock.</li>
+                                            <li><strong>Level 5: Rapid Review Challenge:</strong> Mixed speed challenge synthesizing all 5 pairs under heart constraints.</li>
+                                            <li><strong>Level 6: Dedicated Unit Mastery Capstone:</strong> Pure unassisted Tall Man construction capstone (🏆), accessible via <code className="doc-inline-code">/unit/:unitId/mastery</code> with +25 XP capstone reward. Conquering Level 6 unlocks the subsequent Unit.</li>
+                                        </ul>
+                                    </li>
                                     <li><strong>Path Connectors:</strong> Visual lines connecting nodes dynamically turn green when the preceding step is achieved.</li>
-                                    <li><strong>Unit Guidebook:</strong> Each unit header provides a &quot;GUIDEBOOK&quot; button launching a modal reference of confused pairs.</li>
+                                    <li><strong>Unit Guidebook:</strong> Each unit header provides a &quot;GUIDEBOOK&quot; button launching a modal reference of confused pairs with audio playback.</li>
                                 </ul>
                             </div>
 
@@ -396,7 +411,8 @@ function Documentation() {
                                 </p>
                                 <ul className="doc-bullet-list">
                                     <li><strong>Header Controls:</strong> Exit button with discard confirmation dialog, animated progress bar tracking completion percentage, and active hearts indicator.</li>
-                                    <li><strong>Dynamic Session Sampling & Option Shuffling:</strong> Powered by <code className="doc-inline-code">prepareSessionLesson()</code> to ensure high question diversity while preserving 100% accurate answer evaluation.</li>
+                                    <li><strong>Universal Clinical Pronunciation:</strong> High-fidelity static medication pronunciation (<code className="doc-inline-code">&lt;AudioPronounceButton /&gt;</code>) available across all question types (MCQ, Tall Man Construction, Sound-Alike, and Matching) powered by pre-rendered Azure AI Speech Neural assets (<code className="doc-inline-code">public/audio/lasa/*.mp3</code>). Zero external runtime dependencies.</li>
+                                    <li><strong>Dynamic Session Sampling &amp; Option Shuffling:</strong> Powered by <code className="doc-inline-code">prepareSessionLesson()</code> to ensure high question diversity while preserving 100% accurate answer evaluation.</li>
                                     <li><strong>Instant Web Audio Feedback:</strong> Real-time synthesized audio via the browser Web Audio API (<code className="doc-inline-code">audioService.js</code>). Correct answers trigger an affirmative rising chime; mistakes trigger a distinctive descending error buzzer.</li>
                                     <li><strong>Pure Cognitive LASA Prompts:</strong> Zero narrative dispensing scenarios or treatment questions. Directly challenges learners on Tall Man capitalization and confusable counterpart recognition.</li>
                                     <li><strong>Immediate Explanatory Feedback:</strong> Bottom feedback drawer (<code className="doc-inline-code">&lt;FeedbackDrawer /&gt;</code>) triggers on answer submission, highlighting the correct distinction, clinical safety rationale, and related medication.</li>
@@ -411,7 +427,7 @@ function Documentation() {
                                     <StatusBadge status="Implemented" />
                                 </div>
                                 <p className="doc-paragraph">
-                                    Accessible from any unit banner on <code className="doc-inline-code">/learn</code>. Renders verified medication pairs (<code className="doc-inline-code">&lt;LasaPairCard /&gt;</code>) belonging to that unit, supports live search filtering, and displays official ISMP 2023 citation metadata.
+                                    Accessible from any unit banner on <code className="doc-inline-code">/learn</code>. Renders verified medication pairs (<code className="doc-inline-code">&lt;LasaPairCard /&gt;</code>) belonging to that unit, supports live search filtering, on-demand audio pronunciation, and displays official ISMP 2023 citation metadata.
                                 </p>
                             </div>
 
@@ -439,14 +455,15 @@ function Documentation() {
                                     <StatusBadge status="Implemented" />
                                 </div>
                                 <p className="doc-paragraph">
-                                    A retrieval practice and memory consolidation center powered by a pragmatic 4-Stage Leitner Spaced Repetition System (SRS) and unified mistake tracking:
+                                    A retrieval practice and memory consolidation center powered by a pragmatic 4-Stage Leitner Spaced Repetition System (SRS), unified mistake tracking, and dedicated acoustic listening drills:
                                 </p>
                                 <ul className="doc-bullet-list">
-                                    <li><strong>Three Specialized Practice Modes:</strong>
+                                    <li><strong>Four Specialized Practice Modes:</strong>
                                         <ul>
                                             <li><strong>Daily Spaced Review (<code className="doc-inline-code">mode=due</code>):</strong> The primary practice activity when reviews are due. Targets pairs whose interval timers have expired to prevent memory decay. If fewer than 5 items are due, backfills from newly learned pairs.</li>
                                             <li><strong>Targeted Mistakes Review (<code className="doc-inline-code">mode=mistakes</code>):</strong> Directly exercises questions previously missed in normal unit lessons or capstone mastery. Answering correctly redeems the mistake and clears it from the queue.</li>
                                             <li><strong>Quick Practice (<code className="doc-inline-code">mode=quick</code>):</strong> Rapid 5-question randomized retrieval across all unlocked curriculum levels, awarding +10 review XP.</li>
+                                            <li><strong>Sound-Alike Audio Challenge (<code className="doc-inline-code">mode=audio</code>):</strong> Dedicated acoustic discrimination practice exercising auditory recognition of spoken medication orders and verbal read-back safety.</li>
                                         </ul>
                                     </li>
                                     <li><strong>4-Stage Leitner Memory Intervals:</strong>
@@ -459,7 +476,7 @@ function Documentation() {
                                     </li>
                                     <li><strong>Unified Mistake Capture:</strong> Errors made anywhere in the application (normal lessons, unit mastery capstones, or practice) automatically demote the pair to Stage 0 and append the question to <code className="doc-inline-code">user.mistakes_queue</code>.</li>
                                     <li><strong>Live Practice Stats Bar:</strong> Displays real-time counters for Reviews Finished, Due for Review, Mistakes in Queue, and Mastered Pairs.</li>
-                                    <li><strong>Confusable Pairs Reference Browser:</strong> Interactive flashcard directory of verified ISMP drug pairs with dynamic memory strength pills (<code className="doc-inline-code">Mastered</code>, <code className="doc-inline-code">Review Due</code>, <code className="doc-inline-code">Stage 1/2</code>) and <code className="doc-inline-code">TallManText</code> highlighting.</li>
+                                    <li><strong>Confusable Pairs Reference Browser:</strong> Interactive flashcard directory of verified ISMP drug pairs with dynamic memory strength pills (<code className="doc-inline-code">Mastered</code>, <code className="doc-inline-code">Review Due</code>, <code className="doc-inline-code">Stage 1/2</code>), on-demand pronunciation, and <code className="doc-inline-code">TallManText</code> highlighting.</li>
                                     <li><strong>Protected Hearts (Safe Mode):</strong> Practice sessions protect the learner&apos;s hearts (zero hearts depleted on incorrect answers) to encourage low-anxiety retrieval practice.</li>
                                 </ul>
                             </div>
@@ -497,7 +514,7 @@ function Documentation() {
                                 <span className="doc-h-arrow">&rarr;</span>
                                 <span className="doc-h-node">Unit</span>
                                 <span className="doc-h-arrow">&rarr;</span>
-                                <span className="doc-h-node">Levels 1..3 + Unit Mastery</span>
+                                <span className="doc-h-node">Levels 1..5 + Level 6 Mastery</span>
                                 <span className="doc-h-arrow">&rarr;</span>
                                 <span className="doc-h-node">Lesson</span>
                                 <span className="doc-h-arrow">&rarr;</span>
@@ -512,35 +529,38 @@ function Documentation() {
                                 <br />
                                 The current Duoclongo implementation strictly tests the learner&apos;s ability to <strong>recognize, distinguish, and correctly construct Look-Alike / Sound-Alike medication names</strong>.
                                 <br />
-                                <em>&quot;Can I recognize these medication names and distinguish easily confused look-alikes?&quot;</em>
+                                <em>&quot;Can I recognize these medication names and distinguish easily confused look-alikes and sound-alikes?&quot;</em>
                             </div>
                             <p className="doc-paragraph">
                                 <strong>Intentional Scope Correction:</strong> Theoretical and clinical questions (such as ISMP classification theory, drug indications, mechanisms of action, pharmacokinetics, dosage calculations, and clinical reasoning) are <strong>not part of active learner lessons</strong>. All previous prototype theoretical items have been migrated out of active levels into a dedicated preservation archive (<code className="doc-inline-code">src/data/curriculum/deferredTheoreticalQuestions.json</code>) and reserved for future research-backed phases.
                             </p>
 
-                            <h3 className="heading-sm doc-subsection-title">Standardized Unit Structure: 3 Normal Levels + Unit Mastery</h3>
+                            <h3 className="heading-sm doc-subsection-title">Standardized Unit Structure: 6-Level Pedagogy (100% LASA Coverage Guarantee)</h3>
                             <p className="doc-paragraph">
-                                Every Unit across all Sections adheres strictly to a 4-level pedagogical structure:
+                                Every Unit across all Sections adheres strictly to a standardized 6-level pedagogical progression that guarantees 100% coverage of all 5 assigned LASA pairs across diverse cognitive modalities:
                             </p>
                             <div className="doc-code-preview">
                                 <code>
-                                    UNIT<br />
-                                    ├── Level 1: Identification &amp; Familiarization (type: &quot;level&quot;)<br />
-                                    ├── Level 2: Tall Man Discrimination (type: &quot;level&quot;)<br />
-                                    ├── Level 3: Situational Recognition &amp; Verification (type: &quot;level&quot;)<br />
-                                    └── Unit Mastery: Comprehensive Review &amp; Unassisted Tall Man Capstone (type: &quot;unit_mastery&quot;)
+                                    UNIT (5 Target Medication Pairs • 100% Coverage Guaranteed)<br />
+                                    ├── Level 1: Identification &amp; Familiarization (Discrete choice pairing for all 5 pairs)<br />
+                                    ├── Level 2: Tall Man Guided Construction (Scaffolded affix frames &amp; live preview)<br />
+                                    ├── Level 3: Clinical Risk &amp; Indication Distinction (Safety context &amp; indication contrast)<br />
+                                    ├── Level 4: Simulated Oral Order / Read-Back (Sound-Alike static audio discrimination)<br />
+                                    ├── Level 5: Rapid Review Challenge (Mixed recognition speed challenge synthesizing pairs)<br />
+                                    └── Level 6: Unit Mastery Capstone (Pure unassisted Tall Man construction for all 5 pairs)
                                 </code>
                             </div>
                             <p className="doc-paragraph">
-                                Currently implemented uniformly across <strong>Unit 1</strong> (Oral Antidiabetics), <strong>Unit 2</strong> (Formulation &amp; Suffix Variants), <strong>Unit 3</strong> (Brand &amp; Conjugate Differentiation), and <strong>Unit 4</strong> (High-Alert Synthetic Opioids).
+                                Currently implemented uniformly across <strong>Unit 1</strong> (Oral Antidiabetics), <strong>Unit 2</strong> (Formulation &amp; Suffix Variants), <strong>Unit 3</strong> (Brand &amp; Conjugate Differentiation), and <strong>Unit 4</strong> (High-Alert Critical Care &amp; Synthetic Opioids).
                             </p>
 
                             <h3 className="heading-sm doc-subsection-title">Cognitive Science Principles Applied</h3>
                             <ul className="doc-bullet-list">
                                 <li><strong>Retrieval Practice:</strong> Learners must actively distinguish between confusable options rather than passively reading drug monographs.</li>
                                 <li><strong>Interleaving:</strong> Look-alike and sound-alike counterparts are tested in direct proximity to develop distinct mental representations.</li>
-                                <li><strong>Immediate Explanatory Feedback:</strong> Errors trigger immediate explanations detailing the exact orthographic differences rather than generic failure prompts.</li>
-                                <li><strong>Qualitative Progression:</strong> Cognitive demand shifts qualitatively across levels (<code className="doc-inline-code">Identification &rarr; Guided Construction &rarr; Distinction &rarr; Situational Recognition &rarr; Independent Mastery</code>).</li>
+                                <li><strong>Auditory Read-Back Verification:</strong> Simulates Joint Commission safety protocols for telephone/verbal orders, requiring auditory decoding before selecting written counterparts.</li>
+                                <li><strong>Immediate Explanatory Feedback:</strong> Errors trigger immediate explanations detailing the exact orthographic and phonetic differences rather than generic failure prompts.</li>
+                                <li><strong>Qualitative Progression:</strong> Cognitive demand shifts qualitatively across levels (<code className="doc-inline-code">Identification &rarr; Guided Construction &rarr; Distinction &rarr; Oral Order Audio &rarr; Rapid Review &rarr; Independent Capstone Mastery</code>).</li>
                             </ul>
 
                             <h3 className="heading-sm doc-subsection-title">4.2 Purpose-Driven Activity Taxonomy</h3>
@@ -559,6 +579,12 @@ function Documentation() {
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td><code className="doc-inline-code">sound_alike</code></td>
+                                            <td>Acoustic discrimination of confusable drug names in simulated telephone/verbal prescription orders, enforcing read-back safety protocols.</td>
+                                            <td>Audio Player + Discrete Choice (<code className="doc-inline-code">sound_alike</code>) with pre-answer listening gate and post-answer reveal</td>
+                                            <td><StatusBadge status="Implemented" /></td>
+                                        </tr>
+                                        <tr>
                                             <td><code className="doc-inline-code">construction</code></td>
                                             <td>Active production and spelling of critical orthographic distinctions (e.g. Tall Man capitalization) without visual guessing cues.</td>
                                             <td>Constructed Response / Fill-in-the-Blank (<code className="doc-inline-code">tall_man</code>) with live name reconstruction or unassisted mastery input</td>
@@ -567,7 +593,7 @@ function Documentation() {
                                         <tr>
                                             <td><code className="doc-inline-code">identification</code></td>
                                             <td>Identify documented LASA counterparts and familiarize learners with high-risk drug pairs.</td>
-                                            <td>Discrete Choice (<code className="doc-inline-code">multiple_choice</code>)</td>
+                                            <td>Discrete Choice (<code className="doc-inline-code">multiple_choice</code>) with on-demand pronunciation</td>
                                             <td><StatusBadge status="Implemented" /></td>
                                         </tr>
                                         <tr>
@@ -598,16 +624,16 @@ function Documentation() {
                                 </table>
                             </div>
 
-                            <h3 className="heading-sm doc-subsection-title">4.3 Dedicated Unit Mastery Milestone</h3>
+                            <h3 className="heading-sm doc-subsection-title">4.3 Dedicated Unit Mastery Milestone (Level 6)</h3>
                             <p className="doc-paragraph">
-                                Grounded in the thesis requirement for unassisted competency verification, the <strong>Unit Mastery</strong> level (<code className="doc-inline-code">type: &quot;unit_mastery&quot;</code>, <code className="doc-inline-code">isMasteryLevel: true</code>) is a dedicated fourth level associated with the entire Unit:
+                                Grounded in the thesis requirement for unassisted competency verification, the <strong>Unit Mastery</strong> level (<code className="doc-inline-code">type: &quot;unit_mastery&quot;</code>, <code className="doc-inline-code">isMasteryLevel: true</code>) serves as the culminating 6th level of each Unit:
                             </p>
                             <ul className="doc-bullet-list">
-                                <li><strong>Unit-Wide Synthesis:</strong> Reviews medication distinctions across all preceding levels in the Unit before administering the final unassisted challenge.</li>
-                                <li><strong>Capstone Tall Man Task:</strong> Concludes with an independent, no-hint Tall Man Lettering challenge (<code className="doc-inline-code">activityRole: &quot;unit_mastery&quot;</code>, <code className="doc-inline-code">isFinalTask: true</code>, <code className="doc-inline-code">scaffold: false</code>). The learner must produce the entire capitalized drug name from memory without affix hints.</li>
+                                <li><strong>Unit-Wide Synthesis:</strong> Rigorously evaluates all 5 medication pairs introduced in Levels 1–5 through 5 pure, unassisted Tall Man construction challenges.</li>
+                                <li><strong>Independent Tall Man Capstone:</strong> Free of visual hints, affixes, or live previews (<code className="doc-inline-code">activityRole: &quot;unit_mastery&quot;</code>, <code className="doc-inline-code">scaffold: false</code>). The learner must accurately produce the entire capitalized drug name from memory with strict case-sensitivity.</li>
                                 <li><strong>Direct Routing:</strong> Accessible via <code className="doc-inline-code">/unit/:unitId/mastery</code> (e.g. <code className="doc-inline-code">/unit/1/mastery</code>). Refresh-safe and directly navigable.</li>
-                                <li><strong>Progression Gating:</strong> Unit Mastery unlocks only after Levels 1, 2, and 3 are successfully completed. Completing Unit Mastery marks the Unit mastered and unlocks Level 1 of the subsequent Unit.</li>
-                                <li><strong>Visual Treatment:</strong> Rendered on <code className="doc-inline-code">/learn</code> as a prominent gold/amber card with a trophy icon (🏆), visually separated from standard level circles.</li>
+                                <li><strong>Progression Gating:</strong> Unit Mastery unlocks only after Levels 1, 2, 3, 4, and 5 are successfully completed. Completing Level 6 marks the Unit mastered and unlocks Level 1 of the subsequent Unit.</li>
+                                <li><strong>Visual Treatment:</strong> Rendered on <code className="doc-inline-code">/learn</code> as a prominent gold/amber card with a trophy icon (🏆), visually differentiated from standard level nodes.</li>
                             </ul>
                         </section>
                     )}
@@ -1080,11 +1106,57 @@ function Documentation() {
   "relatedDrug": "Accupril"
 }`}
                             />
+                            <h3 className="heading-sm doc-subsection-title">6.8 Sound-Alike Acoustic Discrimination Question Schema (<code className="doc-inline-code">sound_alike</code>)</h3>
+                            <p className="doc-paragraph">
+                                Dedicated acoustic discrimination challenge designed to simulate auditory Joint Commission / ISMP verbal prescription &amp; read-back protocols. The question prompts the learner to listen to a spoken medication order, decodes phonetic nuances, and selects the matching orthographic name from confusable distractors:
+                            </p>
+                            <JsonSnippet
+                                label="sound-alike-question-example.json"
+                                code={`{
+  "id": "q401_oral",
+  "type": "sound_alike",
+  "activityType": "sound_alike",
+  "lasaId": "lasa_012",
+  "spokenDrug": "glyBURIDE",
+  "canonicalDrugId": "lasa_012_b",
+  "prompt": "Listen to the incoming verbal prescription order. Select the medication name that accurately reflects what was spoken:",
+  "choices": [
+    "glipiZIDE",
+    "glyBURIDE"
+  ],
+  "correctAnswer": "glyBURIDE",
+  "explanation": "glyBURIDE and glipiZIDE are sulfonylureas with differing pharmacokinetics. Immediate verbal read-back prevents dangerous hypoglycemia.",
+  "relatedDrug": "glyBURIDE",
+  "orderContext": "Incoming Telephone Prescription Order"
+}`}
+                            />
                             <ul className="doc-field-desc-list">
-                                <li><code className="doc-inline-code">scenario</code>: Concrete situational narrative providing dispensing context (rendered in a distinctive green scenario card with a &quot;DISPENSING SCENARIO&quot; badge).</li>
-                                <li><code className="doc-inline-code">prompt</code>: Direct LASA recognition or distinction prompt testing medication name selection.</li>
-                                <li><code className="doc-inline-code">choices</code>: Confusable LASA options derived strictly from verified ISMP pairs.</li>
-                                <li><code className="doc-inline-code">correctAnswer</code>: Target medication matching the order.</li>
+                                <li><code className="doc-inline-code">spokenDrug</code>: Spoken medication name to pronounce.</li>
+                                <li><code className="doc-inline-code">canonicalDrugId</code>: Explicit lookup key in <code className="doc-inline-code">audioMapping.json</code> pointing to pre-rendered Azure Neural audio in <code className="doc-inline-code">public/audio/lasa/</code>.</li>
+                                <li><code className="doc-inline-code">orderContext</code>: Contextual badge displayed in the simulated prescription order card.</li>
+                                <li><code className="doc-inline-code">Pre-Answer Gate</code>: In simulated oral orders, the visual medication name is <strong>strictly hidden</strong> prior to answering, requiring learners to rely on acoustic discrimination. The medication name is revealed post-submission alongside the feedback drawer.</li>
+                            </ul>
+
+                            <h3 className="heading-sm doc-subsection-title">6.9 Universal Audio Architecture &amp; <code className="doc-inline-code">&lt;AudioPronounceButton /&gt;</code></h3>
+                            <p className="doc-paragraph">
+                                Audio pronunciation is decoupled from question runners into a reusable, accessible component (<code className="doc-inline-code">src/components/AudioPronounceButton/AudioPronounceButton.jsx</code>) embedded across all curriculum question types:
+                            </p>
+                            <JsonSnippet
+                                label="audio-pronounce-button-usage.jsx"
+                                code={`import AudioPronounceButton from "../AudioPronounceButton/AudioPronounceButton.jsx";
+
+// Inside any question component or card:
+<AudioPronounceButton
+    drug={question.canonicalDrugId || question.relatedDrug || question.spokenDrug}
+    size={18}
+    className="custom-audio-btn"
+/>`}
+                            />
+                            <ul className="doc-field-desc-list">
+                                <li><code className="doc-inline-code">drug / canonicalId</code>: Target medication identifier or object. Resolves deterministically via <code className="doc-inline-code">audioService.playMedicationAudio()</code>.</li>
+                                <li><code className="doc-inline-code">Static Asset Guarantee</code>: Plays exclusively from local pre-rendered MP3 assets (<code className="doc-inline-code">public/audio/lasa/*.mp3</code>) with zero runtime Azure API calls.</li>
+                                <li><code className="doc-inline-code">Graceful Non-Degradation</code>: If no audio asset exists for the medication, the component cleanly returns <code className="doc-inline-code">null</code> rather than breaking the UI or falling back to robot-like browser speech synthesis.</li>
+                                <li><code className="doc-inline-code">Blind Accessible ARIA</code>: Uses safe generic labels (<code className="doc-inline-code">"Listen to medication pronunciation"</code>) so screen readers and tooltips never leak the Tall Man capitalization or answer.</li>
                             </ul>
                         </section>
                     )}
@@ -1355,13 +1427,13 @@ function Documentation() {
                                         </tr>
                                         <tr>
                                             <td><strong>Practice Mode &amp; SRS</strong></td>
-                                            <td>Implemented (Phase 3). Fully operational 4-Stage Leitner Spaced Repetition System with interval timers (0h, 24h, 72h, 168h), Unified Mistakes Queue, and 3 practice modes (Daily Spaced Review, Targeted Mistakes Review, Quick Practice). Cloud synchronization to Supabase planned for Phase 4.</td>
-                                            <td>Phase 3 (Active)</td>
+                                            <td>Implemented. Fully operational 4-Stage Leitner Spaced Repetition System with interval timers (0h, 24h, 72h, 168h), Unified Mistakes Queue, and 4 specialized practice modes (Daily Spaced Review, Targeted Mistakes Review, Quick Practice, and Sound-Alike Audio Challenge).</td>
+                                            <td>Implemented</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Question Formats</strong></td>
-                                            <td>Supports constructed-response Tall Man lettering (<code className="doc-inline-code">tall_man</code>) in both guided scaffolding (affix frames + preview) and unassisted Unit Mastery mode (strict case-sensitive recall), situational recognition (<code className="doc-inline-code">multiple_choice</code> with dispensing <code className="doc-inline-code">scenario</code>), interactive tap-to-match pairs (<code className="doc-inline-code">matching</code>), and binary distinction choice (<code className="doc-inline-code">multiple_choice</code>). Full clinical dispensing simulation scenarios and crosswords remain future thesis phases.</td>
-                                            <td>Active (Tall Man Mastery + Situational + Guided + Matching + Choice)</td>
+                                            <td>Supports constructed-response Tall Man lettering (<code className="doc-inline-code">tall_man</code>) in both guided scaffolding (affix frames + preview) and unassisted Unit Mastery mode (strict case-sensitive recall), acoustic Sound-Alike discrimination (<code className="doc-inline-code">sound_alike</code>) with simulated oral order read-back, situational recognition (<code className="doc-inline-code">multiple_choice</code> with dispensing <code className="doc-inline-code">scenario</code>), interactive tap-to-match pairs (<code className="doc-inline-code">matching</code>), and discrete choice (<code className="doc-inline-code">multiple_choice</code>). Full clinical dispensing simulation scenarios and crosswords remain future thesis phases.</td>
+                                            <td>Active (Tall Man Mastery + Sound-Alike Audio + Situational + Guided + Matching + Choice)</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Theoretical &amp; Clinical Questions</strong></td>
@@ -1375,8 +1447,8 @@ function Documentation() {
                                         </tr>
                                         <tr>
                                             <td><strong>Sound & Pronunciation</strong></td>
-                                            <td>Active development (Phase 4). Web Audio API feedback chimes implemented; medication pronunciation migrating from prototype Web Speech API to pre-rendered Azure AI Speech static assets (<code className="doc-inline-code">/audio/lasa/*.mp3</code>) for verified clinical enunciation.</td>
-                                            <td>Phase 4 (Active Target)</td>
+                                            <td>Implemented (Phase 4 Completed). 100/100 verified medication pronunciation clips pre-rendered via Azure AI Speech Neural (Raw Mode: <code className="doc-inline-code">en-US-JennyNeural</code>) and permanently archived in <code className="doc-inline-code">public/audio/lasa/</code>. 100% offline playback with zero runtime API calls or exposed credentials. Universal <code className="doc-inline-code">&lt;AudioPronounceButton /&gt;</code> integrated across all question types. Real-time synthesized Web Audio chimes for answer feedback.</td>
+                                            <td>Implemented (Phase 4 Completed)</td>
                                         </tr>
                                     </tbody>
                                 </table>

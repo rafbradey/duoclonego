@@ -8,21 +8,24 @@ By combining clinical pharmacology data with gamified cognitive reinforcement—
 
 ## 🌟 Key Features
 
-- **Structured Learning Path**:
-  - 4 comprehensive units and 12 progressive levels, plus 4 unassisted **Unit Mastery Capstones**.
-  - Direct Level Completion navigation (`[ Continue to Next Level ]`) with automatic progression checks.
+- **Structured Learning Path (6-Level Architecture)**:
+  - Standardized 6-level pedagogical progression across 4 units (24 total curriculum levels) with 100% coverage guarantees across all 5 assigned LASA pairs per unit.
+  - Qualitative cognitive progression: Introduction $\rightarrow$ Tall Man Guided Construction $\rightarrow$ Clinical Risk & Indication Distinction $\rightarrow$ Simulated Oral Order (Sound-Alike Audio) $\rightarrow$ Rapid Review $\rightarrow$ Pure Unassisted Unit Mastery Capstone.
+  - Direct Level Completion navigation (`[ Continue to Next Level ]`) with automatic unlock progression.
 - **Interactive Clinical Question Types**:
   - **Look-Alike & Sound-Alike Identification**: Multiple-choice discrimination between confusing pairs.
-  - **Sound-Alike Acoustic Discrimination**: Distinguishing phonetically confusable medications powered by pre-rendered, build-time clinical pronunciation audio assets.
+  - **Sound-Alike Acoustic Discrimination & Simulated Oral Orders**: Realistic telephone/verbal prescription verification using pre-rendered Azure AI Speech Neural static audio assets, enforcing Joint Commission read-back safety protocols with a pre-answer auditory gate.
+  - **Universal Clinical Medication Pronunciation**: On-demand static audio playback via `<AudioPronounceButton />` seamlessly integrated across Multiple Choice, Tall Man Construction, Sound-Alike, and Guidebook cards.
   - **Tap-to-Match Pairing**: Active recall pairing of medication counterparts under time and heart constraints.
   - **Tall Man Lettering Fill-in-the-Blank**: Case-sensitive mastery challenges emphasizing FDA/ISMP capitalization rules (e.g., `buPROPion` vs `busPIRone`).
 - **Spaced Repetition System (SRS)**:
   - 4-stage Leitner-style memory decay engine (0h, 24h, 72h, 168h intervals) for long-term retention.
   - Targeted retention tracking with visual mastery stages.
 - **Practice Hub & Targeted Remediation**:
-  - **Daily Spaced Review**: Automatically serves questions due for memory reinforcement.
-  - **Mistakes Review Queue**: Prioritizes and tracks recently missed medications.
-  - **Quick Practice**: Rapid session covering full curriculum breadth.
+  - **Daily Spaced Review (`mode=due`)**: Automatically serves questions due for memory reinforcement.
+  - **Targeted Mistakes Review (`mode=mistakes`)**: Prioritizes and tracks recently missed medications.
+  - **Quick Practice (`mode=quick`)**: Rapid 5-item session covering full curriculum breadth.
+  - **Sound-Alike Audio Challenge (`mode=audio`)**: Dedicated auditory discrimination drill practicing spoken order recognition and read-back verification.
   - **Origin Identification**: Every review question displays its exact Learning Path source (e.g., `Level 1 • Unit 2`).
 - **Gamification & Feedback**:
   - Hearts system, XP multipliers, day streaks, and celebration animations with the interactive Duo mascot.
@@ -132,12 +135,13 @@ duoclonego/
 │   └── validateLasaAudio.js # Automated asset integrity & manifest validator
 ├── src/
 │   ├── components/         # Reusable UI components
+│   │   ├── AudioPronounceButton/ # Universal static audio player button
 │   │   ├── FeedbackDrawer/ # Real-time answer result drawer
 │   │   ├── GuidebookModal/ # Unit LASA clinical summary modal
 │   │   ├── Layout/         # AppLayout shell, navigation, mobile drawer
 │   │   ├── LessonCompletion/ # Level complete screen & unified session breakdown
 │   │   ├── Mascot/         # Interactive animated Duoclongo owl
-│   │   ├── QuestionCard/   # MCQ, Tall Man, and Matching question renderers
+│   │   ├── QuestionCard/   # MCQ, Tall Man, Matching, and Sound-Alike question renderers
 │   │   ├── Sidebar/        # Desktop sidebar & mobile Learning Path drawer
 │   │   └── UnitDescriptionModal/ # Unit preview and clinical objectives modal
 │   ├── data/               # Clinical datasets and curriculum
@@ -145,14 +149,15 @@ duoclonego/
 │   │   ├── audioMapping.json # Deterministic medication ID to audio file mapping
 │   │   ├── lasaData.json   # Canonical medication details & confusion reasons
 │   │   ├── lasaPairs.json  # Documented ISMP look-alike/sound-alike pairs
-│   │   └── levels/         # Unit and level curriculum JSON definitions
+│   │   └── levels/         # Unit and level curriculum JSON definitions (6-level architecture)
 │   ├── pages/              # Application views
 │   │   ├── Learn/          # Main curriculum path and level nodes
 │   │   ├── Lesson/         # Active interactive lesson session
-│   │   ├── Practice/       # Spaced repetition hub, daily review, mistakes queue
+│   │   ├── Practice/       # Spaced repetition hub, daily review, mistakes queue, audio drill
 │   │   ├── Profile/        # Retention analytics, streak stats, badge showcase
 │   │   ├── Quests/         # Daily quests and achievement tracker
-│   │   └── Documentation/  # Living clinical documentation and architecture guide
+│   │   ├── Documentation/  # Living clinical documentation and architecture guide
+│   │   └── TtsTestPage/    # Developer Azure AI Speech test & diagnostic suite
 │   ├── services/           # Pure domain logic and storage engines
 │   │   ├── audioService.js      # Web Audio feedback chimes & static pronunciation playback
 │   │   ├── badgeService.js      # Achievement calculations and badge unlocked checks
