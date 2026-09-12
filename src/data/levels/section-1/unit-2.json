@@ -4255,7 +4255,7 @@
               "id": "q_sound_lasa_015_A_read_back_level_010_rb_0",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: carboplatin.",
+              "spokenText": "carboplatin",
               "spokenDrug": "CARBOplatin",
               "drugToPronounce": "carboplatin",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4275,13 +4275,14 @@
               "riskSummary": "Dramatically different dosing schedules; cisplatin dosed at carboplatin levels causes fatal nephrotoxicity, neurotoxicity, and ototoxicity.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_015_a"
             },
             {
               "id": "q_sound_lasa_016_B_read_back_level_010_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: paclitaxel.",
+              "spokenText": "paclitaxel",
               "spokenDrug": "PACLitaxel",
               "drugToPronounce": "paclitaxel",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4301,13 +4302,14 @@
               "riskSummary": "Severe toxicity, fluid retention, neuropathy, and neutropenia due to differing dosing frequencies and premedication protocols.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Targeted Medication Safety Best Practices",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_016_b"
             },
             {
               "id": "q_sound_lasa_017_A_read_back_level_010_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: daunorubicin.",
+              "spokenText": "daunorubicin",
               "spokenDrug": "DAUNOrubicin",
               "drugToPronounce": "daunorubicin",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4327,13 +4329,14 @@
               "riskSummary": "Dosing regimen errors leading to irreversible, cumulative cardiotoxicity and severe myelosuppression.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_017_a"
             },
             {
               "id": "q_sound_lasa_019_B_read_back_level_010_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: ephedrine.",
+              "spokenText": "ephedrine",
               "spokenDrug": "ePHEDrine",
               "drugToPronounce": "ephedrine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4353,13 +4356,14 @@
               "riskSummary": "Subtherapeutic resuscitation in anaphylaxis/cardiac arrest, or extreme hypertension and tachyarrhythmia from incorrect potency delivery.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_019_b"
             },
             {
               "id": "q_sound_lasa_020_A_read_back_level_010_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: nicardipine.",
+              "spokenText": "nicardipine",
               "spokenDrug": "niCARdipine",
               "drugToPronounce": "nicardipine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4379,13 +4383,14 @@
               "riskSummary": "Severe precipitous hypotension, reflex tachycardia, or cerebral ischemia due to formulation and pharmacokinetic mismatches.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_020_a"
             },
             {
               "id": "q_sound_lasa_021_B_read_back_level_010_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: amiloride.",
+              "spokenText": "amiloride",
               "spokenDrug": "aMILoride",
               "drugToPronounce": "amiloride",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4405,13 +4410,14 @@
               "riskSummary": "Hyperkalemia and dehydration vs. unmanaged hypertension or peripheral edema.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_021_b"
             },
             {
               "id": "q_sound_lasa_022_A_read_back_level_010_rb_6",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: duloxetine.",
+              "spokenText": "duloxetine",
               "spokenDrug": "DULOxetine",
               "drugToPronounce": "duloxetine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4431,13 +4437,14 @@
               "riskSummary": "Unmanaged neuropathic pain, differences in discontinuation syndrome, or heightened risk of serotonergic excess.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_022_a"
             },
             {
               "id": "q_sound_lasa_024_B_read_back_level_010_rb_7",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: rabeprazole.",
+              "spokenText": "rabeprazole",
               "spokenDrug": "RABEprazole",
               "drugToPronounce": "rabeprazole",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4457,7 +4464,8 @@
               "riskSummary": "Extrapyramidal symptoms, severe sedation, or metabolic syndrome in a patient merely requiring acid suppression.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_024_b"
             }
           ]
         }
@@ -4566,7 +4574,7 @@
           "id": "q_sound_lasa_015_A_read_back_level_010_rb_0",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: carboplatin.",
+          "spokenText": "carboplatin",
           "spokenDrug": "CARBOplatin",
           "drugToPronounce": "carboplatin",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4586,13 +4594,14 @@
           "riskSummary": "Dramatically different dosing schedules; cisplatin dosed at carboplatin levels causes fatal nephrotoxicity, neurotoxicity, and ototoxicity.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_015_a"
         },
         {
           "id": "q_sound_lasa_016_B_read_back_level_010_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: paclitaxel.",
+          "spokenText": "paclitaxel",
           "spokenDrug": "PACLitaxel",
           "drugToPronounce": "paclitaxel",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4612,13 +4621,14 @@
           "riskSummary": "Severe toxicity, fluid retention, neuropathy, and neutropenia due to differing dosing frequencies and premedication protocols.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Targeted Medication Safety Best Practices",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_016_b"
         },
         {
           "id": "q_sound_lasa_017_A_read_back_level_010_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: daunorubicin.",
+          "spokenText": "daunorubicin",
           "spokenDrug": "DAUNOrubicin",
           "drugToPronounce": "daunorubicin",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4638,13 +4648,14 @@
           "riskSummary": "Dosing regimen errors leading to irreversible, cumulative cardiotoxicity and severe myelosuppression.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_017_a"
         },
         {
           "id": "q_sound_lasa_019_B_read_back_level_010_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: ephedrine.",
+          "spokenText": "ephedrine",
           "spokenDrug": "ePHEDrine",
           "drugToPronounce": "ephedrine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4664,13 +4675,14 @@
           "riskSummary": "Subtherapeutic resuscitation in anaphylaxis/cardiac arrest, or extreme hypertension and tachyarrhythmia from incorrect potency delivery.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_019_b"
         },
         {
           "id": "q_sound_lasa_020_A_read_back_level_010_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: nicardipine.",
+          "spokenText": "nicardipine",
           "spokenDrug": "niCARdipine",
           "drugToPronounce": "nicardipine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4690,13 +4702,14 @@
           "riskSummary": "Severe precipitous hypotension, reflex tachycardia, or cerebral ischemia due to formulation and pharmacokinetic mismatches.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_020_a"
         },
         {
           "id": "q_sound_lasa_021_B_read_back_level_010_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: amiloride.",
+          "spokenText": "amiloride",
           "spokenDrug": "aMILoride",
           "drugToPronounce": "amiloride",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4716,13 +4729,14 @@
           "riskSummary": "Hyperkalemia and dehydration vs. unmanaged hypertension or peripheral edema.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_021_b"
         },
         {
           "id": "q_sound_lasa_022_A_read_back_level_010_rb_6",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: duloxetine.",
+          "spokenText": "duloxetine",
           "spokenDrug": "DULOxetine",
           "drugToPronounce": "duloxetine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4742,13 +4756,14 @@
           "riskSummary": "Unmanaged neuropathic pain, differences in discontinuation syndrome, or heightened risk of serotonergic excess.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_022_a"
         },
         {
           "id": "q_sound_lasa_024_B_read_back_level_010_rb_7",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: rabeprazole.",
+          "spokenText": "rabeprazole",
           "spokenDrug": "RABEprazole",
           "drugToPronounce": "rabeprazole",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4768,7 +4783,8 @@
           "riskSummary": "Extrapyramidal symptoms, severe sedation, or metabolic syndrome in a patient merely requiring acid suppression.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_024_b"
         }
       ]
     },
@@ -5954,7 +5970,7 @@
               "id": "q_sound_lasa_015_A_read_back_mst_rb_0",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: carboplatin.",
+              "spokenText": "carboplatin",
               "spokenDrug": "CARBOplatin",
               "drugToPronounce": "carboplatin",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -5974,13 +5990,14 @@
               "riskSummary": "Dramatically different dosing schedules; cisplatin dosed at carboplatin levels causes fatal nephrotoxicity, neurotoxicity, and ototoxicity.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_015_a"
             },
             {
               "id": "q_sound_lasa_016_B_read_back_mst_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: paclitaxel.",
+              "spokenText": "paclitaxel",
               "spokenDrug": "PACLitaxel",
               "drugToPronounce": "paclitaxel",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6000,13 +6017,14 @@
               "riskSummary": "Severe toxicity, fluid retention, neuropathy, and neutropenia due to differing dosing frequencies and premedication protocols.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Targeted Medication Safety Best Practices",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_016_b"
             },
             {
               "id": "q_sound_lasa_017_A_read_back_mst_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: daunorubicin.",
+              "spokenText": "daunorubicin",
               "spokenDrug": "DAUNOrubicin",
               "drugToPronounce": "daunorubicin",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6026,13 +6044,14 @@
               "riskSummary": "Dosing regimen errors leading to irreversible, cumulative cardiotoxicity and severe myelosuppression.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_017_a"
             },
             {
               "id": "q_sound_lasa_019_B_read_back_mst_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: ephedrine.",
+              "spokenText": "ephedrine",
               "spokenDrug": "ePHEDrine",
               "drugToPronounce": "ephedrine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6052,13 +6071,14 @@
               "riskSummary": "Subtherapeutic resuscitation in anaphylaxis/cardiac arrest, or extreme hypertension and tachyarrhythmia from incorrect potency delivery.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_019_b"
             },
             {
               "id": "q_sound_lasa_020_A_read_back_mst_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: nicardipine.",
+              "spokenText": "nicardipine",
               "spokenDrug": "niCARdipine",
               "drugToPronounce": "nicardipine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6078,13 +6098,14 @@
               "riskSummary": "Severe precipitous hypotension, reflex tachycardia, or cerebral ischemia due to formulation and pharmacokinetic mismatches.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_020_a"
             },
             {
               "id": "q_sound_lasa_021_B_read_back_mst_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: amiloride.",
+              "spokenText": "amiloride",
               "spokenDrug": "aMILoride",
               "drugToPronounce": "amiloride",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6104,13 +6125,14 @@
               "riskSummary": "Hyperkalemia and dehydration vs. unmanaged hypertension or peripheral edema.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_021_b"
             },
             {
               "id": "q_sound_lasa_022_A_read_back_mst_rb_6",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: duloxetine.",
+              "spokenText": "duloxetine",
               "spokenDrug": "DULOxetine",
               "drugToPronounce": "duloxetine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6130,13 +6152,14 @@
               "riskSummary": "Unmanaged neuropathic pain, differences in discontinuation syndrome, or heightened risk of serotonergic excess.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_022_a"
             },
             {
               "id": "q_sound_lasa_024_B_read_back_mst_rb_7",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: rabeprazole.",
+              "spokenText": "rabeprazole",
               "spokenDrug": "RABEprazole",
               "drugToPronounce": "rabeprazole",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6156,7 +6179,8 @@
               "riskSummary": "Extrapyramidal symptoms, severe sedation, or metabolic syndrome in a patient merely requiring acid suppression.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_024_b"
             }
           ]
         },
@@ -7579,7 +7603,7 @@
           "id": "q_sound_lasa_015_A_read_back_mst_rb_0",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: carboplatin.",
+          "spokenText": "carboplatin",
           "spokenDrug": "CARBOplatin",
           "drugToPronounce": "carboplatin",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7599,13 +7623,14 @@
           "riskSummary": "Dramatically different dosing schedules; cisplatin dosed at carboplatin levels causes fatal nephrotoxicity, neurotoxicity, and ototoxicity.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_015_a"
         },
         {
           "id": "q_sound_lasa_016_B_read_back_mst_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: paclitaxel.",
+          "spokenText": "paclitaxel",
           "spokenDrug": "PACLitaxel",
           "drugToPronounce": "paclitaxel",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7625,13 +7650,14 @@
           "riskSummary": "Severe toxicity, fluid retention, neuropathy, and neutropenia due to differing dosing frequencies and premedication protocols.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Targeted Medication Safety Best Practices",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_016_b"
         },
         {
           "id": "q_sound_lasa_017_A_read_back_mst_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: daunorubicin.",
+          "spokenText": "daunorubicin",
           "spokenDrug": "DAUNOrubicin",
           "drugToPronounce": "daunorubicin",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7651,13 +7677,14 @@
           "riskSummary": "Dosing regimen errors leading to irreversible, cumulative cardiotoxicity and severe myelosuppression.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_017_a"
         },
         {
           "id": "q_sound_lasa_019_B_read_back_mst_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: ephedrine.",
+          "spokenText": "ephedrine",
           "spokenDrug": "ePHEDrine",
           "drugToPronounce": "ephedrine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7677,13 +7704,14 @@
           "riskSummary": "Subtherapeutic resuscitation in anaphylaxis/cardiac arrest, or extreme hypertension and tachyarrhythmia from incorrect potency delivery.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_019_b"
         },
         {
           "id": "q_sound_lasa_020_A_read_back_mst_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: nicardipine.",
+          "spokenText": "nicardipine",
           "spokenDrug": "niCARdipine",
           "drugToPronounce": "nicardipine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7703,13 +7731,14 @@
           "riskSummary": "Severe precipitous hypotension, reflex tachycardia, or cerebral ischemia due to formulation and pharmacokinetic mismatches.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_020_a"
         },
         {
           "id": "q_sound_lasa_021_B_read_back_mst_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: amiloride.",
+          "spokenText": "amiloride",
           "spokenDrug": "aMILoride",
           "drugToPronounce": "amiloride",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7729,13 +7758,14 @@
           "riskSummary": "Hyperkalemia and dehydration vs. unmanaged hypertension or peripheral edema.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_021_b"
         },
         {
           "id": "q_sound_lasa_022_A_read_back_mst_rb_6",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: duloxetine.",
+          "spokenText": "duloxetine",
           "spokenDrug": "DULOxetine",
           "drugToPronounce": "duloxetine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7755,13 +7785,14 @@
           "riskSummary": "Unmanaged neuropathic pain, differences in discontinuation syndrome, or heightened risk of serotonergic excess.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_022_a"
         },
         {
           "id": "q_sound_lasa_024_B_read_back_mst_rb_7",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: rabeprazole.",
+          "spokenText": "rabeprazole",
           "spokenDrug": "RABEprazole",
           "drugToPronounce": "rabeprazole",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7781,7 +7812,8 @@
           "riskSummary": "Extrapyramidal symptoms, severe sedation, or metabolic syndrome in a patient merely requiring acid suppression.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_024_b"
         },
         {
           "id": "q_pair_lasa_014_A_mst_disc_0",

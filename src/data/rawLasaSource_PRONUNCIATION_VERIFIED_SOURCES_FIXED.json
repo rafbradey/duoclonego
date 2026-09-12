@@ -176,6 +176,116 @@
     }
   },
   {
+    "id": 9,
+    "drug_1": "HYDROmorphone",
+    "drug_2": "morphine",
+    "source": "ISMP List of Confused Drug Names & High-Alert Medications",
+    "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
+    "proof_reference": "ISMP List of Confused Drug Names; FDA Table 1 (Tall Man designation for HYDROmorphone)",
+    "class_or_indication_1": "Semisynthetic opioid analgesic (high potency)",
+    "class_or_indication_2": "Opioid analgesic",
+    "risk_summary": "Hydromorphone is 4 to 7 times more potent than morphine; administering hydromorphone at morphine doses frequently results in fatal respiratory arrest.",
+    "pronunciation_1": "HYE-droe-MOR-fone",
+    "pronunciation_2": "mor' feen",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Hydromorphone pronunciation",
+      "drug_2": "Drugs.com — Morphine pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Hydromorphone pronunciation",
+      "drug_2": "Drugs.com — Morphine pronunciation"
+    }
+  },
+  {
+    "id": 10,
+    "drug_1": "DOBUtamine",
+    "drug_2": "DOPamine",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Inotrope (beta-1 agonist)",
+    "class_or_indication_2": "Inotrope / Vasopressor (alpha/beta/dopaminergic agonist)",
+    "risk_summary": "Hemodynamic instability, dangerous tachycardia, or inappropriate peripheral vasoconstriction/vasodilation in critical care.",
+    "pronunciation_1": "doe-BUE-ta-meen",
+    "pronunciation_2": "DOE-pa-meen",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Dobutamine pronunciation",
+      "drug_2": "Drugs.com — Dopamine pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Dobutamine pronunciation",
+      "drug_2": "Drugs.com — Dopamine pronunciation"
+    }
+  },
+  {
+    "id": 11,
+    "drug_1": "oxyCODONE",
+    "drug_2": "HYDROcodone",
+    "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+    "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "proof_reference": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Opioid analgesic",
+    "class_or_indication_2": "Opioid analgesic",
+    "risk_summary": "Potency mismatch leading to either inadequate analgesia or opioid overdose and hypoventilation.",
+    "pronunciation_1": "ox-i-KOE-done",
+    "pronunciation_2": "hye-droe-KOE-done",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Oxycodone pronunciation",
+      "drug_2": "Drugs.com — Hydrocodone pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Oxycodone pronunciation",
+      "drug_2": "Drugs.com — Hydrocodone pronunciation"
+    }
+  },
+  {
+    "id": 12,
+    "drug_1": "glipiZIDE",
+    "drug_2": "glyBURIDE",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Sulfonylurea (short-acting)",
+    "class_or_indication_2": "Sulfonylurea (long-acting)",
+    "risk_summary": "Prolonged, severe hypoglycemia, especially in elderly patients or those with renal impairment given glyburide.",
+    "pronunciation_1": "GLIP-i-zide",
+    "pronunciation_2": "GLYE-bue-ride",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Glipizide pronunciation",
+      "drug_2": "Drugs.com — Glyburide pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Glipizide pronunciation",
+      "drug_2": "Drugs.com — Glyburide pronunciation"
+    }
+  },
+  {
+    "id": 13,
+    "drug_1": "metFORMIN",
+    "drug_2": "metroNIDAZOLE",
+    "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+    "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "proof_reference": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Biguanide antihyperglycemic",
+    "class_or_indication_2": "Nitroimidazole antibacterial / Antiprotozoal",
+    "risk_summary": "Lactic acidosis and GI distress vs. untreated anaerobic infection or disulfiram-like ethanol reaction.",
+    "pronunciation_1": "met-FOR-min",
+    "pronunciation_2": "me-troe-NI-da-zole",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Metformin pronunciation",
+      "drug_2": "Drugs.com — Metronidazole pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Metformin pronunciation",
+      "drug_2": "Drugs.com — Metronidazole pronunciation"
+    }
+  },
+  {
     "id": 14,
     "drug_1": "acetaZOLAMIDE",
     "drug_2": "acetoHEXAMIDE",
@@ -198,6 +308,94 @@
     }
   },
   {
+    "id": 15,
+    "drug_1": "CARBOplatin",
+    "drug_2": "CISplatin",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Alkylating antineoplastic (platinum-based)",
+    "class_or_indication_2": "Alkylating antineoplastic (platinum-based)",
+    "risk_summary": "Dramatically different dosing schedules; cisplatin dosed at carboplatin levels causes fatal nephrotoxicity, neurotoxicity, and ototoxicity.",
+    "pronunciation_1": "KAR-boe-PLA-tin",
+    "pronunciation_2": "sis-PLA-tin",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Carboplatin pronunciation",
+      "drug_2": "Drugs.com — Cisplatin pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Carboplatin pronunciation",
+      "drug_2": "Drugs.com — Cisplatin pronunciation"
+    }
+  },
+  {
+    "id": 16,
+    "drug_1": "DOCEtaxel",
+    "drug_2": "PACLitaxel",
+    "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+    "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "proof_reference": "ISMP Table 2 Generic Tall Man List; ISMP Targeted Medication Safety Best Practices",
+    "class_or_indication_1": "Taxane antineoplastic",
+    "class_or_indication_2": "Taxane antineoplastic",
+    "risk_summary": "Severe toxicity, fluid retention, neuropathy, and neutropenia due to differing dosing frequencies and premedication protocols.",
+    "pronunciation_1": "doe-se-TAX-el",
+    "pronunciation_2": "PAK-li-TAK-sel",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Docetaxel pronunciation",
+      "drug_2": "Drugs.com — Paclitaxel pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Docetaxel pronunciation",
+      "drug_2": "Drugs.com — Paclitaxel pronunciation"
+    }
+  },
+  {
+    "id": 17,
+    "drug_1": "DAUNOrubicin",
+    "drug_2": "DOXOrubicin",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Anthracycline antineoplastic",
+    "class_or_indication_2": "Anthracycline antineoplastic",
+    "risk_summary": "Dosing regimen errors leading to irreversible, cumulative cardiotoxicity and severe myelosuppression.",
+    "pronunciation_1": "daw-noe-ROO-bi-sin",
+    "pronunciation_2": "DOX-oh-ROO-bi-sin",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Daunorubicin pronunciation",
+      "drug_2": "Drugs.com — Doxorubicin pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Daunorubicin pronunciation",
+      "drug_2": "Drugs.com — Doxorubicin pronunciation"
+    }
+  },
+  {
+    "id": 18,
+    "drug_1": "vinBLAStine",
+    "drug_2": "vinCRIStine",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Vinca alkaloid antineoplastic",
+    "class_or_indication_2": "Vinca alkaloid antineoplastic",
+    "risk_summary": "Vincristine is dosed in fractions of the dose of vinblastine; administering vinblastine doses using vincristine causes fatal neurotoxicity.",
+    "pronunciation_1": "vin-BLAS-teen",
+    "pronunciation_2": "vin-KRIS-teen",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Vinblastine pronunciation",
+      "drug_2": "Drugs.com — Vincristine pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Vinblastine pronunciation",
+      "drug_2": "Drugs.com — Vincristine pronunciation"
+    }
+  },
+  {
     "id": 19,
     "drug_1": "epiNEPHrine",
     "drug_2": "ePHEDrine",
@@ -217,6 +415,688 @@
     "PRONOUNCIATION_VERIFICATION_SOURCE": {
       "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
       "drug_2": "Drugs.com — Ephedrine pronunciation"
+    }
+  },
+  {
+    "id": 20,
+    "drug_1": "niCARdipine",
+    "drug_2": "NIFEdipine",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Dihydropyridine CCB (IV/oral)",
+    "class_or_indication_2": "Dihydropyridine CCB (oral)",
+    "risk_summary": "Severe precipitous hypotension, reflex tachycardia, or cerebral ischemia due to formulation and pharmacokinetic mismatches.",
+    "pronunciation_1": "nye-KAR-di-peen",
+    "pronunciation_2": "nye-FED-i-peen",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Nicardipine pronunciation",
+      "drug_2": "Drugs.com — Nifedipine pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Nicardipine pronunciation",
+      "drug_2": "Drugs.com — Nifedipine pronunciation"
+    }
+  },
+  {
+    "id": 21,
+    "drug_1": "amLODIPine",
+    "drug_2": "aMILoride",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Calcium channel blocker (antihypertensive)",
+    "class_or_indication_2": "Potassium-sparing diuretic",
+    "risk_summary": "Hyperkalemia and dehydration vs. unmanaged hypertension or peripheral edema.",
+    "pronunciation_1": "am-LOE-di-peen",
+    "pronunciation_2": "a-MIL-oh-ride",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Amlodipine pronunciation",
+      "drug_2": "Drugs.com — Amiloride pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Amlodipine pronunciation",
+      "drug_2": "Drugs.com — Amiloride pronunciation"
+    }
+  },
+  {
+    "id": 22,
+    "drug_1": "DULOxetine",
+    "drug_2": "FLUOxetine",
+    "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+    "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "proof_reference": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "SNRI antidepressant / Neuropathic pain agent",
+    "class_or_indication_2": "SSRI antidepressant",
+    "risk_summary": "Unmanaged neuropathic pain, differences in discontinuation syndrome, or heightened risk of serotonergic excess.",
+    "pronunciation_1": "du-LOX-e-teen",
+    "pronunciation_2": "floo OX e teen",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Duloxetine pronunciation",
+      "drug_2": "Drugs.com — Fluoxetine pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Duloxetine pronunciation",
+      "drug_2": "Drugs.com — Fluoxetine pronunciation"
+    }
+  },
+  {
+    "id": 23,
+    "drug_1": "FLUOxetine",
+    "drug_2": "PAROxetine",
+    "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+    "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "proof_reference": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "SSRI antidepressant (long half-life)",
+    "class_or_indication_2": "SSRI antidepressant (short half-life / anticholinergic)",
+    "risk_summary": "Severe anticholinergic side effects, abrupt discontinuation syndrome with missed paroxetine, and drug-drug metabolic interactions.",
+    "pronunciation_1": "floo OX e teen",
+    "pronunciation_2": "pa ROX a teen",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Fluoxetine pronunciation",
+      "drug_2": "Drugs.com — Paroxetine pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Fluoxetine pronunciation",
+      "drug_2": "Drugs.com — Paroxetine pronunciation"
+    }
+  },
+  {
+    "id": 24,
+    "drug_1": "ARIPiprazole",
+    "drug_2": "RABEprazole",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Atypical antipsychotic",
+    "class_or_indication_2": "Proton pump inhibitor",
+    "risk_summary": "Extrapyramidal symptoms, severe sedation, or metabolic syndrome in a patient merely requiring acid suppression.",
+    "pronunciation_1": "AR-i-PIP-ra-zole",
+    "pronunciation_2": "ra-BEP-ra-zole",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Aripiprazole pronunciation",
+      "drug_2": "Drugs.com — Rabeprazole pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Aripiprazole pronunciation",
+      "drug_2": "Drugs.com — Rabeprazole pronunciation"
+    }
+  },
+  {
+    "id": 25,
+    "drug_1": "azaCITIDine",
+    "drug_2": "azaTHIOprine",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "DNA methyltransferase inhibitor antineoplastic",
+    "class_or_indication_2": "Thiopurine immunosuppressant",
+    "risk_summary": "Severe bone marrow ablation/failure vs. acute transplant rejection or uncontrolled autoimmune flare.",
+    "pronunciation_1": "az-a-SIT-i-deen",
+    "pronunciation_2": "ay-za-THYE-oh-preen",
+    "pronunciation_source": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Drugs.com — Azathioprine pronunciation"
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Drugs.com — Azathioprine pronunciation"
+    }
+  },
+  {
+    "id": 26,
+    "drug_1": "ceFAZolin",
+    "drug_2": "cefTRIAXone",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "First-generation cephalosporin",
+    "class_or_indication_2": "Third-generation cephalosporin",
+    "risk_summary": "Spectrum-of-activity mismatch leading to therapeutic failure in serious CNS or multi-drug resistant bacterial infections.",
+    "pronunciation_1": "sef-A-zoe-lin",
+    "pronunciation_2": "sef-trye-AKS-one",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Cefazolin pronunciation",
+      "drug_2": "Drugs.com — Ceftriaxone pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Cefazolin pronunciation",
+      "drug_2": "Drugs.com — Ceftriaxone pronunciation"
+    }
+  },
+  {
+    "id": 27,
+    "drug_1": "cefoTEtan",
+    "drug_2": "cefOXitin",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Second-generation cephamycin antibiotic",
+    "class_or_indication_2": "Second-generation cephamycin antibiotic",
+    "risk_summary": "Dosing interval mismatches, potential bleeding risk/coagulopathy associated with the N-methylthiotetrazole (NMTT) chain in cefotetan.",
+    "pronunciation_1": "SEF-oh-TEE-tan",
+    "pronunciation_2": "sef-OX-i-tin",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Cefotetan pronunciation",
+      "drug_2": "Drugs.com — Cefoxitin pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Cefotetan pronunciation",
+      "drug_2": "Drugs.com — Cefoxitin pronunciation"
+    }
+  },
+  {
+    "id": 28,
+    "drug_1": "cefTAZidime",
+    "drug_2": "cefTRIAXone",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Third-generation antipseudomonal cephalosporin",
+    "class_or_indication_2": "Third-generation cephalosporin (non-pseudomonal)",
+    "risk_summary": "Inadequate coverage for Pseudomonas aeruginosa infections, leading to sepsis and therapeutic failure.",
+    "pronunciation_1": "sef-TAY-zi-deem",
+    "pronunciation_2": "sef-trye-AKS-one",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Ceftazidime pronunciation",
+      "drug_2": "Drugs.com — Ceftriaxone pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Ceftazidime pronunciation",
+      "drug_2": "Drugs.com — Ceftriaxone pronunciation"
+    }
+  },
+  {
+    "id": 29,
+    "drug_1": "chlorproMAZINE",
+    "drug_2": "chlorproPAMIDE",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "First-generation phenothiazine antipsychotic",
+    "class_or_indication_2": "First-generation sulfonylurea antidiabetic",
+    "risk_summary": "Profound, protracted hypoglycemia in non-diabetic patients vs. extreme sedation, dystonia, and neuroleptic side effects.",
+    "pronunciation_1": "klor-PROE-ma-zeen",
+    "pronunciation_2": "klor-proe-PA-mide",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Chlorpromazine pronunciation",
+      "drug_2": "MedlinePlus — Chlorpropamide pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Chlorpromazine pronunciation",
+      "drug_2": "MedlinePlus — Chlorpropamide pronunciation"
+    }
+  },
+  {
+    "id": 30,
+    "drug_1": "clomiPHENE",
+    "drug_2": "clomiPRAMINE",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Selective estrogen receptor modulator (ovulatory stimulant)",
+    "class_or_indication_2": "Tricyclic antidepressant",
+    "risk_summary": "Unintended ovarian hyperstimulation syndrome (OHSS) vs. cardiotoxicity, anticholinergic toxicity, and seizure risk.",
+    "pronunciation_1": "KLOE-mih-feen",
+    "pronunciation_2": "kloe-MI-pra-meen",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Clomiphene pronunciation",
+      "drug_2": "Drugs.com — Clomipramine pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Clomiphene pronunciation",
+      "drug_2": "Drugs.com — Clomipramine pronunciation"
+    }
+  },
+  {
+    "id": 31,
+    "drug_1": "cycloSERINE",
+    "drug_2": "cycloSPORINE",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Second-line antimycobacterial (TB)",
+    "class_or_indication_2": "Calcineurin inhibitor immunosuppressant",
+    "risk_summary": "Acute organ transplant rejection / nephrotoxicity from cyclosporine errors, or neurotoxicity and failed TB management from cycloserine errors.",
+    "pronunciation_1": "SY-kloh-SEER-een",
+    "pronunciation_2": "SYE-kloe-SPOR-een",
+    "pronunciation_source": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Drugs.com — Cyclosporine pronunciation"
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Drugs.com — Cyclosporine pronunciation"
+    }
+  },
+  {
+    "id": 32,
+    "drug_1": "DACTINomycin",
+    "drug_2": "DAPTOmycin",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Cytotoxic actinomycin antineoplastic",
+    "class_or_indication_2": "Lipopeptide antibacterial",
+    "risk_summary": "Extreme bone marrow suppression, tissue necrosis, and severe toxicity from accidentally administering chemotherapy for an infection.",
+    "pronunciation_1": "dak-tin-oh-MYE-sin",
+    "pronunciation_2": "DAP-to-my-sin",
+    "pronunciation_source": {
+      "drug_1": "MedlinePlus / NCI — Dactinomycin pronunciation",
+      "drug_2": "Drugs.com — Daptomycin pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "MedlinePlus / NCI — Dactinomycin pronunciation",
+      "drug_2": "Drugs.com — Daptomycin pronunciation"
+    }
+  },
+  {
+    "id": 33,
+    "drug_1": "dimenhyDRINATE",
+    "drug_2": "diphenhydrAMINE",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Antiemetic / Antihistamine",
+    "class_or_indication_2": "First-generation H1 antihistamine",
+    "risk_summary": "Dosing discrepancy (dimenhydrinate contains roughly half the milligram potency of diphenhydramine), leading to under- or over-sedation.",
+    "pronunciation_1": "dye-men-HYE-dri-nate",
+    "pronunciation_2": "dye fen hye' dra meen",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Dimenhydrinate pronunciation",
+      "drug_2": "MedlinePlus / Cambridge Dictionary — Diphenhydramine pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Dimenhydrinate pronunciation",
+      "drug_2": "MedlinePlus / Cambridge Dictionary — Diphenhydramine pronunciation"
+    }
+  },
+  {
+    "id": 34,
+    "drug_1": "DEPO-Medrol",
+    "drug_2": "SOLU-Medrol",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Brand Name Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Methylprednisolone acetate (depot / suspension)",
+    "class_or_indication_2": "Methylprednisolone sodium succinate (IV formulation)",
+    "risk_summary": "Depo-Medrol injected intravenously can cause fatal microembolism, respiratory arrest, and cardiac arrest; it is strictly contraindicated for IV use.",
+    "pronunciation_1": "DEE-poh-MED-rol",
+    "pronunciation_2": "SOH-loo-MED-rol",
+    "pronunciation_source": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 35,
+    "drug_1": "fentaNYL",
+    "drug_2": "SUFentanil",
+    "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+    "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "proof_reference": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Synthetic opioid analgesic",
+    "class_or_indication_2": "Ultra-potent synthetic opioid analgesic",
+    "risk_summary": "Sufentanil is roughly 5 to 10 times more potent than fentanyl; confusing doses causes immediate, lethal respiratory depression.",
+    "pronunciation_1": "FEN-ta-nil",
+    "pronunciation_2": "soo-FEN-ta-nil",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Fentanyl pronunciation",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Fentanyl pronunciation",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 36,
+    "drug_1": "risperiDONE",
+    "drug_2": "rOPINIRole",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Atypical antipsychotic",
+    "class_or_indication_2": "Dopamine D2/D3 agonist (Parkinson's / RLS)",
+    "risk_summary": "Pharmacologically opposing mechanisms: risperidone blocks dopamine (worsening Parkinson's), while ropinirole can trigger psychosis.",
+    "pronunciation_1": "ris-PER-i-done",
+    "pronunciation_2": "roe pin' i role",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com / Cambridge Dictionary — Risperidone pronunciation",
+      "drug_2": "MedlinePlus — Ropinirole pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com / Cambridge Dictionary — Risperidone pronunciation",
+      "drug_2": "MedlinePlus — Ropinirole pronunciation"
+    }
+  },
+  {
+    "id": 37,
+    "drug_1": "sulfADIAZINE",
+    "drug_2": "sulfiSOXAZOLE",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Sulfonamide antibacterial (toxoplasmosis)",
+    "class_or_indication_2": "Sulfonamide antibacterial (UTIs / otitis media)",
+    "risk_summary": "Crystalluria, acute renal injury, allergic hypersensitivity reactions, or untreated parasitic infections.",
+    "pronunciation_1": "sull-fa-DYE-ah-zeen",
+    "pronunciation_2": "sul-fi-SOX-a-zole",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com / Cambridge Dictionary — Sulfadiazine pronunciation",
+      "drug_2": "Drugs.com — Sulfisoxazole pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com / Cambridge Dictionary — Sulfadiazine pronunciation",
+      "drug_2": "Drugs.com — Sulfisoxazole pronunciation"
+    }
+  },
+  {
+    "id": 38,
+    "drug_1": "TOLAZamide",
+    "drug_2": "TOLBUTamide",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "First-generation sulfonylurea",
+    "class_or_indication_2": "First-generation sulfonylurea",
+    "risk_summary": "Different milligram potencies and pharmacokinetics triggering severe, unpredictable hypoglycemia.",
+    "pronunciation_1": "tole-AZ-ah-mide",
+    "pronunciation_2": "tole-BYOO-tah-mide",
+    "pronunciation_source": {
+      "drug_1": "MedlinePlus / pronunciation reference — Tolazamide pronunciation",
+      "drug_2": "MedlinePlus / Cambridge Dictionary — Tolbutamide pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "MedlinePlus / pronunciation reference — Tolazamide pronunciation",
+      "drug_2": "MedlinePlus / Cambridge Dictionary — Tolbutamide pronunciation"
+    }
+  },
+  {
+    "id": 39,
+    "drug_1": "Humalog (insulin lispro)",
+    "drug_2": "Humulin R (regular insulin)",
+    "source": "ISMP List of Confused Drug Names",
+    "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
+    "proof_reference": "ISMP List of Confused Drug Names; ISMP Medication Safety Alert! Acute Care",
+    "class_or_indication_1": "Rapid-acting insulin analogue",
+    "class_or_indication_2": "Short-acting regular human insulin",
+    "risk_summary": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
+    "pronunciation_1": "HYOO-ma-log",
+    "pronunciation_2": "HYOO-myoo-lin R",
+    "pronunciation_source": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 40,
+    "drug_1": "NovoLOG (insulin aspart)",
+    "drug_2": "NovoLIN R (regular insulin)",
+    "source": "ISMP List of Confused Drug Names",
+    "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
+    "proof_reference": "ISMP List of Confused Drug Names; ISMP High-Alert Medication Guidelines",
+    "class_or_indication_1": "Rapid-acting insulin analogue",
+    "class_or_indication_2": "Short-acting regular human insulin",
+    "risk_summary": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
+    "pronunciation_1": "NOH-voh-log",
+    "pronunciation_2": "NOH-voh-lin R",
+    "pronunciation_source": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 41,
+    "drug_1": "Lantus (insulin glargine)",
+    "drug_2": "Lente (intermediate-acting insulin)",
+    "source": "ISMP List of Confused Drug Names",
+    "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
+    "proof_reference": "ISMP List of Confused Drug Names; ISMP National Medication Errors Reporting Program (MERP)",
+    "class_or_indication_1": "Long-acting peakless basal insulin",
+    "class_or_indication_2": "Intermediate-acting insulin zinc suspension",
+    "risk_summary": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
+    "pronunciation_1": "LAN-tus",
+    "pronunciation_2": "LEN-tee",
+    "pronunciation_source": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 42,
+    "drug_1": "LaMICtal (lamotrigine)",
+    "drug_2": "LaMISil (terbinafine)",
+    "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+    "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "proof_reference": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Antiepileptic / Mood stabilizer",
+    "class_or_indication_2": "Allylamine antifungal",
+    "risk_summary": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
+    "pronunciation_1": "LA-MIK-tal",
+    "pronunciation_2": "LA-mi-sil",
+    "pronunciation_source": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 43,
+    "drug_1": "ZyPREXA (olanzapine)",
+    "drug_2": "ZyrTEC (cetirizine)",
+    "source": "ISMP List of Confused Drug Names & Tall Man List",
+    "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
+    "proof_reference": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Second-generation antipsychotic",
+    "class_or_indication_2": "Second-generation H1 antihistamine",
+    "risk_summary": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
+    "pronunciation_1": "zye-PREX-a",
+    "pronunciation_2": "ZUR-tek",
+    "pronunciation_source": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 44,
+    "drug_1": "TopAMAX (topiramate)",
+    "drug_2": "Toprol-XL (metoprolol succinate)",
+    "source": "ISMP List of Confused Drug Names",
+    "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
+    "proof_reference": "ISMP List of Confused Drug Names; ISMP MERP Reporting Bulletin",
+    "class_or_indication_1": "Anticonvulsant / Migraine prophylactic",
+    "class_or_indication_2": "Cardioselective beta-1 blocker",
+    "risk_summary": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
+    "pronunciation_1": "toe-pa-MAX",
+    "pronunciation_2": "TOP-roll XL",
+    "pronunciation_source": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 45,
+    "drug_1": "SeroQUEL (quetiapine)",
+    "drug_2": "SineQUAN (doxepin)",
+    "source": "ISMP List of Confused Drug Names",
+    "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
+    "proof_reference": "ISMP List of Confused Drug Names; FDA Public Health Advisory",
+    "class_or_indication_1": "Atypical antipsychotic",
+    "class_or_indication_2": "Tricyclic antidepressant",
+    "risk_summary": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
+    "pronunciation_1": "SAIR-oh-kwel",
+    "pronunciation_2": "SIN-eh-kwan",
+    "pronunciation_source": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 46,
+    "drug_1": "priLOSEC (omeprazole)",
+    "drug_2": "PROzac (fluoxetine)",
+    "source": "FDA Safety Alerts & ISMP List of Confused Drug Names",
+    "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
+    "proof_reference": "FDA MedWatch Safety Alert (Prilosec/Prozac name confusion); ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Proton pump inhibitor",
+    "class_or_indication_2": "SSRI antidepressant",
+    "risk_summary": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
+    "pronunciation_1": "pry-LOE-sek",
+    "pronunciation_2": "PRO-zak",
+    "pronunciation_source": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 47,
+    "drug_1": "ALTEplase",
+    "drug_2": "TENECTEplase",
+    "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+    "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "proof_reference": "ISMP Table 2 Generic Tall Man List; ISMP Acute Care Safety Guidelines",
+    "class_or_indication_1": "Tissue plasminogen activator (tPA) fibrinoloytic",
+    "class_or_indication_2": "Genetically engineered tPA fibrinolytic",
+    "risk_summary": "Dosing difference (tenecteplase is a single weight-based bolus, alteplase is a bolus plus infusion); errors cause massive intracranial hemorrhage or subtherapeutic thrombolysis in stroke/MI.",
+    "pronunciation_1": "AL-te-plase",
+    "pronunciation_2": "ten-NEK-te-plase",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com / MedlinePlus / AAP — Alteplase pronunciation",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com / MedlinePlus / AAP — Alteplase pronunciation",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 48,
+    "drug_1": "hydroxyCHLOROquine",
+    "drug_2": "hydroxyUREA",
+    "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+    "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "proof_reference": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Aminoquinoline antimalarial / Disease-modifying antirheumatic drug",
+    "class_or_indication_2": "Antimetabolite antineoplastic",
+    "risk_summary": "Profound myelosuppression, leukopenia, and thrombocytopenia from unintended cytotoxic hydroxyurea administration.",
+    "pronunciation_1": "hye-drox-ee-KLOR-oh-kwin",
+    "pronunciation_2": "hye-DROX-ee-yoo-REE-a",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Hydroxychloroquine pronunciation",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Hydroxychloroquine pronunciation",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 49,
+    "drug_1": "leNALIDomide",
+    "drug_2": "leFLUNomide",
+    "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+    "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "proof_reference": "ISMP Table 2 Generic Tall Man List; ISMP Medication Safety Alert!",
+    "class_or_indication_1": "Immunomodulatory antineoplastic (thalidomide analogue)",
+    "class_or_indication_2": "Pyrimidine synthesis inhibitor (DMARD)",
+    "risk_summary": "Severe embryofetal toxicity, deep vein thrombosis/pulmonary embolism, and intense cytopenias from lenalidomide.",
+    "pronunciation_1": "len-a-LID-oh-mide",
+    "pronunciation_2": "leh-FLOO-no-mide",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Lenalidomide pronunciation",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Lenalidomide pronunciation",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 50,
+    "drug_1": "dexAMETHasone",
+    "drug_2": "dexmedeTOMIDine",
+    "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+    "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "proof_reference": "ISMP 2023 Tall Man Lettering Update; ISMP Table 2 Generic Tall Man List",
+    "class_or_indication_1": "Long-acting glucocorticoid",
+    "class_or_indication_2": "Selective alpha-2 adrenergic agonist sedative",
+    "risk_summary": "Profound sedation, severe bradycardia, and hypotension from dexmedetomidine, or acute glycemic decompensation and immune suppression from dexamethasone.",
+    "pronunciation_1": "dex-a-METH-a-sone",
+    "pronunciation_2": "dex-med-eh-TOE-mi-deen",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Dexamethasone pronunciation",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Dexamethasone pronunciation",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
     }
   }
 ]

@@ -4013,7 +4013,7 @@
               "id": "q_sound_lasa_039_A_read_back_level_020_rb_0",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: insulin lispro.",
+              "spokenText": "insulin lispro",
               "spokenDrug": "Humalog",
               "drugToPronounce": "insulin lispro",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4033,13 +4033,14 @@
               "riskSummary": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP Medication Safety Alert! Acute Care",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_039_a"
             },
             {
               "id": "q_sound_lasa_040_B_read_back_level_020_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: regular insulin.",
+              "spokenText": "regular insulin",
               "spokenDrug": "NovoLIN R",
               "drugToPronounce": "regular insulin",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4059,13 +4060,14 @@
               "riskSummary": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP High-Alert Medication Guidelines",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_040_b"
             },
             {
               "id": "q_sound_lasa_041_A_read_back_level_020_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: insulin glargine.",
+              "spokenText": "insulin glargine",
               "spokenDrug": "Lantus",
               "drugToPronounce": "insulin glargine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4085,13 +4087,14 @@
               "riskSummary": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP National Medication Errors Reporting Program (MERP)",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_041_a"
             },
             {
               "id": "q_sound_lasa_042_B_read_back_level_020_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: terbinafine.",
+              "spokenText": "terbinafine",
               "spokenDrug": "LaMISil",
               "drugToPronounce": "terbinafine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4111,13 +4114,14 @@
               "riskSummary": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_042_b"
             },
             {
               "id": "q_sound_lasa_043_A_read_back_level_020_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: olanzapine.",
+              "spokenText": "olanzapine",
               "spokenDrug": "ZyPREXA",
               "drugToPronounce": "olanzapine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4137,13 +4141,14 @@
               "riskSummary": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
               "source": "ISMP List of Confused Drug Names & Tall Man List",
               "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_043_a"
             },
             {
               "id": "q_sound_lasa_044_B_read_back_level_020_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: metoprolol succinate.",
+              "spokenText": "metoprolol succinate",
               "spokenDrug": "Toprol-XL",
               "drugToPronounce": "metoprolol succinate",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4163,13 +4168,14 @@
               "riskSummary": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP MERP Reporting Bulletin",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_044_b"
             },
             {
               "id": "q_sound_lasa_045_A_read_back_level_020_rb_6",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: quetiapine.",
+              "spokenText": "quetiapine",
               "spokenDrug": "SeroQUEL",
               "drugToPronounce": "quetiapine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4189,13 +4195,14 @@
               "riskSummary": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; FDA Public Health Advisory",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_045_a"
             },
             {
               "id": "q_sound_lasa_046_B_read_back_level_020_rb_7",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: fluoxetine.",
+              "spokenText": "fluoxetine",
               "spokenDrug": "PROzac",
               "drugToPronounce": "fluoxetine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4215,13 +4222,14 @@
               "riskSummary": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
               "source": "FDA Safety Alerts & ISMP List of Confused Drug Names",
               "sourceCitation": "FDA MedWatch Safety Alert (Prilosec/Prozac name confusion); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_046_b"
             },
             {
               "id": "q_sound_lasa_049_A_read_back_level_020_rb_8",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: lenalidomide.",
+              "spokenText": "lenalidomide",
               "spokenDrug": "leNALIDomide",
               "drugToPronounce": "lenalidomide",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4241,7 +4249,8 @@
               "riskSummary": "Severe embryofetal toxicity, deep vein thrombosis/pulmonary embolism, and intense cytopenias from lenalidomide.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Medication Safety Alert!",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_049_a"
             }
           ]
         }
@@ -4350,7 +4359,7 @@
           "id": "q_sound_lasa_039_A_read_back_level_020_rb_0",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: insulin lispro.",
+          "spokenText": "insulin lispro",
           "spokenDrug": "Humalog",
           "drugToPronounce": "insulin lispro",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4370,13 +4379,14 @@
           "riskSummary": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP Medication Safety Alert! Acute Care",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_039_a"
         },
         {
           "id": "q_sound_lasa_040_B_read_back_level_020_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: regular insulin.",
+          "spokenText": "regular insulin",
           "spokenDrug": "NovoLIN R",
           "drugToPronounce": "regular insulin",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4396,13 +4406,14 @@
           "riskSummary": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP High-Alert Medication Guidelines",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_040_b"
         },
         {
           "id": "q_sound_lasa_041_A_read_back_level_020_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: insulin glargine.",
+          "spokenText": "insulin glargine",
           "spokenDrug": "Lantus",
           "drugToPronounce": "insulin glargine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4422,13 +4433,14 @@
           "riskSummary": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP National Medication Errors Reporting Program (MERP)",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_041_a"
         },
         {
           "id": "q_sound_lasa_042_B_read_back_level_020_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: terbinafine.",
+          "spokenText": "terbinafine",
           "spokenDrug": "LaMISil",
           "drugToPronounce": "terbinafine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4448,13 +4460,14 @@
           "riskSummary": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_042_b"
         },
         {
           "id": "q_sound_lasa_043_A_read_back_level_020_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: olanzapine.",
+          "spokenText": "olanzapine",
           "spokenDrug": "ZyPREXA",
           "drugToPronounce": "olanzapine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4474,13 +4487,14 @@
           "riskSummary": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
           "source": "ISMP List of Confused Drug Names & Tall Man List",
           "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_043_a"
         },
         {
           "id": "q_sound_lasa_044_B_read_back_level_020_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: metoprolol succinate.",
+          "spokenText": "metoprolol succinate",
           "spokenDrug": "Toprol-XL",
           "drugToPronounce": "metoprolol succinate",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4500,13 +4514,14 @@
           "riskSummary": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP MERP Reporting Bulletin",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_044_b"
         },
         {
           "id": "q_sound_lasa_045_A_read_back_level_020_rb_6",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: quetiapine.",
+          "spokenText": "quetiapine",
           "spokenDrug": "SeroQUEL",
           "drugToPronounce": "quetiapine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4526,13 +4541,14 @@
           "riskSummary": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; FDA Public Health Advisory",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_045_a"
         },
         {
           "id": "q_sound_lasa_046_B_read_back_level_020_rb_7",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: fluoxetine.",
+          "spokenText": "fluoxetine",
           "spokenDrug": "PROzac",
           "drugToPronounce": "fluoxetine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4552,13 +4568,14 @@
           "riskSummary": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
           "source": "FDA Safety Alerts & ISMP List of Confused Drug Names",
           "sourceCitation": "FDA MedWatch Safety Alert (Prilosec/Prozac name confusion); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_046_b"
         },
         {
           "id": "q_sound_lasa_049_A_read_back_level_020_rb_8",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: lenalidomide.",
+          "spokenText": "lenalidomide",
           "spokenDrug": "leNALIDomide",
           "drugToPronounce": "lenalidomide",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4578,7 +4595,8 @@
           "riskSummary": "Severe embryofetal toxicity, deep vein thrombosis/pulmonary embolism, and intense cytopenias from lenalidomide.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Medication Safety Alert!",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_049_a"
         }
       ]
     },
@@ -5623,7 +5641,7 @@
               "id": "q_sound_lasa_039_A_read_back_mst_rb_0",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: insulin lispro.",
+              "spokenText": "insulin lispro",
               "spokenDrug": "Humalog",
               "drugToPronounce": "insulin lispro",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -5643,13 +5661,14 @@
               "riskSummary": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP Medication Safety Alert! Acute Care",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_039_a"
             },
             {
               "id": "q_sound_lasa_040_B_read_back_mst_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: regular insulin.",
+              "spokenText": "regular insulin",
               "spokenDrug": "NovoLIN R",
               "drugToPronounce": "regular insulin",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -5669,13 +5688,14 @@
               "riskSummary": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP High-Alert Medication Guidelines",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_040_b"
             },
             {
               "id": "q_sound_lasa_041_A_read_back_mst_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: insulin glargine.",
+              "spokenText": "insulin glargine",
               "spokenDrug": "Lantus",
               "drugToPronounce": "insulin glargine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -5695,13 +5715,14 @@
               "riskSummary": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP National Medication Errors Reporting Program (MERP)",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_041_a"
             },
             {
               "id": "q_sound_lasa_042_B_read_back_mst_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: terbinafine.",
+              "spokenText": "terbinafine",
               "spokenDrug": "LaMISil",
               "drugToPronounce": "terbinafine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -5721,13 +5742,14 @@
               "riskSummary": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_042_b"
             },
             {
               "id": "q_sound_lasa_043_A_read_back_mst_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: olanzapine.",
+              "spokenText": "olanzapine",
               "spokenDrug": "ZyPREXA",
               "drugToPronounce": "olanzapine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -5747,13 +5769,14 @@
               "riskSummary": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
               "source": "ISMP List of Confused Drug Names & Tall Man List",
               "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_043_a"
             },
             {
               "id": "q_sound_lasa_044_B_read_back_mst_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: metoprolol succinate.",
+              "spokenText": "metoprolol succinate",
               "spokenDrug": "Toprol-XL",
               "drugToPronounce": "metoprolol succinate",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -5773,13 +5796,14 @@
               "riskSummary": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; ISMP MERP Reporting Bulletin",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_044_b"
             },
             {
               "id": "q_sound_lasa_045_A_read_back_mst_rb_6",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: quetiapine.",
+              "spokenText": "quetiapine",
               "spokenDrug": "SeroQUEL",
               "drugToPronounce": "quetiapine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -5799,13 +5823,14 @@
               "riskSummary": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
               "source": "ISMP List of Confused Drug Names",
               "sourceCitation": "ISMP List of Confused Drug Names; FDA Public Health Advisory",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_045_a"
             },
             {
               "id": "q_sound_lasa_046_B_read_back_mst_rb_7",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: fluoxetine.",
+              "spokenText": "fluoxetine",
               "spokenDrug": "PROzac",
               "drugToPronounce": "fluoxetine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -5825,13 +5850,14 @@
               "riskSummary": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
               "source": "FDA Safety Alerts & ISMP List of Confused Drug Names",
               "sourceCitation": "FDA MedWatch Safety Alert (Prilosec/Prozac name confusion); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+              "canonicalDrugId": "lasa_046_b"
             },
             {
               "id": "q_sound_lasa_049_A_read_back_mst_rb_8",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: lenalidomide.",
+              "spokenText": "lenalidomide",
               "spokenDrug": "leNALIDomide",
               "drugToPronounce": "lenalidomide",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -5851,7 +5877,8 @@
               "riskSummary": "Severe embryofetal toxicity, deep vein thrombosis/pulmonary embolism, and intense cytopenias from lenalidomide.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Medication Safety Alert!",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_049_a"
             }
           ]
         },
@@ -7133,7 +7160,7 @@
           "id": "q_sound_lasa_039_A_read_back_mst_rb_0",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: insulin lispro.",
+          "spokenText": "insulin lispro",
           "spokenDrug": "Humalog",
           "drugToPronounce": "insulin lispro",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7153,13 +7180,14 @@
           "riskSummary": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP Medication Safety Alert! Acute Care",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_039_a"
         },
         {
           "id": "q_sound_lasa_040_B_read_back_mst_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: regular insulin.",
+          "spokenText": "regular insulin",
           "spokenDrug": "NovoLIN R",
           "drugToPronounce": "regular insulin",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7179,13 +7207,14 @@
           "riskSummary": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP High-Alert Medication Guidelines",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_040_b"
         },
         {
           "id": "q_sound_lasa_041_A_read_back_mst_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: insulin glargine.",
+          "spokenText": "insulin glargine",
           "spokenDrug": "Lantus",
           "drugToPronounce": "insulin glargine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7205,13 +7234,14 @@
           "riskSummary": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP National Medication Errors Reporting Program (MERP)",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_041_a"
         },
         {
           "id": "q_sound_lasa_042_B_read_back_mst_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: terbinafine.",
+          "spokenText": "terbinafine",
           "spokenDrug": "LaMISil",
           "drugToPronounce": "terbinafine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7231,13 +7261,14 @@
           "riskSummary": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_042_b"
         },
         {
           "id": "q_sound_lasa_043_A_read_back_mst_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: olanzapine.",
+          "spokenText": "olanzapine",
           "spokenDrug": "ZyPREXA",
           "drugToPronounce": "olanzapine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7257,13 +7288,14 @@
           "riskSummary": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
           "source": "ISMP List of Confused Drug Names & Tall Man List",
           "sourceCitation": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_043_a"
         },
         {
           "id": "q_sound_lasa_044_B_read_back_mst_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: metoprolol succinate.",
+          "spokenText": "metoprolol succinate",
           "spokenDrug": "Toprol-XL",
           "drugToPronounce": "metoprolol succinate",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7283,13 +7315,14 @@
           "riskSummary": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; ISMP MERP Reporting Bulletin",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_044_b"
         },
         {
           "id": "q_sound_lasa_045_A_read_back_mst_rb_6",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: quetiapine.",
+          "spokenText": "quetiapine",
           "spokenDrug": "SeroQUEL",
           "drugToPronounce": "quetiapine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7309,13 +7342,14 @@
           "riskSummary": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
           "source": "ISMP List of Confused Drug Names",
           "sourceCitation": "ISMP List of Confused Drug Names; FDA Public Health Advisory",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_045_a"
         },
         {
           "id": "q_sound_lasa_046_B_read_back_mst_rb_7",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: fluoxetine.",
+          "spokenText": "fluoxetine",
           "spokenDrug": "PROzac",
           "drugToPronounce": "fluoxetine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7335,13 +7369,14 @@
           "riskSummary": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
           "source": "FDA Safety Alerts & ISMP List of Confused Drug Names",
           "sourceCitation": "FDA MedWatch Safety Alert (Prilosec/Prozac name confusion); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/confused-drug-names-list",
+          "canonicalDrugId": "lasa_046_b"
         },
         {
           "id": "q_sound_lasa_049_A_read_back_mst_rb_8",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: lenalidomide.",
+          "spokenText": "lenalidomide",
           "spokenDrug": "leNALIDomide",
           "drugToPronounce": "lenalidomide",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7361,7 +7396,8 @@
           "riskSummary": "Severe embryofetal toxicity, deep vein thrombosis/pulmonary embolism, and intense cytopenias from lenalidomide.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP Medication Safety Alert!",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_049_a"
         },
         {
           "id": "q_pair_lasa_039_A_mst_disc_0",

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Volume2, VolumeX, ShieldCheck, AlertTriangle, Sparkles, ArrowLeft, Cloud, CheckCircle2, Loader2 } from "lucide-react";
 import { Link } from "react-router";
-import { speakDrugName, stopSpeech, isSpeechSupported } from "../../services/audioService.js";
+import { speakDrugName, stopSpeech, isSpeechSupported, playMedicationAudio } from "../../services/audioService.js";
 import testPairs from "../../data/rawLasaSource_PRONUNCIATION_VERIFIED_SOURCES_FIXED.json" with { type: "json" };
 import "./TtsTestPage.css";
 
@@ -56,7 +56,9 @@ function TtsTestPage() {
         }
 
         return () => {
-            stopAllAudio();
+            if (typeof window.speechSynthesis !== "undefined") {
+                window.speechSynthesis.onvoiceschanged = null;
+            }
         };
     }, [hasBrowserSpeech]);
 
@@ -91,6 +93,17 @@ function TtsTestPage() {
         }
     };
 
+    // Play via Static Pre-generated MP3
+    const handlePlayStaticAudio = (drugName, keyIdentifier) => {
+        stopAllAudio();
+        setActivePlayingKey(keyIdentifier);
+        playMedicationAudio(drugName, {
+            rate: Number(rate),
+            onEnd: () => setActivePlayingKey(null),
+            onError: () => setActivePlayingKey(null)
+        });
+    };
+
     // Play via Azure AI Speech (dev middleware)
     const handlePlayAzure = async (textToSpeak, keyIdentifier) => {
         if (!textToSpeak) return;
@@ -119,19 +132,19 @@ function TtsTestPage() {
             const audio = new Audio(audioUrl);
             currentAudioRef.current = audio;
 
-            audio.onended = () => {
+            audio.addEventListener("ended", () => {
                 setActivePlayingKey(null);
-                URL.revokeObjectURL(audioUrl);
-            };
+                currentAudioRef.current = null;
+            });
 
-            audio.onerror = (e) => {
-                setAzureError(`Audio playback error: ${e.message || "playback failed"}`);
+            audio.addEventListener("error", () => {
                 setActivePlayingKey(null);
-            };
+                currentAudioRef.current = null;
+            });
 
             await audio.play();
         } catch (err) {
-            setAzureError(err.message);
+            setAzureError(`Azure playback failed: ${err.message}`);
             setActivePlayingKey(null);
         }
     };
@@ -333,6 +346,22 @@ function TtsTestPage() {
                                             </button>
                                         )}
                                     </div>
+
+                                    {/* Static Pre-Generated Audio Section */}
+                                    <div className="tts-engine-section">
+                                        <span className="tts-engine-label" style={{ color: "#22c55e" }}>
+                                            <CheckCircle2 size={13} />
+                                            Archived Static Audio (Local Asset)
+                                        </span>
+                                        <button
+                                            type="button"
+                                            className={`tts-btn tts-btn-static ${activePlayingKey === `${pair.id}-1-static` ? "is-active" : ""}`}
+                                            onClick={() => handlePlayStaticAudio(pair.drug_1, `${pair.id}-1-static`)}
+                                        >
+                                            <Volume2 size={15} />
+                                            <span>Play Static Audio: "{pair.drug_1}"</span>
+                                        </button>
+                                    </div>
                                 </div>
 
                                 {/* Drug 2 */}
@@ -414,6 +443,22 @@ function TtsTestPage() {
                                                 <span>Play Azure (Phonetic: "{pair.pronunciation_2}")</span>
                                             </button>
                                         )}
+                                    </div>
+
+                                    {/* Static Pre-Generated Audio Section */}
+                                    <div className="tts-engine-section">
+                                        <span className="tts-engine-label" style={{ color: "#22c55e" }}>
+                                            <CheckCircle2 size={13} />
+                                            Archived Static Audio (Local Asset)
+                                        </span>
+                                        <button
+                                            type="button"
+                                            className={`tts-btn tts-btn-static ${activePlayingKey === `${pair.id}-2-static` ? "is-active" : ""}`}
+                                            onClick={() => handlePlayStaticAudio(pair.drug_2, `${pair.id}-2-static`)}
+                                        >
+                                            <Volume2 size={15} />
+                                            <span>Play Static Audio: "{pair.drug_2}"</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

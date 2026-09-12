@@ -4456,7 +4456,7 @@
               "id": "q_sound_lasa_001_A_read_back_level_005_rb_0",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: bupropion.",
+              "spokenText": "bupropion",
               "spokenDrug": "buPROPion",
               "drugToPronounce": "bupropion",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4476,13 +4476,14 @@
               "riskSummary": "Confusion between an antidepressant/smoking cessation aid and an anxiolytic; risk of seizure (bupropion overdose) or untreated anxiety/depression.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_001_a"
             },
             {
               "id": "q_sound_lasa_002_B_read_back_level_005_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: hydroxyzine.",
+              "spokenText": "hydroxyzine",
               "spokenDrug": "hydrOXYzine",
               "drugToPronounce": "hydroxyzine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4502,13 +4503,14 @@
               "riskSummary": "Severe hypotension from accidental hydralazine, or unintended central nervous system sedation from hydroxyzine.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_002_b"
             },
             {
               "id": "q_sound_lasa_004_A_read_back_level_005_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: tramadol.",
+              "spokenText": "tramadol",
               "spokenDrug": "traMADol",
               "drugToPronounce": "tramadol",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4528,13 +4530,14 @@
               "riskSummary": "Excessive sedation, hypotension, unmanaged acute pain, or increased risk of serotonin syndrome.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Recommended Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_004_a"
             },
             {
               "id": "q_sound_lasa_005_B_read_back_level_005_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: clonidine.",
+              "spokenText": "clonidine",
               "spokenDrug": "cloNIDine",
               "drugToPronounce": "clonidine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4554,13 +4557,14 @@
               "riskSummary": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List (cloNIDine confused with clonazePAM); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_005_b"
             },
             {
               "id": "q_sound_lasa_007_A_read_back_level_005_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: clonazepam.",
+              "spokenText": "clonazepam",
               "spokenDrug": "clonazePAM",
               "drugToPronounce": "clonazepam",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4580,13 +4584,14 @@
               "riskSummary": "Agranulocytosis, severe orthostatic hypotension, seizures, and metabolic side effects from accidental clozapine administration.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List (cloZAPine confused with clonazePAM); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_007_a"
             },
             {
               "id": "q_sound_lasa_008_B_read_back_level_005_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: citalopram.",
+              "spokenText": "citalopram",
               "spokenDrug": "CeleXA",
               "drugToPronounce": "citalopram",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4606,13 +4611,14 @@
               "riskSummary": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Brand Name Tall Man List (CeleBREX / CeleXA); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_008_b"
             },
             {
               "id": "q_sound_lasa_010_A_read_back_level_005_rb_6",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: dobutamine.",
+              "spokenText": "dobutamine",
               "spokenDrug": "DOBUtamine",
               "drugToPronounce": "dobutamine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4632,13 +4638,14 @@
               "riskSummary": "Hemodynamic instability, dangerous tachycardia, or inappropriate peripheral vasoconstriction/vasodilation in critical care.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_010_a"
             },
             {
               "id": "q_sound_lasa_012_B_read_back_level_005_rb_7",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: glyburide.",
+              "spokenText": "glyburide",
               "spokenDrug": "glyBURIDE",
               "drugToPronounce": "glyburide",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4658,7 +4665,8 @@
               "riskSummary": "Prolonged, severe hypoglycemia, especially in elderly patients or those with renal impairment given glyburide.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_012_b"
             }
           ]
         }
@@ -4767,7 +4775,7 @@
           "id": "q_sound_lasa_001_A_read_back_level_005_rb_0",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: bupropion.",
+          "spokenText": "bupropion",
           "spokenDrug": "buPROPion",
           "drugToPronounce": "bupropion",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4787,13 +4795,14 @@
           "riskSummary": "Confusion between an antidepressant/smoking cessation aid and an anxiolytic; risk of seizure (bupropion overdose) or untreated anxiety/depression.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_001_a"
         },
         {
           "id": "q_sound_lasa_002_B_read_back_level_005_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: hydroxyzine.",
+          "spokenText": "hydroxyzine",
           "spokenDrug": "hydrOXYzine",
           "drugToPronounce": "hydroxyzine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4813,13 +4822,14 @@
           "riskSummary": "Severe hypotension from accidental hydralazine, or unintended central nervous system sedation from hydroxyzine.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_002_b"
         },
         {
           "id": "q_sound_lasa_004_A_read_back_level_005_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: tramadol.",
+          "spokenText": "tramadol",
           "spokenDrug": "traMADol",
           "drugToPronounce": "tramadol",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4839,13 +4849,14 @@
           "riskSummary": "Excessive sedation, hypotension, unmanaged acute pain, or increased risk of serotonin syndrome.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Recommended Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_004_a"
         },
         {
           "id": "q_sound_lasa_005_B_read_back_level_005_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: clonidine.",
+          "spokenText": "clonidine",
           "spokenDrug": "cloNIDine",
           "drugToPronounce": "clonidine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4865,13 +4876,14 @@
           "riskSummary": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List (cloNIDine confused with clonazePAM); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_005_b"
         },
         {
           "id": "q_sound_lasa_007_A_read_back_level_005_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: clonazepam.",
+          "spokenText": "clonazepam",
           "spokenDrug": "clonazePAM",
           "drugToPronounce": "clonazepam",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4891,13 +4903,14 @@
           "riskSummary": "Agranulocytosis, severe orthostatic hypotension, seizures, and metabolic side effects from accidental clozapine administration.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List (cloZAPine confused with clonazePAM); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_007_a"
         },
         {
           "id": "q_sound_lasa_008_B_read_back_level_005_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: citalopram.",
+          "spokenText": "citalopram",
           "spokenDrug": "CeleXA",
           "drugToPronounce": "citalopram",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4917,13 +4930,14 @@
           "riskSummary": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Brand Name Tall Man List (CeleBREX / CeleXA); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_008_b"
         },
         {
           "id": "q_sound_lasa_010_A_read_back_level_005_rb_6",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: dobutamine.",
+          "spokenText": "dobutamine",
           "spokenDrug": "DOBUtamine",
           "drugToPronounce": "dobutamine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4943,13 +4957,14 @@
           "riskSummary": "Hemodynamic instability, dangerous tachycardia, or inappropriate peripheral vasoconstriction/vasodilation in critical care.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_010_a"
         },
         {
           "id": "q_sound_lasa_012_B_read_back_level_005_rb_7",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: glyburide.",
+          "spokenText": "glyburide",
           "spokenDrug": "glyBURIDE",
           "drugToPronounce": "glyburide",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4969,7 +4984,8 @@
           "riskSummary": "Prolonged, severe hypoglycemia, especially in elderly patients or those with renal impairment given glyburide.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_012_b"
         }
       ]
     },
@@ -6203,7 +6219,7 @@
               "id": "q_sound_lasa_001_A_read_back_mst_rb_0",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: bupropion.",
+              "spokenText": "bupropion",
               "spokenDrug": "buPROPion",
               "drugToPronounce": "bupropion",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6223,13 +6239,14 @@
               "riskSummary": "Confusion between an antidepressant/smoking cessation aid and an anxiolytic; risk of seizure (bupropion overdose) or untreated anxiety/depression.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_001_a"
             },
             {
               "id": "q_sound_lasa_002_B_read_back_mst_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: hydroxyzine.",
+              "spokenText": "hydroxyzine",
               "spokenDrug": "hydrOXYzine",
               "drugToPronounce": "hydroxyzine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6249,13 +6266,14 @@
               "riskSummary": "Severe hypotension from accidental hydralazine, or unintended central nervous system sedation from hydroxyzine.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_002_b"
             },
             {
               "id": "q_sound_lasa_004_A_read_back_mst_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: tramadol.",
+              "spokenText": "tramadol",
               "spokenDrug": "traMADol",
               "drugToPronounce": "tramadol",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6275,13 +6293,14 @@
               "riskSummary": "Excessive sedation, hypotension, unmanaged acute pain, or increased risk of serotonin syndrome.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Recommended Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_004_a"
             },
             {
               "id": "q_sound_lasa_005_B_read_back_mst_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: clonidine.",
+              "spokenText": "clonidine",
               "spokenDrug": "cloNIDine",
               "drugToPronounce": "clonidine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6301,13 +6320,14 @@
               "riskSummary": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List (cloNIDine confused with clonazePAM); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_005_b"
             },
             {
               "id": "q_sound_lasa_007_A_read_back_mst_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: clonazepam.",
+              "spokenText": "clonazepam",
               "spokenDrug": "clonazePAM",
               "drugToPronounce": "clonazepam",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6327,13 +6347,14 @@
               "riskSummary": "Agranulocytosis, severe orthostatic hypotension, seizures, and metabolic side effects from accidental clozapine administration.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List (cloZAPine confused with clonazePAM); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_007_a"
             },
             {
               "id": "q_sound_lasa_008_B_read_back_mst_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: citalopram.",
+              "spokenText": "citalopram",
               "spokenDrug": "CeleXA",
               "drugToPronounce": "citalopram",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6353,13 +6374,14 @@
               "riskSummary": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Brand Name Tall Man List (CeleBREX / CeleXA); ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_008_b"
             },
             {
               "id": "q_sound_lasa_010_A_read_back_mst_rb_6",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: dobutamine.",
+              "spokenText": "dobutamine",
               "spokenDrug": "DOBUtamine",
               "drugToPronounce": "dobutamine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6379,13 +6401,14 @@
               "riskSummary": "Hemodynamic instability, dangerous tachycardia, or inappropriate peripheral vasoconstriction/vasodilation in critical care.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_010_a"
             },
             {
               "id": "q_sound_lasa_012_B_read_back_mst_rb_7",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: glyburide.",
+              "spokenText": "glyburide",
               "spokenDrug": "glyBURIDE",
               "drugToPronounce": "glyburide",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6405,7 +6428,8 @@
               "riskSummary": "Prolonged, severe hypoglycemia, especially in elderly patients or those with renal impairment given glyburide.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_012_b"
             }
           ]
         },
@@ -7898,7 +7922,7 @@
           "id": "q_sound_lasa_001_A_read_back_mst_rb_0",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: bupropion.",
+          "spokenText": "bupropion",
           "spokenDrug": "buPROPion",
           "drugToPronounce": "bupropion",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7918,13 +7942,14 @@
           "riskSummary": "Confusion between an antidepressant/smoking cessation aid and an anxiolytic; risk of seizure (bupropion overdose) or untreated anxiety/depression.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_001_a"
         },
         {
           "id": "q_sound_lasa_002_B_read_back_mst_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: hydroxyzine.",
+          "spokenText": "hydroxyzine",
           "spokenDrug": "hydrOXYzine",
           "drugToPronounce": "hydroxyzine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7944,13 +7969,14 @@
           "riskSummary": "Severe hypotension from accidental hydralazine, or unintended central nervous system sedation from hydroxyzine.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_002_b"
         },
         {
           "id": "q_sound_lasa_004_A_read_back_mst_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: tramadol.",
+          "spokenText": "tramadol",
           "spokenDrug": "traMADol",
           "drugToPronounce": "tramadol",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7970,13 +7996,14 @@
           "riskSummary": "Excessive sedation, hypotension, unmanaged acute pain, or increased risk of serotonin syndrome.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Recommended Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_004_a"
         },
         {
           "id": "q_sound_lasa_005_B_read_back_mst_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: clonidine.",
+          "spokenText": "clonidine",
           "spokenDrug": "cloNIDine",
           "drugToPronounce": "clonidine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7996,13 +8023,14 @@
           "riskSummary": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List (cloNIDine confused with clonazePAM); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_005_b"
         },
         {
           "id": "q_sound_lasa_007_A_read_back_mst_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: clonazepam.",
+          "spokenText": "clonazepam",
           "spokenDrug": "clonazePAM",
           "drugToPronounce": "clonazepam",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -8022,13 +8050,14 @@
           "riskSummary": "Agranulocytosis, severe orthostatic hypotension, seizures, and metabolic side effects from accidental clozapine administration.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List (cloZAPine confused with clonazePAM); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_007_a"
         },
         {
           "id": "q_sound_lasa_008_B_read_back_mst_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: citalopram.",
+          "spokenText": "citalopram",
           "spokenDrug": "CeleXA",
           "drugToPronounce": "citalopram",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -8048,13 +8077,14 @@
           "riskSummary": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Brand Name Tall Man List (CeleBREX / CeleXA); ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_008_b"
         },
         {
           "id": "q_sound_lasa_010_A_read_back_mst_rb_6",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: dobutamine.",
+          "spokenText": "dobutamine",
           "spokenDrug": "DOBUtamine",
           "drugToPronounce": "dobutamine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -8074,13 +8104,14 @@
           "riskSummary": "Hemodynamic instability, dangerous tachycardia, or inappropriate peripheral vasoconstriction/vasodilation in critical care.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_010_a"
         },
         {
           "id": "q_sound_lasa_012_B_read_back_mst_rb_7",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: glyburide.",
+          "spokenText": "glyburide",
           "spokenDrug": "glyBURIDE",
           "drugToPronounce": "glyburide",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -8100,7 +8131,8 @@
           "riskSummary": "Prolonged, severe hypoglycemia, especially in elderly patients or those with renal impairment given glyburide.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_012_b"
         },
         {
           "id": "q_pair_lasa_001_A_mst_disc_0",

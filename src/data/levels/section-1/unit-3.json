@@ -4450,7 +4450,7 @@
               "id": "q_sound_lasa_027_A_read_back_level_015_rb_0",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: cefotetan.",
+              "spokenText": "cefotetan",
               "spokenDrug": "cefoTEtan",
               "drugToPronounce": "cefotetan",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4470,13 +4470,14 @@
               "riskSummary": "Dosing interval mismatches, potential bleeding risk/coagulopathy associated with the N-methylthiotetrazole (NMTT) chain in cefotetan.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_027_a"
             },
             {
               "id": "q_sound_lasa_028_B_read_back_level_015_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: ceftriaxone.",
+              "spokenText": "ceftriaxone",
               "spokenDrug": "cefTRIAXone",
               "drugToPronounce": "ceftriaxone",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4496,13 +4497,14 @@
               "riskSummary": "Inadequate coverage for Pseudomonas aeruginosa infections, leading to sepsis and therapeutic failure.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_028_b"
             },
             {
               "id": "q_sound_lasa_031_A_read_back_level_015_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: cycloserine.",
+              "spokenText": "cycloserine",
               "spokenDrug": "cycloSERINE",
               "drugToPronounce": "cycloserine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4522,13 +4524,14 @@
               "riskSummary": "Acute organ transplant rejection / nephrotoxicity from cyclosporine errors, or neurotoxicity and failed TB management from cycloserine errors.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_031_a"
             },
             {
               "id": "q_sound_lasa_035_B_read_back_level_015_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: sufentanil.",
+              "spokenText": "sufentanil",
               "spokenDrug": "SUFentanil",
               "drugToPronounce": "sufentanil",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4548,13 +4551,14 @@
               "riskSummary": "Sufentanil is roughly 5 to 10 times more potent than fentanyl; confusing doses causes immediate, lethal respiratory depression.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_035_b"
             },
             {
               "id": "q_sound_lasa_036_A_read_back_level_015_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: risperidone.",
+              "spokenText": "risperidone",
               "spokenDrug": "risperiDONE",
               "drugToPronounce": "risperidone",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4574,13 +4578,14 @@
               "riskSummary": "Pharmacologically opposing mechanisms: risperidone blocks dopamine (worsening Parkinson's), while ropinirole can trigger psychosis.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_036_a"
             },
             {
               "id": "q_sound_lasa_038_B_read_back_level_015_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: tolbutamide.",
+              "spokenText": "tolbutamide",
               "spokenDrug": "TOLBUTamide",
               "drugToPronounce": "tolbutamide",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4600,7 +4605,8 @@
               "riskSummary": "Different milligram potencies and pharmacokinetics triggering severe, unpredictable hypoglycemia.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_038_b"
             }
           ]
         }
@@ -4709,7 +4715,7 @@
           "id": "q_sound_lasa_027_A_read_back_level_015_rb_0",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: cefotetan.",
+          "spokenText": "cefotetan",
           "spokenDrug": "cefoTEtan",
           "drugToPronounce": "cefotetan",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4729,13 +4735,14 @@
           "riskSummary": "Dosing interval mismatches, potential bleeding risk/coagulopathy associated with the N-methylthiotetrazole (NMTT) chain in cefotetan.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_027_a"
         },
         {
           "id": "q_sound_lasa_028_B_read_back_level_015_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: ceftriaxone.",
+          "spokenText": "ceftriaxone",
           "spokenDrug": "cefTRIAXone",
           "drugToPronounce": "ceftriaxone",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4755,13 +4762,14 @@
           "riskSummary": "Inadequate coverage for Pseudomonas aeruginosa infections, leading to sepsis and therapeutic failure.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_028_b"
         },
         {
           "id": "q_sound_lasa_031_A_read_back_level_015_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: cycloserine.",
+          "spokenText": "cycloserine",
           "spokenDrug": "cycloSERINE",
           "drugToPronounce": "cycloserine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4781,13 +4789,14 @@
           "riskSummary": "Acute organ transplant rejection / nephrotoxicity from cyclosporine errors, or neurotoxicity and failed TB management from cycloserine errors.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_031_a"
         },
         {
           "id": "q_sound_lasa_035_B_read_back_level_015_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: sufentanil.",
+          "spokenText": "sufentanil",
           "spokenDrug": "SUFentanil",
           "drugToPronounce": "sufentanil",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4807,13 +4816,14 @@
           "riskSummary": "Sufentanil is roughly 5 to 10 times more potent than fentanyl; confusing doses causes immediate, lethal respiratory depression.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_035_b"
         },
         {
           "id": "q_sound_lasa_036_A_read_back_level_015_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: risperidone.",
+          "spokenText": "risperidone",
           "spokenDrug": "risperiDONE",
           "drugToPronounce": "risperidone",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4833,13 +4843,14 @@
           "riskSummary": "Pharmacologically opposing mechanisms: risperidone blocks dopamine (worsening Parkinson's), while ropinirole can trigger psychosis.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_036_a"
         },
         {
           "id": "q_sound_lasa_038_B_read_back_level_015_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: tolbutamide.",
+          "spokenText": "tolbutamide",
           "spokenDrug": "TOLBUTamide",
           "drugToPronounce": "tolbutamide",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -4859,7 +4870,8 @@
           "riskSummary": "Different milligram potencies and pharmacokinetics triggering severe, unpredictable hypoglycemia.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_038_b"
         }
       ]
     },
@@ -6140,7 +6152,7 @@
               "id": "q_sound_lasa_027_A_read_back_mst_rb_0",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: cefotetan.",
+              "spokenText": "cefotetan",
               "spokenDrug": "cefoTEtan",
               "drugToPronounce": "cefotetan",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6160,13 +6172,14 @@
               "riskSummary": "Dosing interval mismatches, potential bleeding risk/coagulopathy associated with the N-methylthiotetrazole (NMTT) chain in cefotetan.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_027_a"
             },
             {
               "id": "q_sound_lasa_028_B_read_back_mst_rb_1",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: ceftriaxone.",
+              "spokenText": "ceftriaxone",
               "spokenDrug": "cefTRIAXone",
               "drugToPronounce": "ceftriaxone",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6186,13 +6199,14 @@
               "riskSummary": "Inadequate coverage for Pseudomonas aeruginosa infections, leading to sepsis and therapeutic failure.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_028_b"
             },
             {
               "id": "q_sound_lasa_031_A_read_back_mst_rb_2",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: cycloserine.",
+              "spokenText": "cycloserine",
               "spokenDrug": "cycloSERINE",
               "drugToPronounce": "cycloserine",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6212,13 +6226,14 @@
               "riskSummary": "Acute organ transplant rejection / nephrotoxicity from cyclosporine errors, or neurotoxicity and failed TB management from cycloserine errors.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_031_a"
             },
             {
               "id": "q_sound_lasa_035_B_read_back_mst_rb_3",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: sufentanil.",
+              "spokenText": "sufentanil",
               "spokenDrug": "SUFentanil",
               "drugToPronounce": "sufentanil",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6238,13 +6253,14 @@
               "riskSummary": "Sufentanil is roughly 5 to 10 times more potent than fentanyl; confusing doses causes immediate, lethal respiratory depression.",
               "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
               "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+              "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+              "canonicalDrugId": "lasa_035_b"
             },
             {
               "id": "q_sound_lasa_036_A_read_back_mst_rb_4",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: risperidone.",
+              "spokenText": "risperidone",
               "spokenDrug": "risperiDONE",
               "drugToPronounce": "risperidone",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6264,13 +6280,14 @@
               "riskSummary": "Pharmacologically opposing mechanisms: risperidone blocks dopamine (worsening Parkinson's), while ropinirole can trigger psychosis.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_036_a"
             },
             {
               "id": "q_sound_lasa_038_B_read_back_mst_rb_5",
               "type": "sound_alike",
               "subtype": "read_back",
-              "spokenText": "Order received for: tolbutamide.",
+              "spokenText": "tolbutamide",
               "spokenDrug": "TOLBUTamide",
               "drugToPronounce": "tolbutamide",
               "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -6290,7 +6307,8 @@
               "riskSummary": "Different milligram potencies and pharmacokinetics triggering severe, unpredictable hypoglycemia.",
               "source": "FDA Name Differentiation Project & ISMP Tall Man List",
               "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+              "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+              "canonicalDrugId": "lasa_038_b"
             }
           ]
         },
@@ -7830,7 +7848,7 @@
           "id": "q_sound_lasa_027_A_read_back_mst_rb_0",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: cefotetan.",
+          "spokenText": "cefotetan",
           "spokenDrug": "cefoTEtan",
           "drugToPronounce": "cefotetan",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7850,13 +7868,14 @@
           "riskSummary": "Dosing interval mismatches, potential bleeding risk/coagulopathy associated with the N-methylthiotetrazole (NMTT) chain in cefotetan.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_027_a"
         },
         {
           "id": "q_sound_lasa_028_B_read_back_mst_rb_1",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: ceftriaxone.",
+          "spokenText": "ceftriaxone",
           "spokenDrug": "cefTRIAXone",
           "drugToPronounce": "ceftriaxone",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7876,13 +7895,14 @@
           "riskSummary": "Inadequate coverage for Pseudomonas aeruginosa infections, leading to sepsis and therapeutic failure.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_028_b"
         },
         {
           "id": "q_sound_lasa_031_A_read_back_mst_rb_2",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: cycloserine.",
+          "spokenText": "cycloserine",
           "spokenDrug": "cycloSERINE",
           "drugToPronounce": "cycloserine",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7902,13 +7922,14 @@
           "riskSummary": "Acute organ transplant rejection / nephrotoxicity from cyclosporine errors, or neurotoxicity and failed TB management from cycloserine errors.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_031_a"
         },
         {
           "id": "q_sound_lasa_035_B_read_back_mst_rb_3",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: sufentanil.",
+          "spokenText": "sufentanil",
           "spokenDrug": "SUFentanil",
           "drugToPronounce": "sufentanil",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7928,13 +7949,14 @@
           "riskSummary": "Sufentanil is roughly 5 to 10 times more potent than fentanyl; confusing doses causes immediate, lethal respiratory depression.",
           "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
           "sourceCitation": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list"
+          "sourceUrl": "https://www.ismp.org/recommendations/tall-man-letters-list",
+          "canonicalDrugId": "lasa_035_b"
         },
         {
           "id": "q_sound_lasa_036_A_read_back_mst_rb_4",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: risperidone.",
+          "spokenText": "risperidone",
           "spokenDrug": "risperiDONE",
           "drugToPronounce": "risperidone",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7954,13 +7976,14 @@
           "riskSummary": "Pharmacologically opposing mechanisms: risperidone blocks dopamine (worsening Parkinson's), while ropinirole can trigger psychosis.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_036_a"
         },
         {
           "id": "q_sound_lasa_038_B_read_back_mst_rb_5",
           "type": "sound_alike",
           "subtype": "read_back",
-          "spokenText": "Order received for: tolbutamide.",
+          "spokenText": "tolbutamide",
           "spokenDrug": "TOLBUTamide",
           "drugToPronounce": "tolbutamide",
           "prompt": "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:",
@@ -7980,7 +8003,8 @@
           "riskSummary": "Different milligram potencies and pharmacokinetics triggering severe, unpredictable hypoglycemia.",
           "source": "FDA Name Differentiation Project & ISMP Tall Man List",
           "sourceCitation": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
-          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+          "sourceUrl": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+          "canonicalDrugId": "lasa_038_b"
         },
         {
           "id": "q_pair_lasa_026_A_mst_disc_0",

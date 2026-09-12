@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Volume2, VolumeX, PhoneCall, Radio, RotateCcw, Sparkles } from "lucide-react";
 import TallManText from "../TallManText/TallManText.jsx";
-import { speakDrugName, stopSpeech, isSpeechSupported } from "../../services/audioService.js";
+import { playMedicationAudio, stopSpeech, hasMedicationAudio, isSpeechSupported } from "../../services/audioService.js";
 import "./SoundAlikeQuestion.css";
 
 /**
@@ -17,26 +17,48 @@ function SoundAlikeQuestion({
     isSubmitted = false
 }) {
     const [isPlaying, setIsPlaying] = useState(false);
-    const [playbackSpeed, setPlaybackSpeed] = useState(0.85);
+    const [playbackSpeed, setPlaybackSpeed] = useState(1.0);
     const [hasSpeechSupport] = useState(() => isSpeechSupported());
     const hasAutoPlayedRef = useRef(false);
 
     const isReadBack = question?.subtype === "read_back";
-    const spokenText = question?.spokenText || question?.drugToPronounce || question?.correctAnswer || "";
+
+    // Extract canonical medication name preserving exact Tall Man capitalization
+    const medicationName =
+        question?.spokenDrug ||
+        question?.relatedDrug ||
+        question?.correctAnswer ||
+        (question?.spokenText ? question.spokenText.replace(/^Order received for:\s*/i, "").replace(/\.$/, "").trim() : "");
+
+    // Resolve canonical audio identifier: canonicalDrugId > extracted ID from question.id > drugToPronounce > medicationName
+    let canonicalDrugId = question?.canonicalDrugId || null;
+    if (!canonicalDrugId && question?.id) {
+        const match = question.id.match(/(lasa_\d+)_([AB])/i);
+        if (match) {
+            canonicalDrugId = `${match[1].toLowerCase()}_${match[2].toLowerCase()}`;
+        }
+    }
+    const targetAudioKey = canonicalDrugId || question?.drugToPronounce || medicationName || "";
+
     const choices = Array.isArray(question?.choices) ? question.choices : [];
+    const hasAudio = Boolean(hasMedicationAudio(targetAudioKey) || hasSpeechSupport);
 
     const handlePlayAudio = useCallback((customRate) => {
-        if (!spokenText) return;
+        if (!targetAudioKey) return;
         setIsPlaying(true);
 
         const rate = customRate || playbackSpeed;
-        speakDrugName(spokenText, {
+        playMedicationAudio(targetAudioKey, {
             rate,
+            fallback: false, // Strictly require archived static audio for medication pronunciation
             onStart: () => setIsPlaying(true),
             onEnd: () => setIsPlaying(false),
-            onError: () => setIsPlaying(false)
+            onError: (err) => {
+                setIsPlaying(false);
+                console.warn("[SoundAlikeQuestion] Audio playback failed:", err?.message || err);
+            }
         });
-    }, [spokenText, playbackSpeed]);
+    }, [targetAudioKey, playbackSpeed]);
 
     useEffect(() => {
         let isCurrent = true;
@@ -59,7 +81,7 @@ function SoundAlikeQuestion({
     }, [question?.id, handlePlayAudio]);
 
     const toggleSpeed = () => {
-        const nextSpeed = playbackSpeed === 0.85 ? 0.70 : 0.85;
+        const nextSpeed = playbackSpeed < 1.0 ? 1.0 : 0.75;
         setPlaybackSpeed(nextSpeed);
         handlePlayAudio(nextSpeed);
     };
@@ -97,14 +119,23 @@ function SoundAlikeQuestion({
                     <button
                         type="button"
                         onClick={toggleSpeed}
-                        className={`sound-speed-btn ${playbackSpeed < 0.85 ? "speed-slow" : ""}`}
+                        className={`sound-speed-btn ${playbackSpeed < 1.0 ? "speed-slow" : ""}`}
                         title="Toggle pronunciation playback speed"
                         disabled={isSubmitted}
                     >
                         <RotateCcw size={13} />
-                        <span>{playbackSpeed < 0.85 ? "0.7x Slow" : "1.0x Normal"}</span>
+                        <span>{playbackSpeed < 1.0 ? "0.75x Slow" : "1.0x Normal"}</span>
                     </button>
                 </div>
+
+                {/* Primary Visual Medication Display for Simulated Oral Order: ONLY medication name */}
+                {isReadBack && medicationName && (
+                    <div className="sound-oral-order-display" aria-label={`Ordered medication: ${medicationName}`}>
+                        <span className="sound-medication-name">
+                            <TallManText name={medicationName} />
+                        </span>
+                    </div>
+                )}
 
                 <div className="sound-play-row">
                     <button
@@ -120,7 +151,7 @@ function SoundAlikeQuestion({
                                 <span className="wave-bar bar-3"></span>
                                 <span className="wave-bar bar-4"></span>
                             </div>
-                        ) : hasSpeechSupport ? (
+                        ) : hasAudio ? (
                             <Volume2 size={32} />
                         ) : (
                             <VolumeX size={32} />
@@ -132,9 +163,9 @@ function SoundAlikeQuestion({
                 </div>
 
                 <p className="sound-hint-text body-text-muted">
-                    {hasSpeechSupport
+                    {hasAudio
                         ? "Listen closely to vowel and consonant inflections to avoid confusing sound-alike counterparts."
-                        : "Browser speech synthesis unavailable; please read phonetic choices carefully."}
+                        : "Audio playback unavailable; please read phonetic choices carefully."}
                 </p>
             </div>
 

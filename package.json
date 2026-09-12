@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:lasa-audio": "node scripts/generateLasaAudio.js",
+    "validate:lasa-audio": "node scripts/validateLasaAudio.js"
   },
   "dependencies": {
     "lucide-react": "^1.21.0",

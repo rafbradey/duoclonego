@@ -1,11 +1,21 @@
+import audioMapping from "../data/audioMapping.json" with { type: "json" };
+
 /**
- * Audio Feedback Service.
- * Uses Web Audio API to synthesize instant auditory feedback for learner responses:
- * - Correct: Upbeat, pleasant two-tone confirmation chime.
- * - Incorrect: Low-pitched, dissonant, descending error buzz (clearly signaling a mistake, never an achievement sound).
+ * Audio Feedback & Medication Pronunciation Service.
+ *
+ * 1. Web Audio API for gamified learner response feedback:
+ *    - Correct: Upbeat, pleasant two-tone confirmation chime.
+ *    - Incorrect: Low-pitched, dissonant descending error buzzer.
+ *
+ * 2. Static Pre-generated Audio for Medication Pronunciations:
+ *    - All 50 canonical LASA pairs (100 medications) pre-generated via Azure AI Speech
+ *      (Raw Mode, en-US-JennyNeural) into public/audio/lasa/.
+ *    - Zero runtime Azure API calls, zero credential exposure in client builds.
+ *    - Uses standard HTML5 Audio with speed control and fallback to Web Speech API.
  */
 
 let audioCtx = null;
+let activeAudioInstance = null;
 
 function getAudioContext() {
     if (typeof window === "undefined") return null;
@@ -113,6 +123,159 @@ export function playIncorrectSound() {
 }
 
 /**
+ * Resolves the relative path into an absolute URL respecting Vite's BASE_URL.
+ */
+function resolveAssetPath(relPath) {
+    if (!relPath) return null;
+    const base = (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.BASE_URL) || "/";
+    const cleanBase = base.endsWith("/") ? base : `${base}/`;
+    const cleanRel = relPath.startsWith("/") ? relPath.slice(1) : relPath;
+    return `${cleanBase}${cleanRel}`;
+}
+
+/**
+ * Resolves a medication identifier (canonical ID, generic name, or Tall Man form)
+ * to its pre-generated static audio URL.
+ *
+ * @param {string|Object} identifier - Medication key (e.g., "lasa_001_a", "bupropion", "buPROPion")
+ * @returns {string|null} Resolved audio asset URL or null
+ */
+export function getMedicationAudioUrl(identifier) {
+    if (!identifier) return null;
+
+    let key = "";
+    if (typeof identifier === "string") {
+        key = identifier.trim();
+    } else if (typeof identifier === "object") {
+        key = identifier.id || identifier.genericName || identifier.tallManName || identifier.drugName || identifier.name || "";
+        key = String(key).trim();
+    }
+    if (!key) return null;
+
+    // 1. Direct key match (canonical ID or exact casing)
+    if (audioMapping[key]) {
+        return resolveAssetPath(audioMapping[key]);
+    }
+
+    // 2. Lowercase match
+    const lowerKey = key.toLowerCase();
+    if (audioMapping[lowerKey]) {
+        return resolveAssetPath(audioMapping[lowerKey]);
+    }
+
+    // 3. Normalized alphanumeric match
+    const normKey = lowerKey.replace(/[^a-z0-9_-]/g, "");
+    if (audioMapping[normKey]) {
+        return resolveAssetPath(audioMapping[normKey]);
+    }
+
+    // 4. Case-insensitive key scan
+    const mappingKeys = Object.keys(audioMapping);
+    const matchedKey = mappingKeys.find((k) => k.toLowerCase() === lowerKey);
+    if (matchedKey && audioMapping[matchedKey]) {
+        return resolveAssetPath(audioMapping[matchedKey]);
+    }
+
+    return null;
+}
+
+/**
+ * Checks if a pre-generated static audio asset exists for the given medication identifier.
+ * @param {string|Object} identifier
+ * @returns {boolean}
+ */
+export function hasMedicationAudio(identifier) {
+    return Boolean(getMedicationAudioUrl(identifier));
+}
+
+/**
+ * Halts any active medication static audio playback.
+ */
+export function stopMedicationAudio() {
+    if (activeAudioInstance) {
+        try {
+            activeAudioInstance.pause();
+            activeAudioInstance.currentTime = 0;
+            activeAudioInstance.src = "";
+        } catch {
+            // Ignore audio pause error
+        }
+        activeAudioInstance = null;
+    }
+}
+
+/**
+ * Plays the pre-generated Azure Neural static audio for a medication.
+ * Falls back to Web Speech API if the static audio asset is unmapped.
+ *
+ * @param {string|Object} identifier - Medication identifier or name
+ * @param {Object} [options]
+ * @param {number} [options.rate=1.0] - Playback rate (0.7x for slow, 1.0x for normal)
+ * @param {Function} [options.onStart] - Callback when playback begins
+ * @param {Function} [options.onEnd] - Callback when playback ends
+ * @param {Function} [options.onError] - Callback on playback failure
+ * @returns {HTMLAudioElement|SpeechSynthesisUtterance|null}
+ */
+export function playMedicationAudio(identifier, { rate = 1.0, fallback = true, onStart, onEnd, onError } = {}) {
+    if (!identifier) return null;
+
+    // Ensure all prior audio is silenced
+    stopSpeech();
+
+    const audioUrl = getMedicationAudioUrl(identifier);
+    if (!audioUrl) {
+        // Fallback: Web Speech API only if fallback is enabled
+        if (fallback && typeof identifier === "string" && isSpeechSupported()) {
+            return speakDrugName(identifier, { rate, onStart, onEnd, onError });
+        }
+        const error = new Error(`No archived static audio found for medication identifier: ${typeof identifier === "object" ? JSON.stringify(identifier) : identifier}`);
+        console.warn("[audioService]", error.message);
+        if (typeof onError === "function") {
+            onError(error);
+        }
+        return null;
+    }
+
+    if (typeof window === "undefined") return null;
+
+    try {
+        const audio = new Audio(audioUrl);
+        audio.playbackRate = rate;
+        activeAudioInstance = audio;
+
+        audio.addEventListener("play", () => {
+            if (typeof onStart === "function") onStart();
+        });
+
+        audio.addEventListener("ended", () => {
+            if (activeAudioInstance === audio) {
+                activeAudioInstance = null;
+            }
+            if (typeof onEnd === "function") onEnd();
+        });
+
+        audio.addEventListener("error", (e) => {
+            if (activeAudioInstance === audio) {
+                activeAudioInstance = null;
+            }
+            if (typeof onError === "function") onError(e);
+        });
+
+        audio.play().catch((err) => {
+            if (activeAudioInstance === audio) {
+                activeAudioInstance = null;
+            }
+            if (typeof onError === "function") onError(err);
+        });
+
+        return audio;
+    } catch (err) {
+        if (typeof onError === "function") onError(err);
+        return null;
+    }
+}
+
+/**
  * Checks whether Web Speech API (speechSynthesis) is supported in the current environment.
  * @returns {boolean}
  */
@@ -121,9 +284,10 @@ export function isSpeechSupported() {
 }
 
 /**
- * Halts any active speech synthesis playback.
+ * Halts any active speech synthesis and static medication audio playback.
  */
 export function stopSpeech() {
+    stopMedicationAudio();
     if (isSpeechSupported()) {
         try {
             window.speechSynthesis.cancel();
@@ -135,12 +299,11 @@ export function stopSpeech() {
 
 /**
  * Speaks a medication name aloud using the browser Web Speech API.
- * Uses a slightly reduced speech rate (0.85x) to ensure distinct phonetic enunciation
- * of complex look-alike and sound-alike syllables.
+ * Retained for backward compatibility and test benchmarking.
  *
  * @param {string} text - Medication name to speak
  * @param {Object} [options]
- * @param {number} [options.rate=0.85] - Speech rate (0.85 for clear syllables)
+ * @param {number} [options.rate=0.85] - Speech rate
  * @param {number} [options.pitch=1.0] - Speech pitch
  * @param {Function} [options.onStart] - Callback when speech begins
  * @param {Function} [options.onEnd] - Callback when speech completes

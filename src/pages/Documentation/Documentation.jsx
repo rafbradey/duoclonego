@@ -1264,9 +1264,9 @@ function Documentation() {
                             <div className="doc-section-header" style={{ marginBottom: "1rem" }}>
                                 <div className="doc-section-title-wrap">
                                     <Volume2 size={20} className="doc-section-icon" style={{ color: "var(--color-secondary)" }} />
-                                    <h3 className="heading-md" style={{ margin: 0 }}>Medication Pronunciation &amp; Audio Architecture (Azure AI Speech Pipeline)</h3>
+                                    <h3 className="heading-md" style={{ margin: 0 }}>Medication Pronunciation &amp; Audio Architecture (Archived Azure AI Speech Pipeline)</h3>
                                 </div>
-                                <StatusBadge status="Active Target (Phase 4)" />
+                                <StatusBadge status="Implemented (100% Static Audio)" />
                             </div>
 
                             <p className="doc-paragraph">
@@ -1274,38 +1274,24 @@ function Documentation() {
                             </p>
 
                             <h4 className="heading-xs" style={{ textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--text-muted)", marginTop: "1.25rem", marginBottom: "0.5rem" }}>
-                                Current Prototype vs. Target Build-Time Architecture
+                                Production Static Audio Architecture (Archived Offline Assets)
                             </h4>
                             <div className="doc-arch-columns" style={{ marginBottom: "1.25rem" }}>
                                 <div className="doc-arch-box current">
-                                    <span className="doc-arch-tag current-tag">Current Prototype (In-Browser TTS)</span>
-                                    <div className="doc-arch-flow">
-                                        <span>Display Name String</span>
-                                        <ArrowRight size={14} />
-                                        <span>Web Speech API (<code className="doc-inline-code">speechSynthesis</code>)</span>
-                                        <ArrowRight size={14} />
-                                        <span>Device Speaker</span>
-                                    </div>
-                                    <p className="doc-arch-note">
-                                        Dependent on local device OS voices; inconsistent pronunciations of complex pharmacological nomenclature across client browsers.
-                                    </p>
-                                </div>
-
-                                <div className="doc-arch-box future">
-                                    <span className="doc-arch-tag future-tag">Target Architecture (Build-Time Azure Speech)</span>
+                                    <span className="doc-arch-tag current-tag" style={{ background: "rgba(34, 197, 94, 0.15)", color: "#22c55e", borderColor: "rgba(34, 197, 94, 0.4)" }}>Production Architecture (100% Static HTML5 Audio)</span>
                                     <div className="doc-arch-flow">
                                         <span>Canonical LASA (<code className="doc-inline-code">lasaPairs.json</code>)</span>
                                         <ArrowRight size={14} />
-                                        <span>Azure AI Speech CLI</span>
+                                        <span>Pre-Generated MP3 (<code className="doc-inline-code">public/audio/lasa/*.mp3</code>)</span>
                                         <ArrowRight size={14} />
-                                        <span>Static MP3 (<code className="doc-inline-code">/audio/lasa/*.mp3</code>)</span>
+                                        <span>Fast Mapping (<code className="doc-inline-code">audioMapping.json</code>)</span>
                                         <ArrowRight size={14} />
-                                        <span>Deterministic Mapping</span>
+                                        <span>playMedicationAudio()</span>
                                         <ArrowRight size={14} />
                                         <span>Existing Speaker UI</span>
                                     </div>
                                     <p className="doc-arch-note">
-                                        Zero runtime API calls or secrets. Azure is used offline at build-time to produce deterministic clinical MP3 assets committed to the repository for instantaneous, zero-latency static playback.
+                                        100% zero runtime Azure API calls, zero credential exposure in client bundles, and 100% offline playback capability. All 100 medication audio clips (2.96 MB total) were pre-synthesized using Azure AI Speech Neural (Raw Mode: en-US-JennyNeural) and are permanently archived as local assets.
                                     </p>
                                 </div>
                             </div>

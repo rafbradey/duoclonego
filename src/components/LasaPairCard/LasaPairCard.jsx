@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TallManText from "../TallManText/TallManText.jsx";
 import { AlertCircle, ArrowLeftRight, Volume2 } from "lucide-react";
-import { speakDrugName } from "../../services/audioService.js";
+import { playMedicationAudio } from "../../services/audioService.js";
 import "./LasaPairCard.css";
 
 function LasaPairCard({ pair, srsRecord = null, isDue = false, className = "" }) {
@@ -26,8 +26,9 @@ function LasaPairCard({ pair, srsRecord = null, isDue = false, className = "" })
     const handlePronounce = (drugName) => {
         if (!drugName) return;
         setSpeakingDrug(drugName);
-        speakDrugName(drugName, {
-            rate: 0.85,
+        playMedicationAudio(drugName, {
+            rate: 1.0,
+            onStart: () => setSpeakingDrug(drugName),
             onEnd: () => setSpeakingDrug(null),
             onError: () => setSpeakingDrug(null)
         });

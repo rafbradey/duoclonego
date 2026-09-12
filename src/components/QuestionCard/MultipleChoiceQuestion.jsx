@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Volume2 } from "lucide-react";
-import { speakDrugName } from "../../services/audioService.js";
+import { playMedicationAudio } from "../../services/audioService.js";
 import TallManText from "../TallManText/TallManText.jsx";
 import "./MultipleChoiceQuestion.css";
 
@@ -19,7 +19,8 @@ function MultipleChoiceQuestion({
     const handlePronounce = () => {
         if (!drugToPronounce) return;
         setIsPlaying(true);
-        speakDrugName(drugToPronounce, {
+        playMedicationAudio(drugToPronounce, {
+            onStart: () => setIsPlaying(true),
             onEnd: () => setIsPlaying(false),
             onError: () => setIsPlaying(false)
         });

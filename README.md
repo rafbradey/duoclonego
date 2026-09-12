@@ -107,6 +107,18 @@ npm run lint
 ```
 Runs ESLint across all source modules.
 
+### 6. Medication Pronunciation Audio Validation
+```bash
+npm run validate:lasa-audio
+```
+Audits all 100 pre-generated medication pronunciation audio assets in `public/audio/lasa/` to ensure 100% presence, non-zero file sizes, and integrity against canonical LASA pair records.
+
+### 7. (Optional Dev) Audio Asset Re-generation
+```bash
+npm run generate:lasa-audio
+```
+Re-indexes or regenerates static audio assets via Azure AI Speech Raw Mode (requires `AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION` in `.env.local`). Only needed if adding new medication pairs.
+
 ---
 
 ## 📂 Project Architecture
@@ -114,7 +126,10 @@ Runs ESLint across all source modules.
 ```text
 duoclonego/
 ├── public/                 # Static assets, icons, avatars, and audio
-│   └── audio/lasa/         # Pre-generated clinical medication pronunciation MP3s
+│   └── audio/lasa/         # 100 pre-generated clinical medication pronunciation MP3s (2.96 MB)
+├── scripts/                # Development & build-time CLI scripts
+│   ├── generateLasaAudio.js # Azure AI Speech batch audio generator (Raw Mode)
+│   └── validateLasaAudio.js # Automated asset integrity & manifest validator
 ├── src/
 │   ├── components/         # Reusable UI components
 │   │   ├── FeedbackDrawer/ # Real-time answer result drawer
@@ -126,6 +141,7 @@ duoclonego/
 │   │   ├── Sidebar/        # Desktop sidebar & mobile Learning Path drawer
 │   │   └── UnitDescriptionModal/ # Unit preview and clinical objectives modal
 │   ├── data/               # Clinical datasets and curriculum
+│   │   ├── audioManifest.json # Full provenance & verification audit manifest
 │   │   ├── audioMapping.json # Deterministic medication ID to audio file mapping
 │   │   ├── lasaData.json   # Canonical medication details & confusion reasons
 │   │   ├── lasaPairs.json  # Documented ISMP look-alike/sound-alike pairs

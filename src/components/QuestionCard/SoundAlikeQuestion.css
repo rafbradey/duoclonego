@@ -114,6 +114,29 @@
     color: var(--color-secondary);
 }
 
+/* Oral Order Medication Display */
+.sound-oral-order-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.15rem 1.5rem;
+    background: var(--bg-page);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    text-align: center;
+    min-height: 68px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.sound-medication-name {
+    font-size: clamp(1.4rem, 3.5vw, 1.95rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--text-white);
+    line-height: 1.25;
+    word-break: break-word;
+}
+
 /* Play Button */
 .sound-play-row {
     display: flex;
@@ -213,6 +236,15 @@
 @media (max-width: 500px) {
     .sound-audio-deck {
         padding: 1rem 1.15rem;
+    }
+
+    .sound-oral-order-display {
+        padding: 0.9rem 1rem;
+        min-height: 58px;
+    }
+
+    .sound-medication-name {
+        font-size: 1.35rem;
     }
 
     .sound-play-button {
