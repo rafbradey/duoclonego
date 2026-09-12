@@ -9,6 +9,7 @@ import Shop from "./pages/Shop/Shop.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import LessonSession from "./pages/Lesson/LessonSession.jsx";
 import Documentation from "./pages/Documentation/Documentation.jsx";
+import TtsTestPage from "./pages/TtsTestPage/TtsTestPage.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/documentation" element={<Documentation />} />
+                <Route path="/test-tts" element={<TtsTestPage />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>

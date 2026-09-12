@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "drug_1": "buPROPion",
+    "drug_2": "busPIRone",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Antidepressant / Smoking cessation",
+    "class_or_indication_2": "Anxiolytic",
+    "risk_summary": "Confusion between an antidepressant/smoking cessation aid and an anxiolytic; risk of seizure (bupropion overdose) or untreated anxiety/depression.",
+    "pronunciation_1": "byoo-PRO-pee-on",
+    "pronunciation_2": "byoo-SPYE-rone",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Bupropion pronunciation",
+      "drug_2": "Drugs.com — Buspirone pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Bupropion pronunciation",
+      "drug_2": "Drugs.com — Buspirone pronunciation"
+    }
+  },
+  {
+    "id": 2,
+    "drug_1": "hydrALAZINE",
+    "drug_2": "hydrOXYzine",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Antihypertensive / Vasodilator",
+    "class_or_indication_2": "Antihistamine / Anxiolytic / Sedative",
+    "risk_summary": "Severe hypotension from accidental hydralazine, or unintended central nervous system sedation from hydroxyzine.",
+    "pronunciation_1": "hye-DRAL-a-zeen",
+    "pronunciation_2": "hye-DROX-ee-zeen",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Hydralazine pronunciation",
+      "drug_2": "Drugs.com — Hydroxyzine pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Hydralazine pronunciation",
+      "drug_2": "Drugs.com — Hydroxyzine pronunciation"
+    }
+  },
+  {
+    "id": 3,
+    "drug_1": "predniSONE",
+    "drug_2": "prednisoLONE",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Corticosteroid (prodrug)",
+    "class_or_indication_2": "Corticosteroid (active metabolite)",
+    "risk_summary": "Dosing errors in pediatric/hepatic failure populations where conversion from prednisone to active prednisolone is impaired.",
+    "pronunciation_1": "PRED-ni-sone",
+    "pronunciation_2": "pred-NIS-oh-lone",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Prednisone pronunciation",
+      "drug_2": "Drugs.com — Prednisolone pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Prednisone pronunciation",
+      "drug_2": "Drugs.com — Prednisolone pronunciation"
+    }
+  },
+  {
+    "id": 4,
+    "drug_1": "traMADol",
+    "drug_2": "traZODone",
+    "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+    "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "proof_reference": "ISMP Table 2 Recommended Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Opioid analgesic",
+    "class_or_indication_2": "Antidepressant / Sedative-hypnotic",
+    "risk_summary": "Excessive sedation, hypotension, unmanaged acute pain, or increased risk of serotonin syndrome.",
+    "pronunciation_1": "TRAM-a-dol",
+    "pronunciation_2": "TRAZ-oh-done",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Tramadol pronunciation",
+      "drug_2": "Drugs.com — Trazodone pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Tramadol pronunciation",
+      "drug_2": "Drugs.com — Trazodone pronunciation"
+    }
+  },
+  {
+    "id": 5,
+    "drug_1": "clonazePAM",
+    "drug_2": "cloNIDine",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List (cloNIDine confused with clonazePAM); ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Benzodiazepine (anticonvulsant/anxiolytic)",
+    "class_or_indication_2": "Alpha-2 adrenergic agonist (antihypertensive)",
+    "risk_summary": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
+    "pronunciation_1": "kloe-NAZ-e-pam",
+    "pronunciation_2": "KLOE-ni-deen",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Clonazepam pronunciation",
+      "drug_2": "Drugs.com — Clonidine pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Clonazepam pronunciation",
+      "drug_2": "Drugs.com — Clonidine pronunciation"
+    }
+  },
+  {
+    "id": 6,
+    "drug_1": "ALPRAZolam",
+    "drug_2": "LORazepam",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Benzodiazepine (short-acting)",
+    "class_or_indication_2": "Benzodiazepine (intermediate-acting)",
+    "risk_summary": "Potency and duration differences leading to oversedation, respiratory depression, or altered seizure threshold.",
+    "pronunciation_1": "al-PRAY-zoe-lam",
+    "pronunciation_2": "lor-A-ze-pam",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Alprazolam pronunciation",
+      "drug_2": "Drugs.com — Lorazepam pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Alprazolam pronunciation",
+      "drug_2": "Drugs.com — Lorazepam pronunciation"
+    }
+  },
+  {
+    "id": 7,
+    "drug_1": "clonazePAM",
+    "drug_2": "cloZAPine",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List (cloZAPine confused with clonazePAM); ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Benzodiazepine",
+    "class_or_indication_2": "Atypical antipsychotic",
+    "risk_summary": "Agranulocytosis, severe orthostatic hypotension, seizures, and metabolic side effects from accidental clozapine administration.",
+    "pronunciation_1": "kloe-NAZ-e-pam",
+    "pronunciation_2": "KLOE-za-peen",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Clonazepam pronunciation",
+      "drug_2": "Drugs.com — Clozapine pronunciation"
+    },
+    "VERIFIED": "YES",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Clonazepam pronunciation",
+      "drug_2": "Drugs.com — Clozapine pronunciation"
+    }
+  },
+  {
+    "id": 8,
+    "drug_1": "CeleBREX (celecoxib)",
+    "drug_2": "CeleXA (citalopram)",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Brand Name Tall Man List (CeleBREX / CeleXA); ISMP List of Confused Drug Names",
+    "class_or_indication_1": "NSAID (COX-2 selective)",
+    "class_or_indication_2": "SSRI antidepressant",
+    "risk_summary": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
+    "pronunciation_1": "SEL-eh-brex",
+    "pronunciation_2": "seh-LEX-a",
+    "pronunciation_source": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 14,
+    "drug_1": "acetaZOLAMIDE",
+    "drug_2": "acetoHEXAMIDE",
+    "source": "FDA Name Differentiation Project & ISMP Tall Man List",
+    "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
+    "proof_reference": "FDA Table 1 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Carbonic anhydrase inhibitor (diuretic / antiglaucoma)",
+    "class_or_indication_2": "Sulfonylurea (antidiabetic)",
+    "risk_summary": "Severe hypoglycemia in non-diabetic patients or uncontrolled intraocular pressure/acid-base imbalance.",
+    "pronunciation_1": "a-SEET-a-ZOLE-a-mide",
+    "pronunciation_2": "a-see-toe-HEX-a-mide",
+    "pronunciation_source": {
+      "drug_1": "Drugs.com — Acetazolamide pronunciation",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Drugs.com — Acetazolamide pronunciation",
+      "drug_2": "Not explicitly verified in the consulted pronunciation sources; manual verification required."
+    }
+  },
+  {
+    "id": 19,
+    "drug_1": "epiNEPHrine",
+    "drug_2": "ePHEDrine",
+    "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
+    "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
+    "proof_reference": "ISMP Table 2 Generic Tall Man List; ISMP List of Confused Drug Names",
+    "class_or_indication_1": "Direct sympathomimetic (alpha/beta agonist)",
+    "class_or_indication_2": "Indirect sympathomimetic amine",
+    "risk_summary": "Subtherapeutic resuscitation in anaphylaxis/cardiac arrest, or extreme hypertension and tachyarrhythmia from incorrect potency delivery.",
+    "pronunciation_1": "ep-i-NEF-rin",
+    "pronunciation_2": "e-FED-rin",
+    "pronunciation_source": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Drugs.com — Ephedrine pronunciation"
+    },
+    "VERIFIED": "NO",
+    "PRONOUNCIATION_VERIFICATION_SOURCE": {
+      "drug_1": "Not explicitly verified in the consulted pronunciation sources; manual verification required.",
+      "drug_2": "Drugs.com — Ephedrine pronunciation"
+    }
+  }
+]

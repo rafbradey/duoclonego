@@ -1,0 +1,325 @@
+/* TtsTestPage.css - Developer Proof of Concept for SpeechSynthesis vs Pronunciation Data */
+
+.tts-test-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+    color: var(--text-white);
+}
+
+.tts-test-header {
+    background-color: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tts-test-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.tts-test-subtitle {
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.tts-global-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.tts-control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.tts-control-select {
+    background-color: var(--bg-page);
+    color: var(--text-white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.85rem;
+    max-width: 260px;
+}
+
+.tts-stop-btn {
+    padding: 0.45rem 1rem;
+    font-size: 0.825rem;
+    border-radius: 10px;
+    margin-left: auto;
+}
+
+.tts-pair-card {
+    background-color: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+}
+
+.tts-pair-header {
+    padding: 0.85rem 1.25rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tts-pair-title {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--color-secondary);
+}
+
+.tts-verification-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.65rem;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+.tts-badge-verified {
+    background-color: rgba(45, 171, 105, 0.15);
+    color: #3be28a;
+    border: 1px solid rgba(45, 171, 105, 0.4);
+}
+
+.tts-badge-unverified {
+    background-color: rgba(255, 150, 0, 0.15);
+    color: #f59e0b;
+    border: 1px solid rgba(255, 150, 0, 0.4);
+}
+
+.tts-drugs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 1rem;
+    padding: 1.25rem;
+}
+
+.tts-drug-box {
+    background-color: var(--bg-page);
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.tts-drug-name-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.tts-drug-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-white);
+    letter-spacing: 0.02em;
+}
+
+.tts-drug-role {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.tts-field-row {
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.tts-field-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.tts-phonetic-value {
+    font-family: monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #3be28a;
+    background: rgba(45, 171, 105, 0.08);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid rgba(45, 171, 105, 0.2);
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.tts-phonetic-value.unverified-val {
+    color: #f59e0b;
+    background: rgba(255, 150, 0, 0.08);
+    border-color: rgba(255, 150, 0, 0.25);
+}
+
+.tts-source-text {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.35;
+}
+
+.tts-actions-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.35rem;
+}
+
+.tts-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.85rem;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 0.825rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.12s ease;
+    text-align: left;
+}
+
+.tts-btn-current {
+    background-color: var(--bg-surface);
+    color: var(--text-white);
+    border-color: var(--border-color);
+}
+
+.tts-btn-current:hover {
+    background-color: var(--bg-surface-hover);
+    border-color: var(--text-muted);
+}
+
+.tts-btn-guided {
+    background-color: rgba(28, 176, 246, 0.12);
+    color: #38bdf8;
+    border-color: rgba(28, 176, 246, 0.35);
+}
+
+.tts-btn-guided:hover {
+    background-color: rgba(28, 176, 246, 0.22);
+}
+
+.tts-btn-spaced {
+    background-color: rgba(168, 85, 247, 0.12);
+    color: #c084fc;
+    border-color: rgba(168, 85, 247, 0.35);
+}
+
+.tts-btn-spaced:hover {
+    background-color: rgba(168, 85, 247, 0.22);
+}
+
+/* Azure AI Speech Action Buttons */
+.tts-engine-section {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.tts-engine-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.tts-engine-label.label-browser {
+    color: var(--text-muted);
+}
+
+.tts-engine-label.label-azure {
+    color: #0078d4;
+}
+
+.tts-btn-azure {
+    background-color: rgba(0, 120, 212, 0.15);
+    color: #4da6ff;
+    border-color: rgba(0, 120, 212, 0.4);
+}
+
+.tts-btn-azure:hover {
+    background-color: rgba(0, 120, 212, 0.25);
+    border-color: #0078d4;
+}
+
+.tts-btn-azure-alt {
+    background-color: rgba(0, 180, 216, 0.12);
+    color: #48cae4;
+    border-color: rgba(0, 180, 216, 0.35);
+}
+
+.tts-btn-azure-alt:hover {
+    background-color: rgba(0, 180, 216, 0.22);
+}
+
+.tts-azure-status-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.85rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 0.75rem;
+}
+
+.tts-azure-status-bar.connected {
+    background-color: rgba(45, 171, 105, 0.12);
+    color: #3be28a;
+    border: 1px solid rgba(45, 171, 105, 0.3);
+}
+
+.tts-azure-status-bar.disconnected {
+    background-color: rgba(255, 150, 0, 0.12);
+    color: #f59e0b;
+    border: 1px solid rgba(255, 150, 0, 0.3);
+}
+
+.tts-btn.is-active {
+    outline: 2px solid var(--color-primary);
+    filter: brightness(1.2);
+}
+
+.tts-btn:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+    .tts-drugs-grid {
+        grid-template-columns: 1fr;
+    }
+}
