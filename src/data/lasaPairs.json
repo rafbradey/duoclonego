@@ -26,7 +26,7 @@
         "classOrIndication": "Anxiolytic"
       },
       "category": "Antidepressant / Smoking cessation",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Confusion between an antidepressant/smoking cessation aid and an anxiolytic; risk of seizure (bupropion overdose) or untreated anxiety/depression.",
       "riskSummary": "Confusion between an antidepressant/smoking cessation aid and an anxiolytic; risk of seizure (bupropion overdose) or untreated anxiety/depression.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -47,7 +47,8 @@
         "CISplatin",
         "DULOxetine",
         "chlorproPAMIDE"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_002",
@@ -67,7 +68,7 @@
         "classOrIndication": "Antihistamine / Anxiolytic / Sedative"
       },
       "category": "Antihypertensive / Vasodilator",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Severe hypotension from accidental hydralazine, or unintended central nervous system sedation from hydroxyzine.",
       "riskSummary": "Severe hypotension from accidental hydralazine, or unintended central nervous system sedation from hydroxyzine.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -88,7 +89,8 @@
         "epiNEPHrine",
         "ceFAZolin",
         "dimenhyDRINATE"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_003",
@@ -108,7 +110,7 @@
         "classOrIndication": "Corticosteroid (active metabolite)"
       },
       "category": "Corticosteroid (prodrug)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Dosing errors in pediatric/hepatic failure populations where conversion from prednisone to active prednisolone is impaired.",
       "riskSummary": "Dosing errors in pediatric/hepatic failure populations where conversion from prednisone to active prednisolone is impaired.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -129,7 +131,8 @@
         "FLUOxetine",
         "clomiPHENE",
         "rOPINIRole"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_004",
@@ -149,7 +152,7 @@
         "classOrIndication": "Antidepressant / Sedative-hypnotic"
       },
       "category": "Opioid analgesic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Excessive sedation, hypotension, unmanaged acute pain, or increased risk of serotonin syndrome.",
       "riskSummary": "Excessive sedation, hypotension, unmanaged acute pain, or increased risk of serotonin syndrome.",
       "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
@@ -170,7 +173,8 @@
         "cefTRIAXone",
         "diphenhydrAMINE",
         "NovoLOG"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_005",
@@ -190,7 +194,7 @@
         "classOrIndication": "Alpha-2 adrenergic agonist (antihypertensive)"
       },
       "category": "Benzodiazepine (anticonvulsant/anxiolytic)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
       "riskSummary": "Severe bradycardia and hypotension from clonidine, or central nervous system depression and dependence issues from clonazepam.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -211,7 +215,8 @@
         "clomiPRAMINE",
         "sulfADIAZINE",
         "ZyrTEC"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_006",
@@ -231,7 +236,7 @@
         "classOrIndication": "Benzodiazepine (intermediate-acting)"
       },
       "category": "Benzodiazepine (short-acting)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Potency and duration differences leading to oversedation, respiratory depression, or altered seizure threshold.",
       "riskSummary": "Potency and duration differences leading to oversedation, respiratory depression, or altered seizure threshold.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -252,7 +257,8 @@
         "DEPO-Medrol",
         "NovoLIN R",
         "ALTEplase"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_007",
@@ -272,7 +278,7 @@
         "classOrIndication": "Atypical antipsychotic"
       },
       "category": "Benzodiazepine",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Agranulocytosis, severe orthostatic hypotension, seizures, and metabolic side effects from accidental clozapine administration.",
       "riskSummary": "Agranulocytosis, severe orthostatic hypotension, seizures, and metabolic side effects from accidental clozapine administration.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -293,7 +299,8 @@
         "sulfiSOXAZOLE",
         "TopAMAX",
         "dexmedeTOMIDine"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_008",
@@ -315,7 +322,7 @@
         "classOrIndication": "SSRI antidepressant"
       },
       "category": "NSAID (COX-2 selective)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
       "riskSummary": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -336,7 +343,8 @@
         "Lantus",
         "TENECTEplase",
         "traMADol"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_009",
@@ -356,7 +364,7 @@
         "classOrIndication": "Opioid analgesic"
       },
       "category": "Semisynthetic opioid analgesic (high potency)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Hydromorphone is 4 to 7 times more potent than morphine; administering hydromorphone at morphine doses frequently results in fatal respiratory arrest.",
       "riskSummary": "Hydromorphone is 4 to 7 times more potent than morphine; administering hydromorphone at morphine doses frequently results in fatal respiratory arrest.",
       "source": "ISMP List of Confused Drug Names & High-Alert Medications",
@@ -377,7 +385,8 @@
         "Toprol-XL",
         "buPROPion",
         "CeleBREX"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_010",
@@ -397,7 +406,7 @@
         "classOrIndication": "Inotrope / Vasopressor (alpha/beta/dopaminergic agonist)"
       },
       "category": "Inotrope (beta-1 agonist)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Hemodynamic instability, dangerous tachycardia, or inappropriate peripheral vasoconstriction/vasodilation in critical care.",
       "riskSummary": "Hemodynamic instability, dangerous tachycardia, or inappropriate peripheral vasoconstriction/vasodilation in critical care.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -418,7 +427,8 @@
         "hydroxyCHLOROquine",
         "traZODone",
         "glyBURIDE"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_011",
@@ -438,7 +448,7 @@
         "classOrIndication": "Opioid analgesic"
       },
       "category": "Opioid analgesic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Potency mismatch leading to either inadequate analgesia or opioid overdose and hypoventilation.",
       "riskSummary": "Potency mismatch leading to either inadequate analgesia or opioid overdose and hypoventilation.",
       "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
@@ -459,7 +469,8 @@
         "busPIRone",
         "CeleXA",
         "DOCEtaxel"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_012",
@@ -479,7 +490,7 @@
         "classOrIndication": "Sulfonylurea (long-acting)"
       },
       "category": "Sulfonylurea (short-acting)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Prolonged, severe hypoglycemia, especially in elderly patients or those with renal impairment given glyburide.",
       "riskSummary": "Prolonged, severe hypoglycemia, especially in elderly patients or those with renal impairment given glyburide.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -500,7 +511,8 @@
         "clonazePAM",
         "metFORMIN",
         "ePHEDrine"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_013",
@@ -520,7 +532,7 @@
         "classOrIndication": "Nitroimidazole antibacterial / Antiprotozoal"
       },
       "category": "Biguanide antihyperglycemic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Lactic acidosis and GI distress vs. untreated anaerobic infection or disulfiram-like ethanol reaction.",
       "riskSummary": "Lactic acidosis and GI distress vs. untreated anaerobic infection or disulfiram-like ethanol reaction.",
       "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
@@ -541,7 +553,8 @@
         "HYDROmorphone",
         "PACLitaxel",
         "PAROxetine"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_014",
@@ -561,7 +574,7 @@
         "classOrIndication": "Sulfonylurea (antidiabetic)"
       },
       "category": "Carbonic anhydrase inhibitor (diuretic / antiglaucoma)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Severe hypoglycemia in non-diabetic patients or uncontrolled intraocular pressure/acid-base imbalance.",
       "riskSummary": "Severe hypoglycemia in non-diabetic patients or uncontrolled intraocular pressure/acid-base imbalance.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -582,7 +595,8 @@
         "glyBURIDE",
         "niCARdipine",
         "cefoTEtan"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_015",
@@ -602,7 +616,7 @@
         "classOrIndication": "Alkylating antineoplastic (platinum-based)"
       },
       "category": "Alkylating antineoplastic (platinum-based)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Dramatically different dosing schedules; cisplatin dosed at carboplatin levels causes fatal nephrotoxicity, neurotoxicity, and ototoxicity.",
       "riskSummary": "Dramatically different dosing schedules; cisplatin dosed at carboplatin levels causes fatal nephrotoxicity, neurotoxicity, and ototoxicity.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -623,7 +637,8 @@
         "DAUNOrubicin",
         "ARIPiprazole",
         "cycloSERINE"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_016",
@@ -643,7 +658,7 @@
         "classOrIndication": "Taxane antineoplastic"
       },
       "category": "Taxane antineoplastic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Severe toxicity, fluid retention, neuropathy, and neutropenia due to differing dosing frequencies and premedication protocols.",
       "riskSummary": "Severe toxicity, fluid retention, neuropathy, and neutropenia due to differing dosing frequencies and premedication protocols.",
       "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
@@ -664,7 +679,8 @@
         "NIFEdipine",
         "cefOXitin",
         "SOLU-Medrol"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_017",
@@ -684,7 +700,7 @@
         "classOrIndication": "Anthracycline antineoplastic"
       },
       "category": "Anthracycline antineoplastic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Dosing regimen errors leading to irreversible, cumulative cardiotoxicity and severe myelosuppression.",
       "riskSummary": "Dosing regimen errors leading to irreversible, cumulative cardiotoxicity and severe myelosuppression.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -705,7 +721,8 @@
         "RABEprazole",
         "cycloSPORINE",
         "TOLAZamide"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_018",
@@ -725,7 +742,7 @@
         "classOrIndication": "Vinca alkaloid antineoplastic"
       },
       "category": "Vinca alkaloid antineoplastic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Vincristine is dosed in fractions of the dose of vinblastine; administering vinblastine doses using vincristine causes fatal neurotoxicity.",
       "riskSummary": "Vincristine is dosed in fractions of the dose of vinblastine; administering vinblastine doses using vincristine causes fatal neurotoxicity.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -746,7 +763,8 @@
         "cefTAZidime",
         "fentaNYL",
         "Lente"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_019",
@@ -766,7 +784,7 @@
         "classOrIndication": "Indirect sympathomimetic amine"
       },
       "category": "Direct sympathomimetic (alpha/beta agonist)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Subtherapeutic resuscitation in anaphylaxis/cardiac arrest, or extreme hypertension and tachyarrhythmia from incorrect potency delivery.",
       "riskSummary": "Subtherapeutic resuscitation in anaphylaxis/cardiac arrest, or extreme hypertension and tachyarrhythmia from incorrect potency delivery.",
       "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
@@ -787,7 +805,8 @@
         "DACTINomycin",
         "TOLBUTamide",
         "SeroQUEL"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_020",
@@ -807,7 +826,7 @@
         "classOrIndication": "Dihydropyridine CCB (oral)"
       },
       "category": "Dihydropyridine CCB (IV/oral)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Severe precipitous hypotension, reflex tachycardia, or cerebral ischemia due to formulation and pharmacokinetic mismatches.",
       "riskSummary": "Severe precipitous hypotension, reflex tachycardia, or cerebral ischemia due to formulation and pharmacokinetic mismatches.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -828,7 +847,8 @@
         "SUFentanil",
         "LaMICtal",
         "hydroxyUREA"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_021",
@@ -848,7 +868,7 @@
         "classOrIndication": "Potassium-sparing diuretic"
       },
       "category": "Calcium channel blocker (antihypertensive)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Hyperkalemia and dehydration vs. unmanaged hypertension or peripheral edema.",
       "riskSummary": "Hyperkalemia and dehydration vs. unmanaged hypertension or peripheral edema.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -869,7 +889,8 @@
         "Humalog",
         "SineQUAN",
         "hydrALAZINE"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_022",
@@ -889,7 +910,7 @@
         "classOrIndication": "SSRI antidepressant"
       },
       "category": "SNRI antidepressant / Neuropathic pain agent",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Unmanaged neuropathic pain, differences in discontinuation syndrome, or heightened risk of serotonergic excess.",
       "riskSummary": "Unmanaged neuropathic pain, differences in discontinuation syndrome, or heightened risk of serotonergic excess.",
       "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
@@ -910,7 +931,8 @@
         "LaMISil",
         "leNALIDomide",
         "cloNIDine"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_023",
@@ -930,7 +952,7 @@
         "classOrIndication": "SSRI antidepressant (short half-life / anticholinergic)"
       },
       "category": "SSRI antidepressant (long half-life)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Severe anticholinergic side effects, abrupt discontinuation syndrome with missed paroxetine, and drug-drug metabolic interactions.",
       "riskSummary": "Severe anticholinergic side effects, abrupt discontinuation syndrome with missed paroxetine, and drug-drug metabolic interactions.",
       "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
@@ -951,7 +973,8 @@
         "priLOSEC",
         "hydrOXYzine",
         "morphine"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_024",
@@ -971,7 +994,7 @@
         "classOrIndication": "Proton pump inhibitor"
       },
       "category": "Atypical antipsychotic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Extrapyramidal symptoms, severe sedation, or metabolic syndrome in a patient merely requiring acid suppression.",
       "riskSummary": "Extrapyramidal symptoms, severe sedation, or metabolic syndrome in a patient merely requiring acid suppression.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -992,7 +1015,8 @@
         "leFLUNomide",
         "ALPRAZolam",
         "metFORMIN"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_025",
@@ -1012,7 +1036,7 @@
         "classOrIndication": "Thiopurine immunosuppressant"
       },
       "category": "DNA methyltransferase inhibitor antineoplastic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Severe bone marrow ablation/failure vs. acute transplant rejection or uncontrolled autoimmune flare.",
       "riskSummary": "Severe bone marrow ablation/failure vs. acute transplant rejection or uncontrolled autoimmune flare.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -1033,7 +1057,8 @@
         "predniSONE",
         "DOBUtamine",
         "PACLitaxel"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_026",
@@ -1053,7 +1078,7 @@
         "classOrIndication": "Third-generation cephalosporin"
       },
       "category": "First-generation cephalosporin",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Spectrum-of-activity mismatch leading to therapeutic failure in serious CNS or multi-drug resistant bacterial infections.",
       "riskSummary": "Spectrum-of-activity mismatch leading to therapeutic failure in serious CNS or multi-drug resistant bacterial infections.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -1074,7 +1099,8 @@
         "LORazepam",
         "metroNIDAZOLE",
         "niCARdipine"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_027",
@@ -1094,7 +1120,7 @@
         "classOrIndication": "Second-generation cephamycin antibiotic"
       },
       "category": "Second-generation cephamycin antibiotic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Dosing interval mismatches, potential bleeding risk/coagulopathy associated with the N-methylthiotetrazole (NMTT) chain in cefotetan.",
       "riskSummary": "Dosing interval mismatches, potential bleeding risk/coagulopathy associated with the N-methylthiotetrazole (NMTT) chain in cefotetan.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -1115,7 +1141,8 @@
         "DOPamine",
         "DAUNOrubicin",
         "ARIPiprazole"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_028",
@@ -1135,7 +1162,7 @@
         "classOrIndication": "Third-generation cephalosporin (non-pseudomonal)"
       },
       "category": "Third-generation antipseudomonal cephalosporin",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Inadequate coverage for Pseudomonas aeruginosa infections, leading to sepsis and therapeutic failure.",
       "riskSummary": "Inadequate coverage for Pseudomonas aeruginosa infections, leading to sepsis and therapeutic failure.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -1156,7 +1183,8 @@
         "acetaZOLAMIDE",
         "NIFEdipine",
         "chlorproMAZINE"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_029",
@@ -1176,7 +1204,7 @@
         "classOrIndication": "First-generation sulfonylurea antidiabetic"
       },
       "category": "First-generation phenothiazine antipsychotic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Profound, protracted hypoglycemia in non-diabetic patients vs. extreme sedation, dystonia, and neuroleptic side effects.",
       "riskSummary": "Profound, protracted hypoglycemia in non-diabetic patients vs. extreme sedation, dystonia, and neuroleptic side effects.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -1197,7 +1225,8 @@
         "DOXOrubicin",
         "RABEprazole",
         "DAPTOmycin"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_030",
@@ -1217,7 +1246,7 @@
         "classOrIndication": "Tricyclic antidepressant"
       },
       "category": "Selective estrogen receptor modulator (ovulatory stimulant)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Unintended ovarian hyperstimulation syndrome (OHSS) vs. cardiotoxicity, anticholinergic toxicity, and seizure risk.",
       "riskSummary": "Unintended ovarian hyperstimulation syndrome (OHSS) vs. cardiotoxicity, anticholinergic toxicity, and seizure risk.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -1238,7 +1267,8 @@
         "amLODIPine",
         "cefTAZidime",
         "risperiDONE"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_031",
@@ -1258,7 +1288,7 @@
         "classOrIndication": "Calcineurin inhibitor immunosuppressant"
       },
       "category": "Second-line antimycobacterial (TB)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Acute organ transplant rejection / nephrotoxicity from cyclosporine errors, or neurotoxicity and failed TB management from cycloserine errors.",
       "riskSummary": "Acute organ transplant rejection / nephrotoxicity from cyclosporine errors, or neurotoxicity and failed TB management from cycloserine errors.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -1279,7 +1309,8 @@
         "azaCITIDine",
         "dimenhyDRINATE",
         "Humulin R"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_032",
@@ -1299,7 +1330,7 @@
         "classOrIndication": "Lipopeptide antibacterial"
       },
       "category": "Cytotoxic actinomycin antineoplastic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Extreme bone marrow suppression, tissue necrosis, and severe toxicity from accidentally administering chemotherapy for an infection.",
       "riskSummary": "Extreme bone marrow suppression, tissue necrosis, and severe toxicity from accidentally administering chemotherapy for an infection.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -1320,7 +1351,8 @@
         "chlorproMAZINE",
         "rOPINIRole",
         "ZyPREXA"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_033",
@@ -1340,7 +1372,7 @@
         "classOrIndication": "First-generation H1 antihistamine"
       },
       "category": "Antiemetic / Antihistamine",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Dosing discrepancy (dimenhydrinate contains roughly half the milligram potency of diphenhydramine), leading to under- or over-sedation.",
       "riskSummary": "Dosing discrepancy (dimenhydrinate contains roughly half the milligram potency of diphenhydramine), leading to under- or over-sedation.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -1361,7 +1393,8 @@
         "DAPTOmycin",
         "NovoLOG",
         "PROzac"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_034",
@@ -1383,7 +1416,7 @@
         "classOrIndication": "Methylprednisolone sodium succinate (IV formulation)"
       },
       "category": "Methylprednisolone acetate (depot / suspension)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Depo-Medrol injected intravenously can cause fatal microembolism, respiratory arrest, and cardiac arrest; it is strictly contraindicated for IV use.",
       "riskSummary": "Depo-Medrol injected intravenously can cause fatal microembolism, respiratory arrest, and cardiac arrest; it is strictly contraindicated for IV use.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -1404,7 +1437,8 @@
         "sulfADIAZINE",
         "ZyrTEC",
         "dexAMETHasone"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_035",
@@ -1424,7 +1458,7 @@
         "classOrIndication": "Ultra-potent synthetic opioid analgesic"
       },
       "category": "Synthetic opioid analgesic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Sufentanil is roughly 5 to 10 times more potent than fentanyl; confusing doses causes immediate, lethal respiratory depression.",
       "riskSummary": "Sufentanil is roughly 5 to 10 times more potent than fentanyl; confusing doses causes immediate, lethal respiratory depression.",
       "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
@@ -1445,7 +1479,8 @@
         "NovoLIN R",
         "ALTEplase",
         "prednisoLONE"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_036",
@@ -1465,7 +1500,7 @@
         "classOrIndication": "Dopamine D2/D3 agonist (Parkinson's / RLS)"
       },
       "category": "Atypical antipsychotic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Pharmacologically opposing mechanisms: risperidone blocks dopamine (worsening Parkinson's), while ropinirole can trigger psychosis.",
       "riskSummary": "Pharmacologically opposing mechanisms: risperidone blocks dopamine (worsening Parkinson's), while ropinirole can trigger psychosis.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -1486,7 +1521,8 @@
         "TopAMAX",
         "dexmedeTOMIDine",
         "cloZAPine"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_037",
@@ -1506,7 +1542,7 @@
         "classOrIndication": "Sulfonamide antibacterial (UTIs / otitis media)"
       },
       "category": "Sulfonamide antibacterial (toxoplasmosis)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Crystalluria, acute renal injury, allergic hypersensitivity reactions, or untreated parasitic infections.",
       "riskSummary": "Crystalluria, acute renal injury, allergic hypersensitivity reactions, or untreated parasitic infections.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -1527,7 +1563,8 @@
         "TENECTEplase",
         "traMADol",
         "oxyCODONE"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_038",
@@ -1547,7 +1584,7 @@
         "classOrIndication": "First-generation sulfonylurea"
       },
       "category": "First-generation sulfonylurea",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Different milligram potencies and pharmacokinetics triggering severe, unpredictable hypoglycemia.",
       "riskSummary": "Different milligram potencies and pharmacokinetics triggering severe, unpredictable hypoglycemia.",
       "source": "FDA Name Differentiation Project & ISMP Tall Man List",
@@ -1568,7 +1605,8 @@
         "buPROPion",
         "CeleBREX",
         "acetoHEXAMIDE"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_039",
@@ -1590,7 +1628,7 @@
         "classOrIndication": "Short-acting regular human insulin"
       },
       "category": "Rapid-acting insulin analogue",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
       "riskSummary": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
       "source": "ISMP List of Confused Drug Names",
@@ -1611,7 +1649,8 @@
         "traZODone",
         "HYDROcodone",
         "vinBLAStine"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_040",
@@ -1633,7 +1672,7 @@
         "classOrIndication": "Short-acting regular human insulin"
       },
       "category": "Rapid-acting insulin analogue",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
       "riskSummary": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
       "source": "ISMP List of Confused Drug Names",
@@ -1654,7 +1693,8 @@
         "CeleXA",
         "CARBOplatin",
         "aMILoride"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_041",
@@ -1676,7 +1716,7 @@
         "classOrIndication": "Intermediate-acting insulin zinc suspension"
       },
       "category": "Long-acting peakless basal insulin",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
       "riskSummary": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
       "source": "ISMP List of Confused Drug Names",
@@ -1697,7 +1737,8 @@
         "glipiZIDE",
         "vinCRIStine",
         "azaTHIOprine"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_042",
@@ -1719,7 +1760,7 @@
         "classOrIndication": "Allylamine antifungal"
       },
       "category": "Antiepileptic / Mood stabilizer",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
       "riskSummary": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
       "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
@@ -1740,7 +1781,8 @@
         "CISplatin",
         "DULOxetine",
         "chlorproPAMIDE"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_043",
@@ -1762,7 +1804,7 @@
         "classOrIndication": "Second-generation H1 antihistamine"
       },
       "category": "Second-generation antipsychotic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
       "riskSummary": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
       "source": "ISMP List of Confused Drug Names & Tall Man List",
@@ -1783,7 +1825,8 @@
         "epiNEPHrine",
         "ceFAZolin",
         "dimenhyDRINATE"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_044",
@@ -1805,7 +1848,7 @@
         "classOrIndication": "Cardioselective beta-1 blocker"
       },
       "category": "Anticonvulsant / Migraine prophylactic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
       "riskSummary": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
       "source": "ISMP List of Confused Drug Names",
@@ -1826,7 +1869,8 @@
         "FLUOxetine",
         "clomiPHENE",
         "rOPINIRole"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_045",
@@ -1848,7 +1892,7 @@
         "classOrIndication": "Tricyclic antidepressant"
       },
       "category": "Atypical antipsychotic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
       "riskSummary": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
       "source": "ISMP List of Confused Drug Names",
@@ -1869,7 +1913,8 @@
         "cefTRIAXone",
         "diphenhydrAMINE",
         "NovoLOG"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_046",
@@ -1891,7 +1936,7 @@
         "classOrIndication": "SSRI antidepressant"
       },
       "category": "Proton pump inhibitor",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
       "riskSummary": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
       "source": "FDA Safety Alerts & ISMP List of Confused Drug Names",
@@ -1912,7 +1957,8 @@
         "clomiPRAMINE",
         "sulfADIAZINE",
         "ZyrTEC"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_047",
@@ -1932,7 +1978,7 @@
         "classOrIndication": "Genetically engineered tPA fibrinolytic"
       },
       "category": "Tissue plasminogen activator (tPA) fibrinoloytic",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Dosing difference (tenecteplase is a single weight-based bolus, alteplase is a bolus plus infusion); errors cause massive intracranial hemorrhage or subtherapeutic thrombolysis in stroke/MI.",
       "riskSummary": "Dosing difference (tenecteplase is a single weight-based bolus, alteplase is a bolus plus infusion); errors cause massive intracranial hemorrhage or subtherapeutic thrombolysis in stroke/MI.",
       "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
@@ -1953,7 +1999,8 @@
         "DEPO-Medrol",
         "NovoLIN R",
         "hydroxyCHLOROquine"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_048",
@@ -1973,7 +2020,7 @@
         "classOrIndication": "Antimetabolite antineoplastic"
       },
       "category": "Aminoquinoline antimalarial / Disease-modifying antirheumatic drug",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Profound myelosuppression, leukopenia, and thrombocytopenia from unintended cytotoxic hydroxyurea administration.",
       "riskSummary": "Profound myelosuppression, leukopenia, and thrombocytopenia from unintended cytotoxic hydroxyurea administration.",
       "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
@@ -1994,7 +2041,8 @@
         "sulfiSOXAZOLE",
         "TopAMAX",
         "busPIRone"
-      ]
+      ],
+      "verifiedSoundAlike": false
     },
     {
       "id": "lasa_049",
@@ -2014,7 +2062,7 @@
         "classOrIndication": "Pyrimidine synthesis inhibitor (DMARD)"
       },
       "category": "Immunomodulatory antineoplastic (thalidomide analogue)",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "soundalike_lookalike",
       "distinguishingFeature": "Severe embryofetal toxicity, deep vein thrombosis/pulmonary embolism, and intense cytopenias from lenalidomide.",
       "riskSummary": "Severe embryofetal toxicity, deep vein thrombosis/pulmonary embolism, and intense cytopenias from lenalidomide.",
       "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
@@ -2035,7 +2083,8 @@
         "Lantus",
         "TENECTEplase",
         "clonazePAM"
-      ]
+      ],
+      "verifiedSoundAlike": true
     },
     {
       "id": "lasa_050",
@@ -2055,7 +2104,7 @@
         "classOrIndication": "Selective alpha-2 adrenergic agonist sedative"
       },
       "category": "Long-acting glucocorticoid",
-      "confusionType": "orthographic_soundalike",
+      "confusionType": "lookalike_only",
       "distinguishingFeature": "Profound sedation, severe bradycardia, and hypotension from dexmedetomidine, or acute glycemic decompensation and immune suppression from dexamethasone.",
       "riskSummary": "Profound sedation, severe bradycardia, and hypotension from dexmedetomidine, or acute glycemic decompensation and immune suppression from dexamethasone.",
       "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
@@ -2076,7 +2125,8 @@
         "Toprol-XL",
         "hydrALAZINE",
         "HYDROmorphone"
-      ]
+      ],
+      "verifiedSoundAlike": false
     }
   ]
 }

@@ -1,4 +1,5 @@
 import lasaPairsData from "../data/lasaPairs.json" with { type: "json" };
+import { getUnitApplicableTallManTerms } from "./curriculumCoverageService.js";
 
 /**
  * Question Generator Service.
@@ -345,14 +346,16 @@ export function getLasaPairsByIds(ids) {
 
 /**
  * Generates a comprehensive activity and question set for a level based on its assigned LASA pairs.
- * Follows the UNIT -> LEVEL -> PROGRESSIVE CHALLENGES architecture:
- * - Level 1: Supported Recognition (Visual Pair & Tall Man MCQ with on-demand pronunciation)
- * - Level 2: Recognition with Less Support + Acoustic Discrimination
- * - Level 3: Guided Retrieval (Tall Man Fill-in-the-Blank + Matching + Verbal Read-Back)
- * - Unit Mastery: Mixed Mastery Synthesis across practiced challenges
+ * Follows the 6-Level Curriculum Architecture (5 Instructional Levels + Unit Mastery):
+ * - Level 1: Supported Pair Recognition (Visual Pair & on-demand pronunciation)
+ * - Level 2: Orthographic Distinction: Part A (Tall Man Batch A)
+ * - Level 3: Orthographic Distinction: Part B & Acoustic Discrimination (Tall Man Batch B + verified sound-alikes)
+ * - Level 4: Guided Retrieval & Scaffolding (Tall Man Fill-in-the-Blank for all applicable terms)
+ * - Level 5: Memory Consolidation & Verbal Verification (Tap-to-Match + Telephone Read-Back)
+ * - Unit Mastery: Mixed Capstone Synthesis (Tests ONLY previously introduced and practiced items)
  *
  * @param {Object} level - Level object containing id, levelNumber, type, etc.
- * @param {Object[]} pairRecords - Array of >= 5 authoritative LASA pairs
+ * @param {Object[]} pairRecords - Array of authoritative LASA pairs in this unit
  * @returns {{ activities: Object[], questions: Object[] }}
  */
 export function generateLevelContent(level, pairRecords) {
@@ -363,7 +366,13 @@ export function generateLevelContent(level, pairRecords) {
     const isMastery = Boolean(level.type === "unit_mastery" || level.id?.includes("mastery"));
     const lvlNum = level.levelNumber || 1;
 
-    // 1. Level 1: Supported Recognition (Pair Recognition with on-demand pronunciation)
+    const applicableTerms = getUnitApplicableTallManTerms(pairRecords);
+    const splitIdx = Math.ceil(applicableTerms.length / 2);
+    const batchA = applicableTerms.slice(0, splitIdx);
+    const batchB = applicableTerms.slice(splitIdx);
+    const verifiedSoundAlikePairs = pairRecords.filter((p) => Boolean(p.verifiedSoundAlike));
+
+    // 1. Level 1: Supported Pair Recognition (visual + on-demand pronunciation)
     if (lvlNum === 1 && !isMastery) {
         const questions = [];
         pairRecords.forEach((pair, idx) => {
@@ -377,70 +386,95 @@ export function generateLevelContent(level, pairRecords) {
             id: `act_${level.id}_recognition`,
             activityType: "identification",
             activityRole: "guided_practice",
-            learningObjective: "Recognize documented Look-Alike / Sound-Alike medication counterparts from verified ISMP/FDA pairs.",
-            sessionQuestionCount: Math.min(questions.length, 5),
+            learningObjective: "Recognize documented Look-Alike / Sound-Alike medication counterparts with visual and auditory pronunciation support.",
+            sessionQuestionCount: Math.min(questions.length, 6),
             questions
         };
 
-        return {
-            activities: [activity],
-            questions
-        };
+        return { activities: [activity], questions };
     }
 
-    // 2. Level 2: Recognition with Less Support & Acoustic Discrimination
+    // 2. Level 2: Orthographic Distinction: Part A (Tall Man Batch A)
     if (lvlNum === 2 && !isMastery) {
         const questions = [];
-        pairRecords.forEach((pair, idx) => {
-            if (pair.drugA?.tallManName && pair.drugA.tallManName !== pair.drugA.genericName) {
-                questions.push(generateTallManRecognitionQuestion(pair, { drugSide: "A", idSuffix: `${level.id}_${idx}a` }));
-            }
-            if (pair.drugB?.tallManName && pair.drugB.tallManName !== pair.drugB.genericName) {
-                questions.push(generateTallManRecognitionQuestion(pair, { drugSide: "B", idSuffix: `${level.id}_${idx}b` }));
+        batchA.forEach((termItem, idx) => {
+            const pair = pairRecords.find((p) => p.id === termItem.pairId);
+            if (pair) {
+                questions.push(generateTallManRecognitionQuestion(pair, { drugSide: termItem.side, idSuffix: `${level.id}_${idx}` }));
             }
         });
 
-        // Supplement with 1-2 Acoustic Sound-Alike Discrimination questions for top pairs
-        pairRecords.slice(0, 2).forEach((pair, idx) => {
-            const soundQ = generateSoundAlikeQuestion(pair, {
-                drugSide: idx % 2 === 0 ? "A" : "B",
-                subtype: "acoustic_mcq",
-                idSuffix: `${level.id}_snd_${idx}`
-            });
-            if (soundQ) questions.push(soundQ);
-        });
-
-        if (questions.length < 5) {
+        // Fallback supplement if batchA is small
+        if (questions.length < 6) {
             pairRecords.forEach((pair, idx) => {
                 questions.push(generateLasaPairRecognitionQuestion(pair, { promptSide: "A", idSuffix: `supp_${idx}` }));
             });
         }
 
         const activity = {
-            id: `act_${level.id}_tall_man_and_acoustic`,
+            id: `act_${level.id}_tall_man_batch_a`,
             activityType: "construction",
             activityRole: "guided_practice",
-            learningObjective: "Identify correct Tall Man capitalization to differentiate high-risk look-alike drug names.",
-            sessionQuestionCount: Math.min(questions.length, 5),
+            learningObjective: "Identify correct ISMP/FDA Tall Man capitalization to differentiate look-alike medications (Batch A).",
+            sessionQuestionCount: Math.min(questions.length, 6),
             questions
         };
 
-        return {
-            activities: [activity],
-            questions
-        };
+        return { activities: [activity], questions };
     }
 
-    // 3. Level 3: Guided Retrieval (Tall Man Fill-in-the-Blank + Matching + Verbal Read-Back)
+    // 3. Level 3: Orthographic Distinction: Part B & Acoustic Discrimination
     if (lvlNum === 3 && !isMastery) {
-        // Activity 1: Guided Tall Man Fill-in-the-Blank
-        const scaffoldQuestions = [];
-        pairRecords.forEach((pair, idx) => {
-            if (pair.drugA?.tallManName && pair.drugA.tallManName !== pair.drugA.genericName) {
-                scaffoldQuestions.push(generateTallManScaffoldQuestion(pair, { drugSide: "A", idSuffix: `${level.id}_${idx}a` }));
+        const tallManQuestions = [];
+        batchB.forEach((termItem, idx) => {
+            const pair = pairRecords.find((p) => p.id === termItem.pairId);
+            if (pair) {
+                tallManQuestions.push(generateTallManRecognitionQuestion(pair, { drugSide: termItem.side, idSuffix: `${level.id}_${idx}` }));
             }
-            if (pair.drugB?.tallManName && pair.drugB.tallManName !== pair.drugB.genericName) {
-                scaffoldQuestions.push(generateTallManScaffoldQuestion(pair, { drugSide: "B", idSuffix: `${level.id}_${idx}b` }));
+        });
+
+        const tallManActivity = {
+            id: `act_${level.id}_tall_man_batch_b`,
+            activityType: "construction",
+            activityRole: "guided_practice",
+            learningObjective: "Identify correct ISMP/FDA Tall Man capitalization to differentiate look-alike medications (Batch B).",
+            sessionQuestionCount: Math.min(tallManQuestions.length, 4),
+            questions: tallManQuestions
+        };
+
+        // Acoustic Sound-Alike Discrimination strictly for verified sound-alike pairs
+        const soundQuestions = [];
+        verifiedSoundAlikePairs.forEach((pair, idx) => {
+            const sq = generateSoundAlikeQuestion(pair, {
+                drugSide: idx % 2 === 0 ? "A" : "B",
+                subtype: "acoustic_mcq",
+                idSuffix: `${level.id}_snd_${idx}`
+            });
+            if (sq) soundQuestions.push(sq);
+        });
+
+        const soundActivity = {
+            id: `act_${level.id}_acoustic_discrimination`,
+            activityType: "acoustic_discrimination",
+            activityRole: "guided_practice",
+            learningObjective: "Distinguish spoken Sound-Alike medication names through acoustic discrimination.",
+            sessionQuestionCount: Math.min(soundQuestions.length, 2),
+            questions: soundQuestions
+        };
+
+        const activities = soundQuestions.length > 0 ? [tallManActivity, soundActivity] : [tallManActivity];
+        const allQuestions = [...tallManQuestions, ...soundQuestions];
+
+        return { activities, questions: allQuestions };
+    }
+
+    // 4. Level 4: Guided Retrieval & Scaffolding (Tall Man Fill-in-the-Blank)
+    if (lvlNum === 4 && !isMastery) {
+        const scaffoldQuestions = [];
+        applicableTerms.forEach((termItem, idx) => {
+            const pair = pairRecords.find((p) => p.id === termItem.pairId);
+            if (pair) {
+                scaffoldQuestions.push(generateTallManScaffoldQuestion(pair, { drugSide: termItem.side, idSuffix: `${level.id}_${idx}` }));
             }
         });
 
@@ -449,55 +483,66 @@ export function generateLevelContent(level, pairRecords) {
             activityType: "construction",
             activityRole: "guided_practice",
             learningObjective: "Actively construct distinguishing Tall Man segments before unassisted recall.",
-            sessionQuestionCount: 3,
+            sessionQuestionCount: Math.min(scaffoldQuestions.length, 6),
             questions: scaffoldQuestions
         };
 
-        // Activity 2: Matching Grid
-        const matchQuestion = generateMatchingQuestion(pairRecords, { id: `q_match_${level.id}` });
+        return { activities: [fillInActivity], questions: scaffoldQuestions };
+    }
+
+    // 5. Level 5: Memory Consolidation & Verbal Verification
+    if (lvlNum === 5 && !isMastery) {
+        // Activity 1: Matching
+        const matchQuestions = [];
+        for (let i = 0; i < pairRecords.length; i += 4) {
+            const chunk = pairRecords.slice(i, i + 4);
+            if (chunk.length >= 2) {
+                matchQuestions.push(generateMatchingQuestion(chunk, { id: `q_match_${level.id}_${i}` }));
+            }
+        }
+
         const matchingActivity = {
             id: `act_${level.id}_matching`,
             activityType: "distinction",
             activityRole: "guided_practice",
             learningObjective: "Match each medication with its documented confusable counterpart.",
-            sessionQuestionCount: 1,
-            questions: [matchQuestion]
+            sessionQuestionCount: Math.min(matchQuestions.length, 2),
+            questions: matchQuestions
         };
 
-        // Activity 3: Educational Read-Back Challenge
-        const readBackQuestions = pairRecords.slice(0, 3).map((pair, idx) =>
-            generateSoundAlikeQuestion(pair, {
+        // Activity 2: Simulated Telephone Read-Back for verified sound-alike pairs
+        const readBackQuestions = [];
+        verifiedSoundAlikePairs.forEach((pair, idx) => {
+            const rb = generateSoundAlikeQuestion(pair, {
                 drugSide: idx % 2 === 0 ? "A" : "B",
                 subtype: "read_back",
                 idSuffix: `${level.id}_rb_${idx}`
-            })
-        );
+            });
+            if (rb) readBackQuestions.push(rb);
+        });
+
         const readBackActivity = {
             id: `act_${level.id}_read_back`,
             activityType: "acoustic_discrimination",
             activityRole: "guided_practice",
             learningObjective: "Verify oral prescription statements through accurate verbal read-back recognition.",
-            sessionQuestionCount: 1,
+            sessionQuestionCount: Math.min(readBackQuestions.length, 4),
             questions: readBackQuestions
         };
 
-        const allQuestions = [...scaffoldQuestions, matchQuestion, ...readBackQuestions];
+        const activities = readBackQuestions.length > 0 ? [matchingActivity, readBackActivity] : [matchingActivity];
+        const allQuestions = [...matchQuestions, ...readBackQuestions];
 
-        return {
-            activities: [fillInActivity, matchingActivity, readBackActivity],
-            questions: allQuestions
-        };
+        return { activities, questions: allQuestions };
     }
 
-    // 4. Unit Mastery: Mixed Mastery Synthesis across practiced challenges
+    // 6. Unit Mastery: Mixed Capstone Synthesis
     // Activity 1: Unassisted Tall Man Construction (2 questions)
     const unassistedQuestions = [];
-    pairRecords.forEach((pair, idx) => {
-        if (pair.drugA?.tallManName) {
-            unassistedQuestions.push(generateTallManMasteryQuestion(pair, { drugSide: "A", idSuffix: `${level.id}_${idx}a` }));
-        }
-        if (pair.drugB?.tallManName) {
-            unassistedQuestions.push(generateTallManMasteryQuestion(pair, { drugSide: "B", idSuffix: `${level.id}_${idx}b` }));
+    applicableTerms.forEach((termItem, idx) => {
+        const pair = pairRecords.find((p) => p.id === termItem.pairId);
+        if (pair) {
+            unassistedQuestions.push(generateTallManMasteryQuestion(pair, { drugSide: termItem.side, idSuffix: `${level.id}_${idx}` }));
         }
     });
 
@@ -511,40 +556,42 @@ export function generateLevelContent(level, pairRecords) {
         questions: unassistedQuestions
     };
 
-    // Activity 2: Guided Retrieval Check (1 question)
+    // Activity 2: Guided Retrieval Check (2 questions)
     const guidedQuestions = [];
-    pairRecords.forEach((pair, idx) => {
-        if (pair.drugA?.tallManName && pair.drugA.tallManName !== pair.drugA.genericName) {
-            guidedQuestions.push(generateTallManScaffoldQuestion(pair, { drugSide: "A", idSuffix: `mst_sc_${idx}a` }));
-        }
-        if (pair.drugB?.tallManName && pair.drugB.tallManName !== pair.drugB.genericName) {
-            guidedQuestions.push(generateTallManScaffoldQuestion(pair, { drugSide: "B", idSuffix: `mst_sc_${idx}b` }));
+    applicableTerms.forEach((termItem, idx) => {
+        const pair = pairRecords.find((p) => p.id === termItem.pairId);
+        if (pair) {
+            guidedQuestions.push(generateTallManScaffoldQuestion(pair, { drugSide: termItem.side, idSuffix: `mst_sc_${idx}` }));
         }
     });
+
     const guidedActivity = {
         id: `act_${level.id}_guided_check`,
         activityType: "construction",
         activityRole: "unit_mastery",
         learningObjective: "Confirm accurate segment retrieval under test conditions.",
-        sessionQuestionCount: 1,
+        sessionQuestionCount: 2,
         questions: guidedQuestions.length > 0 ? guidedQuestions : unassistedQuestions
     };
 
-    // Activity 3: Simulated Educational Read-Back (1 question)
-    const readBackQuestions = pairRecords.slice(0, 4).map((pair, idx) =>
-        generateSoundAlikeQuestion(pair, {
+    // Activity 3: Simulated Educational Read-Back for verified sound-alikes (1 question)
+    const readBackQuestions = [];
+    verifiedSoundAlikePairs.forEach((pair, idx) => {
+        const rb = generateSoundAlikeQuestion(pair, {
             drugSide: idx % 2 === 0 ? "A" : "B",
             subtype: "read_back",
             idSuffix: `mst_rb_${idx}`
-        })
-    );
+        });
+        if (rb) readBackQuestions.push(rb);
+    });
+
     const readBackActivity = {
         id: `act_${level.id}_read_back_mastery`,
         activityType: "acoustic_discrimination",
         activityRole: "unit_mastery",
         learningObjective: "Demonstrate accurate verbal read-back recognition without visual crutches.",
         sessionQuestionCount: 1,
-        questions: readBackQuestions
+        questions: readBackQuestions.length > 0 ? readBackQuestions : unassistedQuestions.slice(0, 1)
     };
 
     // Activity 4: High-Stakes Pair Discrimination (1 question)
@@ -554,6 +601,7 @@ export function generateLevelContent(level, pairRecords) {
             idSuffix: `mst_disc_${idx}`
         })
     );
+
     const discriminationActivity = {
         id: `act_${level.id}_pair_discrimination`,
         activityType: "distinction",
@@ -563,6 +611,10 @@ export function generateLevelContent(level, pairRecords) {
         questions: discriminationQuestions
     };
 
+    const activities = readBackQuestions.length > 0
+        ? [unassistedActivity, guidedActivity, readBackActivity, discriminationActivity]
+        : [unassistedActivity, guidedActivity, discriminationActivity];
+
     const allMasteryQuestions = [
         ...unassistedQuestions,
         ...guidedQuestions,
@@ -570,15 +622,7 @@ export function generateLevelContent(level, pairRecords) {
         ...discriminationQuestions
     ];
 
-    return {
-        activities: [
-            unassistedActivity,
-            guidedActivity,
-            readBackActivity,
-            discriminationActivity
-        ],
-        questions: allMasteryQuestions
-    };
+    return { activities, questions: allMasteryQuestions };
 }
 
 /**
@@ -587,16 +631,24 @@ export function generateLevelContent(level, pairRecords) {
  * - "acoustic_mcq": Learner listens to a spoken drug name and discriminates from phonetic sound-alikes.
  * - "read_back": Simulates a verbal prescription order received over the phone; learner verifies and reads back the exact drug.
  *
+ * Strict Guard: Look-alike-only pairs will NEVER receive a sound-alike question.
+ * Returns null if the pair is not verified sound-alike.
+ *
  * @param {Object} lasaRecord - Canonical LASA pair record
  * @param {Object} [options]
  * @param {"A"|"B"} [options.drugSide="A"] - Drug side
  * @param {"acoustic_mcq"|"read_back"} [options.subtype="acoustic_mcq"] - Question format
  * @param {string} [options.idSuffix=""] - Unique suffix
- * @returns {Object} Sound-Alike Question definition
+ * @returns {Object|null} Sound-Alike Question definition or null
  */
 export function generateSoundAlikeQuestion(lasaRecord, { drugSide = "A", subtype = "acoustic_mcq", idSuffix = "" } = {}) {
+    if (!lasaRecord || !lasaRecord.verifiedSoundAlike) {
+        return null;
+    }
+
     const targetDrug = drugSide === "A" ? lasaRecord.drugA : lasaRecord.drugB;
     const counterpartDrug = drugSide === "A" ? lasaRecord.drugB : lasaRecord.drugA;
+
 
     const targetName = targetDrug.tallManName || targetDrug.genericName || targetDrug.brandName;
     const counterpartName = counterpartDrug.tallManName || counterpartDrug.genericName || counterpartDrug.brandName;

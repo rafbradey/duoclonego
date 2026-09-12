@@ -222,7 +222,7 @@ allLevels.forEach((lvl) => {
 export function formatQuestionOrigin(origin) {
     if (!origin) return "";
     if (origin.originLabel) return origin.originLabel;
-    const isMastery = Boolean(origin.isMastery || origin.levelNumber === "M" || origin.levelNumber === 4);
+    const isMastery = Boolean(origin.isMastery || origin.levelNumber === "M" || origin.type === "unit_mastery");
     const secNum = origin.sectionNumber || 1;
     const unitNum = origin.unitNumber || 1;
     if (isMastery) {

@@ -192,7 +192,7 @@ function shuffleArray(array) {
  * @param {boolean} [options.shuffleOptions=true] - Whether to shuffle multiple choice options
  * @returns {Object} Prepared session lesson instance with selected questions
  */
-export function prepareSessionLesson(level, { shuffleOptions = true } = {}) {
+export function prepareSessionLesson(level, { shuffleOptions = true, userHistory = null } = {}) {
     if (!level) return null;
     if (level.isPractice || level.isSessionPrepared) {
         return level;
@@ -207,6 +207,21 @@ export function prepareSessionLesson(level, { shuffleOptions = true } = {}) {
     }
 
     const usedLasaIds = new Set();
+    const usedTallManTerms = new Set();
+    const usedSoundPairs = new Set();
+
+    if (userHistory) {
+        if (Array.isArray(userHistory.encounteredTallManTerms)) {
+            userHistory.encounteredTallManTerms.forEach((t) => usedTallManTerms.add(t));
+        }
+        if (Array.isArray(userHistory.encounteredSoundPairs)) {
+            userHistory.encounteredSoundPairs.forEach((p) => usedSoundPairs.add(p));
+        }
+        if (Array.isArray(userHistory.encounteredLasaIds)) {
+            userHistory.encounteredLasaIds.forEach((id) => usedLasaIds.add(id));
+        }
+    }
+
     const sessionActivities = [];
 
     for (const activity of rawActivities) {
@@ -219,17 +234,34 @@ export function prepareSessionLesson(level, { shuffleOptions = true } = {}) {
         // Target count for this activity (prioritizes explicit sessionQuestionCount)
         const targetCount = activity.sessionQuestionCount
             ? activity.sessionQuestionCount
-            : (activity.isFinalTask && candidateQuestions.length === 1 ? 1 : Math.min(candidateQuestions.length, 5));
+            : (activity.isFinalTask && candidateQuestions.length === 1 ? 1 : Math.min(candidateQuestions.length, 6));
 
-        // Group candidate questions: those whose lasaId hasn't been used vs those that have
-        const unusedCandidates = candidateQuestions.filter((q) => !q.lasaId || !usedLasaIds.has(q.lasaId));
+        // Determine if activity tests Tall Man, Sound-Alike, or LASA Pair
+        const isTallMan = candidateQuestions.some(
+            (q) => q.type === "tall_man" || q.subtype === "tall_man_mcq" || q.subtype === "tall_man_fill_in" || q.isTallManChoice
+        );
+        const isSound = candidateQuestions.some(
+            (q) => q.type === "sound_alike" || q.subtype === "acoustic_mcq" || q.subtype === "read_back"
+        );
+
+        let uncoveredCandidates;
+        if (isTallMan) {
+            uncoveredCandidates = candidateQuestions.filter((q) => {
+                const term = q.tallManName || q.correctAnswer || q.relatedDrug;
+                return term && !usedTallManTerms.has(term);
+            });
+        } else if (isSound) {
+            uncoveredCandidates = candidateQuestions.filter((q) => q.lasaId && !usedSoundPairs.has(q.lasaId));
+        } else {
+            uncoveredCandidates = candidateQuestions.filter((q) => !q.lasaId || !usedLasaIds.has(q.lasaId));
+        }
 
         let selectedQuestions = [];
-        if (unusedCandidates.length >= targetCount) {
-            selectedQuestions = shuffleArray(unusedCandidates).slice(0, targetCount);
+        if (uncoveredCandidates.length >= targetCount) {
+            selectedQuestions = shuffleArray(uncoveredCandidates).slice(0, targetCount);
         } else {
-            // Take all unused first, then sample remainder from the rest
-            selectedQuestions = [...unusedCandidates];
+            // Take all uncovered first (shuffled), then sample remainder from reinforcement pool
+            selectedQuestions = shuffleArray(uncoveredCandidates);
             const remainingPool = candidateQuestions.filter((q) => !selectedQuestions.includes(q));
             const needed = targetCount - selectedQuestions.length;
             if (needed > 0 && remainingPool.length > 0) {
@@ -237,9 +269,12 @@ export function prepareSessionLesson(level, { shuffleOptions = true } = {}) {
             }
         }
 
-        // Record used lasaIds to avoid consecutive or redundant pair repetition in subsequent activities
+        // Record used items for subsequent activities in this session
         selectedQuestions.forEach((q) => {
             if (q.lasaId) usedLasaIds.add(q.lasaId);
+            const term = q.tallManName || (q.isTallManChoice ? q.correctAnswer : null);
+            if (term) usedTallManTerms.add(term);
+            if (q.type === "sound_alike" && q.lasaId) usedSoundPairs.add(q.lasaId);
         });
 
         // Process options/choices for each selected question
