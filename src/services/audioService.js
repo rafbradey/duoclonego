@@ -111,3 +111,75 @@ export function playIncorrectSound() {
         // Silently ignore browser audio restrictions
     }
 }
+
+/**
+ * Checks whether Web Speech API (speechSynthesis) is supported in the current environment.
+ * @returns {boolean}
+ */
+export function isSpeechSupported() {
+    return typeof window !== "undefined" && "speechSynthesis" in window;
+}
+
+/**
+ * Halts any active speech synthesis playback.
+ */
+export function stopSpeech() {
+    if (isSpeechSupported()) {
+        try {
+            window.speechSynthesis.cancel();
+        } catch {
+            // Ignore speech synthesis cancellation errors
+        }
+    }
+}
+
+/**
+ * Speaks a medication name aloud using the browser Web Speech API.
+ * Uses a slightly reduced speech rate (0.85x) to ensure distinct phonetic enunciation
+ * of complex look-alike and sound-alike syllables.
+ *
+ * @param {string} text - Medication name to speak
+ * @param {Object} [options]
+ * @param {number} [options.rate=0.85] - Speech rate (0.85 for clear syllables)
+ * @param {number} [options.pitch=1.0] - Speech pitch
+ * @param {Function} [options.onStart] - Callback when speech begins
+ * @param {Function} [options.onEnd] - Callback when speech completes
+ * @param {Function} [options.onError] - Callback on error
+ * @returns {SpeechSynthesisUtterance|null}
+ */
+export function speakDrugName(text, { rate = 0.85, pitch = 1.0, onStart, onEnd, onError } = {}) {
+    if (!isSpeechSupported() || !text) return null;
+
+    try {
+        stopSpeech();
+
+        const cleanText = String(text).trim();
+        const utterance = new SpeechSynthesisUtterance(cleanText);
+        utterance.rate = rate;
+        utterance.pitch = pitch;
+        utterance.lang = "en-US";
+
+        const voices = typeof window.speechSynthesis.getVoices === "function"
+            ? window.speechSynthesis.getVoices()
+            : [];
+
+        if (voices.length > 0) {
+            const englishVoice = voices.find((v) => v.lang && v.lang.startsWith("en") && !v.name.toLowerCase().includes("whisper")) ||
+                                 voices.find((v) => v.lang && v.lang.startsWith("en")) ||
+                                 voices[0];
+            if (englishVoice) {
+                utterance.voice = englishVoice;
+            }
+        }
+
+        if (typeof onStart === "function") utterance.onstart = onStart;
+        if (typeof onEnd === "function") utterance.onend = onEnd;
+        if (typeof onError === "function") utterance.onerror = onError;
+
+        window.speechSynthesis.speak(utterance);
+        return utterance;
+    } catch (err) {
+        if (typeof onError === "function") onError(err);
+        return null;
+    }
+}

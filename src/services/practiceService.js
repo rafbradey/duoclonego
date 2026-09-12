@@ -1,5 +1,6 @@
-import { allLevels, getQuestionOrigin } from "../data/levels/index.js";
+import { allLevels, getQuestionOrigin, lasaOriginMap } from "../data/levels/index.js";
 import { getCurrentUser, recordSrsOutcome, getDueSrsPairs } from "./userService.js";
+import { getLasaPairById, generateSoundAlikeQuestion } from "./questionGenerator.js";
 
 /**
  * Shuffles an array using the modern Fisher-Yates algorithm.
@@ -23,10 +24,11 @@ function shuffleArray(array) {
  * Supported modes:
  * - "due": Spaced Repetition review prioritizing pairs due for retrieval
  * - "mistakes": Targeted remediation for flagged mistakes
+ * - "audio": Sound-Alike acoustic discrimination & simulated oral telephone orders
  * - "quick": Broad randomized retrieval across unlocked curriculum
  *
  * @param {Object} options
- * @param {"quick"|"mistakes"|"due"} [options.mode="quick"] - Practice mode
+ * @param {"quick"|"mistakes"|"due"|"audio"} [options.mode="quick"] - Practice mode
  * @param {number} [options.count=5] - Number of questions for the session
  * @returns {Promise<Object>} Synthetic lesson object ready for LessonSession
  */
@@ -49,9 +51,33 @@ export async function generatePracticeSession({ mode = "quick", count = 5 } = {}
     // Fallback: If user has no completed/unlocked levels yet, use the first available level
     const sourceLevels = eligibleLevels.length > 0 ? eligibleLevels : allLevels.slice(0, 1);
 
+    const availableLasaIds = new Set();
     sourceLevels.forEach((lvl) => {
         if (Array.isArray(lvl.questions)) {
             poolQuestions.push(...lvl.questions);
+            lvl.questions.forEach((q) => {
+                if (q.lasaId) availableLasaIds.add(q.lasaId);
+            });
+        }
+    });
+
+    // Synthesize audio questions for available LASA pairs
+    const audioCandidates = [];
+    availableLasaIds.forEach((lasaId) => {
+        const pair = getLasaPairById(lasaId);
+        if (pair) {
+            const audioMcq = generateSoundAlikeQuestion(pair, {
+                drugSide: "A",
+                subtype: "acoustic_mcq",
+                idSuffix: `prc_${lasaId}_a`
+            });
+            const readBack = generateSoundAlikeQuestion(pair, {
+                drugSide: "B",
+                subtype: "read_back",
+                idSuffix: `prc_${lasaId}_b`
+            });
+            if (audioMcq) audioCandidates.push(audioMcq);
+            if (readBack) audioCandidates.push(readBack);
         }
     });
 
@@ -65,7 +91,18 @@ export async function generatePracticeSession({ mode = "quick", count = 5 } = {}
     const allCandidates = Array.from(uniqueMap.values());
     let selectedQuestions = [];
 
-    if (mode === "due") {
+    if (mode === "audio") {
+        // Sound-Alike Audio Mode: Exclusively acoustic discrimination and simulated oral orders
+        const shuffledAudio = shuffleArray(audioCandidates);
+        selectedQuestions = shuffledAudio.slice(0, count);
+
+        // If not enough audio candidates, backfill with general candidates
+        if (selectedQuestions.length < count) {
+            const remaining = allCandidates.filter((q) => !selectedQuestions.some((s) => s.id === q.id));
+            const backfill = shuffleArray(remaining).slice(0, count - selectedQuestions.length);
+            selectedQuestions.push(...backfill);
+        }
+    } else if (mode === "due") {
         // Spaced Repetition Mode: Find questions for pairs whose nextReviewDue <= now
         const duePairs = getDueSrsPairs(user);
         const dueLasaIds = new Set(duePairs.map((p) => p.lasaId));
@@ -95,14 +132,15 @@ export async function generatePracticeSession({ mode = "quick", count = 5 } = {}
             selectedQuestions.push(...backfill);
         }
     } else {
-        // Quick Practice Mode: Broad random sample
-        const shuffled = shuffleArray(allCandidates);
+        // Quick Practice Mode: Broad random sample blending visual and acoustic retrieval
+        const combinedPool = [...allCandidates, ...audioCandidates.slice(0, 4)];
+        const shuffled = shuffleArray(combinedPool);
         selectedQuestions = shuffled.slice(0, Math.min(count, shuffled.length));
     }
 
     // Attach exact Learning Path origin metadata to every practice question
     selectedQuestions = selectedQuestions.map((q) => {
-        const origin = getQuestionOrigin(q);
+        const origin = getQuestionOrigin(q) || (q.lasaId ? lasaOriginMap.get(q.lasaId) : null);
         if (origin) {
             return {
                 ...q,
@@ -119,7 +157,10 @@ export async function generatePracticeSession({ mode = "quick", count = 5 } = {}
     let title = "Quick Practice";
     let description = "Quick retrieval practice drawn from your completed LASA curriculum.";
 
-    if (mode === "due") {
+    if (mode === "audio") {
+        title = "Sound-Alike Audio Practice";
+        description = "Sharpen oral telephone order comprehension and sound-alike discrimination by ear without visual cues.";
+    } else if (mode === "due") {
         title = "Daily Spaced Review";
         description = "Target Look-Alike / Sound-Alike pairs scheduled for optimal long-term memory retention.";
     } else if (mode === "mistakes") {

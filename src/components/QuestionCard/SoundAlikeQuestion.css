@@ -1,0 +1,225 @@
+.sound-question-container {
+    width: 100%;
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 0 auto;
+}
+
+/* Mode Badges */
+.sound-mode-badge {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+}
+
+.badge-acoustic {
+    background-color: rgba(28, 176, 246, 0.12);
+    border: 1px solid rgba(28, 176, 246, 0.35);
+    color: var(--color-secondary);
+}
+
+.badge-read-back {
+    background-color: rgba(255, 170, 0, 0.12);
+    border: 1px solid rgba(255, 170, 0, 0.35);
+    color: #ffaa00;
+}
+
+.badge-icon-pulse {
+    animation: iconPulse 2s infinite ease-in-out;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+.sound-question-prompt {
+    font-size: clamp(1.2rem, 3vw, 1.55rem);
+    line-height: 1.35;
+    color: var(--text-white);
+    text-align: left;
+    margin: 0;
+}
+
+/* Audio Player Deck */
+.sound-audio-deck {
+    background-color: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    border-radius: 18px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px rgba(0, 0, 0, 0.15);
+}
+
+.sound-audio-deck.sound-deck-playing {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 16px rgba(28, 176, 246, 0.25), 0 4px rgba(0, 0, 0, 0.15);
+}
+
+.sound-deck-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sound-deck-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.sound-speed-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: var(--bg-page);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.25rem 0.65rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.sound-speed-btn:hover:not(:disabled) {
+    border-color: var(--color-secondary);
+    color: var(--text-white);
+}
+
+.sound-speed-btn.speed-slow {
+    border-color: rgba(28, 176, 246, 0.5);
+    background-color: rgba(28, 176, 246, 0.15);
+    color: var(--color-secondary);
+}
+
+/* Play Button */
+.sound-play-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.sound-play-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    background: linear-gradient(180deg, rgba(28, 176, 246, 0.15) 0%, rgba(28, 176, 246, 0.08) 100%);
+    border: 2px solid var(--color-secondary);
+    border-radius: 14px;
+    padding: 1.15rem 1.5rem;
+    color: var(--color-secondary);
+    cursor: pointer;
+    box-shadow: 0 4px var(--border-color);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+}
+
+.sound-play-button:hover {
+    background-color: rgba(28, 176, 246, 0.22);
+    transform: translateY(-2px);
+    box-shadow: 0 6px var(--border-color);
+}
+
+.sound-play-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px var(--border-color);
+}
+
+.sound-play-button.playing {
+    background-color: rgba(28, 176, 246, 0.25);
+    border-color: #58cc02;
+    color: #58cc02;
+}
+
+.sound-play-text {
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* Animated Sound Wave Bars */
+.sound-wave-bars {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 24px;
+}
+
+.wave-bar {
+    width: 4px;
+    background-color: currentColor;
+    border-radius: 2px;
+    animation: waveBounce 0.8s ease-in-out infinite alternate;
+}
+
+.wave-bar.bar-1 { height: 14px; animation-delay: 0.1s; }
+.wave-bar.bar-2 { height: 24px; animation-delay: 0.3s; }
+.wave-bar.bar-3 { height: 18px; animation-delay: 0.2s; }
+.wave-bar.bar-4 { height: 10px; animation-delay: 0.4s; }
+
+@keyframes waveBounce {
+    0% {
+        transform: scaleY(0.4);
+    }
+    100% {
+        transform: scaleY(1.2);
+    }
+}
+
+.sound-hint-text {
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Choice Buttons */
+.sound-choice-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.sound-selected-icon {
+    position: absolute;
+    right: 1.25rem;
+    color: var(--color-primary);
+}
+
+@media (max-width: 500px) {
+    .sound-audio-deck {
+        padding: 1rem 1.15rem;
+    }
+
+    .sound-play-button {
+        padding: 0.9rem 1.15rem;
+    }
+
+    .sound-play-text {
+        font-size: 0.85rem;
+    }
+}

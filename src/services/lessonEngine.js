@@ -98,16 +98,14 @@ export function evaluateAnswer(question, selectedAnswer) {
             };
         }
 
-        // Guided Mode: Scaffolding allows segment input with case/whitespace tolerance
-        const expectedSegment = String(question.expectedSegment || "").trim().toUpperCase();
-        const inputUpper = inputTrimmed.toUpperCase();
+        // Guided Mode: Scaffolding requires exact canonical Tall Man capitalization of the segment
+        const expectedSegment = String(question.expectedSegment || "").trim();
         const fullReconstructed = `${question.prefix || ""}${inputTrimmed}${question.suffix || ""}`;
-        const targetTallManUpper = targetTallMan.toUpperCase();
 
         const isCorrect = Boolean(
-            (expectedSegment && inputUpper === expectedSegment) ||
-            (targetTallMan && inputUpper === targetTallManUpper) ||
-            (targetTallMan && fullReconstructed.toUpperCase() === targetTallManUpper && inputUpper.length === expectedSegment.length)
+            (expectedSegment && inputTrimmed === expectedSegment) ||
+            (targetTallMan && inputTrimmed === targetTallMan) ||
+            (targetTallMan && fullReconstructed === targetTallMan)
         );
 
         return {

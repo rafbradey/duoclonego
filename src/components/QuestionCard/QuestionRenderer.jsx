@@ -3,6 +3,7 @@ import { Info, Compass } from "lucide-react";
 import MultipleChoiceQuestion from "./MultipleChoiceQuestion.jsx";
 import MatchingQuestion from "./MatchingQuestion.jsx";
 import TallManQuestion from "./TallManQuestion.jsx";
+import SoundAlikeQuestion from "./SoundAlikeQuestion.jsx";
 import QuestionInfoModal from "./QuestionInfoModal.jsx";
 import { getQuestionOrigin, formatQuestionOrigin } from "../../data/levels/index.js";
 import "./QuestionRenderer.css";
@@ -16,6 +17,7 @@ import "./QuestionRenderer.css";
  * - "multiple_choice": Standard multi-option choice grid
  * - "true_false": Binary choice evaluation (uses choice grid)
  * - "matching": Interactive tap-to-match pair tiles
+ * - "sound_alike": Acoustic discrimination and oral read-back practice
  *
  * Provides a question-level "ⓘ Information" button for transparent source verification,
  * and an Origin Banner identifying Section, Unit, and Level in review modes.
@@ -47,6 +49,18 @@ function QuestionRenderer({
     let content;
 
     switch (question.type) {
+        case "sound_alike":
+            content = (
+                <SoundAlikeQuestion
+                    key={question.id}
+                    question={question}
+                    selectedAnswer={selectedAnswer}
+                    onSelect={onSelect}
+                    isSubmitted={isSubmitted}
+                />
+            );
+            break;
+
         case "tall_man":
             content = (
                 <TallManQuestion

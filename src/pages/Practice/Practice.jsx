@@ -9,7 +9,8 @@ import {
     Award,
     BookOpen,
     ArrowRight,
-    Calendar
+    Calendar,
+    Volume2
 } from "lucide-react";
 import Mascot from "../../components/Mascot/Mascot.jsx";
 import LasaPairCard from "../../components/LasaPairCard/LasaPairCard.jsx";
@@ -219,6 +220,32 @@ function Practice() {
                             className="duo-button duo-button-secondary practice-mode-action-btn"
                         >
                             <span>START QUICK PRACTICE</span>
+                            <ArrowRight size={18} />
+                        </Link>
+                    </div>
+
+                    {/* Sound-Alike Audio Practice Card */}
+                    <div className="practice-mode-card audio-mode duo-card">
+                        <div className="practice-card-top">
+                            <div className="practice-card-header-row">
+                                <div className="practice-mode-icon-pill audio-pill">
+                                    <Volume2 size={24} />
+                                </div>
+                                <span className="practice-mode-badge badge-audio">Audio • Read-Back</span>
+                            </div>
+                            <div className="practice-mode-info">
+                                <h3 className="practice-mode-title">Sound-Alike Audio Practice</h3>
+                                <p className="practice-mode-desc">
+                                    Train your ear to catch subtle phonetic differences. Listen to spoken medication names and simulated oral telephone prescription orders.
+                                </p>
+                            </div>
+                        </div>
+
+                        <Link
+                            to="/lesson/practice?mode=audio"
+                            className="duo-button duo-button-secondary practice-mode-action-btn"
+                        >
+                            <span>PRACTICE BY EAR</span>
                             <ArrowRight size={18} />
                         </Link>
                     </div>

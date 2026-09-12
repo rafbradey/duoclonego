@@ -1,8 +1,12 @@
+import { useState } from "react";
 import TallManText from "../TallManText/TallManText.jsx";
-import { AlertCircle, ArrowLeftRight } from "lucide-react";
+import { AlertCircle, ArrowLeftRight, Volume2 } from "lucide-react";
+import { speakDrugName } from "../../services/audioService.js";
 import "./LasaPairCard.css";
 
 function LasaPairCard({ pair, srsRecord = null, isDue = false, className = "" }) {
+    const [speakingDrug, setSpeakingDrug] = useState(null);
+
     if (!pair) return null;
 
     const pairNumber = pair.id ? pair.id.replace(/^lasa[-_]0*/i, "") : "";
@@ -19,6 +23,16 @@ function LasaPairCard({ pair, srsRecord = null, isDue = false, className = "" })
         }
     }
 
+    const handlePronounce = (drugName) => {
+        if (!drugName) return;
+        setSpeakingDrug(drugName);
+        speakDrugName(drugName, {
+            rate: 0.85,
+            onEnd: () => setSpeakingDrug(null),
+            onError: () => setSpeakingDrug(null)
+        });
+    };
+
     return (
         <div className={`lasa-pair-card duo-card ${className}`}>
             <div className="lasa-card-header">
@@ -32,9 +46,20 @@ function LasaPairCard({ pair, srsRecord = null, isDue = false, className = "" })
             <div className="lasa-comparison-row">
                 <div className="lasa-drug-block">
                     <span className="lasa-drug-label">Primary Drug</span>
-                    <h3 className="lasa-drug-name">
-                        <TallManText name={pair.drugName} />
-                    </h3>
+                    <div className="lasa-drug-title-row">
+                        <h3 className="lasa-drug-name">
+                            <TallManText name={pair.drugName} />
+                        </h3>
+                        <button
+                            type="button"
+                            className={`lasa-pronounce-btn ${speakingDrug === pair.drugName ? "speaking" : ""}`}
+                            onClick={() => handlePronounce(pair.drugName)}
+                            title={`Pronounce ${pair.drugName}`}
+                            aria-label={`Pronounce ${pair.drugName}`}
+                        >
+                            <Volume2 size={16} />
+                        </button>
+                    </div>
                 </div>
 
                 <div className="lasa-divider-icon" title="Look-Alike / Sound-Alike Pair">
@@ -43,16 +68,27 @@ function LasaPairCard({ pair, srsRecord = null, isDue = false, className = "" })
 
                 <div className="lasa-drug-block">
                     <span className="lasa-drug-label">Confused With</span>
-                    <h3 className="lasa-drug-name">
-                        <TallManText name={pair.confusedDrugName} />
-                    </h3>
+                    <div className="lasa-drug-title-row">
+                        <h3 className="lasa-drug-name">
+                            <TallManText name={pair.confusedDrugName} />
+                        </h3>
+                        <button
+                            type="button"
+                            className={`lasa-pronounce-btn ${speakingDrug === pair.confusedDrugName ? "speaking" : ""}`}
+                            onClick={() => handlePronounce(pair.confusedDrugName)}
+                            title={`Pronounce ${pair.confusedDrugName}`}
+                            aria-label={`Pronounce ${pair.confusedDrugName}`}
+                        >
+                            <Volume2 size={16} />
+                        </button>
+                    </div>
                 </div>
             </div>
 
             <div className="lasa-card-footer">
                 <AlertCircle size={14} className="lasa-alert-icon" />
                 <span className="lasa-footer-note">
-                    ISMP 2023 Confused Drug Name Pair
+                    {pair.sourceCitation || pair.source || "ISMP List of Confused Drug Names"}
                 </span>
             </div>
         </div>

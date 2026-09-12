@@ -205,6 +205,16 @@
     box-shadow: 0 6px 0 rgba(255, 75, 75, 0.35);
 }
 
+.practice-mode-card.audio-mode {
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 4px 0 rgba(168, 85, 247, 0.25);
+}
+
+.practice-mode-card.audio-mode:hover {
+    border-color: #a855f7;
+    box-shadow: 0 6px 0 rgba(168, 85, 247, 0.4);
+}
+
 .practice-card-top {
     display: flex;
     flex-direction: column;
@@ -240,6 +250,11 @@
 .mistakes-mode .practice-mode-icon-pill {
     background: rgba(255, 75, 75, 0.15);
     color: var(--color-danger);
+}
+
+.audio-mode .practice-mode-icon-pill {
+    background: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
 }
 
 .practice-mode-badge {
@@ -279,6 +294,13 @@
     background: rgba(45, 171, 105, 0.12);
     color: #2dab69;
     border: 1px solid rgba(45, 171, 105, 0.35);
+}
+
+.audio-mode .practice-mode-badge,
+.practice-mode-badge.badge-audio {
+    background: rgba(168, 85, 247, 0.12);
+    color: #a855f7;
+    border: 1px solid rgba(168, 85, 247, 0.35);
 }
 
 .practice-mode-info {

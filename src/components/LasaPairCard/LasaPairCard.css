@@ -91,11 +91,46 @@
     letter-spacing: 0.05em;
 }
 
+.lasa-drug-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .lasa-drug-name {
     font-size: 1.15rem;
     font-weight: 800;
     color: var(--text-white);
     word-break: break-word;
+    margin: 0;
+}
+
+.lasa-pronounce-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--bg-page);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.15s ease;
+}
+
+.lasa-pronounce-btn:hover {
+    color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    background-color: rgba(28, 176, 246, 0.1);
+    transform: scale(1.1);
+}
+
+.lasa-pronounce-btn.speaking {
+    color: #58cc02;
+    border-color: #58cc02;
+    background-color: rgba(88, 204, 2, 0.15);
 }
 
 .lasa-divider-icon {

@@ -60,10 +60,16 @@ function resolveQuestionMeta(ans) {
 
     let category = "LASA Pair";
     if (subtype === "tall_man_mcq" || qType === "tall_man" || refQ?.isTallManChoice) {
-        category = qType === "tall_man" ? "Tall Man Mastery" : "Tall Man Lettering";
+        if (qType === "tall_man") {
+            category = refQ?.scaffold ? "Tall Man Fill-in" : "Tall Man Mastery";
+        } else {
+            category = "Tall Man Lettering";
+        }
     } else if (qType === "matching") {
         category = "Tap-to-Match";
         if (!subject) subject = "LASA Medication Pairs";
+    } else if (qType === "sound_alike") {
+        category = subtype === "read_back" ? "Oral Read-Back" : "Sound-Alike Audio";
     }
 
     return {

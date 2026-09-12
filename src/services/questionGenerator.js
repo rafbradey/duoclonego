@@ -187,6 +187,93 @@ export function generateMatchingQuestion(lasaRecords, { id = "q_match_001" } = {
  * Generates a Type D: Unassisted Unit Mastery Capstone Tall Man task.
  * The learner independently constructs/types the full Tall Man name without hints.
  */
+/**
+ * Decomposes a canonical Tall Man medication name into:
+ * - prefix: Lowercase leading stem
+ * - expectedSegment: Distinguishing uppercase Tall Man segment
+ * - suffix: Trailing lowercase stem or modifier (e.g. ' R')
+ * Grounded 100% in canonical Tall Man strings.
+ *
+ * @param {string} name - Canonical Tall Man name (e.g. 'clonazePAM', 'DOBUtamine', 'CeleBREX')
+ * @returns {{ prefix: string, expectedSegment: string, suffix: string }}
+ */
+export function decomposeTallMan(name) {
+    if (!name || typeof name !== "string") {
+        return { prefix: "", expectedSegment: "", suffix: "" };
+    }
+    // Brand name with initial capital followed by lowercase, then uppercase Tall Man:
+    // e.g. CeleBREX -> prefix: "Cele", expectedSegment: "BREX", suffix: ""
+    const matchBrand = name.match(/^([A-Z][a-z]+)([A-Z0-9-]+)(.*)$/);
+    if (matchBrand) {
+        return {
+            prefix: matchBrand[1],
+            expectedSegment: matchBrand[2],
+            suffix: matchBrand[3] || ""
+        };
+    }
+    // Generic with lowercase prefix, uppercase Tall Man, and optional suffix:
+    // e.g. clonazePAM -> prefix: "clonaze", expectedSegment: "PAM", suffix: ""
+    // e.g. buPROPion -> prefix: "bu", expectedSegment: "PROP", suffix: "ion"
+    // e.g. DOBUtamine -> prefix: "", expectedSegment: "DOBU", suffix: "tamine"
+    const matchGeneric = name.match(/^([a-z]*)([A-Z0-9-]+)(.*)$/);
+    if (matchGeneric) {
+        return {
+            prefix: matchGeneric[1],
+            expectedSegment: matchGeneric[2],
+            suffix: matchGeneric[3] || ""
+        };
+    }
+    return { prefix: "", expectedSegment: name, suffix: "" };
+}
+
+/**
+ * Generates a Guided Retrieval Tall Man Fill-in-the-Blank question.
+ * Requires the learner to actively produce the distinguishing uppercase segment
+ * while preserving prefix/suffix context framing (e.g. clonaze____ -> PAM).
+ *
+ * @param {Object} lasaRecord - Canonical LASA pair record
+ * @param {Object} [options]
+ * @param {"A"|"B"} [options.drugSide="A"]
+ * @param {string} [options.idSuffix=""]
+ * @returns {Object} Tall Man Fill-in-the-Blank question definition
+ */
+export function generateTallManScaffoldQuestion(lasaRecord, { drugSide = "A", idSuffix = "" } = {}) {
+    const targetDrug = drugSide === "A" ? lasaRecord.drugA : lasaRecord.drugB;
+    const counterpartDrug = drugSide === "A" ? lasaRecord.drugB : lasaRecord.drugA;
+    const pairDisplay = `${lasaRecord.drugA?.tallManName || ""} ↔ ${lasaRecord.drugB?.tallManName || ""}`;
+    const tallMan = targetDrug.tallManName || targetDrug.genericName || targetDrug.brandName;
+    const { prefix, expectedSegment, suffix } = decomposeTallMan(tallMan);
+
+    return {
+        id: `q_scaffold_${lasaRecord.id}_${drugSide}${idSuffix ? `_${idSuffix}` : ""}`,
+        type: "tall_man",
+        subtype: "tall_man_fill_in",
+        activityRole: "guided_practice",
+        scaffold: true,
+        isFinalTask: false,
+        lasaId: lasaRecord.id,
+        prompt: `Convert this medication name to Tall Man lettering by entering the capitalized letters (${prefix || ""}___${suffix || ""}):`,
+        standardName: targetDrug.genericName || targetDrug.brandName,
+        tallManName: tallMan,
+        prefix,
+        expectedSegment,
+        suffix,
+        correctAnswer: expectedSegment,
+        explanation: `${tallMan} capitalizes the distinguishing segment "${expectedSegment}" to disrupt confusion with ${counterpartDrug.tallManName || counterpartDrug.genericName}.`,
+        relatedDrug: tallMan,
+        riskSummary: lasaRecord.riskSummary || lasaRecord.distinguishingFeature || "",
+        feedbackFact: lasaRecord.riskSummary || lasaRecord.distinguishingFeature || "",
+        source: lasaRecord.source || "FDA Name Differentiation Project & ISMP Tall Man List",
+        sourceCitation: lasaRecord.sourceCitation || "",
+        sourceUrl: lasaRecord.sourceUrl || "",
+        pairDisplay
+    };
+}
+
+/**
+ * Generates a Type D: Unassisted Unit Mastery Capstone Tall Man task.
+ * The learner independently constructs/types the full Tall Man name without hints.
+ */
 export function generateTallManMasteryQuestion(lasaRecord, { drugSide = "A", idSuffix = "" } = {}) {
     const targetDrug = drugSide === "A" ? lasaRecord.drugA : lasaRecord.drugB;
     const counterpartDrug = drugSide === "A" ? lasaRecord.drugB : lasaRecord.drugA;
@@ -202,6 +289,7 @@ export function generateTallManMasteryQuestion(lasaRecord, { drugSide = "A", idS
         prompt: "UNIT MASTERY CAPSTONE TASK: Type the complete drug name using correct Tall Man lettering (capitalizing the specific distinguishing letters):",
         standardName: targetDrug.genericName || targetDrug.brandName,
         tallManName: targetDrug.tallManName,
+        correctAnswer: targetDrug.tallManName,
         prefix: "",
         expectedSegment: targetDrug.tallManName,
         suffix: "",
@@ -257,9 +345,12 @@ export function getLasaPairsByIds(ids) {
 
 /**
  * Generates a comprehensive activity and question set for a level based on its assigned LASA pairs.
- * Enforces:
- * - Minimum 5 pairs per lesson/level where dataset supports it
- * - Strict question type formats and metadata
+ * Follows the UNIT -> LEVEL -> PROGRESSIVE CHALLENGES architecture:
+ * - Level 1: Supported Recognition (Visual Pair & Tall Man MCQ with on-demand pronunciation)
+ * - Level 2: Recognition with Less Support + Acoustic Discrimination
+ * - Level 3: Guided Retrieval (Tall Man Fill-in-the-Blank + Matching + Verbal Read-Back)
+ * - Unit Mastery: Mixed Mastery Synthesis across practiced challenges
+ *
  * @param {Object} level - Level object containing id, levelNumber, type, etc.
  * @param {Object[]} pairRecords - Array of >= 5 authoritative LASA pairs
  * @returns {{ activities: Object[], questions: Object[] }}
@@ -272,7 +363,7 @@ export function generateLevelContent(level, pairRecords) {
     const isMastery = Boolean(level.type === "unit_mastery" || level.id?.includes("mastery"));
     const lvlNum = level.levelNumber || 1;
 
-    // 1. Level 1: Pair Recognition (Type B questions for all pairs)
+    // 1. Level 1: Supported Recognition (Pair Recognition with on-demand pronunciation)
     if (lvlNum === 1 && !isMastery) {
         const questions = [];
         pairRecords.forEach((pair, idx) => {
@@ -297,7 +388,7 @@ export function generateLevelContent(level, pairRecords) {
         };
     }
 
-    // 2. Level 2: Tall Man Lettering (Type A questions for all pairs)
+    // 2. Level 2: Recognition with Less Support & Acoustic Discrimination
     if (lvlNum === 2 && !isMastery) {
         const questions = [];
         pairRecords.forEach((pair, idx) => {
@@ -309,7 +400,16 @@ export function generateLevelContent(level, pairRecords) {
             }
         });
 
-        // If fewer than 5 tall man specific names, supplement with pair recognition
+        // Supplement with 1-2 Acoustic Sound-Alike Discrimination questions for top pairs
+        pairRecords.slice(0, 2).forEach((pair, idx) => {
+            const soundQ = generateSoundAlikeQuestion(pair, {
+                drugSide: idx % 2 === 0 ? "A" : "B",
+                subtype: "acoustic_mcq",
+                idSuffix: `${level.id}_snd_${idx}`
+            });
+            if (soundQ) questions.push(soundQ);
+        });
+
         if (questions.length < 5) {
             pairRecords.forEach((pair, idx) => {
                 questions.push(generateLasaPairRecognitionQuestion(pair, { promptSide: "A", idSuffix: `supp_${idx}` }));
@@ -317,7 +417,7 @@ export function generateLevelContent(level, pairRecords) {
         }
 
         const activity = {
-            id: `act_${level.id}_tall_man`,
+            id: `act_${level.id}_tall_man_and_acoustic`,
             activityType: "construction",
             activityRole: "guided_practice",
             learningObjective: "Identify correct Tall Man capitalization to differentiate high-risk look-alike drug names.",
@@ -331,23 +431,30 @@ export function generateLevelContent(level, pairRecords) {
         };
     }
 
-    // 3. Level 3: Memorization & Discrimination (Mixed Type B + Type C Matching)
+    // 3. Level 3: Guided Retrieval (Tall Man Fill-in-the-Blank + Matching + Verbal Read-Back)
     if (lvlNum === 3 && !isMastery) {
-        const mcQuestions = pairRecords.map((pair, idx) =>
-            generateLasaPairRecognitionQuestion(pair, { promptSide: idx % 2 === 0 ? "A" : "B", idSuffix: `disc_${idx}` })
-        );
+        // Activity 1: Guided Tall Man Fill-in-the-Blank
+        const scaffoldQuestions = [];
+        pairRecords.forEach((pair, idx) => {
+            if (pair.drugA?.tallManName && pair.drugA.tallManName !== pair.drugA.genericName) {
+                scaffoldQuestions.push(generateTallManScaffoldQuestion(pair, { drugSide: "A", idSuffix: `${level.id}_${idx}a` }));
+            }
+            if (pair.drugB?.tallManName && pair.drugB.tallManName !== pair.drugB.genericName) {
+                scaffoldQuestions.push(generateTallManScaffoldQuestion(pair, { drugSide: "B", idSuffix: `${level.id}_${idx}b` }));
+            }
+        });
 
-        const matchQuestion = generateMatchingQuestion(pairRecords, { id: `q_match_${level.id}` });
-
-        const reviewActivity = {
-            id: `act_${level.id}_discrimination`,
-            activityType: "distinction",
+        const fillInActivity = {
+            id: `act_${level.id}_guided_fill_in`,
+            activityType: "construction",
             activityRole: "guided_practice",
-            learningObjective: "Differentiate subtle orthographic differences and recall confusable medication pairs from memory.",
-            sessionQuestionCount: 4,
-            questions: mcQuestions
+            learningObjective: "Actively construct distinguishing Tall Man segments before unassisted recall.",
+            sessionQuestionCount: 3,
+            questions: scaffoldQuestions
         };
 
+        // Activity 2: Matching Grid
+        const matchQuestion = generateMatchingQuestion(pairRecords, { id: `q_match_${level.id}` });
         const matchingActivity = {
             id: `act_${level.id}_matching`,
             activityType: "distinction",
@@ -357,42 +464,200 @@ export function generateLevelContent(level, pairRecords) {
             questions: [matchQuestion]
         };
 
+        // Activity 3: Educational Read-Back Challenge
+        const readBackQuestions = pairRecords.slice(0, 3).map((pair, idx) =>
+            generateSoundAlikeQuestion(pair, {
+                drugSide: idx % 2 === 0 ? "A" : "B",
+                subtype: "read_back",
+                idSuffix: `${level.id}_rb_${idx}`
+            })
+        );
+        const readBackActivity = {
+            id: `act_${level.id}_read_back`,
+            activityType: "acoustic_discrimination",
+            activityRole: "guided_practice",
+            learningObjective: "Verify oral prescription statements through accurate verbal read-back recognition.",
+            sessionQuestionCount: 1,
+            questions: readBackQuestions
+        };
+
+        const allQuestions = [...scaffoldQuestions, matchQuestion, ...readBackQuestions];
+
         return {
-            activities: [reviewActivity, matchingActivity],
-            questions: [...mcQuestions, matchQuestion]
+            activities: [fillInActivity, matchingActivity, readBackActivity],
+            questions: allQuestions
         };
     }
 
-    // 4. Level 4: Unit Mastery (Tall Man Lettering Construction)
-    const tallManQuestions = [];
+    // 4. Unit Mastery: Mixed Mastery Synthesis across practiced challenges
+    // Activity 1: Unassisted Tall Man Construction (2 questions)
+    const unassistedQuestions = [];
     pairRecords.forEach((pair, idx) => {
         if (pair.drugA?.tallManName) {
-            tallManQuestions.push(generateTallManMasteryQuestion(pair, { drugSide: "A", idSuffix: `${level.id}_${idx}a` }));
+            unassistedQuestions.push(generateTallManMasteryQuestion(pair, { drugSide: "A", idSuffix: `${level.id}_${idx}a` }));
         }
         if (pair.drugB?.tallManName) {
-            tallManQuestions.push(generateTallManMasteryQuestion(pair, { drugSide: "B", idSuffix: `${level.id}_${idx}b` }));
+            unassistedQuestions.push(generateTallManMasteryQuestion(pair, { drugSide: "B", idSuffix: `${level.id}_${idx}b` }));
         }
     });
 
-    if (tallManQuestions.length < 5) {
-        pairRecords.forEach((pair, idx) => {
-            tallManQuestions.push(generateTallManMasteryQuestion(pair, { drugSide: "A", idSuffix: `extra_${idx}a` }));
-            tallManQuestions.push(generateTallManMasteryQuestion(pair, { drugSide: "B", idSuffix: `extra_${idx}b` }));
-        });
-    }
-
-    const masteryActivity = {
-        id: `act_${level.id}_tall_man_mastery`,
+    const unassistedActivity = {
+        id: `act_${level.id}_unassisted_tall_man`,
         activityType: "construction",
         activityRole: "unit_mastery",
         isFinalTask: true,
-        learningObjective: "Demonstrate complete unassisted mastery by constructing exact Tall Man lettering for unit medications without scaffolding.",
-        sessionQuestionCount: 5,
-        questions: tallManQuestions
+        learningObjective: "Demonstrate complete unassisted mastery by constructing exact Tall Man lettering from memory.",
+        sessionQuestionCount: 2,
+        questions: unassistedQuestions
     };
 
+    // Activity 2: Guided Retrieval Check (1 question)
+    const guidedQuestions = [];
+    pairRecords.forEach((pair, idx) => {
+        if (pair.drugA?.tallManName && pair.drugA.tallManName !== pair.drugA.genericName) {
+            guidedQuestions.push(generateTallManScaffoldQuestion(pair, { drugSide: "A", idSuffix: `mst_sc_${idx}a` }));
+        }
+        if (pair.drugB?.tallManName && pair.drugB.tallManName !== pair.drugB.genericName) {
+            guidedQuestions.push(generateTallManScaffoldQuestion(pair, { drugSide: "B", idSuffix: `mst_sc_${idx}b` }));
+        }
+    });
+    const guidedActivity = {
+        id: `act_${level.id}_guided_check`,
+        activityType: "construction",
+        activityRole: "unit_mastery",
+        learningObjective: "Confirm accurate segment retrieval under test conditions.",
+        sessionQuestionCount: 1,
+        questions: guidedQuestions.length > 0 ? guidedQuestions : unassistedQuestions
+    };
+
+    // Activity 3: Simulated Educational Read-Back (1 question)
+    const readBackQuestions = pairRecords.slice(0, 4).map((pair, idx) =>
+        generateSoundAlikeQuestion(pair, {
+            drugSide: idx % 2 === 0 ? "A" : "B",
+            subtype: "read_back",
+            idSuffix: `mst_rb_${idx}`
+        })
+    );
+    const readBackActivity = {
+        id: `act_${level.id}_read_back_mastery`,
+        activityType: "acoustic_discrimination",
+        activityRole: "unit_mastery",
+        learningObjective: "Demonstrate accurate verbal read-back recognition without visual crutches.",
+        sessionQuestionCount: 1,
+        questions: readBackQuestions
+    };
+
+    // Activity 4: High-Stakes Pair Discrimination (1 question)
+    const discriminationQuestions = pairRecords.map((pair, idx) =>
+        generateLasaPairRecognitionQuestion(pair, {
+            promptSide: idx % 2 === 0 ? "A" : "B",
+            idSuffix: `mst_disc_${idx}`
+        })
+    );
+    const discriminationActivity = {
+        id: `act_${level.id}_pair_discrimination`,
+        activityType: "distinction",
+        activityRole: "unit_mastery",
+        learningObjective: "Discriminate high-risk confusable counterparts.",
+        sessionQuestionCount: 1,
+        questions: discriminationQuestions
+    };
+
+    const allMasteryQuestions = [
+        ...unassistedQuestions,
+        ...guidedQuestions,
+        ...readBackQuestions,
+        ...discriminationQuestions
+    ];
+
     return {
-        activities: [masteryActivity],
-        questions: tallManQuestions
+        activities: [
+            unassistedActivity,
+            guidedActivity,
+            readBackActivity,
+            discriminationActivity
+        ],
+        questions: allMasteryQuestions
+    };
+}
+
+/**
+ * Generates a Sound-Alike Acoustic / Oral Read-Back Practice Question.
+ * Supported subtypes:
+ * - "acoustic_mcq": Learner listens to a spoken drug name and discriminates from phonetic sound-alikes.
+ * - "read_back": Simulates a verbal prescription order received over the phone; learner verifies and reads back the exact drug.
+ *
+ * @param {Object} lasaRecord - Canonical LASA pair record
+ * @param {Object} [options]
+ * @param {"A"|"B"} [options.drugSide="A"] - Drug side
+ * @param {"acoustic_mcq"|"read_back"} [options.subtype="acoustic_mcq"] - Question format
+ * @param {string} [options.idSuffix=""] - Unique suffix
+ * @returns {Object} Sound-Alike Question definition
+ */
+export function generateSoundAlikeQuestion(lasaRecord, { drugSide = "A", subtype = "acoustic_mcq", idSuffix = "" } = {}) {
+    const targetDrug = drugSide === "A" ? lasaRecord.drugA : lasaRecord.drugB;
+    const counterpartDrug = drugSide === "A" ? lasaRecord.drugB : lasaRecord.drugA;
+
+    const targetName = targetDrug.tallManName || targetDrug.genericName || targetDrug.brandName;
+    const counterpartName = counterpartDrug.tallManName || counterpartDrug.genericName || counterpartDrug.brandName;
+
+    const distractors = [];
+    if (counterpartName && counterpartName !== targetName) {
+        distractors.push(counterpartName);
+    }
+
+    const allPairs = Array.isArray(lasaPairsData.pairs) ? lasaPairsData.pairs : (Array.isArray(lasaPairsData) ? lasaPairsData : []);
+    for (const otherPair of allPairs) {
+        if (otherPair.id !== lasaRecord.id) {
+            const nameA = otherPair.drugA?.tallManName || otherPair.drugA?.genericName;
+            const nameB = otherPair.drugB?.tallManName || otherPair.drugB?.genericName;
+            if (nameA && nameA !== targetName && !distractors.includes(nameA)) {
+                distractors.push(nameA);
+            }
+            if (distractors.length >= 3) break;
+            if (nameB && nameB !== targetName && !distractors.includes(nameB)) {
+                distractors.push(nameB);
+            }
+            if (distractors.length >= 3) break;
+        }
+    }
+
+    const choices = shuffleArray([targetName, ...distractors.slice(0, 3)]);
+    const isReadBack = subtype === "read_back";
+
+    const prompt = isReadBack
+        ? "You received an oral prescription order over the phone. Listen to the order and verify the correct medication to read back:"
+        : "Listen to the spoken medication name and identify the correct drug:";
+
+    const learningObjective = isReadBack
+        ? "Verify accurate oral read-back of confusable sound-alike medication orders."
+        : "Distinguish spoken Sound-Alike medication names through acoustic discrimination.";
+
+    const spokenText = isReadBack
+        ? `Order received for: ${targetDrug.genericName || targetDrug.brandName || targetName}.`
+        : (targetDrug.genericName || targetDrug.brandName || targetName);
+
+    const pairDisplay = `${lasaRecord.drugA?.tallManName || ""} ↔ ${lasaRecord.drugB?.tallManName || ""}`;
+
+    return {
+        id: `q_sound_${lasaRecord.id}_${drugSide}_${subtype}${idSuffix ? `_${idSuffix}` : ""}`,
+        type: "sound_alike",
+        subtype,
+        spokenText,
+        spokenDrug: targetName,
+        drugToPronounce: targetDrug.genericName || targetDrug.brandName || targetName,
+        prompt,
+        choices,
+        correctAnswer: targetName,
+        relatedDrug: targetName,
+        pairDisplay,
+        lasaId: lasaRecord.id,
+        activityType: "acoustic_discrimination",
+        learningObjective,
+        explanation: `${targetName} is phonetically confusable with ${counterpartName}. In oral and telephone communications, phonetic ambiguity frequently causes critical administration errors without explicit verbal read-back.`,
+        riskSummary: lasaRecord.riskSummary || lasaRecord.feedbackFact || "",
+        source: lasaRecord.source || "ISMP List of Confused Drug Names",
+        sourceCitation: lasaRecord.sourceCitation || "ISMP List of Confused Drug Names",
+        sourceUrl: lasaRecord.sourceUrl || "https://www.ismp.org/recommendations/confused-drug-names-list"
     };
 }
