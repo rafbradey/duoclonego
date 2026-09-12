@@ -45,35 +45,39 @@ function QuestionInfoModal({ question, onClose }) {
                 </header>
 
                 <div className="info-modal-body">
-                    <div className="info-section-item">
-                        <span className="info-section-label">LASA MEDICATION / PAIR</span>
-                        <div className="info-section-value info-pair-badge">
+                    {/* LASA Medication / Pair Card */}
+                    <div className="info-section-card">
+                        <span className="info-section-label">LASA Medication / Pair</span>
+                        <div className="info-pair-badge">
                             {pairTitle}
                         </div>
                     </div>
 
-                    <div className="info-section-item">
-                        <span className="info-section-label">AUTHORITATIVE SOURCE</span>
-                        <div className="info-section-value">
-                            <BookOpen size={15} className="info-inline-icon" />
-                            <span>{sourceName}</span>
+                    {/* Authoritative Source Card */}
+                    <div className="info-section-card">
+                        <span className="info-section-label">Authoritative Source</span>
+                        <div className="info-source-value">
+                            <BookOpen size={16} className="info-inline-icon" />
+                            <span className="info-source-name">{sourceName}</span>
                         </div>
                     </div>
 
-                    <div className="info-section-item">
-                        <span className="info-section-label">CITATION / REFERENCE</span>
-                        <div className="info-section-value info-citation-text">
+                    {/* Citation / Reference Card */}
+                    <div className="info-section-card">
+                        <span className="info-section-label">Citation / Reference</span>
+                        <div className="info-citation-text">
                             {citation}
                         </div>
                     </div>
 
+                    {/* Documented Risk Context Card */}
                     {riskSummary && (
-                        <div className="info-section-item info-risk-box">
+                        <div className="info-section-card info-risk-card">
                             <div className="info-risk-header">
-                                <AlertTriangle size={15} className="info-risk-icon" />
-                                <span className="info-risk-label">DOCUMENTED RISK CONTEXT</span>
+                                <AlertTriangle size={16} className="info-risk-icon" />
+                                <span className="info-risk-label">Documented Risk Context</span>
                             </div>
-                            <p className="info-risk-text body-text-sm">
+                            <p className="info-risk-text">
                                 {riskSummary}
                             </p>
                         </div>
