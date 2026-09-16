@@ -1,6 +1,9 @@
 import { Routes, Route } from "react-router";
+import { AuthProvider } from "./context/AuthContext.jsx";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
 import AppLayout from "./components/Layout/AppLayout.jsx";
 import Home from "./pages/Home/Home.jsx";
+import Login from "./pages/Login/Login.jsx";
 import Learn from "./pages/Learn/Learn.jsx";
 import Practice from "./pages/Practice/Practice.jsx";
 import Quests from "./pages/Quests/Quests.jsx";
@@ -14,27 +17,33 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 
 function App() {
     return (
-        <Routes>
-            {/* Public landing page */}
-            <Route path="/" element={<Home />} />
+        <AuthProvider>
+            <Routes>
+                {/* Public routes */}
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
 
-            {/* Focused lesson session & Unit Mastery routes (no sidebar) */}
-            <Route path="/lesson/:lessonId" element={<LessonSession />} />
-            <Route path="/unit/:unitId/mastery" element={<LessonSession />} />
+                {/* Authenticated routes guarded by ProtectedRoute */}
+                <Route element={<ProtectedRoute />}>
+                    {/* Focused lesson session & Unit Mastery routes (no sidebar) */}
+                    <Route path="/lesson/:lessonId" element={<LessonSession />} />
+                    <Route path="/unit/:unitId/mastery" element={<LessonSession />} />
 
-            {/* Application routes wrapped in global AppLayout (Sidebar + MobileNav) */}
-            <Route element={<AppLayout />}>
-                <Route path="/learn" element={<Learn />} />
-                <Route path="/practice" element={<Practice />} />
-                <Route path="/quests" element={<Quests />} />
-                <Route path="/leaderboards" element={<Leaderboards />} />
-                <Route path="/shop" element={<Shop />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/documentation" element={<Documentation />} />
-                <Route path="/test-tts" element={<TtsTestPage />} />
-                <Route path="*" element={<NotFound />} />
-            </Route>
-        </Routes>
+                    {/* Application routes wrapped in global AppLayout (Sidebar + MobileNav) */}
+                    <Route element={<AppLayout />}>
+                        <Route path="/learn" element={<Learn />} />
+                        <Route path="/practice" element={<Practice />} />
+                        <Route path="/quests" element={<Quests />} />
+                        <Route path="/leaderboards" element={<Leaderboards />} />
+                        <Route path="/shop" element={<Shop />} />
+                        <Route path="/profile" element={<Profile />} />
+                        <Route path="/documentation" element={<Documentation />} />
+                        <Route path="/test-tts" element={<TtsTestPage />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Route>
+                </Route>
+            </Routes>
+        </AuthProvider>
     );
 }
 

@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useMemo } from "react";
 import { Link } from "react-router";
 import {
     Shield,
@@ -21,20 +21,16 @@ import {
     Pencil,
     Layers,
     Cloud,
-    CloudOff,
-    LogOut,
-    LogIn
+    LogOut
 } from "lucide-react";
 import {
-    getCurrentUser,
     getDueSrsPairs,
     getMasteredPairsCount
 } from "../../services/userService.js";
-import { signOut } from "../../services/authService.js";
+import { useAuth } from "../../context/AuthContext.jsx";
 import { getUserBadges } from "../../services/badgeService.js";
 import { allUnits, allLevels } from "../../data/levels/index.js";
 import userAvatar from "../../assets/avatars/default_avatar_male.png";
-import AuthModal from "../../components/AuthModal/AuthModal.jsx";
 import "./Profile.css";
 
 function BadgeIcon({ iconName, size = 24 }) {
@@ -54,37 +50,7 @@ function BadgeIcon({ iconName, size = 24 }) {
 }
 
 function Profile() {
-    const [user, setUser] = useState(null);
-    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-    const [authModalMode, setAuthModalMode] = useState("signin");
-
-    useEffect(() => {
-        let isMounted = true;
-        async function loadUserInfo() {
-            try {
-                const data = await getCurrentUser();
-                if (isMounted && data) {
-                    setUser(data);
-                }
-            } catch (err) {
-                console.error("Failed to load user info:", err);
-            }
-        }
-        loadUserInfo();
-
-        const handleUserUpdated = (e) => {
-            if (e.detail?.user) {
-                setUser(e.detail.user);
-            }
-        };
-
-        window.addEventListener("duoclongo:user-updated", handleUserUpdated);
-
-        return () => {
-            isMounted = false;
-            window.removeEventListener("duoclongo:user-updated", handleUserUpdated);
-        };
-    }, []);
+    const { user, signOut } = useAuth();
 
     // Unique verified LASA pairs across all curriculum units
     const totalVerifiedPairs = useMemo(() => {
@@ -217,17 +183,10 @@ function Profile() {
                 <div className="profile-info-block">
                     <div className="profile-name-row">
                         <h1 className="heading-lg">{user.display_name}</h1>
-                        {user.is_cloud ? (
-                            <span className="profile-sync-pill cloud" title="Progress is synced to Supabase cloud">
-                                <Cloud size={13} />
-                                <span>Cloud Synced</span>
-                            </span>
-                        ) : (
-                            <span className="profile-sync-pill guest" title="Progress stored only in local browser cache">
-                                <CloudOff size={13} />
-                                <span>Guest Mode</span>
-                            </span>
-                        )}
+                        <span className="profile-sync-pill cloud" title="Progress is synced to Supabase cloud">
+                            <Cloud size={13} />
+                            <span>Cloud Synced</span>
+                        </span>
                     </div>
                     <span className="profile-username-tag">@{user.username}</span>
                     <div className="profile-joined-date">
@@ -237,30 +196,15 @@ function Profile() {
                 </div>
 
                 <div className="profile-header-actions">
-                    {user.is_cloud ? (
-                        <button
-                            type="button"
-                            className="duo-btn duo-btn-secondary profile-auth-btn"
-                            onClick={() => signOut()}
-                            title="Sign out of your Supabase account"
-                        >
-                            <LogOut size={16} />
-                            <span>Sign Out</span>
-                        </button>
-                    ) : (
-                        <button
-                            type="button"
-                            className="duo-btn duo-btn-primary profile-auth-btn"
-                            onClick={() => {
-                                setAuthModalMode("signin");
-                                setIsAuthModalOpen(true);
-                            }}
-                            title="Sign in to save and sync progress across devices"
-                        >
-                            <LogIn size={16} />
-                            <span>Sign In / Sync</span>
-                        </button>
-                    )}
+                    <button
+                        type="button"
+                        className="duo-button profile-signout-btn"
+                        onClick={() => signOut()}
+                        title="Sign out of your account"
+                    >
+                        <LogOut size={16} />
+                        <span>Sign Out</span>
+                    </button>
                 </div>
             </header>
 
@@ -568,12 +512,6 @@ function Profile() {
                     ))}
                 </div>
             </section>
-
-            <AuthModal
-                isOpen={isAuthModalOpen}
-                onClose={() => setIsAuthModalOpen(false)}
-                initialMode={authModalMode}
-            />
         </div>
     );
 }

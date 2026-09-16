@@ -104,7 +104,7 @@ function Documentation() {
         { id: "adding-content", label: "5. Adding Content (Dev Guide)", icon: PlusCircle },
         { id: "data-schema", label: "6. Data & JSON Schema", icon: FileJson },
         { id: "lasa-system", label: "7. LASA Knowledge & Data", icon: Pill },
-        { id: "user-progress", label: "8. User State & Persistence", icon: UserCheck },
+        { id: "user-progress", label: "8. Cloud Persistence & Supabase", icon: UserCheck },
         { id: "architecture", label: "9. Architecture & Data Flow", icon: Cpu },
         { id: "limitations", label: "10. Current Limitations", icon: AlertTriangle }
     ];
@@ -1197,61 +1197,56 @@ function Documentation() {
                             <div className="doc-section-header">
                                 <div className="doc-section-title-wrap">
                                     <UserCheck size={22} className="doc-section-icon" />
-                                    <h2 className="heading-lg">8. User State & Persistence (Temporary Prototype)</h2>
+                                    <h2 className="heading-lg">8. User State &amp; Cloud Persistence (Supabase Backend)</h2>
                                 </div>
-                                <StatusBadge status="Prototype Persistence" />
+                                <StatusBadge status="Implemented (Option A: Pure Login-Required)" />
                             </div>
 
-                            <div className="doc-callout warning">
-                                <ShieldAlert size={20} />
+                            <div className="doc-callout info">
+                                <Check size={20} />
                                 <div>
-                                    <strong>Architectural Notice — Temporary Prototype Storage:</strong>
+                                    <strong>Authoritative Architecture — Pure Login-Required Cloud Persistence:</strong>
                                     <br />
-                                    The current implementation uses browser <code className="doc-inline-code">localStorage</code> solely as <strong>temporary prototype storage</strong> so user XP, streaks, and level progression survive page reloads during early UX development.
-                                    This is <strong>NOT</strong> the final persistence architecture.
+                                    Duoclongo operates under <strong>Option A (Pure Login-Required Architecture)</strong>. Learner progress (XP, hearts, streaks, completed lessons, level attempts, and Leitner SRS memory records) is authoritatively owned by the authenticated Supabase user and persisted in PostgreSQL (<code className="doc-inline-code">public.profiles</code>, <code className="doc-inline-code">public.level_attempts</code>).
+                                    There is <strong>no separate guest database</strong>, and browser <code className="doc-inline-code">localStorage</code> is not used as an alternative progress store.
                                 </div>
                             </div>
 
-                            <h3 className="heading-sm doc-subsection-title">Current vs. Future Architecture</h3>
+                            <h3 className="heading-sm doc-subsection-title">Production Cloud Persistence Architecture</h3>
                             <div className="doc-architecture-compare-grid">
                                 <div className="doc-arch-box current">
-                                    <span className="doc-arch-tag">Current Prototype (Phase 2)</span>
+                                    <span className="doc-arch-tag current-tag" style={{ background: "rgba(34, 197, 94, 0.15)", color: "#22c55e", borderColor: "rgba(34, 197, 94, 0.4)" }}>
+                                        Production Data Flow (Phase 4 / Option A)
+                                    </span>
                                     <div className="doc-arch-flow">
                                         <span>UI Components</span>
                                         <ArrowRight size={14} />
-                                        <span>Async Services (<code className="doc-inline-code">userService.js</code>)</span>
+                                        <span>ProtectedRoute / useAuth()</span>
                                         <ArrowRight size={14} />
-                                        <span>Browser <code className="doc-inline-code">localStorage</code></span>
+                                        <span>Domain Services (<code className="doc-inline-code">userService.js</code>)</span>
                                         <ArrowRight size={14} />
-                                        <span>Single-User Simulation</span>
+                                        <span>Supabase PostgreSQL (<code className="doc-inline-code">public.profiles</code>)</span>
                                     </div>
                                     <p className="doc-arch-note">
-                                        Data is stored locally under key <code className="doc-inline-code">duoclongo_user_progress</code>. No network requests, authentication tokens, or cross-device sync exist yet.
-                                    </p>
-                                </div>
-
-                                <div className="doc-arch-box future">
-                                    <span className="doc-arch-tag future-tag">Future Production (Phase 4)</span>
-                                    <div className="doc-arch-flow">
-                                        <span>UI Components</span>
-                                        <ArrowRight size={14} />
-                                        <span>Domain Services</span>
-                                        <ArrowRight size={14} />
-                                        <span>Authenticated Backend</span>
-                                        <ArrowRight size={14} />
-                                        <span>Supabase / PostgreSQL</span>
-                                    </div>
-                                    <p className="doc-arch-note">
-                                        Learner progress will transition to normalized relational tables (<code className="doc-inline-code">users</code>, <code className="doc-inline-code">user_progress</code>, <code className="doc-inline-code">level_attempts</code>) secured by authenticated JWT sessions.
+                                        Zero guest-to-cloud merge complexity. Unauthenticated users are routed to <code className="doc-inline-code">/login</code>. Authenticated sessions query and update their authoritative profile with fast in-memory cache and automatic event broadcasts.
                                     </p>
                                 </div>
                             </div>
 
-                            <h3 className="heading-sm doc-subsection-title">Why the Current Service Layer is Migration-Friendly</h3>
+                            <h3 className="heading-sm doc-subsection-title">Three-State Authentication Model</h3>
+                            <p className="doc-paragraph">
+                                To prevent race conditions and layout flicker on page reloads, the application enforces three explicit lifecycle states managed by <code className="doc-inline-code">AuthContext</code>:
+                            </p>
                             <ul className="doc-bullet-list">
-                                <li><strong>Zero Direct UI Coupling:</strong> No React component directly accesses <code className="doc-inline-code">localStorage</code>. All reads and writes pass through <code className="doc-inline-code">getCurrentUser()</code>, <code className="doc-inline-code">getUserById()</code>, and <code className="doc-inline-code">updateUserProgress()</code> in <code className="doc-inline-code">src/services/userService.js</code>.</li>
-                                <li><strong>Async Service Signatures:</strong> All user service methods are asynchronous and return Promises. Replacing <code className="doc-inline-code">localStorage</code> with API calls will not require changes to UI component call sites.</li>
-                                <li><strong>Spaced Repetition (SRS) State Machine:</strong> Persists an <code className="doc-inline-code">srs_records</code> dictionary mapping each tested LASA pair ID to its memory retention state:
+                                <li><strong><code className="doc-inline-code">INITIALIZING</code>:</strong> Active on startup while restoring the JWT session via <code className="doc-inline-code">supabase.auth.getSession()</code>. Displays a branded loading state; never misattributed as unauthenticated.</li>
+                                <li><strong><code className="doc-inline-code">AUTHENTICATED</code>:</strong> Valid Supabase session confirmed. Hydrates the active learner profile from PostgreSQL and grants full access to learning and practice routes.</li>
+                                <li><strong><code className="doc-inline-code">UNAUTHENTICATED</code>:</strong> No valid session exists. <code className="doc-inline-code">ProtectedRoute</code> redirects visitors to <code className="doc-inline-code">/login</code>, preserving the intended destination URL.</li>
+                            </ul>
+
+                            <h3 className="heading-sm doc-subsection-title">Authoritative Persistence &amp; Progress Tracking</h3>
+                            <ul className="doc-bullet-list">
+                                <li><strong>Zero Direct UI Coupling:</strong> No React component directly talks to Supabase or storage. All reads and mutations pass through <code className="doc-inline-code">getCurrentUser()</code>, <code className="doc-inline-code">updateUserProgress()</code>, and <code className="doc-inline-code">recordSrsOutcome()</code> in <code className="doc-inline-code">src/services/userService.js</code>.</li>
+                                <li><strong>Spaced Repetition (SRS) Leitner State:</strong> Persists an <code className="doc-inline-code">srs_records</code> dictionary mapping each tested LASA pair ID to its memory retention state directly in <code className="doc-inline-code">profiles.srs_records</code>:
                                     <pre className="doc-code-inline-block">
 {`"srs_records": {
   "lasa-001": {
@@ -1267,7 +1262,8 @@ function Documentation() {
                                     </pre>
                                 </li>
                                 <li><strong>Unified Mistake Queue:</strong> Tracks unredeemed errors across all lessons and practice modes via <code className="doc-inline-code">user.mistakes_queue</code> (array of question ID strings). Missed questions are automatically enqueued; correct answers during practice redeem and remove them.</li>
-                                <li><strong>Event Synchronization:</strong> Dispatches <code className="doc-inline-code">duoclongo:user-updated</code> events on <code className="doc-inline-code">window</code>, allowing open components to update stats in real time.</li>
+                                <li><strong>Level Attempt Audit Trail:</strong> Each completed level session automatically logs an immutable audit entry in <code className="doc-inline-code">public.level_attempts</code> recording <code className="doc-inline-code">level_id</code>, <code className="doc-inline-code">score</code>, <code className="doc-inline-code">accuracy</code>, and <code className="doc-inline-code">xp_earned</code> for future learning analytics.</li>
+                                <li><strong>Event Synchronization:</strong> Dispatches <code className="doc-inline-code">duoclongo:user-updated</code> events on <code className="doc-inline-code">window</code>, allowing open components (Sidebar, TopBar, Profile) to update stats in real time without lag.</li>
                             </ul>
                         </section>
                     )}
@@ -1327,8 +1323,64 @@ function Documentation() {
                                             <td><code className="doc-inline-code">drugService</code>, <code className="doc-inline-code">lessonService</code>, <code className="doc-inline-code">practiceService</code>, <code className="doc-inline-code">userService</code>, <code className="doc-inline-code">unitService</code>, <code className="doc-inline-code">audioService</code></td>
                                             <td>Decoupled async service facades abstracting data access &amp; audio playback</td>
                                         </tr>
+                                        <tr>
+                                            <td><strong>User Authentication</strong></td>
+                                            <td>Supabase Auth (JWT), <code className="doc-inline-code">AuthContext</code>, <code className="doc-inline-code">ProtectedRoute</code></td>
+                                            <td>Single source of truth for user identity; route guarding; explicit three-state lifecycle (<code className="doc-inline-code">INITIALIZING</code>, <code className="doc-inline-code">AUTHENTICATED</code>, <code className="doc-inline-code">UNAUTHENTICATED</code>)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Cloud Database &amp; Persistence</strong></td>
+                                            <td>Supabase PostgreSQL (RLS), <code className="doc-inline-code">public.profiles</code>, <code className="doc-inline-code">public.level_attempts</code></td>
+                                            <td>Authoritative cloud persistence for learner progression, streaks, SRS records, and session audit logs</td>
+                                        </tr>
                                     </tbody>
                                 </table>
+                            </div>
+
+                            <h3 className="heading-sm doc-subsection-title" style={{ marginTop: "1.5rem" }}>Pure Login-Required System Architecture (Option A)</h3>
+                            <div className="doc-architecture-compare-grid">
+                                <div className="doc-arch-box current">
+                                    <span className="doc-arch-tag current-tag" style={{ background: "rgba(34, 197, 94, 0.15)", color: "#22c55e", borderColor: "rgba(34, 197, 94, 0.4)" }}>
+                                        End-to-End System Boundary Diagram
+                                    </span>
+                                    <pre className="doc-code-inline-block" style={{ fontSize: "0.8rem", lineHeight: 1.4, margin: "0.75rem 0" }}>
+{`              ┌────────────────────────┐
+              │  Unauthenticated User  │
+              └───────────┬────────────┘
+                          │
+                          ▼
+               ┌──────────────────────┐
+               │    /login  /signup   │
+               └──────────┬───────────┘
+                          │ (Supabase Auth Session JWT)
+                          ▼
+               ┌──────────────────────┐
+               │    ProtectedRoute    │
+               │   (useAuth Context)  │
+               └──────────┬───────────┘
+                          │ (Session Active)
+                          ▼
+            ┌────────────────────────────┐
+            │   Duoclongo Application   │
+            │  (/learn, /practice, etc.) │
+            └─────────────┬──────────────┘
+                          │
+                          ▼
+            ┌────────────────────────────┐
+            │   Domain Services Layer    │
+            │    (src/services/*.js)     │
+            └─────────────┬──────────────┘
+                          │
+                          ▼
+            ┌────────────────────────────┐
+            │    Supabase PostgreSQL     │
+            │  (profiles, level_attempts)│
+            └────────────────────────────┘`}
+                                    </pre>
+                                    <p className="doc-arch-note">
+                                        Pure login-required flow: Unauthenticated users are redirected to <code className="doc-inline-code">/login</code>. Authenticated users interact directly with Supabase PostgreSQL with no dual guest database or synchronization conflicts.
+                                    </p>
+                                </div>
                             </div>
 
                             {/* AUDIO ARCHITECTURE SUBSECTION */}
@@ -1416,13 +1468,13 @@ function Documentation() {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><strong>Backend & Database</strong></td>
-                                            <td>Implemented (Phase 4). Production Supabase PostgreSQL database integration with Row Level Security (<code className="doc-inline-code">public.profiles</code>, <code className="doc-inline-code">public.level_attempts</code>) and graceful offline <code className="doc-inline-code">localStorage</code> cache.</td>
+                                            <td><strong>Backend &amp; Database</strong></td>
+                                            <td>Implemented (Phase 4). Production Supabase PostgreSQL database integration with Row Level Security (<code className="doc-inline-code">public.profiles</code>, <code className="doc-inline-code">public.level_attempts</code>). Conforms to Option A: Pure Login-Required Architecture with no client-side guest database.</td>
                                             <td>Implemented (Phase 4)</td>
                                         </tr>
                                         <tr>
                                             <td><strong>User Authentication</strong></td>
-                                            <td>Implemented (Phase 4). Supabase Auth with JWT session persistence, email/password registration, automated profile provisioning trigger, and seamless guest-to-cloud progress merging.</td>
+                                            <td>Implemented (Phase 4). Pure login-required architecture using Supabase Auth. Unauthenticated visitors are routed to <code className="doc-inline-code">/login</code>. Full application access (<code className="doc-inline-code">/learn</code>, <code className="doc-inline-code">/practice</code>, <code className="doc-inline-code">/profile</code>, etc.) is strictly guarded via <code className="doc-inline-code">ProtectedRoute</code> and <code className="doc-inline-code">useAuth()</code> with three explicit lifecycle states (<code className="doc-inline-code">INITIALIZING</code>, <code className="doc-inline-code">AUTHENTICATED</code>, <code className="doc-inline-code">UNAUTHENTICATED</code>).</td>
                                             <td>Implemented (Phase 4)</td>
                                         </tr>
                                         <tr>

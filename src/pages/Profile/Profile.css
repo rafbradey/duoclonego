@@ -69,13 +69,31 @@
     margin-left: auto;
 }
 
-.profile-auth-btn {
+.profile-signout-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.6rem 1.1rem;
+    padding: 0.65rem 1.15rem;
     font-size: 0.85rem;
+    font-weight: 800;
     border-radius: 12px;
+    background-color: var(--bg-surface);
+    color: var(--color-danger);
+    border: 2px solid var(--border-color);
+    box-shadow: 0 4px var(--border-color);
+    transition: all 0.15s ease;
+}
+
+.profile-signout-btn:hover {
+    background-color: rgba(234, 43, 43, 0.12);
+    border-color: rgba(234, 43, 43, 0.4);
+    color: #ff6b6b;
+    box-shadow: 0 4px rgba(186, 30, 30, 0.4);
+}
+
+.profile-signout-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px rgba(186, 30, 30, 0.4);
 }
 
 .profile-username-tag {

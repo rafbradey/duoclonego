@@ -1,13 +1,16 @@
-import { useState } from "react";
-import { X, LogIn, UserPlus, Cloud, Check, AlertCircle, Sparkles, Loader2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
+import { X, LogIn, UserPlus, Cloud, Check, AlertCircle, Sparkles, Loader2, LogOut, User } from "lucide-react";
 import Mascot from "../Mascot/Mascot.jsx";
-import { signIn, signUp } from "../../services/authService.js";
-import { syncLocalProgressToCloud } from "../../services/userService.js";
+import { signIn, signUp, signOut } from "../../services/authService.js";
+import { syncLocalProgressToCloud, getCurrentUser } from "../../services/userService.js";
 import { isSupabaseConfigured } from "../../services/supabaseClient.js";
 import "./AuthModal.css";
 
 function AuthModal({ isOpen, onClose, initialMode = "signin" }) {
+    const navigate = useNavigate();
     const [mode, setMode] = useState(initialMode); // 'signin' | 'signup'
+    const [currentUser, setCurrentUser] = useState(null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
@@ -16,6 +19,15 @@ function AuthModal({ isOpen, onClose, initialMode = "signin" }) {
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
+
+    useEffect(() => {
+        if (!isOpen) return;
+        let isMounted = true;
+        getCurrentUser().then((u) => {
+            if (isMounted) setCurrentUser(u);
+        });
+        return () => { isMounted = false; };
+    }, [isOpen]);
 
     if (!isOpen) return null;
 
@@ -114,13 +126,64 @@ function AuthModal({ isOpen, onClose, initialMode = "signin" }) {
                 </div>
 
                 <div className="auth-body">
-                    <div className="auth-mascot-row">
-                        <Mascot
-                            mascotType={mode === "signin" ? "default" : "grad"}
-                            size={90}
-                            animationType={isLoading ? "pulse" : "bounce"}
-                        />
-                    </div>
+                    {currentUser?.is_cloud ? (
+                        <div className="auth-signed-in-state" style={{ display: "flex", flexDirection: "column", gap: "1.25rem", textAlign: "center" }}>
+                            <div className="auth-mascot-row">
+                                <Mascot mascotType="party" size={90} animationType="bounce" />
+                            </div>
+                            <div>
+                                <h3 className="heading-md" style={{ margin: "0 0 0.35rem 0" }}>
+                                    You're Already Signed In!
+                                </h3>
+                                <p className="body-text-muted" style={{ margin: 0, fontSize: "0.85rem" }}>
+                                    Connected as <strong>{currentUser.display_name}</strong> ({currentUser.email})
+                                </p>
+                            </div>
+
+                            <div style={{ display: "flex", justifyContent: "center" }}>
+                                <span className="profile-sync-pill cloud" style={{ padding: "0.35rem 0.75rem", fontSize: "0.8rem" }}>
+                                    <Cloud size={14} style={{ marginRight: "0.25rem" }} />
+                                    <span>Cloud Synchronization Active</span>
+                                </span>
+                            </div>
+
+                            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginTop: "0.5rem" }}>
+                                <button
+                                    type="button"
+                                    className="duo-btn duo-btn-primary"
+                                    style={{ width: "100%", justifyContent: "center", display: "flex", alignItems: "center", gap: "0.5rem" }}
+                                    onClick={() => {
+                                        navigate("/profile");
+                                        onClose();
+                                    }}
+                                >
+                                    <User size={18} />
+                                    <span>View My Profile</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    className="duo-btn duo-btn-secondary"
+                                    style={{ width: "100%", justifyContent: "center", display: "flex", alignItems: "center", gap: "0.5rem" }}
+                                    onClick={async () => {
+                                        await signOut();
+                                        setCurrentUser(null);
+                                        onClose();
+                                    }}
+                                >
+                                    <LogOut size={18} />
+                                    <span>Sign Out</span>
+                                </button>
+                            </div>
+                        </div>
+                    ) : (
+                        <>
+                            <div className="auth-mascot-row">
+                                <Mascot
+                                    mascotType={mode === "signin" ? "default" : "grad"}
+                                    size={90}
+                                    animationType={isLoading ? "pulse" : "bounce"}
+                                />
+                            </div>
 
                     <div className="auth-mode-tabs">
                         <button
@@ -261,6 +324,8 @@ function AuthModal({ isOpen, onClose, initialMode = "signin" }) {
                             )}
                         </button>
                     </form>
+                    </>
+                )}
                 </div>
             </div>
         </div>

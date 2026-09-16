@@ -50,10 +50,10 @@ function Home() {
                     </p>
 
                     <div className="hero-actions">
-                        <Link to="/learn" className="duo-button duo-button-primary hero-btn">
+                        <Link to="/login" className="duo-button duo-button-primary hero-btn">
                             GET STARTED
                         </Link>
-                        <Link to="/learn" className="duo-button duo-button-secondary hero-btn">
+                        <Link to="/login" className="duo-button duo-button-secondary hero-btn">
                             I ALREADY HAVE AN ACCOUNT
                         </Link>
                     </div>
