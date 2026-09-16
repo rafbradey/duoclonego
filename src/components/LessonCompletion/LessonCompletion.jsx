@@ -19,6 +19,7 @@ import { getCurrentUser, updateUserProgress } from "../../services/userService.j
 import { getNewlyUnlockedBadges } from "../../services/badgeService.js";
 import { getNextLevel } from "../../services/lessonService.js";
 import { allLevels } from "../../data/levels/index.js";
+import diamondIcon from "../../assets/items/diamond.png";
 import "./LessonCompletion.css";
 
 // In-memory lookup map for all curriculum questions to reliably resolve subjects
@@ -90,6 +91,7 @@ function LessonCompletion({ session, lesson }) {
     const correctCount = session?.correctCount || 0;
     const accuracy = Math.round((correctCount / totalQuestions) * 100);
     const xpEarned = lesson ? calculateLessonXP(lesson, correctCount, totalQuestions) : 0;
+    const gemsEarned = isPractice ? 5 : isMastery ? 25 : 15;
 
     useEffect(() => {
         let isMounted = true;
@@ -109,6 +111,7 @@ function LessonCompletion({ session, lesson }) {
                     const prevUser = await getCurrentUser();
                     const updatedUser = await updateUserProgress({
                         xpToAdd: xpEarned,
+                        diamondsToAdd: gemsEarned,
                         completedLessonId: isPractice ? null : lesson.id,
                         practiceSessionCompleted: isPractice
                     });
@@ -127,7 +130,7 @@ function LessonCompletion({ session, lesson }) {
             }
             awardProgress();
         }
-    }, [session, lesson, xpEarned, isPractice]);
+    }, [session, lesson, xpEarned, gemsEarned, isPractice]);
 
     // Determine next level in the curriculum hierarchy
     const nextLevelInfo = (!isPractice && lesson?.id) ? getNextLevel(lesson.id, user) : null;
@@ -171,6 +174,16 @@ function LessonCompletion({ session, lesson }) {
                         <div className="completion-stat-text">
                             <span className="completion-stat-num">+{xpEarned} XP</span>
                             <span className="completion-stat-label">XP Earned</span>
+                        </div>
+                    </div>
+
+                    <div className="completion-stat-card">
+                        <div className="completion-stat-icon-block gem-accent">
+                            <img src={diamondIcon} alt="Gems" className="completion-stat-gem-img" />
+                        </div>
+                        <div className="completion-stat-text">
+                            <span className="completion-stat-num">+{gemsEarned}</span>
+                            <span className="completion-stat-label">Gems Earned</span>
                         </div>
                     </div>
 

@@ -132,3 +132,97 @@ CREATE POLICY "Users can insert own level attempts"
     ON public.level_attempts
     FOR INSERT
     WITH CHECK (auth.uid() = user_id);
+
+-- ==============================================================================
+-- 6. Phase 5A: Duoclongo Shop Extensions & Atomic Purchase RPC Functions
+-- ==============================================================================
+
+-- Add inventory and daily tracking columns to public.profiles if not present
+ALTER TABLE public.profiles 
+ADD COLUMN IF NOT EXISTS streak_freeze_count INTEGER DEFAULT 0,
+ADD COLUMN IF NOT EXISTS last_active_date DATE DEFAULT CURRENT_DATE;
+
+-- Atomic Heart Refill Purchase RPC Function
+CREATE OR REPLACE FUNCTION public.buy_heart_refill(cost INTEGER DEFAULT 350)
+RETURNS JSONB
+LANGUAGE plpgsql
+SECURITY DEFINER SET search_path = public
+AS $$
+DECLARE
+    current_diamonds INTEGER;
+    current_hearts INTEGER;
+    uid UUID := auth.uid();
+BEGIN
+    IF uid IS NULL THEN
+        RETURN jsonb_build_object('success', false, 'error', 'Unauthenticated');
+    END IF;
+
+    SELECT diamonds, hearts INTO current_diamonds, current_hearts
+    FROM public.profiles
+    WHERE id = uid
+    FOR UPDATE;
+
+    IF current_hearts >= 5 THEN
+        RETURN jsonb_build_object('success', false, 'error', 'Hearts already full');
+    END IF;
+
+    IF current_diamonds < cost THEN
+        RETURN jsonb_build_object('success', false, 'error', 'Insufficient gems');
+    END IF;
+
+    UPDATE public.profiles
+    SET diamonds = diamonds - cost,
+        hearts = 5,
+        updated_at = NOW()
+    WHERE id = uid;
+
+    RETURN jsonb_build_object(
+        'success', true,
+        'diamonds', current_diamonds - cost,
+        'hearts', 5
+    );
+END;
+$$;
+
+-- Atomic Streak Freeze Purchase RPC Function
+CREATE OR REPLACE FUNCTION public.buy_streak_freeze(cost INTEGER DEFAULT 400)
+RETURNS JSONB
+LANGUAGE plpgsql
+SECURITY DEFINER SET search_path = public
+AS $$
+DECLARE
+    current_diamonds INTEGER;
+    current_freezes INTEGER;
+    uid UUID := auth.uid();
+BEGIN
+    IF uid IS NULL THEN
+        RETURN jsonb_build_object('success', false, 'error', 'Unauthenticated');
+    END IF;
+
+    SELECT diamonds, COALESCE(streak_freeze_count, 0) INTO current_diamonds, current_freezes
+    FROM public.profiles
+    WHERE id = uid
+    FOR UPDATE;
+
+    IF current_freezes >= 2 THEN
+        RETURN jsonb_build_object('success', false, 'error', 'Maximum streak freezes already equipped (2/2)');
+    END IF;
+
+    IF current_diamonds < cost THEN
+        RETURN jsonb_build_object('success', false, 'error', 'Insufficient gems');
+    END IF;
+
+    UPDATE public.profiles
+    SET diamonds = diamonds - cost,
+        streak_freeze_count = current_freezes + 1,
+        updated_at = NOW()
+    WHERE id = uid;
+
+    RETURN jsonb_build_object(
+        'success', true,
+        'diamonds', current_diamonds - cost,
+        'streak_freeze_count', current_freezes + 1
+    );
+END;
+$$;
+

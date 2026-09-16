@@ -78,14 +78,16 @@
   },
   {
     "id": 8,
-    "drug_1": "CeleBREX (celecoxib)",
-    "drug_2": "CeleXA (citalopram)",
+    "drug_1": "CeleBREX",
+    "drug_2": "CeleXA",
     "source": "FDA Name Differentiation Project & ISMP Tall Man List",
     "source_url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project",
     "proof_reference": "FDA Table 1 Brand Name Tall Man List (CeleBREX / CeleXA); ISMP List of Confused Drug Names",
     "class_or_indication_1": "NSAID (COX-2 selective)",
     "class_or_indication_2": "SSRI antidepressant",
-    "risk_summary": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity."
+    "risk_summary": "Uncontrolled pain or inflammation vs. psychiatric destabilization, QT prolongation, or serotonin toxicity.",
+    "generic_1": "celecoxib",
+    "generic_2": "citalopram"
   },
   {
     "id": 9,
@@ -419,91 +421,107 @@
   },
   {
     "id": 39,
-    "drug_1": "Humalog (insulin lispro)",
-    "drug_2": "Humulin R (regular insulin)",
+    "drug_1": "Humalog",
+    "drug_2": "Humulin R",
     "source": "ISMP List of Confused Drug Names",
     "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
     "proof_reference": "ISMP List of Confused Drug Names; ISMP Medication Safety Alert! Acute Care",
     "class_or_indication_1": "Rapid-acting insulin analogue",
     "class_or_indication_2": "Short-acting regular human insulin",
-    "risk_summary": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia."
+    "risk_summary": "Timing/onset mismatch leading to acute postprandial hyperglycemia followed by severe, delayed hypoglycemia.",
+    "generic_1": "insulin lispro",
+    "generic_2": "regular insulin"
   },
   {
     "id": 40,
-    "drug_1": "NovoLOG (insulin aspart)",
-    "drug_2": "NovoLIN R (regular insulin)",
+    "drug_1": "NovoLOG",
+    "drug_2": "NovoLIN R",
     "source": "ISMP List of Confused Drug Names",
     "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
     "proof_reference": "ISMP List of Confused Drug Names; ISMP High-Alert Medication Guidelines",
     "class_or_indication_1": "Rapid-acting insulin analogue",
     "class_or_indication_2": "Short-acting regular human insulin",
-    "risk_summary": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia."
+    "risk_summary": "Mismatch in onset and peak activity causing unpredictable blood glucose fluctuations and severe hypoglycemia.",
+    "generic_1": "insulin aspart",
+    "generic_2": "regular insulin"
   },
   {
     "id": 41,
-    "drug_1": "Lantus (insulin glargine)",
-    "drug_2": "Lente (intermediate-acting insulin)",
+    "drug_1": "Lantus",
+    "drug_2": "Lente",
     "source": "ISMP List of Confused Drug Names",
     "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
     "proof_reference": "ISMP List of Confused Drug Names; ISMP National Medication Errors Reporting Program (MERP)",
     "class_or_indication_1": "Long-acting peakless basal insulin",
     "class_or_indication_2": "Intermediate-acting insulin zinc suspension",
-    "risk_summary": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control."
+    "risk_summary": "Unexpected insulin peaks causing severe nighttime hypoglycemic shock or loss of glycemic control.",
+    "generic_1": "insulin glargine",
+    "generic_2": "intermediate-acting insulin"
   },
   {
     "id": 42,
-    "drug_1": "LaMICtal (lamotrigine)",
-    "drug_2": "LaMISil (terbinafine)",
+    "drug_1": "LaMICtal",
+    "drug_2": "LaMISil",
     "source": "ISMP List of Look-Alike Drug Names with Recommended Tall Man Letters",
     "source_url": "https://www.ismp.org/recommendations/tall-man-letters-list",
     "proof_reference": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
     "class_or_indication_1": "Antiepileptic / Mood stabilizer",
     "class_or_indication_2": "Allylamine antifungal",
-    "risk_summary": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome."
+    "risk_summary": "Loss of seizure control or mood instability vs. untreated fungal infection and hepatotoxicity risks; lamotrigine carries black-box risks of Stevens-Johnson syndrome.",
+    "generic_1": "lamotrigine",
+    "generic_2": "terbinafine"
   },
   {
     "id": 43,
-    "drug_1": "ZyPREXA (olanzapine)",
-    "drug_2": "ZyrTEC (cetirizine)",
+    "drug_1": "ZyPREXA",
+    "drug_2": "ZyrTEC",
     "source": "ISMP List of Confused Drug Names & Tall Man List",
     "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
     "proof_reference": "ISMP Table 3 Brand Name Tall Man List; ISMP List of Confused Drug Names",
     "class_or_indication_1": "Second-generation antipsychotic",
     "class_or_indication_2": "Second-generation H1 antihistamine",
-    "risk_summary": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet."
+    "risk_summary": "Severe central nervous system sedation, orthostatic hypotension, falls, and metabolic disturbances in patients needing a simple allergy tablet.",
+    "generic_1": "olanzapine",
+    "generic_2": "cetirizine"
   },
   {
     "id": 44,
-    "drug_1": "TopAMAX (topiramate)",
-    "drug_2": "Toprol-XL (metoprolol succinate)",
+    "drug_1": "TopAMAX",
+    "drug_2": "Toprol-XL",
     "source": "ISMP List of Confused Drug Names",
     "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
     "proof_reference": "ISMP List of Confused Drug Names; ISMP MERP Reporting Bulletin",
     "class_or_indication_1": "Anticonvulsant / Migraine prophylactic",
     "class_or_indication_2": "Cardioselective beta-1 blocker",
-    "risk_summary": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures."
+    "risk_summary": "Severe bradycardia, heart block, or rebound hypertension vs. cognitive slowing, metabolic acidosis, and breakthrough seizures.",
+    "generic_1": "topiramate",
+    "generic_2": "metoprolol succinate"
   },
   {
     "id": 45,
-    "drug_1": "SeroQUEL (quetiapine)",
-    "drug_2": "SineQUAN (doxepin)",
+    "drug_1": "SeroQUEL",
+    "drug_2": "SineQUAN",
     "source": "ISMP List of Confused Drug Names",
     "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
     "proof_reference": "ISMP List of Confused Drug Names; FDA Public Health Advisory",
     "class_or_indication_1": "Atypical antipsychotic",
     "class_or_indication_2": "Tricyclic antidepressant",
-    "risk_summary": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms."
+    "risk_summary": "Tricyclic overdose symptoms (cardiac arrhythmias, QRS widening, anticholinergic toxidrome) or extrapyramidal and metabolic symptoms.",
+    "generic_1": "quetiapine",
+    "generic_2": "doxepin"
   },
   {
     "id": 46,
-    "drug_1": "priLOSEC (omeprazole)",
-    "drug_2": "PROzac (fluoxetine)",
+    "drug_1": "priLOSEC",
+    "drug_2": "PROzac",
     "source": "FDA Safety Alerts & ISMP List of Confused Drug Names",
     "source_url": "https://www.ismp.org/recommendations/confused-drug-names-list",
     "proof_reference": "FDA MedWatch Safety Alert (Prilosec/Prozac name confusion); ISMP List of Confused Drug Names",
     "class_or_indication_1": "Proton pump inhibitor",
     "class_or_indication_2": "SSRI antidepressant",
-    "risk_summary": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding."
+    "risk_summary": "Neuropsychiatric disruption, drug-induced tremor/insomnia, or failed suppression of severe peptic ulcer bleeding.",
+    "generic_1": "omeprazole",
+    "generic_2": "fluoxetine"
   },
   {
     "id": 47,

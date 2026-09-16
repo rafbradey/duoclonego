@@ -309,7 +309,7 @@
         "tallManName": "CeleBREX",
         "genericName": "celecoxib",
         "brandName": "CeleBREX",
-        "displayName": "CeleBREX (celecoxib)",
+        "displayName": "CeleBREX",
         "isBrand": true,
         "classOrIndication": "NSAID (COX-2 selective)"
       },
@@ -317,7 +317,7 @@
         "tallManName": "CeleXA",
         "genericName": "citalopram",
         "brandName": "CeleXA",
-        "displayName": "CeleXA (citalopram)",
+        "displayName": "CeleXA",
         "isBrand": true,
         "classOrIndication": "SSRI antidepressant"
       },
@@ -1615,7 +1615,7 @@
         "tallManName": "Humalog",
         "genericName": "insulin lispro",
         "brandName": "Humalog",
-        "displayName": "Humalog (insulin lispro)",
+        "displayName": "Humalog",
         "isBrand": true,
         "classOrIndication": "Rapid-acting insulin analogue"
       },
@@ -1623,7 +1623,7 @@
         "tallManName": "Humulin R",
         "genericName": "regular insulin",
         "brandName": "Humulin R",
-        "displayName": "Humulin R (regular insulin)",
+        "displayName": "Humulin R",
         "isBrand": true,
         "classOrIndication": "Short-acting regular human insulin"
       },
@@ -1659,7 +1659,7 @@
         "tallManName": "NovoLOG",
         "genericName": "insulin aspart",
         "brandName": "NovoLOG",
-        "displayName": "NovoLOG (insulin aspart)",
+        "displayName": "NovoLOG",
         "isBrand": true,
         "classOrIndication": "Rapid-acting insulin analogue"
       },
@@ -1667,7 +1667,7 @@
         "tallManName": "NovoLIN R",
         "genericName": "regular insulin",
         "brandName": "NovoLIN R",
-        "displayName": "NovoLIN R (regular insulin)",
+        "displayName": "NovoLIN R",
         "isBrand": true,
         "classOrIndication": "Short-acting regular human insulin"
       },
@@ -1703,7 +1703,7 @@
         "tallManName": "Lantus",
         "genericName": "insulin glargine",
         "brandName": "Lantus",
-        "displayName": "Lantus (insulin glargine)",
+        "displayName": "Lantus",
         "isBrand": true,
         "classOrIndication": "Long-acting peakless basal insulin"
       },
@@ -1711,7 +1711,7 @@
         "tallManName": "Lente",
         "genericName": "intermediate-acting insulin",
         "brandName": "Lente",
-        "displayName": "Lente (intermediate-acting insulin)",
+        "displayName": "Lente",
         "isBrand": true,
         "classOrIndication": "Intermediate-acting insulin zinc suspension"
       },
@@ -1747,7 +1747,7 @@
         "tallManName": "LaMICtal",
         "genericName": "lamotrigine",
         "brandName": "LaMICtal",
-        "displayName": "LaMICtal (lamotrigine)",
+        "displayName": "LaMICtal",
         "isBrand": true,
         "classOrIndication": "Antiepileptic / Mood stabilizer"
       },
@@ -1755,7 +1755,7 @@
         "tallManName": "LaMISil",
         "genericName": "terbinafine",
         "brandName": "LaMISil",
-        "displayName": "LaMISil (terbinafine)",
+        "displayName": "LaMISil",
         "isBrand": true,
         "classOrIndication": "Allylamine antifungal"
       },
@@ -1791,7 +1791,7 @@
         "tallManName": "ZyPREXA",
         "genericName": "olanzapine",
         "brandName": "ZyPREXA",
-        "displayName": "ZyPREXA (olanzapine)",
+        "displayName": "ZyPREXA",
         "isBrand": true,
         "classOrIndication": "Second-generation antipsychotic"
       },
@@ -1799,7 +1799,7 @@
         "tallManName": "ZyrTEC",
         "genericName": "cetirizine",
         "brandName": "ZyrTEC",
-        "displayName": "ZyrTEC (cetirizine)",
+        "displayName": "ZyrTEC",
         "isBrand": true,
         "classOrIndication": "Second-generation H1 antihistamine"
       },
@@ -1835,7 +1835,7 @@
         "tallManName": "TopAMAX",
         "genericName": "topiramate",
         "brandName": "TopAMAX",
-        "displayName": "TopAMAX (topiramate)",
+        "displayName": "TopAMAX",
         "isBrand": true,
         "classOrIndication": "Anticonvulsant / Migraine prophylactic"
       },
@@ -1843,7 +1843,7 @@
         "tallManName": "Toprol-XL",
         "genericName": "metoprolol succinate",
         "brandName": "Toprol-XL",
-        "displayName": "Toprol-XL (metoprolol succinate)",
+        "displayName": "Toprol-XL",
         "isBrand": true,
         "classOrIndication": "Cardioselective beta-1 blocker"
       },
@@ -1879,7 +1879,7 @@
         "tallManName": "SeroQUEL",
         "genericName": "quetiapine",
         "brandName": "SeroQUEL",
-        "displayName": "SeroQUEL (quetiapine)",
+        "displayName": "SeroQUEL",
         "isBrand": true,
         "classOrIndication": "Atypical antipsychotic"
       },
@@ -1887,7 +1887,7 @@
         "tallManName": "SineQUAN",
         "genericName": "doxepin",
         "brandName": "SineQUAN",
-        "displayName": "SineQUAN (doxepin)",
+        "displayName": "SineQUAN",
         "isBrand": true,
         "classOrIndication": "Tricyclic antidepressant"
       },
@@ -1923,7 +1923,7 @@
         "tallManName": "priLOSEC",
         "genericName": "omeprazole",
         "brandName": "priLOSEC",
-        "displayName": "priLOSEC (omeprazole)",
+        "displayName": "priLOSEC",
         "isBrand": true,
         "classOrIndication": "Proton pump inhibitor"
       },
@@ -1931,7 +1931,7 @@
         "tallManName": "PROzac",
         "genericName": "fluoxetine",
         "brandName": "PROzac",
-        "displayName": "PROzac (fluoxetine)",
+        "displayName": "PROzac",
         "isBrand": true,
         "classOrIndication": "SSRI antidepressant"
       },

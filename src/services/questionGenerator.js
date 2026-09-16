@@ -779,7 +779,7 @@ export function generateSoundAlikeQuestion(lasaRecord, { drugSide = "A", subtype
         ? "Verify accurate oral read-back of confusable sound-alike medication orders."
         : "Distinguish spoken Sound-Alike medication names through acoustic discrimination.";
 
-    const spokenText = targetDrug.genericName || targetDrug.brandName || targetName;
+    const spokenText = targetDrug.tallManName || targetDrug.brandName || targetDrug.genericName || targetName;
     const canonicalDrugId = `${lasaRecord.id}_${drugSide.toLowerCase()}`;
 
     const pairDisplay = `${lasaRecord.drugA?.tallManName || ""} ↔ ${lasaRecord.drugB?.tallManName || ""}`;

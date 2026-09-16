@@ -15,6 +15,8 @@ export const SRS_INTERVALS = {
 function normalizeUserData(raw) {
     if (!raw) return null;
 
+    const today = new Date().toISOString().split("T")[0];
+
     return {
         id: raw.id,
         email: raw.email || "",
@@ -26,6 +28,8 @@ function normalizeUserData(raw) {
         streak: typeof raw.streak === "number" ? raw.streak : 1,
         xp: typeof raw.xp === "number" ? raw.xp : 0,
         diamonds: typeof raw.diamonds === "number" ? raw.diamonds : 1200,
+        streak_freeze_count: typeof raw.streak_freeze_count === "number" ? raw.streak_freeze_count : 0,
+        last_active_date: raw.last_active_date || today,
         completed_lessons: Array.isArray(raw.completed_lessons) ? raw.completed_lessons : [],
         unlocked_badges: Array.isArray(raw.unlocked_badges) ? raw.unlocked_badges : [],
         mistakes_queue: Array.isArray(raw.mistakes_queue) ? raw.mistakes_queue : [],
@@ -79,6 +83,8 @@ async function fetchCloudProfile(authUser) {
         hearts: 5,
         streak: 1,
         diamonds: 1200,
+        streak_freeze_count: 0,
+        last_active_date: new Date().toISOString().split("T")[0],
         completed_lessons: [],
         unlocked_badges: [],
         mistakes_queue: [],
@@ -115,6 +121,8 @@ async function fetchCloudProfile(authUser) {
                 hearts: baseAuthProfile.hearts,
                 streak: baseAuthProfile.streak,
                 diamonds: baseAuthProfile.diamonds,
+                streak_freeze_count: baseAuthProfile.streak_freeze_count,
+                last_active_date: baseAuthProfile.last_active_date,
                 completed_lessons: baseAuthProfile.completed_lessons,
                 unlocked_badges: baseAuthProfile.unlocked_badges,
                 mistakes_queue: baseAuthProfile.mistakes_queue,
@@ -148,6 +156,8 @@ async function syncToCloud(user) {
             streak: user.streak,
             xp: user.xp,
             diamonds: user.diamonds,
+            streak_freeze_count: user.streak_freeze_count ?? 0,
+            last_active_date: user.last_active_date || new Date().toISOString().split("T")[0],
             completed_lessons: user.completed_lessons,
             unlocked_badges: user.unlocked_badges,
             mistakes_queue: user.mistakes_queue,
@@ -292,6 +302,8 @@ export async function getUserById(id) {
  * @param {Object} updates
  * @param {number} [updates.xpToAdd] - Amount of XP to increment
  * @param {number} [updates.heartsChange] - Delta for hearts count
+ * @param {number} [updates.diamondsToAdd] - Amount of diamonds/gems to increment
+ * @param {number} [updates.diamondsChange] - Delta for diamonds/gems count
  * @param {string} [updates.completedLessonId] - Lesson or Level ID to append to completed list
  * @param {string} [updates.mistakeToAdd] - Question ID to add to mistakes queue
  * @param {string} [updates.mistakeToRemove] - Question ID to remove from mistakes queue
@@ -302,6 +314,8 @@ export async function getUserById(id) {
 export async function updateUserProgress({
     xpToAdd = 0,
     heartsChange = 0,
+    diamondsToAdd = 0,
+    diamondsChange = 0,
     completedLessonId = null,
     mistakeToAdd = null,
     mistakeToRemove = null,
@@ -333,10 +347,15 @@ export async function updateUserProgress({
     const practiceCount = (currentUser.practice_sessions_completed || 0) +
         (practiceSessionCompleted ? 1 : 0);
 
+    const netDiamondsChange = diamondsToAdd + diamondsChange;
+    const today = new Date().toISOString().split("T")[0];
+
     const updatedUser = {
         ...currentUser,
         xp: Math.max(0, (currentUser.xp || 0) + xpToAdd),
         hearts: Math.max(0, (currentUser.hearts || 5) + heartsChange),
+        diamonds: Math.max(0, (currentUser.diamonds ?? 1200) + netDiamondsChange),
+        last_active_date: today,
         completed_lessons: completedLessons,
         mistakes_queue: mistakesQueue,
         practice_sessions_completed: practiceCount
@@ -523,4 +542,30 @@ export async function resetUserProgress() {
         console.warn("Failed to reset cloud profile:", err);
         return currentUser;
     }
+}
+
+/**
+ * Manually updates the cached in-memory user profile and dispatches change notification.
+ * Useful for synchronized services such as the Shop to reconcile purchased items instantly.
+ *
+ * @param {Object} partialOrFullUser - Partial or full updated user object
+ * @param {Object} [options]
+ * @param {boolean} [options.syncCloud=false] - Whether to sync immediately to Supabase
+ * @returns {Object|null} Updated user object
+ */
+export function setUserProfileCache(partialOrFullUser, { syncCloud = false } = {}) {
+    if (!partialOrFullUser || !currentUser) return currentUser;
+
+    currentUser = normalizeUserData({
+        ...currentUser,
+        ...partialOrFullUser
+    });
+
+    notifyUserUpdated(currentUser);
+
+    if (syncCloud) {
+        syncToCloud(currentUser);
+    }
+
+    return { ...currentUser };
 }

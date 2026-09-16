@@ -74,12 +74,10 @@ console.log('----------------------------------------------------------------\n'
 // Helper to sanitize clean synthesis input (Raw mode baseline)
 function resolveRawSynthesisInput(drugObj) {
     if (!drugObj) return '';
-    // Prefer clean generic name, falling back to brand or display name
-    const raw = drugObj.genericName || drugObj.displayName || drugObj.tallManName || '';
-    // Strip parentheticals like "CeleBREX (celecoxib)" to get clean spoken term
+    // Use canonical medication name (Tall Man or Brand if branded, else generic)
+    const raw = (drugObj.isBrand ? (drugObj.brandName || drugObj.tallManName) : (drugObj.genericName || drugObj.tallManName)) || drugObj.displayName || '';
+    // Strip any unexpected parentheticals to guarantee clean spoken term
     if (raw.includes('(') && raw.includes(')')) {
-        const match = raw.match(/\((.*?)\)/);
-        if (match && match[1]) return match[1].trim();
         return raw.replace(/\(.*?\)/g, '').trim();
     }
     return raw.trim();

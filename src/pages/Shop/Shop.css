@@ -1,0 +1,343 @@
+/* ==============================================================================
+   Duoclongo Shop Stylesheet (Phase 5A)
+   ============================================================================== */
+
+.shop-container {
+    max-width: 780px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.shop-header-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.shop-header-text {
+    flex: 1;
+    min-width: 260px;
+}
+
+.shop-balance-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, rgba(26, 44, 53, 0.95), rgba(19, 31, 36, 0.95));
+    border: 2px solid #2e4450;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 0.6rem 1.1rem;
+}
+
+.shop-balance-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(28, 176, 246, 0.4));
+}
+
+.shop-balance-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-balance-num {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #49c0f8;
+    line-height: 1.1;
+    font-feature-settings: "tnum";
+}
+
+.shop-balance-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Shop Toast / Notification */
+.shop-toast {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem 1.25rem;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    animation: shopToastSlideIn 0.25s ease-out;
+}
+
+.shop-toast-success {
+    background-color: rgba(88, 204, 2, 0.15);
+    border: 2px solid var(--color-primary);
+    color: #a4f54e;
+}
+
+.shop-toast-error {
+    background-color: rgba(255, 75, 75, 0.15);
+    border: 2px solid var(--color-danger);
+    color: #ff8585;
+}
+
+.shop-toast-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 6px;
+    opacity: 0.8;
+}
+
+.shop-toast-close:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes shopToastSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Catalog Section */
+.shop-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.shop-section-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.shop-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Item Card */
+.shop-item-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    background-color: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    border-radius: 18px;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shop-item-card:hover {
+    border-color: #4a5c68;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.shop-item-card-left {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.shop-item-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background-color: var(--bg-page);
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.shop-item-icon {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.shop-item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.shop-item-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.shop-item-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-white);
+}
+
+.shop-item-badge {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    background-color: rgba(73, 192, 248, 0.15);
+    color: #49c0f8;
+    border: 1px solid rgba(73, 192, 248, 0.3);
+}
+
+.shop-item-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.35;
+}
+
+.shop-item-meta {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #8fa0aa;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Purchase Action Button */
+.shop-item-action {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.shop-buy-btn {
+    min-width: 140px;
+    height: 46px;
+    padding: 0 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 14px;
+    transition: all 0.1s ease;
+}
+
+.shop-gem-cost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.shop-gem-cost-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+/* Disabled State */
+.shop-buy-btn:disabled,
+.shop-buy-btn-disabled {
+    background-color: var(--bg-surface-hover);
+    color: #62727b;
+    border: 2px solid var(--border-color);
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.shop-buy-btn-disabled .shop-gem-cost-icon {
+    opacity: 0.4;
+    filter: grayscale(1);
+}
+
+/* Footer Banner */
+.shop-earn-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, rgba(26, 44, 53, 0.7), rgba(19, 31, 36, 0.7));
+    border: 2px dashed var(--border-color);
+    border-radius: 18px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.shop-earn-text h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-white);
+    margin-bottom: 0.25rem;
+}
+
+.shop-earn-text p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.shop-earn-cta {
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .shop-item-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1.25rem;
+    }
+
+    .shop-item-card-left {
+        align-items: flex-start;
+    }
+
+    .shop-buy-btn {
+        width: 100%;
+    }
+
+    .shop-earn-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .shop-earn-cta {
+        width: 100%;
+        text-align: center;
+    }
+}
