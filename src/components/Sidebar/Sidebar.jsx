@@ -16,14 +16,18 @@ import {
     ChevronDown,
     ChevronRight,
     MapPin,
-    CheckCircle2
+    CheckCircle2,
+    Cloud,
+    CloudOff
 } from "lucide-react";
+import AuthModal from "../AuthModal/AuthModal.jsx";
 
 function Sidebar({ onNavigate, isMobileDrawer = false }) {
     const location = useLocation();
     const navigate = useNavigate();
     const isLearnRoute = location.pathname === "/learn";
     const [user, setUser] = useState(null);
+    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [activeLevelId, setActiveLevelId] = useState("");
     const [isLevelsTreeExpanded, setIsLevelsTreeExpanded] = useState(true);
     const sidebarRef = useRef(null);
@@ -246,6 +250,34 @@ function Sidebar({ onNavigate, isMobileDrawer = false }) {
                     </div>
                 )}
             </nav>
+
+            <div className="sidebar-account-footer">
+                <button
+                    type="button"
+                    className="sidebar-account-btn"
+                    onClick={() => setIsAuthModalOpen(true)}
+                    title={user?.is_cloud ? "Cloud Synced account" : "Click to Sign In and sync your progress"}
+                >
+                    <div className="sidebar-account-avatar-wrap">
+                        <User size={18} />
+                    </div>
+                    <div className="sidebar-account-info">
+                        <span className="sidebar-account-name">{user?.display_name || "Guest Learner"}</span>
+                        <span className="sidebar-account-status">
+                            {user?.is_cloud ? (
+                                <span className="status-cloud"><Cloud size={11} /> Synced</span>
+                            ) : (
+                                <span className="status-guest"><CloudOff size={11} /> Guest (Sync)</span>
+                            )}
+                        </span>
+                    </div>
+                </button>
+            </div>
+
+            <AuthModal
+                isOpen={isAuthModalOpen}
+                onClose={() => setIsAuthModalOpen(false)}
+            />
         </aside>
     );
 }

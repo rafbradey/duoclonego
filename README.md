@@ -136,6 +136,7 @@ duoclonego/
 ├── src/
 │   ├── components/         # Reusable UI components
 │   │   ├── AudioPronounceButton/ # Universal static audio player button
+│   │   ├── AuthModal/      # Cloud login, sign-up, and guest-sync modal
 │   │   ├── FeedbackDrawer/ # Real-time answer result drawer
 │   │   ├── GuidebookModal/ # Unit LASA clinical summary modal
 │   │   ├── Layout/         # AppLayout shell, navigation, mobile drawer
@@ -149,7 +150,8 @@ duoclonego/
 │   │   ├── audioMapping.json # Deterministic medication ID to audio file mapping
 │   │   ├── lasaData.json   # Canonical medication details & confusion reasons
 │   │   ├── lasaPairs.json  # Documented ISMP look-alike/sound-alike pairs
-│   │   └── levels/         # Unit and level curriculum JSON definitions (6-level architecture)
+│   │   ├── levels/         # Unit and level curriculum JSON definitions (6-level architecture)
+│   │   └── supabase_schema.sql # Canonical Phase 4 Supabase PostgreSQL RLS schema
 │   ├── pages/              # Application views
 │   │   ├── Learn/          # Main curriculum path and level nodes
 │   │   ├── Lesson/         # Active interactive lesson session
@@ -160,12 +162,14 @@ duoclonego/
 │   │   └── TtsTestPage/    # Developer Azure AI Speech test & diagnostic suite
 │   ├── services/           # Pure domain logic and storage engines
 │   │   ├── audioService.js      # Web Audio feedback chimes & static pronunciation playback
+│   │   ├── authService.js       # Supabase Auth operations, sessions, and state listeners
 │   │   ├── badgeService.js      # Achievement calculations and badge unlocked checks
 │   │   ├── drugService.js       # Medication search, details, and metadata indexing
 │   │   ├── lessonEngine.js      # Answer validation, scoring, and session tracking
 │   │   ├── lessonService.js     # Progression unlock rules and next level discovery
 │   │   ├── practiceService.js   # 4-stage Leitner SRS engine and review queues
-│   │   └── userService.js       # Local progress persistence and stats
+│   │   ├── supabaseClient.js    # Initialized Supabase client instance
+│   │   └── userService.js       # Dual-mode persistence (Supabase Cloud + Local Cache)
 │   ├── App.jsx             # Top-level application routing
 │   ├── main.jsx            # React root mount point
 │   └── index.css           # Global design system tokens and responsive styles

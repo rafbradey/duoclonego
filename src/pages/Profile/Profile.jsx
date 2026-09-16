@@ -19,16 +19,22 @@ import {
     Crown,
     ShieldAlert,
     Pencil,
-    Layers
+    Layers,
+    Cloud,
+    CloudOff,
+    LogOut,
+    LogIn
 } from "lucide-react";
 import {
     getCurrentUser,
     getDueSrsPairs,
     getMasteredPairsCount
 } from "../../services/userService.js";
+import { signOut } from "../../services/authService.js";
 import { getUserBadges } from "../../services/badgeService.js";
 import { allUnits, allLevels } from "../../data/levels/index.js";
 import userAvatar from "../../assets/avatars/default_avatar_male.png";
+import AuthModal from "../../components/AuthModal/AuthModal.jsx";
 import "./Profile.css";
 
 function BadgeIcon({ iconName, size = 24 }) {
@@ -49,6 +55,8 @@ function BadgeIcon({ iconName, size = 24 }) {
 
 function Profile() {
     const [user, setUser] = useState(null);
+    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+    const [authModalMode, setAuthModalMode] = useState("signin");
 
     useEffect(() => {
         let isMounted = true;
@@ -207,12 +215,52 @@ function Profile() {
                     className="profile-avatar-large"
                 />
                 <div className="profile-info-block">
-                    <h1 className="heading-lg">{user.display_name}</h1>
+                    <div className="profile-name-row">
+                        <h1 className="heading-lg">{user.display_name}</h1>
+                        {user.is_cloud ? (
+                            <span className="profile-sync-pill cloud" title="Progress is synced to Supabase cloud">
+                                <Cloud size={13} />
+                                <span>Cloud Synced</span>
+                            </span>
+                        ) : (
+                            <span className="profile-sync-pill guest" title="Progress stored only in local browser cache">
+                                <CloudOff size={13} />
+                                <span>Guest Mode</span>
+                            </span>
+                        )}
+                    </div>
                     <span className="profile-username-tag">@{user.username}</span>
                     <div className="profile-joined-date">
                         <Calendar size={16} />
                         <span>Joined {memberSince}</span>
                     </div>
+                </div>
+
+                <div className="profile-header-actions">
+                    {user.is_cloud ? (
+                        <button
+                            type="button"
+                            className="duo-btn duo-btn-secondary profile-auth-btn"
+                            onClick={() => signOut()}
+                            title="Sign out of your Supabase account"
+                        >
+                            <LogOut size={16} />
+                            <span>Sign Out</span>
+                        </button>
+                    ) : (
+                        <button
+                            type="button"
+                            className="duo-btn duo-btn-primary profile-auth-btn"
+                            onClick={() => {
+                                setAuthModalMode("signin");
+                                setIsAuthModalOpen(true);
+                            }}
+                            title="Sign in to save and sync progress across devices"
+                        >
+                            <LogIn size={16} />
+                            <span>Sign In / Sync</span>
+                        </button>
+                    )}
                 </div>
             </header>
 
@@ -520,6 +568,12 @@ function Profile() {
                     ))}
                 </div>
             </section>
+
+            <AuthModal
+                isOpen={isAuthModalOpen}
+                onClose={() => setIsAuthModalOpen(false)}
+                initialMode={authModalMode}
+            />
         </div>
     );
 }

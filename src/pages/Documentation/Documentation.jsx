@@ -1417,13 +1417,13 @@ function Documentation() {
                                     <tbody>
                                         <tr>
                                             <td><strong>Backend & Database</strong></td>
-                                            <td>Purely client-side. Data loaded from static JSON and saved to browser <code className="doc-inline-code">localStorage</code>. No remote server or SQL/NoSQL database exists.</td>
-                                            <td>Phase 4</td>
+                                            <td>Implemented (Phase 4). Production Supabase PostgreSQL database integration with Row Level Security (<code className="doc-inline-code">public.profiles</code>, <code className="doc-inline-code">public.level_attempts</code>) and graceful offline <code className="doc-inline-code">localStorage</code> cache.</td>
+                                            <td>Implemented (Phase 4)</td>
                                         </tr>
                                         <tr>
                                             <td><strong>User Authentication</strong></td>
-                                            <td>Single local profile. No user registration, password hashing, JWT sessions, or multi-account switching.</td>
-                                            <td>Phase 4</td>
+                                            <td>Implemented (Phase 4). Supabase Auth with JWT session persistence, email/password registration, automated profile provisioning trigger, and seamless guest-to-cloud progress merging.</td>
+                                            <td>Implemented (Phase 4)</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Practice Mode &amp; SRS</strong></td>
