@@ -247,14 +247,14 @@
   - `src/components/LessonCompletion/LessonCompletion.css`
 - **Status**: `[x]`
 - **Implementation Notes**:
-  - Integrated `expandedItems` state and `toggleItem(idx)` handler in `LessonCompletion.jsx` with animated `ChevronRight` icon indicators.
-  - Replaced the large, permanently expanded cards with `.breakdown-accordion-item` rows showing `▸ Medication Name [Category Badge] [CORRECT / INCORRECT Pill]`.
-  - Expanding an item reveals `.breakdown-answers-grid` with "Your answer", "Correct answer", and "Clinical takeaway" explanation.
-  - Styled compact accordion in `LessonCompletion.css` with clean borders, responsive padding, 48px touch triggers (44px on small mobile), and smooth fade-in animations.
-  - Removed artificial tall viewport heights (`min-height: 400px;`) and redundant stat box cards to give desktop and mobile layouts natural breathing room.
+  - Promoted the user-selected **Option A+ (Minimalist + Option D Hybrid)** design to production in `LessonCompletion.jsx` and `LessonCompletion.css`.
+  - Replaced the bulky multi-column layout with a centered single-column card (`max-width: 560px`) featuring an ambient radial mascot glow (`rgba(88, 204, 2, 0.16)`) and celebratory headers.
+  - Replaced disconnected stat boxes with a unified horizontal stat ribbon (XP, Gems, Accuracy) with hairline dividers that scales responsively into a 3-column vertical layout on mobile screens (`<= 680px`).
+  - Added the **Toggle Details** button (`<Layers size={13} />`) to the session breakdown header for 1-tap expand/collapse of all question answers and clinical rationale.
+  - Implemented Duolingo-style 3D primary continue button (`CONTINUE TO NEXT LEVEL`) with clean secondary text link (`Return to Dashboard`) to prevent button fatigue.
 - **Validation & Results**:
   - `npm run lint`: Clean pass (0 errors, 0 warnings).
-  - `npm run build`: Production build succeeded in 686ms.
+  - `npm run build`: Production build succeeded in 728ms.
   - Automated tests `scratch/test_hearts_and_retry.mjs`: All passing.
 
 ---

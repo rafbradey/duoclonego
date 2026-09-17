@@ -4,13 +4,13 @@ import {
     Award,
     Target,
     Sparkles,
-    BookOpen,
-    Dumbbell,
     Trophy,
     ArrowRight,
     Check,
     X,
-    ChevronRight
+    ChevronRight,
+    Layers,
+    Dumbbell
 } from "lucide-react";
 import Mascot from "../Mascot/Mascot.jsx";
 import { calculateLessonXP } from "../../services/lessonEngine.js";
@@ -32,7 +32,7 @@ allLevels.forEach((lvl) => {
 
 /**
  * Extracts the primary medication subject and question category label.
- * Strictly avoids repetitive sentence prompts like "Which medication is commonly confused with...".
+ * Avoids repetitive sentence prompts like "Which medication is commonly confused with...".
  */
 function resolveQuestionMeta(ans) {
     const refQ = ans?.questionId ? questionsById.get(ans.questionId) : null;
@@ -104,6 +104,20 @@ function LessonCompletion({ session, lesson }) {
         }));
     };
 
+    const toggleAll = () => {
+        const answers = session?.answers || [];
+        const allOpen = answers.length > 0 && answers.every((_, i) => expandedItems[i]);
+        if (allOpen) {
+            setExpandedItems({});
+        } else {
+            const nextState = {};
+            answers.forEach((_, i) => {
+                nextState[i] = true;
+            });
+            setExpandedItems(nextState);
+        }
+    };
+
     useEffect(() => {
         let isMounted = true;
         getCurrentUser().then((u) => {
@@ -159,237 +173,233 @@ function LessonCompletion({ session, lesson }) {
     return (
         <div className="completion-root">
             <div className="completion-card duo-card">
-                {/* 1. Primary Summary Pane (Mascot, Title, Stats, Badges, Next Actions) */}
-                <div className="completion-primary-pane">
-                    <div className="completion-mascot-wrapper">
-                        <Mascot mascotType={mascotType} size={140} animationType={mascotAnimation} />
+                {/* 1. Ambient Celebratory Mascot Hero (Option A+ Minimalist Hybrid) */}
+                <div className="completion-hero">
+                    <div className="completion-mascot-glow">
+                        <Mascot mascotType={mascotType} size={135} animationType={mascotAnimation} />
                     </div>
 
-                    <div className={`completion-badge ${isMastery ? "completion-badge-mastery" : ""}`}>
-                        <Sparkles size={16} />
-                        <span>{isPractice ? "PRACTICE COMPLETE" : isMastery ? "🏆 UNIT MASTERED!" : "LESSON COMPLETE"}</span>
-                    </div>
-
-                    <h1 className="heading-xl completion-title">
-                        {isMastery
-                            ? (accuracy === 100 ? "Unit Mastered!" : "Mastery Challenge Complete!")
-                            : (accuracy === 100 ? "Perfect Recall!" : "Great Practice!")}
-                    </h1>
-
-                    <p className="body-text-muted completion-subtitle">
-                        {isPractice
-                            ? `You completed a targeted retrieval review in ${lesson.title}.`
-                            : isMastery
-                                ? `Outstanding! You conquered the unassisted review and Tall Man capstone for ${lesson.title}.`
-                                : `You practiced critical LASA medication recognition in ${lesson.title}.`}
-                    </p>
-
-                    <div className="completion-stats-grid">
-                        <div className="completion-stat-card">
-                            <div className="completion-stat-icon-block xp-accent">
-                                <Award size={26} />
-                            </div>
-                            <div className="completion-stat-text">
-                                <span className="completion-stat-num">+{xpEarned} XP</span>
-                                <span className="completion-stat-label">XP Earned</span>
-                            </div>
+                    <div className="completion-header-text">
+                        <div className="completion-badge-tag">
+                            <Sparkles size={14} />
+                            <span>
+                                {isPractice
+                                    ? "PRACTICE COMPLETED"
+                                    : isMastery
+                                    ? "🏆 UNIT MASTERED"
+                                    : "LEVEL COMPLETED"}
+                            </span>
                         </div>
-
-                        <div className="completion-stat-card">
-                            <div className="completion-stat-icon-block gem-accent">
-                                <img src={diamondIcon} alt="Gems" className="completion-stat-gem-img" />
-                            </div>
-                            <div className="completion-stat-text">
-                                <span className="completion-stat-num">+{gemsEarned}</span>
-                                <span className="completion-stat-label">Gems Earned</span>
-                            </div>
-                        </div>
-
-                        <div className="completion-stat-card">
-                            <div className="completion-stat-icon-block target-accent">
-                                <Target size={26} />
-                            </div>
-                            <div className="completion-stat-text">
-                                <span className="completion-stat-num">{accuracy}%</span>
-                                <span className="completion-stat-label">Accuracy</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* HEART RESTORED REWARD (Practice Hub perk) */}
-                    {heartRestored && (
-                        <div className="completion-heart-reward-banner">
-                            <img src={heartIcon} alt="Heart" className="completion-heart-reward-icon" />
-                            <div className="completion-heart-reward-text">
-                                <span className="completion-heart-reward-title">+1 Heart Restored!</span>
-                                <span className="completion-heart-reward-sub">Recharged via practice retrieval session</span>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* UNLOCKED BADGES CELEBRATION */}
-                    {newBadges.length > 0 && (
-                        <div className="completion-unlocked-card">
-                            <div className="completion-unlocked-header">
-                                <Trophy size={20} className="completion-trophy-gold" />
-                                <span className="completion-unlocked-title">New Badge Unlocked!</span>
-                            </div>
-                            <div className="completion-unlocked-items">
-                                {newBadges.map((badge) => (
-                                    <div key={badge.id} className="completion-unlocked-badge-pill">
-                                        <span className="unlocked-badge-name">{badge.title}</span>
-                                        <span className="unlocked-badge-desc">{badge.description}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    )}
-
-                    {/* PROGRESSION ACTIONS (Instantly accessible without scrolling) */}
-                    <div className="completion-actions-container">
-                        {isPractice ? (
-                            <Link to="/practice" className="duo-button duo-button-primary completion-btn">
-                                <Dumbbell size={18} />
-                                <span>RETURN TO PRACTICE HUB</span>
-                            </Link>
-                        ) : nextLevelInfo && nextLevelInfo.isUnlocked ? (
-                            <div className="completion-actions-hierarchy">
-                                <Link
-                                    to={nextLevelInfo.route}
-                                    className="duo-button duo-button-primary completion-btn completion-btn-next"
-                                >
-                                    <span>CONTINUE TO NEXT LEVEL</span>
-                                    <ArrowRight size={18} />
-                                </Link>
-                                <Link
-                                    to="/learn"
-                                    className="duo-button duo-button-outline completion-btn completion-btn-secondary"
-                                >
-                                    <BookOpen size={18} />
-                                    <span>CONTINUE TO DASHBOARD</span>
-                                </Link>
-                            </div>
-                        ) : (
-                            <Link to="/learn" className="duo-button duo-button-primary completion-btn">
-                                <BookOpen size={18} />
-                                <span>CONTINUE TO DASHBOARD</span>
-                            </Link>
-                        )}
+                        <h1 className="completion-title">
+                            {isMastery
+                                ? (accuracy === 100 ? "Mastery Challenge Conquered!" : "Unit Mastered!")
+                                : (accuracy === 100 ? "100% Perfect Retention!" : "Great Session!")}
+                        </h1>
+                        <p className="completion-subtitle">
+                            {isPractice
+                                ? `You completed retrieval review for ${lesson.title}`
+                                : `You completed retrieval training for `}
+                            {!isPractice && <strong>{lesson.title}</strong>}
+                        </p>
                     </div>
                 </div>
 
-                {/* 2. Secondary Review Pane (Compact Question-by-Question Session Breakdown) */}
-                <div className="completion-review-pane">
-                    <div className="completion-breakdown-section" aria-label="Session Breakdown">
-                        <div className="breakdown-header-block">
-                            <div className="breakdown-header-title-row">
-                                <h2 className="completion-breakdown-heading">Session Breakdown</h2>
-                                <span className="breakdown-count-badge">
-                                    {correctCount} / {totalQuestions} Correct
-                                </span>
-                            </div>
+                {/* 2. Unified Rich Stat Ribbon (Option A+ Seamless Bar with Dividers) */}
+                <div className="completion-stats-ribbon">
+                    <div className="stat-item xp-accent">
+                        <div className="stat-bubble">
+                            <Award size={18} />
                         </div>
+                        <div className="stat-meta">
+                            <span className="stat-val">+{xpEarned} XP</span>
+                            <span className="stat-lbl">Earned</span>
+                        </div>
+                    </div>
 
-                        <div className="breakdown-accordion-list" role="list">
-                            {session.answers.map((ans, idx) => {
-                                const { subject, category, qType, explanation } = resolveQuestionMeta(ans);
-                                const isCorrect = Boolean(ans.isCorrect);
-                                const isExpanded = Boolean(expandedItems[idx]);
+                    <div className="stat-divider" />
 
-                                // Format displayed answers for matching vs single selections
-                                let selectedDisplay = ans.selectedAnswer;
-                                let correctDisplay = ans.correctAnswer;
+                    <div className="stat-item gem-accent">
+                        <div className="stat-bubble">
+                            <img src={diamondIcon} alt="Gems" className="stat-gem-img-tiny" />
+                        </div>
+                        <div className="stat-meta">
+                            <span className="stat-val">+{gemsEarned}</span>
+                            <span className="stat-lbl">Gems</span>
+                        </div>
+                    </div>
 
-                                if (qType === "matching") {
-                                    selectedDisplay = isCorrect ? "All pairs matched correctly" : "Incomplete or mismatched pairs";
-                                    correctDisplay = ans.correctAnswer || "Documented ISMP LASA pairs";
-                                }
+                    <div className="stat-divider" />
 
-                                return (
-                                    <div
-                                        key={idx}
-                                        className={`breakdown-accordion-item ${isCorrect ? "item-correct" : "item-incorrect"}`}
-                                        role="listitem"
+                    <div className="stat-item target-accent">
+                        <div className="stat-bubble">
+                            <Target size={18} />
+                        </div>
+                        <div className="stat-meta">
+                            <span className="stat-val">{accuracy}%</span>
+                            <span className="stat-lbl">Accuracy</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Heart restored notice if practice session restored heart */}
+                {heartRestored && (
+                    <div className="completion-heart-restore-pill">
+                        <img src={heartIcon} alt="Heart" className="restore-heart-icon" />
+                        <span>+1 Heart Restored via Practice!</span>
+                    </div>
+                )}
+
+                {/* Unlocked Badges celebration */}
+                {newBadges.length > 0 && (
+                    <div className="completion-unlocked-banner">
+                        <Trophy size={20} className="trophy-gold" />
+                        <div className="unlocked-text">
+                            <strong>{newBadges[0].title}</strong>
+                            <span>{newBadges[0].description}</span>
+                        </div>
+                    </div>
+                )}
+
+                {/* 3. Primary & Secondary Actions (Duolingo 3D Button + Clean Text Link) */}
+                <div className="completion-actions">
+                    {isPractice ? (
+                        <>
+                            <Link to="/practice" className="duo-button duo-button-primary completion-btn-large">
+                                <Dumbbell size={18} />
+                                <span>RETURN TO PRACTICE HUB</span>
+                            </Link>
+                            <Link to="/learn" className="completion-text-link">
+                                Return to Dashboard
+                            </Link>
+                        </>
+                    ) : nextLevelInfo && nextLevelInfo.isUnlocked ? (
+                        <>
+                            <Link to={nextLevelInfo.route} className="duo-button duo-button-primary completion-btn-large">
+                                <span>CONTINUE TO NEXT LEVEL</span>
+                                <ArrowRight size={18} />
+                            </Link>
+                            <Link to="/learn" className="completion-text-link">
+                                Return to Dashboard
+                            </Link>
+                        </>
+                    ) : (
+                        <Link to="/learn" className="duo-button duo-button-primary completion-btn-large">
+                            <span>CONTINUE TO DASHBOARD</span>
+                            <ArrowRight size={18} />
+                        </Link>
+                    )}
+                </div>
+
+                {/* 4. Interactive Review Drawer with Toggle Details Button */}
+                <div className="completion-review-pane">
+                    <div className="review-section-header">
+                        <div className="review-header-title-block">
+                            <span className="review-title">Session Breakdown</span>
+                            <span className="review-count-tag">{correctCount} / {totalQuestions} Correct</span>
+                        </div>
+                        <button
+                            type="button"
+                            className="review-expand-all-btn"
+                            onClick={toggleAll}
+                            title="Toggle all question details"
+                        >
+                            <Layers size={13} />
+                            <span>Toggle Details</span>
+                        </button>
+                    </div>
+
+                    <div className="review-accordion-list" role="list">
+                        {session.answers.map((ans, idx) => {
+                            const { subject, category, qType, explanation } = resolveQuestionMeta(ans);
+                            const isCorrect = Boolean(ans.isCorrect);
+                            const isExpanded = Boolean(expandedItems[idx]);
+
+                            let selectedDisplay = ans.selectedAnswer;
+                            let correctDisplay = ans.correctAnswer;
+
+                            if (qType === "matching") {
+                                selectedDisplay = isCorrect ? "All pairs matched correctly" : "Incomplete or mismatched pairs";
+                                correctDisplay = ans.correctAnswer || "Documented ISMP LASA pairs";
+                            }
+
+                            return (
+                                <div
+                                    key={idx}
+                                    className={`accordion-item-wrap ${isCorrect ? "item-correct" : "item-incorrect"}`}
+                                    role="listitem"
+                                >
+                                    <button
+                                        type="button"
+                                        className="accordion-trigger-row"
+                                        onClick={() => toggleItem(idx)}
+                                        aria-expanded={isExpanded}
+                                        aria-controls={`breakdown-content-${idx}`}
                                     >
-                                        <button
-                                            type="button"
-                                            className="breakdown-accordion-trigger"
-                                            onClick={() => toggleItem(idx)}
-                                            aria-expanded={isExpanded}
-                                            aria-controls={`breakdown-content-${idx}`}
-                                        >
-                                            <div className="breakdown-accordion-left">
-                                                <ChevronRight
-                                                    size={16}
-                                                    className={`breakdown-accordion-arrow ${isExpanded ? "open" : ""}`}
-                                                />
-                                                <span className="breakdown-subject">{subject}</span>
-                                                <span className="breakdown-category-badge">{category}</span>
-                                            </div>
-                                            <div className="breakdown-accordion-right">
-                                                <span className={`status-pill ${isCorrect ? "status-correct" : "status-incorrect"}`}>
-                                                    {isCorrect ? (
-                                                        <>
-                                                            <Check size={12} strokeWidth={3} />
-                                                            <span>CORRECT</span>
-                                                        </>
-                                                    ) : (
-                                                        <>
-                                                            <X size={12} strokeWidth={3} />
-                                                            <span>INCORRECT</span>
-                                                        </>
-                                                    )}
-                                                </span>
-                                            </div>
-                                        </button>
+                                        <div className="accordion-left-meta">
+                                            <ChevronRight
+                                                size={16}
+                                                className={`accordion-chevron-icon ${isExpanded ? "open" : ""}`}
+                                            />
+                                            <span className="accordion-subject-text">{subject}</span>
+                                            <span className="accordion-category-badge">{category}</span>
+                                        </div>
+                                        <div className="accordion-right-meta">
+                                            <span className={`status-pill ${isCorrect ? "status-correct" : "status-incorrect"}`}>
+                                                {isCorrect ? (
+                                                    <>
+                                                        <Check size={12} strokeWidth={3} />
+                                                        <span>CORRECT</span>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <X size={12} strokeWidth={3} />
+                                                        <span>INCORRECT</span>
+                                                    </>
+                                                )}
+                                            </span>
+                                        </div>
+                                    </button>
 
-                                        {isExpanded && (
-                                            <div
-                                                id={`breakdown-content-${idx}`}
-                                                className="breakdown-accordion-content"
-                                            >
-                                                <div className="breakdown-answers-grid">
-                                                    {/* Learner's Selected Answer */}
-                                                    <div className={`breakdown-answer-row ${isCorrect ? "row-correct" : "row-incorrect"}`}>
-                                                        <span className="breakdown-row-label">Your answer:</span>
-                                                        <div className="breakdown-row-val-wrap">
-                                                            <span className={`breakdown-val ${!isCorrect ? "val-missed" : ""}`}>
-                                                                {selectedDisplay}
-                                                            </span>
-                                                            {isCorrect ? (
-                                                                <Check size={15} className="icon-mark-correct" />
-                                                            ) : (
-                                                                <X size={15} className="icon-mark-incorrect" />
-                                                            )}
+                                    {isExpanded && (
+                                        <div
+                                            id={`breakdown-content-${idx}`}
+                                            className="accordion-detail-drawer"
+                                        >
+                                            <div className="detail-answer-box">
+                                                <div className={`detail-line ${isCorrect ? "line-correct" : "line-incorrect"}`}>
+                                                    <span className="detail-lbl">Your answer:</span>
+                                                    <div className="detail-val-group">
+                                                        <span className={`detail-val ${!isCorrect ? "val-struck" : ""}`}>{selectedDisplay}</span>
+                                                        {isCorrect ? (
+                                                            <Check size={14} className="icon-check-green" />
+                                                        ) : (
+                                                            <X size={14} className="icon-cross-red" />
+                                                        )}
+                                                    </div>
+                                                </div>
+
+                                                {!isCorrect && (
+                                                    <div className="detail-line line-solution">
+                                                        <span className="detail-lbl">Correct answer:</span>
+                                                        <div className="detail-val-group">
+                                                            <span className="detail-val val-highlight">{correctDisplay}</span>
+                                                            <Check size={14} className="icon-check-green" />
                                                         </div>
                                                     </div>
+                                                )}
 
-                                                    {/* Verified Correct Answer (shown when incorrect to guide remediation) */}
-                                                    {!isCorrect && (
-                                                        <div className="breakdown-answer-row row-solution">
-                                                            <span className="breakdown-row-label">Correct answer:</span>
-                                                            <div className="breakdown-row-val-wrap">
-                                                                <span className="breakdown-val val-solution">
-                                                                    {correctDisplay}
-                                                                </span>
-                                                                <Check size={15} className="icon-mark-correct" />
-                                                            </div>
-                                                        </div>
-                                                    )}
-
-                                                    {explanation && (
-                                                        <div className="breakdown-explanation-row">
-                                                            <span className="breakdown-explanation-label">Clinical takeaway:</span>
-                                                            <p className="breakdown-explanation-text">{explanation}</p>
-                                                        </div>
-                                                    )}
-                                                </div>
+                                                {explanation && (
+                                                    <div className="detail-explanation-card">
+                                                        <span className="explanation-badge">Clinical Rationale:</span>
+                                                        <p className="explanation-body">{explanation}</p>
+                                                    </div>
+                                                )}
                                             </div>
-                                        )}
-                                    </div>
-                                );
-                            })}
-                        </div>
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
@@ -398,4 +408,3 @@ function LessonCompletion({ session, lesson }) {
 }
 
 export default LessonCompletion;
-
