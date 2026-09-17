@@ -55,15 +55,15 @@ function RightInfoBar() {
                     <span className="user-stat-value">{user.streak}</span>
                 </div>
 
-                <div className="user-stat" title="Hearts Remaining">
+                <Link to="/shop" className="user-stat user-stat-link" title="Hearts Remaining — Click to visit Shop">
                     <img src={heartIcon} alt="Hearts" className="user-stat-icon" />
                     <span className="user-stat-value">{user.hearts}</span>
-                </div>
+                </Link>
 
-                <div className="user-stat" title="Gems / Diamonds">
+                <Link to="/shop" className="user-stat user-stat-link" title="Gems / Diamonds — Click to visit Shop">
                     <img src={diamondIcon} alt="Diamonds" className="user-stat-icon" />
                     <span className="user-stat-value">{user.diamonds}</span>
-                </div>
+                </Link>
             </div>
 
             <Link to="/profile" className="user-profile-card" title="View Profile">

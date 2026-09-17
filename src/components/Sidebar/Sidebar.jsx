@@ -105,28 +105,28 @@ function Sidebar({ onNavigate, isMobileDrawer = false }) {
 
     return (
         <aside className="sidebar" aria-label="Main Navigation">
-            {/* 1. Logo Header (Fixed) */}
-            <div className="sidebar-header">
-                <Link to="/learn" className="sidebar-logo-link" onClick={onNavigate}>
-                    <Mascot mascotType="shadow" size={36} flipped={false} animationType="none" />
-                    <span className="sidebar-logo-text">duoclongo</span>
-                </Link>
-            </div>
+            {/* 1. Logo Header (Fixed) - only render if not in mobile drawer */}
+            {!isMobileDrawer && (
+                <div className="sidebar-header">
+                    <Link to="/learn" className="sidebar-logo-link" onClick={onNavigate}>
+                        <Mascot mascotType="shadow" size={36} flipped={false} animationType="none" />
+                        <span className="sidebar-logo-text">duoclongo</span>
+                    </Link>
+                </div>
+            )}
 
             {/* 2. Main Navigation Links (Fixed) */}
-            {!isMobileDrawer && (
-                <nav className="sidebar-main-nav">
-                    <ul className="sidebar-links-list">
-                        <SidebarNav icon={BookOpen} iconSize={24} link="/learn" text="LEARN" onClick={onNavigate} />
-                        <SidebarNav icon={Dumbbell} iconSize={24} link="/practice" text="PRACTICE" onClick={onNavigate} />
-                        <SidebarNav icon={Trophy} iconSize={24} link="/quests" text="QUESTS" onClick={onNavigate} />
-                        <SidebarNav icon={Medal} iconSize={24} link="/leaderboards" text="LEADERBOARDS" onClick={onNavigate} />
-                        <SidebarNav icon={ShoppingBag} iconSize={24} link="/shop" text="SHOP" onClick={onNavigate} />
-                        <SidebarNav icon={User} iconSize={24} link="/profile" text="PROFILE" onClick={onNavigate} />
-                        <SidebarNav icon={FileText} iconSize={24} link="/documentation" text="DOCS" onClick={onNavigate} />
-                    </ul>
-                </nav>
-            )}
+            <nav className="sidebar-main-nav">
+                <ul className="sidebar-links-list">
+                    <SidebarNav icon={BookOpen} iconSize={24} link="/learn" text="LEARN" onClick={onNavigate} />
+                    <SidebarNav icon={Dumbbell} iconSize={24} link="/practice" text="PRACTICE" onClick={onNavigate} />
+                    <SidebarNav icon={Trophy} iconSize={24} link="/quests" text="QUESTS" onClick={onNavigate} />
+                    <SidebarNav icon={Medal} iconSize={24} link="/leaderboards" text="LEADERBOARDS" onClick={onNavigate} />
+                    <SidebarNav icon={ShoppingBag} iconSize={24} link="/shop" text="SHOP" onClick={onNavigate} />
+                    <SidebarNav icon={User} iconSize={24} link="/profile" text="PROFILE" onClick={onNavigate} />
+                    <SidebarNav icon={FileText} iconSize={24} link="/documentation" text="DOCS" onClick={onNavigate} />
+                </ul>
+            </nav>
 
             {/* 3. Dedicated Scrollable Curriculum Tree (Only shown on learn / mobile drawer) */}
             {showLearningPath && (

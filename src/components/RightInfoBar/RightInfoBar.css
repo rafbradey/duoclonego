@@ -27,13 +27,24 @@
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    padding: 0.3rem 0.5rem;
-    border-radius: 8px;
-    transition: background-color 0.15s ease;
+    padding: 0.35rem 0.55rem;
+    border-radius: 10px;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+    user-select: none;
 }
 
-.user-stat:hover {
+.user-stat-link {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.user-stat-link:hover {
     background-color: var(--bg-surface-hover);
+    transform: translateY(-1px);
+}
+
+.user-stat-link:active {
+    transform: translateY(1px);
 }
 
 .user-stat-icon {

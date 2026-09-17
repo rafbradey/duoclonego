@@ -367,20 +367,20 @@
 }
 
 .unit-mastery-card.unit-mastery-completed {
-    background: linear-gradient(135deg, rgba(45, 171, 105, 0.12) 0%, rgba(28, 176, 246, 0.06) 100%);
-    border: 2px solid #2dab69;
-    box-shadow: 0 4px 0 #207a4b, 0 8px 20px rgba(45, 171, 105, 0.15);
+    background: linear-gradient(135deg, rgba(88, 204, 2, 0.12) 0%, rgba(28, 176, 246, 0.06) 100%);
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 4px 0 var(--color-primary-shadow), 0 8px 20px rgba(88, 204, 2, 0.15);
     cursor: pointer;
 }
 
 .unit-mastery-card.unit-mastery-completed:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 0 #207a4b, 0 12px 24px rgba(45, 171, 105, 0.22);
+    box-shadow: 0 6px 0 var(--color-primary-shadow), 0 12px 24px rgba(88, 204, 2, 0.22);
 }
 
 .unit-mastery-card.unit-mastery-completed:active {
     transform: translateY(2px);
-    box-shadow: 0 2px 0 #207a4b;
+    box-shadow: 0 2px 0 var(--color-primary-shadow);
 }
 
 .unit-mastery-card.unit-mastery-locked {
@@ -414,9 +414,9 @@
 }
 
 .unit-mastery-completed .unit-mastery-icon-box {
-    background: linear-gradient(135deg, #2dab69 0%, #1cb0f6 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1cb0f6 100%);
     color: #ffffff;
-    box-shadow: 0 4px 12px rgba(45, 171, 105, 0.35);
+    box-shadow: 0 4px 12px rgba(88, 204, 2, 0.35);
 }
 
 .unit-mastery-locked .unit-mastery-icon-box {
@@ -463,9 +463,9 @@
 }
 
 .unit-mastery-badge.badge-done {
-    background: #2dab69;
+    background: var(--color-primary);
     color: #ffffff;
-    box-shadow: 0 2px #207a4b;
+    box-shadow: 0 2px var(--color-primary-shadow);
 }
 
 .unit-mastery-badge.badge-locked {

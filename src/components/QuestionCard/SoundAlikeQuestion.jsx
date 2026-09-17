@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Volume2, VolumeX, PhoneCall, Radio, RotateCcw, Sparkles } from "lucide-react";
 import TallManText from "../TallManText/TallManText.jsx";
 import { playMedicationAudio, stopSpeech, hasMedicationAudio, isSpeechSupported } from "../../services/audioService.js";
+import "./MultipleChoiceQuestion.css";
 import "./SoundAlikeQuestion.css";
 
 /**
@@ -145,16 +146,17 @@ function SoundAlikeQuestion({
                         aria-label={isPlaying ? "Playing audio" : "Play medication pronunciation"}
                     >
                         {isPlaying ? (
-                            <div className="sound-wave-bars">
+                            <div className="sound-wave-bars" aria-hidden="true">
                                 <span className="wave-bar bar-1"></span>
                                 <span className="wave-bar bar-2"></span>
                                 <span className="wave-bar bar-3"></span>
                                 <span className="wave-bar bar-4"></span>
+                                <span className="wave-bar bar-5"></span>
                             </div>
                         ) : hasAudio ? (
-                            <Volume2 size={32} />
+                            <Volume2 size={28} />
                         ) : (
-                            <VolumeX size={32} />
+                            <VolumeX size={28} />
                         )}
                         <span className="sound-play-text">
                             {isPlaying ? "PLAYING SPOKEN ORDER..." : "TAP TO HEAR SPOKEN DRUG"}
@@ -162,11 +164,11 @@ function SoundAlikeQuestion({
                     </button>
                 </div>
 
-                <p className="sound-hint-text body-text-muted">
-                    {hasAudio
-                        ? "Listen closely to vowel and consonant inflections to avoid confusing sound-alike counterparts."
-                        : "Audio playback unavailable; please read phonetic choices carefully."}
-                </p>
+                {!hasAudio && (
+                    <p className="sound-hint-text body-text-muted sound-fallback-warning">
+                        Audio playback unavailable; please read phonetic choices carefully.
+                    </p>
+                )}
             </div>
 
             {/* Answer Choices Grid */}

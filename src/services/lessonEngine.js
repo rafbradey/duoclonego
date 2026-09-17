@@ -325,9 +325,11 @@ export function createSession(lesson) {
         lessonId: lesson?.id || "",
         lessonTitle: lesson?.title || "",
         currentIndex: 0,
+        initialQuestionCount: questions.length,
         totalQuestions: questions.length,
         answers: [],
         correctCount: 0,
+        masteredQuestionIds: [],
         isCompleted: false,
         startedAt: Date.now(),
         completedAt: null
@@ -341,13 +343,14 @@ export function createSession(lesson) {
  * @param {string} selectedAnswer - Selected answer
  * @param {Object} [options] - Optional processing options
  * @param {"correct"|"incorrect"|null} [options.forcedOutcome] - Developer testing override
+ * @param {number|null} [options.nextTotalQuestions] - Updated queue length when questions are re-queued
  * @returns {Object} { nextSession, evaluation }
  */
 export function recordSessionAnswer(
     session,
     question,
     selectedAnswer,
-    { forcedOutcome = null } = {}
+    { forcedOutcome = null, nextTotalQuestions = null } = {}
 ) {
     let evaluation = evaluateAnswer(question, selectedAnswer);
 
@@ -385,16 +388,28 @@ export function recordSessionAnswer(
             selectedAnswer,
             correctAnswer: evaluation.correctAnswer || question.correctAnswer,
             isCorrect,
+            isRetry: Boolean(question.isRetry),
             explanation: question.explanation,
             pairs: question.pairs || null
         }
     ];
 
     const updatedCorrectCount = isCorrect ? session.correctCount + 1 : session.correctCount;
-    const isLastQuestion = session.currentIndex + 1 >= session.totalQuestions;
+    
+    // Track distinct mastered questions
+    const qKey = question.id || question.prompt || String(session.currentIndex);
+    const existingMastered = Array.isArray(session.masteredQuestionIds) ? session.masteredQuestionIds : [];
+    const updatedMastered = isCorrect && !existingMastered.includes(qKey)
+        ? [...existingMastered, qKey]
+        : existingMastered;
+
+    const totalQ = typeof nextTotalQuestions === "number" ? nextTotalQuestions : session.totalQuestions;
+    const isLastQuestion = session.currentIndex + 1 >= totalQ;
 
     const nextSession = {
         ...session,
+        totalQuestions: totalQ,
+        masteredQuestionIds: updatedMastered,
         answers: updatedAnswers,
         correctCount: updatedCorrectCount,
         isCompleted: isLastQuestion,

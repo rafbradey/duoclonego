@@ -3,13 +3,14 @@ import { useParams, useNavigate, Link, useSearchParams } from "react-router";
 import { X, BookOpen, AlertCircle, Sparkles, Wrench, Check } from "lucide-react";
 import { getLessonById } from "../../services/lessonService.js";
 import { getMasteryLevelByUnitId } from "../../services/unitService.js";
-import { createSession, recordSessionAnswer, prepareSessionLesson } from "../../services/lessonEngine.js";
-import { getCurrentUser } from "../../services/userService.js";
+import { createSession, recordSessionAnswer, prepareSessionLesson, evaluateAnswer } from "../../services/lessonEngine.js";
+import { getCurrentUser, deductHeart } from "../../services/userService.js";
 import { generatePracticeSession, recordQuestionOutcome } from "../../services/practiceService.js";
 import { playCorrectSound, playIncorrectSound } from "../../services/audioService.js";
 import QuestionRenderer from "../../components/QuestionCard/QuestionRenderer.jsx";
 import FeedbackDrawer from "../../components/FeedbackDrawer/FeedbackDrawer.jsx";
 import LessonCompletion from "../../components/LessonCompletion/LessonCompletion.jsx";
+import OutOfHeartsModal from "../../components/OutOfHeartsModal/OutOfHeartsModal.jsx";
 import heartIcon from "../../assets/items/heart.png";
 import "./LessonSession.css";
 
@@ -25,6 +26,8 @@ function LessonSession() {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [hearts, setHearts] = useState(5);
     const [loading, setLoading] = useState(true);
+    const [showOutOfHeartsModal, setShowOutOfHeartsModal] = useState(false);
+    const [pendingOutOfHearts, setPendingOutOfHearts] = useState(false);
 
     const isPracticeMode = lessonId === "practice" || Boolean(lesson?.isPractice);
 
@@ -46,6 +49,9 @@ function LessonSession() {
                         }
                         if (userData && userData.hearts !== undefined) {
                             setHearts(userData.hearts);
+                            if (userData.hearts <= 0) {
+                                setShowOutOfHeartsModal(true);
+                            }
                         }
                         setLoading(false);
                     }
@@ -79,6 +85,9 @@ function LessonSession() {
                         }
                         if (userData && userData.hearts !== undefined) {
                             setHearts(userData.hearts);
+                            if (userData.hearts <= 0) {
+                                setShowOutOfHeartsModal(true);
+                            }
                         }
                         setLoading(false);
                     }
@@ -110,10 +119,40 @@ function LessonSession() {
         if (!selectedAnswer || isSubmitted || !lesson || !session) return;
 
         const currentQuestion = lesson.questions[session.currentIndex];
+        const initialEval = evaluateAnswer(currentQuestion, selectedAnswer);
+        let nextQuestionsLength = lesson.questions.length;
+
+        if (!initialEval.isCorrect) {
+            const retryQuestion = {
+                ...currentQuestion,
+                isRetry: true,
+                _retryInstanceId: `${currentQuestion.id || "q"}_retry_${Date.now()}`
+            };
+            const updatedQuestions = [...lesson.questions, retryQuestion];
+            nextQuestionsLength = updatedQuestions.length;
+            setLesson((prev) => ({
+                ...prev,
+                questions: updatedQuestions,
+                totalQuestions: nextQuestionsLength
+            }));
+
+            if (!isPracticeMode) {
+                deductHeart()
+                    .then((newHearts) => {
+                        setHearts(newHearts);
+                        if (newHearts <= 0) {
+                            setPendingOutOfHearts(true);
+                        }
+                    })
+                    .catch((err) => console.error("Failed to deduct heart:", err));
+            }
+        }
+
         const { nextSession, evaluation } = recordSessionAnswer(
             session,
             currentQuestion,
-            selectedAnswer
+            selectedAnswer,
+            { nextTotalQuestions: nextQuestionsLength }
         );
 
         if (evaluation.isCorrect) {
@@ -139,8 +178,8 @@ function LessonSession() {
     };
 
     /**
-     * Temporary Developer Override: forces the current question through
-     * the existing answer evaluation flow as either correct or incorrect.
+     * Developer Override: forces the current question through
+     * the answer evaluation flow as either correct or incorrect.
      * @param {"correct"|"incorrect"} forcedOutcome
      */
     const handleDeveloperOverride = (forcedOutcome) => {
@@ -184,11 +223,40 @@ function LessonSession() {
             }
         }
 
+        const willBeCorrect = forcedOutcome === "correct";
+        let nextQuestionsLength = lesson.questions.length;
+
+        if (!willBeCorrect) {
+            const retryQuestion = {
+                ...currentQuestion,
+                isRetry: true,
+                _retryInstanceId: `${currentQuestion.id || "q"}_retry_${Date.now()}`
+            };
+            const updatedQuestions = [...lesson.questions, retryQuestion];
+            nextQuestionsLength = updatedQuestions.length;
+            setLesson((prev) => ({
+                ...prev,
+                questions: updatedQuestions,
+                totalQuestions: nextQuestionsLength
+            }));
+
+            if (!isPracticeMode) {
+                deductHeart()
+                    .then((newHearts) => {
+                        setHearts(newHearts);
+                        if (newHearts <= 0) {
+                            setPendingOutOfHearts(true);
+                        }
+                    })
+                    .catch((err) => console.error("Failed to deduct heart:", err));
+            }
+        }
+
         const { nextSession, evaluation } = recordSessionAnswer(
             session,
             currentQuestion,
             devAnswer,
-            { forcedOutcome }
+            { forcedOutcome, nextTotalQuestions: nextQuestionsLength }
         );
 
         if (evaluation.isCorrect) {
@@ -216,6 +284,13 @@ function LessonSession() {
 
     const handleContinue = () => {
         if (!session) return;
+
+        // If user is out of hearts after reviewing feedback for this mistake, display OutOfHeartsModal
+        if (pendingOutOfHearts) {
+            setPendingOutOfHearts(false);
+            setShowOutOfHeartsModal(true);
+            return;
+        }
 
         // If completed, keep session state and clear evaluation drawer so completion screen renders
         if (session.isCompleted) {
@@ -268,8 +343,12 @@ function LessonSession() {
     }
 
     const currentQuestion = lesson.questions[session.currentIndex];
-    const progressPercent = session.totalQuestions > 0
-        ? Math.round(((session.currentIndex + (isSubmitted ? 1 : 0)) / session.totalQuestions) * 100)
+    const initialCount = session.initialQuestionCount || lesson.questions.length;
+    const masteredCount = Array.isArray(session.masteredQuestionIds)
+        ? session.masteredQuestionIds.length
+        : session.correctCount;
+    const progressPercent = initialCount > 0
+        ? Math.min(100, Math.round((masteredCount / initialCount) * 100))
         : 0;
 
     return (
@@ -345,6 +424,16 @@ function LessonSession() {
                             <X size={14} />
                             <span>ANSWER INCORRECTLY</span>
                         </button>
+                        <Link
+                            to="/completion-preview"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="duo-button dev-override-btn dev-btn-preview"
+                            title="Open Level Completion UI Preview concepts in a new tab"
+                        >
+                            <Sparkles size={14} />
+                            <span>COMPLETION CONCEPTS</span>
+                        </Link>
                     </div>
                 </aside>
             )}
@@ -378,9 +467,18 @@ function LessonSession() {
             {currentEvaluation && (
                 <FeedbackDrawer
                     evaluation={currentEvaluation}
+                    question={currentQuestion}
                     onContinue={handleContinue}
                 />
             )}
+
+            <OutOfHeartsModal
+                isOpen={showOutOfHeartsModal}
+                onClose={() => {
+                    setShowOutOfHeartsModal(false);
+                    navigate(isPracticeMode ? "/practice" : "/learn");
+                }}
+            />
         </div>
     );
 }

@@ -89,31 +89,23 @@ function TallManQuestion({
             {/* Single Concise Directive */}
             <h2 className="tm-prompt">
                 {isMastery
-                    ? "Enter the complete medication name with exact Tall Man lettering:"
-                    : "Complete the Tall Man lettering for this medication:"}
+                    ? "Type the exact Tall Man capitalization:"
+                    : "Type the distinguishing Tall Man letters:"}
             </h2>
 
             {/* Target Medication Card */}
             <div className="tm-target-card duo-card">
-                <div className="tm-target-header">
-                    <span className="tm-target-label">Target Medication</span>
-                    <AudioPronounceButton
-                        drug={question.canonicalDrugId || standardName || question.relatedDrug}
-                        size={17}
-                    />
-                </div>
-                <div className="tm-target-name-row">
-                    <span className="tm-target-name">{standardName}</span>
-                </div>
+                <span className="tm-target-name">{standardName}</span>
+                <AudioPronounceButton
+                    drug={question.canonicalDrugId || standardName || question.relatedDrug}
+                    size={19}
+                />
             </div>
 
             {/* Input Section */}
             {isMastery ? (
                 /* Unit Mastery Input: Full drug name, no hints */
                 <div className="tm-input-section tm-mastery-input-section duo-card">
-                    <label htmlFor="tm-mastery-input" className="tm-input-label">
-                        Tall Man Representation
-                    </label>
                     <div className="tm-input-wrapper">
                         <input
                             id="tm-mastery-input"
@@ -133,7 +125,7 @@ function TallManQuestion({
                         <Edit3 size={18} className="tm-input-icon" />
                     </div>
                     <p className="tm-hint-note">
-                        Exact capitalization required. No hints are provided.
+                        Case-sensitive. Enter distinguishing uppercase letters.
                     </p>
                 </div>
             ) : (
@@ -162,7 +154,7 @@ function TallManQuestion({
                     </div>
 
                     <div className="tm-preview-deck">
-                        <span className="tm-preview-label">Live Preview</span>
+                        <span className="tm-preview-label">Preview:</span>
                         <div className="tm-preview-value">
                             {liveSegment ? (
                                 <TallManText name={liveReconstructed} />
@@ -171,10 +163,6 @@ function TallManQuestion({
                             )}
                         </div>
                     </div>
-
-                    <p className="tm-hint-note">
-                        Type only the distinguishing uppercase letters.
-                    </p>
                 </div>
             )}
         </div>

@@ -127,7 +127,7 @@ function MatchingQuestion({
                 </p>
             </header>
 
-            <div className="matching-progress-bar">
+            <div className="matching-progress-bar" aria-live="polite">
                 <span>Matched Pairs</span>
                 <span className="matching-progress-count">
                     {matchedCount} / {totalPairs} Complete
@@ -158,9 +158,12 @@ function MatchingQuestion({
                                 onClick={() => handleLeftClick(item)}
                                 disabled={isSubmitted || isMatched}
                                 aria-pressed={isSelected || isMatched}
+                                aria-label={`${item}${isMatched ? " (matched)" : isSelected ? " (selected)" : ""}`}
                             >
-                                <TallManText name={item} />
-                                <span className="matching-tile-icon">
+                                <span className="matching-tile-text">
+                                    <TallManText name={item} />
+                                </span>
+                                <span className="matching-tile-icon" aria-hidden="true">
                                     {isMatched && <Check size={18} className="tile-icon-matched" />}
                                     {isShaking && <X size={18} className="tile-icon-wrong" />}
                                     {!isMatched && !isShaking && isSelected && <Sparkles size={16} />}
@@ -193,9 +196,12 @@ function MatchingQuestion({
                                 onClick={() => handleRightClick(item)}
                                 disabled={isSubmitted || isMatched}
                                 aria-pressed={isSelected || isMatched}
+                                aria-label={`${item}${isMatched ? " (matched)" : isSelected ? " (selected)" : ""}`}
                             >
-                                <TallManText name={item} />
-                                <span className="matching-tile-icon">
+                                <span className="matching-tile-text">
+                                    <TallManText name={item} />
+                                </span>
+                                <span className="matching-tile-icon" aria-hidden="true">
                                     {isMatched && <Check size={18} className="tile-icon-matched" />}
                                     {isShaking && <X size={18} className="tile-icon-wrong" />}
                                     {!isMatched && !isShaking && isSelected && <Sparkles size={16} />}

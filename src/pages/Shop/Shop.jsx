@@ -4,6 +4,7 @@ import { ShoppingBag, CheckCircle, AlertCircle, X, BookOpen, Loader2 } from "luc
 import { getCurrentUser } from "../../services/userService.js";
 import { getShopCatalog, purchaseShopItem } from "../../services/shopService.js";
 import diamondIcon from "../../assets/items/diamond.png";
+import heartIcon from "../../assets/items/heart.png";
 import "./Shop.css";
 
 function Shop() {
@@ -80,11 +81,21 @@ function Shop() {
                     </p>
                 </div>
 
-                <div className="shop-balance-badge" title="Your Current Gem Balance">
-                    <img src={diamondIcon} alt="Gems" className="shop-balance-icon" />
-                    <div className="shop-balance-info">
-                        <span className="shop-balance-num">{gemBalance.toLocaleString()}</span>
-                        <span className="shop-balance-label">Gems Available</span>
+                <div className="shop-balances-group">
+                    <div className="shop-balance-badge shop-hearts-badge" title="Your Remaining Hearts">
+                        <img src={heartIcon} alt="Hearts" className="shop-balance-icon" />
+                        <div className="shop-balance-info">
+                            <span className="shop-balance-num shop-hearts-num">{user?.hearts ?? 5} / 5</span>
+                            <span className="shop-balance-label">Hearts Left</span>
+                        </div>
+                    </div>
+
+                    <div className="shop-balance-badge" title="Your Current Gem Balance">
+                        <img src={diamondIcon} alt="Gems" className="shop-balance-icon" />
+                        <div className="shop-balance-info">
+                            <span className="shop-balance-num">{gemBalance.toLocaleString()}</span>
+                            <span className="shop-balance-label">Gems Available</span>
+                        </div>
                     </div>
                 </div>
             </header>

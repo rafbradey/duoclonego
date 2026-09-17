@@ -305,6 +305,19 @@
     transform: translateY(-2px);
 }
 
+.dev-btn-preview {
+    background-color: rgba(43, 155, 237, 0.15);
+    border: 1px solid rgba(43, 155, 237, 0.4);
+    color: #2b9bed;
+    text-decoration: none;
+}
+
+.dev-btn-preview:hover {
+    background-color: #2b9bed;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
 .dev-override-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;

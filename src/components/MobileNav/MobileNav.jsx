@@ -5,8 +5,8 @@ import {
     Dumbbell,
     Trophy,
     Medal,
-    User,
-    FileText
+    ShoppingBag,
+    User
 } from "lucide-react";
 
 function MobileNav() {
@@ -19,7 +19,7 @@ function MobileNav() {
                 }
                 aria-label="Learn"
             >
-                <BookOpen size={24} />
+                <BookOpen size={22} />
                 <span className="mobile-nav-label">Learn</span>
             </NavLink>
 
@@ -30,7 +30,7 @@ function MobileNav() {
                 }
                 aria-label="Practice"
             >
-                <Dumbbell size={24} />
+                <Dumbbell size={22} />
                 <span className="mobile-nav-label">Practice</span>
             </NavLink>
 
@@ -41,7 +41,7 @@ function MobileNav() {
                 }
                 aria-label="Quests"
             >
-                <Trophy size={24} />
+                <Trophy size={22} />
                 <span className="mobile-nav-label">Quests</span>
             </NavLink>
 
@@ -52,8 +52,19 @@ function MobileNav() {
                 }
                 aria-label="Leaderboards"
             >
-                <Medal size={24} />
+                <Medal size={22} />
                 <span className="mobile-nav-label">Ranks</span>
+            </NavLink>
+
+            <NavLink
+                to="/shop"
+                className={({ isActive }) =>
+                    `mobile-nav-item ${isActive ? "active" : ""}`
+                }
+                aria-label="Shop"
+            >
+                <ShoppingBag size={22} />
+                <span className="mobile-nav-label">Shop</span>
             </NavLink>
 
             <NavLink
@@ -63,19 +74,8 @@ function MobileNav() {
                 }
                 aria-label="Profile"
             >
-                <User size={24} />
+                <User size={22} />
                 <span className="mobile-nav-label">Profile</span>
-            </NavLink>
-
-            <NavLink
-                to="/documentation"
-                className={({ isActive }) =>
-                    `mobile-nav-item ${isActive ? "active" : ""}`
-                }
-                aria-label="Documentation"
-            >
-                <FileText size={24} />
-                <span className="mobile-nav-label">Docs</span>
             </NavLink>
         </nav>
     );

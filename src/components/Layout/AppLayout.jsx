@@ -99,10 +99,10 @@ function AppLayout() {
                         <Flame size={18} className="mobile-stat-icon-streak" />
                         <span className="mobile-stat-value">{user?.streak ?? 0}</span>
                     </div>
-                    <div className="mobile-stat-item hearts" title="Hearts Remaining">
+                    <Link to="/shop" className="mobile-stat-item hearts" title="Hearts Remaining — Tap to Visit Shop">
                         <Heart size={18} className="mobile-stat-icon-heart" />
                         <span className="mobile-stat-value">{user?.hearts ?? 5}</span>
-                    </div>
+                    </Link>
                 </div>
             </header>
 

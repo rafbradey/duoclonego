@@ -17,10 +17,18 @@
     --border-color: #37464f;
     --border-light: rgba(224, 235, 241, 0.15);
 
-    /* Brand accents */
-    --color-primary: #2dab69;
-    --color-primary-hover: #36b672;
-    --color-primary-shadow: #1e7048;
+    /* Semantic color aliases */
+    --color-surface: var(--bg-surface);
+    --color-surface-hover: var(--bg-surface-hover);
+    --color-border: var(--border-color);
+    --color-text-primary: var(--text-white);
+    --color-text-secondary: var(--text-muted);
+
+    /* Brand accents (Duoclongo signature green) */
+    --color-primary: #58cc02;
+    --color-primary-hover: #61e002;
+    --color-primary-shadow: #46a302;
+    --color-primary-dark: #46a302;
 
     --color-secondary: #49c0f8;
     --color-secondary-hover: #6fd3ff;
@@ -37,6 +45,39 @@
     --text-light: #e5e5e5;
     --text-muted: #9eabb2;
     --text-dark: #131f24;
+
+    /* Spacing scale */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+
+    /* Typography scale */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+
+    /* Border radius scale */
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 14px;
+    --radius-xl: 16px;
+    --radius-2xl: 20px;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.35);
 
     /* Dimensions */
     --sidebar-width: 16rem;

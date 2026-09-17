@@ -1,0 +1,144 @@
+.out-of-hearts-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(19, 31, 36, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 1.5rem;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.out-of-hearts-card {
+    width: 100%;
+    max-width: 440px;
+    background-color: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.out-of-hearts-badge-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(234, 43, 43, 0.12);
+    border: 2px solid rgba(234, 43, 43, 0.3);
+    margin-bottom: 0.25rem;
+}
+
+.out-of-hearts-icon {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    filter: grayscale(0.6) drop-shadow(0 4px 10px rgba(234, 43, 43, 0.4));
+    animation: heartWobble 2s ease-in-out infinite;
+}
+
+.out-of-hearts-zero-pill {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background-color: var(--color-danger);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 900;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--bg-surface);
+}
+
+.out-of-hearts-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--text-white);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.out-of-hearts-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.out-of-hearts-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.out-of-hearts-btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.92rem;
+    gap: 0.6rem;
+}
+
+.out-of-hearts-dismiss-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: color 0.15s ease;
+}
+
+.out-of-hearts-dismiss-btn:hover {
+    color: var(--text-white);
+}
+
+@keyframes heartWobble {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(-6deg) scale(1.05);
+    }
+    75% {
+        transform: rotate(6deg) scale(0.96);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -15,6 +15,16 @@ function MultipleChoiceQuestion({
 
     return (
         <div className="mc-question-container">
+            {question.scenario && (
+                <div className="mc-scenario-card" role="region" aria-label="Clinical Scenario">
+                    <span className="mc-scenario-badge">
+                        <span className="mc-scenario-dot" aria-hidden="true" />
+                        Clinical Context
+                    </span>
+                    <p className="mc-scenario-text">{question.scenario}</p>
+                </div>
+            )}
+
             <div className="mc-prompt-row">
                 <h2 className="mc-question-prompt heading-md">
                     {question.prompt}

@@ -13,15 +13,17 @@ import Profile from "./pages/Profile/Profile.jsx";
 import LessonSession from "./pages/Lesson/LessonSession.jsx";
 import Documentation from "./pages/Documentation/Documentation.jsx";
 import TtsTestPage from "./pages/TtsTestPage/TtsTestPage.jsx";
+import CompletionPreview from "./pages/CompletionPreview/CompletionPreview.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 
 function App() {
     return (
         <AuthProvider>
             <Routes>
-                {/* Public routes */}
+                {/* Public routes & UI Test Environments */}
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/completion-preview" element={<CompletionPreview />} />
 
                 {/* Authenticated routes guarded by ProtectedRoute */}
                 <Route element={<ProtectedRoute />}>

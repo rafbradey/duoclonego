@@ -96,8 +96,8 @@
 }
 
 .practice-stat-icon-wrapper.mastered {
-    background: rgba(45, 171, 105, 0.15);
-    color: #2dab69;
+    background: rgba(88, 204, 2, 0.15);
+    color: var(--color-primary);
 }
 
 .practice-stat-icon-wrapper.safe {
@@ -273,9 +273,9 @@
 }
 
 .due-mode .practice-mode-badge.badge-clean {
-    background: rgba(45, 171, 105, 0.12);
-    color: #2dab69;
-    border: 1px solid rgba(45, 171, 105, 0.35);
+    background: rgba(88, 204, 2, 0.12);
+    color: var(--color-primary);
+    border: 1px solid rgba(88, 204, 2, 0.35);
 }
 
 .quick-mode .practice-mode-badge {
@@ -291,9 +291,9 @@
 }
 
 .mistakes-mode .practice-mode-badge.badge-clean {
-    background: rgba(45, 171, 105, 0.12);
-    color: #2dab69;
-    border: 1px solid rgba(45, 171, 105, 0.35);
+    background: rgba(88, 204, 2, 0.12);
+    color: var(--color-primary);
+    border: 1px solid rgba(88, 204, 2, 0.35);
 }
 
 .audio-mode .practice-mode-badge,

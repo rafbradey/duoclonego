@@ -297,7 +297,7 @@
 }
 
 .segment-mastered {
-    background-color: #2dab69; /* Green - Stage 3 */
+    background-color: var(--color-primary); /* Green - Stage 3 */
 }
 
 .segment-stage2 {
@@ -336,7 +336,7 @@
 }
 
 .dot-mastered {
-    background-color: #2dab69;
+    background-color: var(--color-primary);
 }
 
 .dot-stage2 {

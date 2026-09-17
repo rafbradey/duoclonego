@@ -14,11 +14,14 @@ import {
     ShieldAlert,
     Pencil,
     Medal,
-    Crown
+    Crown,
+    X,
+    AlertCircle
 } from "lucide-react";
 import Mascot from "../../components/Mascot/Mascot.jsx";
-import { getCurrentUser } from "../../services/userService.js";
+import { getCurrentUser, claimDailyQuest } from "../../services/userService.js";
 import { getUserBadges } from "../../services/badgeService.js";
+import { getLocalTodayDate } from "../../services/streakService.js";
 import "./Quests.css";
 
 function QuestIcon({ iconName, size = 20 }) {
@@ -37,6 +40,8 @@ function QuestIcon({ iconName, size = 20 }) {
 
 function Quests() {
     const [user, setUser] = useState(null);
+    const [claimingId, setClaimingId] = useState(null);
+    const [toast, setToast] = useState(null);
 
     useEffect(() => {
         let isMounted = true;
@@ -66,11 +71,34 @@ function Quests() {
         };
     }, []);
 
+    const handleClaim = async (quest) => {
+        if (claimingId) return;
+        setClaimingId(quest.id);
+        setToast(null);
+
+        try {
+            const result = await claimDailyQuest(quest.id, quest.xpReward, quest.gemsReward);
+            setToast({
+                type: "success",
+                message: result.message
+            });
+        } catch (err) {
+            setToast({
+                type: "error",
+                message: err.message || "Failed to claim reward."
+            });
+        } finally {
+            setClaimingId(null);
+        }
+    };
+
     // Evaluate live daily quests based on user activity
     const dailyQuests = useMemo(() => {
         const completedLessonsCount = user?.completed_lessons?.length || 0;
         const practiceCompleted = user?.practice_sessions_completed || 0;
         const currentXp = user?.xp || 0;
+        const today = getLocalTodayDate();
+        const claimedList = Array.isArray(user?.claimed_quests) ? user.claimed_quests : [];
 
         return [
             {
@@ -82,6 +110,7 @@ function Quests() {
                 current: completedLessonsCount > 0 ? 1 : 0,
                 target: 1,
                 isCompleted: completedLessonsCount > 0,
+                isClaimed: claimedList.includes(`${today}:quest_daily_lesson`),
                 xpReward: 15,
                 gemsReward: 5
             },
@@ -94,6 +123,7 @@ function Quests() {
                 current: practiceCompleted > 0 ? 1 : 0,
                 target: 1,
                 isCompleted: practiceCompleted > 0,
+                isClaimed: claimedList.includes(`${today}:quest_srs_review`),
                 xpReward: 20,
                 gemsReward: 10
             },
@@ -106,6 +136,7 @@ function Quests() {
                 current: Math.min(30, currentXp),
                 target: 30,
                 isCompleted: currentXp >= 30,
+                isClaimed: claimedList.includes(`${today}:quest_xp_target`),
                 xpReward: 25,
                 gemsReward: 15
             }
@@ -182,10 +213,19 @@ function Quests() {
                                         <span>•</span>
                                         <span>+{quest.xpReward} XP</span>
                                     </div>
-                                    {quest.isCompleted ? (
+                                    {quest.isClaimed ? (
                                         <span className="quest-status-badge done">
-                                            <CheckCircle2 size={16} /> Completed
+                                            <CheckCircle2 size={16} /> Claimed
                                         </span>
+                                    ) : quest.isCompleted ? (
+                                        <button
+                                            type="button"
+                                            className="duo-button duo-button-primary quest-claim-btn"
+                                            onClick={() => handleClaim(quest)}
+                                            disabled={claimingId === quest.id}
+                                        >
+                                            {claimingId === quest.id ? "Claiming..." : "Claim"}
+                                        </button>
                                     ) : (
                                         <span className="quest-status-badge in-progress">
                                             In Progress
@@ -251,6 +291,22 @@ function Quests() {
                     ))}
                 </div>
             </section>
+
+            {/* Claim Reward Toast Feedback */}
+            {toast && (
+                <div className={`quests-toast ${toast.type}`} role="alert">
+                    {toast.type === "success" ? <CheckCircle2 size={20} /> : <AlertCircle size={20} />}
+                    <span>{toast.message}</span>
+                    <button
+                        type="button"
+                        className="toast-close-btn"
+                        onClick={() => setToast(null)}
+                        aria-label="Close notification"
+                    >
+                        <X size={16} />
+                    </button>
+                </div>
+            )}
         </div>
     );
 }

@@ -1,0 +1,1544 @@
+/* ==========================================================================
+   UI Test Environment & Concept Lab Styles
+   ========================================================================== */
+
+.preview-lab-root {
+    min-height: 100vh;
+    background-color: var(--bg-page, #131f24);
+    color: var(--text-white, #ffffff);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Toolbar */
+.preview-lab-toolbar {
+    background-color: var(--bg-surface, #1b272d);
+    border-bottom: 2px solid var(--border-color, #24343d);
+    padding: 0.85rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.preview-lab-toolbar-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.preview-brand-block {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.preview-badge-pill {
+    background: rgba(88, 204, 2, 0.15);
+    color: var(--color-primary, #58cc02);
+    border: 1px solid rgba(88, 204, 2, 0.4);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+}
+
+.preview-toolbar-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-white, #ffffff);
+    margin: 0;
+}
+
+.preview-controls-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.preview-button-group {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 0.25rem 0.4rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color, #24343d);
+}
+
+.preview-group-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted, #778f9b);
+    padding: 0 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.preview-chip-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-muted, #778f9b);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.preview-chip-btn:hover {
+    color: var(--text-white, #ffffff);
+    background: var(--bg-surface-hover, #203139);
+}
+
+.preview-chip-btn.active {
+    background: var(--color-primary, #58cc02);
+    color: #ffffff;
+    border-color: var(--color-primary, #58cc02);
+    box-shadow: 0 2px 8px rgba(88, 204, 2, 0.3);
+}
+
+.preview-chip-recommended.active {
+    background: linear-gradient(135deg, #58cc02 0%, #2dab69 100%);
+}
+
+.preview-icon-btn {
+    padding: 0.35rem 0.6rem;
+}
+
+/* Canvas Area */
+.preview-canvas-area {
+    flex: 1;
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: hidden;
+}
+
+.preview-stage-container {
+    width: 100%;
+    margin: 0 auto;
+    transition: max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.preview-stage-container.device-desktop {
+    max-width: 1100px;
+}
+
+.preview-stage-container.device-tablet {
+    max-width: 768px;
+    border-left: 2px dashed rgba(255, 255, 255, 0.1);
+    border-right: 2px dashed rgba(255, 255, 255, 0.1);
+    padding: 0 1rem;
+}
+
+.preview-stage-container.device-mobile {
+    max-width: 390px;
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 36px;
+    padding: 1rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================================
+   Shared Component Styles (Mascot, Badge, Accordion, Buttons)
+   ========================================================================== */
+
+.concept-badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(88, 204, 2, 0.12);
+    border: 1px solid rgba(88, 204, 2, 0.35);
+    color: var(--color-primary, #58cc02);
+    padding: 0.25rem 0.8rem;
+    border-radius: 9999px;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.concept-heart-restore-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 75, 75, 0.12);
+    border: 1.5px solid rgba(255, 75, 75, 0.35);
+    color: #ff4b4b;
+    padding: 0.45rem 0.95rem;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.restore-heart-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.concept-unlocked-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, rgba(230, 184, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%);
+    border: 1.5px solid rgba(230, 184, 0, 0.35);
+    border-radius: 14px;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    width: 100%;
+}
+
+.trophy-gold {
+    color: #ffd700;
+    flex-shrink: 0;
+}
+
+.unlocked-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.unlocked-text strong {
+    font-size: 0.88rem;
+    color: #ffd700;
+}
+
+.unlocked-text span {
+    font-size: 0.78rem;
+    color: var(--text-muted, #778f9b);
+}
+
+.concept-btn-large {
+    width: 100%;
+    padding: 0.95rem 1.25rem;
+    font-size: 0.98rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.concept-text-link {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-muted, #778f9b);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.concept-text-link:hover {
+    color: var(--text-white, #ffffff);
+}
+
+.stat-gem-img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.stat-gem-img-tiny {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+/* Accordion Common Styles */
+.review-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1.5px solid var(--border-color, #24343d);
+    margin-bottom: 0.75rem;
+    width: 100%;
+}
+
+.review-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--text-white, #ffffff);
+    text-transform: uppercase;
+}
+
+.review-title-heading {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--text-white, #ffffff);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.review-title-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted, #778f9b);
+    margin: 0.2rem 0 0 0;
+}
+
+.review-count-tag {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: var(--color-primary, #58cc02);
+    background: rgba(88, 204, 2, 0.12);
+    border: 1px solid rgba(88, 204, 2, 0.35);
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.review-accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    width: 100%;
+}
+
+.accordion-item-wrap {
+    background-color: var(--bg-page, #131f24);
+    border: 1.5px solid var(--border-color, #24343d);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.accordion-item-wrap:hover {
+    border-color: var(--border-color-hover, #37464f);
+}
+
+.accordion-item-wrap.item-correct {
+    border-left: 3.5px solid var(--color-primary, #58cc02);
+}
+
+.accordion-item-wrap.item-incorrect {
+    border-left: 3.5px solid var(--color-danger, #ff4b4b);
+}
+
+.accordion-trigger-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+    padding: 0.65rem 0.85rem;
+    min-height: 46px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    color: inherit;
+    font-family: inherit;
+}
+
+.accordion-trigger-row:hover {
+    background-color: var(--bg-surface-hover, #203139);
+}
+
+.accordion-trigger-row:focus-visible {
+    outline: 2px solid var(--color-primary, #58cc02);
+    outline-offset: -2px;
+}
+
+.accordion-left-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+.accordion-chevron-icon {
+    color: var(--text-muted, #778f9b);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s ease;
+    flex-shrink: 0;
+}
+
+.accordion-chevron-icon.open {
+    transform: rotate(90deg);
+    color: var(--text-white, #ffffff);
+}
+
+.accordion-subject-text {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--text-white, #ffffff);
+    letter-spacing: 0.02em;
+    word-break: break-word;
+}
+
+.accordion-category-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.15rem 0.45rem;
+    border-radius: 6px;
+    background-color: var(--bg-surface, #1b272d);
+    border: 1px solid var(--border-color, #24343d);
+    color: var(--text-muted, #778f9b);
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 9999px;
+    flex-shrink: 0;
+}
+
+.status-pill.status-correct {
+    background-color: rgba(88, 204, 2, 0.15);
+    color: var(--color-primary, #58cc02);
+    border: 1px solid rgba(88, 204, 2, 0.35);
+}
+
+.status-pill.status-incorrect {
+    background-color: rgba(255, 75, 75, 0.15);
+    color: var(--color-danger, #ff4b4b);
+    border: 1px solid rgba(255, 75, 75, 0.35);
+}
+
+.accordion-detail-drawer {
+    padding: 0.2rem 0.85rem 0.75rem 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    animation: accordionSlide 0.2s ease;
+}
+
+@keyframes accordionSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-3px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.detail-answer-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 0.6rem 0.85rem;
+}
+
+.detail-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: 0.84rem;
+}
+
+.detail-lbl {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--text-muted, #778f9b);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    flex-shrink: 0;
+}
+
+.detail-val-group {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+    word-break: break-word;
+}
+
+.detail-val {
+    font-weight: 700;
+    color: var(--text-white, #ffffff);
+}
+
+.detail-val.val-struck {
+    color: var(--color-danger, #ff4b4b);
+    text-decoration: line-through;
+}
+
+.detail-val.val-highlight {
+    color: var(--color-primary, #58cc02);
+}
+
+.icon-check-green {
+    color: var(--color-primary, #58cc02);
+    flex-shrink: 0;
+}
+
+.icon-cross-red {
+    color: var(--color-danger, #ff4b4b);
+    flex-shrink: 0;
+}
+
+.detail-explanation-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-top: 0.35rem;
+    padding: 0.45rem 0.65rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-left: 2.5px solid var(--color-primary, #58cc02);
+    border-radius: 4px;
+}
+
+.explanation-badge {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-primary, #58cc02);
+}
+
+.explanation-body {
+    font-size: 0.8rem;
+    line-height: 1.35;
+    color: var(--text-muted, #778f9b);
+    margin: 0;
+}
+
+/* ==========================================================================
+   CONCEPT A: Clean Centered Celebration
+   ========================================================================== */
+.concept-a-root {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.concept-a-card {
+    max-width: 540px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 2.25rem 2rem;
+    border-radius: 24px;
+}
+
+.concept-a-mascot {
+    display: flex;
+    justify-content: center;
+}
+
+.concept-a-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.concept-a-title {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--text-white, #ffffff);
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.concept-a-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted, #778f9b);
+    margin: 0;
+    max-width: 400px;
+}
+
+/* Unified Horizontal Stats Ribbon */
+.concept-a-stats-ribbon {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    background: var(--bg-page, #131f24);
+    border: 1.5px solid var(--border-color, #24343d);
+    border-radius: 16px;
+    padding: 0.85rem 1rem;
+}
+
+.stat-pill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.stat-pill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-pill-icon.xp-color {
+    color: var(--color-accent, #ffc700);
+}
+
+.stat-pill-icon.target-color {
+    color: var(--color-primary, #58cc02);
+}
+
+.stat-pill-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.stat-pill-val {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--text-white, #ffffff);
+    line-height: 1.1;
+}
+
+.stat-pill-lbl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted, #778f9b);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.stat-pill-divider {
+    width: 1.5px;
+    height: 32px;
+    background-color: var(--border-color, #24343d);
+}
+
+.concept-a-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+}
+
+.concept-a-review-section {
+    width: 100%;
+    margin-top: 0.5rem;
+    text-align: left;
+}
+
+/* ==========================================================================
+   CONCEPT B: Spacious Desktop Split Layout
+   ========================================================================== */
+.concept-b-root {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.concept-b-card {
+    max-width: 980px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 2.75rem;
+    padding: 2.75rem 2.5rem;
+    border-radius: 28px;
+    align-items: start;
+}
+
+.concept-b-left-pane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.15rem;
+    position: sticky;
+    top: 6rem;
+}
+
+.concept-b-title {
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: var(--text-white, #ffffff);
+    margin: 0;
+}
+
+.concept-b-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-muted, #778f9b);
+    margin: 0;
+    line-height: 1.35;
+}
+
+.concept-b-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.55rem;
+    width: 100%;
+}
+
+.stat-box {
+    background: var(--bg-page, #131f24);
+    border: 1.5px solid var(--border-color, #24343d);
+    border-radius: 12px;
+    padding: 0.7rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.stat-box-val {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--text-white, #ffffff);
+}
+
+.stat-box-lbl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted, #778f9b);
+    text-transform: uppercase;
+}
+
+.concept-b-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.concept-btn-subtle {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+}
+
+.concept-b-right-pane {
+    width: 100%;
+    min-width: 0;
+}
+
+@media (max-width: 860px) {
+    .concept-b-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.75rem 1.25rem;
+    }
+
+    .concept-b-left-pane {
+        position: static;
+    }
+}
+
+/* ==========================================================================
+   CONCEPT C: Minimal Results + Floating Action
+   ========================================================================== */
+.concept-c-root {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.concept-c-card {
+    max-width: 480px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2.5rem 1.75rem;
+    border-radius: 24px;
+    gap: 1.25rem;
+}
+
+.concept-c-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+}
+
+.concept-c-title {
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: var(--text-white, #ffffff);
+    margin: 0;
+}
+
+.concept-c-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted, #778f9b);
+    margin: 0;
+}
+
+.concept-c-chips-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    margin: 0.35rem 0;
+}
+
+.concept-c-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.concept-c-chip.xp-chip {
+    background: rgba(255, 199, 0, 0.12);
+    color: var(--color-accent, #ffc700);
+    border: 1px solid rgba(255, 199, 0, 0.3);
+}
+
+.concept-c-chip.gem-chip {
+    background: rgba(43, 155, 237, 0.12);
+    color: #2b9bed;
+    border: 1px solid rgba(43, 155, 237, 0.3);
+}
+
+.concept-c-chip.acc-chip {
+    background: rgba(88, 204, 2, 0.12);
+    color: var(--color-primary, #58cc02);
+    border: 1px solid rgba(88, 204, 2, 0.3);
+}
+
+.concept-c-review-toggle-wrap {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.concept-c-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-page, #131f24);
+    border: 1.5px solid var(--border-color, #24343d);
+    color: var(--text-white, #ffffff);
+    padding: 0.65rem 1rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    width: 100%;
+    justify-content: center;
+}
+
+.concept-c-toggle-btn:hover {
+    background: var(--bg-surface-hover, #203139);
+}
+
+.toggle-arrow {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toggle-arrow.open {
+    transform: rotate(90deg);
+}
+
+.concept-c-review-drawer {
+    margin-top: 0.75rem;
+    text-align: left;
+    animation: accordionSlide 0.2s ease;
+}
+
+.concept-c-actions {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   CONCEPT D: Modern Hero Ribbon (Antigravity Recommended)
+   ========================================================================== */
+.concept-d-root {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.concept-d-card {
+    max-width: 740px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.25rem 2.5rem;
+    border-radius: 28px;
+}
+
+.concept-d-hero-banner {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, rgba(88, 204, 2, 0.08) 0%, rgba(43, 155, 237, 0.04) 100%);
+    border: 1.5px solid rgba(88, 204, 2, 0.25);
+    border-radius: 20px;
+}
+
+.concept-d-mascot-col {
+    flex-shrink: 0;
+}
+
+.concept-d-hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.35rem;
+}
+
+.concept-d-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--text-white, #ffffff);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.concept-d-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-muted, #778f9b);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.concept-d-subtitle strong {
+    color: var(--text-white, #ffffff);
+}
+
+/* Rewards Ribbon */
+.concept-d-rewards-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+    width: 100%;
+}
+
+.reward-chip {
+    background: var(--bg-page, #131f24);
+    border: 1.5px solid var(--border-color, #24343d);
+    border-radius: 16px;
+    padding: 0.85rem 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.reward-chip:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-color-hover, #37464f);
+}
+
+.reward-icon-bubble {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--bg-surface, #1b272d);
+}
+
+.xp-accent .reward-icon-bubble {
+    color: var(--color-accent, #ffc700);
+}
+
+.target-accent .reward-icon-bubble {
+    color: var(--color-primary, #58cc02);
+}
+
+.reward-meta {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.reward-val {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--text-white, #ffffff);
+    line-height: 1.15;
+}
+
+.reward-lbl {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted, #778f9b);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.concept-d-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+}
+
+.concept-btn-secondary {
+    padding: 0.95rem 1.25rem;
+    font-size: 0.92rem;
+    white-space: nowrap;
+}
+
+.concept-d-review-pane {
+    width: 100%;
+}
+
+.review-header-title-block {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.review-expand-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: transparent;
+    border: 1px solid var(--border-color, #24343d);
+    color: var(--text-muted, #778f9b);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.review-expand-all-btn:hover {
+    color: var(--text-white, #ffffff);
+    background: var(--bg-surface-hover, #203139);
+}
+
+/* ==========================================================================
+   CONCEPT A+: Minimalist + Option D Hybrid
+   Clean, airy centered layout from Option A + vibrant celebratory hero,
+   rich reward icon bubbles, and toggle controls from Option D.
+   ========================================================================== */
+.concept-aplus-root {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.concept-aplus-card {
+    max-width: 560px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.4rem;
+    padding: 2.25rem 2.25rem;
+    border-radius: 28px;
+}
+
+.concept-aplus-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+}
+
+.concept-aplus-mascot-glow {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.concept-aplus-mascot-glow::after {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(88, 204, 2, 0.16) 0%, rgba(88, 204, 2, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.concept-aplus-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    position: relative;
+    z-index: 1;
+}
+
+.concept-aplus-title {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--text-white, #ffffff);
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.concept-aplus-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted, #778f9b);
+    margin: 0;
+    max-width: 440px;
+    line-height: 1.4;
+}
+
+.concept-aplus-subtitle strong {
+    color: var(--text-white, #ffffff);
+}
+
+/* Unified Rich Stat Ribbon */
+.concept-aplus-stats-ribbon {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    background: var(--bg-page, #131f24);
+    border: 1.5px solid var(--border-color, #24343d);
+    border-radius: 18px;
+    padding: 0.85rem 1rem;
+}
+
+.aplus-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.aplus-stat-bubble {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--bg-surface, #1b272d);
+}
+
+.xp-accent .aplus-stat-bubble {
+    color: var(--color-accent, #ffc700);
+}
+
+.gem-accent .aplus-stat-bubble {
+    color: #2b9bed;
+}
+
+.target-accent .aplus-stat-bubble {
+    color: var(--color-primary, #58cc02);
+}
+
+.aplus-stat-meta {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.aplus-stat-val {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--text-white, #ffffff);
+    line-height: 1.15;
+}
+
+.aplus-stat-lbl {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted, #778f9b);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.aplus-stat-divider {
+    width: 1.5px;
+    height: 34px;
+    background-color: var(--border-color, #24343d);
+    flex-shrink: 0;
+}
+
+.concept-aplus-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+}
+
+.concept-aplus-review-pane {
+    width: 100%;
+    margin-top: 0.25rem;
+    text-align: left;
+}
+
+/* ==========================================================================
+   Mobile Responsive Rules (Simulated .device-mobile AND @media <= 680px)
+   ========================================================================== */
+
+/* ==========================================================================
+   Mobile Responsive Rules: Simulated Frame (.device-mobile)
+   ========================================================================== */
+
+/* OPTION D: Fix Cramped Mobile View */
+.device-mobile .concept-d-card {
+    padding: 1.25rem 0.95rem;
+    border-radius: 22px;
+    gap: 1.15rem;
+}
+
+.device-mobile .concept-d-hero-banner {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.95rem 0.75rem;
+    border-radius: 16px;
+}
+
+.device-mobile .concept-d-hero-text {
+    align-items: center;
+    text-align: center;
+    gap: 0.25rem;
+}
+
+.device-mobile .concept-d-title {
+    font-size: 1.35rem;
+    line-height: 1.25;
+}
+
+.device-mobile .concept-d-subtitle {
+    font-size: 0.82rem;
+}
+
+.device-mobile .concept-d-rewards-bar {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.45rem;
+}
+
+.device-mobile .concept-d-rewards-bar .reward-chip {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.65rem 0.3rem;
+    gap: 0.35rem;
+    border-radius: 12px;
+}
+
+.device-mobile .concept-d-rewards-bar .reward-icon-bubble {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+}
+
+.device-mobile .concept-d-rewards-bar .reward-meta {
+    align-items: center;
+    text-align: center;
+}
+
+.device-mobile .concept-d-rewards-bar .reward-val {
+    font-size: 0.92rem;
+    line-height: 1.1;
+}
+
+.device-mobile .concept-d-rewards-bar .reward-lbl {
+    font-size: 0.62rem;
+}
+
+.device-mobile .concept-d-cta-row {
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.device-mobile .concept-d-cta-row .concept-btn-large {
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+}
+
+.device-mobile .concept-d-cta-row .concept-btn-secondary {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+}
+
+/* OPTION A+ Mobile in simulated frame */
+.device-mobile .concept-aplus-card {
+    padding: 1.25rem 0.95rem;
+    border-radius: 22px;
+    gap: 1.15rem;
+}
+
+.device-mobile .concept-aplus-title {
+    font-size: 1.35rem;
+    line-height: 1.25;
+}
+
+.device-mobile .concept-aplus-subtitle {
+    font-size: 0.82rem;
+}
+
+.device-mobile .concept-aplus-stats-ribbon {
+    padding: 0.65rem 0.45rem;
+    border-radius: 14px;
+}
+
+.device-mobile .aplus-stat-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.3rem;
+}
+
+.device-mobile .aplus-stat-bubble {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+}
+
+.device-mobile .aplus-stat-meta {
+    align-items: center;
+    text-align: center;
+}
+
+.device-mobile .aplus-stat-val {
+    font-size: 0.92rem;
+    line-height: 1.1;
+}
+
+.device-mobile .aplus-stat-lbl {
+    font-size: 0.62rem;
+}
+
+.device-mobile .aplus-stat-divider {
+    height: 28px;
+}
+
+.device-mobile .accordion-trigger-row {
+    padding: 0.55rem 0.65rem;
+    min-height: 42px;
+}
+
+.device-mobile .accordion-subject-text {
+    font-size: 0.84rem;
+}
+
+.device-mobile .accordion-category-badge {
+    font-size: 0.62rem;
+    padding: 0.1rem 0.35rem;
+}
+
+.device-mobile .status-pill {
+    font-size: 0.62rem;
+    padding: 0.15rem 0.45rem;
+}
+
+.device-mobile .concept-a-card {
+    padding: 1.25rem 0.95rem;
+    border-radius: 22px;
+    gap: 1.15rem;
+}
+
+.device-mobile .concept-b-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem 0.95rem;
+}
+
+.device-mobile .concept-b-left-pane {
+    position: static;
+}
+
+.device-mobile .concept-c-card {
+    padding: 1.5rem 1rem;
+    border-radius: 22px;
+}
+
+/* ==========================================================================
+   Mobile Responsive Rules: Actual Mobile Screen (@media max-width: 680px)
+   ========================================================================== */
+@media (max-width: 680px) {
+    /* Option D */
+    .concept-d-card {
+        padding: 1.25rem 0.95rem;
+        border-radius: 22px;
+        gap: 1.15rem;
+    }
+
+    .concept-d-hero-banner {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.95rem 0.75rem;
+        border-radius: 16px;
+    }
+
+    .concept-d-hero-text {
+        align-items: center;
+        text-align: center;
+        gap: 0.25rem;
+    }
+
+    .concept-d-title {
+        font-size: 1.35rem;
+        line-height: 1.25;
+    }
+
+    .concept-d-subtitle {
+        font-size: 0.82rem;
+    }
+
+    .concept-d-rewards-bar {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.45rem;
+    }
+
+    .concept-d-rewards-bar .reward-chip {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0.65rem 0.3rem;
+        gap: 0.35rem;
+        border-radius: 12px;
+    }
+
+    .concept-d-rewards-bar .reward-icon-bubble {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+    }
+
+    .concept-d-rewards-bar .reward-meta {
+        align-items: center;
+        text-align: center;
+    }
+
+    .concept-d-rewards-bar .reward-val {
+        font-size: 0.92rem;
+        line-height: 1.1;
+    }
+
+    .concept-d-rewards-bar .reward-lbl {
+        font-size: 0.62rem;
+    }
+
+    .concept-d-cta-row {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .concept-d-cta-row .concept-btn-large {
+        padding: 0.85rem 1rem;
+        font-size: 0.92rem;
+    }
+
+    .concept-d-cta-row .concept-btn-secondary {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    /* Option A+ */
+    .concept-aplus-card {
+        padding: 1.25rem 0.95rem;
+        border-radius: 22px;
+        gap: 1.15rem;
+    }
+
+    .concept-aplus-title {
+        font-size: 1.35rem;
+        line-height: 1.25;
+    }
+
+    .concept-aplus-subtitle {
+        font-size: 0.82rem;
+    }
+
+    .concept-aplus-stats-ribbon {
+        padding: 0.65rem 0.45rem;
+        border-radius: 14px;
+    }
+
+    .aplus-stat-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.3rem;
+    }
+
+    .aplus-stat-bubble {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+    }
+
+    .aplus-stat-meta {
+        align-items: center;
+        text-align: center;
+    }
+
+    .aplus-stat-val {
+        font-size: 0.92rem;
+        line-height: 1.1;
+    }
+
+    .aplus-stat-lbl {
+        font-size: 0.62rem;
+    }
+
+    .aplus-stat-divider {
+        height: 28px;
+    }
+
+    /* Accordion */
+    .accordion-trigger-row {
+        padding: 0.55rem 0.65rem;
+        min-height: 42px;
+    }
+
+    .accordion-subject-text {
+        font-size: 0.84rem;
+    }
+
+    .accordion-category-badge {
+        font-size: 0.62rem;
+        padding: 0.1rem 0.35rem;
+    }
+
+    .status-pill {
+        font-size: 0.62rem;
+        padding: 0.15rem 0.45rem;
+    }
+}

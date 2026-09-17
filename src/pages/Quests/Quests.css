@@ -131,7 +131,7 @@
 
 .quest-icon-wrap.color-green {
     background: rgba(88, 204, 2, 0.15);
-    color: #58cc02;
+    color: var(--color-primary);
 }
 
 .quest-icon-wrap.color-blue {
@@ -194,7 +194,7 @@
 }
 
 .quest-progress-fill.color-green {
-    background: #58cc02;
+    background: var(--color-primary);
 }
 
 .quest-progress-fill.color-blue {
@@ -235,7 +235,7 @@
 }
 
 .quest-status-badge.done {
-    color: #58cc02;
+    color: var(--color-primary);
 }
 
 .quest-status-badge.in-progress {
@@ -331,7 +331,7 @@
 
 .milestone-progress-fill {
     height: 100%;
-    background: #58cc02;
+    background: var(--color-primary);
     border-radius: 4px;
     transition: width 0.3s ease;
 }
@@ -383,3 +383,68 @@
         padding: 0.85rem;
     }
 }
+
+/* Quest Claim Button */
+.quest-claim-btn {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+/* Quests Toast Notification */
+.quests-toast {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1.25rem;
+    border-radius: 12px;
+    background: #1a2c35;
+    border: 2px solid var(--color-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    font-size: 0.9rem;
+    font-weight: 700;
+    animation: toastIn 0.25s ease-out;
+}
+
+.quests-toast.success {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.quests-toast.error {
+    border-color: #ea2b2b;
+    color: #ea2b2b;
+}
+
+.toast-close-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    border-radius: 4px;
+    transition: color 0.15s ease;
+}
+
+.toast-close-btn:hover {
+    color: var(--text-color);
+}
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

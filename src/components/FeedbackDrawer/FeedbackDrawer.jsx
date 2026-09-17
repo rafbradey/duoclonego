@@ -1,11 +1,23 @@
-import { CheckCircle2, XCircle, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { CheckCircle2, XCircle, ArrowRight, ShieldCheck } from "lucide-react";
 import TallManText from "../TallManText/TallManText.jsx";
+import QuestionInfoModal from "../QuestionCard/QuestionInfoModal.jsx";
 import "./FeedbackDrawer.css";
 
-function FeedbackDrawer({ evaluation, onContinue }) {
+function FeedbackDrawer({ evaluation, question, onContinue }) {
+    const [showInfoModal, setShowInfoModal] = useState(false);
+
     if (!evaluation) return null;
 
     const { isCorrect, correctAnswer, explanation } = evaluation;
+    const hasSourceInfo = Boolean(
+        question && (
+            question.sourceUrl ||
+            question.sourceCitation ||
+            question.source ||
+            question.lasaId
+        )
+    );
 
     return (
         <aside
@@ -57,6 +69,20 @@ function FeedbackDrawer({ evaluation, onContinue }) {
                                 </p>
                             </div>
                         )}
+
+                        {hasSourceInfo && (
+                            <div className="feedback-citation-row">
+                                <button
+                                    type="button"
+                                    onClick={() => setShowInfoModal(true)}
+                                    className="feedback-citation-btn"
+                                    aria-label="View official citation and source verification"
+                                >
+                                    <ShieldCheck size={15} className="feedback-citation-icon" />
+                                    <span>Official Reference & Citation</span>
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -72,6 +98,13 @@ function FeedbackDrawer({ evaluation, onContinue }) {
                     </button>
                 </div>
             </div>
+
+            {showInfoModal && (
+                <QuestionInfoModal
+                    question={question}
+                    onClose={() => setShowInfoModal(false)}
+                />
+            )}
         </aside>
     );
 }

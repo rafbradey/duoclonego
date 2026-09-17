@@ -1,6 +1,11 @@
 import { getUserBadges } from "./badgeService.js";
 import { supabase, isSupabaseConfigured } from "./supabaseClient.js";
 import { onAuthStateChange } from "./authService.js";
+import {
+    evaluateStreakOnLogin,
+    calculateStreakOnActivity,
+    getLocalTodayDate
+} from "./streakService.js";
 
 export const SRS_INTERVALS = {
     0: 0,                           // Stage 0: Due immediately (learning / unredeemed mistake)
@@ -33,6 +38,7 @@ function normalizeUserData(raw) {
         completed_lessons: Array.isArray(raw.completed_lessons) ? raw.completed_lessons : [],
         unlocked_badges: Array.isArray(raw.unlocked_badges) ? raw.unlocked_badges : [],
         mistakes_queue: Array.isArray(raw.mistakes_queue) ? raw.mistakes_queue : [],
+        claimed_quests: Array.isArray(raw.claimed_quests) ? raw.claimed_quests : [],
         practice_sessions_completed: typeof raw.practice_sessions_completed === "number"
             ? raw.practice_sessions_completed
             : 0,
@@ -104,42 +110,73 @@ async function fetchCloudProfile(authUser) {
             .eq("id", authUser.id)
             .maybeSingle();
 
+        let profile = null;
+
         if (data && !error) {
-            return normalizeUserData({ ...baseAuthProfile, ...data, is_cloud: true });
+            profile = normalizeUserData({ ...baseAuthProfile, ...data, is_cloud: true });
+        } else {
+            // If row does not exist in profiles table yet, insert the initial record
+            const { data: inserted, error: insertError } = await supabase
+                .from("profiles")
+                .insert([{
+                    id: baseAuthProfile.id,
+                    email: baseAuthProfile.email,
+                    username: baseAuthProfile.username,
+                    display_name: baseAuthProfile.display_name,
+                    avatar: baseAuthProfile.avatar,
+                    xp: baseAuthProfile.xp,
+                    hearts: baseAuthProfile.hearts,
+                    streak: baseAuthProfile.streak,
+                    diamonds: baseAuthProfile.diamonds,
+                    streak_freeze_count: baseAuthProfile.streak_freeze_count,
+                    last_active_date: baseAuthProfile.last_active_date,
+                    completed_lessons: baseAuthProfile.completed_lessons,
+                    unlocked_badges: baseAuthProfile.unlocked_badges,
+                    mistakes_queue: baseAuthProfile.mistakes_queue,
+                    practice_sessions_completed: baseAuthProfile.practice_sessions_completed,
+                    srs_records: baseAuthProfile.srs_records
+                }])
+                .select()
+                .maybeSingle();
+
+            if (inserted && !insertError) {
+                profile = normalizeUserData({ ...baseAuthProfile, ...inserted, is_cloud: true });
+            } else {
+                profile = normalizeUserData(baseAuthProfile);
+            }
         }
 
-        // If row does not exist in profiles table yet, insert the initial record
-        const { data: inserted, error: insertError } = await supabase
-            .from("profiles")
-            .insert([{
-                id: baseAuthProfile.id,
-                email: baseAuthProfile.email,
-                username: baseAuthProfile.username,
-                display_name: baseAuthProfile.display_name,
-                avatar: baseAuthProfile.avatar,
-                xp: baseAuthProfile.xp,
-                hearts: baseAuthProfile.hearts,
-                streak: baseAuthProfile.streak,
-                diamonds: baseAuthProfile.diamonds,
-                streak_freeze_count: baseAuthProfile.streak_freeze_count,
-                last_active_date: baseAuthProfile.last_active_date,
-                completed_lessons: baseAuthProfile.completed_lessons,
-                unlocked_badges: baseAuthProfile.unlocked_badges,
-                mistakes_queue: baseAuthProfile.mistakes_queue,
-                practice_sessions_completed: baseAuthProfile.practice_sessions_completed,
-                srs_records: baseAuthProfile.srs_records
-            }])
-            .select()
-            .maybeSingle();
-
-        if (inserted && !insertError) {
-            return normalizeUserData({ ...baseAuthProfile, ...inserted, is_cloud: true });
+        if (typeof localStorage !== "undefined" && authUser?.id) {
+            try {
+                const cachedClaims = localStorage.getItem(`duoclongo_claimed_quests_${authUser.id}`);
+                if (cachedClaims) {
+                    profile.claimed_quests = JSON.parse(cachedClaims);
+                }
+            } catch {
+                // Ignore storage read errors
+            }
         }
 
-        return normalizeUserData(baseAuthProfile);
+        // Dynamically evaluate calendar streak and streak freezes on login
+        const streakEval = evaluateStreakOnLogin(profile);
+        if (streakEval.needsUpdate) {
+            profile.streak = streakEval.streak;
+            profile.streak_freeze_count = streakEval.streak_freeze_count;
+            profile.last_active_date = streakEval.last_active_date;
+            syncToCloud(profile);
+        }
+
+        return profile;
     } catch (err) {
         console.warn("Notice in fetchCloudProfile (fallback to base auth profile):", err);
-        return normalizeUserData(baseAuthProfile);
+        const fallback = normalizeUserData(baseAuthProfile);
+        const streakEval = evaluateStreakOnLogin(fallback);
+        if (streakEval.needsUpdate) {
+            fallback.streak = streakEval.streak;
+            fallback.streak_freeze_count = streakEval.streak_freeze_count;
+            fallback.last_active_date = streakEval.last_active_date;
+        }
+        return fallback;
     }
 }
 
@@ -320,7 +357,8 @@ export async function updateUserProgress({
     mistakeToAdd = null,
     mistakeToRemove = null,
     practiceSessionCompleted = false,
-    levelAttempt = null
+    levelAttempt = null,
+    claimedQuestsUpdate = null
 } = {}) {
     if (!currentUser) return null;
 
@@ -348,17 +386,42 @@ export async function updateUserProgress({
         (practiceSessionCompleted ? 1 : 0);
 
     const netDiamondsChange = diamondsToAdd + diamondsChange;
-    const today = new Date().toISOString().split("T")[0];
+    const today = getLocalTodayDate();
+
+    // Dynamically calculate streak transition when learner completes an activity
+    const isLearningActivity = xpToAdd > 0 || Boolean(completedLessonId) || practiceSessionCompleted;
+    let newStreak = currentUser.streak ?? 1;
+    let newFreezes = currentUser.streak_freeze_count ?? 0;
+    let newLastActive = currentUser.last_active_date || today;
+
+    if (isLearningActivity) {
+        const streakResult = calculateStreakOnActivity(currentUser);
+        newStreak = streakResult.newStreak;
+        newFreezes = streakResult.newFreezes;
+        newLastActive = streakResult.lastActiveDate;
+    }
+
+    const claimedQuests = claimedQuestsUpdate || (Array.isArray(currentUser.claimed_quests) ? [...currentUser.claimed_quests] : []);
+    if (claimedQuestsUpdate && typeof localStorage !== "undefined" && currentAuthUser?.id) {
+        try {
+            localStorage.setItem(`duoclongo_claimed_quests_${currentAuthUser.id}`, JSON.stringify(claimedQuestsUpdate));
+        } catch {
+            // Ignore storage write errors
+        }
+    }
 
     const updatedUser = {
         ...currentUser,
         xp: Math.max(0, (currentUser.xp || 0) + xpToAdd),
         hearts: Math.max(0, (currentUser.hearts || 5) + heartsChange),
         diamonds: Math.max(0, (currentUser.diamonds ?? 1200) + netDiamondsChange),
-        last_active_date: today,
+        streak: newStreak,
+        streak_freeze_count: newFreezes,
+        last_active_date: newLastActive,
         completed_lessons: completedLessons,
         mistakes_queue: mistakesQueue,
-        practice_sessions_completed: practiceCount
+        practice_sessions_completed: practiceCount,
+        claimed_quests: claimedQuests
     };
 
     const badgeInfo = getUserBadges(updatedUser);
@@ -554,18 +617,117 @@ export async function resetUserProgress() {
  * @returns {Object|null} Updated user object
  */
 export function setUserProfileCache(partialOrFullUser, { syncCloud = false } = {}) {
-    if (!partialOrFullUser || !currentUser) return currentUser;
+    if (!partialOrFullUser) return currentUser;
 
     currentUser = normalizeUserData({
-        ...currentUser,
+        ...(currentUser || {
+            id: "user-cache",
+            email: "guest@duoclongo.local",
+            username: "learner",
+            display_name: "Learner",
+            avatar: "default_male",
+            xp: 0,
+            hearts: 5,
+            streak: 1,
+            diamonds: 1200,
+            streak_freeze_count: 0,
+            last_active_date: new Date().toISOString().split("T")[0],
+            completed_lessons: [],
+            unlocked_badges: [],
+            mistakes_queue: [],
+            practice_sessions_completed: 0,
+            srs_records: {}
+        }),
         ...partialOrFullUser
     });
 
     notifyUserUpdated(currentUser);
 
-    if (syncCloud) {
+    if (syncCloud && currentAuthUser) {
         syncToCloud(currentUser);
     }
 
     return { ...currentUser };
+}
+
+/**
+ * Claims a daily quest reward (Gems & XP) for the active user.
+ * Prevents multiple claims on the same calendar day for the same quest.
+ *
+ * @param {string} questId - ID of the completed quest
+ * @param {number} [xpReward] - XP awarded
+ * @param {number} [gemsReward] - Gems awarded
+ * @returns {Promise<{ success: boolean, message: string }>}
+ */
+export async function claimDailyQuest(questId, xpReward = 0, gemsReward = 0) {
+    if (!currentUser) {
+        throw new Error("You must be logged in to claim quest rewards.");
+    }
+
+    const today = getLocalTodayDate();
+    const claimKey = `${today}:${questId}`;
+    const claimed = Array.isArray(currentUser.claimed_quests) ? [...currentUser.claimed_quests] : [];
+
+    if (claimed.includes(claimKey)) {
+        throw new Error("Quest reward has already been claimed for today.");
+    }
+
+    const updatedClaims = [...claimed, claimKey];
+    await updateUserProgress({
+        xpToAdd: xpReward,
+        diamondsToAdd: gemsReward,
+        claimedQuestsUpdate: updatedClaims
+    });
+
+    return {
+        success: true,
+        message: `Claimed +${gemsReward} Gems and +${xpReward} XP!`
+    };
+}
+
+/**
+ * Deducts 1 heart from the active user's profile upon an incorrect answer in a standard lesson.
+ * Minimum heart count is 0.
+ *
+ * @returns {Promise<number>} Updated hearts count
+ */
+export async function deductHeart() {
+    if (!currentUser) return 5;
+
+    const currentHearts = typeof currentUser.hearts === "number" ? currentUser.hearts : 5;
+    const newHearts = Math.max(0, currentHearts - 1);
+
+    currentUser = {
+        ...currentUser,
+        hearts: newHearts
+    };
+
+    notifyUserUpdated(currentUser);
+    syncToCloud(currentUser);
+
+    return newHearts;
+}
+
+/**
+ * Restores hearts for the active user's profile (e.g. upon completing a practice session).
+ * Maximum heart count is 5.
+ *
+ * @param {number} [amount=1] - Number of hearts to restore
+ * @returns {Promise<number>} Updated hearts count
+ */
+export async function restoreHeart(amount = 1) {
+    if (!currentUser) return 5;
+
+    const currentHearts = typeof currentUser.hearts === "number" ? currentUser.hearts : 5;
+    const newHearts = Math.min(5, currentHearts + Math.max(1, amount));
+
+    currentUser = {
+        ...currentUser,
+        hearts: newHearts
+    };
+
+    notifyUserUpdated(currentUser);
+    syncToCloud(currentUser);
+
+    return newHearts;
 }

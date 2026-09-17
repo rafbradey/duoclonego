@@ -1493,9 +1493,9 @@ function Documentation() {
                                             <td>Deferred to Future Research / Clinical Phase</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Quests & Leaderboards</strong></td>
-                                            <td>Static placeholders. Daily challenges, league brackets, and multiplayer cohort rankings are not yet implemented.</td>
-                                            <td>Phase 5</td>
+                                            <td><strong>Quests &amp; Leaderboards</strong></td>
+                                            <td>Implemented (Phase 5 Completed). Dynamic daily quest reward claim loop with calendar-based reset; competitive weekly cohort Leaderboard with 6 league tiers (Bronze to Diamond), top 3 podium standings, promotion/demotion cutoffs, and weekly reset timer; and calendar-based streak engine with Streak Freeze protection.</td>
+                                            <td>Implemented (Phase 5 Completed)</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Sound & Pronunciation</strong></td>

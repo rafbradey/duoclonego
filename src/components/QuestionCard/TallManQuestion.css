@@ -39,9 +39,9 @@
 }
 
 .tm-badge-guided {
-    background: rgba(45, 171, 105, 0.12);
-    border: 1px solid rgba(45, 171, 105, 0.28);
-    color: #2dab69;
+    background: rgba(88, 204, 2, 0.12);
+    border: 1px solid rgba(88, 204, 2, 0.28);
+    color: var(--color-primary);
 }
 
 .tm-badge-mastery {
@@ -66,45 +66,22 @@
 /* Target Medication Card */
 .tm-target-card {
     display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    padding: 1rem 1.25rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1.25rem;
     background: var(--bg-card, #1c1c1e);
     border: 2px solid var(--border-color, #2c2c2e);
     border-radius: 16px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
-.tm-target-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-    width: 100%;
-}
-
-.tm-target-label {
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted, #8e8e93);
-}
-
-.tm-target-name-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.35rem 0;
-}
-
 .tm-target-name {
-    font-size: clamp(1.3rem, 5vw, 1.75rem);
+    font-size: clamp(1.25rem, 4.5vw, 1.65rem);
     font-weight: 800;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     color: var(--text-primary, #ffffff);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    text-align: center;
     word-break: break-word;
 }
 
@@ -114,7 +91,7 @@
     flex-direction: column;
     align-items: center;
     gap: 0.85rem;
-    padding: 1.25rem;
+    padding: 1.15rem 1.25rem;
     background: var(--bg-card, #1c1c1e);
     border: 2px solid var(--border-color, #2c2c2e);
     border-radius: 16px;
@@ -124,15 +101,6 @@
 .tm-mastery-input-section {
     border-color: rgba(255, 179, 0, 0.3);
     background: rgba(255, 179, 0, 0.03);
-}
-
-.tm-input-label {
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted, #8e8e93);
-    align-self: flex-start;
 }
 
 .tm-input-wrapper {
@@ -171,31 +139,6 @@
 
 .tm-input-icon {
     position: absolute;
-    right: 1rem;
-    color: var(--text-muted, #8e8e93);
-    pointer-events: none;
-}
-
-/* Guided Mode Frame */
-.tm-guided-frame {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    width: 100%;
-    padding: 0.25rem 0;
-}
-
-.tm-affix {
-    font-size: clamp(1.2rem, 4.5vw, 1.5rem);
-    font-weight: 700;
-    color: var(--text-secondary, #d1d1d6);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
-.tm-guided-input-wrapper {
-    position: relative;
     display: inline-flex;
     align-items: center;
 }
@@ -206,7 +149,7 @@
     min-height: 48px;
     padding: 0.55rem 2.2rem 0.55rem 0.85rem;
     background: rgba(0, 0, 0, 0.3);
-    border: 2px solid var(--primary-color, #2dab69);
+    border: 2px solid var(--color-primary);
     border-radius: 12px;
     color: var(--text-primary, #ffffff);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -216,13 +159,13 @@
     text-transform: uppercase;
     text-align: center;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(45, 171, 105, 0.18);
+    box-shadow: 0 0 0 3px rgba(88, 204, 2, 0.18);
     transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 .tm-segment-input:focus {
-    border-color: #34c759;
-    box-shadow: 0 0 0 4px rgba(52, 199, 89, 0.32);
+    border-color: var(--color-primary-hover);
+    box-shadow: 0 0 0 4px rgba(88, 204, 2, 0.32);
 }
 
 .tm-segment-input:disabled {
@@ -238,8 +181,8 @@
     gap: 0.75rem;
     width: 100%;
     padding: 0.65rem 1rem;
-    background: rgba(45, 171, 105, 0.08);
-    border: 1px solid rgba(45, 171, 105, 0.2);
+    background: rgba(88, 204, 2, 0.08);
+    border: 1px solid rgba(88, 204, 2, 0.2);
     border-radius: 12px;
 }
 
@@ -248,7 +191,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #2dab69;
+    color: var(--color-primary);
     flex-shrink: 0;
 }
 

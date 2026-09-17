@@ -146,6 +146,42 @@
     margin: 0;
 }
 
+.feedback-citation-row {
+    margin-top: 0.4rem;
+}
+
+.feedback-citation-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.35rem 0.8rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+    width: fit-content;
+}
+
+.feedback-citation-btn:hover {
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.feedback-citation-icon {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.feedback-incorrect .feedback-citation-icon {
+    color: #f59e0b;
+}
+
 @media (max-width: 680px) {
     .feedback-drawer {
         padding: 1.15rem 1rem;

@@ -1,10 +1,8 @@
-import { useState } from "react";
-import { Info, Compass } from "lucide-react";
+import { Compass, RotateCcw } from "lucide-react";
 import MultipleChoiceQuestion from "./MultipleChoiceQuestion.jsx";
 import MatchingQuestion from "./MatchingQuestion.jsx";
 import TallManQuestion from "./TallManQuestion.jsx";
 import SoundAlikeQuestion from "./SoundAlikeQuestion.jsx";
-import QuestionInfoModal from "./QuestionInfoModal.jsx";
 import { getQuestionOrigin, formatQuestionOrigin } from "../../data/levels/index.js";
 import "./QuestionRenderer.css";
 
@@ -19,8 +17,8 @@ import "./QuestionRenderer.css";
  * - "matching": Interactive tap-to-match pair tiles
  * - "sound_alike": Acoustic discrimination and oral read-back practice
  *
- * Provides a question-level "ⓘ Information" button for transparent source verification,
- * and an Origin Banner identifying Section, Unit, and Level in review modes.
+ * Origin Banner identifies Section, Unit, and Level in review modes.
+ * Official citations are displayed post-submission in the Feedback Drawer.
  *
  * @param {Object} props
  * @param {Object} props.question - Question definition object
@@ -38,8 +36,6 @@ function QuestionRenderer({
     isSubmitted = false,
     isPracticeMode = false
 }) {
-    const [showInfoModal, setShowInfoModal] = useState(false);
-
     if (!question) return null;
 
     const isReviewQuestion = isPracticeMode || Boolean(question.isPractice);
@@ -119,46 +115,28 @@ function QuestionRenderer({
             }
     }
 
-    const hasSourceInfo = Boolean(
-        question.sourceUrl ||
-        question.sourceCitation ||
-        question.source ||
-        question.lasaId
-    );
+    const showHeaderRow = Boolean(originText || question.isRetry);
 
     return (
         <div className="question-renderer-container">
-            {originText && (
-                <div className="question-origin-row">
-                    <div className="question-origin-badge" aria-label={`Question origin: ${originText}`}>
-                        <Compass size={13} className="question-origin-icon" />
-                        <span className="question-origin-text">{originText}</span>
-                    </div>
+            {showHeaderRow && (
+                <div className="question-badge-row">
+                    {question.isRetry && (
+                        <div className="question-retry-badge" aria-label="Reviewing previous mistake">
+                            <RotateCcw size={13} className="question-retry-icon" />
+                            <span>PREVIOUS MISTAKE • REVIEW</span>
+                        </div>
+                    )}
+                    {originText && (
+                        <div className="question-origin-badge" aria-label={`Question origin: ${originText}`}>
+                            <Compass size={13} className="question-origin-icon" />
+                            <span className="question-origin-text">{originText}</span>
+                        </div>
+                    )}
                 </div>
             )}
 
             {content}
-
-            {hasSourceInfo && (
-                <div className="question-info-trigger-row">
-                    <button
-                        type="button"
-                        className="question-info-btn"
-                        onClick={() => setShowInfoModal(true)}
-                        aria-label="View source verification information"
-                    >
-                        <Info size={15} className="question-info-btn-icon" />
-                        <span>Information</span>
-                    </button>
-                </div>
-            )}
-
-            {showInfoModal && (
-                <QuestionInfoModal
-                    question={question}
-                    onClose={() => setShowInfoModal(false)}
-                />
-            )}
         </div>
     );
 }
