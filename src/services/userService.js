@@ -43,6 +43,8 @@ function normalizeUserData(raw) {
             ? raw.practice_sessions_completed
             : 0,
         srs_records: raw.srs_records && typeof raw.srs_records === "object" ? raw.srs_records : {},
+        owned_themes: Array.isArray(raw.owned_themes) ? raw.owned_themes : [],
+        equipped_theme: typeof raw.equipped_theme === "string" ? raw.equipped_theme : null,
         is_cloud: true,
         created_at: raw.created_at || new Date().toISOString()
     };
@@ -96,6 +98,8 @@ async function fetchCloudProfile(authUser) {
         mistakes_queue: [],
         practice_sessions_completed: 0,
         srs_records: {},
+        owned_themes: [],
+        equipped_theme: null,
         is_cloud: true
     };
 
@@ -113,6 +117,7 @@ async function fetchCloudProfile(authUser) {
         let profile = null;
 
         if (data && !error) {
+            console.log("[DEBUG fetchCloudProfile] Supabase returned data.diamonds:", data.diamonds, "| full data keys:", Object.keys(data));
             profile = normalizeUserData({ ...baseAuthProfile, ...data, is_cloud: true });
         } else {
             // If row does not exist in profiles table yet, insert the initial record
@@ -152,6 +157,18 @@ async function fetchCloudProfile(authUser) {
                 if (cachedClaims) {
                     profile.claimed_quests = JSON.parse(cachedClaims);
                 }
+                const cachedOwned = localStorage.getItem(`duoclongo_owned_themes_${authUser.id}`);
+                if (cachedOwned) {
+                    const parsed = JSON.parse(cachedOwned);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        profile.owned_themes = Array.from(new Set([...(profile.owned_themes || []), ...parsed]));
+                    }
+                }
+                const cachedEquipped = localStorage.getItem(`duoclongo_equipped_theme_${authUser.id}`)
+                    || localStorage.getItem("duoclongo_active_theme");
+                if (cachedEquipped && cachedEquipped !== "default") {
+                    profile.equipped_theme = cachedEquipped;
+                }
             } catch {
                 // Ignore storage read errors
             }
@@ -170,6 +187,22 @@ async function fetchCloudProfile(authUser) {
     } catch (err) {
         console.warn("Notice in fetchCloudProfile (fallback to base auth profile):", err);
         const fallback = normalizeUserData(baseAuthProfile);
+        if (typeof localStorage !== "undefined" && authUser?.id) {
+            try {
+                const cachedOwned = localStorage.getItem(`duoclongo_owned_themes_${authUser.id}`);
+                if (cachedOwned) {
+                    const parsed = JSON.parse(cachedOwned);
+                    if (Array.isArray(parsed)) fallback.owned_themes = parsed;
+                }
+                const cachedEquipped = localStorage.getItem(`duoclongo_equipped_theme_${authUser.id}`)
+                    || localStorage.getItem("duoclongo_active_theme");
+                if (cachedEquipped && cachedEquipped !== "default") {
+                    fallback.equipped_theme = cachedEquipped;
+                }
+            } catch {
+                // Ignore storage read errors
+            }
+        }
         const streakEval = evaluateStreakOnLogin(fallback);
         if (streakEval.needsUpdate) {
             fallback.streak = streakEval.streak;
@@ -209,12 +242,57 @@ async function syncToCloud(user) {
             .eq("id", currentAuthUser.id);
 
         if (error) {
-            console.warn("Failed to sync profile update to Supabase:", error);
+            console.warn("[DEBUG syncToCloud] full payload FAILED:", error.message, "| diamonds sent:", payload.diamonds);
+            // Retry with only core fields that are guaranteed to exist in the schema
+            const corePayload = {
+                level: user.level,
+                hearts: user.hearts,
+                streak: user.streak,
+                xp: user.xp,
+                diamonds: user.diamonds,
+                completed_lessons: user.completed_lessons,
+                unlocked_badges: user.unlocked_badges,
+                mistakes_queue: user.mistakes_queue,
+                practice_sessions_completed: user.practice_sessions_completed,
+                srs_records: user.srs_records,
+                updated_at: new Date().toISOString()
+            };
+            const { error: retryError } = await supabase
+                .from("profiles")
+                .update(corePayload)
+                .eq("id", currentAuthUser.id);
+            if (retryError) {
+                console.warn("[DEBUG syncToCloud] core retry ALSO FAILED:", retryError.message);
+            } else {
+                console.log("[DEBUG syncToCloud] core retry SUCCEEDED, diamonds:", corePayload.diamonds);
+            }
+        } else {
+            console.log("[DEBUG syncToCloud] full payload SUCCEEDED, diamonds:", payload.diamonds);
         }
     } catch (err) {
         console.error("Exception while syncing profile to cloud:", err);
     }
+
+    // Persist theme data to localStorage (not in Supabase schema)
+    if (typeof localStorage !== "undefined" && currentAuthUser?.id) {
+        try {
+            const userId = currentAuthUser.id;
+            if (Array.isArray(user.owned_themes)) {
+                localStorage.setItem(`duoclongo_owned_themes_${userId}`, JSON.stringify(user.owned_themes));
+            }
+            if (user.equipped_theme) {
+                localStorage.setItem(`duoclongo_equipped_theme_${userId}`, user.equipped_theme);
+                localStorage.setItem("duoclongo_active_theme", user.equipped_theme);
+            } else {
+                localStorage.removeItem(`duoclongo_equipped_theme_${userId}`);
+                localStorage.removeItem("duoclongo_active_theme");
+            }
+        } catch {
+            // Ignore storage write errors
+        }
+    }
 }
+
 
 /**
  * Initializes authentication listener and establishes reliable single source of truth.
@@ -260,7 +338,6 @@ export async function initializeUserAuth() {
         if (
             (event === "SIGNED_IN" ||
              event === "INITIAL_SESSION" ||
-             event === "TOKEN_REFRESHED" ||
              event === "USER_UPDATED") &&
             hasUser
         ) {
@@ -268,6 +345,10 @@ export async function initializeUserAuth() {
             const cloudProfile = await fetchCloudProfile(session.user);
             currentUser = cloudProfile;
             notifyUserUpdated(currentUser);
+        } else if (event === "TOKEN_REFRESHED" && hasUser) {
+            // Only update the auth token reference — do NOT re-fetch the profile
+            // from Supabase, which would overwrite in-memory state (diamonds, themes, etc.)
+            currentAuthUser = session.user;
         } else if (event === "SIGNED_OUT" || (!hasUser && event !== "INITIAL_SESSION")) {
             currentAuthUser = null;
             currentUser = null;
@@ -636,7 +717,9 @@ export function setUserProfileCache(partialOrFullUser, { syncCloud = false } = {
             unlocked_badges: [],
             mistakes_queue: [],
             practice_sessions_completed: 0,
-            srs_records: {}
+            srs_records: {},
+            owned_themes: [],
+            equipped_theme: null
         }),
         ...partialOrFullUser
     });
@@ -730,4 +813,103 @@ export async function restoreHeart(amount = 1) {
     syncToCloud(currentUser);
 
     return newHearts;
+}
+
+/**
+ * Applies a theme attribute to document.documentElement.
+ * When themeId is null, empty, or 'default', removes the attribute so classic dark mode applies.
+ *
+ * @param {string|null} themeId
+ */
+export function applyThemeToDocument(themeId) {
+    if (typeof document === "undefined") return;
+    const target = (!themeId || themeId === "default") ? null : themeId;
+
+    if (!target) {
+        document.documentElement.removeAttribute("data-theme");
+        document.body?.removeAttribute("data-theme");
+    } else {
+        document.documentElement.setAttribute("data-theme", target);
+        document.body?.setAttribute("data-theme", target);
+    }
+}
+
+/**
+ * Retrieves the active equipped theme ID from user profile or local storage.
+ *
+ * @returns {string|null}
+ */
+export function getActiveEquippedTheme() {
+    if (currentUser?.equipped_theme) {
+        return currentUser.equipped_theme;
+    }
+    if (typeof localStorage !== "undefined") {
+        const stored = localStorage.getItem("duoclongo_active_theme");
+        return stored && stored !== "default" ? stored : null;
+    }
+    return null;
+}
+
+/**
+ * Equips an owned site theme, updates profile state, persists, and immediately sets data-theme.
+ *
+ * @param {string|null} themeId - ID of theme to equip, or null/'default' to unequip/reset
+ * @returns {Promise<{ success: boolean, equipped_theme: string|null }>}
+ */
+export async function equipTheme(themeId) {
+    const targetTheme = (!themeId || themeId === "default") ? null : themeId;
+    const userId = currentUser?.id || "guest";
+
+    let storedOwned = [];
+    if (typeof localStorage !== "undefined") {
+        try {
+            storedOwned = JSON.parse(localStorage.getItem(`duoclongo_owned_themes_${userId}`) || "[]");
+        } catch {}
+    }
+
+    if (!currentUser) {
+        // Guest mode fallback
+        applyThemeToDocument(targetTheme);
+        if (typeof localStorage !== "undefined") {
+            if (targetTheme) {
+                localStorage.setItem("duoclongo_active_theme", targetTheme);
+            } else {
+                localStorage.removeItem("duoclongo_active_theme");
+            }
+        }
+        return { success: true, equipped_theme: targetTheme };
+    }
+
+    const effectiveOwned = Array.from(new Set([...(currentUser.owned_themes || []), ...storedOwned]));
+    currentUser.owned_themes = effectiveOwned;
+
+    // Verify ownership if equipping a custom theme
+    if (targetTheme && !effectiveOwned.includes(targetTheme)) {
+        throw new Error("You must purchase this theme from the Shop before equipping it.");
+    }
+
+    currentUser = {
+        ...currentUser,
+        equipped_theme: targetTheme
+    };
+
+    applyThemeToDocument(targetTheme);
+
+    if (typeof localStorage !== "undefined") {
+        if (targetTheme) {
+            localStorage.setItem(`duoclongo_equipped_theme_${userId}`, targetTheme);
+            localStorage.setItem("duoclongo_active_theme", targetTheme);
+        } else {
+            localStorage.removeItem(`duoclongo_equipped_theme_${userId}`);
+            localStorage.removeItem("duoclongo_active_theme");
+        }
+    }
+
+    notifyUserUpdated(currentUser);
+    syncToCloud(currentUser);
+
+    return {
+        success: true,
+        equipped_theme: targetTheme
+    };
 }

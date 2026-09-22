@@ -21,7 +21,8 @@ import {
     Pencil,
     Layers,
     Cloud,
-    LogOut
+    LogOut,
+    Palette
 } from "lucide-react";
 import {
     getDueSrsPairs,
@@ -29,9 +30,11 @@ import {
 } from "../../services/userService.js";
 import { useAuth } from "../../context/AuthContext.jsx";
 import { getUserBadges } from "../../services/badgeService.js";
+import { getThemeById } from "../../data/themes.js";
 import { allUnits, allLevels } from "../../data/levels/index.js";
 import userAvatar from "../../assets/avatars/default_avatar_male.png";
 import "./Profile.css";
+
 
 function BadgeIcon({ iconName, size = 24 }) {
     switch (iconName) {
@@ -189,11 +192,22 @@ function Profile() {
                         </span>
                     </div>
                     <span className="profile-username-tag">@{user.username}</span>
-                    <div className="profile-joined-date">
-                        <Calendar size={16} />
-                        <span>Joined {memberSince}</span>
+                    <div className="profile-meta-row">
+                        <div className="profile-joined-date">
+                            <Calendar size={15} />
+                            <span>Joined {memberSince}</span>
+                        </div>
+                        <Link
+                            to="/shop"
+                            className="profile-equipped-theme-pill"
+                            title="Equipped Theme — Click to customize in Item Shop"
+                        >
+                            <Palette size={13} />
+                            <span>Theme: {getThemeById(user?.equipped_theme)?.name || "Classic Duoclongo"}</span>
+                        </Link>
                     </div>
                 </div>
+
 
                 <div className="profile-header-actions">
                     <button

@@ -60,13 +60,15 @@ export function AuthProvider({ children }) {
                 if (session?.user && (
                     event === "SIGNED_IN" ||
                     event === "INITIAL_SESSION" ||
-                    event === "TOKEN_REFRESHED" ||
                     event === "USER_UPDATED"
                 )) {
                     setAuthUser(session.user);
                     const userProfile = await getCurrentUser();
                     setProfile(userProfile);
                     setStatus(AUTH_STATUS.AUTHENTICATED);
+                } else if (event === "TOKEN_REFRESHED" && session?.user) {
+                    // Token refreshed — don't re-fetch profile, just update auth user ref
+                    setAuthUser(session.user);
                 } else if (event === "SIGNED_OUT" || !session?.user) {
                     setAuthUser(null);
                     setProfile(null);

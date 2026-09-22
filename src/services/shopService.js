@@ -6,7 +6,8 @@
  */
 
 import { supabase } from "./supabaseClient.js";
-import { getCurrentUser, setUserProfileCache } from "./userService.js";
+import { getCurrentUser, setUserProfileCache, applyThemeToDocument } from "./userService.js";
+import { THEMES_CATALOG, CLASSIC_THEME, getThemeById } from "../data/themes.js";
 import heartIcon from "../assets/items/heart.png";
 import streakIcon from "../assets/items/fire_streak.png";
 
@@ -68,6 +69,45 @@ export function getShopCatalog(user) {
             ...item,
             canBuy,
             disabledReason: reason
+        };
+    });
+}
+
+/**
+ * Returns the theme customization catalog annotated with ownership and equipped state.
+ * @param {Object|null} user - Active user profile
+ * @returns {Array} List of themes with user eligibility and equipped statuses
+ */
+export function getThemeShopCatalog(user) {
+    const owned = Array.isArray(user?.owned_themes) ? user.owned_themes : [];
+    const equipped = user?.equipped_theme || null;
+    const gems = user?.diamonds ?? 0;
+
+    // Prepend the Classic default theme
+    const allThemes = [CLASSIC_THEME, ...THEMES_CATALOG];
+
+    return allThemes.map((theme) => {
+        const isDefault = theme.id === "default";
+        const isOwned = isDefault || owned.includes(theme.id);
+        const isEquipped = isDefault ? (!equipped || equipped === "default") : (equipped === theme.id);
+        const canBuy = !isOwned && gems >= theme.cost;
+        const missingGems = Math.max(0, theme.cost - gems);
+
+        let statusLabel = "BUY";
+        if (isEquipped) {
+            statusLabel = "EQUIPPED";
+        } else if (isOwned) {
+            statusLabel = "EQUIP";
+        }
+
+        return {
+            ...theme,
+            isDefault,
+            isOwned,
+            isEquipped,
+            canBuy,
+            missingGems,
+            statusLabel
         };
     });
 }
@@ -176,3 +216,80 @@ export async function purchaseShopItem(itemId) {
         message: successMessage
     };
 }
+
+/**
+ * Purchases a site theme with diamonds, equips it, and persists the unlock.
+ *
+ * @param {string} themeId - ID of theme to purchase
+ * @returns {Promise<{ success: boolean, theme: Object, user: Object, message: string }>}
+ */
+export async function purchaseTheme(themeId) {
+    const user = await getCurrentUser();
+    if (!user) {
+        throw new Error("You must be logged in to purchase themes.");
+    }
+
+    const theme = getThemeById(themeId);
+    if (!theme || theme.id === "default") {
+        throw new Error(`Theme "${themeId}" cannot be purchased.`);
+    }
+
+    const owned = Array.isArray(user.owned_themes) ? [...user.owned_themes] : [];
+    if (owned.includes(themeId)) {
+        throw new Error(`You already own the "${theme.name}" theme.`);
+    }
+
+    const currentDiamonds = user.diamonds ?? 0;
+    if (currentDiamonds < theme.cost) {
+        const missing = theme.cost - currentDiamonds;
+        throw new Error(`Not enough gems! You need ${missing.toLocaleString()} more gems to unlock ${theme.name}.`);
+    }
+
+    const updatedDiamonds = currentDiamonds - theme.cost;
+    const updatedOwned = [...owned, themeId];
+
+    const updates = {
+        diamonds: updatedDiamonds,
+        owned_themes: updatedOwned,
+        equipped_theme: themeId,
+        updated_at: new Date().toISOString()
+    };
+
+    if (supabase && user.id) {
+        try {
+            const { error: updateError } = await supabase
+                .from("profiles")
+                .update({
+                    diamonds: updatedDiamonds,
+                    updated_at: updates.updated_at
+                })
+                .eq("id", user.id);
+
+            if (updateError) {
+                console.warn("Supabase theme purchase diamond update notice:", updateError);
+            }
+        } catch (dbErr) {
+            console.warn("Cloud persistence warning for theme purchase:", dbErr);
+        }
+    }
+
+    // Optimistically update memory and apply theme to DOM immediately
+    const updatedUser = setUserProfileCache(updates, { syncCloud: false });
+    applyThemeToDocument(themeId);
+
+    // Save to localStorage for instant reload
+    if (typeof localStorage !== "undefined") {
+        const userId = user.id || "guest";
+        localStorage.setItem(`duoclongo_owned_themes_${userId}`, JSON.stringify(updatedOwned));
+        localStorage.setItem(`duoclongo_equipped_theme_${userId}`, themeId);
+        localStorage.setItem("duoclongo_active_theme", themeId);
+    }
+
+    return {
+        success: true,
+        theme,
+        user: updatedUser,
+        message: `🎨 Unlocked & equipped the "${theme.name}" theme!`
+    };
+}
+

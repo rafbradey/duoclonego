@@ -18,7 +18,11 @@
 | **Task 7** | Design Token Unification (Primary Green & Component Consistency) | Medium | `[x]` |
 | **Task 8** | Right Rail Desktop Affordance & MC Scenario Context Integration | Low | `[x]` |
 | **Task 9** | In-Session Retry Loop & Functional Hearts Mechanics | Critical | `[x]` |
-| **Task 10** | Simplify Level Completion Screen (Compact Accordion & Spacious Layout) | High | `[x]` |
+| **Task 10** | Simplify Level Completion Screen (Option A+ Minimalist + Option D Hybrid) | High | `[x]` |
+| **Task 11** | Level Completion Visual Overhaul Lab (`/completion-preview`) | High | `[x]` |
+| **Task 12** | Theme Test Lab (`/theme-preview`) & Token Architecture | High | `[x]` |
+| **Task 13** | Item Shop Site Themes Production Integration & Equipping Engine | High | `[x]` |
+
 
 ---
 
@@ -284,5 +288,69 @@
   - `npm run lint`: 0 errors, 0 warnings.
   - `npm run build`: Built cleanly in 726ms.
   - Available at `http://localhost:5173/completion-preview`.
+
+---
+
+### Task 12: Item Shop Themes Customization System & Theme Test Environment (Phase 1)
+- **Priority**: High
+- **Objective**:
+  1. Build a centralized customization and site theme architecture for Duoclongo with 15 initial collectible themes across Common, Rare, Epic, and Legendary tiers.
+  2. Implement an isolated, rich Theme Test Lab at `/theme-preview` to preview and compare all themes without altering production user data or active themes.
+  3. Ensure all themes control `--bg-page`, `--bg-surface`, `--color-primary`, `--border-color`, and text colors via `[data-theme="..."]`.
+  4. Provide 5 live preview surfaces (App Shell, Learning Path, Question UI, Item Shop with Theme shelf, Badges & Rewards) across Desktop, Tablet (768px), and Mobile (390px) viewports.
+  5. Safeguard WCAG AA contrast, medication legibility, and Tall Man capitalization prominence across all themes.
+- **Relevant Files**:
+  - `src/data/themes.js`
+  - `src/styles/themes.css`
+  - `src/pages/ThemePreview/ThemePreview.jsx`
+  - `src/pages/ThemePreview/ThemePreview.css`
+  - `src/App.jsx`
+  - `src/index.css`
+- **Status**: `[x]`
+- **Implementation Notes**:
+  - Defined all 15 themes in `src/data/themes.js` with metadata, rarity tiers, prices (100–1,500 💎), color palettes, and descriptions.
+  - Configured design tokens and ambient background effects in `src/styles/themes.css` under scoped `[data-theme="..."]` selectors, imported directly in `src/index.css`.
+  - Built interactive `ThemePreview` component with instant theme switcher, rarity filter, viewport emulation (Desktop, Tablet, Mobile), and 5 surface tabs.
+  - Added public `/theme-preview` route in `App.jsx` with `?theme=` URL deep-linking support.
+- **Validation & Results**:
+  - `npm run lint`: 0 errors, 0 warnings.
+  - `npm run build`: Built cleanly in 709ms.
+  - Automated tests `scratch/test_hearts_and_retry.mjs`: All passing.
+  - Live preview accessible at `http://localhost:5173/theme-preview`.
+
+---
+
+### Task 13: Item Shop Themes & Customization System — Production Integration (Phase 2)
+- **Priority**: High
+- **Objective**:
+  1. Integrate the "Customizations • Site Themes" shelf directly into the Item Shop (`/shop`).
+  2. Enable purchasing site themes with Diamonds, deducting currency, and persisting ownership (`owned_themes`).
+  3. Enable equipping and unequipping themes (`equipped_theme`), dynamically updating `document.documentElement.setAttribute('data-theme', themeId)`.
+  4. Ensure zero-flash theme application on page reload via synchronized local storage caching and global auth updates.
+  5. Support rarity filtering (All, Common, Rare, Epic, Legendary), color swatch previews, and deep-linking to the Theme Test Lab.
+- **Relevant Files**:
+  - `src/data/themes.js`
+  - `src/services/userService.js`
+  - `src/services/shopService.js`
+  - `src/App.jsx`
+  - `src/pages/Shop/Shop.jsx`
+  - `src/pages/Shop/Shop.css`
+  - `src/pages/ThemePreview/ThemePreview.jsx`
+- **Status**: `[x]`
+- **Implementation Notes**:
+  - Added `CLASSIC_THEME` baseline object representing default Duoclongo styling (cost: 0 💎, always owned, resettable anytime).
+  - Extended `userService.js` to normalize, cache, and cloud-sync `owned_themes: []` and `equipped_theme: null`, with helper functions `applyThemeToDocument`, `getActiveEquippedTheme`, and `equipTheme`.
+  - Added `getThemeShopCatalog(user)` and `purchaseTheme(themeId)` in `shopService.js` with optimistic UI reconciliation, balance validation, cloud sync with local fallbacks, and immediate activation.
+  - Implemented the full "Customizations • Site Themes" section in `Shop.jsx` with rarity filter pills, interactive theme cards, color swatch pills, real-time action states (`BUY`, `EQUIP`, `EQUIPPED`, `UNEQUIP`), toast notifications, and `Preview in Lab` deep-links.
+  - Added responsive grid and mobile optimizations in `Shop.css`.
+  - Added automated test suite `scratch/test_themes_and_shop.mjs` verifying catalog integrity, shop eligibility, purchases, gem deductions, equip/unequip, and invalid action guards.
+- **Validation & Results**:
+  - Automated tests: `node --loader ./scratch/loader.mjs scratch/test_themes_and_shop.mjs`: 100% passed.
+  - Regression tests: `node scratch/test_hearts_and_retry.mjs`: 100% passed.
+  - `npm run lint`: 0 errors, 0 warnings.
+  - `npm run build`: Production build completed cleanly in 781ms.
+  - Dev server HTTP checks: Both `http://localhost:5173/shop` and `http://localhost:5173/theme-preview` returning 200 OK.
+
+
 
 
