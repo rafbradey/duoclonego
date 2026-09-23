@@ -49,14 +49,19 @@ export default function Login() {
                     throw new Error("Password must be at least 6 characters long.");
                 }
 
-                await signUp({
+                const result = await signUp({
                     email,
                     password,
                     username: username.trim() || undefined,
                     displayName: displayName.trim() || undefined
                 });
 
-                setSuccessMessage("Account created successfully! Taking you to learning...");
+                if (result?.session) {
+                    setSuccessMessage("Account created successfully! Taking you to learning...");
+                } else {
+                    setSuccessMessage("Account created! Please check your email inbox to confirm your registration before signing in.");
+                    setMode("signin");
+                }
             } else {
                 if (!email || !password) {
                     throw new Error("Please enter your email and password.");
@@ -67,7 +72,14 @@ export default function Login() {
             }
         } catch (err) {
             console.error("Authentication error:", err);
-            setErrorMessage(err.message || "An unexpected error occurred. Please check your details and try again.");
+            let msg = err.message || "An unexpected error occurred. Please check your details and try again.";
+            const lower = msg.toLowerCase();
+            if (lower.includes("email not confirmed")) {
+                msg = "Please confirm your email address before signing in. Check your inbox for the confirmation link.";
+            } else if (lower.includes("invalid login credentials")) {
+                msg = "Invalid email or password. Please verify your credentials and try again.";
+            }
+            setErrorMessage(msg);
         } finally {
             setIsLoading(false);
         }

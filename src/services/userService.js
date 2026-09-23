@@ -864,7 +864,9 @@ export async function equipTheme(themeId) {
     if (typeof localStorage !== "undefined") {
         try {
             storedOwned = JSON.parse(localStorage.getItem(`duoclongo_owned_themes_${userId}`) || "[]");
-        } catch {}
+        } catch {
+            // Ignore corrupted local theme cache
+        }
     }
 
     if (!currentUser) {

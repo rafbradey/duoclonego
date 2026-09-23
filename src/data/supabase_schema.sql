@@ -133,6 +133,13 @@ CREATE POLICY "Users can insert own level attempts"
     FOR INSERT
     WITH CHECK (auth.uid() = user_id);
 
+-- Schema and Table Grants for PostgREST API access
+GRANT USAGE ON SCHEMA public TO anon, authenticated;
+GRANT ALL ON TABLE public.profiles TO anon, authenticated;
+GRANT ALL ON TABLE public.level_attempts TO anon, authenticated;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO anon, authenticated;
+GRANT ALL ON ALL ROUTINES IN SCHEMA public TO anon, authenticated;
+
 -- ==============================================================================
 -- 6. Phase 5A: Duoclongo Shop Extensions & Atomic Purchase RPC Functions
 -- ==============================================================================

@@ -92,7 +92,14 @@ function AuthModal({ isOpen, onClose, initialMode = "signin" }) {
             }
         } catch (err) {
             console.error("Auth error:", err);
-            setErrorMessage(err.message || "An unexpected error occurred.");
+            let msg = err.message || "An unexpected error occurred.";
+            const lower = msg.toLowerCase();
+            if (lower.includes("email not confirmed")) {
+                msg = "Please confirm your email address before signing in. Check your inbox for the confirmation link.";
+            } else if (lower.includes("invalid login credentials")) {
+                msg = "Invalid email or password. Please verify your credentials and try again.";
+            }
+            setErrorMessage(msg);
         } finally {
             setIsLoading(false);
         }
