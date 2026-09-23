@@ -24,7 +24,7 @@ function LessonSession() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [currentEvaluation, setCurrentEvaluation] = useState(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [hearts, setHearts] = useState(5);
+    const [hearts, setHearts] = useState(500);
     const [loading, setLoading] = useState(true);
     const [showOutOfHeartsModal, setShowOutOfHeartsModal] = useState(false);
     const [pendingOutOfHearts, setPendingOutOfHearts] = useState(false);

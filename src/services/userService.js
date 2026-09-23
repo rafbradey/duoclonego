@@ -29,7 +29,7 @@ function normalizeUserData(raw) {
         display_name: raw.display_name || raw.username || raw.email?.split("@")[0] || "Learner",
         avatar: raw.avatar || "default_male",
         level: typeof raw.level === "number" ? raw.level : 1,
-        hearts: typeof raw.hearts === "number" ? raw.hearts : 5,
+        hearts: typeof raw.hearts === "number" ? raw.hearts : 500,
         streak: typeof raw.streak === "number" ? raw.streak : 1,
         xp: typeof raw.xp === "number" ? raw.xp : 0,
         diamonds: typeof raw.diamonds === "number" ? raw.diamonds : 1200,
@@ -66,7 +66,7 @@ const DEFAULT_GUEST_PROFILE = {
     display_name: "Guest Learner",
     avatar: "default_male",
     level: 1,
-    hearts: 5,
+    hearts: 500,
     streak: 1,
     xp: 0,
     diamonds: 1200,
@@ -92,6 +92,9 @@ function loadPersistedGuestUser() {
         const saved = window.localStorage.getItem(STORAGE_KEY);
         if (saved) {
             const parsed = JSON.parse(saved);
+            if (typeof parsed.hearts !== "number" || parsed.hearts <= 5) {
+                parsed.hearts = 500;
+            }
             return normalizeUserData({ ...DEFAULT_GUEST_PROFILE, ...parsed, is_cloud: false });
         }
     } catch (e) {
@@ -142,7 +145,7 @@ async function fetchCloudProfile(authUser) {
         display_name: authUser.user_metadata?.display_name || authUser.user_metadata?.username || authUser.email?.split("@")[0] || "Learner",
         avatar: authUser.user_metadata?.avatar || "default_male",
         xp: 0,
-        hearts: 5,
+        hearts: 500,
         streak: 1,
         diamonds: 1200,
         streak_freeze_count: 0,
@@ -551,7 +554,7 @@ export async function updateUserProgress({
     const updatedUser = {
         ...currentUser,
         xp: Math.max(0, (currentUser.xp || 0) + xpToAdd),
-        hearts: Math.max(0, (currentUser.hearts || 5) + heartsChange),
+        hearts: Math.max(0, (currentUser.hearts || 500) + heartsChange),
         diamonds: Math.max(0, (currentUser.diamonds ?? 1200) + netDiamondsChange),
         streak: newStreak,
         streak_freeze_count: newFreezes,
@@ -713,7 +716,7 @@ export async function resetUserProgress() {
             .from("profiles")
             .update({
                 xp: 0,
-                hearts: 5,
+                hearts: 500,
                 streak: 1,
                 diamonds: 1200,
                 completed_lessons: [],
@@ -733,7 +736,7 @@ export async function resetUserProgress() {
             currentUser = {
                 ...currentUser,
                 xp: 0,
-                hearts: 5,
+                hearts: 500,
                 streak: 1,
                 diamonds: 1200,
                 completed_lessons: [],
@@ -771,7 +774,7 @@ export function setUserProfileCache(partialOrFullUser, { syncCloud = false } = {
             display_name: "Learner",
             avatar: "default_male",
             xp: 0,
-            hearts: 5,
+            hearts: 500,
             streak: 1,
             diamonds: 1200,
             streak_freeze_count: 0,
@@ -838,9 +841,9 @@ export async function claimDailyQuest(questId, xpReward = 0, gemsReward = 0) {
  * @returns {Promise<number>} Updated hearts count
  */
 export async function deductHeart() {
-    if (!currentUser) return 5;
+    if (!currentUser) return 500;
 
-    const currentHearts = typeof currentUser.hearts === "number" ? currentUser.hearts : 5;
+    const currentHearts = typeof currentUser.hearts === "number" ? currentUser.hearts : 500;
     const newHearts = Math.max(0, currentHearts - 1);
 
     currentUser = {
@@ -856,16 +859,16 @@ export async function deductHeart() {
 
 /**
  * Restores hearts for the active user's profile (e.g. upon completing a practice session).
- * Maximum heart count is 5.
+ * Maximum heart count is 500.
  *
  * @param {number} [amount=1] - Number of hearts to restore
  * @returns {Promise<number>} Updated hearts count
  */
 export async function restoreHeart(amount = 1) {
-    if (!currentUser) return 5;
+    if (!currentUser) return 500;
 
-    const currentHearts = typeof currentUser.hearts === "number" ? currentUser.hearts : 5;
-    const newHearts = Math.min(5, currentHearts + Math.max(1, amount));
+    const currentHearts = typeof currentUser.hearts === "number" ? currentUser.hearts : 500;
+    const newHearts = Math.min(500, currentHearts + Math.max(1, amount));
 
     currentUser = {
         ...currentUser,

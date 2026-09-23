@@ -164,7 +164,7 @@ function Shop() {
                     <div className="shop-balance-badge shop-hearts-badge" title="Your Remaining Hearts">
                         <img src={heartIcon} alt="Hearts" className="shop-balance-icon" />
                         <div className="shop-balance-info">
-                            <span className="shop-balance-num shop-hearts-num">{user?.hearts ?? 5} / 5</span>
+                            <span className="shop-balance-num shop-hearts-num">{user?.hearts ?? 500} / 500</span>
                             <span className="shop-balance-label">Hearts Left</span>
                         </div>
                     </div>
@@ -210,7 +210,7 @@ function Shop() {
 
                         let metaText = "";
                         if (item.id === "heart_refill") {
-                            metaText = `Current: ${user?.hearts ?? 5} / 5 hearts`;
+                            metaText = `Current: ${user?.hearts ?? 500} / 500 hearts`;
                         } else if (item.id === "streak_freeze") {
                             metaText = `Equipped: ${user?.streak_freeze_count ?? 0} / 2 max`;
                         }

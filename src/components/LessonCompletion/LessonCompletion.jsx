@@ -143,7 +143,7 @@ function LessonCompletion({ session, lesson }) {
                     if (updatedUser) {
                         setUser(updatedUser);
                     }
-                    if (isPractice && prevUser && typeof prevUser.hearts === "number" && prevUser.hearts < 5) {
+                    if (isPractice && prevUser && typeof prevUser.hearts === "number" && prevUser.hearts < 500) {
                         const newHearts = await restoreHeart(1);
                         setHeartRestored(true);
                         setUser((prev) => (prev ? { ...prev, hearts: newHearts } : prev));
