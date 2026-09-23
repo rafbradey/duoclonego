@@ -20,7 +20,11 @@ export function AuthProvider({ children }) {
 
         async function initAuth() {
             if (!isSupabaseConfigured || !supabase) {
-                if (isMounted) setStatus(AUTH_STATUS.UNAUTHENTICATED);
+                if (isMounted) {
+                    const guest = await getCurrentUser();
+                    setProfile(guest);
+                    setStatus(AUTH_STATUS.UNAUTHENTICATED);
+                }
                 return;
             }
 
@@ -36,7 +40,8 @@ export function AuthProvider({ children }) {
                 } else {
                     if (isMounted) {
                         setAuthUser(null);
-                        setProfile(null);
+                        const guest = await getCurrentUser();
+                        setProfile(guest);
                         setStatus(AUTH_STATUS.UNAUTHENTICATED);
                     }
                 }
@@ -44,7 +49,8 @@ export function AuthProvider({ children }) {
                 console.warn("Auth initialization notice:", err);
                 if (isMounted) {
                     setAuthUser(null);
-                    setProfile(null);
+                    const guest = await getCurrentUser();
+                    setProfile(guest);
                     setStatus(AUTH_STATUS.UNAUTHENTICATED);
                 }
             }
@@ -71,7 +77,8 @@ export function AuthProvider({ children }) {
                     setAuthUser(session.user);
                 } else if (event === "SIGNED_OUT" || !session?.user) {
                     setAuthUser(null);
-                    setProfile(null);
+                    const guest = await getCurrentUser();
+                    setProfile(guest);
                     setStatus(AUTH_STATUS.UNAUTHENTICATED);
                 }
             })
@@ -107,7 +114,8 @@ export function AuthProvider({ children }) {
     const signOut = async () => {
         await apiSignOut();
         setAuthUser(null);
-        setProfile(null);
+        const guest = await getCurrentUser();
+        setProfile(guest);
         setStatus(AUTH_STATUS.UNAUTHENTICATED);
     };
 

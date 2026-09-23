@@ -45,7 +45,7 @@ function normalizeUserData(raw) {
         srs_records: raw.srs_records && typeof raw.srs_records === "object" ? raw.srs_records : {},
         owned_themes: Array.isArray(raw.owned_themes) ? raw.owned_themes : [],
         equipped_theme: typeof raw.equipped_theme === "string" ? raw.equipped_theme : null,
-        is_cloud: true,
+        is_cloud: Boolean(raw.is_cloud),
         created_at: raw.created_at || new Date().toISOString()
     };
 }
@@ -56,8 +56,62 @@ const authReadyPromise = new Promise((resolve) => {
     authReadyResolver = resolve;
 });
 
-// Single source of truth for the authenticated user profile in memory
-let currentUser = null;
+// Storage key for local guest progression
+const STORAGE_KEY = "duoclongo_user_progress";
+
+const DEFAULT_GUEST_PROFILE = {
+    id: "guest",
+    email: "guest@duoclongo.local",
+    username: "guest_learner",
+    display_name: "Guest Learner",
+    avatar: "default_male",
+    level: 1,
+    hearts: 5,
+    streak: 1,
+    xp: 0,
+    diamonds: 1200,
+    streak_freeze_count: 0,
+    last_active_date: new Date().toISOString().split("T")[0],
+    completed_lessons: [],
+    unlocked_badges: [],
+    mistakes_queue: [],
+    claimed_quests: [],
+    practice_sessions_completed: 0,
+    srs_records: {},
+    owned_themes: [],
+    equipped_theme: null,
+    is_cloud: false,
+    created_at: new Date().toISOString()
+};
+
+function loadPersistedGuestUser() {
+    if (typeof window === "undefined" || !window.localStorage) {
+        return normalizeUserData(DEFAULT_GUEST_PROFILE);
+    }
+    try {
+        const saved = window.localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+            const parsed = JSON.parse(saved);
+            return normalizeUserData({ ...DEFAULT_GUEST_PROFILE, ...parsed, is_cloud: false });
+        }
+    } catch (e) {
+        console.warn("Failed to load user from localStorage, falling back to default:", e);
+    }
+    return normalizeUserData(DEFAULT_GUEST_PROFILE);
+}
+
+function savePersistedUser(user) {
+    if (typeof window !== "undefined" && window.localStorage && user && !user.is_cloud) {
+        try {
+            window.localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
+        } catch (e) {
+            console.warn("Failed to persist user to localStorage:", e);
+        }
+    }
+}
+
+// Single source of truth for the active user profile in memory
+let currentUser = loadPersistedGuestUser();
 let currentAuthUser = null;
 let isInitialized = false;
 
@@ -304,11 +358,13 @@ export async function initializeUserAuth() {
     }
     isInitialized = true;
 
+    // Default to local guest user
+    currentUser = loadPersistedGuestUser();
+
     if (!isSupabaseConfigured || !supabase) {
-        currentUser = null;
-        currentAuthUser = null;
         authReadyResolver?.();
-        return null;
+        notifyUserUpdated(currentUser);
+        return currentUser;
     }
 
     try {
@@ -320,13 +376,14 @@ export async function initializeUserAuth() {
             notifyUserUpdated(currentUser);
         } else {
             currentAuthUser = null;
-            currentUser = null;
-            notifyUserUpdated(null);
+            currentUser = loadPersistedGuestUser();
+            notifyUserUpdated(currentUser);
         }
     } catch (err) {
         console.warn("Failed to get initial session:", err);
         currentAuthUser = null;
-        currentUser = null;
+        currentUser = loadPersistedGuestUser();
+        notifyUserUpdated(currentUser);
     } finally {
         authReadyResolver?.();
     }
@@ -351,8 +408,8 @@ export async function initializeUserAuth() {
             currentAuthUser = session.user;
         } else if (event === "SIGNED_OUT" || (!hasUser && event !== "INITIAL_SESSION")) {
             currentAuthUser = null;
-            currentUser = null;
-            notifyUserUpdated(null);
+            currentUser = loadPersistedGuestUser();
+            notifyUserUpdated(currentUser);
         }
     });
 
@@ -370,13 +427,13 @@ if (typeof window !== "undefined") {
 }
 
 /**
- * Retrieves the currently active authenticated user profile.
- * Returns null if the user is unauthenticated.
- * @returns {Promise<Object|null>} The active user object or null
+ * Retrieves the currently active user profile.
+ * Decouples UI components from raw storage representation.
+ * @returns {Promise<Object|null>} The active user object
  */
 export async function getCurrentUser() {
     await authReadyPromise;
-    return currentUser ? { ...currentUser } : null;
+    return currentUser ? { ...currentUser } : loadPersistedGuestUser();
 }
 
 /**
@@ -509,10 +566,13 @@ export async function updateUserProgress({
     updatedUser.unlocked_badges = badgeInfo.badges.filter((b) => b.isUnlocked).map((b) => b.id);
 
     currentUser = updatedUser;
+    savePersistedUser(currentUser);
     notifyUserUpdated(currentUser);
 
-    // Persist directly to Supabase
-    syncToCloud(currentUser);
+    // Persist directly to Supabase if cloud synced
+    if (currentUser?.is_cloud) {
+        syncToCloud(currentUser);
+    }
 
     // Record level attempt audit log if provided
     if (levelAttempt && supabase && currentAuthUser) {
@@ -607,10 +667,13 @@ export async function recordSrsOutcome({ lasaId, isCorrect, questionId } = {}) {
     updatedUser.unlocked_badges = badgeInfo.badges.filter((b) => b.isUnlocked).map((b) => b.id);
 
     currentUser = updatedUser;
+    savePersistedUser(currentUser);
     notifyUserUpdated(currentUser);
 
-    // Direct cloud update
-    syncToCloud(currentUser);
+    // Direct cloud update if cloud synced
+    if (currentUser?.is_cloud) {
+        syncToCloud(currentUser);
+    }
 
     return { ...currentUser };
 }

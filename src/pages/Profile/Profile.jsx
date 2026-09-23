@@ -22,6 +22,8 @@ import {
     Layers,
     Cloud,
     LogOut,
+    LogIn,
+    User,
     Palette
 } from "lucide-react";
 import {
@@ -186,10 +188,17 @@ function Profile() {
                 <div className="profile-info-block">
                     <div className="profile-name-row">
                         <h1 className="heading-lg">{user.display_name}</h1>
-                        <span className="profile-sync-pill cloud" title="Progress is synced to Supabase cloud">
-                            <Cloud size={13} />
-                            <span>Cloud Synced</span>
-                        </span>
+                        {user.is_cloud ? (
+                            <span className="profile-sync-pill cloud" title="Progress is synced to Supabase cloud">
+                                <Cloud size={13} />
+                                <span>Cloud Synced</span>
+                            </span>
+                        ) : (
+                            <span className="profile-sync-pill" style={{ opacity: 0.85 }} title="Progress is saved on this device">
+                                <User size={13} />
+                                <span>Guest Mode</span>
+                            </span>
+                        )}
                     </div>
                     <span className="profile-username-tag">@{user.username}</span>
                     <div className="profile-meta-row">
@@ -210,15 +219,27 @@ function Profile() {
 
 
                 <div className="profile-header-actions">
-                    <button
-                        type="button"
-                        className="duo-button profile-signout-btn"
-                        onClick={() => signOut()}
-                        title="Sign out of your account"
-                    >
-                        <LogOut size={16} />
-                        <span>Sign Out</span>
-                    </button>
+                    {user.is_cloud ? (
+                        <button
+                            type="button"
+                            className="duo-button profile-signout-btn"
+                            onClick={() => signOut()}
+                            title="Sign out of your account"
+                        >
+                            <LogOut size={16} />
+                            <span>Sign Out</span>
+                        </button>
+                    ) : (
+                        <Link
+                            to="/login"
+                            className="duo-button duo-button-primary profile-signout-btn"
+                            style={{ textDecoration: "none" }}
+                            title="Sign in or create account to sync progress to cloud"
+                        >
+                            <LogIn size={16} />
+                            <span>Sign In</span>
+                        </Link>
+                    )}
                 </div>
             </header>
 
