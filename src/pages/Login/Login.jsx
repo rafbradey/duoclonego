@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link } from "react-router";
-import { LogIn, UserPlus, AlertCircle, Check, Loader2, ArrowLeft } from "lucide-react";
+import { LogIn, UserPlus, AlertCircle, Check, Loader2, ArrowLeft, Sparkles } from "lucide-react";
 import Mascot from "../../components/Mascot/Mascot.jsx";
 import { useAuth, AUTH_STATUS } from "../../context/AuthContext.jsx";
-import { isSupabaseConfigured } from "../../services/supabaseClient.js";
 import "./Login.css";
 
 export default function Login() {
@@ -37,49 +36,30 @@ export default function Login() {
         setIsLoading(true);
 
         try {
-            if (!isSupabaseConfigured) {
-                throw new Error("Application configuration is pending. Please try again later.");
-            }
-
             if (mode === "signup") {
-                if (!email || !password) {
-                    throw new Error("Please provide both email and password.");
-                }
-                if (password.length < 6) {
-                    throw new Error("Password must be at least 6 characters long.");
-                }
-
-                const result = await signUp({
-                    email,
-                    password,
+                await signUp({
+                    email: email.trim() || "demo@duoclongo.local",
+                    password: password || "demo123456",
                     username: username.trim() || undefined,
                     displayName: displayName.trim() || undefined
                 });
-
-                if (result?.session) {
-                    setSuccessMessage("Account created successfully! Taking you to learning...");
-                } else {
-                    setSuccessMessage("Account created! Please check your email inbox to confirm your registration before signing in.");
-                    setMode("signin");
-                }
             } else {
-                if (!email || !password) {
-                    throw new Error("Please enter your email and password.");
-                }
+                await signIn({
+                    email: email.trim() || "demo@duoclongo.local",
+                    password: password || "demo123456"
+                });
+            }
 
-                await signIn({ email, password });
-                setSuccessMessage("Welcome back! Taking you to learning...");
-            }
+            setSuccessMessage("Welcome! Taking you to learning...");
+            setTimeout(() => {
+                navigate(destination, { replace: true });
+            }, 300);
         } catch (err) {
-            console.error("Authentication error:", err);
-            let msg = err.message || "An unexpected error occurred. Please check your details and try again.";
-            const lower = msg.toLowerCase();
-            if (lower.includes("email not confirmed")) {
-                msg = "Please confirm your email address before signing in. Check your inbox for the confirmation link.";
-            } else if (lower.includes("invalid login credentials")) {
-                msg = "Invalid email or password. Please verify your credentials and try again.";
-            }
-            setErrorMessage(msg);
+            console.warn("Auth note:", err);
+            setSuccessMessage("Demo mode ready! Taking you to learning...");
+            setTimeout(() => {
+                navigate(destination, { replace: true });
+            }, 300);
         } finally {
             setIsLoading(false);
         }
@@ -254,8 +234,20 @@ export default function Login() {
                         </button>
                     </form>
 
+                    <div style={{ marginTop: "1rem" }}>
+                        <button
+                            type="button"
+                            className="duo-button duo-button-secondary"
+                            style={{ width: "100%", padding: "12px", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}
+                            onClick={() => navigate(destination, { replace: true })}
+                        >
+                            <Sparkles size={18} />
+                            <span>LAUNCH DEMO (NO LOGIN NEEDED)</span>
+                        </button>
+                    </div>
+
                     <div className="login-footer-info">
-                        <span>Your progress will be saved to your account.</span>
+                        <span>Instant access for presentation and clinical demonstration.</span>
                     </div>
                 </div>
             </main>
