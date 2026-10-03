@@ -545,10 +545,52 @@ body[data-theme="golden_scholar"],
     --theme-glow: rgba(255, 215, 0, 0.3);
 }
 
+/* 0. Default / Classic LASA-Quest (Mascot Apothecary Ocean & Mint) */
+:root[data-theme="default"],
+body[data-theme="default"],
+[data-theme="default"] {
+    --color-surface: var(--bg-surface);
+    --color-surface-hover: var(--bg-surface-hover);
+    --color-border: var(--border-color);
+    --color-text-primary: var(--text-white);
+    --color-text-secondary: var(--text-muted);
+    --bg-page: #0f172a;
+    --bg-surface: #18243c;
+    --bg-surface-hover: #223252;
+    --border-color: #243656;
+    --border-light: rgba(91, 141, 184, 0.2);
+
+    --color-primary: #2bb696;
+    --color-primary-hover: #34c7a6;
+    --color-primary-shadow: #1d8d74;
+    --color-primary-dark: #1d8d74;
+
+    --color-secondary: #4f8ebc;
+    --color-secondary-hover: #63a0cf;
+    --color-secondary-shadow: #336d96;
+
+    --color-accent: #f0b429;
+    --color-accent-shadow: #c68f18;
+
+    --text-white: #f8fafc;
+    --text-light: #e2e8f0;
+    --text-muted: #8da0b8;
+
+    --theme-banner-bg: linear-gradient(135deg, rgba(43, 182, 150, 0.22) 0%, rgba(79, 142, 188, 0.12) 100%);
+    --theme-glow: rgba(43, 182, 150, 0.28);
+}
+
 /* ==========================================================================
    Atmospheric Theme Decorators & Ambient Overlays
    Subtle ambient gradients applied without obscuring educational text.
    ========================================================================== */
+
+/* Default Classic mascot atmosphere layer */
+[data-theme="default"] .theme-atmosphere-layer,
+:root:not([data-theme]) .theme-atmosphere-layer {
+    background: radial-gradient(circle at 15% 15%, rgba(43, 182, 150, 0.07) 0%, transparent 55%),
+                radial-gradient(circle at 85% 85%, rgba(79, 142, 188, 0.07) 0%, transparent 55%);
+}
 
 /* Forest Explorer organic background shimmer */
 [data-theme="forest_explorer"] .theme-atmosphere-layer {

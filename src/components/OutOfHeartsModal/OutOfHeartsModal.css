@@ -32,8 +32,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    height: 80px;
+    width: 92px;
+    height: 92px;
     border-radius: 50%;
     background: rgba(234, 43, 43, 0.12);
     border: 2px solid rgba(234, 43, 43, 0.3);
@@ -41,8 +41,8 @@
 }
 
 .out-of-hearts-icon {
-    width: 44px;
-    height: 44px;
+    width: 54px;
+    height: 54px;
     object-fit: contain;
     filter: grayscale(0.6) drop-shadow(0 4px 10px rgba(234, 43, 43, 0.4));
     animation: heartWobble 2s ease-in-out infinite;

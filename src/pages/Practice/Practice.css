@@ -150,6 +150,13 @@
     color: var(--text-white);
 }
 
+.practice-energy-heading-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
 .practice-modes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

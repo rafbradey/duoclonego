@@ -107,7 +107,7 @@ function Sidebar({ onNavigate, isMobileDrawer = false }) {
             {!isMobileDrawer && (
                 <div className="sidebar-header">
                     <Link to="/learn" className="sidebar-logo-link" onClick={onNavigate}>
-                        <Mascot mascotType="shadow" size={36} flipped={false} animationType="none" />
+                        <Mascot mascotType="fill" size={44} flipped={false} animationType="none" />
                         <span className="sidebar-logo-text">LASA-Quest</span>
                     </Link>
                 </div>

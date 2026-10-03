@@ -11,12 +11,12 @@
     --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-heading: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-    /* Theme colors */
-    --bg-page: #131f24;
-    --bg-surface: #1a2c35;
-    --bg-surface-hover: #233942;
-    --border-color: #37464f;
-    --border-light: rgba(224, 235, 241, 0.15);
+    /* Theme colors — Official LASA-Quest Mascot Palette (Apothecary Whale & Mint) */
+    --bg-page: #0f172a;
+    --bg-surface: #18243c;
+    --bg-surface-hover: #223252;
+    --border-color: #243656;
+    --border-light: rgba(91, 141, 184, 0.2);
 
     /* Semantic color aliases */
     --color-surface: var(--bg-surface);
@@ -25,27 +25,27 @@
     --color-text-primary: var(--text-white);
     --color-text-secondary: var(--text-muted);
 
-    /* Brand accents (LASA-Quest signature green) */
-    --color-primary: #58cc02;
-    --color-primary-hover: #61e002;
-    --color-primary-shadow: #46a302;
-    --color-primary-dark: #46a302;
+    /* Brand accents (Apothecary Mint Teal & Oceanic Slate Blue from mascot) */
+    --color-primary: #2bb696;
+    --color-primary-hover: #34c7a6;
+    --color-primary-shadow: #1d8d74;
+    --color-primary-dark: #1d8d74;
 
-    --color-secondary: #49c0f8;
-    --color-secondary-hover: #6fd3ff;
-    --color-secondary-shadow: #1899d6;
+    --color-secondary: #4f8ebc;
+    --color-secondary-hover: #63a0cf;
+    --color-secondary-shadow: #336d96;
 
-    --color-accent: #ff9600;
-    --color-accent-shadow: #cc7800;
+    --color-accent: #f0b429;
+    --color-accent-shadow: #c68f18;
 
     --color-danger: #ea2b2b;
     --color-danger-shadow: #ba1e1e;
 
     /* Text */
-    --text-white: #ffffff;
-    --text-light: #e5e5e5;
-    --text-muted: #9eabb2;
-    --text-dark: #131f24;
+    --text-white: #f8fafc;
+    --text-light: #e2e8f0;
+    --text-muted: #8da0b8;
+    --text-dark: #0f172a;
 
     /* Spacing scale */
     --space-1: 0.25rem;

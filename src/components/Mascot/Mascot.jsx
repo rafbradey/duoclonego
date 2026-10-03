@@ -1,23 +1,27 @@
-import mascotImage from "../../assets/duoclongo_mascot_normal.png";
-import mascotImageMaracas from "../../assets/duoclongo_mascot_maracas.png";
-import mascotShadow from "../../assets/duolcongo_mascot_shadow.png";
+import mascotMain from "../../assets/mascot/mascot_main.png";
+import mascotFill from "../../assets/mascot/mascot_fill.png";
 import "./Mascot.css";
 
-
-
 function Mascot({
-                    size = 260,
+                    size = 300,
                     flipped = false,
                     mascotType = "default",
                     animationType = "bounce",
                     className = "",
+                    style = {},
                 }) {
 
     const mascotMap = {
-        default: mascotImage,
-        maracas: mascotImageMaracas,
-        shadow: mascotShadow
-    }
+        default: mascotMain,
+        main: mascotMain,
+        maracas: mascotMain,
+        normal: mascotMain,
+        grad: mascotMain,
+        doctor: mascotMain,
+        fill: mascotFill,
+        shadow: mascotFill,
+        silhouette: mascotFill
+    };
 
     const mascotSrc = mascotMap[mascotType] || mascotMap.default;
 
@@ -27,7 +31,7 @@ function Mascot({
     return (
         <div
             className={`mascot-wrapper ${animationClass} ${className}`}
-            style={{ width: `${size}px` }}
+            style={{ width: `${size}px`, maxWidth: "100%", ...style }}
         >
             <img
                 src={mascotSrc}

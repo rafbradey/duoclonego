@@ -48,13 +48,13 @@
 }
 
 .user-stat-icon {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
 }
 
 .user-stat-value {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 800;
     color: var(--text-white);
 }

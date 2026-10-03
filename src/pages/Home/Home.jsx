@@ -38,7 +38,7 @@ function Home() {
 
             <main className="hero-section">
                 <div className="hero-mascot-container">
-                    <Mascot mascotType="maracas" size={280} flipped={false} animationType="float" />
+                    <Mascot mascotType="maracas" size={420} flipped={false} animationType="float" />
                 </div>
 
                 <div className="hero-content">

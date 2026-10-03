@@ -334,21 +334,21 @@ export const CLASSIC_THEME = {
         id: "classic",
         label: "Default",
         badgeClass: "rarity-common",
-        color: "#58cc02"
+        color: "#2bb696"
     },
     cost: 0,
     category: "Site Themes",
-    tagline: "The original iconic LASA-Quest dark mode.",
-    description: "Classic high-contrast dark palette with energetic green accents, clean card outlines, and optimal clinical readability.",
+    tagline: "The official apothecary whale oceanic & mint palette.",
+    description: "Deep oceanic navy canvas, vibrant apothecary mint teal accents, whale slate-blue secondary tones, and warm apothecary gold highlights inspired by the official mascot.",
     previewColors: {
-        bgPage: "#131f24",
-        bgSurface: "#1a2c33",
-        primary: "#58cc02",
-        secondary: "#2b9bed",
-        border: "#2a3c42",
-        text: "#ffffff"
+        bgPage: "#0f172a",
+        bgSurface: "#18243c",
+        primary: "#2bb696",
+        secondary: "#4f8ebc",
+        border: "#243656",
+        text: "#f8fafc"
     },
-    atmosphere: "Original clinical high-contrast dark theme."
+    atmosphere: "Serene apothecary oceanic ambient glow with clinical mint highlights."
 };
 
 /**

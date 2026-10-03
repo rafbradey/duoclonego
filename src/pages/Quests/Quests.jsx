@@ -22,6 +22,7 @@ import Mascot from "../../components/Mascot/Mascot.jsx";
 import { getCurrentUser, claimDailyQuest } from "../../services/userService.js";
 import { getUserBadges } from "../../services/badgeService.js";
 import { getLocalTodayDate } from "../../services/streakService.js";
+import energyIcon from "../../assets/mascot/mascot_energy.png";
 import "./Quests.css";
 
 function QuestIcon({ iconName, size = 20 }) {
@@ -131,8 +132,8 @@ function Quests() {
                 id: "quest_xp_target",
                 title: "XP Power Goal",
                 desc: "Earn at least 30 XP across lessons and practice.",
-                icon: <Flame size={22} />,
-                colorClass: "color-yellow",
+                icon: <img src={energyIcon} alt="XP Power Energy" className="quest-energy-icon" />,
+                colorClass: "color-mint",
                 current: Math.min(30, currentXp),
                 target: 30,
                 isCompleted: currentXp >= 30,
@@ -160,7 +161,7 @@ function Quests() {
                     </p>
                 </div>
                 <div className="quests-mascot-wrap">
-                    <Mascot mascotType="maracas" size={110} animationType="bounce" />
+                    <Mascot mascotType="maracas" size={180} animationType="bounce" />
                 </div>
             </div>
 

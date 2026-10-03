@@ -118,7 +118,8 @@
 
 @media (max-width: 480px) {
     .hero-mascot-container .mascot-wrapper {
-        width: 200px !important;
+        width: 280px !important;
+        max-width: 85vw !important;
     }
 
     .features-section {

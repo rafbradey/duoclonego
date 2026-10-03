@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import {
     Dumbbell,
-    Zap,
     RotateCcw,
     Sparkles,
     ShieldCheck,
@@ -16,6 +15,7 @@ import Mascot from "../../components/Mascot/Mascot.jsx";
 import LasaPairCard from "../../components/LasaPairCard/LasaPairCard.jsx";
 import { getCurrentUser, getDueSrsPairs, getMasteredPairsCount } from "../../services/userService.js";
 import { getAllLasaEntries } from "../../services/drugService.js";
+import energyIcon from "../../assets/mascot/mascot_energy.png";
 import "./Practice.css";
 
 function Practice() {
@@ -83,7 +83,7 @@ function Practice() {
                 </div>
 
                 <div className="practice-header-mascot">
-                    <Mascot mascotType="normal" size={110} animationType="bounce" />
+                    <Mascot mascotType="normal" size={190} animationType="bounce" />
                 </div>
             </header>
 
@@ -133,7 +133,7 @@ function Practice() {
             {/* Practice Modes Section */}
             <section className="practice-modes-section">
                 <h2 className="practice-section-heading">
-                    <Zap size={20} className="text-accent" />
+                    <img src={energyIcon} alt="Review Energy" className="practice-energy-heading-icon" />
                     <span>Choose Review Mode</span>
                 </h2>
 

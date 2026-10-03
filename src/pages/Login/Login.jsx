@@ -73,7 +73,7 @@ export default function Login() {
                     <span>Back</span>
                 </Link>
                 <Link to="/" className="login-header-brand">
-                    <Mascot mascotType="shadow" size={32} flipped={false} animationType="none" />
+                    <Mascot mascotType="fill" size={50} flipped={false} animationType="none" />
                     <span className="login-brand-title">LASA-Quest</span>
                 </Link>
             </header>
@@ -83,8 +83,8 @@ export default function Login() {
                     <div className="login-card-header">
                         <div className="login-mascot-container">
                             <Mascot
-                                mascotType={mode === "signin" ? "default" : "grad"}
-                                size={96}
+                                mascotType="default"
+                                size={200}
                                 animationType={isLoading ? "pulse" : "bounce"}
                             />
                         </div>

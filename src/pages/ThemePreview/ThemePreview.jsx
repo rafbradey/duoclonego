@@ -316,7 +316,7 @@ function PreviewAppShell({ theme, isMobile }) {
             {!isMobile && (
                 <aside className="preview-mock-sidebar">
                     <div className="mock-sidebar-brand">
-                        <Mascot mascotType="shadow" size={32} />
+                        <Mascot mascotType="fill" size={54} />
                         <span className="mock-brand-text">LASA-Quest</span>
                     </div>
 
@@ -394,7 +394,7 @@ function PreviewAppShell({ theme, isMobile }) {
                             </div>
                         </div>
                         <div className="welcome-mascot-box">
-                            <Mascot mascotType="default" size={120} animationType="bounce" />
+                            <Mascot mascotType="default" size={180} animationType="bounce" />
                         </div>
                     </div>
 
@@ -775,7 +775,7 @@ function PreviewBadgesAndRewards() {
             {/* Level Completion Preview Banner */}
             <div className="rewards-completion-card duo-card">
                 <div className="rewards-mascot-glow">
-                    <Mascot mascotType="maracas" size={120} animationType="dance" />
+                    <Mascot mascotType="maracas" size={180} animationType="dance" />
                 </div>
                 <div className="rewards-completion-text">
                     <div className="rewards-badge-tag">

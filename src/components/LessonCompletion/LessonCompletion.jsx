@@ -176,7 +176,7 @@ function LessonCompletion({ session, lesson }) {
                 {/* 1. Ambient Celebratory Mascot Hero (Option A+ Minimalist Hybrid) */}
                 <div className="completion-hero">
                     <div className="completion-mascot-glow">
-                        <Mascot mascotType={mascotType} size={135} animationType={mascotAnimation} />
+                        <Mascot mascotType={mascotType} size={220} animationType={mascotAnimation} />
                     </div>
 
                     <div className="completion-header-text">

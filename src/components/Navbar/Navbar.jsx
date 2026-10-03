@@ -8,7 +8,7 @@ function Navbar() {
             <div className="navbar-container">
                 <Link to="/" className="navbar-brand" aria-label="LASA-Quest Home">
                     <div className="navbar-logo-icon">
-                        <Mascot mascotType="shadow" size={40} flipped={false} animationType="none" />
+                        <Mascot mascotType="fill" size={54} flipped={false} animationType="none" />
                     </div>
                     <span className="navbar-logo-text">LASA-Quest</span>
                 </Link>

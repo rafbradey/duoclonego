@@ -7,7 +7,7 @@ function NotFound() {
     return (
         <div className="not-found-container">
             <div className="not-found-card duo-card">
-                <Mascot mascotType="shadow" size={150} animationType="sleepy" />
+                <Mascot mascotType="shadow" size={200} animationType="sleepy" />
                 <h1 className="heading-xl">404</h1>
                 <h2 className="heading-md">Page Not Found</h2>
                 <p className="body-text-muted">

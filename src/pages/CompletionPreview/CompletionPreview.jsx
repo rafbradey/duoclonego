@@ -489,7 +489,7 @@ function ConceptOptionAPlus({
                 {/* 1. Ambient Celebratory Mascot Hero (Spacious, No Claustrophobic Box) */}
                 <div className="concept-aplus-hero">
                     <div className="concept-aplus-mascot-glow">
-                        <Mascot mascotType={mascotType} size={135} animationType={mascotAnimation} />
+                        <Mascot mascotType={mascotType} size={220} animationType={mascotAnimation} />
                     </div>
 
                     <div className="concept-aplus-header">
@@ -635,7 +635,7 @@ function ConceptOptionA({
             <div className="concept-card duo-card concept-a-card">
                 {/* 1. Mascot Celebration */}
                 <div className="concept-a-mascot">
-                    <Mascot mascotType={mascotType} size={130} animationType={mascotAnimation} />
+                    <Mascot mascotType={mascotType} size={220} animationType={mascotAnimation} />
                 </div>
 
                 {/* 2. Completion Status & Heading */}
@@ -860,7 +860,7 @@ function ConceptOptionC({
         <div className="concept-wrapper concept-c-root">
             <div className="concept-card duo-card concept-c-card">
                 <div className="concept-c-hero">
-                    <Mascot mascotType={mascotType} size={140} animationType={mascotAnimation} />
+                    <Mascot mascotType={mascotType} size={220} animationType={mascotAnimation} />
                 </div>
 
                 <div className="concept-c-body">
