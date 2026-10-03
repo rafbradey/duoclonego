@@ -87,13 +87,13 @@ function Shop() {
         try {
             await equipTheme(themeId);
             const themeName = themeId === "default"
-                ? "Classic Duoclongo"
+                ? "Classic LASA-Quest"
                 : (themesCatalog.find((t) => t.id === themeId)?.name || "Theme");
 
             setToast({
                 type: "success",
                 message: themeId === "default"
-                    ? "🎨 Reset to Classic Duoclongo theme."
+                    ? "🎨 Reset to Classic LASA-Quest theme."
                     : `🎨 Equipped "${themeName}" theme!`
             });
         } catch (err) {
@@ -292,7 +292,7 @@ function Shop() {
                             <h2 className="shop-section-title">Customizations • Site Themes</h2>
                         </div>
                         <p className="body-text-muted">
-                            Personalize your entire Duoclongo interface with custom color schemes and ambient atmospheres.
+                            Personalize your entire LASA-Quest interface with custom color schemes and ambient atmospheres.
                         </p>
                     </div>
 
@@ -410,7 +410,7 @@ function Shop() {
                                                     className="duo-button shop-theme-unequip-btn"
                                                     disabled={isBusy}
                                                     onClick={() => handleEquipTheme("default")}
-                                                    title="Revert to Classic Duoclongo"
+                                                    title="Revert to Classic LASA-Quest"
                                                 >
                                                     {isActingThis ? <Loader2 size={14} className="spin-icon" /> : "UNEQUIP"}
                                                 </button>

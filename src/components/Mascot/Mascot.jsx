@@ -31,7 +31,7 @@ function Mascot({
         >
             <img
                 src={mascotSrc}
-                alt="Duoclongo mascot"
+                alt="LASA-Quest mascot"
                 className={`mascot-image ${flipped ? "mascot-flipped" : ""}`}
             />
         </div>

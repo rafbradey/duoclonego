@@ -1,5 +1,5 @@
 /**
- * Central Theme Catalog for Duoclongo
+ * Central Theme Catalog for LASA-Quest
  *
  * Defines all collectible site themes across Common, Rare, Epic, and Legendary tiers.
  * Centralized pricing, descriptions, color swatches, and theme tokens.
@@ -329,7 +329,7 @@ export const DEFAULT_THEME_ID = "default";
 
 export const CLASSIC_THEME = {
     id: DEFAULT_THEME_ID,
-    name: "Classic Duoclongo",
+    name: "Classic LASA-Quest",
     rarity: {
         id: "classic",
         label: "Default",
@@ -338,7 +338,7 @@ export const CLASSIC_THEME = {
     },
     cost: 0,
     category: "Site Themes",
-    tagline: "The original iconic Duoclongo dark mode.",
+    tagline: "The original iconic LASA-Quest dark mode.",
     description: "Classic high-contrast dark palette with energetic green accents, clean card outlines, and optimal clinical readability.",
     previewColors: {
         bgPage: "#131f24",

@@ -12,7 +12,7 @@ const manifestPath = path.join(rootDir, 'src', 'data', 'audioManifest.json');
 const mappingPath = path.join(rootDir, 'src', 'data', 'audioMapping.json');
 
 console.log('================================================================');
-console.log('   DUOCLONGO — LASA AUDIO ASSET AUDIT & VALIDATION');
+console.log('   LASA-QUEST — LASA AUDIO ASSET AUDIT & VALIDATION');
 console.log('================================================================\n');
 
 if (!fs.existsSync(lasaPairsPath)) {

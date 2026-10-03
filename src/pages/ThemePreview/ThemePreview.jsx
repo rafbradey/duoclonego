@@ -317,7 +317,7 @@ function PreviewAppShell({ theme, isMobile }) {
                 <aside className="preview-mock-sidebar">
                     <div className="mock-sidebar-brand">
                         <Mascot mascotType="shadow" size={32} />
-                        <span className="mock-brand-text">duoclongo</span>
+                        <span className="mock-brand-text">LASA-Quest</span>
                     </div>
 
                     <nav className="mock-sidebar-nav">
@@ -328,10 +328,6 @@ function PreviewAppShell({ theme, isMobile }) {
                         <div className="mock-nav-item">
                             <MapPin size={18} />
                             <span>PRACTICE</span>
-                        </div>
-                        <div className="mock-nav-item">
-                            <Trophy size={18} />
-                            <span>LEADERBOARDS</span>
                         </div>
                         <div className="mock-nav-item">
                             <Award size={18} />

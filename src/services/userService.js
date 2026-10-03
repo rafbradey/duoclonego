@@ -6,6 +6,7 @@ import {
     calculateStreakOnActivity,
     getLocalTodayDate
 } from "./streakService.js";
+import initialUserData from "../data/user.json" with { type: "json" };
 
 export const SRS_INTERVALS = {
     0: 0,                           // Stage 0: Due immediately (learning / unredeemed mistake)
@@ -59,29 +60,35 @@ const authReadyPromise = new Promise((resolve) => {
 // Storage key for local guest progression
 const STORAGE_KEY = "duoclongo_user_progress";
 
+// Baseline demo user profile loaded directly from local user.json
+const SEED_USER = Array.isArray(initialUserData) ? initialUserData[0] : initialUserData;
+
 const DEFAULT_GUEST_PROFILE = {
-    id: "guest",
-    email: "guest@duoclongo.local",
-    username: "guest_learner",
-    display_name: "Guest Learner",
-    avatar: "default_male",
-    level: 1,
-    hearts: 500,
-    streak: 1,
-    xp: 0,
-    diamonds: 1200,
-    streak_freeze_count: 0,
-    last_active_date: new Date().toISOString().split("T")[0],
-    completed_lessons: [],
-    unlocked_badges: [],
-    mistakes_queue: [],
-    claimed_quests: [],
-    practice_sessions_completed: 0,
-    srs_records: {},
-    owned_themes: [],
-    equipped_theme: null,
+    ...SEED_USER,
+    id: SEED_USER.id || "demo_student",
+    email: SEED_USER.email || "student@lasa-quest.local",
+    username: SEED_USER.username || "pharmacy_student",
+    display_name: SEED_USER.display_name || "Pharmacy Student",
+    avatar: SEED_USER.avatar || "default_male",
+    level: typeof SEED_USER.level === "number" ? SEED_USER.level : 1,
+    hearts: typeof SEED_USER.hearts === "number" ? SEED_USER.hearts : 500,
+    streak: typeof SEED_USER.streak === "number" ? SEED_USER.streak : 1,
+    xp: typeof SEED_USER.xp === "number" ? SEED_USER.xp : 0,
+    diamonds: typeof SEED_USER.diamonds === "number" ? SEED_USER.diamonds : 1200,
+    streak_freeze_count: typeof SEED_USER.streak_freeze_count === "number" ? SEED_USER.streak_freeze_count : 0,
+    last_active_date: SEED_USER.last_active_date || new Date().toISOString().split("T")[0],
+    completed_lessons: Array.isArray(SEED_USER.completed_lessons) ? SEED_USER.completed_lessons : [],
+    unlocked_badges: Array.isArray(SEED_USER.unlocked_badges) ? SEED_USER.unlocked_badges : [],
+    mistakes_queue: Array.isArray(SEED_USER.mistakes_queue) ? SEED_USER.mistakes_queue : [],
+    claimed_quests: Array.isArray(SEED_USER.claimed_quests) ? SEED_USER.claimed_quests : [],
+    practice_sessions_completed: typeof SEED_USER.practice_sessions_completed === "number"
+        ? SEED_USER.practice_sessions_completed
+        : 0,
+    srs_records: SEED_USER.srs_records || {},
+    owned_themes: Array.isArray(SEED_USER.owned_themes) ? SEED_USER.owned_themes : [],
+    equipped_theme: SEED_USER.equipped_theme || null,
     is_cloud: false,
-    created_at: new Date().toISOString()
+    created_at: SEED_USER.created_at || new Date().toISOString()
 };
 
 function loadPersistedGuestUser() {
@@ -104,7 +111,7 @@ function loadPersistedGuestUser() {
 }
 
 function savePersistedUser(user) {
-    if (typeof window !== "undefined" && window.localStorage && user && !user.is_cloud) {
+    if (typeof window !== "undefined" && window.localStorage && user) {
         try {
             window.localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
         } catch (e) {
@@ -767,32 +774,14 @@ export function setUserProfileCache(partialOrFullUser, { syncCloud = false } = {
     if (!partialOrFullUser) return currentUser;
 
     currentUser = normalizeUserData({
-        ...(currentUser || {
-            id: "user-cache",
-            email: "guest@duoclongo.local",
-            username: "learner",
-            display_name: "Learner",
-            avatar: "default_male",
-            xp: 0,
-            hearts: 500,
-            streak: 1,
-            diamonds: 1200,
-            streak_freeze_count: 0,
-            last_active_date: new Date().toISOString().split("T")[0],
-            completed_lessons: [],
-            unlocked_badges: [],
-            mistakes_queue: [],
-            practice_sessions_completed: 0,
-            srs_records: {},
-            owned_themes: [],
-            equipped_theme: null
-        }),
+        ...(currentUser || DEFAULT_GUEST_PROFILE),
         ...partialOrFullUser
     });
 
+    savePersistedUser(currentUser);
     notifyUserUpdated(currentUser);
 
-    if (syncCloud && currentAuthUser) {
+    if (syncCloud && currentAuthUser && supabase) {
         syncToCloud(currentUser);
     }
 
@@ -851,8 +840,9 @@ export async function deductHeart() {
         hearts: newHearts
     };
 
+    savePersistedUser(currentUser);
     notifyUserUpdated(currentUser);
-    syncToCloud(currentUser);
+    if (supabase) syncToCloud(currentUser);
 
     return newHearts;
 }
@@ -875,8 +865,9 @@ export async function restoreHeart(amount = 1) {
         hearts: newHearts
     };
 
+    savePersistedUser(currentUser);
     notifyUserUpdated(currentUser);
-    syncToCloud(currentUser);
+    if (supabase) syncToCloud(currentUser);
 
     return newHearts;
 }
@@ -961,6 +952,7 @@ export async function equipTheme(themeId) {
         equipped_theme: targetTheme
     };
 
+    savePersistedUser(currentUser);
     applyThemeToDocument(targetTheme);
 
     if (typeof localStorage !== "undefined") {
@@ -974,10 +966,47 @@ export async function equipTheme(themeId) {
     }
 
     notifyUserUpdated(currentUser);
-    syncToCloud(currentUser);
+    if (supabase) syncToCloud(currentUser);
 
     return {
         success: true,
         equipped_theme: targetTheme
     };
+}
+
+/**
+ * Resets demo user progress back to the baseline src/data/user.json template.
+ * Clears local storage keys and dispatches state update notification.
+ *
+ * @returns {Object} Fresh baseline demo user profile
+ */
+export function resetDemoUserProgress() {
+    if (typeof window !== "undefined" && window.localStorage) {
+        try {
+            window.localStorage.removeItem(STORAGE_KEY);
+            window.localStorage.removeItem("duoclongo_active_theme");
+            if (currentUser?.id) {
+                window.localStorage.removeItem(`duoclongo_owned_themes_${currentUser.id}`);
+                window.localStorage.removeItem(`duoclongo_equipped_theme_${currentUser.id}`);
+                window.localStorage.removeItem(`duoclongo_claimed_quests_${currentUser.id}`);
+            }
+        } catch {
+            // Ignore storage write errors
+        }
+    }
+
+    currentUser = normalizeUserData(DEFAULT_GUEST_PROFILE);
+    savePersistedUser(currentUser);
+    applyThemeToDocument(null);
+    notifyUserUpdated(currentUser);
+    return { ...currentUser };
+}
+
+/**
+ * Exports the current local user progress state as a formatted JSON string.
+ *
+ * @returns {string} Formatted JSON representation of current learner state
+ */
+export function exportUserDataJson() {
+    return JSON.stringify(currentUser || DEFAULT_GUEST_PROFILE, null, 2);
 }

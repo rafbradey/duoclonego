@@ -12,7 +12,7 @@ import { AUTH_STATUS } from "../src/context/authConstants.js";
 import { isSupabaseConfigured } from "../src/services/supabaseClient.js";
 
 async function runVerification() {
-    console.log("=== Running Duoclongo Option A Architecture Verifications ===");
+    console.log("=== Running LASA-Quest Option A Architecture Verifications ===");
 
     // 1. Verify Auth Constants
     console.log("1. Checking Auth Status definitions...");

@@ -61,7 +61,7 @@ const pronunciationData = fs.existsSync(pronunciationPath)
 const pairs = Array.isArray(lasaPairsData.pairs) ? lasaPairsData.pairs : [];
 
 console.log('================================================================');
-console.log('   DUOCLONGO — AZURE AI SPEECH (RAW MODE) AUDIO GENERATOR');
+console.log('   LASA-QUEST — AZURE AI SPEECH (RAW MODE) AUDIO GENERATOR');
 console.log('================================================================');
 console.log(`Region: ${AZURE_SPEECH_REGION}`);
 console.log(`Voice:  ${customVoiceArg}`);

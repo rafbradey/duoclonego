@@ -1,5 +1,5 @@
 -- ==============================================================================
--- Duoclongo Phase 4: Supabase Database Schema & Row Level Security (RLS)
+-- LASA-Quest Phase 4: Supabase Database Schema & Row Level Security (RLS)
 -- ==============================================================================
 -- Run this script in your Supabase SQL Editor:
 -- https://supabase.com/dashboard/project/itgdqyezvpjbpscvsokx/sql/new
@@ -141,7 +141,7 @@ GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO anon, authenticated;
 GRANT ALL ON ALL ROUTINES IN SCHEMA public TO anon, authenticated;
 
 -- ==============================================================================
--- 6. Phase 5A: Duoclongo Shop Extensions & Atomic Purchase RPC Functions
+-- 6. Phase 5A: LASA-Quest Shop Extensions & Atomic Purchase RPC Functions
 -- ==============================================================================
 
 -- Add inventory and daily tracking columns to public.profiles if not present

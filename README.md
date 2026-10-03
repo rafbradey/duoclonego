@@ -1,8 +1,8 @@
-# Duoclongo 🦉💊
+# LASA-Quest 🦉💊
 
-**Duoclongo** is a Duolingo-inspired web application designed to train healthcare professionals, pharmacy students, and clinicians in rapid, reliable identification of **Look-Alike, Sound-Alike (LASA)** medications. 
+**LASA-Quest** (formerly Duoclongo) is a gamified web application designed to train healthcare professionals, pharmacy students, and clinicians in rapid, reliable identification of **Look-Alike, Sound-Alike (LASA)** medications. 
 
-By combining clinical pharmacology data with gamified cognitive reinforcement—including spaced repetition (SRS), Tall Man lettering, and error remediation—Duoclongo helps prevent medication errors before they happen.
+By combining clinical pharmacology data with gamified cognitive reinforcement—including spaced repetition (SRS), Tall Man lettering, and error remediation—LASA-Quest helps prevent medication errors before they happen.
 
 ---
 
@@ -71,7 +71,7 @@ npm install -D vite@^8.0.12 @vitejs/plugin-react@^6.0.1 eslint@^10.3.0 @eslint/j
 ```
 
 #### 3. Cloud Backend Integration (Optional / Future Sync)
-Duoclongo stores learner state in local storage by default. For cloud synchronization and user profiles:
+LASA-Quest stores learner state in local storage by default. For cloud synchronization and user profiles:
 ```bash
 # Supabase Client (Authentication & Cloud Database Sync)
 npm install @supabase/supabase-js
@@ -141,7 +141,7 @@ duoclonego/
 │   │   ├── GuidebookModal/ # Unit LASA clinical summary modal
 │   │   ├── Layout/         # AppLayout shell, navigation, mobile drawer
 │   │   ├── LessonCompletion/ # Level complete screen & unified session breakdown
-│   │   ├── Mascot/         # Interactive animated Duoclongo owl
+│   │   ├── Mascot/         # Interactive animated LASA-Quest owl
 │   │   ├── QuestionCard/   # MCQ, Tall Man, Matching, and Sound-Alike question renderers
 │   │   ├── Sidebar/        # Desktop sidebar & mobile Learning Path drawer
 │   │   └── UnitDescriptionModal/ # Unit preview and clinical objectives modal

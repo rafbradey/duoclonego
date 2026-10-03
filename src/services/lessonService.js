@@ -28,7 +28,7 @@ export async function getLevelById(levelId) {
 }
 
 /**
- * Checks whether a level is unlocked according to Duoclongo's progression rules:
+ * Checks whether a level is unlocked according to LASA-Quest's progression rules:
  * - Level 1 of Unit 1 is always unlocked
  * - Normal levels require the previous normal level in that unit to be completed
  * - Unit Mastery requires all normal levels in that unit to be completed

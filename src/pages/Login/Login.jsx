@@ -74,7 +74,7 @@ export default function Login() {
                 </Link>
                 <Link to="/" className="login-header-brand">
                     <Mascot mascotType="shadow" size={32} flipped={false} animationType="none" />
-                    <span className="login-brand-title">duoclongo</span>
+                    <span className="login-brand-title">LASA-Quest</span>
                 </Link>
             </header>
 
@@ -89,7 +89,7 @@ export default function Login() {
                             />
                         </div>
                         <h1 className="login-title heading-md">
-                            {mode === "signin" ? "Sign in to Duoclongo" : "Create your account"}
+                            {mode === "signin" ? "Sign in to LASA-Quest" : "Create your account"}
                         </h1>
                         <p className="login-subtitle body-text-muted">
                             {mode === "signin"

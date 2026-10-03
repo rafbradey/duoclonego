@@ -24,12 +24,15 @@ import {
     LogOut,
     LogIn,
     User,
-    Palette
+    Palette,
+    RotateCcw
 } from "lucide-react";
 import {
     getDueSrsPairs,
-    getMasteredPairsCount
+    getMasteredPairsCount,
+    resetDemoUserProgress
 } from "../../services/userService.js";
+import { IS_DEMO_MODE } from "../../services/supabaseClient.js";
 import { useAuth } from "../../context/AuthContext.jsx";
 import { getUserBadges } from "../../services/badgeService.js";
 import { getThemeById } from "../../data/themes.js";
@@ -188,7 +191,12 @@ function Profile() {
                 <div className="profile-info-block">
                     <div className="profile-name-row">
                         <h1 className="heading-lg">{user.display_name}</h1>
-                        {user.is_cloud ? (
+                        {IS_DEMO_MODE ? (
+                            <span className="profile-sync-pill" style={{ backgroundColor: "rgba(45, 171, 105, 0.15)", color: "var(--theme-primary, #2dab69)", borderColor: "var(--theme-primary, #2dab69)" }} title="Demo mode active: All progress and shop purchases saved to local JSON">
+                                <Shield size={13} />
+                                <span>Demo JSON Mode</span>
+                            </span>
+                        ) : user.is_cloud ? (
                             <span className="profile-sync-pill cloud" title="Progress is synced to Supabase cloud">
                                 <Cloud size={13} />
                                 <span>Cloud Synced</span>
@@ -212,33 +220,48 @@ function Profile() {
                             title="Equipped Theme — Click to customize in Item Shop"
                         >
                             <Palette size={13} />
-                            <span>Theme: {getThemeById(user?.equipped_theme)?.name || "Classic Duoclongo"}</span>
+                            <span>Theme: {getThemeById(user?.equipped_theme)?.name || "Classic LASA-Quest"}</span>
                         </Link>
                     </div>
                 </div>
 
 
-                <div className="profile-header-actions">
-                    {user.is_cloud ? (
-                        <button
-                            type="button"
-                            className="duo-button profile-signout-btn"
-                            onClick={() => signOut()}
-                            title="Sign out of your account"
-                        >
-                            <LogOut size={16} />
-                            <span>Sign Out</span>
-                        </button>
-                    ) : (
-                        <Link
-                            to="/login"
-                            className="duo-button duo-button-primary profile-signout-btn"
-                            style={{ textDecoration: "none" }}
-                            title="Sign in or create account to sync progress to cloud"
-                        >
-                            <LogIn size={16} />
-                            <span>Sign In</span>
-                        </Link>
+                <div className="profile-header-actions" style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                    <button
+                        type="button"
+                        className="duo-button duo-button-secondary profile-signout-btn"
+                        onClick={() => {
+                            if (window.confirm("Reset all progress back to pristine demo state (1,200 gems, 500 hearts from user.json)?")) {
+                                resetDemoUserProgress();
+                            }
+                        }}
+                        title="Reset progress to default demo JSON state"
+                    >
+                        <RotateCcw size={16} />
+                        <span>Reset Demo Data</span>
+                    </button>
+                    {!IS_DEMO_MODE && (
+                        user.is_cloud ? (
+                            <button
+                                type="button"
+                                className="duo-button profile-signout-btn"
+                                onClick={() => signOut()}
+                                title="Sign out of your account"
+                            >
+                                <LogOut size={16} />
+                                <span>Sign Out</span>
+                            </button>
+                        ) : (
+                            <Link
+                                to="/login"
+                                className="duo-button duo-button-primary profile-signout-btn"
+                                style={{ textDecoration: "none" }}
+                                title="Sign in or create account to sync progress to cloud"
+                            >
+                                <LogIn size={16} />
+                                <span>Sign In</span>
+                            </Link>
+                        )
                     )}
                 </div>
             </header>

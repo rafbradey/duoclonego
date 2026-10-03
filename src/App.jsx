@@ -8,11 +8,9 @@ import Login from "./pages/Login/Login.jsx";
 import Learn from "./pages/Learn/Learn.jsx";
 import Practice from "./pages/Practice/Practice.jsx";
 import Quests from "./pages/Quests/Quests.jsx";
-import Leaderboards from "./pages/Leaderboards/Leaderboards.jsx";
 import Shop from "./pages/Shop/Shop.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import LessonSession from "./pages/Lesson/LessonSession.jsx";
-import Documentation from "./pages/Documentation/Documentation.jsx";
 import TtsTestPage from "./pages/TtsTestPage/TtsTestPage.jsx";
 import CompletionPreview from "./pages/CompletionPreview/CompletionPreview.jsx";
 import ThemePreview from "./pages/ThemePreview/ThemePreview.jsx";
@@ -55,10 +53,8 @@ function App() {
                         <Route path="/learn" element={<Learn />} />
                         <Route path="/practice" element={<Practice />} />
                         <Route path="/quests" element={<Quests />} />
-                        <Route path="/leaderboards" element={<Leaderboards />} />
                         <Route path="/shop" element={<Shop />} />
                         <Route path="/profile" element={<Profile />} />
-                        <Route path="/documentation" element={<Documentation />} />
                         <Route path="/test-tts" element={<TtsTestPage />} />
                         <Route path="*" element={<NotFound />} />
                     </Route>

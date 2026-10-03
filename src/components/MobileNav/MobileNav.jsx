@@ -4,7 +4,6 @@ import {
     BookOpen,
     Dumbbell,
     Trophy,
-    Medal,
     ShoppingBag,
     User
 } from "lucide-react";
@@ -45,16 +44,6 @@ function MobileNav() {
                 <span className="mobile-nav-label">Quests</span>
             </NavLink>
 
-            <NavLink
-                to="/leaderboards"
-                className={({ isActive }) =>
-                    `mobile-nav-item ${isActive ? "active" : ""}`
-                }
-                aria-label="Leaderboards"
-            >
-                <Medal size={22} />
-                <span className="mobile-nav-label">Ranks</span>
-            </NavLink>
 
             <NavLink
                 to="/shop"

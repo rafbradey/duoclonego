@@ -89,9 +89,9 @@ function AppLayout() {
                     <Menu size={24} />
                 </button>
 
-                <Link to="/learn" className="mobile-brand-link" aria-label="Duoclongo Home">
+                <Link to="/learn" className="mobile-brand-link" aria-label="LASA-Quest Home">
                     <Mascot mascotType="shadow" size={28} flipped={false} animationType="none" />
-                    <span className="mobile-brand-title">duoclongo</span>
+                    <span className="mobile-brand-title">LASA-Quest</span>
                 </Link>
 
                 <div className="mobile-header-stats">

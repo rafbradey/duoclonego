@@ -10,9 +10,7 @@ import {
     Dumbbell,
     Trophy,
     ShoppingBag,
-    Medal,
     User,
-    FileText,
     ChevronDown,
     ChevronRight,
     CheckCircle2,
@@ -110,7 +108,7 @@ function Sidebar({ onNavigate, isMobileDrawer = false }) {
                 <div className="sidebar-header">
                     <Link to="/learn" className="sidebar-logo-link" onClick={onNavigate}>
                         <Mascot mascotType="shadow" size={36} flipped={false} animationType="none" />
-                        <span className="sidebar-logo-text">duoclongo</span>
+                        <span className="sidebar-logo-text">LASA-Quest</span>
                     </Link>
                 </div>
             )}
@@ -121,10 +119,8 @@ function Sidebar({ onNavigate, isMobileDrawer = false }) {
                     <SidebarNav icon={BookOpen} iconSize={24} link="/learn" text="LEARN" onClick={onNavigate} />
                     <SidebarNav icon={Dumbbell} iconSize={24} link="/practice" text="PRACTICE" onClick={onNavigate} />
                     <SidebarNav icon={Trophy} iconSize={24} link="/quests" text="QUESTS" onClick={onNavigate} />
-                    <SidebarNav icon={Medal} iconSize={24} link="/leaderboards" text="LEADERBOARDS" onClick={onNavigate} />
                     <SidebarNav icon={ShoppingBag} iconSize={24} link="/shop" text="SHOP" onClick={onNavigate} />
                     <SidebarNav icon={User} iconSize={24} link="/profile" text="PROFILE" onClick={onNavigate} />
-                    <SidebarNav icon={FileText} iconSize={24} link="/documentation" text="DOCS" onClick={onNavigate} />
                 </ul>
             </nav>
 

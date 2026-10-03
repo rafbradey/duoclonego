@@ -1,17 +1,25 @@
 [
   {
-    "id": "1",
-    "email": "test@duoclongo.local",
-    "username": "test",
-    "display_name": "Test",
+    "id": "demo_student",
+    "email": "student@lasa-quest.local",
+    "username": "pharmacy_student",
+    "display_name": "Pharmacy Student",
     "avatar": "default_male",
     "level": 1,
     "hearts": 500,
     "streak": 1,
     "xp": 0,
     "diamonds": 1200,
+    "streak_freeze_count": 0,
     "completed_lessons": [],
     "unlocked_badges": [],
-    "created_at": "2026-06-23T00:00:00Z"
+    "mistakes_queue": [],
+    "claimed_quests": [],
+    "practice_sessions_completed": 0,
+    "srs_records": {},
+    "owned_themes": [],
+    "equipped_theme": null,
+    "is_cloud": false,
+    "created_at": "2026-09-01T00:00:00Z"
   }
 ]

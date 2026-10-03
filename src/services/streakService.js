@@ -1,5 +1,5 @@
 /**
- * Streak Service for Duoclongo
+ * Streak Service for LASA-Quest
  *
  * Handles calendar-based daily streak calculation, rollover, and
  * automatic Streak Freeze consumption when a learner misses a day.

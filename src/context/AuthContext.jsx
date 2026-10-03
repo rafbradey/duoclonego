@@ -21,9 +21,17 @@ export function AuthProvider({ children }) {
         async function initAuth() {
             if (!isSupabaseConfigured || !supabase) {
                 if (isMounted) {
-                    const guest = await getCurrentUser();
-                    setProfile(guest);
-                    setStatus(AUTH_STATUS.UNAUTHENTICATED);
+                    const demoUser = await getCurrentUser();
+                    setProfile(demoUser);
+                    setAuthUser({
+                        id: demoUser.id,
+                        email: demoUser.email,
+                        user_metadata: {
+                            username: demoUser.username,
+                            display_name: demoUser.display_name
+                        }
+                    });
+                    setStatus(AUTH_STATUS.AUTHENTICATED);
                 }
                 return;
             }
@@ -102,12 +110,24 @@ export function AuthProvider({ children }) {
     const signIn = async ({ email, password }) => {
         const result = await apiSignIn({ email, password });
         if (result.error) throw result.error;
+        if (!isSupabaseConfigured) {
+            setAuthUser(result.user);
+            const userProfile = await getCurrentUser();
+            setProfile(userProfile);
+            setStatus(AUTH_STATUS.AUTHENTICATED);
+        }
         return result;
     };
 
     const signUp = async ({ email, password, username, displayName }) => {
         const result = await apiSignUp({ email, password, username, displayName });
         if (result.error) throw result.error;
+        if (!isSupabaseConfigured) {
+            setAuthUser(result.user);
+            const userProfile = await getCurrentUser();
+            setProfile(userProfile);
+            setStatus(AUTH_STATUS.AUTHENTICATED);
+        }
         return result;
     };
 
@@ -116,7 +136,7 @@ export function AuthProvider({ children }) {
         setAuthUser(null);
         const guest = await getCurrentUser();
         setProfile(guest);
-        setStatus(AUTH_STATUS.UNAUTHENTICATED);
+        setStatus(isSupabaseConfigured ? AUTH_STATUS.UNAUTHENTICATED : AUTH_STATUS.AUTHENTICATED);
     };
 
     const value = useMemo(() => ({

@@ -1,5 +1,5 @@
 /**
- * Shop Service for Duoclongo
+ * Shop Service for LASA-Quest
  *
  * Manages item definitions, pricing, user eligibility, and atomic purchase
  * transactions with Supabase persistence and optimistic local reconciliation.

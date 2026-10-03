@@ -6,7 +6,7 @@ const getMasteredCount = (user) => {
 };
 
 /**
- * Canonical registry of Duoclongo Achievements & Badges.
+ * Canonical registry of LASA-Quest Achievements & Badges.
  * All badges are aligned strictly with the 50 verified FDA/ISMP Look-Alike / Sound-Alike medication pairs
  * and core curriculum progression milestones.
  */

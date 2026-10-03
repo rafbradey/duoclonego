@@ -3,7 +3,7 @@ import { getUnitApplicableTallManTerms } from "./curriculumCoverageService.js";
 
 /**
  * Question Generator Service.
- * Generates the 3 core Duoclongo question types strictly from verified LASA pair records:
+ * Generates the 3 core LASA-Quest question types strictly from verified LASA pair records:
  * - Type A: Tall Man Lettering Recognition (Capitalization distinction of the SAME drug)
  * - Type B: LASA Pair Recognition (Identifies verified look-alike counterpart)
  * - Type C: Pair Memorization & Interactive Tap-to-Match (Consolidates confusable pairs)
