@@ -1,6 +1,18 @@
 .question-renderer-container {
     width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.question-renderer-container.question-type-tall_man {
+    max-width: 580px;
+}
+
+.question-renderer-container.question-type-matching {
+    max-width: 680px;
 }
 
 .question-origin-row,
@@ -10,6 +22,7 @@
     gap: 0.6rem;
     flex-wrap: wrap;
     margin-bottom: 1.25rem;
+    width: 100%;
 }
 
 .question-retry-badge {
@@ -59,11 +72,13 @@
 }
 
 @media (max-width: 600px) {
-    .question-origin-row {
+    .question-origin-row,
+    .question-badge-row {
         margin-bottom: 0.85rem;
     }
 
-    .question-origin-badge {
+    .question-origin-badge,
+    .question-retry-badge {
         font-size: 0.74rem;
         padding: 0.3rem 0.7rem;
     }

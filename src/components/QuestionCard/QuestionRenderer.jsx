@@ -117,8 +117,10 @@ function QuestionRenderer({
 
     const showHeaderRow = Boolean(originText || question.isRetry);
 
+    const typeClass = question?.type ? `question-type-${question.type}` : "";
+
     return (
-        <div className="question-renderer-container">
+        <div className={`question-renderer-container ${typeClass}`.trim()}>
             {showHeaderRow && (
                 <div className="question-badge-row">
                     {question.isRetry && (
