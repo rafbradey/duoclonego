@@ -15,7 +15,7 @@ export const SHOP_CATALOG = [
     {
         id: "heart_refill",
         name: "Heart Refill",
-        description: "Get all 500 hearts back.",
+        description: "Get all 5 hearts back.",
         cost: 350,
         icon: heartIcon,
         category: "Power-Ups",
@@ -24,7 +24,7 @@ export const SHOP_CATALOG = [
             if (!user) {
                 return { canBuy: false, reason: "Login required" };
             }
-            if ((user.hearts ?? 500) >= 500) {
+            if ((user.hearts ?? 5) >= 5) {
                 return { canBuy: false, reason: "Hearts are full" };
             }
             if ((user.diamonds ?? 0) < 350) {
@@ -157,7 +157,7 @@ export async function purchaseShopItem(itemId) {
                 );
 
                 const successMessage = itemId === "heart_refill"
-                    ? "❤️ Hearts restored to 500/500!"
+                    ? "❤️ Hearts restored to 5/5!"
                     : "🔥 Streak Freeze added to your inventory!";
 
                 return {
@@ -185,7 +185,7 @@ export async function purchaseShopItem(itemId) {
     };
 
     if (itemId === "heart_refill") {
-        updates.hearts = 500;
+        updates.hearts = 5;
     } else if (itemId === "streak_freeze") {
         updates.streak_freeze_count = Math.min(2, (user.streak_freeze_count ?? 0) + 1);
     }
@@ -206,7 +206,7 @@ export async function purchaseShopItem(itemId) {
     const updatedUser = setUserProfileCache(updates, { syncCloud: false });
 
     const successMessage = itemId === "heart_refill"
-        ? "❤️ Hearts restored to 500/500!"
+        ? "❤️ Hearts restored to 5/5!"
         : "🔥 Streak Freeze added to your inventory!";
 
     return {

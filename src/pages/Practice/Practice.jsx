@@ -87,6 +87,28 @@ function Practice() {
                 </div>
             </header>
 
+            {/* Stamina Recovery Banner when hearts === 0 */}
+            {(user?.hearts ?? 5) === 0 && (
+                <section className="practice-remediation-alert-banner" aria-label="Stamina Recovery Notice">
+                    <div className="remediation-alert-icon-box">
+                        <RotateCcw size={26} />
+                    </div>
+                    <div className="remediation-alert-content">
+                        <h3 className="remediation-alert-title">Stamina Depleted (0/5 Hearts) — Remediation Unlocks Progression</h3>
+                        <p className="remediation-alert-desc">
+                            Complete any review session below to restore <strong>+1 Heart</strong> and earn a <strong>+10 Diamond stipend</strong>. Correct past errors in Look-Alike &amp; Sound-Alike pairs to resume advancing on the Quest map!
+                        </p>
+                    </div>
+                    <Link
+                        to={mistakesCount > 0 ? "/lesson/practice?mode=mistakes" : "/lesson/practice?mode=quick"}
+                        className="duo-button duo-button-primary remediation-alert-action-btn"
+                    >
+                        <span>START REMEDIATION</span>
+                        <ArrowRight size={16} />
+                    </Link>
+                </section>
+            )}
+
             {/* Top Stat Overview Bar */}
             <section className="practice-stats-bar" aria-label="Practice Hub Statistics">
                 <div className="practice-stat-card">
@@ -169,7 +191,7 @@ function Practice() {
                     </div>
 
                     {/* Targeted Mistakes Review Mode Card */}
-                    <div className="practice-mode-card mistakes-mode duo-card">
+                    <div className={`practice-mode-card mistakes-mode duo-card ${(user?.hearts ?? 5) === 0 ? "mode-remediation-highlight" : ""}`}>
                         <div className="practice-card-top">
                             <div className="practice-card-header-row">
                                 <div className="practice-mode-icon-pill">
@@ -183,7 +205,7 @@ function Practice() {
                                 <h3 className="practice-mode-title">Targeted Mistakes Review</h3>
                                 <p className="practice-mode-desc">
                                     {mistakesCount > 0
-                                        ? `You have ${mistakesCount} flagged question${mistakesCount === 1 ? "" : "s"} waiting for redemption. Review them now to clear them from your mistake queue.`
+                                        ? `You have ${mistakesCount} flagged question${mistakesCount === 1 ? "" : "s"} waiting for redemption. Review them now to clear them from your mistake queue and restore hearts.`
                                         : "Your mistake queue is currently clear! Any questions you miss during standard curriculum lessons will automatically be prioritized here."}
                                 </p>
                             </div>
@@ -191,7 +213,7 @@ function Practice() {
 
                         <Link
                             to={mistakesCount > 0 ? "/lesson/practice?mode=mistakes" : "/lesson/practice?mode=quick"}
-                            className="duo-button duo-button-secondary practice-mode-action-btn"
+                            className={`duo-button ${(user?.hearts ?? 5) === 0 ? "duo-button-primary" : "duo-button-secondary"} practice-mode-action-btn`}
                         >
                             <span>{mistakesCount > 0 ? "REVIEW MISTAKES" : "PRACTICE ANYWAY"}</span>
                             <ArrowRight size={18} />

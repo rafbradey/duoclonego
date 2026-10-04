@@ -65,6 +65,20 @@
     border: 2px solid var(--bg-surface);
 }
 
+.remediation-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #ffc800;
+    background: rgba(255, 200, 0, 0.12);
+    border: 1px solid rgba(255, 200, 0, 0.35);
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+}
+
 .out-of-hearts-title {
     font-size: 1.6rem;
     font-weight: 900;

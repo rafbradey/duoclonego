@@ -6,6 +6,7 @@ import { getCurrentUser } from "../../services/userService.js";
 import RightInfoBar from "../../components/RightInfoBar/RightInfoBar.jsx";
 import GuidebookModal from "../../components/GuidebookModal/GuidebookModal.jsx";
 import UnitDescriptionModal from "../../components/UnitDescriptionModal/UnitDescriptionModal.jsx";
+import OutOfHeartsModal from "../../components/OutOfHeartsModal/OutOfHeartsModal.jsx";
 import "./Learn.css";
 
 function Learn() {
@@ -19,6 +20,10 @@ function Learn() {
         isOpen: false,
         levelId: 1,
         levelTitle: "Level 1"
+    });
+    const [remediationModal, setRemediationModal] = useState({
+        isOpen: false,
+        title: ""
     });
 
     // Smooth scroll to target level if navigated with hash (e.g. from mobile drawer /learn#level_005)
@@ -139,6 +144,16 @@ function Learn() {
         return Boolean(level.unlocked);
     };
 
+    const handleAttemptLevel = (e, targetLevel) => {
+        if ((user?.hearts ?? 5) <= 0) {
+            e.preventDefault();
+            setRemediationModal({
+                isOpen: true,
+                title: targetLevel?.title || "Next Level"
+            });
+        }
+    };
+
     return (
         <div className="learn-layout">
             <div className="learn-content-column">
@@ -224,6 +239,8 @@ function Learn() {
                                             const isCompleted = isLevelCompleted(level.id);
                                             const isUnlocked = isNormalLevelUnlocked(level, idx, unitIdx, normalLevels);
                                             const isActive = isUnlocked && !isCompleted;
+                                            const rawStars = user?.level_stars?.[level.id];
+                                            const levelStars = rawStars !== undefined ? rawStars : 0;
 
                                             return (
                                                 <div key={level.id} id={level.id} className="lesson-node-wrapper">
@@ -231,26 +248,30 @@ function Learn() {
                                                         <Link
                                                             to={`/lesson/${level.id}`}
                                                             className="lesson-node-btn lesson-node-completed"
-                                                            aria-label={`Review Level ${level.levelNumber || idx + 1}: ${level.title}`}
+                                                            aria-label={`Review Level ${level.levelNumber || idx + 1}: ${level.title} (${
+                                                                levelStars === 4
+                                                                    ? "Platinum Tier · 100% Accuracy"
+                                                                    : levelStars > 0
+                                                                    ? `${levelStars} of 3 Stars`
+                                                                    : "0 of 3 Stars · Needs Practice"
+                                                            })`}
                                                             title={`${level.learningObjective || level.title} (Completed - Click to review)`}
                                                         >
                                                             <div className="lesson-node-icon-wrapper">
-                                                                <CheckCircle size={30} />
+                                                                <CheckCircle size={32} />
                                                             </div>
-                                                            <span className="lesson-node-title">{level.title}</span>
-                                                            <span className="lesson-node-xp xp-completed">&#10003; DONE</span>
                                                         </Link>
                                                     ) : isActive ? (
                                                         <Link
                                                             to={`/lesson/${level.id}`}
+                                                            onClick={(e) => handleAttemptLevel(e, level)}
                                                             className="lesson-node-btn lesson-node-active"
                                                             aria-label={`Start Level ${level.levelNumber || idx + 1}: ${level.title}`}
                                                             title={level.learningObjective || level.title}
                                                         >
                                                             <div className="lesson-node-icon-wrapper">
-                                                                <Star size={30} fill="currentColor" />
+                                                                <Star size={32} fill="currentColor" />
                                                             </div>
-                                                            <span className="lesson-node-title">{level.title}</span>
                                                             <span className="lesson-node-xp">+{level.xp} XP</span>
                                                         </Link>
                                                     ) : (
@@ -262,11 +283,78 @@ function Learn() {
                                                             title={level.learningObjective || level.title}
                                                         >
                                                             <div className="lesson-node-icon-wrapper">
-                                                                <Lock size={26} />
+                                                                <Lock size={28} />
                                                             </div>
-                                                            <span className="lesson-node-title">{level.title}</span>
                                                         </button>
                                                     )}
+
+                                                    {/* Level Details & Stars visibly placed directly BELOW the button */}
+                                                    {isCompleted ? (
+                                                        <Link
+                                                            to={`/lesson/${level.id}`}
+                                                            className="lesson-node-info lesson-node-info-clickable"
+                                                            title="Click to review level"
+                                                        >
+                                                            <div
+                                                                className={`lesson-node-stars-pill ${
+                                                                    levelStars === 4
+                                                                        ? "stars-platinum"
+                                                                        : levelStars === 0
+                                                                        ? "stars-zero"
+                                                                        : ""
+                                                                }`}
+                                                                title={
+                                                                    levelStars === 4
+                                                                        ? "💎 Platinum Tier · 0 Errors (Flawless Precision)"
+                                                                        : levelStars === 3
+                                                                        ? "3 Stars · Mastery (1 Error)"
+                                                                        : levelStars === 2
+                                                                        ? "2 Stars · Proficient (2 Errors)"
+                                                                        : levelStars === 1
+                                                                        ? "1 Star · Competent (3 Errors)"
+                                                                        : "0 Stars (4+ Errors) · Replay with ≤3 errors to earn stars & diamond bounty"
+                                                                }
+                                                            >
+                                                                {levelStars === 4 ? (
+                                                                    <>
+                                                                        <Sparkles size={11} className="node-star-platinum-sparkle" />
+                                                                        {[1, 2, 3].map((s) => (
+                                                                            <Star
+                                                                                key={s}
+                                                                                size={12}
+                                                                                className="node-star-icon star-platinum"
+                                                                                fill="#00f0ff"
+                                                                            />
+                                                                        ))}
+                                                                        <span className="node-star-platinum-tag">100%</span>
+                                                                    </>
+                                                                ) : (
+                                                                    [1, 2, 3].map((s) => (
+                                                                        <Star
+                                                                            key={s}
+                                                                            size={12}
+                                                                            className={`node-star-icon ${levelStars >= s ? "star-active" : "star-inactive"}`}
+                                                                            fill={levelStars >= s ? "#ffc800" : "none"}
+                                                                        />
+                                                                    ))
+                                                                )}
+                                                            </div>
+                                                            <span className="lesson-node-title">{level.title}</span>
+                                                        </Link>
+                                                    ) : isActive ? (
+                                                        <Link
+                                                            to={`/lesson/${level.id}`}
+                                                            onClick={(e) => handleAttemptLevel(e, level)}
+                                                            className="lesson-node-info lesson-node-info-clickable"
+                                                        >
+                                                            <span className="lesson-node-title">{level.title}</span>
+                                                        </Link>
+                                                    ) : (
+                                                        <div className="lesson-node-info">
+                                                            <span className="lesson-node-title">{level.title}</span>
+                                                        </div>
+                                                    )}
+
                                                     <div className={`lesson-path-connector ${isCompleted ? "completed" : ""}`} />
                                                 </div>
                                             );
@@ -301,6 +389,7 @@ function Learn() {
                                                 ) : isMasteryActive ? (
                                                     <Link
                                                         to={`/unit/${masteryUnitParam}/mastery`}
+                                                        onClick={(e) => handleAttemptLevel(e, masteryLevel)}
                                                         className="unit-mastery-card unit-mastery-active"
                                                         aria-label={`Start ${masteryLevel.title}`}
                                                     >
@@ -359,6 +448,12 @@ function Learn() {
                 isOpen={Boolean(selectedUnitForModal)}
                 onClose={() => setSelectedUnitForModal(null)}
                 unit={selectedUnitForModal}
+            />
+
+            <OutOfHeartsModal
+                isOpen={remediationModal.isOpen}
+                levelTitle={remediationModal.title}
+                onClose={() => setRemediationModal({ isOpen: false, title: "" })}
             />
         </div>
     );

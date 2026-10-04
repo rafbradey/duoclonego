@@ -69,50 +69,99 @@
     border: 1px solid rgba(73, 192, 248, 0.35);
 }
 
-.lasa-comparison-row {
+.lasa-comparison-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    width: 100%;
+}
+
+.lasa-drug-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 0.75rem;
+    padding: 0.6rem 0.85rem;
+    background-color: var(--bg-page);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
-.lasa-drug-block {
+.lasa-drug-row:hover {
+    border-color: rgba(73, 192, 248, 0.4);
+    background-color: rgba(73, 192, 248, 0.04);
+}
+
+.lasa-drug-meta {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.2rem;
 }
 
 .lasa-drug-label {
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.7rem;
+    font-weight: 800;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.lasa-drug-title-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    letter-spacing: 0.06em;
 }
 
 .lasa-drug-name {
     font-size: 1.15rem;
     font-weight: 800;
     color: var(--text-white);
-    word-break: break-word;
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.35;
+}
+
+.lasa-divider-strip {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0 0.25rem;
+}
+
+.lasa-divider-line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.lasa-divider-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.65rem;
+    background-color: rgba(73, 192, 248, 0.08);
+    border: 1px solid rgba(73, 192, 248, 0.25);
+    border-radius: 9999px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    user-select: none;
+    white-space: nowrap;
+}
+
+.lasa-divider-badge-icon {
+    flex-shrink: 0;
 }
 
 .lasa-pronounce-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    background-color: var(--bg-page);
+    background-color: var(--bg-surface);
     border: 1px solid var(--border-color);
     color: var(--text-muted);
     cursor: pointer;
@@ -133,19 +182,6 @@
     background-color: rgba(88, 204, 2, 0.15);
 }
 
-.lasa-divider-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: var(--bg-page);
-    border: 1px solid var(--border-color);
-    color: var(--color-secondary);
-    flex-shrink: 0;
-}
-
 .lasa-card-footer {
     display: flex;
     align-items: center;
@@ -159,17 +195,4 @@
 .lasa-alert-icon {
     color: var(--color-secondary);
     flex-shrink: 0;
-}
-
-@media (max-width: 540px) {
-    .lasa-comparison-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
-    }
-
-    .lasa-divider-icon {
-        align-self: center;
-        transform: rotate(90deg);
-    }
 }

@@ -101,7 +101,7 @@ function AppLayout() {
                     </div>
                     <Link to="/shop" className="mobile-stat-item hearts" title="Hearts Remaining — Tap to Visit Shop">
                         <Heart size={18} className="mobile-stat-icon-heart" />
-                        <span className="mobile-stat-value">{user?.hearts ?? 500}</span>
+                        <span className="mobile-stat-value">{user?.hearts ?? 5}</span>
                     </Link>
                 </div>
             </header>

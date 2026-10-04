@@ -255,17 +255,40 @@
     justify-content: center;
 }
 
+.lesson-node-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-top: 0.65rem;
+    text-decoration: none;
+    max-width: 220px;
+    z-index: 2;
+}
+
+.lesson-node-info-clickable {
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.lesson-node-info-clickable:hover {
+    transform: translateY(-1px);
+}
+
+.lesson-node-info-clickable:hover .lesson-node-title {
+    color: var(--color-primary-hover, #61e002);
+}
+
 .lesson-node-title {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 50%;
-    transform: translateX(-50%);
     text-align: center;
     font-size: 0.85rem;
     font-weight: 800;
-    white-space: nowrap;
     color: var(--text-white);
-    pointer-events: none;
+    line-height: 1.25;
+    word-break: break-word;
+    transition: color 0.15s ease;
+    user-select: none;
 }
 
 .lesson-node-xp {
@@ -287,12 +310,88 @@
     box-shadow: 0 2px #1899d6;
 }
 
+/* Accuracy-driven Star Pill visible directly BELOW the level button */
+.lesson-node-stars-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background-color: rgba(20, 35, 45, 0.95);
+    border: 1.5px solid rgba(255, 200, 0, 0.55);
+    padding: 0.18rem 0.5rem;
+    border-radius: 9999px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lesson-node-info-clickable:hover .lesson-node-stars-pill {
+    transform: scale(1.06);
+    box-shadow: 0 4px 12px rgba(255, 200, 0, 0.3);
+}
+
+.node-star-icon.star-active {
+    color: #ffc800;
+    filter: drop-shadow(0 1px 3px rgba(255, 200, 0, 0.5));
+}
+
+.node-star-icon.star-inactive {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* 0-Star Pill (<70% Accuracy / Needs Practice) */
+.lesson-node-stars-pill.stars-zero {
+    border: 1.5px dashed rgba(255, 255, 255, 0.22);
+    background-color: rgba(20, 35, 45, 0.75);
+    opacity: 0.75;
+}
+
+/* Platinum Star Pill (100% Accuracy / Zero Dispensing Errors) */
+.lesson-node-stars-pill.stars-platinum {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.2) 0%, rgba(138, 43, 226, 0.18) 100%);
+    border: 1.5px solid #00f0ff;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.45);
+    animation: platinumPulse 3s infinite alternate ease-in-out;
+}
+
+@keyframes platinumPulse {
+    0% {
+        box-shadow: 0 0 8px rgba(0, 240, 255, 0.35);
+    }
+    100% {
+        box-shadow: 0 0 16px rgba(0, 240, 255, 0.65), 0 0 22px rgba(138, 43, 226, 0.35);
+    }
+}
+
+.node-star-platinum-sparkle {
+    color: #00f0ff;
+    animation: sparkleSpin 4s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes sparkleSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.node-star-icon.star-platinum {
+    color: #00f0ff;
+    filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.8));
+}
+
+.node-star-platinum-tag {
+    font-size: 0.65rem;
+    font-weight: 900;
+    color: #00f0ff;
+    letter-spacing: 0.04em;
+    margin-left: 2px;
+}
+
 .lesson-path-connector {
     width: 6px;
-    height: 48px;
+    height: 38px;
     background-color: var(--border-color);
     border-radius: 3px;
-    margin: 32px 0 16px 0;
+    margin: 14px 0 14px 0;
     transition: background-color 0.2s ease;
 }
 
@@ -511,15 +610,12 @@
 }
 
 @media (max-width: 768px) {
-    .lesson-node-title {
-        white-space: normal;
-        width: max-content;
-        max-width: min(240px, calc(100vw - 48px));
-        line-height: 1.25;
+    .lesson-node-info {
+        max-width: min(220px, calc(100vw - 48px));
     }
 
     .lesson-path-connector {
-        margin: 48px 0 16px 0;
+        margin: 12px 0 12px 0;
     }
 }
 
@@ -593,13 +689,12 @@
         font-size: 0.72rem;
     }
 
-    .lesson-node-title {
+    .lesson-node-info {
         max-width: min(180px, calc(100vw - 32px));
-        font-size: 0.8rem;
     }
 
     .lesson-path-connector {
-        margin: 54px 0 16px 0;
+        margin: 10px 0 10px 0;
     }
 }
 

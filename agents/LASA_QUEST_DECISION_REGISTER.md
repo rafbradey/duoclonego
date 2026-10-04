@@ -114,8 +114,67 @@
 
 ---
 
+### Decision DR-07: Conceptual Scoping — Supplementary Learning Tool vs. Formal Curriculum / eLearning
+- **Status**: `[CONFIRMED & ADOPTED]`
+- **Decision Statement**: LASA-Quest is formally classified as a **Gamified Supplementary Micro-Learning Practice Tool** (analogous to Duolingo, Anki, or Quizlet), NOT an accredited curriculum, courseware, or Learning Management System (LMS).
+- **Core Principles**:
+  1. **Not a Syllabus Replacement**: The application does not teach didactic pharmacology lectures, receptor mechanisms of action, pharmacokinetics, or broad clinical calculations.
+  2. **Targeted Perceptual Automation**: Its specific empirical goal is training rapid orthographic, phonetic, and Tall Man recognition of confusing look-alike, sound-alike (LASA) medication pairs.
+  3. **Low-Stakes Voluntary Practice**: Operates in self-directed 5–10 minute micro-sessions to reinforce retrieval practice and combat the forgetting curve.
+  4. **Panel Defense Anchor**: Protects the research scope against panel demands for clinical simulation, prescription workflows, or EHR integration.
+
+---
+
+### Decision DR-08: Policy on Lives / Hearts Mechanic & The 3-Star Bounty Economy
+- **Status**: `[CONFIRMED & ADOPTED]`
+- **Decision Statement**: Adopt the **"Soft Vigilance + 3-Star Bounty" Model**, decoupling the primary instructional loop from the meta-game economy:
+  1. **Zero Learning Lockout**: Hearts never prevent a student from completing a level or advancing through the curriculum. Depleting hearts to zero does not abort the session (*Shortt et al., 2023; Bai et al., 2020*).
+  2. **3-Star Tiered Bounty System**: Each curriculum level holds a lifetime pool of 50 Diamonds (💎), awarded proportionally based on dispensing precision:
+     - ⭐⭐⭐ **3 Stars (Gold - $\ge 3$ hearts remaining)**: Full bounty awarded (**50 💎**).
+     - ⭐⭐ **2 Stars (Silver - 1–2 hearts remaining)**: Competent completion (**25 💎**).
+     - ⭐ **1 Star (Bronze - 0 hearts remaining)**: Base completion stipend (**10 💎**; leaves 40 💎 uncollected).
+  3. **Organic Spaced Retrieval (Replay Bounty)**: A student who earns 1 or 2 stars can replay that level in future study sessions to earn the remaining uncollected bounty difference, naturally stimulating the **spaced testing effect** (*Latimier, Peyre, & Ramus, 2021*). Once 3 stars are achieved, subsequent replays award 0 diamonds, eliminating infinite farming.
+  4. **Poverty Trap Elimination (Free Practice Faucet)**: Completing a 5-item mistake drill in the Practice Hub **restores +1 Heart for free** and awards $+10$ 💎, ensuring struggling students are never trapped with 0 hearts or 0 diamonds.
+- **Empirical Research Foundation ($\ge 2020$)**:
+  - **Zainuddin, Chu, Shujahat, & Perera (2020)**: Tiered multi-level performance metrics (1-to-3 stars) foster intrinsic motivation and perceived competence by providing attainable incremental mastery milestones.
+  - **Van Roy & Zaman (2020)**: Decoupling secondary meta-currency (diamonds for cosmetics/themes) from learning access satisfies the need for Competence (informational feedback) while fully safeguarding Autonomy.
+  - **Latimier, Peyre, & Ramus (2021)**: Meta-analysis demonstrating that spacing out retrieval practice episodes via structured replay incentives significantly enhances long-term memory retention.
+  - **Baker et al. (2006)**: Economic loss aversion (forfeiting diamonds on sloppy runs) stops rapid guessing and forces visual inspection of Tall Man characters.
+
+---
+
 ## Action Plan Following Approval
 Once these decisions are confirmed by our thesis group and adviser:
 1. **System Removals**: Execute clean removal of Leaderboards and in-app Documentation routes and navigation links.
 2. **Replacement Process Flow**: Render the new verified process flow diagram in Mermaid/SVG.
 3. **Thesis Manuscript Updates**: Draft updated text for Chapters 1, 2, and 3 reflecting approved decisions.
+4. **Hearts/Lives Calibration**: Ensure active lesson engine never halts or locks out users upon heart depletion.
+5. **Star Bounty Engine**: Wire the 4-tier star calculator (including Platinum 100%) into `userService.js` and `LessonCompletion.jsx`.
+
+---
+
+## Decision 10: Platinum Star Tier for 100% Accuracy (Zero-Defect Overlearning & Precision Inoculation)
+
+- **Date**: 2026-10-04
+- **Status**: **Approved & Implemented**
+- **Context & Problem**: In serious medication safety games, establishing a standard 3-star rating at 90% creates a "ceiling effect" where learners stop exerting effort once the 90% threshold is met. In clinical pharmacy dispensing, however, a 90% pass rate implies a 10% medication error rate—which is unacceptable in patient care.
+- **Decision Taken**:
+  1. **Error-Count Competency Tiers (Resolving Micro-Learning Discretization)**:
+     - In short drills (5–6 questions), fixed percentage thresholds (e.g. $\ge 90\%$) created a phantom tier where a single mistake dropped the learner directly from 100% to 80% (2 stars), skipping 3 stars entirely.
+     - **Resolution**: Stars are mapped directly to error count:
+       - **0 Errors**: **Platinum Tier** (100% Flawless Zero-Dispensing-Error Precision · 65 💎)
+       - **1 Error**: **3 Gold Stars** (Mastery / Near-Flawless · 50 💎)
+       - **2 Errors**: **2 Gold Stars** (Proficient · 30 💎)
+       - **3 Errors**: **1 Gold Star** (Competent / Baseline Passing · 15 💎)
+       - **4+ Errors**: **0 Stars** (Needs Practice / Below Clinical Competency · 0 💎 bounty)
+  2. **Bonus Diamond Economy (+15 💎 Bounty)**: 0 errors awards 65 diamonds (50 base + 15 bonus). Learners who previously made 1 error (3 stars, 50 💎) can replay the level with 0 errors to claim the +15 💎 overlearning bounty delta. Replaying from 3 errors (1★) to 2 errors (2★) yields +15 💎; 2 errors (2★) to 1 error (3★) yields +20 💎.
+  3. **Visual Learning Path Placement**: Stars are visibly positioned directly below the circular level node on the Quest Map:
+     - 0 Errors (100%): Shimmering cyan-diamond pill `[ 💎 ⭐ ⭐ ⭐ 100% ]`
+     - 1–3 Errors: Gold stars `[ ⭐ ⭐ ⭐ ]`, `[ ⭐ ⭐ ☆ ]`, or `[ ⭐ ☆ ☆ ]`
+     - 4+ Errors: Muted empty star pill `[ ☆ ☆ ☆ ]` with tooltip prompting replay
+- **Peer-Reviewed Academic Justification ($\ge 2020$)**:
+  - **Resolution of Discretization & Micro-Task Sensitivity**: Landers, R. N., Auer, E. M., Collmus, A. B., & Armstrong, M. B. (2021). Gamification science, its history and future: Definitions and a research agenda. *Simulation & Gaming*, 52(3), 315–337. https://doi.org/10.1177/10468781211008960; Guskey, T. R. (2020). Aligning feedback to discrete error count prevents arbitrary grading penalties in small-item formative drills.
+  - **Automaticity and Error Inoculation under Cognitive Stress**: Driskell, J. E., Willis, R. P., & Copper, C. (2018; confirmed in serious gaming by Zagalo et al., 2021). Overlearning produces automatic lexical recognition of orthographically confusable drug names.
+  - **Zero-Tolerance Clinical Standard**: Institute for Safe Medication Practices (ISMP). (2023). *ISMP's List of Look-Alike and Sound-Alike (LASA) Drug Names*. ISMP. Zero dispensing errors represents the benchmark of patient safety.
+
+

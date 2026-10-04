@@ -3,7 +3,7 @@ import { Sparkles, ShoppingBag, ArrowLeft } from "lucide-react";
 import heartIcon from "../../assets/items/heart.png";
 import "./OutOfHeartsModal.css";
 
-function OutOfHeartsModal({ isOpen = true, onClose }) {
+function OutOfHeartsModal({ isOpen = true, onClose, levelTitle = "" }) {
     if (!isOpen) return null;
 
     return (
@@ -14,18 +14,23 @@ function OutOfHeartsModal({ isOpen = true, onClose }) {
                     <span className="out-of-hearts-zero-pill">0</span>
                 </div>
 
+                <div className="remediation-badge-pill">
+                    <Sparkles size={12} />
+                    <span>MASTERY REMEDIATION REQUIRED</span>
+                </div>
+
                 <h2 id="out-of-hearts-title" className="out-of-hearts-title heading-md">
-                    You&apos;re out of hearts!
+                    {levelTitle ? `Unlock ${levelTitle}` : "Stamina Depleted (0/5 Hearts)"}
                 </h2>
 
                 <p className="out-of-hearts-desc body-text-muted">
-                    Keep practicing Look-Alike & Sound-Alike pairs in the Practice Hub to earn hearts without penalties, or refill instantly in the pharmacy shop.
+                    You need at least <strong>1 heart</strong> to attempt new curriculum levels. Remediate your missed Look-Alike & Sound-Alike medications in the Practice Hub to earn hearts without penalties!
                 </p>
 
                 <div className="out-of-hearts-actions">
-                    <Link to="/practice" className="duo-button duo-button-primary out-of-hearts-btn">
+                    <Link to="/practice?mode=mistakes" className="duo-button duo-button-primary out-of-hearts-btn">
                         <Sparkles size={18} />
-                        <span>PRACTICE TO EARN HEARTS</span>
+                        <span>REMEDIATE IN PRACTICE HUB (+1 ❤️, +10 💎)</span>
                     </Link>
 
                     <Link to="/shop" className="duo-button duo-button-secondary out-of-hearts-btn">
@@ -39,7 +44,7 @@ function OutOfHeartsModal({ isOpen = true, onClose }) {
                         className="out-of-hearts-dismiss-btn"
                     >
                         <ArrowLeft size={16} />
-                        <span>Return to Learning Path</span>
+                        <span>Review Completed Levels (Free Replay)</span>
                     </button>
                 </div>
             </div>

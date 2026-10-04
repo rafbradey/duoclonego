@@ -1,6 +1,7 @@
 .tallman-text {
-    display: inline;
+    display: inline-block;
     letter-spacing: 0.02em;
+    white-space: nowrap;
 }
 
 .tallman-highlight {

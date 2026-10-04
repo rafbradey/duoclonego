@@ -15,6 +15,106 @@ export const SRS_INTERVALS = {
     3: 7 * 24 * 60 * 60 * 1000     // Stage 3: 7 days (Mastered)
 };
 
+export const MAX_HEARTS = 5;
+
+export const ERROR_STAR_THRESHOLDS = {
+    PLATINUM: 0,    // 0 Errors (100% Zero-Defect Precision) (Landers et al., 2021; ISMP, 2023)
+    THREE_STARS: 1, // 1 Error (Mastery: allows 1 slip in micro-learning drills)
+    TWO_STARS: 2,   // 2 Errors (Proficient)
+    ONE_STAR: 3     // 3 Errors (Competent / Baseline Passing)
+    // 4+ Errors: 0 Stars (Needs Practice / Below Clinical Competency)
+};
+
+export const STAR_THRESHOLDS = {
+    PLATINUM: 100,
+    THREE_STARS: 90,
+    TWO_STARS: 80,
+    ONE_STAR: 70
+};
+
+export const STAR_BOUNTIES = {
+    4: 65, // Platinum (0 Errors: 50 base + 15 Platinum Bonus)
+    3: 50, // 3 Gold Stars (1 Error: 50 💎)
+    2: 30, // 2 Gold Stars (2 Errors: 30 💎)
+    1: 15, // 1 Gold Star (3 Errors: 15 💎)
+    0: 0   // 0 Stars (4+ Errors: 0 💎)
+};
+
+/**
+ * Calculates stars earned and diamond bounty delta based on error count (or percentage accuracy).
+ * Solves the micro-learning granularity issue where 1 mistake in a 5-question quiz would jump past 3 stars:
+ * - 0 Errors: 4 Stars (Platinum Flawless Precision · 65 💎)
+ * - 1 Error: 3 Gold Stars (Mastery · 50 💎)
+ * - 2 Errors: 2 Gold Stars (Proficient · 30 💎)
+ * - 3 Errors: 1 Gold Star (Competent · 15 💎)
+ * - 4+ Errors: 0 Stars (Needs Practice · 0 💎)
+ */
+export function calculateLevelStarsAndBounty(
+    accuracy,
+    levelId,
+    claimedBounties = {},
+    existingStars = {},
+    sessionMeta = null
+) {
+    let starsEarned;
+    let isPlatinum = false;
+
+    let errorCount = null;
+    if (sessionMeta && typeof sessionMeta.errors === "number") {
+        errorCount = sessionMeta.errors;
+    } else if (sessionMeta && typeof sessionMeta.totalQuestions === "number" && typeof sessionMeta.correctCount === "number") {
+        errorCount = Math.max(0, sessionMeta.totalQuestions - sessionMeta.correctCount);
+    }
+
+    if (errorCount !== null) {
+        if (errorCount === 0 && (sessionMeta?.totalQuestions ?? 1) > 0) {
+            starsEarned = 4;
+            isPlatinum = true;
+        } else if (errorCount === 1) {
+            starsEarned = 3;
+        } else if (errorCount === 2) {
+            starsEarned = 2;
+        } else if (errorCount === 3 && (sessionMeta?.correctCount ?? 1) > 0) {
+            starsEarned = 1;
+        } else {
+            starsEarned = 0;
+        }
+    } else {
+        // Fallback percentage mapping when errors are not explicitly passed
+        if (accuracy >= 100) {
+            starsEarned = 4;
+            isPlatinum = true;
+        } else if (accuracy >= 80) { // e.g. 1 error in 5-6 questions (80% - 83.3%)
+            starsEarned = 3;
+        } else if (accuracy >= 60) { // e.g. 2 errors in 5-6 questions (60% - 66.7%)
+            starsEarned = 2;
+        } else if (accuracy >= 40) { // e.g. 3 errors in 5-6 questions (40% - 50%)
+            starsEarned = 1;
+        } else {
+            starsEarned = 0;
+        }
+    }
+
+    const currentBestStars = existingStars?.[levelId] || 0;
+    const newBestStars = Math.max(currentBestStars, starsEarned);
+
+    const targetBounty = STAR_BOUNTIES[starsEarned] ?? 0;
+    const alreadyClaimed = claimedBounties?.[levelId] || 0;
+    const bountyDelta = Math.max(0, targetBounty - alreadyClaimed);
+    const newClaimedTotal = Math.max(alreadyClaimed, targetBounty);
+
+    return {
+        starsEarned,
+        isPlatinum,
+        newBestStars,
+        targetBounty,
+        alreadyClaimed,
+        bountyDelta,
+        newClaimedTotal,
+        isCapped: alreadyClaimed >= 65
+    };
+}
+
 /**
  * Normalizes a user profile object, ensuring arrays and nested SRS dicts are properly typed.
  */
@@ -30,7 +130,7 @@ function normalizeUserData(raw) {
         display_name: raw.display_name || raw.username || raw.email?.split("@")[0] || "Learner",
         avatar: raw.avatar || "default_male",
         level: typeof raw.level === "number" ? raw.level : 1,
-        hearts: typeof raw.hearts === "number" ? raw.hearts : 500,
+        hearts: typeof raw.hearts === "number" ? Math.min(MAX_HEARTS, Math.max(0, raw.hearts)) : MAX_HEARTS,
         streak: typeof raw.streak === "number" ? raw.streak : 1,
         xp: typeof raw.xp === "number" ? raw.xp : 0,
         diamonds: typeof raw.diamonds === "number" ? raw.diamonds : 1200,
@@ -44,6 +144,8 @@ function normalizeUserData(raw) {
             ? raw.practice_sessions_completed
             : 0,
         srs_records: raw.srs_records && typeof raw.srs_records === "object" ? raw.srs_records : {},
+        level_stars: raw.level_stars && typeof raw.level_stars === "object" ? raw.level_stars : {},
+        level_bounties_claimed: raw.level_bounties_claimed && typeof raw.level_bounties_claimed === "object" ? raw.level_bounties_claimed : {},
         owned_themes: Array.isArray(raw.owned_themes) ? raw.owned_themes : [],
         equipped_theme: typeof raw.equipped_theme === "string" ? raw.equipped_theme : null,
         is_cloud: Boolean(raw.is_cloud),
@@ -71,7 +173,7 @@ const DEFAULT_GUEST_PROFILE = {
     display_name: SEED_USER.display_name || "Pharmacy Student",
     avatar: SEED_USER.avatar || "default_male",
     level: typeof SEED_USER.level === "number" ? SEED_USER.level : 1,
-    hearts: typeof SEED_USER.hearts === "number" ? SEED_USER.hearts : 500,
+    hearts: typeof SEED_USER.hearts === "number" ? Math.min(MAX_HEARTS, Math.max(0, SEED_USER.hearts)) : MAX_HEARTS,
     streak: typeof SEED_USER.streak === "number" ? SEED_USER.streak : 1,
     xp: typeof SEED_USER.xp === "number" ? SEED_USER.xp : 0,
     diamonds: typeof SEED_USER.diamonds === "number" ? SEED_USER.diamonds : 1200,
@@ -85,6 +187,8 @@ const DEFAULT_GUEST_PROFILE = {
         ? SEED_USER.practice_sessions_completed
         : 0,
     srs_records: SEED_USER.srs_records || {},
+    level_stars: SEED_USER.level_stars || {},
+    level_bounties_claimed: SEED_USER.level_bounties_claimed || {},
     owned_themes: Array.isArray(SEED_USER.owned_themes) ? SEED_USER.owned_themes : [],
     equipped_theme: SEED_USER.equipped_theme || null,
     is_cloud: false,
@@ -99,8 +203,10 @@ function loadPersistedGuestUser() {
         const saved = window.localStorage.getItem(STORAGE_KEY);
         if (saved) {
             const parsed = JSON.parse(saved);
-            if (typeof parsed.hearts !== "number" || parsed.hearts <= 5) {
-                parsed.hearts = 500;
+            if (typeof parsed.hearts !== "number") {
+                parsed.hearts = MAX_HEARTS;
+            } else {
+                parsed.hearts = Math.min(MAX_HEARTS, Math.max(0, parsed.hearts));
             }
             return normalizeUserData({ ...DEFAULT_GUEST_PROFILE, ...parsed, is_cloud: false });
         }
@@ -152,7 +258,7 @@ async function fetchCloudProfile(authUser) {
         display_name: authUser.user_metadata?.display_name || authUser.user_metadata?.username || authUser.email?.split("@")[0] || "Learner",
         avatar: authUser.user_metadata?.avatar || "default_male",
         xp: 0,
-        hearts: 500,
+        hearts: MAX_HEARTS,
         streak: 1,
         diamonds: 1200,
         streak_freeze_count: 0,
@@ -162,6 +268,8 @@ async function fetchCloudProfile(authUser) {
         mistakes_queue: [],
         practice_sessions_completed: 0,
         srs_records: {},
+        level_stars: {},
+        level_bounties_claimed: {},
         owned_themes: [],
         equipped_theme: null,
         is_cloud: true
@@ -220,6 +328,14 @@ async function fetchCloudProfile(authUser) {
                 const cachedClaims = localStorage.getItem(`duoclongo_claimed_quests_${authUser.id}`);
                 if (cachedClaims) {
                     profile.claimed_quests = JSON.parse(cachedClaims);
+                }
+                const cachedStars = localStorage.getItem(`duoclongo_level_stars_${authUser.id}`);
+                if (cachedStars) {
+                    profile.level_stars = JSON.parse(cachedStars);
+                }
+                const cachedBounties = localStorage.getItem(`duoclongo_level_bounties_${authUser.id}`);
+                if (cachedBounties) {
+                    profile.level_bounties_claimed = JSON.parse(cachedBounties);
                 }
                 const cachedOwned = localStorage.getItem(`duoclongo_owned_themes_${authUser.id}`);
                 if (cachedOwned) {
@@ -341,6 +457,12 @@ async function syncToCloud(user) {
     if (typeof localStorage !== "undefined" && currentAuthUser?.id) {
         try {
             const userId = currentAuthUser.id;
+            if (user.level_stars && typeof user.level_stars === "object") {
+                localStorage.setItem(`duoclongo_level_stars_${userId}`, JSON.stringify(user.level_stars));
+            }
+            if (user.level_bounties_claimed && typeof user.level_bounties_claimed === "object") {
+                localStorage.setItem(`duoclongo_level_bounties_${userId}`, JSON.stringify(user.level_bounties_claimed));
+            }
             if (Array.isArray(user.owned_themes)) {
                 localStorage.setItem(`duoclongo_owned_themes_${userId}`, JSON.stringify(user.owned_themes));
             }
@@ -506,7 +628,9 @@ export async function updateUserProgress({
     mistakeToRemove = null,
     practiceSessionCompleted = false,
     levelAttempt = null,
-    claimedQuestsUpdate = null
+    claimedQuestsUpdate = null,
+    levelStarsUpdate = null,
+    levelBountiesUpdate = null
 } = {}) {
     if (!currentUser) return null;
 
@@ -558,10 +682,24 @@ export async function updateUserProgress({
         }
     }
 
+    const levelStars = { ...(currentUser.level_stars || {}) };
+    if (levelStarsUpdate && typeof levelStarsUpdate === "object") {
+        Object.entries(levelStarsUpdate).forEach(([lvlId, stars]) => {
+            levelStars[lvlId] = Math.max(levelStars[lvlId] || 0, Number(stars) || 0);
+        });
+    }
+
+    const levelBounties = { ...(currentUser.level_bounties_claimed || {}) };
+    if (levelBountiesUpdate && typeof levelBountiesUpdate === "object") {
+        Object.entries(levelBountiesUpdate).forEach(([lvlId, amount]) => {
+            levelBounties[lvlId] = Math.max(levelBounties[lvlId] || 0, Number(amount) || 0);
+        });
+    }
+
     const updatedUser = {
         ...currentUser,
         xp: Math.max(0, (currentUser.xp || 0) + xpToAdd),
-        hearts: Math.max(0, (currentUser.hearts || 500) + heartsChange),
+        hearts: Math.min(MAX_HEARTS, Math.max(0, (currentUser.hearts ?? MAX_HEARTS) + heartsChange)),
         diamonds: Math.max(0, (currentUser.diamonds ?? 1200) + netDiamondsChange),
         streak: newStreak,
         streak_freeze_count: newFreezes,
@@ -569,7 +707,9 @@ export async function updateUserProgress({
         completed_lessons: completedLessons,
         mistakes_queue: mistakesQueue,
         practice_sessions_completed: practiceCount,
-        claimed_quests: claimedQuests
+        claimed_quests: claimedQuests,
+        level_stars: levelStars,
+        level_bounties_claimed: levelBounties
     };
 
     const badgeInfo = getUserBadges(updatedUser);
@@ -723,7 +863,7 @@ export async function resetUserProgress() {
             .from("profiles")
             .update({
                 xp: 0,
-                hearts: 500,
+                hearts: MAX_HEARTS,
                 streak: 1,
                 diamonds: 1200,
                 completed_lessons: [],
@@ -731,6 +871,8 @@ export async function resetUserProgress() {
                 mistakes_queue: [],
                 practice_sessions_completed: 0,
                 srs_records: {},
+                level_stars: {},
+                level_bounties_claimed: {},
                 updated_at: new Date().toISOString()
             })
             .eq("id", currentAuthUser.id)
@@ -743,14 +885,16 @@ export async function resetUserProgress() {
             currentUser = {
                 ...currentUser,
                 xp: 0,
-                hearts: 500,
+                hearts: MAX_HEARTS,
                 streak: 1,
                 diamonds: 1200,
                 completed_lessons: [],
                 unlocked_badges: [],
                 mistakes_queue: [],
                 practice_sessions_completed: 0,
-                srs_records: {}
+                srs_records: {},
+                level_stars: {},
+                level_bounties_claimed: {}
             };
         }
         notifyUserUpdated(currentUser);
@@ -830,9 +974,9 @@ export async function claimDailyQuest(questId, xpReward = 0, gemsReward = 0) {
  * @returns {Promise<number>} Updated hearts count
  */
 export async function deductHeart() {
-    if (!currentUser) return 500;
+    if (!currentUser) return MAX_HEARTS;
 
-    const currentHearts = typeof currentUser.hearts === "number" ? currentUser.hearts : 500;
+    const currentHearts = typeof currentUser.hearts === "number" ? currentUser.hearts : MAX_HEARTS;
     const newHearts = Math.max(0, currentHearts - 1);
 
     currentUser = {
@@ -849,16 +993,16 @@ export async function deductHeart() {
 
 /**
  * Restores hearts for the active user's profile (e.g. upon completing a practice session).
- * Maximum heart count is 500.
+ * Maximum heart count is MAX_HEARTS (5).
  *
  * @param {number} [amount=1] - Number of hearts to restore
  * @returns {Promise<number>} Updated hearts count
  */
 export async function restoreHeart(amount = 1) {
-    if (!currentUser) return 500;
+    if (!currentUser) return MAX_HEARTS;
 
-    const currentHearts = typeof currentUser.hearts === "number" ? currentUser.hearts : 500;
-    const newHearts = Math.min(500, currentHearts + Math.max(1, amount));
+    const currentHearts = typeof currentUser.hearts === "number" ? currentUser.hearts : MAX_HEARTS;
+    const newHearts = Math.min(MAX_HEARTS, currentHearts + Math.max(1, amount));
 
     currentUser = {
         ...currentUser,

@@ -44,45 +44,50 @@ function LasaPairCard({ pair, srsRecord = null, isDue = false, className = "" })
                 {srsBadge}
             </div>
 
-            <div className="lasa-comparison-row">
-                <div className="lasa-drug-block">
-                    <span className="lasa-drug-label">Primary Drug</span>
-                    <div className="lasa-drug-title-row">
+            <div className="lasa-comparison-stack">
+                <div className="lasa-drug-row primary-drug-row">
+                    <div className="lasa-drug-meta">
+                        <span className="lasa-drug-label">Primary Drug</span>
                         <h3 className="lasa-drug-name">
                             <TallManText name={pair.drugName} />
                         </h3>
-                        <button
-                            type="button"
-                            className={`lasa-pronounce-btn ${speakingDrug === pair.drugName ? "speaking" : ""}`}
-                            onClick={() => handlePronounce(pair.drugName)}
-                            title={`Pronounce ${pair.drugName}`}
-                            aria-label={`Pronounce ${pair.drugName}`}
-                        >
-                            <Volume2 size={16} />
-                        </button>
                     </div>
+                    <button
+                        type="button"
+                        className={`lasa-pronounce-btn ${speakingDrug === pair.drugName ? "speaking" : ""}`}
+                        onClick={() => handlePronounce(pair.drugName)}
+                        title={`Pronounce ${pair.drugName}`}
+                        aria-label={`Pronounce ${pair.drugName}`}
+                    >
+                        <Volume2 size={16} />
+                    </button>
                 </div>
 
-                <div className="lasa-divider-icon" title="Look-Alike / Sound-Alike Pair">
-                    <ArrowLeftRight size={20} />
+                <div className="lasa-divider-strip" aria-hidden="true">
+                    <span className="lasa-divider-line" />
+                    <div className="lasa-divider-badge" title="Confused With">
+                        <ArrowLeftRight size={13} className="lasa-divider-badge-icon" />
+                        <span>Confused With</span>
+                    </div>
+                    <span className="lasa-divider-line" />
                 </div>
 
-                <div className="lasa-drug-block">
-                    <span className="lasa-drug-label">Confused With</span>
-                    <div className="lasa-drug-title-row">
+                <div className="lasa-drug-row confused-drug-row">
+                    <div className="lasa-drug-meta">
+                        <span className="lasa-drug-label">Confused Medication</span>
                         <h3 className="lasa-drug-name">
                             <TallManText name={pair.confusedDrugName} />
                         </h3>
-                        <button
-                            type="button"
-                            className={`lasa-pronounce-btn ${speakingDrug === pair.confusedDrugName ? "speaking" : ""}`}
-                            onClick={() => handlePronounce(pair.confusedDrugName)}
-                            title={`Pronounce ${pair.confusedDrugName}`}
-                            aria-label={`Pronounce ${pair.confusedDrugName}`}
-                        >
-                            <Volume2 size={16} />
-                        </button>
                     </div>
+                    <button
+                        type="button"
+                        className={`lasa-pronounce-btn ${speakingDrug === pair.confusedDrugName ? "speaking" : ""}`}
+                        onClick={() => handlePronounce(pair.confusedDrugName)}
+                        title={`Pronounce ${pair.confusedDrugName}`}
+                        aria-label={`Pronounce ${pair.confusedDrugName}`}
+                    >
+                        <Volume2 size={16} />
+                    </button>
                 </div>
             </div>
 

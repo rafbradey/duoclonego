@@ -1,5 +1,8 @@
 # LASA-QUEST (DUOCLONGO) — APPLICATION ARCHITECTURE
 
+> **SYSTEM CLASSIFICATION & SCOPE**:  
+> LASA-Quest is an educational **Supplementary Micro-Learning Practice Tool** (analogous to Duolingo, Anki, or Quizlet). It is **NOT** a full curriculum, courseware, or Learning Management System (LMS). Its specific purpose is training rapid perceptual discrimination (orthographic, phonetic, and Tall Man recognition) of confusable drug pairs through bite-sized, low-stakes retrieval practice.
+
 ## 1. CURRENT TECHNOLOGY
 
 The repository should be treated as the source of truth.

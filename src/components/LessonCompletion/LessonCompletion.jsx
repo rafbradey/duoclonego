@@ -10,11 +10,19 @@ import {
     X,
     ChevronRight,
     Layers,
-    Dumbbell
+    Dumbbell,
+    Star,
+    RotateCcw
 } from "lucide-react";
 import Mascot from "../Mascot/Mascot.jsx";
 import { calculateLessonXP } from "../../services/lessonEngine.js";
-import { getCurrentUser, updateUserProgress, restoreHeart } from "../../services/userService.js";
+import {
+    getCurrentUser,
+    updateUserProgress,
+    restoreHeart,
+    calculateLevelStarsAndBounty,
+    MAX_HEARTS
+} from "../../services/userService.js";
 import { getNewlyUnlockedBadges } from "../../services/badgeService.js";
 import { getNextLevel } from "../../services/lessonService.js";
 import { allLevels } from "../../data/levels/index.js";
@@ -90,9 +98,19 @@ function LessonCompletion({ session, lesson }) {
     const isMastery = Boolean(lesson?.type === "unit_mastery" || lesson?.isMasteryLevel);
     const totalQuestions = session?.totalQuestions || session?.answers?.length || 1;
     const correctCount = session?.correctCount || 0;
+    const errors = Math.max(0, totalQuestions - correctCount);
     const accuracy = Math.round((correctCount / totalQuestions) * 100);
     const xpEarned = lesson ? calculateLessonXP(lesson, correctCount, totalQuestions) : 0;
-    const gemsEarned = isPractice ? 5 : isMastery ? 25 : 15;
+
+    // Error-count driven star & diamond bounty calculation (0=Plat, 1=3*, 2=2*, 3=1*, 4+=0*)
+    const bountyInfo = calculateLevelStarsAndBounty(
+        accuracy,
+        lesson?.id || "unknown",
+        user?.level_bounties_claimed || {},
+        user?.level_stars || {},
+        { errors, totalQuestions, correctCount }
+    );
+    const gemsEarned = isPractice ? 10 : bountyInfo.bountyDelta;
 
     const [heartRestored, setHeartRestored] = useState(false);
     const [expandedItems, setExpandedItems] = useState({});
@@ -134,16 +152,32 @@ function LessonCompletion({ session, lesson }) {
             async function awardProgress() {
                 try {
                     const prevUser = await getCurrentUser();
+                    const liveBounty = calculateLevelStarsAndBounty(
+                        accuracy,
+                        lesson?.id || "unknown",
+                        prevUser?.level_bounties_claimed || {},
+                        prevUser?.level_stars || {},
+                        { errors, totalQuestions, correctCount }
+                    );
+                    const deltaGems = isPractice ? 10 : liveBounty.bountyDelta;
+
                     const updatedUser = await updateUserProgress({
                         xpToAdd: xpEarned,
-                        diamondsToAdd: gemsEarned,
+                        diamondsToAdd: deltaGems,
                         completedLessonId: isPractice ? null : lesson.id,
-                        practiceSessionCompleted: isPractice
+                        practiceSessionCompleted: isPractice,
+                        levelStarsUpdate: isPractice ? null : { [lesson.id]: liveBounty.newBestStars },
+                        levelBountiesUpdate: isPractice ? null : { [lesson.id]: liveBounty.newClaimedTotal },
+                        levelAttempt: {
+                            level_id: lesson.id,
+                            score: correctCount,
+                            accuracy
+                        }
                     });
                     if (updatedUser) {
                         setUser(updatedUser);
                     }
-                    if (isPractice && prevUser && typeof prevUser.hearts === "number" && prevUser.hearts < 500) {
+                    if (isPractice && prevUser && typeof prevUser.hearts === "number" && prevUser.hearts < MAX_HEARTS) {
                         const newHearts = await restoreHeart(1);
                         setHeartRestored(true);
                         setUser((prev) => (prev ? { ...prev, hearts: newHearts } : prev));
@@ -160,7 +194,7 @@ function LessonCompletion({ session, lesson }) {
             }
             awardProgress();
         }
-    }, [session, lesson, xpEarned, gemsEarned, isPractice]);
+    }, [session, lesson, xpEarned, isPractice, accuracy, correctCount]);
 
     // Determine next level in the curriculum hierarchy
     const nextLevelInfo = (!isPractice && lesson?.id) ? getNextLevel(lesson.id, user) : null;
@@ -204,7 +238,102 @@ function LessonCompletion({ session, lesson }) {
                     </div>
                 </div>
 
-                {/* 2. Unified Rich Stat Ribbon (Option A+ Seamless Bar with Dividers) */}
+                {/* 2. Star Mastery Rating & Bounty Delta Display (Zainuddin et al., 2020; Landers et al., 2021) */}
+                {!isPractice && (
+                    <div className="completion-stars-container">
+                        <div
+                            className={`completion-stars-row ${bountyInfo.isPlatinum ? "stars-row-platinum" : ""}`}
+                            aria-label={`${bountyInfo.isPlatinum ? "Platinum 3-Star (100% Flawless)" : `${bountyInfo.starsEarned} of 3 Stars Earned`}`}
+                        >
+                            {[1, 2, 3].map((starNum) => {
+                                const isEarned = bountyInfo.isPlatinum || bountyInfo.starsEarned >= starNum;
+                                return (
+                                    <div
+                                        key={starNum}
+                                        className={`completion-star-slot ${
+                                            bountyInfo.isPlatinum
+                                                ? "star-platinum-earned"
+                                                : isEarned
+                                                ? "star-earned"
+                                                : "star-empty"
+                                        } star-slot-${starNum}`}
+                                    >
+                                        <Star
+                                            size={42}
+                                            className={`completion-star-icon ${
+                                                bountyInfo.isPlatinum
+                                                    ? "star-platinum-filled"
+                                                    : isEarned
+                                                    ? "star-filled"
+                                                    : ""
+                                            }`}
+                                            fill={bountyInfo.isPlatinum ? "#00f0ff" : isEarned ? "#ffc800" : "none"}
+                                        />
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {bountyInfo.isPlatinum ? (
+                            <div className="completion-star-tier-badge badge-platinum">
+                                <Sparkles size={14} />
+                                <span>💎 PLATINUM TIER · 0 ERRORS (FLAWLESS PRECISION)</span>
+                            </div>
+                        ) : bountyInfo.starsEarned === 3 ? (
+                            <div className="completion-star-tier-badge">
+                                <Sparkles size={14} />
+                                <span>3 STARS · MASTERY (1 ERROR)</span>
+                            </div>
+                        ) : bountyInfo.starsEarned === 2 ? (
+                            <div className="completion-star-tier-badge">
+                                <Sparkles size={14} />
+                                <span>2 STARS · PROFICIENT (2 ERRORS)</span>
+                            </div>
+                        ) : bountyInfo.starsEarned === 1 ? (
+                            <div className="completion-star-tier-badge">
+                                <Sparkles size={14} />
+                                <span>1 STAR · COMPETENT (3 ERRORS)</span>
+                            </div>
+                        ) : (
+                            <div className="completion-star-tier-badge badge-unranked">
+                                <Sparkles size={14} />
+                                <span>0 STARS · NEEDS PRACTICE (4+ ERRORS)</span>
+                            </div>
+                        )}
+
+                        <div className="completion-bounty-callout">
+                            {bountyInfo.bountyDelta > 0 ? (
+                                <span className={`bounty-delta-text ${bountyInfo.isPlatinum ? "bounty-platinum-text" : ""}`}>
+                                    +{bountyInfo.bountyDelta} 💎 {bountyInfo.isPlatinum
+                                        ? (bountyInfo.alreadyClaimed >= 50
+                                            ? "Platinum Precision Bonus (+15 💎 Overlearning Reward)"
+                                            : "First-Time Platinum Bounty (65 💎 Flawless Precision)")
+                                        : bountyInfo.alreadyClaimed > 0
+                                        ? `Unclaimed Bounty Delta (${bountyInfo.targetBounty} - ${bountyInfo.alreadyClaimed} claimed)`
+                                        : "Level Bounty Claimed!"}
+                                </span>
+                            ) : bountyInfo.alreadyClaimed >= 65 ? (
+                                <span className="bounty-capped-text">
+                                    💎 65/65 Platinum Mastery Achieved · Zero Dispensing Errors
+                                </span>
+                            ) : bountyInfo.alreadyClaimed >= 50 ? (
+                                <span className="bounty-neutral-text">
+                                    💎 Replay with 0 errors to unlock Platinum Star &amp; +15 bonus diamonds!
+                                </span>
+                            ) : bountyInfo.alreadyClaimed > 0 ? (
+                                <span className="bounty-neutral-text">
+                                    💎 Replay with fewer errors to earn up to +{65 - bountyInfo.alreadyClaimed} more diamonds!
+                                </span>
+                            ) : (
+                                <span className="bounty-neutral-text">
+                                    💎 Replay with ≤3 errors to unlock your first star and earn up to +65 diamonds!
+                                </span>
+                            )}
+                        </div>
+                    </div>
+                )}
+
+                {/* 3. Unified Rich Stat Ribbon (Option A+ Seamless Bar with Dividers) */}
                 <div className="completion-stats-ribbon">
                     <div className="stat-item xp-accent">
                         <div className="stat-bubble">
@@ -224,7 +353,7 @@ function LessonCompletion({ session, lesson }) {
                         </div>
                         <div className="stat-meta">
                             <span className="stat-val">+{gemsEarned}</span>
-                            <span className="stat-lbl">Gems</span>
+                            <span className="stat-lbl">{isPractice ? "Practice Stipend" : "Diamonds"}</span>
                         </div>
                     </div>
 
@@ -245,7 +374,7 @@ function LessonCompletion({ session, lesson }) {
                 {heartRestored && (
                     <div className="completion-heart-restore-pill">
                         <img src={heartIcon} alt="Heart" className="restore-heart-icon" />
-                        <span>+1 Heart Restored via Practice!</span>
+                        <span>+1 Heart Restored via Practice Hub!</span>
                     </div>
                 )}
 
@@ -260,9 +389,34 @@ function LessonCompletion({ session, lesson }) {
                     </div>
                 )}
 
-                {/* 3. Primary & Secondary Actions (Duolingo 3D Button + Clean Text Link) */}
+                {/* Remediation-Gated Progression Callout (Guskey, 2020; Shortt et al., 2023) */}
+                {user?.hearts === 0 && !isPractice && (
+                    <div className="completion-remediation-gate-banner">
+                        <div className="remediation-gate-icon">
+                            <RotateCcw size={22} />
+                        </div>
+                        <div className="remediation-gate-text">
+                            <strong>Stamina Depleted (0/5 Hearts)</strong>
+                            <p>
+                                Progress to new curriculum levels is paused. Remediate your missed medications in the Practice Hub to restore your hearts!
+                            </p>
+                        </div>
+                    </div>
+                )}
+
+                {/* 4. Primary & Secondary Actions */}
                 <div className="completion-actions">
-                    {isPractice ? (
+                    {user?.hearts === 0 && !isPractice ? (
+                        <>
+                            <Link to="/practice?mode=mistakes" className="duo-button duo-button-primary completion-btn-large">
+                                <RotateCcw size={18} />
+                                <span>RESTORE HEARTS IN PRACTICE HUB</span>
+                            </Link>
+                            <Link to="/learn" className="completion-text-link">
+                                Return to Dashboard
+                            </Link>
+                        </>
+                    ) : isPractice ? (
                         <>
                             <Link to="/practice" className="duo-button duo-button-primary completion-btn-large">
                                 <Dumbbell size={18} />

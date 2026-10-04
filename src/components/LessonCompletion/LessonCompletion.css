@@ -647,3 +647,200 @@
         padding: 0.15rem 0.45rem;
     }
 }
+
+/* ==========================================================================
+   Accuracy-Based 3-Star Rating & Diamond Bounty Display (Zainuddin et al., 2020)
+   ========================================================================== */
+.completion-stars-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+    width: 100%;
+    margin-top: -0.25rem;
+}
+
+.completion-stars-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.completion-star-slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.completion-star-slot.star-earned {
+    background: rgba(255, 200, 0, 0.15);
+    border: 2px solid rgba(255, 200, 0, 0.6);
+    box-shadow: 0 4px 18px rgba(255, 200, 0, 0.25);
+    animation: starPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.completion-star-slot.star-platinum-earned {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.22) 0%, rgba(138, 43, 226, 0.18) 100%);
+    border: 2.5px solid #00f0ff;
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.55), 0 0 45px rgba(138, 43, 226, 0.35);
+    animation: platinumStarGlow 2.5s infinite alternate ease-in-out, starPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes platinumStarGlow {
+    0% {
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.45), 0 0 35px rgba(138, 43, 226, 0.25);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(0, 240, 255, 0.75), 0 0 55px rgba(138, 43, 226, 0.5);
+        transform: scale(1.05);
+    }
+}
+
+.completion-star-slot.star-slot-1 { animation-delay: 0.1s; }
+.completion-star-slot.star-slot-2 { animation-delay: 0.25s; }
+.completion-star-slot.star-slot-3 { animation-delay: 0.4s; }
+
+.completion-star-slot.star-empty {
+    background: rgba(255, 255, 255, 0.04);
+    border: 2px dashed rgba(255, 255, 255, 0.18);
+    opacity: 0.45;
+}
+
+.completion-star-icon.star-filled {
+    color: #ffc800;
+    filter: drop-shadow(0 2px 8px rgba(255, 200, 0, 0.45));
+}
+
+.completion-star-icon.star-platinum-filled {
+    color: #00f0ff;
+    filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.85)) drop-shadow(0 0 22px rgba(138, 43, 226, 0.6));
+    animation: starPulse 1.8s infinite alternate ease-in-out;
+}
+
+@keyframes starPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.completion-star-tier-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #ffc800;
+    background: rgba(255, 200, 0, 0.12);
+    border: 1px solid rgba(255, 200, 0, 0.3);
+    padding: 0.28rem 0.85rem;
+    border-radius: 9999px;
+}
+
+.completion-star-tier-badge.badge-platinum {
+    color: #00f0ff;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.18) 0%, rgba(138, 43, 226, 0.15) 100%);
+    border: 1.5px solid rgba(0, 240, 255, 0.55);
+    box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+    text-transform: uppercase;
+}
+
+.completion-star-tier-badge.badge-unranked {
+    color: var(--text-muted, #778f9b);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+}
+
+.completion-bounty-callout {
+    font-size: 0.86rem;
+    font-weight: 700;
+    max-width: 480px;
+    line-height: 1.35;
+}
+
+.bounty-delta-text {
+    color: #1cb0f6;
+    background: rgba(28, 176, 246, 0.1);
+    border: 1px solid rgba(28, 176, 246, 0.25);
+    padding: 0.2rem 0.65rem;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.bounty-delta-text.bounty-platinum-text {
+    color: #00f0ff;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.18) 0%, rgba(138, 43, 226, 0.18) 100%);
+    border: 1.5px solid rgba(0, 240, 255, 0.45);
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.25);
+}
+
+.bounty-capped-text {
+    color: var(--text-muted, #778f9b);
+    font-size: 0.82rem;
+}
+
+.bounty-neutral-text {
+    color: #ffd900;
+    font-size: 0.82rem;
+}
+
+/* Remediation-Gated Progression Callout */
+.completion-remediation-gate-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: rgba(255, 75, 75, 0.12);
+    border: 1.5px solid rgba(255, 75, 75, 0.4);
+    border-radius: 16px;
+    padding: 0.85rem 1.1rem;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.remediation-gate-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 75, 75, 0.2);
+    color: #ff4b4b;
+    flex-shrink: 0;
+}
+
+.remediation-gate-text strong {
+    display: block;
+    color: #ff6b6b;
+    font-size: 0.92rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+}
+
+.remediation-gate-text p {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--text-muted, #a0b0b8);
+    line-height: 1.35;
+}
+
+@keyframes starPop {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

@@ -231,7 +231,7 @@ function Profile() {
                         type="button"
                         className="duo-button duo-button-secondary profile-signout-btn"
                         onClick={() => {
-                            if (window.confirm("Reset all progress back to pristine demo state (1,200 gems, 500 hearts from user.json)?")) {
+                            if (window.confirm("Reset all progress back to pristine demo state (1,200 gems, 5 hearts from user.json)?")) {
                                 resetDemoUserProgress();
                             }
                         }}
