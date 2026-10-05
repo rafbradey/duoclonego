@@ -23,3 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 scratch/
+
+# Microsoft Office lock and temporary export files
+~$*
+LASA_QUEST_PROPOSED_THESIS_REVISIONS_latest.docx

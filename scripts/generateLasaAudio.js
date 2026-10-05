@@ -282,7 +282,8 @@ async function run() {
                     locale: 'en-US',
                     provider: 'Azure AI Speech',
                     fileSizeBytes: buffer.length,
-                    generatedAt: new Date().toISOString()
+                    generatedAt: new Date().toISOString(),
+                    descriptiveFileName: fileName
                 };
 
                 // Record into Mapping

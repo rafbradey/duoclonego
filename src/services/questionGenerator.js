@@ -791,7 +791,7 @@ export function generateSoundAlikeQuestion(lasaRecord, { drugSide = "A", subtype
         spokenText,
         canonicalDrugId,
         spokenDrug: targetName,
-        drugToPronounce: targetDrug.genericName || targetDrug.brandName || targetName,
+        drugToPronounce: (targetDrug.isBrand ? (targetDrug.brandName || targetDrug.tallManName) : (targetDrug.genericName || targetDrug.tallManName)) || targetName,
         prompt,
         choices,
         correctAnswer: targetName,
